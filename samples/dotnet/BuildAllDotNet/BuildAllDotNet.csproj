@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
+    
+    <!-- Some packages specify a minimum of 28 (eg: Xamarin.AndroidX.HeifWriter) -->
+    <SupportedOSPlatformVersion>28</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationId>com.companyname.BuildAllDotNet</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    
+    <!-- Override property from 'Directory.Build.props' -->
+    <AndroidGenerateResourceDesigner>true</AndroidGenerateResourceDesigner>
+
+    <!-- Prevent linking, since that would remove ~everything -->
+    <PublishTrimmed>False</PublishTrimmed>
+    <RunAOTCompilation>False</RunAOTCompilation>
+    <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
+  </PropertyGroup>
+  
+  <Import Project="..\..\..\output\AllPackages.targets" />
+    
+</Project>
