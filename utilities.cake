@@ -13,6 +13,8 @@
 #addin nuget:?package=HolisticWare.Core.Net.HTTP&version=0.0.4
 #addin nuget:?package=HolisticWare.Core.IO&version=0.0.4
 
+#load "build/cake/performance-timings.cake"
+
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
@@ -21,6 +23,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using HolisticWare.Xamarin.Tools.ComponentGovernance;
+
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
