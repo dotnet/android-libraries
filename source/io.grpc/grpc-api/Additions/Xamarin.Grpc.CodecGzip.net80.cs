@@ -4,6 +4,7 @@ using Android.Widget;
 using Android.Graphics;
 using Android.Runtime;
 
+#if ! NET9_0_OR_GREATER
 namespace Xamarin.Grpc 
 {
 
@@ -40,3 +41,4 @@ namespace Xamarin.Grpc
 		}
    }
 }
+#endif

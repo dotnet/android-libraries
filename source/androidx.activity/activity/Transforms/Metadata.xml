@@ -228,9 +228,11 @@
         Android.Content.Intent
     </attr>
     -->
+    <!--
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]"
         />
+    -->
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         name="managedReturn"
@@ -260,10 +262,10 @@
     <!--
     TODO: must be removed after 16.9 is stable 20210302
     previous 3 metadata not working, so added remove-node to build
-    -->
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
         />
+    -->
 
 
     <attr
@@ -287,13 +289,13 @@
     <!--
     TODO: must be removed after 16.9 is stable 20210302
     previous 3 metadata not working, so added remove-node to build
-    -->
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
         />
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         />
+    -->
 
 
     <attr
@@ -317,13 +319,13 @@
     <!--
     TODO: must be removed after 16.9 is stable 20210302
     previous 3 metadata not working, so added remove-node to build
-    -->
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
         />
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         />
+    -->
 
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CaptureVideo']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
@@ -380,8 +382,100 @@
         >
         Java.Lang.Object
     </attr>
+
+    <!--
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.PickMultipleVisualMedia']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         />
+    -->
+
+    <!--
+    .NET 10 fixes
+    -->
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+
+    <!--
+    Problem!!!
+
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(526,24): error CS0534: 'ActivityResultContracts.OpenDocument' does not implement inherited abstract member 'ActivityResultContract.CreateIntent(Context, Object?)' [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(776,24): error CS0534: 'ActivityResultContracts.OpenMultipleDocuments' does not implement inherited abstract member 'ActivityResultContract.CreateIntent(Context, Object?)' [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(1638,31): error CS0534: 'ActivityResultContracts.RequestMultiplePermissions' does not implement inherited abstract member 'ActivityResultContract.CreateIntent(Context, Object?)' [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+    -->
+
+    <!--
+    Variant A - change `managedType` for parameter
+
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(883,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IList<Android.Net.Uri>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(1104,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IList<Android.Net.Uri>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(1784,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IDictionary<string, Java.Lang.Boolean>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedOverride"
+        >
+        override
+    </attr>    
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedOverride"
+        >
+        override
+    </attr>    
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedOverride"
+        >
+        override
+    </attr> 
+    -->
+    <!--
+    Variant B - change `type`
+
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(883,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IList<Android.Net.Uri>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(1104,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IList<Android.Net.Uri>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+./generated/androidx.activity.activity/obj/Debug/net8.0-android/generated/src/AndroidX.Activity.Result.Contract.ActivityResultContracts.cs(1784,13): error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IDictionary<string, Java.Lang.Boolean>' to 'Java.Lang.Object'. An explicit conversion exists (are you missing a cast?) [./generated/androidx.activity.activity/androidx.activity.activity.csproj::TargetFramework=net8.0-android]
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="type"
+        >
+        java.lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="type"
+        >
+        java.lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="type"
+        >
+        java.lang.Object
+    </attr>
+    -->
 
 </metadata>
