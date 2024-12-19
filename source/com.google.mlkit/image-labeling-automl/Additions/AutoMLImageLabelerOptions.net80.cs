@@ -2,6 +2,7 @@
 using Android.Runtime;
 using Java.Interop;
 
+#if ! NET9_0_OR_GREATER
 namespace Xamarin.Google.MLKit.Vision.Label.AutoML
 {
 
@@ -79,3 +80,4 @@ namespace Xamarin.Google.MLKit.Vision.Label.AutoML
 
 	}
 }
+#endif

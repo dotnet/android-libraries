@@ -7,7 +7,6 @@
     </attr>
 
 
-
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocumentTree']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.net.Uri']]/parameter[2]"
         name="managedType"
@@ -228,9 +227,11 @@
         Android.Content.Intent
     </attr>
     -->
+    <!--
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]"
         />
+    -->
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         name="managedReturn"
@@ -239,12 +240,14 @@
     </attr>
 
 
+    <!--
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
         name="managedType"
         >
         Java.Lang.Object
     </attr>
+    -->
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
         name="managedReturn"
@@ -260,70 +263,10 @@
     <!--
     TODO: must be removed after 16.9 is stable 20210302
     previous 3 metadata not working, so added remove-node to build
-    -->
     <remove-node
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
         />
-
-
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
-        name="managedType"
-        >
-        Java.Lang.Object
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
-        name="managedReturn"
-        >
-        Android.Content.Intent
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
-        name="managedReturn"
-        >
-        Java.Lang.Object
-    </attr>
-    <!--
-    TODO: must be removed after 16.9 is stable 20210302
-    previous 3 metadata not working, so added remove-node to build
     -->
-    <remove-node
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
-        />
-
-
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
-        name="managedType"
-        >
-        Java.Lang.Object
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
-        name="managedReturn"
-        >
-        Android.Content.Intent
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
-        name="managedReturn"
-        >
-        Java.Lang.Object
-    </attr>
-    <!--
-    TODO: must be removed after 16.9 is stable 20210302
-    previous 3 metadata not working, so added remove-node to build
-    -->
-    <remove-node
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
-        />
 
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CaptureVideo']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
@@ -363,12 +306,6 @@
         Java.Lang.Object
     </attr>
     <attr
-        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.PickMultipleVisualMedia']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
-        name="managedReturn"
-        >
-        Java.Lang.Object
-    </attr>
-    <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.PickVisualMedia']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         name="managedReturn"
         >
@@ -377,6 +314,127 @@
     <attr
         path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.PickVisualMedia']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='androidx.activity.result.PickVisualMediaRequest']]/parameter[2]"
         name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.CreateDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+
+    <!--
+    .NET 10 fixes
+    -->
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="final"
+        >
+        true
+    </attr>
+    <!--
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+    -->
+    <!--
+        generator copied
+    <remove-node
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenDocument']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        />
+    -->
+
+
+
+    <!--
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedReturn"
+        >
+        Android.Content.Intent
+    </attr>
+    -->
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <remove-node
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        />
+
+
+
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+
+
+
+
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <remove-node
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.RequestMultiplePermissions']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        />
+
+
+
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        name="managedReturn"
+        >
+        Android.Content.Intent
+    </attr>
+    <!--
+    <remove-node
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String[]']]"
+        />
+    -->
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <remove-node
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.OpenMultipleDocuments']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        />
+
+
+
+
+    <attr
+        path="/api/package[@name='androidx.activity.result.contract']/class[@name='ActivityResultContracts.PickMultipleVisualMedia']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedReturn"
         >
         Java.Lang.Object
     </attr>
