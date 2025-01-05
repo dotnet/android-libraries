@@ -149,6 +149,19 @@
     }
   </ItemGroup>
 
+  <PropertyGroup>
+    <GenerateSBOM>true</GenerateSBOM>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Sbom.Targets" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+
   @{ await IncludeAsync("source/_PackageLevelCustomizations.cshtml", Model); }
 
 </Project>

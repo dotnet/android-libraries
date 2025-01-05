@@ -2,21 +2,44 @@
 
 ## Prerequisites
 
-Before building the libraries and samples in this repository, you will need to install [.NET Core](https://dotnet.microsoft.com/download) and the [Cake .NET Core Tool](http://cakebuild.net):
+Before building the libraries and samples in this repository, you will need to install:
 
-```sh
-dotnet tool install -g cake.tool
-dotnet tool install -g xamarin.androidbinderator.tool
-dotnet tool install -g xamarin.androidx.migration.tool
-```
+  * [.NET](https://dotnet.microsoft.com/download) ([.NET SDK 8.0.404](https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.11/8.0.11.md?WT.mc_id=dotnet-35129-website) is currently required)
 
-> NOTE: If you previously installed any of these tools, be sure to update them to the latest versions.
+  * [Cake .NET Tool](http://cakebuild.net):
 
-For API diffs install `api-tools`
+    ```dotnetcli
+    dotnet tool install -g cake.tool
+    ```
 
-```
-dotnet tool install -g api-tools
-```
+  * [Microsoft OpenJDK *11*](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-11)
+    (JDK-17 is not currently supported).
+
+    The `javac` from your JDK 11 installation must be *first* in `$PATH`/`%PATH%`.
+
+  * The [Android SDK](https://developer.android.com/studio), and the
+    `ANDROID_SDK_ROOT` environment variable set to the Android SDK location.
+
+    API-29 should be installed.
+
+    If you have a [dotnet/android](https://github.com/dotnet/android/) build,
+    then these should work:
+
+    ```sh
+    # macOS
+    export ANDROID_SDK_ROOT=$HOME/android-toolchain/sdk
+    ```
+
+    ```cmd
+    rem Windows
+    set ANDROID_SDK_ROOT=%HOMEDRIVE%%HOMEPATH%/android-toolchain/sdk
+    ```
+
+  * For API diffs install `api-tools`
+
+    ```dotnetcli
+    dotnet tool install -g api-tools
+    ```
 
 ## Compiling
 

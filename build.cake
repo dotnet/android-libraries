@@ -17,10 +17,12 @@
 #load "build/cake/validations.cake"
 #load "build/cake/executive-order.cake"
 #load "build/cake/clean.cake"
+#load "build/cake/performance-timings.cake"
 
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 // The main configuration points
 var TARGET = Argument ("t", Argument ("target", "Default"));

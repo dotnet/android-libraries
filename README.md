@@ -59,10 +59,6 @@ In depth building instructions: [./docs/build.md](./docs/build.md).
 
 The Contribution Guidelines for this repository are listed in [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
-This project has adopted the code of conduct defined by the Contributor Covenant
-to clarify expected behavior in our community. For more information, see the
-[.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
-
 ## .NET Foundation
 
 This project is part of the [.NET Foundation](http://www.dotnetfoundation.org/projects).

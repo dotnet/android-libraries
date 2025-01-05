@@ -107,7 +107,7 @@ public class TestAllIndividualPackages
 			ReplaceInFile (activity_file, "public class MainActivity : Activity", "public class MainActivity : global::Android.App.Activity");
 
 		// Add the package
-		await RunAndAssertSuccess ($"add package {id} --version {version}", case_dir);
+		await RunAndAssertSuccess ($"add package {id} --version {version} --no-restore", case_dir);
 
 		// Build the project
 		await RunAndAssertSuccess ($"build -c {configuration} -bl", case_dir, true);

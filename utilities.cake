@@ -13,6 +13,8 @@
 #addin nuget:?package=HolisticWare.Core.Net.HTTP&version=0.0.4
 #addin nuget:?package=HolisticWare.Core.IO&version=0.0.4
 
+#load "build/cake/performance-timings.cake"
+
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
@@ -21,6 +23,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using HolisticWare.Xamarin.Tools.ComponentGovernance;
+
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
@@ -807,6 +810,7 @@ Task ("spell-check")
                 "InjectApi",
                 "AVIF",
                 "AOMedia",
+                "JSpecify",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
@@ -1505,6 +1509,9 @@ Task("generate-markdown-publish-log")
                 row++;
             }
 
+            packages_published.Sort();
+            packages_rejected.Sort();
+            
             string dump_packages_published  = string.Join($"{Environment.NewLine}", packages_published);
             string dump_packages_rejected   = string.Join($"{Environment.NewLine}", packages_rejected);
 

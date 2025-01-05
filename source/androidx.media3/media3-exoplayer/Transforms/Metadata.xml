@@ -307,4 +307,35 @@
         AndroidX.Media3.ExoPlayer.IRendererCapabilitiesList
     </attr>
 
+
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.image']/class[@name='ExternallyLoadedImageDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.image']/class[@name='ExternallyLoadedImageDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.image']/class[@name='ExternallyLoadedImageDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='androidx.media3.decoder.DecoderInputBuffer']]/parameter[1]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.image']/class[@name='ExternallyLoadedImageDecoder.Factory']/method[@name='createImageDecoder' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Image.IImageDecoder
+    </attr>
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='DefaultPreloadManager.Builder']/method[@name='build' and @return='androidx.media3.exoplayer.source.preload.DefaultPreloadManager' and count(parameter)=0]"
+        />
+
+        
 </metadata> 
