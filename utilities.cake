@@ -811,6 +811,7 @@ Task ("spell-check")
                 "AVIF",
                 "AOMedia",
                 "JSpecify",
+                "LiteRT",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);

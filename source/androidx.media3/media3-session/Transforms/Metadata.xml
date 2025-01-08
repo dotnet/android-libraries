@@ -1,4 +1,16 @@
 <metadata>
+    <remove-node
+        path="/api/package/interface/typeParameters"        
+        />
+    <remove-node
+        path="/api/package/interface/method/typeParameters"        
+        />
+    <remove-node
+        path="/api/package/class/typeParameters"        
+        />
+    <remove-node
+        path="/api/package/class/method/typeParameters"        
+        />
     <attr
         path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService.MediaLibrarySession.Builder']/method[@name='setSessionActivity' and count(parameter)=1 and parameter[1][@name='p0']]"        
         name="managedName"
@@ -17,9 +29,6 @@
 		    >
         SetExtrasWithBundleAsBuilder
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService.MediaLibrarySession.Builder']/method[@name='build' and count(parameter)=0]"
-        />
     <attr
         path="/api/package[@name='androidx.media3.session']/class[@name='MediaSession.Builder']/method[@name='setSessionActivity' and count(parameter)=1 and parameter[1][@name='p0']]"
         name="managedName"
@@ -56,9 +65,6 @@
         >
         override
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService']/method[@name='onGetSession' and count(parameter)=1 and parameter[1][@type='androidx.media3.session.MediaSession.ControllerInfo']]"
-        />
     <attr
         path="/api/package[@name='androidx.media3.session']/class[@name='MediaSession.Builder']/method[@name='setBitmapLoader' and @jni-return='Landroidx/media3/session/MediaSession$BuilderBase;' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.util.BitmapLoader']]"  
         name="managedName"
@@ -150,5 +156,68 @@
         >
         AndroidX.Media3.Session.Legacy.AudioAttributesCompat.IAudioAttributesImplBuilder
     </attr>
+
+
+    <attr
+        path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService']/method[@name='onGetSession' and count(parameter)=1 and parameter[1][@type='androidx.media3.session.MediaSession.ControllerInfo']]"
+        name="managedName"
+        >
+        OnGetSeesionFromMediaLibraryService
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService']/method[@name='onGetSession' and count(parameter)=1 and parameter[1][@type='androidx.media3.session.MediaSession.ControllerInfo']]"
+        name="managedOverride"
+        >
+        new
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.session']/class[@name='MediaLibraryService.MediaLibrarySession.Builder']/method[@name='build' and count(parameter)=0 and @return='androidx.media3.session.MediaSession']"
+        name="managedName"
+        >
+        BuildAsMediaSession
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.session']/class[@name='MediaSession.BuilderBase']"
+        name="visibility"
+        >
+        public
+    </attr>
+
+
+    <add-node
+      path="/api/package[@name='androidx.media3.session']/interface[@name='MediaNotification.Provider']"
+      >
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="true"
+        name="createNotification"
+        native="false"
+        return="androidx.media3.session.MediaNotification"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        >
+        <parameter
+          name="mediaSession"
+          type="androidx.media3.session.MediaSession"
+          />
+        <parameter
+          name="mediaButtonPreferences"
+          type="java.lang.Object"
+          />
+        <parameter
+          name="actionFactory"
+          type="androidx.media3.session.MediaNotification.ActionFactory"
+          />
+        <parameter
+          name="onNotificationChangedCallback"
+          type="androidx.media3.session.MediaNotification.Provider.Callback"
+          />
+      </method>
+    </add-node>
+
 
 </metadata>
