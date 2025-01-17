@@ -191,28 +191,3 @@ namespace Google.Android.Material.Navigation
         }
     }
 }
-
-namespace Google.Android.Material.DatePicker
-{
-
-    // Metadata.xml XPath class reference: path="/api/package[@name='com.google.android.material.datepicker']/class[@name='MonthsPagerAdapter']"
-    //[global::Android.Runtime.Register("com/google/android/material/datepicker/MonthsPagerAdapter", DoNotGenerateAcw = true)]
-    //public partial class MonthsPagerAdapter : global::AndroidX.RecyclerView.Widget.RecyclerView.Adapter
-    //{
-    //    public override unsafe void OnBindViewHolder(global::AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder viewHolder, int position)
-    //    {
-    //        this.OnBindViewHolder((Google.Android.Material.DatePicker.MonthsPagerAdapter.ViewHolder)viewHolder, position);
-    //    }
-    //}
-
-    // Metadata.xml XPath class reference: path="/api/package[@name='com.google.android.material.datepicker']/class[@name='YearGridAdapter']"
-    //[global::Android.Runtime.Register("com/google/android/material/datepicker/YearGridAdapter", DoNotGenerateAcw = true)]
-    //public partial class YearGridAdapter : global::AndroidX.RecyclerView.Widget.RecyclerView.Adapter
-    //{
-    //    public override unsafe void OnBindViewHolder(global::AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder viewHolder, int position)
-    //    {
-    //        this.OnBindViewHolder((Google.Android.Material.DatePicker.YearGridAdapter.ViewHolder)viewHolder, position);
-    //    }
-    //}
-    
-}

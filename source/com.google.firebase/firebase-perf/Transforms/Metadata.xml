@@ -19,7 +19,7 @@
     <attr path="/api/package[@name='com.google.android.gms.dynamite.descriptors.com.google.firebase.perf']" name="managedName">Firebase.Perf.Provider</attr>
 
     
-    <remove-node path="/api/package[@name='com.google.android.gms.internal.firebase-perf']" ></remove-node>>
+    <remove-node path="/api/package[@name='com.google.android.gms.internal.firebase-perf']" ></remove-node>
 
 	<!-- Remove *zz* obfuscated classes, interfaces, methods, etc. -->
 	<remove-node path="/api/package/class[contains(@name, 'zz')]" />
@@ -156,5 +156,134 @@
 		Firebase.Perf.Ktx
 	</attr>
 
+
+	<attr 
+		path="/api/package[@name='com.google.firebase.perf.v1']/interface[@name='NetworkConnectionInfoOrBuilder']/method[@name='getMobileSubtype' and count(parameter)=0]"
+		name="propertyName"
+		>
+		MobileSubtypeData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo']/method[@name='getMobileSubtype' and count(parameter)=0]" 
+		name="propertyName"
+		>
+		MobileSubtypeData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo.Builder']/method[@name='getMobileSubtype' and count(parameter)=0]" 
+		name="propertyName"
+		>
+		MobileSubtypeData
+	</attr>
+	<attr 
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo.Builder']/method[@name='setMobileSubtype' and count(parameter)=1 and parameter[1][@type='com.google.firebase.perf.v1.NetworkConnectionInfo.MobileSubtype']]"
+		name="propertyName"
+		>
+		MobileSubtypeData
+	</attr>
+
+
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/interface[@name='NetworkConnectionInfoOrBuilder']/method[@name='getNetworkType' and count(parameter)=0]"
+		name="propertyName"
+		>
+		NetworkTypeData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo.Builder']/method[@name='getNetworkType' and count(parameter)=0]"
+		name="propertyName"
+		>
+		NetworkTypeData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo.Builder']/method[@name='setNetworkType' and count(parameter)=1 and parameter[1][@type='com.google.firebase.perf.v1.NetworkConnectionInfo.NetworkType']]"
+		name="propertyName"
+		>
+		NetworkTypeData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkConnectionInfo']/method[@name='getNetworkType' and count(parameter)=0]" 
+		name="propertyName"
+		>
+		NetworkTypeData
+	</attr>
+
+
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/interface[@name='NetworkRequestMetricOrBuilder']/method[@name='getHttpMethod' and count(parameter)=0]"
+		name="propertyName"
+		>
+		HttpMethodData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric.Builder']/method[@name='getHttpMethod' and count(parameter)=0]"
+		name="propertyName"
+		>
+		HttpMethodData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric.Builder']/method[@name='setHttpMethod' and count(parameter)=1 and parameter[1][@type='com.google.firebase.perf.v1.NetworkRequestMetric.HttpMethod']]"
+		name="propertyName"
+		>
+		HttpMethodData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric']/method[@name='getHttpMethod' and count(parameter)=0]"
+		name="propertyName"
+		>
+		HttpMethodData
+	</attr>
+
+
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/interface[@name='NetworkRequestMetricOrBuilder']/method[@name='getNetworkClientErrorReason' and count(parameter)=0]"
+		name="propertyName"
+		>
+		NetworkClientErrorReasonData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric']/method[@name='getNetworkClientErrorReason' and count(parameter)=0]" 
+		name="propertyName"
+		>
+		NetworkClientErrorReasonData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric.Builder']/method[@name='getNetworkClientErrorReason' and count(parameter)=0]"
+		name="propertyName"
+		>
+		NetworkClientErrorReasonData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='NetworkRequestMetric.Builder']/method[@name='setNetworkClientErrorReason' and count(parameter)=1 and parameter[1][@type='com.google.firebase.perf.v1.NetworkRequestMetric.NetworkClientErrorReason']]"
+		name="propertyName"
+		>
+		NetworkClientErrorReasonData
+	</attr>
+
+
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/interface[@name='TransportInfoOrBuilder']/method[@name='getDispatchDestination' and count(parameter)=0]"
+		name="propertyName"
+		>
+		DispatchDestinationData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='TransportInfo.Builder']/method[@name='setDispatchDestination' and count(parameter)=1 and parameter[1][@type='com.google.firebase.perf.v1.TransportInfo.DispatchDestination']]"
+		name="propertyName"
+		>
+		DispatchDestinationData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='TransportInfo']/method[@name='getDispatchDestination' and count(parameter)=0]"
+		name="propertyName"
+		>
+		DispatchDestinationData
+	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.perf.v1']/class[@name='TransportInfo.Builder']/method[@name='getDispatchDestination' and count(parameter)=0]"
+		name="propertyName"
+		>
+		DispatchDestinationData
+	</attr>
 
 </metadata>

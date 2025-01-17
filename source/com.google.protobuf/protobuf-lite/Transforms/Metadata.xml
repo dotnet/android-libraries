@@ -86,9 +86,9 @@
     </attr>
     <attr
         path="/api/package[@name='com.google.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
-        name="managedReturn"
+        name="return"
         >
-        System.Collections.ICollection
+        java.util.Set
     </attr>
     <!--
     <attr
@@ -110,16 +110,6 @@
         true
     </attr>
     -->
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='MapFieldLite']/method[@name='entrySet' and count(parameter)=0]"
-        >
-    </remove-node>
-
-
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='Internal']"
-        >
-    </remove-node>
 
     <attr
         path="/api/package[@name='com.google.protobuf']/class[@name='FieldSet']"
@@ -218,30 +208,9 @@
 
 
 
-    <!--    
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/implements[@name='java.util.RandomAccess']"
-        >
-    </remove-node>
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/implements[@name='RandomAccess']"
-        >        
-    </remove-node>
-    <attr
-        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='addAll']"
-        name="visibility"
-        >
-        public
-    </attr>
-    -->
-    -->
     <remove-node
         path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='remove' and count(parameter)=1 and parameter[1][@type='int' and @name='p0']]"
         >        
-    </remove-node>
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
-        >
     </remove-node>
 
 
@@ -339,9 +308,50 @@
         >
         void
     </attr>
-    <remove-node
-        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='addAll' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='java.util.Collection&lt;? extends java.lang.String&gt;']]"
-        />
+
+    <attr
+        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='addAll' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='java.util.Collection&lt;? extends java.lang.String&gt;']]/parameter[2]"
+        name="type"
+        >
+        java.util.Collection
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="return"
+        >
+        java.lang.Object
+    </attr>
+
+    <attr
+        path="/api/package[@name='com.google.protobuf']/interface[@name='Internal.BooleanList']/method[@name='mutableCopyWithCapacity' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >
+        Xamarin.Protobuf.Lite.Internal.IProtobufList
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.protobuf']/interface[@name='Internal.DoubleList']/method[@name='mutableCopyWithCapacity' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >
+        Xamarin.Protobuf.Lite.Internal.IProtobufList
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.protobuf']/interface[@name='Internal.FloatList']/method[@name='mutableCopyWithCapacity' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >
+        Xamarin.Protobuf.Lite.Internal.IProtobufList
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.protobuf']/interface[@name='Internal.LongList']/method[@name='mutableCopyWithCapacity' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >
+        Xamarin.Protobuf.Lite.Internal.IProtobufList
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.protobuf']/interface[@name='Internal.IntList']/method[@name='mutableCopyWithCapacity' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >
+        Xamarin.Protobuf.Lite.Internal.IProtobufList
+    </attr>
 
     <!-- Workaround generator can't detect this was implemented as an explicitly implemented interface member on a base class -->
     <attr

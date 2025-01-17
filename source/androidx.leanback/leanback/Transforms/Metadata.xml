@@ -63,7 +63,9 @@
     </add-node>
     <!-- The generator can't handle OnItemViewClickedListener implementing BaseOnItemViewClickedListener<Row> in java when it emits the ACW's when you implement the inteface in a c# class -->
     <!-- This will remove the implementation and then fake it on the OnItemViewClickedListener interface by adding the method as if it existed there instead of the base interface -->
+    <!--
     <remove-node path="/api/package[@name='androidx.leanback.widget']/interface[@name='OnItemViewSelectedListener']/implements[1]" />
+    -->
     <add-node path="/api/package[@name='androidx.leanback.widget']/interface[@name='OnItemViewSelectedListener']">
         <method abstract="true" deprecated="not deprecated" final="false" name="onItemSelected" native="false" return="void" jni-return="V" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Landroid/support/v17/leanback/widget/Presenter$ViewHolder;Ljava/lang/Object;Landroid/support/v17/leanback/widget/RowPresenter$ViewHolder;Landroid/support/v17/leanback/widget/Row;)V">
             <parameter name="itemViewHolder" type="androidx.leanback.widget.Presenter.ViewHolder" jni-type="Landroid/support/v17/leanback/widget/Presenter$ViewHolder;" />
@@ -267,9 +269,13 @@
         >
         protected
     </attr>
-    
-    <remove-node
-        path="/api/package[@name='androidx.leanback.widget']/class[@name='StaggeredGrid']"
-        />
 
+
+    <attr
+        path="/api/package[@name='androidx.leanback.widget']/interface[@name='BaseOnItemViewSelectedListener']/method[@name='onItemSelected' and count(parameter)=4 and parameter[1][@type='androidx.leanback.widget.Presenter.ViewHolder'] and parameter[2][@type='java.lang.Object'] and parameter[3][@type='androidx.leanback.widget.RowPresenter.ViewHolder'] and parameter[4][@type='T']]/parameter[4]"
+        name="type"
+        >
+        androidx.leanback.widget.Row
+    </attr>
+    
 </metadata>

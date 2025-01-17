@@ -22,19 +22,6 @@
 	<attr path="/api/package[@name='com.google.android.gms.maps']/interface[@name='GoogleMap.OnMarkerDragListener']/method[@name='onMarkerDragStart']/parameter[1]" name="managedName">marker</attr>
 	<attr path="/api/package[@name='com.google.android.gms.maps']/interface[@name='GoogleMap.OnMyLocationChangeListener']/method[@name='onMyLocationChange']/parameter[1]" name="managedName">location</attr>
 
-
-
-	<!-- Remove some internal namespaces -->
-	<remove-node path="/api/package[contains(@name, 'com.google.android.gms.maps.internal')]" />
-	<remove-node path="/api/package[contains(@name, 'com.google.android.gms.maps.model.internal')]" />
-
-
-	<!-- Remove *zz* obfuscated items -->
-	<remove-node path="/api/package/class[contains(@name, 'zz')]" />
-<!--	<remove-node path="/api/package/interface[contains(@name, 'zz')]" />-->
-	<remove-node path="/api/*/*/method[contains(@name, 'zz')]" />
-<!--	<remove-node path="/api/*/*/field[contains(@name, 'zz')]" />-->
-
 	<!-- Fix params for some inherited parcelable types -->
 	<attr path="/api/*/*/method[@name='createFromParcel']/parameter[@name='p0']" name="managedName">source</attr>
 	<attr path="/api/*/*/method[@name='newArray']/parameter[@name='p0']" name="managedName">size</attr>
@@ -45,6 +32,7 @@
 <!--	<attr path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='Polygon']/method[@name='setHoles']/parameter[1]" name="managedType">global::System.Collections.Generic.IList&lt;global::Java.Lang.Object&gt;</attr>-->
 <!--	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='Polygon']/method[@name='setHoles' and count(parameter)=1 and parameter[1][@type='java.util.List']]" />-->
 
+	<!--
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='LatLng']/field[@name='CREATOR']" />
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='CameraPosition']/field[@name='CREATOR']" />
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='LatLngBounds']/field[@name='CREATOR']" />
@@ -74,10 +62,7 @@
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='Polygon']/constructor[@name='Polygon']" />
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='Polyline']/constructor[@name='Polyline']" />
 	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='TileOverlay']/constructor[@name='TileOverlay']" />
-
-
-	<remove-node path="/api/package[@name='com.google.android.gms.maps.model']/class[@name='Polygon']/method[@name='setHoles']" />
-	
+	-->
 
 	<attr 
 		path="/api/package[@name='com.google.android.gms.maps']/interface[@name='StreetViewPanorama.OnStreetViewPanoramaChangeListener']/method[@name='onStreetViewPanoramaChange' and count(parameter)=1 and parameter[1][@type='com.google.android.gms.maps.model.StreetViewPanoramaLocation']]/parameter[1]"
