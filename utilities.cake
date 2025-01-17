@@ -812,6 +812,7 @@ Task ("spell-check")
                 "AOMedia",
                 "JSpecify",
                 "LiteRT",
+                "Multiprocess",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
