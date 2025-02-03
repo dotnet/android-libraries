@@ -10,9 +10,13 @@ namespace Kotlin.Collections
 	{
 	}
 
+	/*
+	AbstractList was removed.
+
 	partial class AbstractListInvoker : Java.Util.IList
 	{
 	}
+	*/
 }
 
 #if NET8_0_OR_GREATER
