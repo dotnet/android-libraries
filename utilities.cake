@@ -813,6 +813,7 @@ Task ("spell-check")
                 "JSpecify",
                 "LiteRT",
                 "Multiprocess",
+                "MultiProcess",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);

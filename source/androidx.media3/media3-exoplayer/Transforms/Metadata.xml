@@ -16,21 +16,43 @@
     androidx/media3/exoplayer/ExoPlayer.replaceMediaItems(IILjava/util/List;)V
   </attr>
 
-  <!-- Deprecated -->
-  <remove-node
-    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']"
-        />
-  <remove-node
-    path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSourceFactory']"
-        />
-
-  <!-- Duplicate inherited interface methods -->
-  <remove-node
-    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='BaseRenderer']"
-        />
-  <remove-node
-      path="/api/package[@name='androidx.media3.exoplayer']/class[@name='NoSampleRenderer']"
-        />
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='DefaultPreloadManager.Builder']/method[@name='build' and count(parameter)=0 and @return='androidx.media3.exoplayer.source.preload.BasePreloadManager']"
+    name="managedName"
+    >
+    BuildAsBasePreloadManager
+  </attr>
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']/method[@name='setMediaItems' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;'] and parameter[2][@type='boolean']]"
+    name="managedOverride"
+    >
+    override
+  </attr>
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']/method[@name='addMediaItems' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"
+    name="managedOverride"
+    >
+    override
+  </attr>
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']/method[@name='replaceMediaItems' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"
+    name="managedOverride"
+    >
+    override
+  </attr>
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']/method[@name='setMediaItems' and count(parameter)=3 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;'] and parameter[2][@type='int'] and parameter[3][@type='long']]"
+    name="managedOverride"
+    >
+    override
+  </attr>
+ 
+  <attr
+    path="/api/package[@name='androidx.media3.exoplayer']/interface[@name='RendererCapabilities']/method[@name='getName' and count(parameter)=0]"
+    name="name"
+    >
+    getNameRendererCapabilities
+  </attr>
 
   <!-- Duplicate EventArgs classes -->
   <attr
@@ -175,18 +197,36 @@
   </attr>
 
   <!-- Missing inherited abstract member OnChildSourceInfoRefreshed, could probably be fixed if these turn out to be important types -->
+  <!--
+        protected thus removed
+  -->
   <remove-node
-      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource']"
+      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='T'] and parameter[2][@type='androidx.media3.exoplayer.source.MediaSource'] and parameter[3][@type='androidx.media3.common.Timeline']]"
         />
-  <remove-node
-      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource2']"
-        />
-  <remove-node
-      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MergingMediaSource']"
-        />
-  <remove-node
-      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='WrappingMediaSource']"
-        />
+  <attr 
+      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource2']/method[@name='canUpdateMediaItem' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+      name="managedOverride"
+      >
+      none
+  </attr>
+  <attr 
+      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource2']/method[@name='updateMediaItem' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+      name="managedOverride"
+      >
+      none
+  </attr>
+  <attr 
+      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MergingMediaSource']/method[@name='updateMediaItem' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+      name="managedOverride"
+      >
+      none
+  </attr>
+  <attr 
+      path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MergingMediaSource']/method[@name='canUpdateMediaItem' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+      name="managedOverride"
+      >
+      none
+  </attr>
 
   <attr 
       path="/api/package[@name='androidx.media3.exoplayer.audio']/interface[@name='AudioSink.Listener']/method[@name='onAudioTrackInitialized' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.audio.AudioSink.AudioTrackConfig']]"
@@ -335,9 +375,79 @@
         >
         AndroidX.Media3.ExoPlayer.Image.IImageDecoder
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='DefaultPreloadManager.Builder']/method[@name='build' and @return='androidx.media3.exoplayer.source.preload.DefaultPreloadManager' and count(parameter)=0]"
-        />
 
-        
+
+
+
+    <!--
+      path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSource.Factory']"
+      IMediaSourceFactory
+
+
+    -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSource.Factory']"
+        name="managedName"
+        >
+        IMediaSourceIFactory
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSourceFactory']"
+        name="managedName"
+        >
+        IMediaSourceFactory
+    </attr>
+
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSource
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='PreloadMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSource
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='PreloadMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='PreloadMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
+    </attr>
+
+
+
 </metadata> 
