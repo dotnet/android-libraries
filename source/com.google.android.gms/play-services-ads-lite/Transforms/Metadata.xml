@@ -30,24 +30,6 @@
     <attr path="/api/package[@name='com.google.android.gms.ads.purchase']/interface[@name='PlayStorePurchaseListener']/method[@name='onInAppPurchaseFinished']/parameter[1]" name="managedName">inAppPurchaseResult</attr>
 
 
-    <!-- Remove some internal namespaces -->
-    <remove-node path="/api/package[@name='com.google.android.gms.ads.internal.offline.buffering']" />
-  
-    <!--
-    <remove-node path="/api/package[contains(@name, 'android.gms.internal')]" />
-    <remove-node path="/api/package[contains(@name, 'com.google.android.gms.ads.internal')]" />
-    -->
-    <!-- Remove *zz* obfuscated items -->    
-    <!--    
-    <remove-node path="/api/package/class[contains(@name, 'zz')]" />
-    <remove-node path="/api/package/interface[contains(@name, 'zz')]" />
-    <remove-node path="/api/*/*[@name != 'interface']/method[contains(@name, 'zz')]" />
-    -->
-    <!--    
-    <remove-node path="/api/*/*/field[contains(@name, 'zz')]" />
-    -->
-
-
     <!-- Some classes are private that need to be public to subclass -->
     <attr path="/api/package[@name='com.google.android.gms.ads']/class[@name='BaseAdView']" name="visibility">public</attr>
 
@@ -123,13 +105,6 @@
 
 <!--    <attr path="/api/package[@name='com.google.ads.doubleclick']/interface[@name='OnCustomRenderedAdLoadedListener']/method[@name='onCustomRenderedAdLoaded']/parameter[1]" name="managedName">ad</attr>-->
 
-
-    <remove-node path="/api/package[@name='com.google.android.gms.ads']/class[@name='AdSize']/field[@name='zzako']" />
-
-<!--    
-    <remove-node path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationBannerListener']" /> 
-    <remove-node path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']" />
--->
 
     <attr path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']/method[@name='zza']" name="obfuscated">false</attr>
     <attr path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationBannerListener']/method[@name='zza']" name="obfuscated">false</attr>
@@ -229,148 +204,6 @@
     </attr>
     
     
-    <!--
-    causing ACW errors:
-    ./samples/com.google.android.gms/play-services-ads-lite/AdsLiteSample/obj/Debug/android/src/crc6449ab38c9a8eed94c/MainActivity.java(36,36): 
-    Error JAVAC0000:  error: cannot inherit from final AdActivity
-    extends com.google.android.gms.ads.AdActivity
-    (JAVAC0000) (AdsLiteSample) javac
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads']/class[@name='AdActivity']"
-        name="final"
-        >
-        false
-    </attr>
-
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.appopen']"
-        name="managedName"
-        >
-        Android.Gms.Ads.AppOpen
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.instream']"
-        name="managedName"
-        >
-        Android.Gms.Ads.InStream
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.query']"
-        name="managedName"
-        >
-        Android.Gms.Ads.Query
-    </attr>
-    -->
-    
-    <!--
-    https://github.com/xamarin/GooglePlayServicesComponents/issues/334
-    
-    error: ShouldDelayBannerRenderingListenerImplementor is not abstract and does not override abstract method zzb(Runnable) in ShouldDelayBannerRenderingListener
-    -->
-    <!--
-    Attempt 01:   
-    
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']"
-        />
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        />
-    -->
-    <!--
-    Additions.cs for tweaking
-    -->
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']"
-        />
-    
-    <!--
-    Attempt 02:   
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']"
-        name="abstract"
-        >
-        false
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        name="obfuscated"
-        >
-        false
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        name="abstract"
-        >
-        false
-    </attr>
-    -->
-    
-    <!--
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        name="obfuscated"
-        >
-        false
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        name="final"
-        >
-        true
-    </attr>
-    -->
-    <!--
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']"
-        name="abstract"
-        >true</attr>
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
-        name="abstract"
-        >true</attr>
-    -->
-    
-    <!--
-    TODO: issue in java.interop why was this necessary?
-    
-    <add-node
-        path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="boolean" name="zzb" 
-            jni-signature="(Ljava/lang/Runnable;)Z"  jni-return="Z"
-            bridge="false" native="false" deprecated="not deprecated" synchronized="false" synthetic="false" 
-            obfuscated="false" final="true"
-            >
-            <parameter type="java.lang.Runnable"  name="runnable" >                
-            </parameter>
-        </method>        
-    </add-node>
-    -->
-    
-    
-    
-    
-
-    
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']"
-        />
-    <!--
-    <attr
-        path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']/method[@name='onAdLoaded' and count(parameter)=2 and parameter[1][@type='com.google.android.gms.ads.mediation.MediationNativeAdapter'] and parameter[2][@type='com.google.android.gms.ads.mediation.NativeAdMapper']]"
-        name="managedName"
-        >
-        OnNativeAdLoaded
-    </attr>
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']/method[@name='zza' and count(parameter)=2 and parameter[1][@type='com.google.android.gms.ads.mediation.MediationNativeAdapter'] and parameter[2][@type='com.google.android.gms.ads.formats.NativeCustomTemplateAd']]"
-        />
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.ads.mediation']/interface[@name='MediationNativeListener']/method[@name='zza' and count(parameter)=3 and parameter[1][@type='com.google.android.gms.ads.mediation.MediationNativeAdapter'] and parameter[2][@type='com.google.android.gms.ads.formats.NativeCustomTemplateAd'] and parameter[3][@type='java.lang.String']]"
-        />
-    -->
     <attr
         path="/api/package[@name='com.google.android.gms.ads.formats']/interface[@name='ShouldDelayBannerRenderingListener']/method[@name='zzb']"
         name="abstract"
@@ -605,5 +438,6 @@
         >
         Android.Gms.Ads.Preload
     </attr>
+
 
 </metadata>
