@@ -127,16 +127,13 @@ Task ("net10-prepare-binderate-build")
     (
         () =>
         {
+            /* 
+            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
+            */
             dotnet = "../dotnet-android/dotnet-local.sh";
 
             Information($"{new string('=', 120)}");
             StartProcess(dotnet, "--version");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            StartProcess(dotnet, "cake -t=binderate");
             Parallel.ForEach
                          (
                             files_net10.Keys,
@@ -155,6 +152,12 @@ Task ("net10-prepare-binderate-build")
                             }
                          );
 
+            StartProcess(dotnet, "cake -t=binderate");
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
             StartProcess(dotnet, "cake -t=nuget");
 
             DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
