@@ -11,14 +11,16 @@ Task ("build-android-libraries-net10-net8")
     (
         () =>
         {
-            Parallel.Invoke
-                        (
-                            () => RunTarget("net8-prepare-binderate-build"),
-                            () => RunTarget("build-prepare-dotnet-android") 
-                        );
+            // Parallel.Invoke
+            //             (
+            //                 () => RunTarget("net8-prepare-binderate-build"),
+            //                 () => RunTarget("build-prepare-dotnet-android") 
+            //             );
 
+            RunTarget("build-prepare-dotnet-android");
+            RunTarget("net8-prepare-binderate-build");
             RunTarget("net10-prepare-binderate-build");
-            RunTarget("net10-net8-prepare-binderate-build");                    
+            //RunTarget("net10-net8-prepare-binderate-build");                    
         }        
     )
     ;
@@ -36,7 +38,7 @@ Task ("build-prepare-dotnet-android")
     (
         () =>
         {
-            string dir = "../dotnet-android";
+            string dir = "../dotnet-android/";
             DeleteDirectories(GetDirectories(dir), delete_directory_setting);
             
             StartProcess("git", $"clone --recursive https://github.com/dotnet/android.git {dir}");
@@ -97,14 +99,28 @@ Task ("net10-net8-prepare-binderate-build")
                         dotnet,
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
-            StartProcess(dotnet, "cake -t=ci");
+            StartProcess(dotnet, "cake -t=nuget");
 
             //git restore pathTo/MyFile
-            MoveDirectory("generated", "generated--net10.0-net8.0");
 
+            DeleteDirectories(GetDirectories("generated-net10.0-net8.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net10.0-net8.0"), delete_directory_setting);
+            MoveDirectory("generated", "generated-net10.0-net8.0");
+            MoveDirectory("output", "output-net10.0-net8.0");
         }
     );
 
+Task ("revert-changes")
+    .Does
+    (
+        () =>
+        {
+            foreach(string file in files_net10.Keys)
+            {
+                StartProcess("git", $"restore {file}");                
+            }
+        }
+    );
 
 Task ("net10-prepare-binderate-build")
     .Does
@@ -139,15 +155,13 @@ Task ("net10-prepare-binderate-build")
                             }
                          );
 
-            StartProcess(dotnet, "cake -t=ci");
+            StartProcess(dotnet, "cake -t=nuget");
 
-            MoveDirectory("generated", "generated--net10.0");
+            DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
+            MoveDirectory("generated", "generated-net10.0");
+            MoveDirectory("output", "output-net10.0");
 
-            foreach(string file in files_net10.Keys)
-            {
-                StartProcess("git", $"restore {file}");
-                
-            }
         }
     );
 
@@ -167,7 +181,10 @@ Task ("net8-prepare-binderate-build")
             StartProcess(dotnet, "--version");
             StartProcess(dotnet, "cake -t=ci");
 
+            DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net8.0");
+            MoveDirectory("output", "output-net8.0");
         }
     );
 
@@ -178,6 +195,7 @@ Dictionary<string, List<(string text_old, string text_new)>> files_net10;
 
 files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
 {
+    /*
     {
         "./global.json",
         [
@@ -187,6 +205,7 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
             ),
         ]
     },
+    */
     {
         "./Directory.Build.props",
         [
@@ -238,6 +257,7 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
 
 files_net8_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
 {
+    /*
     {
         "./global.json",
         [
@@ -247,6 +267,7 @@ files_net8_net10 = new Dictionary<string, List<(string text_old, string text_new
             ),
         ]
     },
+    */
     {
         "./Directory.Build.props",
         [
