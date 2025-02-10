@@ -11,16 +11,16 @@ Task ("build-android-libraries-net10-net8")
     (
         () =>
         {
-            // Parallel.Invoke
-            //             (
-            //                 () => RunTarget("net8-prepare-binderate-build"),
-            //                 () => RunTarget("build-prepare-dotnet-android") 
-            //             );
+            Parallel.Invoke
+                        (
+                            () => RunTarget("build-prepare-dotnet-android"),
+                            () => RunTarget("net8-prepare-binderate-build") 
+                        );
 
-            RunTarget("build-prepare-dotnet-android");
-            RunTarget("net8-prepare-binderate-build");
+            // RunTarget("build-prepare-dotnet-android");
+            // RunTarget("net8-prepare-binderate-build");
             RunTarget("net10-prepare-binderate-build");
-            //RunTarget("net10-net8-prepare-binderate-build");                    
+            RunTarget("net10-net8-prepare-binderate-build");                    
         }        
     )
     ;
@@ -91,6 +91,39 @@ Task ("net10-net8-prepare-binderate-build")
         () =>
         {
             dotnet = "../dotnet-android/dotnet-local.sh";
+
+            /* 
+            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
+            */
+            dotnet = "../dotnet-android/dotnet-local.sh";
+
+            Information($"{new string('=', 120)}");
+            StartProcess(dotnet, "--version");
+            Parallel.ForEach
+                         (
+                            files_net10_net8.Keys,
+                            (string file) =>
+                            {
+                                List<(string text_old, string text_new)> replacements = files_net10[file];
+
+                                string content = System.IO.File.ReadAllText(file);
+
+                                foreach((string text_old, string text_new) pair in replacements)
+                                {
+                                    content = content.Replace(pair.text_old, pair.text_new);
+                                }
+
+                                System.IO.File.WriteAllText(file, content);
+                            }
+                         );
+
+            StartProcess(dotnet, "cake -t=binderate");
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
+            StartProcess(dotnet, "cake -t=nuget");
 
             Information($"{new string('=', 120)}");
             StartProcess(dotnet, "--version");
@@ -164,7 +197,6 @@ Task ("net10-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0");
             MoveDirectory("output", "output-net10.0");
-
         }
     );
 
@@ -192,7 +224,7 @@ Task ("net8-prepare-binderate-build")
     );
 
 
-Dictionary<string, List<(string text_old, string text_new)>> files_net8_net10;
+Dictionary<string, List<(string text_old, string text_new)>> files_net10_net8;
 Dictionary<string, List<(string text_old, string text_new)>> files_net10;
 
 
@@ -258,7 +290,7 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
     },
 };
 
-files_net8_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
+files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new)>>
 {
     /*
     {
