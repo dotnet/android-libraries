@@ -11,15 +11,15 @@ Task ("build-android-libraries-net10-net8")
     (
         () =>
         {
-            Parallel.Invoke
-                        (
-                            () => RunTarget("build-prepare-dotnet-android"),
-                            () => RunTarget("net8-prepare-binderate-build") 
-                        );
+            // Parallel.Invoke
+            //             (
+            //                 () => RunTarget("build-prepare-dotnet-android"),
+            //                 () => RunTarget("net8-prepare-binderate-build") 
+            //             );
 
-            // RunTarget("build-prepare-dotnet-android");
-            // RunTarget("net8-prepare-binderate-build");
-            RunTarget("net10-prepare-binderate-build");
+            RunTarget("build-prepare-dotnet-android");
+            RunTarget("net8-prepare-binderate-build");
+            //RunTarget("net10-prepare-binderate-build");
             RunTarget("net10-net8-prepare-binderate-build");                    
         }        
     )
@@ -59,28 +59,15 @@ Task ("build-prepare-dotnet-android")
                                                             };
 
             ps.Arguments = new ProcessArgumentBuilder().Append("prepare");
-            StartProcess
-                (
-                    "make",
-                    ps
-                );
+            StartProcess("make",ps);
             Information(sb.ToString());                
             sb.Clear();
             
-
             ps.Arguments = new ProcessArgumentBuilder().Append("");
-            StartProcess
-                (
-                    "make",
-                    ps
-                );
+            StartProcess("make",ps);
 
             ps.Arguments = new ProcessArgumentBuilder().Append("--version");
-            StartProcess
-                (
-                    $"{dir}/dotnet-local.sh",
-                    ps
-                );
+            StartProcess($"{dir}/dotnet-local.sh", ps);
         }
     );
 
@@ -140,6 +127,8 @@ Task ("net10-net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net10.0-net8.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0-net8.0");
             MoveDirectory("output", "output-net10.0-net8.0");
+
+            RunTarget("revert-changes");
         }
     );
 
@@ -148,6 +137,10 @@ Task ("revert-changes")
     (
         () =>
         {
+            foreach(string file in files_net10_net8.Keys)
+            {
+                StartProcess("git", $"restore {file}");                
+            }
             foreach(string file in files_net10.Keys)
             {
                 StartProcess("git", $"restore {file}");                
@@ -197,6 +190,8 @@ Task ("net10-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0");
             MoveDirectory("output", "output-net10.0");
+
+            RunTarget("revert-changes");
         }
     );
 
@@ -210,16 +205,25 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
 
-            dotnet = "dotnet";
+            dotnet = "../dotnet-android/dotnet-local.sh";
+            // dotnet = "dotnet";
 
             Information($"{new string('=', 120)}");
             StartProcess(dotnet, "--version");
-            StartProcess(dotnet, "cake -t=ci");
+            StartProcess(dotnet, "cake -t=binderate");
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
+            StartProcess(dotnet, "cake -t=nuget");
 
             DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
             DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net8.0");
             MoveDirectory("output", "output-net8.0");
+
+            RunTarget("revert-changes");
         }
     );
 
