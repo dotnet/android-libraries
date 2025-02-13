@@ -4,6 +4,16 @@ parameters:
   
 steps:
   # before the build starts, make sure the tooling is as expected
+  - bash: |
+      ls -l ~/android-archives
+    displayName: List files
+    condition: eq( variables['Agent.OS'], 'Darwin' )
+
+  - bash: |
+      df -h
+    displayName: List free space
+    condition: eq( variables['Agent.OS'], 'Darwin' )
+
   - task: UseDotNet@2
     displayName: 'Use dotnet $(dotnetVersion)'
     inputs:
