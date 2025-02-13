@@ -78,6 +78,11 @@
     <DefaultTransformExcludes>**/*.MonoAndroid*.0.xml;**/*.net*.0-android.xml</DefaultTransformExcludes>
   </PropertyGroup>
 
+  <!-- Common PackageReference versions -->
+  <PropertyGroup>
+    <MSBuildPackageReferenceVersion Condition=" '$(MSBuildPackageReferenceVersion)' == '' ">17.13.9</MSBuildPackageReferenceVersion>
+  </PropertyGroup>
+
   <!-- Folders that .targets files need to go into -->
   <ItemGroup>
     <AndroidXNuGetTargetFolders Include="build\net8.0-android34.0" />
