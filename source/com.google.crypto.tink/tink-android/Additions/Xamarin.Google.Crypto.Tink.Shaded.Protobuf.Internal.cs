@@ -15,14 +15,32 @@ namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
 		public partial class MapAdapter // : global::Java.Util.AbstractMap 
         {
 
+			static Delegate? cb_entrySet;
+#pragma warning disable 0169
+			static Delegate GetEntrySetHandler ()
+			{
+				if (cb_entrySet == null)
+					cb_entrySet = JNINativeWrapper.CreateDelegate (new _JniMarshal_PP_L (n_EntrySet));
+				return cb_entrySet;
+			}
+
+			static IntPtr n_EntrySet (IntPtr jnienv, IntPtr native__this)
+			{
+				var __this = global::Java.Lang.Object.GetObject<global::Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.MapAdapter> (jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+				return global::Android.Runtime.JavaSet<global::Java.Util.IMapEntry>.ToLocalJniHandle (__this.EntrySet ());
+			}
+#pragma warning restore 0169
+
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
 			[Register ("entrySet", "()Ljava/util/Set;", "GetEntrySetHandler")]
-			public override unsafe global::System.Collections.ICollection EntrySet ()
+			public override unsafe global::System.Collections.ICollection? EntrySet ()
 			{
 				const string __id = "entrySet.()Ljava/util/Set;";
 				try {
 					var __rm = _members.InstanceMethods.InvokeVirtualObjectMethod (__id, this, null);
-					return (System.Collections.ICollection) global::Android.Runtime.JavaSet<global::Java.Util.IMapEntry>.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
+					return 
+						(System.Collections.ICollection?) // added manually
+						global::Android.Runtime.JavaSet<global::Java.Util.IMapEntry>.FromJniHandle (__rm.Handle, JniHandleOwnership.TransferLocalRef);
 				} finally {
 				}
 			}
