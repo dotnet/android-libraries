@@ -814,6 +814,7 @@ Task ("spell-check")
                 "LiteRT",
                 "Multiprocess",
                 "MultiProcess",
+                "Json",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
