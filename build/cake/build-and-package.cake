@@ -12,6 +12,8 @@ Task ("nuget")
         .WithProperty ("PackageOutputPath", MakeAbsolute ((DirectoryPath)"./output/").FullPath)
         .WithTarget ("Pack");
 
+    settings.NodeReuse = false;
+
     DotNetBuild (
         "./generated/AndroidX.sln", 
         new DotNetBuildSettings { MSBuildSettings = settings }
@@ -28,6 +30,8 @@ Task ("libs")
         .SetConfiguration (CONFIGURATION)
         .EnableBinaryLogger ($"./output/libs.{CONFIGURATION}.binlog")
         .WithProperty("Verbosity", VERBOSITY.ToString ());
+
+    settings.NodeReuse = false;
 
     DotNetBuild (
         "./generated/AndroidX.sln", 
