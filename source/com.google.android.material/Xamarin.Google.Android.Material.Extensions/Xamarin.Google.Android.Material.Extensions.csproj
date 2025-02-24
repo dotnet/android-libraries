@@ -1,6 +1,6 @@
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>MonoAndroid12.0;net6.0-android31.0</TargetFrameworks>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
     <AssemblyName>Xamarin.Google.Android.Material.Extensions</AssemblyName>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
@@ -38,13 +38,6 @@
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <AndroidClassParser>class-parse</AndroidClassParser>
-    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
-  </PropertyGroup>
-
     
   <ItemGroup>
     <None Include="..\..\source\PackageLicense.md" Pack="True" PackagePath="LICENSE.md" />
@@ -80,14 +73,5 @@
     <!-- For those artifacts with lib/ folder -->
     <InputJar Condition="Exists('..\..\..\externals\com.xamarin.google.android.material.extensions\extensions-aar\libs\')" Include="..\..\..\externals\com.xamarin.google.android.material.extensions\extensions-aar\libs\*.jar" />
   </ItemGroup>
-
-  <ItemGroup>
-  </ItemGroup>
-  
-
-  <ItemGroup>
-    <!-- PackageReference -->
-  </ItemGroup>
-
   
 </Project>
