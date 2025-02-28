@@ -5,6 +5,24 @@ parameters:
   downloadAndInstallAndroidSdk: true
 
 steps:
+  - pwsh: |
+      $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
+      $fileName = [System.IO.Path]::GetFileName($url)
+      Invoke-WebRequest -Uri $url -OutFile $fileName
+    displayName: Download Java 11 SDK (Windows)
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
+    workingDirectory: $(Build.StagingDirectory)
+
+  - task: JavaToolInstaller@0
+    displayName: Use Java 11 SDK (Windows)
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: LocalDirectory
+      jdkFile: $(Build.StagingDirectory)\microsoft-jdk-11.0.26-windows-x64.zip
+      jdkDestinationDirectory: $(Agent.ToolsDirectory)/jdk11
+
   - ${{ if eq(parameters.downloadAndInstallAndroidSdk, true) }}:
     - pwsh: |
         $installDir = "C:\Android\android-sdk"
@@ -91,21 +109,3 @@ steps:
       versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
-
-  - pwsh: |
-      $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
-      $fileName = [System.IO.Path]::GetFileName($url)
-      Invoke-WebRequest -Uri $url -OutFile $fileName
-    displayName: Download Java 11 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
-    workingDirectory: $(Build.StagingDirectory)
-
-  - task: JavaToolInstaller@0
-    displayName: Use Java 11 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
-    inputs:
-      versionSpec: '11'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: LocalDirectory
-      jdkFile: $(Build.StagingDirectory)\microsoft-jdk-11.0.26-windows-x64.zip
-      jdkDestinationDirectory: $(Agent.ToolsDirectory)/jdk11
