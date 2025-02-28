@@ -1,7 +1,8 @@
 parameters:
   dotnetTools: []
   runDotnetNextTest: false
-  
+  downloadAndInstallJdk: false
+
 steps:
   # before the build starts, make sure the tooling is as expected
   - task: UseDotNet@2
@@ -57,11 +58,29 @@ steps:
       echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
     displayName: Use Java 11 SDK (Mac)
     condition: eq( variables['Agent.OS'], 'Darwin' )
-          
+
   - task: JavaToolInstaller@0
     displayName: Use Java 11 SDK (Windows)
-    condition: eq( variables['Agent.OS'], 'Windows_NT' )
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(parameters.downloadAndInstallJdk, true))
     inputs:
       versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
+
+  - pwsh: |
+      $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-aarch64.zip"
+      $fileName = [System.IO.Path]::GetFileName($url)
+      Invoke-WebRequest -Uri $url -OutFile $fileName
+    displayName: Download Java 11 SDK (Windows)
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(parameters.downloadAndInstallJdk, true))
+    workingDirectory: $(Build.StagingDirectory)
+
+  - task: JavaToolInstaller@0
+    displayName: Use Java 11 SDK (Windows)
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(parameters.downloadAndInstallJdk, true))
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: LocalDirectory
+      jdkFile: $(Build.StagingDirectory)\microsoft-jdk-11.0.26-windows-aarch64.zip
+      jdkDestinationDirectory: $(Agent.ToolsDirectory)/jdk11

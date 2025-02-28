@@ -24,6 +24,7 @@ stages:
         demands:
         - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
       runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+      downloadAndInstallJdk: true
 
 - stage: build_mac
   displayName: Build - Mac
@@ -43,3 +44,4 @@ stages:
       demands:
       - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
     runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+    downloadAndInstallJdk: true
