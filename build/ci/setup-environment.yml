@@ -59,6 +59,7 @@ steps:
     displayName: Use Java 11 SDK (Mac)
     condition: eq( variables['Agent.OS'], 'Darwin' )
 
+
   - task: JavaToolInstaller@0
     displayName: Use Java 11 SDK (Windows)
     condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.downloadAndInstallJdk }}, true))
@@ -68,7 +69,7 @@ steps:
       jdkSourceOption: 'PreInstalled'
 
   - pwsh: |
-      $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-aarch64.zip"
+      $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
       $fileName = [System.IO.Path]::GetFileName($url)
       Invoke-WebRequest -Uri $url -OutFile $fileName
     displayName: Download Java 11 SDK (Windows)
