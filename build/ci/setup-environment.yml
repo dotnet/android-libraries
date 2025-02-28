@@ -2,8 +2,33 @@ parameters:
   dotnetTools: []
   runDotnetNextTest: false
   downloadAndInstallJdk: false
+  downloadAndInstallAndroidSdk: true
 
 steps:
+  - ${{ if eq(parameters.downloadAndInstallAndroidSdk, true) }}:
+    - pwsh: |
+        $installDir = "C:\Android\android-sdk"
+        $tempDir = "C:\Android\android-sdk\temp"
+        if (-Not (Test-Path -Path $tempDir)) {
+            New-Item -ItemType Directory -Path $tempDir
+        } else {
+          Remove-Item -Path $tempDir\* -Recurse -Force
+        }
+        $cmdlineToolsUrl = "https://dl.google.com/android/repository/commandlinetools-win-11379558_latest.zip"
+        $cmdlineToolsZip = "$tempDir\cmdline-tools.zip"
+        $cmdlineToolsDestination = "$installDir\cmdline-tools\12.0"
+        Invoke-WebRequest -Uri $cmdlineToolsUrl -OutFile $cmdlineToolsZip
+        Expand-Archive -Path $cmdlineToolsZip -DestinationPath $tempDir
+        if (-Not (Test-Path -Path $cmdlineToolsDestination)) {
+          New-Item -ItemType Directory -Path $cmdlineToolsDestination
+        }
+        Move-Item -Path "$tempDir\cmdline-tools\*" -Destination $cmdlineToolsDestination -Force
+        $sdkManagerTool = "$cmdlineToolsDestination\bin\sdkmanager.bat"
+        & $sdkManagerTool --sdk_root=$installDir --licenses
+        & $sdkManagerTool --sdk_root=$installDir "platform-tools" "build-tools;35.0.0" "platforms;android-35" "platforms;android-34" "platforms;android-33"
+        Remove-Item -Path $tempDir
+      displayName: Install Android SDK (Windows)
+
   # before the build starts, make sure the tooling is as expected
   - task: UseDotNet@2
     displayName: 'Use dotnet $(dotnetVersion)'
