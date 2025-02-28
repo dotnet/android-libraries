@@ -20,8 +20,9 @@ stages:
     parameters:
       name: windows
       buildPool:
-        name: Azure Pipelines
-        vmImage: windows-2022
+        name: $(NetCorePublicPoolName)
+        demands:
+        - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
       runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
 
 - stage: build_mac
@@ -38,6 +39,7 @@ stages:
 - template: build/ci/stage-standard-tests.yml@self
   parameters:
     buildPool:
-      name: Azure Pipelines
-      vmImage: windows-2022
+      name: $(NetCorePublicPoolName)
+      demands:
+      - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
     runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
