@@ -57,7 +57,11 @@ steps:
       displayName: Install Preview .NET Workloads
 
   - bash: |
-      echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
+      if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
+          echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
+      else
+          echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
+      fi
     displayName: Use Java 11 SDK (Mac)
     condition: eq( variables['Agent.OS'], 'Darwin' )
 
