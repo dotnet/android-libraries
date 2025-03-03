@@ -8,7 +8,7 @@ parameters:
   runAPIScan: false                                                 # Run APIScan analysis
   runDotnetNextTest: false
   use1ESTemplate: true
-  downloadAndInstallJdk: false
+  installAndroidDependencies: false
 
   tools:                                                            # Additional .NET global tools to install
   - 'Cake.Tool': '4.0.0'
@@ -43,7 +43,7 @@ jobs:
       parameters:
         dotnetTools: ${{ parameters.tools }}
         runDotnetNextTest: ${{ parameters.runDotnetNextTest }}
-        downloadAndInstallJdk: ${{ parameters.downloadAndInstallJdk }}
+        installAndroidDependencies: ${{ parameters.installAndroidDependencies }}
 
     - template: build-and-test.yml
       parameters:

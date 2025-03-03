@@ -1,52 +1,11 @@
 parameters:
   dotnetTools: []
   runDotnetNextTest: false
-  downloadAndInstallJdk: false
-  downloadAndInstallAndroidSdk: true
+  installAndroidDependencies: false
+  androidSdkRoot: C:\Android\android-sdk
+  javaSdkRoot: $(Agent.ToolsDirectory)\jdk
 
 steps:
-  - pwsh: |
-      $url = "https://aka.ms/download-jdk/microsoft-jdk-17.0.14-windows-x64.zip"
-      $fileName = [System.IO.Path]::GetFileName($url)
-      Invoke-WebRequest -Uri $url -OutFile $fileName
-    displayName: Download Java 17 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
-    workingDirectory: $(Build.StagingDirectory)
-
-  - task: JavaToolInstaller@0
-    displayName: Use Java 17 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), eq(${{ parameters.downloadAndInstallJdk }}, true))
-    inputs:
-      versionSpec: '17'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: LocalDirectory
-      jdkFile: $(Build.StagingDirectory)\microsoft-jdk-17.0.14-windows-x64.zip
-      jdkDestinationDirectory: $(Agent.ToolsDirectory)/jdk11
-
-  - ${{ if eq(parameters.downloadAndInstallAndroidSdk, true) }}:
-    - pwsh: |
-        $installDir = "C:\Android\android-sdk"
-        $tempDir = "C:\Android\android-sdk\temp"
-        if (-Not (Test-Path -Path $tempDir)) {
-            New-Item -ItemType Directory -Path $tempDir
-        } else {
-          Remove-Item -Path $tempDir\* -Recurse -Force
-        }
-        $cmdlineToolsUrl = "https://dl.google.com/android/repository/commandlinetools-win-11379558_latest.zip"
-        $cmdlineToolsZip = "$tempDir\cmdline-tools.zip"
-        $cmdlineToolsDestination = "$installDir\cmdline-tools\12.0"
-        Invoke-WebRequest -Uri $cmdlineToolsUrl -OutFile $cmdlineToolsZip
-        Expand-Archive -Path $cmdlineToolsZip -DestinationPath $tempDir
-        if (-Not (Test-Path -Path $cmdlineToolsDestination)) {
-          New-Item -ItemType Directory -Path $cmdlineToolsDestination
-        }
-        Move-Item -Path "$tempDir\cmdline-tools\*" -Destination $cmdlineToolsDestination -Force
-        $sdkManagerTool = "$cmdlineToolsDestination\bin\sdkmanager.bat"
-        & $sdkManagerTool --sdk_root=$installDir --licenses
-        & $sdkManagerTool --sdk_root=$installDir "platform-tools" "build-tools;35.0.0" "platforms;android-35" "platforms;android-34" "platforms;android-33"
-        Remove-Item -Path $tempDir
-      displayName: Install Android SDK (Windows)
-
   # before the build starts, make sure the tooling is as expected
   - task: UseDotNet@2
     displayName: 'Use dotnet $(dotnetVersion)'
@@ -104,8 +63,35 @@ steps:
 
   - task: JavaToolInstaller@0
     displayName: Use Java 11 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.downloadAndInstallJdk }}, true))
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
     inputs:
       versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
+
+  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
+    - task: DotNetCoreCLI@2
+      displayName: Create android template
+      inputs:
+        command: custom
+        custom: new
+        arguments: android -o $(Agent.TempDirectory)/TempDroid
+
+    - task: DotNetCoreCLI@2
+      displayName: Install android dependencies
+      inputs:
+        command: build
+        projects: $(Agent.TempDirectory)/TempDroid/TempDroid.csproj
+        arguments: >-
+          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
+          -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+          -p:JavaSdkDirectory=${{ parameters.javaSdkRoot }}
+          -v:n -bl:output/install-android-dependencies.binlog
+        retryCountOnTaskFailure: 3
+
+    - pwsh: |
+        Write-Host "Setting variable 'ANDROID_SDK_ROOT' = '${{ parameters.androidSdkRoot }}'"
+        Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
+        Write-Host "Setting variable 'JAVA_HOME' = '${{ parameters.javaSdkRoot }}'"
+        Write-Host "##vso[task.setvariable variable=JAVA_HOME]${{ parameters.javaSdkRoot }}"
+    displayName: Set ANDROID_SDK_ROOT, JAVA_HOME
