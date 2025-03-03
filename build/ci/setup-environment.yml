@@ -93,6 +93,11 @@ steps:
       displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
 
     - pwsh: |
+        $sdkManager = Get-ChildItem -Path "${{ parameters.androidSdkRoot }}\cmdline-tools" -Filter "sdkmanager*" -Recurse | Select-Object -First 1
+        & $sdkManager --sdk_root=$installDir "build-tools;29.0.3" "platforms;android-29"
+      displayName: Install extra Android SDK packages
+
+    - pwsh: |
         $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
         if ($IsMacOS) {
             $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz"
