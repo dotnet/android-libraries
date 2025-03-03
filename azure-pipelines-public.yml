@@ -24,6 +24,7 @@ stages:
         demands:
         - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
       runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+      use1ESTemplate: false
       installAndroidDependencies: true
 
 - stage: build_mac
@@ -36,6 +37,7 @@ stages:
         name: Azure Pipelines
         vmImage: macOS-15
       runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+      use1ESTemplate: false
 
 - template: build/ci/stage-standard-tests.yml@self
   parameters:
