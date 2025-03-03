@@ -3,7 +3,7 @@ parameters:
   runDotnetNextTest: false
   installAndroidDependencies: false
   androidSdkRoot: C:\Android\android-sdk
-  javaSdkRoot: $(Agent.ToolsDirectory)\jdk
+  javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
 
 steps:
   # before the build starts, make sure the tooling is as expected
@@ -85,13 +85,29 @@ steps:
         arguments: >-
           -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
           -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-          -p:JavaSdkDirectory=${{ parameters.javaSdkRoot }}
           -v:n -bl:output/install-android-dependencies.binlog
         retryCountOnTaskFailure: 3
 
     - pwsh: |
-        Write-Host "Setting variable 'ANDROID_SDK_ROOT' = '${{ parameters.androidSdkRoot }}'"
         Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
-        Write-Host "Setting variable 'JAVA_HOME' = '${{ parameters.javaSdkRoot }}'"
-        Write-Host "##vso[task.setvariable variable=JAVA_HOME]${{ parameters.javaSdkRoot }}"
-      displayName: Set ANDROID_SDK_ROOT, JAVA_HOME
+      displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
+
+    - pwsh: |
+        $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
+        if ($IsMacOS) {
+            $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz"
+        }
+        $fileName = [System.IO.Path]::GetFileName($url)
+        Invoke-WebRequest -Uri $url -OutFile $fileName
+        Write-Host "##vso[task.setvariable variable=JDK_11_FILE_PATH]$(Build.StagingDirectory)/$fileName"
+      displayName: Download Java 11 SDK
+      workingDirectory: $(Build.StagingDirectory)
+
+    - task: JavaToolInstaller@0
+      displayName: Use Java 11 SDK
+      inputs:
+        versionSpec: '11'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: LocalDirectory
+        jdkFile: $(JDK_11_FILE_PATH)
+        jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
