@@ -97,6 +97,8 @@ steps:
             $env:JAVA_HOME = Get-ChildItem -Path "C:\Program Files (x86)\Android\openjdk" -Filter "*jdk*" | Select-Object -First 1
         }
         $sdkManager = Get-ChildItem -Path "${{ parameters.androidSdkRoot }}\cmdline-tools" -Filter "sdkmanager*" -Recurse | Select-Object -First 1
+        $yesInput = "y`n" * 10
+        $yesInput | & $sdkManager --licenses
         & $sdkManager "build-tools;29.0.3" "platforms;android-29"
       displayName: Install extra Android SDK packages
 
