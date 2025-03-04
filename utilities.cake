@@ -816,6 +816,7 @@ Task ("spell-check")
                 "MultiProcess",
                 "RecaptchaBase",
                 "Json",
+                "ViewTree",
            ];
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
@@ -1120,6 +1121,8 @@ Task ("api-diff-markdown-info-pr")
                 }
             }
 
+            int idx = 1;
+
             foreach (List<string> changelog_block_lines in changelog_blocks)
             {
                 string g = null;
@@ -1179,9 +1182,10 @@ Task ("api-diff-markdown-info-pr")
                     continue;
                 }
 
-                string changelog_line = $"- `{g}:{a}` - {v_artifact_old} -> {v_artifact_new}";
+                string changelog_line = $"{idx,4}. `{g}:{a}` - {v_artifact_old} -> {v_artifact_new}";
                 Information(changelog_line);
                 changelog.Add(changelog_line);
+                idx++;
             }
 
             if (changelog.Count > 0)
@@ -1485,6 +1489,131 @@ Task("generate-markdown-publish-log")
                         (
                             ci_publish_log_lines[row+2].Contains("Created https://www.nuget.org/api/v2/package")
                             &&
+                            ci_publish_log_lines[row+3].Contains("Successfully pushed")
+                        )
+                    {
+                        packages_published.Add(n2);
+                    }
+                    else if
+                        (
+                            ci_publish_log_lines[row+1].Contains("Created https://www.nuget.org/api/v2/package")
+                            &&
+                            // if warning is present
+                            ci_publish_log_lines[row+2].Contains("Your package was pushed.")
+                        )
+                    {
+                        packages_published.Add(n2);
+                    }
+                    else
+                    {
+                        Error($"n1                          = {n1}");
+                        Error($"n2                          = {n2}");
+                        Error($"ci_publish_log_lines[row+1] = {ci_publish_log_lines[row+1]}");
+                        Error($"ci_publish_log_lines[row+2] = {ci_publish_log_lines[row+2]}");
+                        Error($"ci_publish_log_lines[row+3] = {ci_publish_log_lines[row+3]}");
+                        Error($"ci_publish_log_lines[row+4] = {ci_publish_log_lines[row+4]}");
+                    }
+                }
+
+                row++;
+            }
+
+            packages_published.Sort();
+            packages_rejected.Sort();
+            
+            string dump_packages_published  = string.Join($"{Environment.NewLine}", packages_published);
+            string dump_packages_rejected   = string.Join($"{Environment.NewLine}", packages_rejected);
+
+            string markdown =
+@"
+# name-tag
+
+name-tag.md
+
+Total packages = %PackagesTotal.Count%
+
+Pushed / Published: %PackagesPushedPublished.Count%
+
+
+```
+%PackagesPushedPublished%
+```
+
+Rejected / Duplicates: %PackagesRejectedDuplicates.Count%
+
+```
+%PackagesRejectedDuplicates%
+```
+";
+            markdown = markdown.Replace("%PackagesTotal.Count%", $"{packages.Count}");
+            markdown = markdown.Replace("%PackagesPushedPublished.Count%", $"{packages_published.Count}");
+            markdown = markdown.Replace("%PackagesRejectedDuplicates.Count%", $"{packages_rejected.Count}");
+            markdown = markdown.Replace("%PackagesPushedPublished%", dump_packages_published);
+            markdown = markdown.Replace("%PackagesRejectedDuplicates%", dump_packages_rejected);
+
+            System.IO.File.WriteAllText("./output/name-tag.md", markdown);
+        }
+    );
+
+Task("generate-markdown-publish-log-old")
+    .Does
+    (
+        () =>
+        {
+            string ci_publish_log_file = "./output/ci-publish-log.txt";
+
+            string[] ci_publish_log_lines = null;
+
+            if (System.IO.File.Exists(ci_publish_log_file))
+            {
+                ci_publish_log_lines = System.IO.File.ReadAllLines(ci_publish_log_file);
+            }
+            else
+            {
+                Error("No log file found");
+                Error($"     save ci log to {ci_publish_log_file}");
+
+                System.IO.File.WriteAllText
+                        (
+                            ci_publish_log_file,
+                            $"dotnet cake utilities.cake -t=generate-markdown-publish-log"
+                            + Environment.NewLine +
+                            "{ci_publish_log_file}          paste log from CI"
+                        );
+
+                return;
+            }
+
+            int row = 1;
+            string n1 = null;
+            string n2 = null;
+            List<string> packages           = new List<string>();
+            List<string> packages_published = new List<string>();
+            List<string> packages_rejected  = new List<string>();
+
+
+            foreach (string s in ci_publish_log_lines)
+            {
+                if (s.Contains("Pushing ") && s.Contains(".nupkg to 'https://www.nuget.org/api/v2/package'..."))
+                {
+                    n1 = s.Substring(37, s.Length - 39);
+                    n2 = n1.Replace(" to 'https://www.nuget.org/api/v2/package'.", "");
+
+                    packages.Add(n2);
+
+                    if
+                        (
+                            ci_publish_log_lines[row+1].Contains("Conflict https://www.nuget.org/api/v2/package")
+                            &&
+                            ci_publish_log_lines[row+2].Contains(".nupkg' already exists at feed 'https://www.nuget.org/api/v2/package'.")
+                        )
+                    {
+                        packages_rejected.Add(n2);
+                    }
+                    else if
+                        (
+                            ci_publish_log_lines[row+2].Contains("Created https://www.nuget.org/api/v2/package")
+                            &&
                             ci_publish_log_lines[row+3].Contains("Your package was pushed.")
                         )
                     {
@@ -1550,6 +1679,8 @@ Rejected / Duplicates: %PackagesRejectedDuplicates.Count%
             System.IO.File.WriteAllText("./output/name-tag.md", markdown);
         }
     );
+
+
 
 Task("dependencies")
     .Does
