@@ -4,7 +4,7 @@ using Android.Runtime;
 using Java.Interop;
 
 #if ! NET9_0_OR_GREATER
-namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf 
+namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
 {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal']"
 	// [global::Android.Runtime.Register ("com/google/crypto/tink/shaded/protobuf/Internal", DoNotGenerateAcw=true)]
@@ -49,4 +49,8 @@ namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
     }
 
 }
+
+#else
+
+
 #endif
