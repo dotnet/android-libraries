@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
 
+#if ! NET9_0_OR_GREATER
+
 namespace AndroidX.Media3.ExoPlayer;
 
 delegate void _JniMarshal_PPIIL_V (IntPtr jnienv, IntPtr klass, int p0, int p1, IntPtr p2);
@@ -204,6 +206,6 @@ internal partial class IExoPlayerInvoker
 			__args [2] = new JValue ((p2 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p2).Handle);
 			JNIEnv.CallVoidMethod (((global::Java.Lang.Object) this).Handle, id_replaceMediaItems_IILSystem_Collections_Generic_IList_1_, __args);
 		}
-
-
 }
+
+#endif
