@@ -227,7 +227,6 @@ namespace AndroidX.Leanback.Widget
 //        }
 //    }
 
-
 	public partial class RecyclerViewParallax
 	{
 		// Metadata.xml XPath method reference: path="/api/package[@name='androidX.leanback.leanback.widget']/class[@name='RecyclerViewParallax']/method[@name='createProperty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]"
@@ -299,4 +298,31 @@ namespace AndroidX.Leanback.Widget.Picker
         }
     }
 }
+
+#else
+
+namespace AndroidX.Leanback.Widget
+{
+	public partial class RecyclerViewParallax
+	{
+		// Metadata.xml XPath method reference: path="/api/package[@name='androidX.leanback.leanback.widget']/class[@name='RecyclerViewParallax']/method[@name='createProperty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]"
+		[Register("createProperty", "(Ljava/lang/String;I)Landroid/util/Property;", "GetCreateProperty_Ljava_lang_String_IHandler")]
+		public override unsafe Java.Lang.Object CreateProperty(string name, int index)
+		{
+			// TODO: Implement JNI
+			return null;
+		}
+
+
+
+
+		//[Register("addProperty", "(Ljava/lang/String;)Landroid/util/Property;", "GetAddProperty_Ljava_lang_String_Handler")]
+		//public override unsafe Java.Lang.Object AddProperty(string name)
+		//{
+		//	// TODO: Implement
+		//	return null;
+		//}
+	}
+}
+
 #endif
