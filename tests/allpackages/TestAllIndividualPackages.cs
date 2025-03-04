@@ -78,6 +78,16 @@ public class TestAllIndividualPackages
 		"Xamarin.Google.Android.Play.Core.Ktx",
 		"Xamarin.Google.Android.Play.Feature.Delivery.Ktx",
 		"Xamarin.Google.Android.Play.Review.Ktx",
+
+		// Tensorflow LiteRT packages
+		// - Duplicate Java types
+		"Xamarin.Google.AI.Edge.LiteRT",
+		"Xamarin.Google.AI.Edge.LiteRT.API",
+		"Xamarin.Google.AI.Edge.LiteRT.GPU",
+		"Xamarin.Google.AI.Edge.LiteRT.GPU.API",
+		"Xamarin.Google.AI.Edge.LiteRT.Metadata",
+		"Xamarin.Google.AI.Edge.LiteRT.Support",
+		"Xamarin.Google.AI.Edge.LiteRT.Support.API",
 	];
 
 	static TestAllIndividualPackages ()
