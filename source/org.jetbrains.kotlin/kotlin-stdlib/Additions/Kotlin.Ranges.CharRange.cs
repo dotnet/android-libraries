@@ -10,7 +10,7 @@ namespace Kotlin.Ranges;
 #if ! NET9_0_OR_GREATER
 
 // Metadata.xml XPath class reference: path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']"
-[global::Android.Runtime.Register ("kotlin/ranges/CharRange", DoNotGenerateAcw=true)]
+// [global::Android.Runtime.Register ("kotlin/ranges/CharRange", DoNotGenerateAcw=true)]
 public sealed partial class CharRange //: global::Kotlin.Ranges.CharProgression, global::Kotlin.Ranges.IClosedRange, global::Kotlin.Ranges.IOpenEndRange 
 {
     // Metadata.xml XPath method reference: path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='char']]"
@@ -33,7 +33,7 @@ public sealed partial class CharRange //: global::Kotlin.Ranges.CharProgression,
 # else
 
 // Metadata.xml XPath class reference: path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']"
-[global::Android.Runtime.Register ("kotlin/ranges/CharRange", DoNotGenerateAcw=true)]
+// [global::Android.Runtime.Register ("kotlin/ranges/CharRange", DoNotGenerateAcw=true)]
 public sealed partial class CharRange //: global::Kotlin.Ranges.CharProgression, global::Kotlin.Ranges.IClosedRange, global::Kotlin.Ranges.IOpenEndRange 
 {
     // Metadata.xml XPath method reference: path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='char']]"
@@ -50,12 +50,12 @@ public sealed partial class CharRange //: global::Kotlin.Ranges.CharProgression,
 
             __args [0] = new JniArgumentValue ((ushort)value);
             */
-            __args [0] = new JniArgumentValue ((ushort)((char)value));
+            __args [0] = new JniArgumentValue ((ushort) ((char)value));
             var __rm = _members.InstanceMethods.InvokeAbstractBooleanMethod (__id, this, __args);
             return __rm;
         } finally {
             global::System.GC.KeepAlive (value);
         }
     }
-
+}
 #endif
