@@ -4,6 +4,14 @@
 // Install ZString as a Cake Tool
 // #tool nuget:?package=ZString&version=2.6.0
 
+/*
+git clean -xdf
+dotnet cake -t=build-prepare-dotnet-android
+dotnet cake -t=net8-prepare-binderate-build
+dotnet cake -t=net10-prepare-binderate-build
+dotnet cake -t=net10-net8-prepare-binderate-build
+
+*/
 using System.Threading.Tasks;
 
 Task ("build-android-libraries-net10-net8")
@@ -20,10 +28,10 @@ Task ("build-android-libraries-net10-net8")
             RunTarget("build-prepare-dotnet-android");
             RunTarget("net8-prepare-binderate-build");
             //RunTarget("net10-prepare-binderate-build");
-            RunTarget("net10-net8-prepare-binderate-build");                    
+            RunTarget("net10-net8-prepare-binderate-build");
+            RunTarget("copy-net8-with-net8-to-multi-target");                
         }        
-    )
-    ;
+    );
 
 string dotnet;
 DeleteDirectorySettings delete_directory_setting = new () 
@@ -91,7 +99,7 @@ Task ("net10-net8-prepare-binderate-build")
                             files_net10_net8.Keys,
                             (string file) =>
                             {
-                                List<(string text_old, string text_new)> replacements = files_net10[file];
+                                List<(string text_old, string text_new)> replacements = files_net10_net8[file];
 
                                 string content = System.IO.File.ReadAllText(file);
 
@@ -131,6 +139,54 @@ Task ("net10-net8-prepare-binderate-build")
             RunTarget("revert-changes");
         }
     );
+
+Task ("copy-net8-with-net8-to-multi-target")
+    .Does
+    (
+        () =>
+        {
+            string assembly_name_source;
+            string assembly_name_target;
+
+            var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
+            
+            foreach(var assembly in assemblies)
+            {
+                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
+                assembly_name_target = System.IO.Path
+                                                .GetDirectoryName(assembly_name_source)
+                                                .Replace
+                                                    (
+                                                        "generated-net8.0", 
+                                                        "generated-net10.0-net8.0"
+                                                    );
+
+                Information($"{new string('-', 120)}");
+                Information($"source {assembly_name_source}");
+                Information($"target {assembly_name_target}");
+            }
+
+            foreach(var assembly in assemblies)
+            {
+                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
+                assembly_name_target = System.IO.Path
+                                                .GetDirectoryName(assembly_name_source)
+                                                .Replace
+                                                    (
+                                                        "generated-net8.0", 
+                                                        "generated-net10.0-net8.0"
+                                                    );
+                Information($"{new string('-', 120)}");
+                Information($"source {assembly_name_source}");
+                Information($"target {assembly_name_target}");
+
+                CopyFiles(assembly_name_source, assembly_name_target);
+                CopyDirectory("generated-net10.0-net8.0", "generated");
+                //RunTarget("nuget-pack-without-build");
+            }
+        }
+    );
+
 
 Task ("revert-changes")
     .Does
@@ -205,8 +261,7 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
 
-            dotnet = "../dotnet-android/dotnet-local.sh";
-            // dotnet = "dotnet";
+            dotnet = "dotnet";
 
             Information($"{new string('=', 120)}");
             StartProcess(dotnet, "--version");
@@ -226,7 +281,6 @@ Task ("net8-prepare-binderate-build")
             RunTarget("revert-changes");
         }
     );
-
 
 Dictionary<string, List<(string text_old, string text_new)>> files_net10_net8;
 Dictionary<string, List<(string text_old, string text_new)>> files_net10;
@@ -311,12 +365,12 @@ files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new
         "./Directory.Build.props",
         [
             (
-                """<_DefaultTargetFrameworks>net8.0</_DefaultTargetFrameworks>""",
-                """<_DefaultTargetFrameworks>net8.0;net10.0</_DefaultTargetFrameworks>"""
-            ),
-            (
                 """<_DefaultTargetFrameworks>net8.0-android</_DefaultTargetFrameworks>""",
                 """<_DefaultTargetFrameworks>net8.0-android;net10.0-android</_DefaultTargetFrameworks>"""
+            ),
+            (
+                """<_DefaultNetTargetFrameworks>net8.0</_DefaultNetTargetFrameworks>""",
+                """<_DefaultNetTargetFrameworks>net8.0;net10.0</_DefaultNetTargetFrameworks>"""
             ),
             (
                 """<AndroidXNuGetTargetFolders Include="build\net8.0-android34.0" />""",
