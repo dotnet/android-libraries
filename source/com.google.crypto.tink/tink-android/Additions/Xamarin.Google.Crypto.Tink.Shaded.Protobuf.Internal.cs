@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
 
+#if ! NET9_0_OR_GREATER
 namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf 
 {
 	// Metadata.xml XPath class reference: path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal']"
@@ -48,3 +49,4 @@ namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
     }
 
 }
+#endif
