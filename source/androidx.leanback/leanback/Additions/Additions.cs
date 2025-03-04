@@ -2,6 +2,8 @@
 using Android.Runtime;
 using Java.Interop;
 
+#if ! NET9_0_OR_GREATER
+
 namespace AndroidX.Leanback.Widget
 {
     public partial class BaseCardView
@@ -297,3 +299,4 @@ namespace AndroidX.Leanback.Widget.Picker
         }
     }
 }
+#endif
