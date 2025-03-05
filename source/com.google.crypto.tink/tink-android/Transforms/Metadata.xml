@@ -114,9 +114,9 @@
     </attr>
     <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
-        name="managedReturn"
+        name="return"
         >
-        System.Collections.ICollection
+        java.util.Set
     </attr>
 
     <add-node
@@ -445,10 +445,6 @@
     <remove-node
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='LazyStringArrayList']/method[@name='remove' and @return='java.lang.String' and count(parameter)=1 and parameter[1][@type='int']]"
         />
-    <remove-node
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
-    >
-    </remove-node>
 
     <attr
         path="/api/package[@name='com.google.crypto.tink.mac']/class[@name='AesCmacKey']/method[@name='getParameters' and count(parameter)=0]"
@@ -971,5 +967,7 @@
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='DescriptorProtos.FieldDescriptorProto.Builder']/method[@name='getType' and count(parameter)=0]"
         name="propertyName"
         ></attr>
+
+
 
 </metadata>
