@@ -16,6 +16,7 @@ namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
 		public partial class MapAdapter // : global::Java.Util.AbstractMap 
         {
 
+			/*
 			static Delegate? cb_entrySet;
 #pragma warning disable 0169
 			static Delegate GetEntrySetHandler ()
@@ -45,6 +46,7 @@ namespace Xamarin.Google.Crypto.Tink.Shaded.Protobuf
 				} finally {
 				}
 			}
+			*/
         }
     }
 
