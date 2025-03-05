@@ -15,46 +15,15 @@ steps:
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet $(dotnetNextVersion)'
-      inputs:
-        version: $(dotnetNextVersion)
-        performMultiLevelLookup: true
-        includePreviewVersions: true
-      
-  - ${{ each tool in parameters.dotnetTools }}:
-    - ${{ each pair in tool }}:
-      - pwsh: dotnet tool update -g ${{ pair.key }} --version ${{ pair.value }}
-        displayName: 'Install tool: ${{ pair.key }}'
-
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |
-        dotnet cake -t=dotnet-next `
-          --dotnet-version="$(dotnetNextVersion)" `
-          --framework-version="$(dotnetNextFrameworkVersion)" `
-          --api-level-version="$(dotnetNextApiLevel)"
-      displayName: Set up dotnet-next test changes
-
-  - ${{ if eq(parameters.runDotnetNextTest, false) }}:
-    - pwsh: |
-        dotnet workload install maui --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install .NET Workloads
-
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |
-        dotnet workload install maui --verbosity diag
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install Preview .NET Workloads
+  - pwsh: |
+      dotnet workload install android --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
+      dotnet workload install maui --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
+      if ($LASTEXITCODE -ne 0) {
+          Write-Host "##vso[task.logissue type=error]Failed to install workloads."
+          Write-Host "##vso[task.complete result=Failed;]"
+          exit 0
+      }
+    displayName: Install .NET Workloads
 
   - bash: |
       if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then

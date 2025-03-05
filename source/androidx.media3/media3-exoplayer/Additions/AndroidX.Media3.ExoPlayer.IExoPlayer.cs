@@ -10,32 +10,34 @@ delegate void _JniMarshal_PPIIL_V (IntPtr jnienv, IntPtr klass, int p0, int p1, 
 internal partial class IExoPlayerInvoker
 {
 	// These invokers are generated with IList<global::AndroidX.Media3.Common.MediaItem> instead of IList<MediaItem>
-	static Delegate? cb_addMediaItems_ILSystem_Collections_Generic_IList_1_;
+	static Delegate? cb_addMediaItems_AddMediaItems_ILSystem_Collections_Generic_IList_1__V;
 #pragma warning disable 0169
 	static Delegate GetAddMediaItems_ILSystem_Collections_Generic_IList_1_Handler ()
 	{
-		if (cb_addMediaItems_ILSystem_Collections_Generic_IList_1_ == null)
-			cb_addMediaItems_ILSystem_Collections_Generic_IList_1_ = JNINativeWrapper.CreateDelegate (new _JniMarshal_PPIL_V (n_AddMediaItems_ILSystem_Collections_Generic_IList_1_));
-		return cb_addMediaItems_ILSystem_Collections_Generic_IList_1_;
+		if (cb_addMediaItems_AddMediaItems_ILSystem_Collections_Generic_IList_1__V == null)
+			cb_addMediaItems_AddMediaItems_ILSystem_Collections_Generic_IList_1__V = JNINativeWrapper.CreateDelegate (new _JniMarshal_PPIL_V (n_AddMediaItems_ILSystem_Collections_Generic_IList_1_));
+		return cb_addMediaItems_AddMediaItems_ILSystem_Collections_Generic_IList_1__V;
 	}
 
 	static void n_AddMediaItems_ILSystem_Collections_Generic_IList_1_ (IntPtr jnienv, IntPtr native__this, int p0, IntPtr native_p1)
 	{
 		var __this = global::Java.Lang.Object.GetObject<global::AndroidX.Media3.ExoPlayer.IExoPlayer> (jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
-		var p1 = (global::System.Collections.Generic.IList<global::AndroidX.Media3.Common.MediaItem> ?)global::Java.Lang.Object.GetObject <Java.Lang.Object> (native_p1, JniHandleOwnership.DoNotTransfer);
+		var p1 = (global::System.Collections.Generic.IList`1?)global::Java.Lang.Object.GetObject<global::System.Collections.Generic.IList`1> (native_p1, JniHandleOwnership.DoNotTransfer);
 		__this.AddMediaItems (p0, p1);
 	}
 #pragma warning restore 0169
 
-	IntPtr id_addMediaItems_ILSystem_Collections_Generic_IList_1_;
-	public unsafe void AddMediaItems (int p0, global::System.Collections.Generic.IList<global::AndroidX.Media3.Common.MediaItem>? p1)
+	public unsafe void AddMediaItems (int p0, global::System.Collections.Generic.IList`1? p1)
 	{
-		if (id_addMediaItems_ILSystem_Collections_Generic_IList_1_ == IntPtr.Zero)
-			id_addMediaItems_ILSystem_Collections_Generic_IList_1_ = JNIEnv.GetMethodID (class_ref, "addMediaItems", "(ILSystem/Collections/Generic/IList<global::AndroidX.Media3.Common.MediaItem>;)V");
-		JValue* __args = stackalloc JValue [2];
-		__args [0] = new JValue (p0);
-		__args [1] = new JValue ((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p1).Handle);
-		JNIEnv.CallVoidMethod (((global::Java.Lang.Object) this).Handle, id_addMediaItems_ILSystem_Collections_Generic_IList_1_, __args);
+		const string __id = "addMediaItems.(ILSystem/Collections/Generic/IList`1;)V";
+		try {
+			JniArgumentValue* __args = stackalloc JniArgumentValue [2];
+			__args [0] = new JniArgumentValue (p0);
+			__args [1] = new JniArgumentValue ((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p1).Handle);
+			_members_androidx_media3_common_Player.InstanceMethods.InvokeAbstractVoidMethod (__id, this, __args);
+		} finally {
+			global::System.GC.KeepAlive (p1);
+		}
 	}
 
 	static Delegate? cb_addMediaItems_LSystem_Collections_Generic_IList_1_;
