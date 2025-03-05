@@ -11,6 +11,8 @@ dotnet cake -t=net8-prepare-binderate-build
 dotnet cake -t=net10-prepare-binderate-build
 dotnet cake -t=net10-net8-prepare-binderate-build
 
+dotnet cake -t=copy-net8-with-net8-to-multi-target
+
 */
 using System.Threading.Tasks;
 
@@ -22,19 +24,19 @@ Task ("build-android-libraries-net10-net8")
             // Parallel.Invoke
             //             (
             //                 () => RunTarget("build-prepare-dotnet-android"),
-            //                 () => RunTarget("net8-prepare-binderate-build") 
+            //                 () => RunTarget("net8-prepare-binderate-build")
             //             );
 
             RunTarget("build-prepare-dotnet-android");
             RunTarget("net8-prepare-binderate-build");
             //RunTarget("net10-prepare-binderate-build");
             RunTarget("net10-net8-prepare-binderate-build");
-            RunTarget("copy-net8-with-net8-to-multi-target");                
-        }        
+            //RunTarget("copy-net8-with-net8-to-multi-target");
+        }
     );
 
 string dotnet;
-DeleteDirectorySettings delete_directory_setting = new () 
+DeleteDirectorySettings delete_directory_setting = new ()
                                                     {
                                                         Recursive = true,
                                                         Force = true
@@ -48,10 +50,10 @@ Task ("build-prepare-dotnet-android")
         {
             string dir = "../dotnet-android/";
             DeleteDirectories(GetDirectories(dir), delete_directory_setting);
-            
+
             StartProcess("git", $"clone --recursive https://github.com/dotnet/android.git {dir}");
 
-            ProcessSettings ps = new ProcessSettings 
+            ProcessSettings ps = new ProcessSettings
                                             {
                                                 WorkingDirectory = dir,
                                                 RedirectStandardOutput = true,
@@ -68,9 +70,9 @@ Task ("build-prepare-dotnet-android")
 
             ps.Arguments = new ProcessArgumentBuilder().Append("prepare");
             StartProcess("make",ps);
-            Information(sb.ToString());                
+            Information(sb.ToString());
             sb.Clear();
-            
+
             ps.Arguments = new ProcessArgumentBuilder().Append("");
             StartProcess("make",ps);
 
@@ -87,7 +89,7 @@ Task ("net10-net8-prepare-binderate-build")
         {
             dotnet = "../dotnet-android/dotnet-local.sh";
 
-            /* 
+            /*
             ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
             */
             dotnet = "../dotnet-android/dotnet-local.sh";
@@ -149,22 +151,6 @@ Task ("copy-net8-with-net8-to-multi-target")
             string assembly_name_target;
 
             var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
-            
-            foreach(var assembly in assemblies)
-            {
-                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
-                assembly_name_target = System.IO.Path
-                                                .GetDirectoryName(assembly_name_source)
-                                                .Replace
-                                                    (
-                                                        "generated-net8.0", 
-                                                        "generated-net10.0-net8.0"
-                                                    );
-
-                Information($"{new string('-', 120)}");
-                Information($"source {assembly_name_source}");
-                Information($"target {assembly_name_target}");
-            }
 
             foreach(var assembly in assemblies)
             {
@@ -173,7 +159,7 @@ Task ("copy-net8-with-net8-to-multi-target")
                                                 .GetDirectoryName(assembly_name_source)
                                                 .Replace
                                                     (
-                                                        "generated-net8.0", 
+                                                        "generated-net8.0",
                                                         "generated-net10.0-net8.0"
                                                     );
                 Information($"{new string('-', 120)}");
@@ -181,9 +167,10 @@ Task ("copy-net8-with-net8-to-multi-target")
                 Information($"target {assembly_name_target}");
 
                 CopyFiles(assembly_name_source, assembly_name_target);
-                CopyDirectory("generated-net10.0-net8.0", "generated");
-                //RunTarget("nuget-pack-without-build");
             }
+
+            CopyDirectory("generated-net10.0-net8.0", "generated");
+            //RunTarget("nuget-pack-without-build");
         }
     );
 
@@ -195,11 +182,11 @@ Task ("revert-changes")
         {
             foreach(string file in files_net10_net8.Keys)
             {
-                StartProcess("git", $"restore {file}");                
+                StartProcess("git", $"restore {file}");
             }
             foreach(string file in files_net10.Keys)
             {
-                StartProcess("git", $"restore {file}");                
+                StartProcess("git", $"restore {file}");
             }
         }
     );
@@ -209,7 +196,7 @@ Task ("net10-prepare-binderate-build")
     (
         () =>
         {
-            /* 
+            /*
             ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
             */
             dotnet = "../dotnet-android/dotnet-local.sh";
