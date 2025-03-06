@@ -29,9 +29,10 @@ Task ("build-android-libraries-net10-net8")
 
             RunTarget("build-prepare-dotnet-android");
             RunTarget("net8-prepare-binderate-build");
-            //RunTarget("net10-prepare-binderate-build");
+            //RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
             RunTarget("net10-net8-prepare-binderate-build");
-            //RunTarget("copy-net8-with-net8-to-multi-target");
+            RunTarget("copy-net8-with-net8-to-multi-target");
+            RunTarget("nuget-pack-without-build");
         }
     );
 
@@ -170,7 +171,6 @@ Task ("copy-net8-with-net8-to-multi-target")
             }
 
             CopyDirectory("generated-net10.0-net8.0", "generated");
-            //RunTarget("nuget-pack-without-build");
         }
     );
 
