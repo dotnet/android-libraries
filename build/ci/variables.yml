@@ -27,6 +27,8 @@ variables:
   # Standard test variables
   standardTestProject: tests/allpackages/AllPackagesTests.csproj                              # Standard tests project file
   standardTestAssembly: tests/allpackages/bin/$(configuration)/net8.0/AllPackagesTests.dll    # Standard tests compiled binary
+  skipUnitTests: false
+  skipSamplesTests: true
 
   # Extended test variables
   extendedTestProject: tests/extended/ExtendedTests.csproj                              # Extended tests project file
@@ -36,3 +38,7 @@ variables:
   dotnetNextVersion: 9.0.100                                                            # .NET preview version to install
   dotnetNextFrameworkVersion: 9                                                         # The number to use for TF (eg: net9.0-android)
   dotnetNextApiLevel: 35                                                                # The Android SDK API Level to use (eg: -android35.0)
+
+  # dnceng-public variables
+  NetCorePublicPoolName: NetCore-Public-XL
+  WindowsPoolImageNetCorePublic: windows.vs2022.amd64.open
