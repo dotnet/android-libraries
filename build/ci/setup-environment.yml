@@ -1,7 +1,10 @@
 parameters:
   dotnetTools: []
   runDotnetNextTest: false
-  
+  installAndroidDependencies: false
+  androidSdkRoot: C:\Android\android-sdk
+  javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
+
 steps:
   # before the build starts, make sure the tooling is as expected
   - task: UseDotNet@2
@@ -54,14 +57,71 @@ steps:
       displayName: Install Preview .NET Workloads
 
   - bash: |
-      echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
+      if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
+          echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
+      else
+          echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
+      fi
     displayName: Use Java 11 SDK (Mac)
     condition: eq( variables['Agent.OS'], 'Darwin' )
-          
+
   - task: JavaToolInstaller@0
     displayName: Use Java 11 SDK (Windows)
-    condition: eq( variables['Agent.OS'], 'Windows_NT' )
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
     inputs:
       versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
+
+  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
+    - task: DotNetCoreCLI@2
+      displayName: Create android template
+      inputs:
+        command: custom
+        custom: new
+        arguments: android -o $(Agent.TempDirectory)/TempDroid
+
+    - task: DotNetCoreCLI@2
+      displayName: Install android dependencies
+      inputs:
+        command: build
+        projects: $(Agent.TempDirectory)/TempDroid/TempDroid.csproj
+        arguments: >-
+          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
+          -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+          -v:n -bl:output/install-android-dependencies.binlog
+        retryCountOnTaskFailure: 3
+
+    - pwsh: |
+        Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
+      displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
+
+    - pwsh: |
+        if ($IsWindows) {
+            $env:JAVA_HOME = Get-ChildItem -Path "C:\Program Files (x86)\Android\openjdk" -Filter "*jdk*" | Select-Object -First 1
+        }
+        $sdkManager = Get-ChildItem -Path "${{ parameters.androidSdkRoot }}\cmdline-tools" -Filter "sdkmanager*" -Recurse | Select-Object -First 1
+        $yesInput = "y`n" * 10
+        $yesInput | & $sdkManager --licenses
+        & $sdkManager "build-tools;29.0.3" "platforms;android-29"
+      displayName: Install extra Android SDK packages
+
+    - pwsh: |
+        $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
+        if ($IsMacOS) {
+            $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz"
+        }
+        $fileName = [System.IO.Path]::GetFileName($url)
+        Invoke-WebRequest -Uri $url -OutFile $fileName
+        Write-Host "##vso[task.setvariable variable=JDK_11_FILE_PATH]$(Build.StagingDirectory)/$fileName"
+      displayName: Download Java 11 SDK
+      workingDirectory: $(Build.StagingDirectory)
+
+    - task: JavaToolInstaller@0
+      displayName: Use Java 11 SDK
+      inputs:
+        versionSpec: '11'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: LocalDirectory
+        jdkFile: $(JDK_11_FILE_PATH)
+        jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}

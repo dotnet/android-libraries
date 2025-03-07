@@ -1,0 +1,50 @@
+trigger: none
+
+pr:
+- main
+
+parameters:
+- name: RunDotnetNextTest
+  displayName: Run on .NET next preview?
+  type: boolean
+  default: false
+
+variables:
+- template: build/ci/variables.yml
+
+stages:
+- stage: build_windows
+  displayName: Build - Windows
+  jobs:
+  - template: build/ci/build.yml@self
+    parameters:
+      name: windows
+      buildPool:
+        name: $(NetCorePublicPoolName)
+        demands:
+        - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
+      runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+      use1ESTemplate: false
+      installAndroidDependencies: true
+
+- stage: build_mac
+  displayName: Build - Mac
+  dependsOn: []
+  jobs:
+  - template: build/ci/build.yml@self
+    parameters:
+      name: macos
+      buildPool:
+        name: Azure Pipelines
+        vmImage: macOS-15
+      runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+      use1ESTemplate: false
+
+- template: build/ci/stage-standard-tests.yml@self
+  parameters:
+    buildPool:
+      name: $(NetCorePublicPoolName)
+      demands:
+      - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
+    runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
+    installAndroidDependencies: true
