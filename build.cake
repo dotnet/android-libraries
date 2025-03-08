@@ -18,6 +18,7 @@
 #load "build/cake/executive-order.cake"
 #load "build/cake/clean.cake"
 #load "build/cake/performance-timings.cake"
+#load "build/cake/build-dotnet-android.cake"
 
 using System.Xml.Linq;
 using Newtonsoft.Json;
