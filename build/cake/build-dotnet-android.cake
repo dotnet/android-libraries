@@ -9,6 +9,7 @@ git clean -xdf
 dotnet cake -t=build-prepare-dotnet-android
 dotnet cake -t=net8-prepare-binderate-build
 dotnet cake -t=net10-prepare-binderate-build
+dotnet cake -t=revert-changes
 dotnet cake -t=net10-net8-prepare-binderate-build
 
 dotnet cake -t=copy-net8-with-net8-to-multi-target
@@ -29,10 +30,15 @@ Task ("build-android-libraries-net10-net8")
 
             RunTarget("build-prepare-dotnet-android");
             RunTarget("net8-prepare-binderate-build");
-            //RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
-            RunTarget("net10-net8-prepare-binderate-build");
+            RunTarget("revert-changes-net8");
+            RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
+            RunTarget("revert-changes-net10");
+            //RunTarget("net10-net8-prepare-binderate-build");
+            RunTarget("revert-changes-net10-net8");
             RunTarget("copy-net8-with-net8-to-multi-target");
+            RunTarget("revert-changes");
             RunTarget("nuget-pack-without-build");
+            RunTarget("revert-changes");
         }
     );
 
@@ -138,8 +144,6 @@ Task ("net10-net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net10.0-net8.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0-net8.0");
             MoveDirectory("output", "output-net10.0-net8.0");
-
-            RunTarget("revert-changes");
         }
     );
 
@@ -163,19 +167,59 @@ Task ("copy-net8-with-net8-to-multi-target")
                                                         "generated-net8.0",
                                                         "generated-net10.0-net8.0"
                                                     );
+                DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
+                DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
+                DateTime dt_w_source = System.IO.File.GetLastWriteTime(assembly_name_source);
+                DateTime dt_c_target = System.IO.File.GetCreationTime(assembly_name_target);
+                DateTime dt_a_target = System.IO.File.GetLastAccessTime(assembly_name_target);
+                DateTime dt_w_target = System.IO.File.GetLastWriteTime(assembly_name_target);
+
                 Information($"{new string('-', 120)}");
                 Information($"source {assembly_name_source}");
+                Information($"          c:    {dt_c_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_source.ToString("yyyyMMdd-HHmmss")}");
                 Information($"target {assembly_name_target}");
+                Information($"          c:    {dt_c_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_target.ToString("yyyyMMdd-HHmmss")}");
 
                 CopyFiles(assembly_name_source, assembly_name_target);
             }
 
-            CopyDirectory("generated-net10.0-net8.0", "generated");
+            string s = "generated-net10.0-net8.0";
+            string t = "generated";
+
+            Information($"{new string('-', 120)}");
+            Information($"copying");
+            Information($"  source      {s}");
+            Information($"  source      {t}");
+            CopyDirectory(s, t);
         }
     );
 
 
-Task ("revert-changes")
+Task ("revert-changes-net8")
+    .Does
+    (
+        () =>
+        {
+        }
+    );
+
+Task ("revert-changes-net10")
+    .Does
+    (
+        () =>
+        {
+            foreach(string file in files_net10.Keys)
+            {
+                StartProcess("git", $"restore {file}");
+            }
+        }
+    );
+
+Task ("revert-changes-net10-net8")
     .Does
     (
         () =>
@@ -184,10 +228,8 @@ Task ("revert-changes")
             {
                 StartProcess("git", $"restore {file}");
             }
-            foreach(string file in files_net10.Keys)
-            {
-                StartProcess("git", $"restore {file}");
-            }
+
+            StartProcess("git", $"restore global.json");
         }
     );
 
@@ -233,8 +275,6 @@ Task ("net10-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0");
             MoveDirectory("output", "output-net10.0");
-
-            RunTarget("revert-changes");
         }
     );
 
@@ -264,13 +304,11 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net8.0");
             MoveDirectory("output", "output-net8.0");
-
-            RunTarget("revert-changes");
         }
     );
 
-Dictionary<string, List<(string text_old, string text_new)>> files_net10_net8;
 Dictionary<string, List<(string text_old, string text_new)>> files_net10;
+Dictionary<string, List<(string text_old, string text_new)>> files_net10_net8;
 
 
 files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
