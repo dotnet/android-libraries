@@ -8,8 +8,9 @@
 git clean -xdf
 dotnet cake -t=build-prepare-dotnet-android
 dotnet cake -t=net8-prepare-binderate-build
+dotnet cake -t=revert-changes-net8
 dotnet cake -t=net10-prepare-binderate-build
-dotnet cake -t=revert-changes
+dotnet cake -t=revert-changes-net10
 dotnet cake -t=net10-net8-prepare-binderate-build
 
 dotnet cake -t=copy-net8-with-net8-to-multi-target
@@ -204,6 +205,7 @@ Task ("revert-changes-net8")
     (
         () =>
         {
+            DeleteFile(path_global_json);
         }
     );
 
@@ -279,6 +281,8 @@ Task ("net10-prepare-binderate-build")
     );
 
 
+string path_global_json = "./global.json";
+
 Task ("net8-prepare-binderate-build")
     .Does
     (
@@ -287,6 +291,27 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
+
+            string path_global_json = "./global.json";
+            string content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "version": "8.0.404",
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+            EnsureDirectoryExists("./output");
 
             dotnet = "dotnet";
 
