@@ -34,12 +34,10 @@ Task ("build-android-libraries-net10-net8")
             RunTarget("revert-changes-net8");
             RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
             RunTarget("revert-changes-net10");
-            //RunTarget("net10-net8-prepare-binderate-build");
+            RunTarget("net10-net8-prepare-binderate-build");
             RunTarget("revert-changes-net10-net8");
             RunTarget("copy-net8-with-net8-to-multi-target");
-            RunTarget("revert-changes");
             RunTarget("nuget-pack-without-build");
-            RunTarget("revert-changes");
         }
     );
 
@@ -50,6 +48,53 @@ DeleteDirectorySettings delete_directory_setting = new ()
                                                         Force = true
                                                     };
 
+Task ("nuget-pack-without-build-net10-net8")
+    .Does
+    (
+        () =>
+        {
+            dotnet = "../dotnet-android/dotnet-local.sh";
+
+            var projects = GetFiles($"./generated/**/*.csproj");
+
+            Information($"{new string('=', 120)}");
+            string dotnet_pack =    "pack"
+                                    + " " +
+                                    "__PLACEHOLDER_PROJECT__"
+                                    + " " +
+                                    "--no-build"
+                                    + " " +
+                                    "--output ./output/"
+                                    ;
+            /*
+            System has ran out of application memory.
+
+            dotnet(94604) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+            */
+            Information($"{new string('=', 120)}");
+            Information($"  Environment.ProcessorCount = {Environment.ProcessorCount}");
+            
+            Parallel.ForEach
+                         (
+                            projects,
+                            new ParallelOptions 
+                                        {
+                                            MaxDegreeOfParallelism = 8 
+                                        },
+                            (FilePath file) =>
+                            {
+                                string dotnet_pack_project = dotnet_pack.Replace
+                                                                        (
+                                                                            "__PLACEHOLDER_PROJECT__",
+                                                                            file.ToString()
+                                                                        );
+                                StartProcess(dotnet, dotnet_pack_project);
+                                Information($"{file.ToString()}");
+                            }
+                         );
+
+        }
+    );
 
 Task ("build-prepare-dotnet-android")
     .Does
