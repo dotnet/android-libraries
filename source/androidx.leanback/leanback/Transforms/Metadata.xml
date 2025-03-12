@@ -42,11 +42,13 @@
     <remove-node path="/api/package[@name='androidx.leanback.widget.picker']/class[@name='Picker.PickerScrollArrayAdapter']" />
     <attr path="/api/package[@name='androidx.leanback.transition']/class[@name='FadeAndShortSlide.CalculateSlide']" name="visibility">internal</attr>
     <attr path="/api/package[@name='androidx.leanback.app']/class[@name='BackgroundManager.DrawableWrapper']" name="visibility">public</attr>
+    <!--
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='BaseCardView']/method[@name='setSelected' and count(parameter)=1 and parameter[1][@type='boolean']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='BaseCardView']/method[@name='setActivated' and count(parameter)=1 and parameter[1][@type='boolean']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='MediaNowPlayingView']/method[@name='setVisibility' and count(parameter)=1 and parameter[1][@type='int']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget.picker']/class[@name='Picker']/method[@name='setActivated' and count(parameter)=1 and parameter[1][@type='boolean']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='SearchBar']/method[@name='setNextFocusDownId' and count(parameter)=1 and parameter[1][@type='int']]" />
+    -->
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='ParallaxSource']/method[@name='addProperty' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='ParallaxSource']/method[@name='addProperty' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='BaseGridView']/method[@name='setHasOverlappingRendering' and count(parameter)=1 and parameter[1][@type='boolean']]" />
@@ -63,9 +65,7 @@
     </add-node>
     <!-- The generator can't handle OnItemViewClickedListener implementing BaseOnItemViewClickedListener<Row> in java when it emits the ACW's when you implement the inteface in a c# class -->
     <!-- This will remove the implementation and then fake it on the OnItemViewClickedListener interface by adding the method as if it existed there instead of the base interface -->
-    <!--
     <remove-node path="/api/package[@name='androidx.leanback.widget']/interface[@name='OnItemViewSelectedListener']/implements[1]" />
-    -->
     <add-node path="/api/package[@name='androidx.leanback.widget']/interface[@name='OnItemViewSelectedListener']">
         <method abstract="true" deprecated="not deprecated" final="false" name="onItemSelected" native="false" return="void" jni-return="V" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Landroid/support/v17/leanback/widget/Presenter$ViewHolder;Ljava/lang/Object;Landroid/support/v17/leanback/widget/RowPresenter$ViewHolder;Landroid/support/v17/leanback/widget/Row;)V">
             <parameter name="itemViewHolder" type="androidx.leanback.widget.Presenter.ViewHolder" jni-type="Landroid/support/v17/leanback/widget/Presenter$ViewHolder;" />
@@ -87,7 +87,12 @@
     <attr path="/api/package[@name='androidx.leanback.widget']/class[@name='Parallax.IntProperty']/method[@name='get' and count(parameter)=1 and parameter[1][@type='androidx.leanback.widget.Parallax.IntParallax']]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='androidx.leanback.widget']/class[@name='Parallax.IntProperty']/method[@name='get' and count(parameter)=1 and parameter[1][@type='androidx.leanback.widget.Parallax.IntParallax']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
     <!--	<remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='ParallaxRecyclerViewSource']/method[@name='createProperty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]"/>-->
+    <remove-node
+        path="/api/package[@name='androidx.leanback.widget']/class[@name='Parallax']/typeParameters"
+        />
+    <!--
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='RecyclerViewParallax']/method[@name='createProperty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]" />
+    -->
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='Parallax.FloatParallax']/method[@name='addProperty' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
     <remove-node path="/api/package[@name='androidx.leanback.widget']/class[@name='Parallax.IntParallax']/method[@name='addProperty' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
     <attr path="/api/package[@name='androidx.leanback.widget']/class[@name='GuidedActionDiffCallback']/method[@name='areContentsTheSame' and count(parameter)=2 and parameter[1][@type='androidx.leanback.widget.GuidedAction'] and parameter[2][@type='androidx.leanback.widget.GuidedAction']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
@@ -269,13 +274,17 @@
         >
         protected
     </attr>
-
+    
+    <remove-node
+        path="/api/package[@name='androidx.leanback.widget']/class[@name='StaggeredGrid']"
+        />
 
     <attr
-        path="/api/package[@name='androidx.leanback.widget']/interface[@name='BaseOnItemViewSelectedListener']/method[@name='onItemSelected' and count(parameter)=4 and parameter[1][@type='androidx.leanback.widget.Presenter.ViewHolder'] and parameter[2][@type='java.lang.Object'] and parameter[3][@type='androidx.leanback.widget.RowPresenter.ViewHolder'] and parameter[4][@type='T']]/parameter[4]"
-        name="type"
+        path="/api/package[@name='androidx.leanback.widget']/class[@name='RecyclerViewParallax']/method[@name='createProperty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]"
+        name="vmanagedReturn"
         >
-        androidx.leanback.widget.Row
+        Java.Lang.Object
     </attr>
-    
+
+
 </metadata>
