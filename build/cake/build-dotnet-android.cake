@@ -12,8 +12,9 @@ dotnet cake -t=revert-changes-net8
 dotnet cake -t=net10-prepare-binderate-build
 dotnet cake -t=revert-changes-net10
 dotnet cake -t=net10-net8-prepare-binderate-build
-
 dotnet cake -t=copy-net8-with-net8-to-multi-target
+dotnet cake -t=nuget-pack-without-build-net10-net8
+dotnet cake -t=revert-changes-net10-net8
 
 */
 using System.Threading.Tasks;
@@ -79,7 +80,7 @@ Task ("nuget-pack-without-build-net10-net8")
                             projects,
                             new ParallelOptions 
                                         {
-                                            MaxDegreeOfParallelism = 8 
+                                            MaxDegreeOfParallelism = Environment.ProcessorCount - 4 
                                         },
                             (FilePath file) =>
                             {
