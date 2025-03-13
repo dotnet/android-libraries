@@ -26,12 +26,6 @@ parameters:
 variables:
   # Variables used by both AndroidX/GPS go in the template
   - template: build/ci/variables.yml@self
-  
-  # Variables only used by AndroidX go here
-  - name: skipUnitTests
-    value: false
-  - name: skipSamplesTests
-    value: true
 
 resources:
   repositories:
@@ -70,7 +64,7 @@ extends:
 
     - stage: build_mac
       displayName: Build - Mac
-      dependsOn:
+      dependsOn: []
       
       jobs:
       - template: build/ci/build.yml@self

@@ -7,7 +7,9 @@ parameters:
   timeoutInMinutes: 300                                             # Max job runtime in minutes
   runAPIScan: false                                                 # Run APIScan analysis
   runDotnetNextTest: false
-  
+  use1ESTemplate: true
+  installAndroidDependencies: false
+
   tools:                                                            # Additional .NET global tools to install
   - 'Cake.Tool': '4.0.0'
   - 'private-api-tools': '1.0.3'
@@ -23,24 +25,25 @@ jobs:
   pool: ${{ parameters.buildPool }}
   workspace:
     clean: all
-    
-  templateContext:
-    sdl:
-      spotBugs:
-        enabled: false
-      binskim:
-        scanOutputDirectoryOnly: true
-    outputs:
-    - output: pipelineArtifact
-      targetPath: ${{ parameters.artifactsPath }}
-      artifactName: output-${{ parameters.name }}
-      condition: always()
+  ${{ if eq(parameters.use1ESTemplate, true) }}:
+    templateContext:
+      sdl:
+        spotBugs:
+          enabled: false
+        binskim:
+          scanOutputDirectoryOnly: true
+      outputs:
+      - output: pipelineArtifact
+        targetPath: ${{ parameters.artifactsPath }}
+        artifactName: output-${{ parameters.name }}
+        condition: always()
       
   steps:
     - template: setup-environment.yml
       parameters:
         dotnetTools: ${{ parameters.tools }}
         runDotnetNextTest: ${{ parameters.runDotnetNextTest }}
+        installAndroidDependencies: ${{ parameters.installAndroidDependencies }}
 
     - template: build-and-test.yml
       parameters:
@@ -64,3 +67,11 @@ jobs:
           Write-Host "${{ parameters.artifactsPath }}\SignList.xml already existed, nothing copied."
         }
       displayName: Copy SignList.xml to output
+
+    - ${{ if ne(parameters.use1ESTemplate, true) }}:
+      - task: PublishPipelineArtifact@1
+        displayName: Upload logs
+        inputs:
+          artifactName: output-${{ parameters.name }}
+          targetPath: ${{ parameters.artifactsPath }}
+          condition: always()
