@@ -5,18 +5,45 @@
 // #tool nuget:?package=ZString&version=2.6.0
 
 /*
-git clean -xdf
-dotnet cake -t=build-prepare-dotnet-android
-dotnet cake -t=net8-prepare-binderate-build
-dotnet cake -t=revert-changes-net8
-dotnet cake -t=net10-prepare-binderate-build
-dotnet cake -t=revert-changes-net10
-dotnet cake -t=net10-net8-prepare-binderate-build
-dotnet cake -t=copy-net8-with-net8-to-multi-target
-dotnet cake -t=nuget-pack-without-build-net10-net8
-dotnet cake -t=revert-changes-net10-net8
+```shell
+    git clean -xdf ; dotnet cake -t=build-android-libraries-net10-net8
+```
 
+Step by step tests:
+
+```shell
+    git clean -xdf
+    dotnet cake -t=build-prepare-dotnet-android
+    dotnet cake -t=net8-prepare-binderate-build
+    dotnet cake -t=revert-changes-net8
+    dotnet cake -t=net10-prepare-binderate-build
+    dotnet cake -t=revert-changes-net10
+    dotnet cake -t=net10-net8-prepare-binderate-build
+    dotnet cake -t=copy-net8-with-net8-to-multi-target
+    dotnet cake -t=nuget-pack-without-build-net10-net8
+    dotnet cake -t=revert-changes-net10-net8
+```
 */
+/*
+```bash
+git clone \
+    --branch mu-20241209-net10-removal-of-generator-workarounds \
+    https://github.com/dotnet/android-libraries.git \
+    al-bash/
+cd al-bash/
+dotnet cake -t:build-android-libraries-net10-net8
+```
+
+```pwsh
+git clone `
+    --branch mu-20241209-net10-removal-of-generator-workarounds `
+    https://github.com/dotnet/android-libraries.git `
+    al-pwsh/
+cd al-pwsh/
+dotnet cake -t:build-android-libraries-net10-net8
+```
+*/
+
 using System.Threading.Tasks;
 
 Task ("build-android-libraries-net10-net8")
@@ -80,7 +107,7 @@ Task ("nuget-pack-without-build-net10-net8")
                             projects,
                             new ParallelOptions 
                                         {
-                                            MaxDegreeOfParallelism = Environment.ProcessorCount - 4 
+                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
                                         },
                             (FilePath file) =>
                             {
@@ -153,6 +180,10 @@ Task ("net10-net8-prepare-binderate-build")
             Parallel.ForEach
                          (
                             files_net10_net8.Keys,
+                            new ParallelOptions 
+                                        {
+                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
+                                        },
                             (string file) =>
                             {
                                 List<(string text_old, string text_new)> replacements = files_net10_net8[file];
@@ -296,6 +327,10 @@ Task ("net10-prepare-binderate-build")
             Parallel.ForEach
                          (
                             files_net10.Keys,
+                            new ParallelOptions 
+                                        {
+                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
+                                        },
                             (string file) =>
                             {
                                 List<(string text_old, string text_new)> replacements = files_net10[file];
@@ -344,7 +379,7 @@ Task ("net8-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "8.0.404",
+                    "version": "8.0.407",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
