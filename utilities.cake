@@ -2089,7 +2089,7 @@ Task("java-resolution-analysis")
 
             string dir = "output/java-resolution-analysis";
             EnsureDirectoryExists(dir);
-            EnsureDirectoryExists($"{dir}/net8.0-android");
+            EnsureDirectoryExists($"{dir}/net9.0-android");
 
             ConcurrentDictionary
                     <
@@ -2130,7 +2130,7 @@ Task("java-resolution-analysis")
 
             java_resolution_analysis.TryAdd
                                         (
-                                            "net8.0-android", 
+                                            "net9.0-android", 
                                             new ConcurrentDictionary
                                                         <
                                                             string, 
