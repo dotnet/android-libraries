@@ -73,6 +73,8 @@ Task ("build-android-libraries-net10-net8")
     );
 
 string dotnet;
+string path_global_json = "./global.json";
+string content_global_json;
 DeleteDirectorySettings delete_directory_setting = new ()
                                                     {
                                                         Recursive = true,
@@ -132,6 +134,25 @@ Task ("build-prepare-dotnet-android")
     (
         () =>
         {
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "version": "8.0.407",
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
             string dir = "../dotnet-android/";
             DeleteDirectories(GetDirectories(dir), delete_directory_setting);
 
@@ -171,6 +192,24 @@ Task ("net10-net8-prepare-binderate-build")
     (
         () =>
         {
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
             dotnet = "../dotnet-android/dotnet-local.sh";
 
             /*
@@ -320,6 +359,24 @@ Task ("net10-prepare-binderate-build")
     (
         () =>
         {
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
             /*
             ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
             */
@@ -364,9 +421,6 @@ Task ("net10-prepare-binderate-build")
         }
     );
 
-
-string path_global_json = "./global.json";
-
 Task ("net8-prepare-binderate-build")
     .Does
     (
@@ -376,8 +430,7 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
 
-            string path_global_json = "./global.json";
-            string content_global_json =
+            content_global_json =
             """
             {
                 "sdk":
@@ -395,6 +448,7 @@ Task ("net8-prepare-binderate-build")
             }
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
+
             EnsureDirectoryExists("./output");
 
             dotnet = "dotnet";
