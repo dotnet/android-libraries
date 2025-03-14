@@ -110,7 +110,7 @@ Task ("nuget-pack-without-build-net10-net8")
                             projects,
                             new ParallelOptions 
                                         {
-                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
+                                            MaxDegreeOfParallelism = Math.Round(0.75 * Environment.ProcessorCount)
                                         },
                             (FilePath file) =>
                             {
@@ -185,7 +185,7 @@ Task ("net10-net8-prepare-binderate-build")
                             files_net10_net8.Keys,
                             new ParallelOptions 
                                         {
-                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
+                                            MaxDegreeOfParallelism = Math.Round(0.75 * Environment.ProcessorCount)
                                         },
                             (string file) =>
                             {
@@ -332,7 +332,7 @@ Task ("net10-prepare-binderate-build")
                             files_net10.Keys,
                             new ParallelOptions 
                                         {
-                                            MaxDegreeOfParallelism = (int) 0.75 * Environment.ProcessorCount
+                                            MaxDegreeOfParallelism = Math.Round(0.75 * Environment.ProcessorCount)
                                         },
                             (string file) =>
                             {
