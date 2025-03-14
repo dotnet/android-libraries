@@ -145,7 +145,7 @@ Task ("build-prepare-dotnet-android")
                 "msbuild-sdks":
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.Traversal": "4.1.82",
                     "Microsoft.Build.NoTargets": "3.7.56",
                     "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
                 }
@@ -202,7 +202,7 @@ Task ("net10-net8-prepare-binderate-build")
                 "msbuild-sdks":
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.Traversal": "4.1.82",
                     "Microsoft.Build.NoTargets": "3.7.56",
                     "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
                 }
@@ -369,7 +369,7 @@ Task ("net10-prepare-binderate-build")
                 "msbuild-sdks":
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.Traversal": "4.1.82",
                     "Microsoft.Build.NoTargets": "3.7.56",
                     "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
                 }
@@ -441,7 +441,7 @@ Task ("net8-prepare-binderate-build")
                 "msbuild-sdks":
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.0",
+                    "Microsoft.Build.Traversal": "4.1.82",
                     "Microsoft.Build.NoTargets": "3.7.56",
                     "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
                 }
