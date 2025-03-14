@@ -5,6 +5,8 @@
 // #tool nuget:?package=ZString&version=2.6.0
 
 /*
+Quick test
+
 ```shell
     git clean -xdf ; dotnet cake -t=build-android-libraries-net10-net8
 ```
@@ -23,8 +25,9 @@ Step by step tests:
     dotnet cake -t=nuget-pack-without-build-net10-net8
     dotnet cake -t=revert-changes-net10-net8
 ```
-*/
-/*
+
+Tests from scratch:
+
 ```bash
 git clone \
     --branch mu-20241209-net10-removal-of-generator-workarounds \
