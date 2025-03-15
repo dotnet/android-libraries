@@ -20,6 +20,27 @@ Task ("nuget")
     );
 });
 
+Task ("nuget-pack-without-build")
+    .Does
+    (
+        () =>
+        {
+            var settings = new DotNetMSBuildSettings ()
+                .SetConfiguration (CONFIGURATION)
+                .EnableBinaryLogger ($"./output/nuget-pack-without-build.{CONFIGURATION}.binlog")
+                .WithProperty ("NoBuild", "true")
+                .WithProperty ("PackageOutputPath", MakeAbsolute ((DirectoryPath)"./output/").FullPath)
+                .WithTarget ("Pack");
+
+            DotNetBuild 
+                    (
+                        "./generated/AndroidX.sln", 
+                        new DotNetBuildSettings { MSBuildSettings = settings }
+                    );
+        }
+    );
+
+
 // Builds the .csproj projects
 Task ("libs")
     .IsDependentOn("metadata-verify")
