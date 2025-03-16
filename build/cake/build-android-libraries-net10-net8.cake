@@ -136,9 +136,9 @@ Task ("build-prepare-dotnet-android")
         {
             if                    
                 (
-                    BuildSystem.IsRunningOnAzurePipelines
+                    BuildSystem.IsRunningOnAzurePipelines()
                     ||
-                    BuildSystem.BuildSystem.IsRunningOnGitHubActions
+                    BuildSystem.BuildSystem.IsRunningOnGitHubActions()
                 )
             {
                 RunTarget("prepare-dotnet-android");
@@ -201,7 +201,7 @@ Task ("prepare-dotnet-android")
     (
         () =>
         {
-            if (IsRunningOnMacOs)
+            if (IsRunningOnMacOs())
             {
                 // https://github.com/dotnet/android/blob/main/Documentation/building/unix/dependencies.md
 
@@ -229,9 +229,10 @@ Task ("prepare-dotnet-android")
                 StartProcess("brew", $"install xz");
 
             }
-            if (IsRunningOnWindows)
+            if (IsRunningOnWindows())
             {
                 // https://github.com/dotnet/android/blob/main/Documentation/building/windows/dependencies.md
+                // https://winget.run/search
 
                 /*
                 StartProcess("winget", $"install -e --id JernejSimoncic.Wget");
