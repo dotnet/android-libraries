@@ -134,16 +134,13 @@ Task ("build-prepare-dotnet-android")
     (
         () =>
         {
-            if                    
-                (
-                    BuildSystem.IsRunningOnAzurePipelines()
-                    ||
-                    BuildSystem.BuildSystem.IsRunningOnGitHubActions()
-                )
+            if ( BuildSystem.IsRunningOnAzurePipelines || BuildSystem.IsRunningOnGitHubActions )
             {
+                Information("IsRunningOnAzurePipelines || IsRunningOnGitHubActions");
                 RunTarget("prepare-dotnet-android");
             }
 
+            Information("Local Build");
             content_global_json =
             """
             {
@@ -203,6 +200,7 @@ Task ("prepare-dotnet-android")
         {
             if (IsRunningOnMacOs())
             {
+                Information("IsRunningOnMacOs");
                 // https://github.com/dotnet/android/blob/main/Documentation/building/unix/dependencies.md
 
                 StartProcess("curl", $"-c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"");
@@ -231,6 +229,7 @@ Task ("prepare-dotnet-android")
             }
             if (IsRunningOnWindows())
             {
+                Information("IsRunningOnWindows");
                 // https://github.com/dotnet/android/blob/main/Documentation/building/windows/dependencies.md
                 // https://winget.run/search
 
