@@ -134,6 +134,16 @@ Task ("build-prepare-dotnet-android")
     (
         () =>
         {
+            if                    
+                (
+                    BuildSystem.IsRunningOnAzurePipelines
+                    ||
+                    BuildSystem.BuildSystem.IsRunningOnGitHubActions
+                )
+            {
+                RunTarget("prepare-dotnet-android");
+            }
+
             content_global_json =
             """
             {
@@ -186,6 +196,52 @@ Task ("build-prepare-dotnet-android")
         }
     );
 
+Task ("prepare-dotnet-android")
+    .Does
+    (
+        () =>
+        {
+            if (IsRunningOnMacOs)
+            {
+                // https://github.com/dotnet/android/blob/main/Documentation/building/unix/dependencies.md
+
+                StartProcess("curl", $"-c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"");
+
+                StartProcess("brew", $"install automake");
+                StartProcess("brew", $"install autoconf");
+                StartProcess("brew", $"install cmake");
+                StartProcess("brew", $"install libtool");
+                StartProcess("brew", $"install p7zip");
+                StartProcess("brew", $"install gdk-pixbuf");
+                StartProcess("brew", $"install gettext");
+                StartProcess("brew", $"install coreutils");
+                StartProcess("brew", $"install findutils");
+                StartProcess("brew", $"install gnu-tar");
+                StartProcess("brew", $"install gnu-sed");
+                StartProcess("brew", $"install gawk");
+                StartProcess("brew", $"install gnutls");
+                StartProcess("brew", $"install gnu-indent");
+                StartProcess("brew", $"install gnu-getopt");
+                StartProcess("brew", $"install intltool");
+                StartProcess("brew", $"install ninja");
+                StartProcess("brew", $"install scons");
+                StartProcess("brew", $"install wget");
+                StartProcess("brew", $"install xz");
+
+            }
+            if (IsRunningOnWindows)
+            {
+                // https://github.com/dotnet/android/blob/main/Documentation/building/windows/dependencies.md
+
+                /*
+                StartProcess("winget", $"install -e --id JernejSimoncic.Wget");
+                StartProcess("winget", $"install -e --id Ninja-build.Ninja");
+                */
+            }
+
+             
+        }
+    );
 
 Task ("net10-net8-prepare-binderate-build")
     .Does
