@@ -180,11 +180,13 @@ Task ("build-prepare-dotnet-android")
                                                                 return output;
                                                             };
 
+            Information("make prepare");
             ps.Arguments = new ProcessArgumentBuilder().Append("prepare");
             StartProcess("make",ps);
             Information(sb.ToString());
             sb.Clear();
 
+            Information("make");
             ps.Arguments = new ProcessArgumentBuilder().Append("");
             StartProcess("make",ps);
 
