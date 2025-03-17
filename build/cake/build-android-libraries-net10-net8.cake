@@ -47,6 +47,8 @@ dotnet cake -t:build-android-libraries-net10-net8
 ```
 */
 
+bool build_dotnet_android = false;
+
 using System.Threading.Tasks;
 
 Task ("build-android-libraries-net10-net8")
@@ -60,7 +62,10 @@ Task ("build-android-libraries-net10-net8")
             //                 () => RunTarget("net8-prepare-binderate-build")
             //             );
 
-            RunTarget("build-prepare-dotnet-android");
+            if (build_dotnet_android)
+            {
+                RunTarget("build-prepare-dotnet-android");
+            }
             RunTarget("net8-prepare-binderate-build");
             RunTarget("revert-changes-net8");
             // RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
@@ -86,7 +91,14 @@ Task ("nuget-pack-without-build-net10-net8")
     (
         () =>
         {
-            dotnet = "../dotnet-android/dotnet-local.sh";
+            if (build_dotnet_android)
+            {
+                dotnet = "../dotnet-android/dotnet-local.sh";
+            }
+            else 
+            {
+                dotnet = "dotnet";
+            }
 
             var projects = GetFiles($"./generated/**/*.csproj");
 
@@ -250,11 +262,25 @@ Task ("net10-net8-prepare-binderate-build")
     (
         () =>
         {
+            /*
+            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
+            */
+
+            if (build_dotnet_android)
+            {
+                dotnet = "../dotnet-android/dotnet-local.sh";
+            }
+            else 
+            {
+                dotnet = "dotnet";
+            }
+
             content_global_json =
             """
             {
                 "sdk":
                 {
+                    "version": "10.0.100-preview.1.25120.13",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
@@ -267,13 +293,6 @@ Task ("net10-net8-prepare-binderate-build")
             }
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
-
-            dotnet = "../dotnet-android/dotnet-local.sh";
-
-            /*
-            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
-            */
-            dotnet = "../dotnet-android/dotnet-local.sh";
 
             Information($"{new string('=', 120)}");
             StartProcess(dotnet, "--version");
