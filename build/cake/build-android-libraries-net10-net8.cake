@@ -15,7 +15,6 @@ Step by step tests:
 
 ```shell
     git clean -xdf
-    dotnet cake -t=build-prepare-dotnet-android
     dotnet cake -t=net8-prepare-binderate-build
     dotnet cake -t=revert-changes-net8
     dotnet cake -t=net10-prepare-binderate-build
@@ -295,7 +294,7 @@ Task ("net10-net8-prepare-binderate-build")
             System.IO.File.WriteAllText(path_global_json, content_global_json);
 
             Information($"{new string('=', 120)}");
-            StartProcess(dotnet, "--version");
+            RunTarget("binderate");
             Parallel.ForEach
                          (
                             files_net10_net8.Keys,
@@ -318,22 +317,13 @@ Task ("net10-net8-prepare-binderate-build")
                             }
                          );
 
-            StartProcess(dotnet, "cake -t=binderate");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            StartProcess(dotnet, "cake -t=nuget");
 
-            Information($"{new string('=', 120)}");
-            StartProcess(dotnet, "--version");
             StartProcess
                     (
                         dotnet,
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
-            StartProcess(dotnet, "cake -t=nuget");
+            RunTarget("nuget");
 
             //git restore pathTo/MyFile
 
@@ -454,13 +444,6 @@ Task ("net10-prepare-binderate-build")
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
 
-            /*
-            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
-            */
-            dotnet = "../dotnet-android/dotnet-local.sh";
-
-            Information($"{new string('=', 120)}");
-            StartProcess(dotnet, "--version");
             Parallel.ForEach
                          (
                             files_net10.Keys,
@@ -483,13 +466,13 @@ Task ("net10-prepare-binderate-build")
                             }
                          );
 
-            StartProcess(dotnet, "cake -t=binderate");
+            RunTarget("binderate");
             StartProcess
                     (
                         dotnet,
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
-            StartProcess(dotnet, "cake -t=nuget");
+            RunTarget("nuget");
 
             DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
             DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
@@ -531,14 +514,13 @@ Task ("net8-prepare-binderate-build")
             dotnet = "dotnet";
 
             Information($"{new string('=', 120)}");
-            StartProcess(dotnet, "--version");
-            StartProcess(dotnet, "cake -t=binderate");
+            RunTarget("binderate");
             StartProcess
                     (
                         dotnet,
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
-            StartProcess(dotnet, "cake -t=nuget");
+            RunTarget("nuget");
 
             DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
             DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
