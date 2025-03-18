@@ -17,7 +17,6 @@ namespace AndroidX.Leanback.App
 					}
 				}
 			}
-
 		}
 	}
 }
