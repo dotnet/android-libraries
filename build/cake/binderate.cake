@@ -10,6 +10,8 @@ Task ("binderate")
     var configFile = MakeAbsolute (new FilePath ("./config.json")).FullPath;
     var basePath = MakeAbsolute (new DirectoryPath ("./")).FullPath;
 
+    EnsureDirectoryExists ("./output");
+    
     // Run the binderator project
     var args = new ProcessArgumentBuilder ()
         .Append ("binderate")
