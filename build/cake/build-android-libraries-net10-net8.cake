@@ -431,6 +431,7 @@ Task ("net10-prepare-binderate-build")
             {
                 "sdk":
                 {
+                    "version": "10.0.100-preview.1.25120.13",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
