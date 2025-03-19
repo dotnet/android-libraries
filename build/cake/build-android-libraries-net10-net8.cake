@@ -445,6 +445,7 @@ Task ("net10-prepare-binderate-build")
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
 
+            Information("Change files");
             Parallel.ForEach
                          (
                             files_net10.Keys,
@@ -467,6 +468,7 @@ Task ("net10-prepare-binderate-build")
                             }
                          );
 
+            Information("binderate");
             RunTarget("binderate");
             StartProcess
                     (
