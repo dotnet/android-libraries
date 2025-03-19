@@ -67,12 +67,12 @@ Task ("build-android-libraries-net10-net8")
             }
             RunTarget("net8-prepare-binderate-build");
             RunTarget("revert-changes-net8");
-            // RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
-            // RunTarget("revert-changes-net10");
-            RunTarget("net10-net8-prepare-binderate-build");
-            RunTarget("copy-net8-with-net8-to-multi-target");
-            RunTarget("nuget-pack-without-build-net10-net8");
-            RunTarget("revert-changes-net10-net8");
+            RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
+            RunTarget("revert-changes-net10");
+            // RunTarget("net10-net8-prepare-binderate-build");
+            // RunTarget("copy-net8-with-net8-to-multi-target");
+            // RunTarget("nuget-pack-without-build-net10-net8");
+            // RunTarget("revert-changes-net10-net8");
         }
     );
 
@@ -279,7 +279,7 @@ Task ("net10-net8-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.1.25120.13",
+                    "version": "10.0.100-preview.2.25164.34",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
@@ -404,6 +404,8 @@ Task ("revert-changes-net10")
             {
                 StartProcess("git", $"restore {file}");
             }
+
+            StartProcess("git", $"restore global.json");
         }
     );
 
@@ -426,12 +428,21 @@ Task ("net10-prepare-binderate-build")
     (
         () =>
         {
+            if (build_dotnet_android)
+            {
+                dotnet = "../dotnet-android/dotnet-local.sh";
+            }
+            else 
+            {
+                dotnet = "dotnet";
+            }
+
             content_global_json =
             """
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.1.25120.13",
+                    "version": "10.0.100-preview.2.25164.34",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
@@ -475,6 +486,7 @@ Task ("net10-prepare-binderate-build")
                         dotnet,
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
+            Information("binderate");
             RunTarget("nuget");
 
             DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
