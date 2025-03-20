@@ -7,6 +7,7 @@
 #addin nuget:?package=SharpZipLib&version=1.4.2
 
 // Imported scripts
+#load "build/cake/nuget-install.cake"
 #load "build/cake/setup-environment.cake"
 #load "build/cake/update-config.cake"
 #load "build/cake/tests.cake"
@@ -42,6 +43,8 @@ Information ($"JAVA_HOME            : {JAVA_HOME}");
 Information ($"BUILD_COMMIT         : {BUILD_COMMIT}");
 Information ($"BUILD_NUMBER         : {BUILD_NUMBER}");
 Information ($"BUILD_TIMESTAMP      : {BUILD_TIMESTAMP}");
+
+RunTarget("nuget-install");
 
 Task ("packages")
     .IsDependentOn ("binderate")
