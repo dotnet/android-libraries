@@ -7,6 +7,7 @@
 #addin nuget:?package=SharpZipLib&version=1.4.2
 
 // Imported scripts
+#load "build/cake/nuget-install.cake"
 #load "build/cake/setup-environment.cake"
 #load "build/cake/update-config.cake"
 #load "build/cake/tests.cake"
@@ -75,4 +76,8 @@ if (FileExists ("./generated/AndroidX.sln")) {
         .IsDependentOn ("nuget");
 }
 
+NuGetInstall("SQLitePCLRaw.core", new NuGetInstallSettings {
+        ExcludeVersion  = true,
+        OutputDirectory = "./tools"
+    });
 RunTarget (TARGET);
