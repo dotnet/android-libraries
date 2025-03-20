@@ -32,6 +32,8 @@ Task("nuget-install")
         {
             EnsureDirectoryExists("./output");
 
+            /*
+            nuget.exe must be in the PATH
             NuGetInstall
                     (
                         "HolisticWare.Xamarin.Tools.ComponentGovernance", 
@@ -39,7 +41,7 @@ Task("nuget-install")
                             {
                                 Version = "0.0.1.4",
                                 OutputDirectory = "./tools/Addins"
-                            }
+                                }
                     );
             NuGetInstall
                     (
@@ -68,10 +70,28 @@ Task("nuget-install")
                                 OutputDirectory = "./tools/Addins"
                             }
                     );
+            */
             DownloadFile
                     (
                         "https://api.nuget.org/v3-flatcontainer/cliwrap/3.8.2/cliwrap.3.8.2.nupkg", 
                         $"./output/cliwrap.3.8.2.nupkg"
                     );
+            DownloadFile
+                    (
+                        "https://api.nuget.org/v3-flatcontainer/holisticware.core.net.http/0.0.4/holisticware.core.net.http.0.0.4.nupkg", 
+                        $"./output/holisticware.core.net.http.0.0.4.nupkg"
+                    );
+            DownloadFile
+                    (
+                        "https://api.nuget.org/v3-flatcontainer/holisticware.core.io/0.0.4/holisticware.core.io.0.0.4.nupkg", 
+                        $"./output/holisticware.core.io.0.0.4.nupkg"
+                    );
+            DownloadFile
+                    (
+                        "https://api.nuget.org/v3-flatcontainer/holisticware.xamarin.tools.componentgovernance/0.0.1.4/holisticware.xamarin.tools.componentgovernance.0.0.1.4.nupkg", 
+                        $"./output/holisticware.xamarin.tools.componentgovernance.0.0.1.4.nupkg"
+                    );
+            /*
+            */
         }
     );
