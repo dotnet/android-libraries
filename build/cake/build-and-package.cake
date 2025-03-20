@@ -18,6 +18,12 @@ Task ("nuget")
         "./generated/AndroidX.sln", 
         new DotNetBuildSettings { MSBuildSettings = settings }
     );
+
+    // validation fails if the package is in the output directory
+    DeleteFile ($"./output/cliwrap.3.8.2.nupkg");
+    DeleteFile ($"./output/holisticware.core.net.http.0.0.4.nupkg");
+    DeleteFile ($"./output/holisticware.core.io.0.0.4.nupkg");
+    DeleteFile ($"./output/holisticware.xamarin.tools.componentgovernance.0.0.1.4.nupkg");
 });
 
 // Builds the .csproj projects
