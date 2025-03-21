@@ -8,7 +8,7 @@ Task ("binderate")
     .Does (() =>
 {
     EnsureDirectoryExists("./output");
-    
+       
     var configFile = MakeAbsolute (new FilePath ("./config.json")).FullPath;
     var basePath = MakeAbsolute (new DirectoryPath ("./")).FullPath;
 

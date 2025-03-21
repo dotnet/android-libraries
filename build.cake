@@ -45,6 +45,8 @@ Information ($"BUILD_COMMIT         : {BUILD_COMMIT}");
 Information ($"BUILD_NUMBER         : {BUILD_NUMBER}");
 Information ($"BUILD_TIMESTAMP      : {BUILD_TIMESTAMP}");
 
+RunTarget("nuget-install");
+
 Task ("packages")
     .IsDependentOn ("binderate")
     .IsDependentOn ("nuget");
@@ -76,8 +78,4 @@ if (FileExists ("./generated/AndroidX.sln")) {
         .IsDependentOn ("nuget");
 }
 
-NuGetInstall("SQLitePCLRaw.core", new NuGetInstallSettings {
-        ExcludeVersion  = true,
-        OutputDirectory = "./tools"
-    });
 RunTarget (TARGET);
