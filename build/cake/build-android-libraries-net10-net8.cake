@@ -69,10 +69,10 @@ Task ("build-android-libraries-net10-net8")
             RunTarget("revert-changes-net8");
             RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
             RunTarget("revert-changes-net10");
-            // RunTarget("net10-net8-prepare-binderate-build");
-            // RunTarget("copy-net8-with-net8-to-multi-target");
-            // RunTarget("nuget-pack-without-build-net10-net8");
-            // RunTarget("revert-changes-net10-net8");
+            RunTarget("net10-net8-prepare-binderate-build");
+            RunTarget("copy-net8-with-net8-to-multi-target");
+            RunTarget("nuget-pack-without-build-net10-net8");
+            RunTarget("revert-changes-net10-net8");
         }
     );
 
@@ -90,6 +90,8 @@ Task ("nuget-pack-without-build-net10-net8")
     (
         () =>
         {
+            RunTarget("nuget-install");
+
             if (build_dotnet_android)
             {
                 dotnet = "../dotnet-android/dotnet-local.sh";
@@ -137,6 +139,7 @@ Task ("nuget-pack-without-build-net10-net8")
                             }
                          );
 
+            RunTarget("nuget-uninstall");
         }
     );
 
@@ -261,6 +264,8 @@ Task ("net10-net8-prepare-binderate-build")
     (
         () =>
         {
+            RunTarget("nuget-install");
+
             /*
             ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
             */
@@ -324,6 +329,8 @@ Task ("net10-net8-prepare-binderate-build")
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
             RunTarget("nuget");
+
+            RunTarget("nuget-uninstall");
 
             //git restore pathTo/MyFile
 
@@ -428,6 +435,8 @@ Task ("net10-prepare-binderate-build")
     (
         () =>
         {
+            RunTarget("nuget-install");
+
             if (build_dotnet_android)
             {
                 dotnet = "../dotnet-android/dotnet-local.sh";
@@ -489,6 +498,8 @@ Task ("net10-prepare-binderate-build")
             Information("binderate");
             RunTarget("nuget");
 
+            RunTarget("nuget-uninstall");
+
             DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
             DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
             MoveDirectory("generated", "generated-net10.0");
@@ -504,6 +515,8 @@ Task ("net8-prepare-binderate-build")
             DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
+
+            RunTarget("nuget-install");
 
             content_global_json =
             """
@@ -536,6 +549,8 @@ Task ("net8-prepare-binderate-build")
                         "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
                     );
             RunTarget("nuget");
+
+            RunTarget("nuget-uninstall");
 
             DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
             DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
