@@ -51,11 +51,6 @@ steps:
       RepositoryUrl: $(Build.Repository.Uri)
       RepositoryType: "git"
     
-  - pwsh: |
-      dotnet cake build.cake `
-        --target=build-android-libraries-net10-net8
-    displayName: 'Build build-android-libraries-net10-net8'
-
   - task: DotNetCoreCLI@2
     displayName: Run unit tests
     condition: ne(variables['skipUnitTests'], 'true')
@@ -63,3 +58,8 @@ steps:
       command: test
       projects: util/**/*.Tests.csproj
       arguments: '-c $(configuration)'
+
+  - pwsh: |
+      dotnet cake build.cake `
+        --target=build-android-libraries-net10-net8
+    displayName: 'Build build-android-libraries-net10-net8'
