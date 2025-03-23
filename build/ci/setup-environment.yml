@@ -15,6 +15,13 @@ steps:
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
+  - task: UseDotNet@2
+    displayName: 'Use dotnet $(dotnetNextVersion)'
+    inputs:
+      version: $(dotnetNextVersion)
+      performMultiLevelLookup: true
+      includePreviewVersions: true
+
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - task: UseDotNet@2
       displayName: 'Use dotnet $(dotnetNextVersion)'
