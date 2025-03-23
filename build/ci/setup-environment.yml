@@ -45,7 +45,7 @@ steps:
 
   - ${{ if eq(parameters.runDotnetNextTest, false) }}:
     - pwsh: |
-        dotnet workload install maui android android-net8 --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
+        dotnet workload install maui --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
         if ($LASTEXITCODE -ne 0) {
             Write-Host "##vso[task.logissue type=error]Failed to install workloads."
             Write-Host "##vso[task.complete result=Failed;]"
@@ -55,7 +55,7 @@ steps:
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
-        dotnet workload install maui android android-net8 --verbosity diag
+        dotnet workload install maui --verbosity diag
         if ($LASTEXITCODE -ne 0) {
             Write-Host "##vso[task.logissue type=error]Failed to install workloads."
             Write-Host "##vso[task.complete result=Failed;]"
