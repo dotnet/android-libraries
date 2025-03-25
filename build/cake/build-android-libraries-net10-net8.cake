@@ -90,6 +90,9 @@ Task ("nuget-pack-without-build-net10-net8")
     (
         () =>
         {
+            DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("./output*/"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
             RunTarget("nuget-install");
 
             if (build_dotnet_android)
@@ -142,6 +145,303 @@ Task ("nuget-pack-without-build-net10-net8")
             RunTarget("nuget-uninstall");
         }
     );
+
+
+Task ("net10-net8-prepare-binderate-build")
+    .Does
+    (
+        () =>
+        {
+            EnsureDirectoryExists("./output");
+            EnsureDirectoryExists("./output/net10.0-net8.0-build-files/");
+
+            RunTarget("nuget-install");
+
+            /*
+            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
+            */
+
+            if (build_dotnet_android)
+            {
+                dotnet = "../dotnet-android/dotnet-local.sh";
+            }
+            else 
+            {
+                dotnet = "dotnet";
+            }
+
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "version": "10.0.100-preview.2.25164.34",
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.82",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
+            Information($"{new string('=', 120)}");
+            RunTarget("binderate");
+            Parallel.ForEach
+                         (
+                            files_net10_net8.Keys,
+                            new ParallelOptions 
+                                        {
+                                            MaxDegreeOfParallelism = (int) Math.Round(0.75 * Environment.ProcessorCount)
+                                        },
+                            (string file) =>
+                            {
+                                List<(string text_old, string text_new)> replacements = files_net10_net8[file];
+
+                                string content = System.IO.File.ReadAllText(file);
+
+                                foreach((string text_old, string text_new) pair in replacements)
+                                {
+                                    if (pair.text_old == null)
+                                    {
+                                        content = text_new;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        content = content.Replace(pair.text_old, pair.text_new);
+                                    }
+                                }
+
+                                System.IO.File.WriteAllText(file, content);
+                            }
+                         );
+
+
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
+            RunTarget("nuget");
+
+            CopyFiles("./global.json", "./output/net10.0-net8.0-build-files/");
+            CopyFiles("./workloads.json", "./output/net10.0-net8.0-build-files/");
+            CopyFiles("./Directory.Build.props", "./output/net10.0-net8.0-build-files/");
+
+            RunTarget("nuget-uninstall");
+
+            //git restore pathTo/MyFile
+
+            DeleteDirectories(GetDirectories("generated-net10.0-net8.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net10.0-net8.0"), delete_directory_setting);
+            MoveDirectory("generated", "generated-net10.0-net8.0");
+            MoveDirectory("output", "output-net10.0-net8.0");
+        }
+    );
+
+Task ("net8-prepare-binderate-build")
+    .Does
+    (
+        () =>
+        {
+            EnsureDirectoryExists("./output");
+            EnsureDirectoryExists("./output/net8.0-build-files/");
+
+            RunTarget("nuget-install");
+
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "version": "8.0.407",
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.82",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
+            EnsureDirectoryExists("./output");
+
+            dotnet = "dotnet";
+
+            Information($"{new string('=', 120)}");
+            RunTarget("binderate");
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
+            RunTarget("nuget");
+
+            CopyFiles("./global.json", "./output/net8.0-build-files/");
+            CopyFiles("./workloads.json", "./output/net8.0-build-files/");
+            CopyFiles("./Directory.Build.props", "./output/net8.0-build-files/");
+
+            RunTarget("nuget-uninstall");
+
+            DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
+            MoveDirectory("generated", "generated-net8.0");
+            MoveDirectory("output", "output-net8.0");
+        }
+    );
+
+Task ("net10-prepare-binderate-build")
+    .Does
+    (
+        () =>
+        {
+            EnsureDirectoryExists("./output");
+            EnsureDirectoryExists("./output/net10.0-build-files/");
+
+            RunTarget("nuget-install");
+
+            if (build_dotnet_android)
+            {
+                dotnet = "../dotnet-android/dotnet-local.sh";
+            }
+            else 
+            {
+                dotnet = "dotnet";
+            }
+
+            content_global_json =
+            """
+            {
+                "sdk":
+                {
+                    "version": "10.0.100-preview.2.25164.34",
+                    "rollForward": "patch"
+                },
+                "msbuild-sdks":
+                {
+                    "MSBuild.Sdk.Extras": "3.0.44",
+                    "Microsoft.Build.Traversal": "4.1.82",
+                    "Microsoft.Build.NoTargets": "3.7.56",
+                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+                }
+            }
+            """;
+            System.IO.File.WriteAllText(path_global_json, content_global_json);
+
+            Information("Change files");
+            Parallel.ForEach
+                         (
+                            files_net10.Keys,
+                            new ParallelOptions 
+                                        {
+                                            MaxDegreeOfParallelism = (int) Math.Round(0.75 * Environment.ProcessorCount)
+                                        },
+                            (string file) =>
+                            {
+                                List<(string text_old, string text_new)> replacements = files_net10[file];
+
+                                string content = System.IO.File.ReadAllText(file);
+
+                                foreach((string text_old, string text_new) pair in replacements)
+                                {
+                                    if (pair.text_old == null)
+                                    {
+                                        content = text_new;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        content = content.Replace(pair.text_old, pair.text_new);
+                                    }
+                                }
+
+                                System.IO.File.WriteAllText(file, content);
+                            }
+                         );
+
+            Information("binderate");
+            RunTarget("binderate");
+            StartProcess
+                    (
+                        dotnet,
+                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
+                    );
+            Information("binderate");
+            RunTarget("nuget");
+
+            CopyFiles("./global.json", "./output/net10.0-build-files/");
+            CopyFiles("./workloads.json", "./output/net10.0-build-files/");
+            CopyFiles("./Directory.Build.props", "./output/net10.0-build-files/");
+
+            RunTarget("nuget-uninstall");
+
+            DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
+            DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
+            MoveDirectory("generated", "generated-net10.0");
+            MoveDirectory("output", "output-net10.0");
+        }
+    );
+
+Task ("copy-net8-with-net8-to-multi-target")
+    .Does
+    (
+        () =>
+        {
+            string assembly_name_source;
+            string assembly_name_target;
+
+            var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
+
+            foreach(var assembly in assemblies)
+            {
+                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
+                assembly_name_target = System.IO.Path
+                                                .GetDirectoryName(assembly_name_source)
+                                                .Replace
+                                                    (
+                                                        "generated-net8.0",
+                                                        "generated-net10.0-net8.0"
+                                                    );
+                DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
+                DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
+                DateTime dt_w_source = System.IO.File.GetLastWriteTime(assembly_name_source);
+                DateTime dt_c_target = System.IO.File.GetCreationTime(assembly_name_target);
+                DateTime dt_a_target = System.IO.File.GetLastAccessTime(assembly_name_target);
+                DateTime dt_w_target = System.IO.File.GetLastWriteTime(assembly_name_target);
+
+                Information($"{new string('-', 120)}");
+                Information($"source {assembly_name_source}");
+                Information($"          c:    {dt_c_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"target {assembly_name_target}");
+                Information($"          c:    {dt_c_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_target.ToString("yyyyMMdd-HHmmss")}");
+
+                CopyFiles(assembly_name_source, assembly_name_target);
+            }
+
+            string s = "generated-net10.0-net8.0";
+            string t = "generated";
+
+            Information($"{new string('-', 120)}");
+            Information($"copying");
+            Information($"  source      {s}");
+            Information($"  source      {t}");
+            CopyDirectory(s, t);
+        }
+    );
+
 
 Task ("build-prepare-dotnet-android")
     .Does
@@ -259,140 +559,6 @@ Task ("prepare-dotnet-android")
         }
     );
 
-Task ("net10-net8-prepare-binderate-build")
-    .Does
-    (
-        () =>
-        {
-            RunTarget("nuget-install");
-
-            /*
-            ../dotnet-android/dotnet-local.sh cake -t=net10-prepare-binderate-build
-            */
-
-            if (build_dotnet_android)
-            {
-                dotnet = "../dotnet-android/dotnet-local.sh";
-            }
-            else 
-            {
-                dotnet = "dotnet";
-            }
-
-            content_global_json =
-            """
-            {
-                "sdk":
-                {
-                    "version": "10.0.100-preview.2.25164.34",
-                    "rollForward": "patch"
-                },
-                "msbuild-sdks":
-                {
-                    "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.82",
-                    "Microsoft.Build.NoTargets": "3.7.56",
-                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
-                }
-            }
-            """;
-            System.IO.File.WriteAllText(path_global_json, content_global_json);
-
-            Information($"{new string('=', 120)}");
-            RunTarget("binderate");
-            Parallel.ForEach
-                         (
-                            files_net10_net8.Keys,
-                            new ParallelOptions 
-                                        {
-                                            MaxDegreeOfParallelism = (int) Math.Round(0.75 * Environment.ProcessorCount)
-                                        },
-                            (string file) =>
-                            {
-                                List<(string text_old, string text_new)> replacements = files_net10_net8[file];
-
-                                string content = System.IO.File.ReadAllText(file);
-
-                                foreach((string text_old, string text_new) pair in replacements)
-                                {
-                                    content = content.Replace(pair.text_old, pair.text_new);
-                                }
-
-                                System.IO.File.WriteAllText(file, content);
-                            }
-                         );
-
-
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            RunTarget("nuget");
-
-            RunTarget("nuget-uninstall");
-
-            //git restore pathTo/MyFile
-
-            DeleteDirectories(GetDirectories("generated-net10.0-net8.0"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("output-net10.0-net8.0"), delete_directory_setting);
-            MoveDirectory("generated", "generated-net10.0-net8.0");
-            MoveDirectory("output", "output-net10.0-net8.0");
-        }
-    );
-
-Task ("copy-net8-with-net8-to-multi-target")
-    .Does
-    (
-        () =>
-        {
-            string assembly_name_source;
-            string assembly_name_target;
-
-            var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
-
-            foreach(var assembly in assemblies)
-            {
-                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
-                assembly_name_target = System.IO.Path
-                                                .GetDirectoryName(assembly_name_source)
-                                                .Replace
-                                                    (
-                                                        "generated-net8.0",
-                                                        "generated-net10.0-net8.0"
-                                                    );
-                DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
-                DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
-                DateTime dt_w_source = System.IO.File.GetLastWriteTime(assembly_name_source);
-                DateTime dt_c_target = System.IO.File.GetCreationTime(assembly_name_target);
-                DateTime dt_a_target = System.IO.File.GetLastAccessTime(assembly_name_target);
-                DateTime dt_w_target = System.IO.File.GetLastWriteTime(assembly_name_target);
-
-                Information($"{new string('-', 120)}");
-                Information($"source {assembly_name_source}");
-                Information($"          c:    {dt_c_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          w:    {dt_w_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          a:    {dt_a_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"target {assembly_name_target}");
-                Information($"          c:    {dt_c_target.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          w:    {dt_w_target.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          a:    {dt_a_target.ToString("yyyyMMdd-HHmmss")}");
-
-                CopyFiles(assembly_name_source, assembly_name_target);
-            }
-
-            string s = "generated-net10.0-net8.0";
-            string t = "generated";
-
-            Information($"{new string('-', 120)}");
-            Information($"copying");
-            Information($"  source      {s}");
-            Information($"  source      {t}");
-            CopyDirectory(s, t);
-        }
-    );
-
-
 Task ("revert-changes-net8")
     .Does
     (
@@ -430,134 +596,6 @@ Task ("revert-changes-net10-net8")
         }
     );
 
-Task ("net10-prepare-binderate-build")
-    .Does
-    (
-        () =>
-        {
-            RunTarget("nuget-install");
-
-            if (build_dotnet_android)
-            {
-                dotnet = "../dotnet-android/dotnet-local.sh";
-            }
-            else 
-            {
-                dotnet = "dotnet";
-            }
-
-            content_global_json =
-            """
-            {
-                "sdk":
-                {
-                    "version": "10.0.100-preview.2.25164.34",
-                    "rollForward": "patch"
-                },
-                "msbuild-sdks":
-                {
-                    "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.82",
-                    "Microsoft.Build.NoTargets": "3.7.56",
-                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
-                }
-            }
-            """;
-            System.IO.File.WriteAllText(path_global_json, content_global_json);
-
-            Information("Change files");
-            Parallel.ForEach
-                         (
-                            files_net10.Keys,
-                            new ParallelOptions 
-                                        {
-                                            MaxDegreeOfParallelism = (int) Math.Round(0.75 * Environment.ProcessorCount)
-                                        },
-                            (string file) =>
-                            {
-                                List<(string text_old, string text_new)> replacements = files_net10[file];
-
-                                string content = System.IO.File.ReadAllText(file);
-
-                                foreach((string text_old, string text_new) pair in replacements)
-                                {
-                                    content = content.Replace(pair.text_old, pair.text_new);
-                                }
-
-                                System.IO.File.WriteAllText(file, content);
-                            }
-                         );
-
-            Information("binderate");
-            RunTarget("binderate");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            Information("binderate");
-            RunTarget("nuget");
-
-            RunTarget("nuget-uninstall");
-
-            DeleteDirectories(GetDirectories("generated-net10.0"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("output-net10.0"), delete_directory_setting);
-            MoveDirectory("generated", "generated-net10.0");
-            MoveDirectory("output", "output-net10.0");
-        }
-    );
-
-Task ("net8-prepare-binderate-build")
-    .Does
-    (
-        () =>
-        {
-            DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("./generated*/"), delete_directory_setting);
-
-            RunTarget("nuget-install");
-
-            content_global_json =
-            """
-            {
-                "sdk":
-                {
-                    "version": "8.0.407",
-                    "rollForward": "patch"
-                },
-                "msbuild-sdks":
-                {
-                    "MSBuild.Sdk.Extras": "3.0.44",
-                    "Microsoft.Build.Traversal": "4.1.82",
-                    "Microsoft.Build.NoTargets": "3.7.56",
-                    "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
-                }
-            }
-            """;
-            System.IO.File.WriteAllText(path_global_json, content_global_json);
-
-            EnsureDirectoryExists("./output");
-
-            dotnet = "dotnet";
-
-            Information($"{new string('=', 120)}");
-            RunTarget("binderate");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            RunTarget("nuget");
-
-            RunTarget("nuget-uninstall");
-
-            DeleteDirectories(GetDirectories("generated-net8.0"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("output-net8.0"), delete_directory_setting);
-            MoveDirectory("generated", "generated-net8.0");
-            MoveDirectory("output", "output-net8.0");
-        }
-    );
 
 Dictionary<string, List<(string text_old, string text_new)>> files_net10;
 Dictionary<string, List<(string text_old, string text_new)>> files_net10_net8;
@@ -576,6 +614,35 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
         ]
     },
     */
+    {
+        "./workloads.json",
+        [
+            (
+                null,   // replace all
+                """
+                {
+                "microsoft.net.sdk.android": "35.99.0-preview.2.205/10.0.100-preview.2",
+                "microsoft.net.sdk.ios": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.maccatalyst": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.macos": "15.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.maui": "10.0.0-preview.2.25165.1/10.0.100-preview.2",
+                "microsoft.net.sdk.tvos": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.current": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.current": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net6": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net7": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net8": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net9": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net6": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net7": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net8": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net9": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.sdk.aspire": "8.2.2/8.0.100"
+                }
+                """
+            ),
+        ],
+    },
     {
         "./Directory.Build.props",
         [
@@ -638,6 +705,35 @@ files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new
         ]
     },
     */
+    {
+        "./workloads.json",
+        [
+            (
+                null,   // replace all
+                """
+                {
+                "microsoft.net.sdk.android": "35.99.0-preview.2.205/10.0.100-preview.2",
+                "microsoft.net.sdk.ios": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.maccatalyst": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.macos": "15.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.sdk.maui": "10.0.0-preview.2.25165.1/10.0.100-preview.2",
+                "microsoft.net.sdk.tvos": "18.2.10552-net10-p2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.current": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.current": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net6": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net7": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net8": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.emscripten.net9": "10.0.0-preview.2.25120.1/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net6": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net7": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net8": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.workload.mono.toolchain.net9": "10.0.0-preview.2.25163.2/10.0.100-preview.2",
+                "microsoft.net.sdk.aspire": "8.2.2/8.0.100"
+                }
+                """
+            ),
+        ],
+    },
     {
         "./Directory.Build.props",
         [
