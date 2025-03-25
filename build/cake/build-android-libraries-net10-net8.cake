@@ -208,7 +208,7 @@ Task ("net10-net8-prepare-binderate-build")
                                 {
                                     if (pair.text_old == null)
                                     {
-                                        content = text_new;
+                                        content = pair.text_new;
                                         break;
                                     }
                                     else
@@ -355,7 +355,7 @@ Task ("net10-prepare-binderate-build")
                                 {
                                     if (pair.text_old == null)
                                     {
-                                        content = text_new;
+                                        content = pair.text_new;
                                         break;
                                     }
                                     else
@@ -641,7 +641,7 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
                 }
                 """
             ),
-        ],
+        ]
     },
     {
         "./Directory.Build.props",
@@ -732,7 +732,7 @@ files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new
                 }
                 """
             ),
-        ],
+        ]
     },
     {
         "./Directory.Build.props",
