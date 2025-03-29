@@ -58,9 +58,9 @@
 
 @* .NET 9 changes some binding internals that breaks some of our hand bound code. This property reverts
    to the old behavior. Once we are .NET 9+ we should redo our hand bound code and remove this. *@
-@if (@Model.NuGetPackageId == "Xamarin.AndroidX.Media3.ExoPlayer")
+@if (@Model.NuGetPackageId == "Xamarin.AndroidX.Media3.ExoPlayer" )
 {
-  <PropertyGroup>
+  <PropertyGroup Condition="$(TargetFramework.Contains('net8.0-android'))" >
     <_AndroidEmitLegacyInterfaceInvokers>true</_AndroidEmitLegacyInterfaceInvokers>
   </PropertyGroup>
 }
