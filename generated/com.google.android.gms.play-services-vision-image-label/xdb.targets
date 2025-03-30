@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProguardConfiguration Condition=" '$(AndroidApplication)' == 'true' " Include="$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt" />
+  </ItemGroup>
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
+  </PropertyGroup>
+  <ItemGroup>
+    <XamarinBuildRestoreResources Include="_XbdRestoreItems_playservicesvisionimagelabel_18_1_1" />
+  </ItemGroup>
+  <Target Name="_XbdRestoreItems_playservicesvisionimagelabel_18_1_1">
+    <ItemGroup>
+      <XamarinBuildDownload Include="playservicesvisionimagelabel-18.1.1">
+        <Url>https://dl.google.com/dl/android/maven2/com/google/android/gms/play-services-vision-image-label/18.1.1/play-services-vision-image-label-18.1.1.aar</Url>
+        <ToFile>playservicesvisionimagelabel-18.1.1.aar</ToFile>
+        <Kind>Uncompressed</Kind>
+        <Sha256></Sha256>
+      </XamarinBuildDownload>
+    </ItemGroup>
+    <ItemGroup>
+      <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)playservicesvisionimagelabel-18.1.1\playservicesvisionimagelabel-18.1.1.aar" />
+      <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)playservicesvisionimagelabel-18.1.1\playservicesvisionimagelabel-18.1.1.aar" />
+    </ItemGroup>
+  </Target>
+</Project>

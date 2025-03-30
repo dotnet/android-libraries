@@ -1,0 +1,106 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <AssemblyName>Xamarin.Google.Guava.FailureAccess</AssemblyName>
+    <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
+    <AndroidUseDesignerAssembly>false</AndroidUseDesignerAssembly>   
+    <RootNamespace>Google.Guava.FailureAccess</RootNamespace>
+    
+    <!--
+      No warnings for:
+       - CS0618: 'member' is obsolete: 'text'
+       - CS0109: The member 'member' does not hide an inherited member. The new keyword is not required
+       - CS0114: 'function1' hides inherited member 'function2'. To make the current method override that implementation, add the override keyword. Otherwise add the new keyword.
+       - CS0628: 'member' : new protected member declared in sealed class
+       - CS0108: 'member1' hides inherited member 'member2'. Use the new keyword if hiding was intended.
+       - CS0809: Obsolete member 'member' overrides non-obsolete member 'member'
+       - CS1572: XML comment has a param tag for '', but there is no parameter by that name
+       - XAOBS001: While this member is 'public', Google considers it internal API and reserves the right to modify or delete it in the future. Use at your own risk. 
+       - NU1605: Detected package downgrade
+    -->
+    <NoWarn>$(NoWarn);0618;0109;0114;0628;0108;0809;1572;XAOBS001;NU1605</NoWarn>
+
+  </PropertyGroup>
+
+  <!-- NuGet package properties -->
+  <PropertyGroup>
+    <PackageId>Xamarin.Google.Guava.FailureAccess</PackageId>
+    <Title>.NET for Android bindings for the Android Java library 'com.google.guava:failureaccess'.</Title>
+    <Description>
+      $(Title)
+
+Library description: &#xA;    Contains&#xA;    com.google.common.util.concurrent.internal.InternalFutureFailureAccess and&#xA;    InternalFutures. Most users will never need to use this artifact. Its&#xA;    classes are conceptually a part of Guava, but they&#x27;re in this separate&#xA;    artifact so that Android libraries can use them without pulling in all of&#xA;    Guava (just as they can use ListenableFuture by depending on the&#xA;    listenablefuture artifact).&#xA;  
+    </Description>
+    <PackageTags>xamarin artifact=com.google.guava:failureaccess artifact_versioned=com.google.guava:failureaccess:1.0.2</PackageTags>
+    <PackageLicenseExpression>MIT AND Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageVersion>1.0.2.10$(PackageVersionSuffix)</PackageVersion>
+    <!-- Include symbol files (*.pdb) in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Packaging files -->
+  <ItemGroup>
+    <None Include="..\..\source\PackageLicense.md" Pack="True" PackagePath="LICENSE.md" />
+    <None Include=".\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="..\..\build\icon.png" Pack="True" PackagePath="icon.png" />
+    <None Include=".\readme.md" Pack="True" PackagePath="readme.md" />
+  </ItemGroup>
+
+  <!-- Proguard files -->
+  <ItemGroup>
+  </ItemGroup>
+
+  <!-- Binding compilation files -->
+  <ItemGroup>
+    <!-- Include AssemblyInfo.cs -->
+    <Compile Include="..\..\source\AssemblyInfo.cs" />
+    
+    <!-- Include any Additions .cs file(s) -->
+    <Compile Include="..\..\source\com.google.guava\failureaccess\Additions\*.cs">
+      <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </Compile>
+
+    <!-- Include common metadata file -->
+    <TransformFile Include="..\..\source\Metadata.common.xml" >
+      <Link>Transforms/Metadata.common.xml</Link>
+    </TransformFile>
+
+    
+    <!-- Include any transform file(s) that are not TargetFramework specific -->
+    <TransformFile Include="..\..\source\com.google.guava\failureaccess\Transforms\*.xml" Exclude="$(DefaultTransformExcludes)">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+    
+    <!-- Include any TargetFramework specific transform file(s) for this TF -->
+    <TransformFile Include="..\..\source\com.google.guava\failureaccess\Transforms\*.$(TargetFramework).xml">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+
+
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <AndroidLibrary Include="..\..\externals\com.google.guava\failureaccess.jar" Bind="True" />
+  </ItemGroup>
+
+  <!-- ProjectReferences -->
+  <ItemGroup>
+  </ItemGroup>
+
+  <!-- PackageReferences -->
+  <ItemGroup>
+  </ItemGroup>
+
+
+  
+
+
+
+
+
+</Project>

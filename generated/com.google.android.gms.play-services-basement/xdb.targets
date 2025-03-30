@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProguardConfiguration Condition=" '$(AndroidApplication)' == 'true' " Include="$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt" />
+  </ItemGroup>
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
+  </PropertyGroup>
+  <ItemGroup>
+    <XamarinBuildRestoreResources Include="_XbdRestoreItems_playservicesbasement_18_5_0" />
+  </ItemGroup>
+  <Target Name="_XbdRestoreItems_playservicesbasement_18_5_0">
+    <ItemGroup>
+      <XamarinBuildDownload Include="playservicesbasement-18.5.0">
+        <Url>https://dl.google.com/dl/android/maven2/com/google/android/gms/play-services-basement/18.5.0/play-services-basement-18.5.0.aar</Url>
+        <ToFile>playservicesbasement-18.5.0.aar</ToFile>
+        <Kind>Uncompressed</Kind>
+        <Sha256></Sha256>
+      </XamarinBuildDownload>
+    </ItemGroup>
+    <ItemGroup>
+      <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)playservicesbasement-18.5.0\playservicesbasement-18.5.0.aar" />
+      <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)playservicesbasement-18.5.0\playservicesbasement-18.5.0.aar" />
+    </ItemGroup>
+  </Target>
+  <Target Name="ProcessGoogleServicesJsonChecks" Condition=" '@(GoogleServicesJson)' == '' " BeforeTargets="BeforeBuild">
+    <Message Text="No GoogleServicesJson file specified." />
+  </Target>
+  <ItemGroup>
+    <AvailableItemName Include="GoogleServicesJson" />
+  </ItemGroup>
+  <PropertyGroup>
+    <ProcessGoogleServicesJsonTaskFilename Condition=" '$(ProcessGoogleServicesJsonTaskFilename)' == '' ">$(MSBuildThisFileDirectory)Xamarin.GooglePlayServices.Tasks.dll</ProcessGoogleServicesJsonTaskFilename>
+    <ProcessGoogleServicesJsonResDirName Condition=" '$(ProcessGoogleServicesJsonResDirName)' == '' ">googsvcsjson</ProcessGoogleServicesJsonResDirName>
+    <ProcessGoogleServicesJsonResDirPath>$(IntermediateOutputPath)$(ProcessGoogleServicesJsonResDirName)\</ProcessGoogleServicesJsonResDirPath>
+    <ProcessGoogleServicesJsonResStringsPath>$(ProcessGoogleServicesJsonResDirPath)values\goog_svcs_json.xml</ProcessGoogleServicesJsonResStringsPath>
+    <ProcessGoogleServicesJsonResXmlPath>$(ProcessGoogleServicesJsonResDirPath)xml\global_tracker.xml</ProcessGoogleServicesJsonResXmlPath>
+    <ProcessGoogleServicesJsonStampPath>$(IntermediateOutputPath)googsvcsjson.stamp</ProcessGoogleServicesJsonStampPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      _CleanProcessGoogleServicesJson;
+    </CleanDependsOn>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="Xamarin.GooglePlayServices.Tasks.dll" TaskName="Xamarin.GooglePlayServices.Tasks.ProcessGoogleServicesJson" />
+  <Target Name="SetupGoogleServicesJson" Condition=" '@(GoogleServicesJson)' != '' AND '$(AndroidApplication)' == 'True'">
+    <ConvertToAbsolutePath Paths="$(ProcessGoogleServicesJsonResDirPath)">
+      <Output TaskParameter="AbsolutePaths" PropertyName="ProcessGoogleServicesJsonResDirPathAbs" />
+    </ConvertToAbsolutePath>
+  </Target>
+  <Target Name="ProcessGoogleServicesJson" Condition=" '@(GoogleServicesJson)' != '' AND '$(AndroidApplication)' == 'True'" AfterTargets="_ValidateAndroidPackageProperties" DependsOnTargets="SetupGoogleServicesJson" Inputs="@(GoogleServicesJson)" Outputs="$(IntermediateOutputPath)googsvcsjson.stamp">
+    <ProcessGoogleServicesJson GoogleServicesJsons="@(GoogleServicesJson)" ResPath="$(ProcessGoogleServicesJsonResDirPath)" StampPath="$(ProcessGoogleServicesJsonStampPath)" ResStringsPath="$(ProcessGoogleServicesJsonResStringsPath)" ResXmlPath="$(ProcessGoogleServicesJsonResXmlPath)" AndroidPackageName="$(_AndroidPackage)">
+      <Output TaskParameter="ResPathAbs" ItemName="LibraryResourceDirectories" />
+    </ProcessGoogleServicesJson>
+    <ItemGroup>
+      <LibraryResourceDirectories Condition="Exists ('$(ProcessGoogleServicesJsonResDirPathAbs)')" Include="$(ProcessGoogleServicesJsonResDirPathAbs)">
+        <StampFile>$(IntermediateOutputPath)googsvcsjson.stamp</StampFile>
+      </LibraryResourceDirectories>
+      <FileWrites Condition="Exists ('$(ProcessGoogleServicesJsonResStringsPath)')" Include="$(ProcessGoogleServicesJsonResStringsPath)" />
+      <FileWrites Condition="Exists ('$(ProcessGoogleServicesJsonResXmlPath)')" Include="$(ProcessGoogleServicesJsonResXmlPath)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="_CleanProcessGoogleServicesJson">
+    <RemoveDir Directories="$(ProcessGoogleServicesJsonResDirPath)" Condition="Exists ('$(ProcessGoogleServicesJsonResDirPath)' )" />
+    <Delete Files="$(ProcessGoogleServicesJsonStampPath)" />
+  </Target>
+</Project>

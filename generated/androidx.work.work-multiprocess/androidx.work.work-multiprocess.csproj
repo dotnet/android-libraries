@@ -1,0 +1,131 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <AssemblyName>Xamarin.AndroidX.Work.MultiProcess</AssemblyName>
+    <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
+    <AndroidUseDesignerAssembly>false</AndroidUseDesignerAssembly>   
+    <RootNamespace>AndroidX.Work.MultiProcess</RootNamespace>
+    
+    <!--
+      No warnings for:
+       - CS0618: 'member' is obsolete: 'text'
+       - CS0109: The member 'member' does not hide an inherited member. The new keyword is not required
+       - CS0114: 'function1' hides inherited member 'function2'. To make the current method override that implementation, add the override keyword. Otherwise add the new keyword.
+       - CS0628: 'member' : new protected member declared in sealed class
+       - CS0108: 'member1' hides inherited member 'member2'. Use the new keyword if hiding was intended.
+       - CS0809: Obsolete member 'member' overrides non-obsolete member 'member'
+       - CS1572: XML comment has a param tag for '', but there is no parameter by that name
+       - XAOBS001: While this member is 'public', Google considers it internal API and reserves the right to modify or delete it in the future. Use at your own risk. 
+       - NU1605: Detected package downgrade
+    -->
+    <NoWarn>$(NoWarn);0618;0109;0114;0628;0108;0809;1572;XAOBS001;NU1605</NoWarn>
+
+  </PropertyGroup>
+
+  <!-- NuGet package properties -->
+  <PropertyGroup>
+    <PackageId>Xamarin.AndroidX.Work.MultiProcess</PackageId>
+    <Title>.NET for Android bindings for the Android Java library 'androidx.work:work-multiprocess'.</Title>
+    <Description>
+      $(Title)
+
+Library description: Android WorkManager runtime library
+    </Description>
+    <PackageTags>xamarin artifact=androidx.work:work-multiprocess artifact_versioned=androidx.work:work-multiprocess:2.10.0</PackageTags>
+    <PackageLicenseExpression>MIT AND Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageVersion>2.10.0.3$(PackageVersionSuffix)</PackageVersion>
+    <!-- Include symbol files (*.pdb) in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Packaging files -->
+  <ItemGroup>
+    <None Include="..\..\source\PackageLicense.md" Pack="True" PackagePath="LICENSE.md" />
+    <None Include=".\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="..\..\build\icon.png" Pack="True" PackagePath="icon.png" />
+    <None Include=".\readme.md" Pack="True" PackagePath="readme.md" />
+  </ItemGroup>
+
+  <!-- Proguard files -->
+  <ItemGroup>
+    <None Include="..\..\externals\androidx.work\work-multiprocess\proguard.txt" Pack="True" PackagePath="proguard/" />
+  </ItemGroup>
+
+  <!-- Binding compilation files -->
+  <ItemGroup>
+    <!-- Include AssemblyInfo.cs -->
+    <Compile Include="..\..\source\AssemblyInfo.cs" />
+    
+    <!-- Include any Additions .cs file(s) -->
+    <Compile Include="..\..\source\androidx.work\work-multiprocess\Additions\*.cs">
+      <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </Compile>
+
+    <!-- Include common metadata file -->
+    <TransformFile Include="..\..\source\Metadata.common.xml" >
+      <Link>Transforms/Metadata.common.xml</Link>
+    </TransformFile>
+
+    
+    <!-- Include any transform file(s) that are not TargetFramework specific -->
+    <TransformFile Include="..\..\source\androidx.work\work-multiprocess\Transforms\*.xml" Exclude="$(DefaultTransformExcludes)">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+    
+    <!-- Include any TargetFramework specific transform file(s) for this TF -->
+    <TransformFile Include="..\..\source\androidx.work\work-multiprocess\Transforms\*.$(TargetFramework).xml">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+
+
+  </ItemGroup>
+
+
+  <!-- .targets file -->
+  <ItemGroup>
+    <None Include="Xamarin.AndroidX.Work.MultiProcess.targets" Pack="True" PackagePath="@(AndroidXNuGetTargetFolders)" />
+  </ItemGroup>
+
+  <!-- Java artifacts to bind -->
+  <ItemGroup>
+    <InputJar 
+      Condition="Exists('..\..\externals\androidx.work\work-multiprocess\classes.jar')"
+      Include="..\..\externals\androidx.work\work-multiprocess\classes.jar" />
+    <!-- For those artifacts with lib/ folder -->
+    <InputJar
+      Condition="Exists('..\..\externals\androidx.work\work-multiprocess\libs\')"
+      Include="..\..\externals\androidx.work\work-multiprocess\libs\*.jar"
+      />
+  </ItemGroup>
+
+  <!-- Java artifacts to include in the NuGet package -->
+  <ItemGroup>
+    <None Include="..\..\externals\androidx.work\work-multiprocess.aar" Pack="True" PackagePath="aar\androidx.work.work-multiprocess.aar" />
+  </ItemGroup>
+
+  <!-- ProjectReferences -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\generated\androidx.work.work-runtime\androidx.work.work-runtime.csproj" PrivateAssets="none" PackageVersion="[2.10.0.3, 2.10.1)" />
+    <ProjectReference Include="..\..\generated\org.jetbrains.kotlin.kotlin-stdlib\org.jetbrains.kotlin.kotlin-stdlib.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\org.jetbrains.kotlinx.kotlinx-coroutines-android\org.jetbrains.kotlinx.kotlinx-coroutines-android.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\com.google.guava.listenablefuture\com.google.guava.listenablefuture.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\androidx.concurrent.concurrent-futures-ktx\androidx.concurrent.concurrent-futures-ktx.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\androidx.room.room-runtime\androidx.room.room-runtime.csproj" PrivateAssets="none" />
+  </ItemGroup>
+
+  <!-- PackageReferences -->
+  <ItemGroup>
+  </ItemGroup>
+
+
+  
+
+
+
+
+
+</Project>
