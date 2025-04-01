@@ -45,13 +45,33 @@ steps:
 
   - ${{ if eq(parameters.runDotnetNextTest, false) }}:
     - pwsh: |
-        dotnet workload install maui android android-net8 --source https://api.nuget.org/v3/index.json --verbosity diag
+        dotnet workload update --source https://api.nuget.org/v3/index.json --verbosity diag
         if ($LASTEXITCODE -ne 0) {
             Write-Host "##vso[task.logissue type=error]Failed to install workloads."
             Write-Host "##vso[task.complete result=Failed;]"
             exit 0
         }
-      displayName: Install .NET Workloads
+      displayName: Update .NET Workloads
+
+  - ${{ if eq(parameters.runDotnetNextTest, false) }}:
+    - pwsh: |
+        dotnet workload install maui android --source https://api.nuget.org/v3/index.json --verbosity diag
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "##vso[task.logissue type=error]Failed to install workloads: maui, android"
+            Write-Host "##vso[task.complete result=Failed;]"
+            exit 0
+        }
+      displayName: Install .NET Workloads: maui android
+
+  - ${{ if eq(parameters.runDotnetNextTest, false) }}:
+    - pwsh: |
+        dotnet workload install android-net8 --source https://api.nuget.org/v3/index.json --verbosity diag
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "##vso[task.logissue type=error]Failed to install workload: android-net8"
+            Write-Host "##vso[task.complete result=Failed;]"
+            exit 0
+        }
+      displayName: Install .NET Workload: android-net8
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
