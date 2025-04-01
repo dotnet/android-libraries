@@ -9,11 +9,6 @@ parameters:
 steps:
   - pwsh: |
       dotnet cake build.cake `
-        --target=build-android-libraries-net10-net8
-    displayName: 'Build build-android-libraries-net10-net8'
-
-  - pwsh: |
-      dotnet cake build.cake `
         --target=ci-build `
         --configuration="$(configuration)" `
         --verbosity="$(verbosity)"
