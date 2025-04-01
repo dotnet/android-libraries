@@ -17,9 +17,9 @@
 
 /*
 #addin nuget:https://api.nuget.org/v3/index.json?package=Mono.Cecil&version=0.11.6
-#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
-#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.Net.HTTP&version=0.0.4
-#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.IO&version=0.0.4
+#addin nuget:https://api.nuget.org/v3/index.json?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
+#addin nuget:https://api.nuget.org/v3/index.json?package=HolisticWare.Core.Net.HTTP&version=0.0.4
+#addin nuget:https://api.nuget.org/v3/index.json?package=HolisticWare.Core.IO&version=0.0.4
 */
 
 #load "build/cake/performance-timings.cake"
