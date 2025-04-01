@@ -61,7 +61,7 @@ steps:
             Write-Host "##vso[task.complete result=Failed;]"
             exit 0
         }
-      displayName: Install .NET Workloads maui android
+      displayName: Install .NET Workloads
 
   - ${{ if eq(parameters.runDotnetNextTest, false) }}:
     - pwsh: |
@@ -71,7 +71,7 @@ steps:
             Write-Host "##vso[task.complete result=Failed;]"
             exit 0
         }
-      displayName: Install .NET Workload android-net8
+      displayName: Install .NET Workload
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
