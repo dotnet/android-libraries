@@ -1,5 +1,4 @@
 ﻿<metadata>
-    <remove-node path="/api/package[@name='androidx.preference']/interface[@name='Preference.OnPreferenceChangeInternalListener']" />
     <attr path="/api/package[@name='androidx.preference']/class[@name='Preference']/method[@name='compareTo']/parameter[1]" name="managedType">Java.Lang.Object</attr>
     <!-- Fix generics -->
     <!--<attr path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onCreateViewHolder']" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
@@ -15,7 +14,9 @@
     <!-- <remove-node path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onBindViewHolder']" />
     <remove-node path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onCreateViewHolder']" /> -->
     <!-- <attr path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='androidx.preference.PreferenceViewHolder'] and parameter[2][@type='int']]/parameter[1]" name="managedType">AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder</attr> -->
+    <!--
     <remove-node path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='androidx.preference.PreferenceViewHolder'] and parameter[2][@type='int']]" />
+    -->
     <attr path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="managedReturn">AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder</attr>
     <attr path="/api/package[@name='androidx.preference']/interface[@name='Preference.OnPreferenceChangeListener']/method[@name='onPreferenceChange' and count(parameter)=2 and parameter[1][@type='androidx.preference.Preference'] and parameter[2][@type='java.lang.Object']]/parameter[1]" name="managedName">preference</attr>
     <attr path="/api/package[@name='androidx.preference']/interface[@name='Preference.OnPreferenceChangeListener']/method[@name='onPreferenceChange' and count(parameter)=2 and parameter[1][@type='androidx.preference.Preference'] and parameter[2][@type='java.lang.Object']]/parameter[2]" name="managedName">newValue</attr>
@@ -98,10 +99,6 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/interface[@name='DialogPreference.TargetFragment']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]/typeParameters"
-        >
-    </remove-node>
     <attr 
         path="/api/package[@name='androidx.preference']/class[@name='Preference']/method[@name='findPreferenceInHierarchy' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
         name="managedReturn"
@@ -114,10 +111,6 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/class[@name='Preference']/method[@name='findPreferenceInHierarchy' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/typeParameters"
-        >
-    </remove-node>
     <attr 
         path="/api/package[@name='androidx.preference']/class[@name='PreferenceManager']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]"
         name="managedReturn"
@@ -130,10 +123,6 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/class[@name='PreferenceManager']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]/typeParameters"
-        >
-    </remove-node>
     <attr 
         path="/api/package[@name='androidx.preference']/class[@name='PreferenceFragment']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]"        
         name="managedReturn"
@@ -146,10 +135,6 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/class[@name='PreferenceFragment']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]/typeParameters"        
-        >
-    </remove-node>
     <attr 
         path="/api/package[@name='androidx.preference']/class[@name='PreferenceFragmentCompat']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]"
         name="managedReturn"
@@ -162,10 +147,6 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/class[@name='PreferenceFragmentCompat']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]/typeParameters"
-        >
-    </remove-node>
     <attr 
         path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroup']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]"
         name="managedReturn"
@@ -178,15 +159,7 @@
         >
         androidx.preference.Preference
     </attr>
-    <remove-node
-        path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroup']/method[@name='findPreference' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]/typeParameters"
-        >
-    </remove-node>
-    
 
-    <remove-node
-        path="/api/package[@name='androidx.preference']/interface[@name='Preference.SummaryProvider']/typeParameters"
-        />    
     <attr
         path="/api/package[@name='androidx.preference']/interface[@name='Preference.SummaryProvider']/method[@name='provideSummary']/parameter[1]"
         name="managedType"
@@ -213,7 +186,6 @@
         AndroidX.Preference.Preference
     </attr>    
 
-
     <!--    
     <attr
         path="//class[@visibility='']"
@@ -222,5 +194,11 @@
         public
     </attr>
     -->
-    
+    <attr
+        path="/api/package[@name='androidx.preference']/class[@name='PreferenceGroupAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='androidx.preference.PreferenceViewHolder'] and parameter[2][@type='int']]/parameter[1]"
+        name="managedType"
+        >
+        AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder
+    </attr>    
+
 </metadata>

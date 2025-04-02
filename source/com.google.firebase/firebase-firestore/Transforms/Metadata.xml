@@ -285,37 +285,6 @@
         Java.Lang.Object
     </attr>
 
-    <remove-node
-        path="/api/package[@name='com.google.firebase.firestore.model.value']/class[@name='FieldValue']/method[@name='value' and count(parameter)=0]"
-        />
-
-    <!--
-      These classes all contain nested classes with the same names as the desired property names from the "Builder" interface
-      they implement.  Thus they cannot implement the interface due to name conflicts.
-  -->
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions']/implements[@name='com.google.firestore.v1.TransactionOptionsOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='MaybeDocument']/implements[@name='com.google.firebase.firestore.proto.MaybeDocumentOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='Target']/implements[@name='com.google.firebase.firestore.proto.TargetOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsRequest']/implements[@name='com.google.firestore.v1.BatchGetDocumentsRequestOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsResponse']/implements[@name='com.google.firestore.v1.BatchGetDocumentsResponseOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='MaybeDocument']/implements[@name='com.google.firestore.v1.BatchGetDocumentsResponseOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='DocumentTransform.FieldTransform']/implements[@name='com.google.firestore.v1.DocumentTransform.FieldTransformOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='GetDocumentRequest']/implements[@name='com.google.firestore.v1.GetDocumentRequestOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='ListDocumentsRequest']/implements[@name='com.google.firestore.v1.ListDocumentsRequestOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest']/implements[@name='com.google.firestore.v1.ListenRequestOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenResponse']/implements[@name='com.google.firestore.v1.ListenResponseOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='Precondition']/implements[@name='com.google.firestore.v1.PreconditionOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='RunQueryRequest']/implements[@name='com.google.firestore.v1.RunQueryRequestOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.Filter']/implements[@name='com.google.firestore.v1.StructuredQuery.FilterOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.UnaryFilter']/implements[@name='com.google.firestore.v1.StructuredQuery.UnaryFilterOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='Target']/implements[@name='com.google.firestore.v1.TargetOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='Target.QueryTarget']/implements[@name='com.google.firestore.v1.Target.QueryTargetOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.ReadOnly']/implements[@name='com.google.firestore.v1.TransactionOptions.ReadOnlyOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='Value']/implements[@name='com.google.firestore.v1.ValueOrBuilder']" />
-    <remove-node path="/api/package[@name='com.google.firestore.v1']/class[@name='Write']/implements[@name='com.google.firestore.v1.WriteOrBuilder']" />
-
-
-
     <attr
         path="/api/package[@name='com.google.firebase.firestore']/class[@name='LoadBundleTask']/method[@name='getResult' and count(parameter)=1 and parameter[1][@type='java.lang.Class&lt;X&gt;']]"
         name="managedReturn"
@@ -345,41 +314,6 @@
         Firestore.Bundle
     </attr>
 
-    <!--
-    =======================================================================================================
-    issue analysis
-
-    Needed      for 16.9
-    NOT needed  for 16.10
-
-        static {
-        final Document defaultInstance = new Document();
-        GeneratedMessageLite.registerDefaultInstance((Class)Document.class, (GeneratedMessageLite)(DEFAULT_INSTANCE = defaultInstance));
-    }
-
-    -->
-    <remove-node
-        path="/api/package[@name='com.google.firebase.firestore.model']/class[@name='Document.']"
-        />
-    <!--
-    issue analysis
-    =======================================================================================================
-    -->
-
-    <remove-node
-        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery']/implements"
-        />
-    <remove-node
-        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundleElement']/implements"
-        />
-
-    <remove-node
-        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace']"
-        />
-    <remove-node
-        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField']/implements"
-        />
-
     <attr
         path="/api/package[@name='com.google.firebase.firestore.index']"
         name="managedName"
@@ -405,26 +339,6 @@
         >
     </attr>
     <attr
-        path="/api/package[@name='com.google.firestore.v1']/interface[@name='RunAggregationQueryRequestOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
-        name="propertyName"
-        >
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunAggregationQueryRequest.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
-        name="propertyName"
-        >
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredAggregationQueryOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
-        name="propertyName"
-        >
-    </attr>
-    <attr
-        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
-        name="propertyName"
-        >
-    </attr>
-    <attr
         path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredAggregationQuery.AggregationOrBuilder']/method[@name='getOperatorCase' and count(parameter)=0]"
         name="propertyName"
         >
@@ -446,10 +360,6 @@
         >
     </attr>
     
-    <remove-node 
-        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation']/implements"
-        />
-
     <attr
         path="/api/package[@name='com.google.firebase.firestore.local']/class[@name='Persistence']/method[@name='getReferenceDelegate' and count(parameter)=0]"
         name="managedReturn"
@@ -471,5 +381,1372 @@
         Firebase.Firestore.Ktx
     </attr>
 
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='WriteOrBuilder']/method[@name='getOperationCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperationCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Write.Builder']/method[@name='getOperationCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperationCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Write']/method[@name='getOperationCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperationCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ValueOrBuilder']/method[@name='getValueTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Value.Builder']/method[@name='getValueTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Value']/method[@name='getValueTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1Action.MatchingDocumentsOrBuilder']/method[@name='getMatchingDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        MatchingDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getMatchingDocuments' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="propertyName"
+        >
+        MatchingDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.MatchingDocuments.Builder']/method[@name='getMatchingDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        MatchingDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.MatchingDocuments']/method[@name='getMatchingDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        MatchingDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.MatchingDocuments']/method[@name='getMatchingDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        MatchingDocumentsData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TransactionOptions.ReadOnlyOrBuilder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.ReadOnly.Builder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.ReadOnly']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseDataData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TransactionOptionsOrBuilder']/method[@name='getReadWrite' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadWriteDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions']/method[@name='getReadWrite' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadWriteDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.Builder']/method[@name='getReadWrite' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadWriteDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.Builder']/method[@name='setReadWrite' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.TransactionOptions.ReadWrite']]"
+        name="propertyName"
+        >
+        ReadWriteDataData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredAggregationQuery.AggregationOrBuilder']/method[@name='getSum' and count(parameter)=0]"
+        name="propertyName"
+        >
+        SumData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation.Builder']/method[@name='getSum' and count(parameter)=0]"
+        name="propertyName"
+        >
+        SumData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation.Builder']/method[@name='setSum' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.StructuredAggregationQuery.Aggregation.Sum']]"
+        name="propertyName"
+        >
+        SumData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation']/method[@name='getSum' and count(parameter)=0]"
+        name="propertyName"
+        >
+        SumData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredAggregationQuery.AggregationOrBuilder']/method[@name='getAvg' and count(parameter)=0]"
+        name="propertyName"
+        >
+        AvgData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation.Builder']/method[@name='getAvg' and count(parameter)=0]"
+        name="propertyName"
+        >
+        AvgData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation.Builder']/method[@name='setAvg' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.StructuredAggregationQuery.Aggregation.Avg']]"
+        name="propertyName"
+        >
+        AvgData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation']/method[@name='getAvg' and count(parameter)=0]"
+        name="propertyName"
+        >
+        AvgData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Aggregation.Builder']/method[@name='setAvg' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.StructuredAggregationQuery.Aggregation.Avg.Builder']]"
+        name="propertyName"
+        >
+        AvgData
+    </attr>
+
+
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TransactionOptionsOrBuilder']/method[@name='getReadOnly' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadOnlyDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.Builder']/method[@name='getReadOnly' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadOnlyDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.Builder']/method[@name='setReadOnly' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.TransactionOptions.ReadOnly']]"
+        name="propertyName"
+        >
+        ReadOnlyDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions']/method[@name='getReadOnly' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ReadOnlyDataData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredQuery.UnaryFilterOrBuilder']/method[@name='getOperandTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperandTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.UnaryFilter.Builder']/method[@name='getOperandTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperandTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.UnaryFilter']/method[@name='getOperandTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OperandTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TransactionOptionsOrBuilder']/method[@name='getModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ModeCaseDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions.Builder']/method[@name='getModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ModeCaseDataData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TransactionOptions']/method[@name='getModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ModeCaseDataData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TargetChangeOrBuilder']/method[@name='getTargetChangeType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TargetChange.Builder']/method[@name='getTargetChangeType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TargetChange.Builder']/method[@name='setTargetChangeType' and count(parameter)=1 and parameter[1][@type='com.google.firestore.v1.TargetChange.TargetChangeType']]"
+        name="propertyName"
+        >
+        TargetChangeTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='TargetChange']/method[@name='getTargetChangeType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeTypeData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='RunAggregationQueryRequestOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunAggregationQueryRequest.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredAggregationQueryOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredAggregationQuery']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='Target.QueryTargetOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target.QueryTarget.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target.QueryTarget']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TargetOrBuilder']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target.Builder']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='TargetOrBuilder']/method[@name='getResumeTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResumeTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target']/method[@name='getResumeTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResumeTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Target.Builder']/method[@name='getResumeTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResumeTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='StructuredQuery.FilterOrBuilder']/method[@name='getFilterTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        FilterTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.Filter.Builder']/method[@name='getFilterTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        FilterTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='StructuredQuery.Filter']/method[@name='getFilterTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        FilterTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/interface[@name='TargetOrBuilder']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='Target.Builder']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='Target']/method[@name='getTargetTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ListDocumentsRequestOrBuilder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListDocumentsRequest.Builder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListDocumentsRequest']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunQueryRequest.Builder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='RunQueryRequestOrBuilder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"    
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunQueryRequest']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getUpdateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        UpdateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getUpdateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        UpdateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setUpdateDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.UpdateDocument']]"
+        name="propertyName"
+        >
+        UpdateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setUpdateDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.UpdateDocument.Builder']]"
+        name="propertyName"
+        >
+        UpdateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getUpdateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        UpdateDocumentData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getRunQuery' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RunQueryData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getRunQuery' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RunQueryData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRunQuery' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.RunQuery']]"
+        name="propertyName"
+        >
+        RunQueryData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRunQuery' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.RunQuery.Builder']]"
+        name="propertyName"
+        >
+        RunQueryData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getRunQuery' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RunQueryData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getRollback' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RollbackData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getRollback' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RollbackData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRollback' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Rollback']]"
+        name="propertyName"
+        >
+        RollbackData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRollback' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Rollback.Builder']]"
+        name="propertyName"
+        >
+        RollbackData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getRollback' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RollbackData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListen' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Listen']]"
+        name="propertyName"
+        >
+        ListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListen' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Listen.Builder']]"
+        name="propertyName"
+        >
+        ListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListenData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getRemoveListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RemoveListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getRemoveListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RemoveListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getRemoveListen' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RemoveListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRemoveListen' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.RemoveListen']]"
+        name="propertyName"
+        >
+        RemoveListenData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setRemoveListen' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.RemoveListen.Builder']]"
+        name="propertyName"
+        >
+        RemoveListenData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getListDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getListDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListDocuments' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.ListDocuments']]"
+        name="propertyName"
+        >
+        ListDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListDocuments' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.ListDocuments.Builder']]"
+        name="propertyName"
+        >
+        ListDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getListDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListDocumentsData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getListCollectionIds' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListCollectionIdsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getListCollectionIds' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListCollectionIdsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListCollectionIds' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.ListCollectionIds']]"
+        name="propertyName"
+        >
+        ListCollectionIdsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setListCollectionIds' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.ListCollectionIds.Builder']]"
+        name="propertyName"
+        >
+        ListCollectionIdsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getListCollectionIds' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ListCollectionIdsData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getGetDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        GetDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getGetDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        GetDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setGetDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.GetDocument']]"
+        name="propertyName"
+        >
+        GetDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setGetDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.GetDocument.Builder']]"
+        name="propertyName"
+        >
+        GetDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getGetDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        GetDocumentData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getDeleteDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DeleteDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getDeleteDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DeleteDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setDeleteDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.DeleteDocument']]"
+        name="propertyName"
+        >
+        DeleteDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setDeleteDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.DeleteDocument.Builder']]"
+        name="propertyName"
+        >
+        DeleteDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getDeleteDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DeleteDocumentData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getCreateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CreateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getCreateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CreateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setCreateDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.CreateDocument']]"
+        name="propertyName"
+        >
+        CreateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setCreateDocument' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.CreateDocument.Builder']]"
+        name="propertyName"
+        >
+        CreateDocumentData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getCreateDocument' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CreateDocumentData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getCommit' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CommitData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getCommit' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CommitData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setCommit' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Commit']]"
+        name="propertyName"
+        >
+        CommitData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setCommit' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.Commit.Builder']]"
+        name="propertyName"
+        >
+        CommitData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getCommit' and count(parameter)=0]"
+        name="propertyName"
+        >
+        CommitData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getBeginTransaction' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BeginTransactionData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getBeginTransaction' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BeginTransactionData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setBeginTransaction' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.BeginTransaction']]"
+        name="propertyName"
+        >
+        BeginTransactionData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setBeginTransaction' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.BeginTransaction.Builder']]"
+        name="propertyName"
+        >
+        BeginTransactionData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getBeginTransaction' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BeginTransactionData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getBatchGetDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BatchGetDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getBatchGetDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BatchGetDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setBatchGetDocuments' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.BatchGetDocuments']]"
+        name="propertyName"
+        >
+        BatchGetDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='setBatchGetDocuments' and count(parameter)=1 and parameter[1][@type='com.google.apphosting.datastore.testing.DatastoreTestTrace.FirestoreV1Action.BatchGetDocuments.Builder']]"
+        name="propertyName"
+        >
+        BatchGetDocumentsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getBatchGetDocuments' and count(parameter)=0]"
+        name="propertyName"
+        >
+        BatchGetDocumentsData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.DatastoreActionOrBuilder']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.DatastoreAction.Builder']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.DatastoreAction']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='RunQueryRequestOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunQueryRequest']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunQueryRequest.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='GetDocumentRequestOrBuilder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='GetDocumentRequest.Builder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='GetDocumentRequest']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='RunAggregationQueryRequest']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/interface[@name='DatastoreTestTrace.FirestoreV1ActionOrBuilder']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action.Builder']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.apphosting.datastore.testing']/class[@name='DatastoreTestTrace.FirestoreV1Action']/method[@name='getActionCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ActionCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ListenResponseOrBuilder']/method[@name='getResponseTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResponseTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenResponse.Builder']/method[@name='getResponseTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResponseTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenResponse']/method[@name='getResponseTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResponseTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='PreconditionOrBuilder']/method[@name='getConditionTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConditionTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Precondition.Builder']/method[@name='getConditionTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConditionTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='Precondition']/method[@name='getConditionTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConditionTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='DocumentTransform.FieldTransformOrBuilder']/method[@name='getTransformTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TransformTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='DocumentTransform.FieldTransform.Builder']/method[@name='getTransformTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TransformTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='DocumentTransform.FieldTransform']/method[@name='getTransformTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TransformTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='DocumentTransform.FieldTransform.Builder']/method[@name='getTransformTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TransformTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='BatchGetDocumentsResponseOrBuilder']/method[@name='getResultCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResultCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsResponse.Builder']/method[@name='getResultCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResultCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsResponse']/method[@name='getResultCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ResultCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ListenRequestOrBuilder']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCase
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest.Builder']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCase
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCase
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='BatchGetDocumentsRequestOrBuilder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsRequest']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='BatchGetDocumentsRequest.Builder']/method[@name='getConsistencySelectorCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ConsistencySelectorCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ListenRequestOrBuilder']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/interface[@name='ListenRequestOrBuilder']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest.Builder']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='ListenRequest']/method[@name='getTargetChangeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        TargetChangeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/interface[@name='MaybeDocumentOrBuilder']/method[@name='getDocumentTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DocumentTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='MaybeDocument.Builder']/method[@name='getDocumentTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DocumentTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore.proto']/class[@name='MaybeDocument']/method[@name='getDocumentTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        DocumentTypeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='IndexOrBuilder']/method[@name='getFields' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="propertyName"
+        >
+        IndexFieldsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='getFields' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="propertyName"
+        >
+        IndexFieldsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='setFields' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.google.firestore.admin.v1.Index.IndexField']]"
+        name="propertyName"
+        >
+        IndexFieldsData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='setFields' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.google.firestore.admin.v1.Index.IndexField.Builder']]"
+        name="propertyName"
+        >
+        IndexFieldsData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='Index.IndexFieldOrBuilder']/method[@name='getValueModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueModeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField.Builder']/method[@name='getValueModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueModeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField']/method[@name='getValueModeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ValueModeCaseData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='Index.IndexFieldOrBuilder']/method[@name='getOrder' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OrderData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField.Builder']/method[@name='getOrder' and count(parameter)=0]"
+        name="propertyName"
+        >
+        OrderData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField.Builder']/method[@name='setOrder' and count(parameter)=1 and parameter[1][@type='com.google.firestore.admin.v1.Index.IndexField.Order']]"
+        name="propertyName"
+        >
+        OrderData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField']/method[@name='getOrder' and count(parameter)=0]"    
+        name="propertyName"
+        >
+        OrderData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='Index.IndexFieldOrBuilder']/method[@name='getArrayConfig' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ArrayConfigData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField.Builder']/method[@name='getArrayConfig' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ArrayConfigData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField.Builder']/method[@name='setArrayConfig' and count(parameter)=1 and parameter[1][@type='com.google.firestore.admin.v1.Index.IndexField.ArrayConfig']]"
+        name="propertyName"
+        >
+        ArrayConfigData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='Index.IndexFieldOrBuilder']/method[@name='getArrayConfig' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ArrayConfigData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.IndexField']/method[@name='getArrayConfig' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ArrayConfigData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='IndexOrBuilder']/method[@name='getQueryScope' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryScopeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='getQueryScope' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryScopeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='setQueryScope' and count(parameter)=1 and parameter[1][@type='com.google.firestore.admin.v1.Index.QueryScope']]"
+        name="propertyName"
+        >
+        QueryScopeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index']/method[@name='getQueryScope' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryScopeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='getQueryScope' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryScopeData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/interface[@name='BundleElementOrBuilder']/method[@name='getElementTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ElementTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundleElement.Builder']/method[@name='getElementTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ElementTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundleElement']/method[@name='getElementTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        ElementTypeCaseData
+    </attr>
+
+
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/interface[@name='BundledQueryOrBuilder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery.Builder']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery']/method[@name='getQueryTypeCase' and count(parameter)=0]"
+        name="propertyName"
+        >
+        QueryTypeCaseData
+    </attr>
+
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/interface[@name='IndexOrBuilder']/method[@name='getState' and count(parameter)=0]"
+        name="propertyName"
+        >
+        StateData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='getState' and count(parameter)=0]"
+        name="propertyName"
+        >
+        StateData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index.Builder']/method[@name='setState' and count(parameter)=1 and parameter[1][@type='com.google.firestore.admin.v1.Index.State']]"
+        name="propertyName"
+        >
+        StateData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.admin.v1']/class[@name='Index']/method[@name='getState' and count(parameter)=0]"
+        name="propertyName"
+        >
+        StateData
+    </attr>
+
+
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/interface[@name='BundledQueryOrBuilder']/method[@name='getLimitType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        LimitTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery.Builder']/method[@name='getLimitType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        LimitTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery.Builder']/method[@name='setLimitType' and count(parameter)=1 and parameter[1][@type='com.google.firestore.bundle.BundledQuery.LimitType']]"
+        name="propertyName"
+        >
+        LimitTypeData
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firestore.bundle']/class[@name='BundledQuery']/method[@name='getLimitType' and count(parameter)=0]"
+        name="propertyName"
+        >
+        LimitTypeData
+    </attr>
+
+    
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore']/class[@name='LoadBundleTask']/method[@name='getResult' and count(parameter)=0]"
+        name="propertyName"
+        >
+        RawResult
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.firebase.firestore']/class[@name='LoadBundleTask']/method[@name='getResult' and count(parameter)=0]"
+        name="visibility"
+        >
+        protected
+    </attr>
 
 </metadata>
