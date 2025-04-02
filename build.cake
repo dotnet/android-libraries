@@ -20,6 +20,10 @@
 #load "build/cake/clean.cake"
 #load "build/cake/performance-timings.cake"
 #load "build/cake/build-android-libraries-net10-net8.cake"
+//#load "build/cake/build-android-libraries-net10-net8.initial.cake"
+
+// Migrate packages to net10 
+bool IsMigratingNet10 = false;
 
 using System.Xml.Linq;
 using Newtonsoft.Json;
@@ -46,6 +50,11 @@ Information ($"BUILD_NUMBER         : {BUILD_NUMBER}");
 Information ($"BUILD_TIMESTAMP      : {BUILD_TIMESTAMP}");
 
 RunTarget("nuget-install");
+
+if (IsMigratingNet10) 
+{
+    RunTarget("build-android-libraries-net10-net8");
+}
 
 Task ("packages")
     .IsDependentOn ("binderate")
