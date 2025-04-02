@@ -68,8 +68,6 @@ Task("nuget-install")
                             }
                     );
             */
-                { "Cake.FileHelpers", "7.0.0"},                                     // migrated, but needed for windows only???
-
             DownloadFile
                     (
                         "https://api.nuget.org/v3-flatcontainer/cake.filehelpers/7.0.0/cake.filehelpers.7.0.0.nupkg", 
