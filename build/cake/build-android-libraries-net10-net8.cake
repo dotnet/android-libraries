@@ -244,7 +244,6 @@ Task ("net10-net8-prepare-binderate-build")
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net10.0-net8.0-build-files/");
-            CopyFiles("./workloads.json", "./output/net10.0-net8.0-build-files/");
             CopyFiles("./Directory.Build.props", "./output/net10.0-net8.0-build-files/");
 
             RunTarget("nuget-uninstall");
@@ -309,7 +308,6 @@ Task ("net8-prepare-binderate-build")
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net8.0-build-files/");
-            CopyFiles("./workloads.json", "./output/net8.0-build-files/");
             CopyFiles("./Directory.Build.props", "./output/net8.0-build-files/");
 
             RunTarget("nuget-uninstall");
@@ -402,7 +400,6 @@ Task ("net10-prepare-binderate-build")
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net10.0-build-files/");
-            CopyFiles("./workloads.json", "./output/net10.0-build-files/");
             CopyFiles("./Directory.Build.props", "./output/net10.0-build-files/");
 
             RunTarget("nuget-uninstall");
@@ -634,7 +631,6 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
             ),
         ]
     },
-    */
     {
         "./workloads.json",
         [
@@ -664,6 +660,7 @@ files_net10 = new Dictionary<string, List<(string text_old, string text_new)>>
             ),
         ]
     },
+    */
     {
         "./Directory.Build.props",
         [
@@ -725,7 +722,6 @@ files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new
             ),
         ]
     },
-    */
     {
         "./workloads.json",
         [
@@ -755,6 +751,7 @@ files_net10_net8 = new Dictionary<string, List<(string text_old, string text_new
             ),
         ]
     },
+    */
     {
         "./Directory.Build.props",
         [
