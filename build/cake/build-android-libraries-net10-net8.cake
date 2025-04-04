@@ -75,8 +75,8 @@ Task ("build-android-libraries-net10-net8")
             }
             RunTarget("net8-prepare-binderate-build");
             RunTarget("revert-changes-net8");
-            RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
-            RunTarget("revert-changes-net10");
+            // RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
+            // RunTarget("revert-changes-net10");
             RunTarget("net10-net8-prepare-binderate-build");
             RunTarget("copy-net8-with-net8-to-multi-target");
             RunTarget("nuget-pack-without-build-net10-net8");
