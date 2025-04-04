@@ -817,6 +817,7 @@ Task ("spell-check")
                 "RecaptchaBase",
                 "Json",
                 "ViewTree",
+                "TypeAnnotations",
            ];
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
