@@ -80,7 +80,7 @@ Task ("build-android-libraries-net10-net8")
             RunTarget("net10-net8-prepare-binderate-build");
             RunTarget("copy-net8-with-net8-to-multi-target");
             RunTarget("nuget-pack-without-build-net10-net8");
-            //RunTarget("revert-changes-net10-net8");
+            RunTarget("revert-changes-net10-net8");
         }
     );
 
@@ -251,7 +251,6 @@ Task ("net10-net8-prepare-binderate-build")
             //git restore pathTo/MyFile
 
             CopyDirectory("./generated/", "./generated-net10.0-net8.0/");
-            CopyDirectory("./output/", "./output-net10.0-net8.0/");
         }
     );
 
@@ -313,7 +312,6 @@ Task ("net8-prepare-binderate-build")
             RunTarget("nuget-uninstall");
 
             CopyDirectory("./generated/", "./generated-net8.0/");
-            CopyDirectory("./output/", "./output-net8.0/");
         }
     );
 
@@ -405,7 +403,6 @@ Task ("net10-prepare-binderate-build")
             RunTarget("nuget-uninstall");
 
             CopyDirectory("./generated/", "./generated-net10.0/");
-            CopyDirectory("./output/", "./output-net10.0/");
         }
     );
 
