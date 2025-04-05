@@ -7,6 +7,7 @@
 #addin nuget:?package=SharpZipLib&version=1.4.2
 
 // Imported scripts
+#load "build/cake/nuget-install.cake"
 #load "build/cake/setup-environment.cake"
 #load "build/cake/update-config.cake"
 #load "build/cake/tests.cake"
@@ -18,6 +19,8 @@
 #load "build/cake/executive-order.cake"
 #load "build/cake/clean.cake"
 #load "build/cake/performance-timings.cake"
+#load "build/cake/build-android-libraries-net10-net8.cake"
+//#load "build/cake/build-android-libraries-net10-net8.initial.cake"
 
 using System.Xml.Linq;
 using Newtonsoft.Json;
@@ -42,6 +45,8 @@ Information ($"JAVA_HOME            : {JAVA_HOME}");
 Information ($"BUILD_COMMIT         : {BUILD_COMMIT}");
 Information ($"BUILD_NUMBER         : {BUILD_NUMBER}");
 Information ($"BUILD_TIMESTAMP      : {BUILD_TIMESTAMP}");
+
+RunTarget("nuget-install");
 
 Task ("packages")
     .IsDependentOn ("binderate")

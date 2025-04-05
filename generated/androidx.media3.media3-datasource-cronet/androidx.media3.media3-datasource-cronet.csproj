@@ -1,0 +1,128 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <AssemblyName>Xamarin.AndroidX.Media3.DataSource.CroNet</AssemblyName>
+    <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
+    <AndroidUseDesignerAssembly>false</AndroidUseDesignerAssembly>   
+    <RootNamespace>AndroidX.Media3.DataSource.CroNet</RootNamespace>
+    
+    <!--
+      No warnings for:
+       - CS0618: 'member' is obsolete: 'text'
+       - CS0109: The member 'member' does not hide an inherited member. The new keyword is not required
+       - CS0114: 'function1' hides inherited member 'function2'. To make the current method override that implementation, add the override keyword. Otherwise add the new keyword.
+       - CS0628: 'member' : new protected member declared in sealed class
+       - CS0108: 'member1' hides inherited member 'member2'. Use the new keyword if hiding was intended.
+       - CS0809: Obsolete member 'member' overrides non-obsolete member 'member'
+       - CS1572: XML comment has a param tag for '', but there is no parameter by that name
+       - XAOBS001: While this member is 'public', Google considers it internal API and reserves the right to modify or delete it in the future. Use at your own risk. 
+       - NU1605: Detected package downgrade
+    -->
+    <NoWarn>$(NoWarn);0618;0109;0114;0628;0108;0809;1572;XAOBS001;NU1605</NoWarn>
+
+  </PropertyGroup>
+
+  <!-- NuGet package properties -->
+  <PropertyGroup>
+    <PackageId>Xamarin.AndroidX.Media3.DataSource.CroNet</PackageId>
+    <Title>.NET for Android bindings for the Android Java library 'androidx.media3:media3-datasource-cronet'.</Title>
+    <Description>
+      $(Title)
+
+Library description: Media3 Cronet DataSource module
+    </Description>
+    <PackageTags>xamarin artifact=androidx.media3:media3-datasource-cronet artifact_versioned=androidx.media3:media3-datasource-cronet:1.5.1</PackageTags>
+    <PackageLicenseExpression>MIT AND Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageVersion>1.5.1.1$(PackageVersionSuffix)</PackageVersion>
+    <!-- Include symbol files (*.pdb) in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Packaging files -->
+  <ItemGroup>
+    <None Include="..\..\source\PackageLicense.md" Pack="True" PackagePath="LICENSE.md" />
+    <None Include=".\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+    <None Include="..\..\build\icon.png" Pack="True" PackagePath="icon.png" />
+    <None Include=".\readme.md" Pack="True" PackagePath="readme.md" />
+  </ItemGroup>
+
+  <!-- Proguard files -->
+  <ItemGroup>
+  </ItemGroup>
+
+  <!-- Binding compilation files -->
+  <ItemGroup>
+    <!-- Include AssemblyInfo.cs -->
+    <Compile Include="..\..\source\AssemblyInfo.cs" />
+    
+    <!-- Include any Additions .cs file(s) -->
+    <Compile Include="..\..\source\androidx.media3\media3-datasource-cronet\Additions\*.cs">
+      <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </Compile>
+
+    <!-- Include common metadata file -->
+    <TransformFile Include="..\..\source\Metadata.common.xml" >
+      <Link>Transforms/Metadata.common.xml</Link>
+    </TransformFile>
+
+    
+    <!-- Include any transform file(s) that are not TargetFramework specific -->
+    <TransformFile Include="..\..\source\androidx.media3\media3-datasource-cronet\Transforms\*.xml" Exclude="$(DefaultTransformExcludes)">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+    
+    <!-- Include any TargetFramework specific transform file(s) for this TF -->
+    <TransformFile Include="..\..\source\androidx.media3\media3-datasource-cronet\Transforms\*.$(TargetFramework).xml">
+      <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+    </TransformFile>
+
+
+  </ItemGroup>
+
+
+  <!-- .targets file -->
+  <ItemGroup>
+    <None Include="Xamarin.AndroidX.Media3.DataSource.CroNet.targets" Pack="True" PackagePath="@(AndroidXNuGetTargetFolders)" />
+  </ItemGroup>
+
+  <!-- Java artifacts to bind -->
+  <ItemGroup>
+    <InputJar 
+      Condition="Exists('..\..\externals\androidx.media3\media3-datasource-cronet\classes.jar')"
+      Include="..\..\externals\androidx.media3\media3-datasource-cronet\classes.jar" />
+    <!-- For those artifacts with lib/ folder -->
+    <InputJar
+      Condition="Exists('..\..\externals\androidx.media3\media3-datasource-cronet\libs\')"
+      Include="..\..\externals\androidx.media3\media3-datasource-cronet\libs\*.jar"
+      />
+  </ItemGroup>
+
+  <!-- Java artifacts to include in the NuGet package -->
+  <ItemGroup>
+    <None Include="..\..\externals\androidx.media3\media3-datasource-cronet.aar" Pack="True" PackagePath="aar\androidx.media3.media3-datasource-cronet.aar" />
+  </ItemGroup>
+
+  <!-- ProjectReferences -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\generated\com.google.android.gms.play-services-cronet\com.google.android.gms.play-services-cronet.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\androidx.media3.media3-common\androidx.media3.media3-common.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\androidx.media3.media3-datasource\androidx.media3.media3-datasource.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\generated\androidx.annotation.annotation\androidx.annotation.annotation.csproj" PrivateAssets="none" />
+  </ItemGroup>
+
+  <!-- PackageReferences -->
+  <ItemGroup>
+  </ItemGroup>
+
+
+  
+
+
+
+
+
+</Project>
