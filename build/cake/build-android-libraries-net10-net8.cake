@@ -98,12 +98,6 @@ Task ("nuget-pack-without-build-net10-net8")
     (
         () =>
         {
-            DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
-            DeleteDirectories(GetDirectories("./generated/"), delete_directory_setting);
-            EnsureDirectoryExists("./output");
-            EnsureDirectoryExists("./output/net10.0-net8.0-build-files/");
-
             RunTarget("nuget-install");
 
             if (IsMigratingNet10UsingDotnetInstallation == false)
@@ -161,6 +155,58 @@ Task ("nuget-pack-without-build-net10-net8")
                          );
 
             RunTarget("nuget-uninstall");
+        }
+    );
+
+
+Task ("copy-net8-with-net8-to-multi-target")
+    .Does
+    (
+        () =>
+        {
+            string assembly_name_source;
+            string assembly_name_target;
+
+            var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
+
+            foreach(var assembly in assemblies)
+            {
+                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
+                assembly_name_target = System.IO.Path
+                                                .GetDirectoryName(assembly_name_source)
+                                                .Replace
+                                                    (
+                                                        "generated-net8.0",
+                                                        "generated-net10.0-net8.0"
+                                                    );
+                DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
+                DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
+                DateTime dt_w_source = System.IO.File.GetLastWriteTime(assembly_name_source);
+                DateTime dt_c_target = System.IO.File.GetCreationTime(assembly_name_target);
+                DateTime dt_a_target = System.IO.File.GetLastAccessTime(assembly_name_target);
+                DateTime dt_w_target = System.IO.File.GetLastWriteTime(assembly_name_target);
+
+                Information($"{new string('-', 120)}");
+                Information($"source {assembly_name_source}");
+                Information($"          c:    {dt_c_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_source.ToString("yyyyMMdd-HHmmss")}");
+                Information($"target {assembly_name_target}");
+                Information($"          c:    {dt_c_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          w:    {dt_w_target.ToString("yyyyMMdd-HHmmss")}");
+                Information($"          a:    {dt_a_target.ToString("yyyyMMdd-HHmmss")}");
+
+                CopyFiles(assembly_name_source, assembly_name_target);
+            }
+
+            string s = "generated-net10.0-net8.0";
+            string t = "generated";
+
+            Information($"{new string('-', 120)}");
+            Information($"Moving");
+            Information($"      source      {s}");
+            Information($"      target      {t}");
+            MoveDirectory(s, t);
         }
     );
 
@@ -257,7 +303,15 @@ Task ("net10-net8-prepare-binderate-build")
 
             //git restore pathTo/MyFile
 
-            MoveDirectory("./generated/", "./generated-net10.0-net8.0/");
+            string s = "generated";
+            string t = "generated-net10.0-net8.0";
+
+            Information($"{new string('-', 120)}");
+            Information($"Moving");
+            Information($"      source      {s}");
+            Information($"      target      {t}");
+            // MoveDirectory(s, t);
+            CopyDirectory(s, t);
         }
     );
 
@@ -421,58 +475,6 @@ Task ("net10-prepare-binderate-build")
             //CopyDirectory(s, t);
         }
     );
-
-Task ("copy-net8-with-net8-to-multi-target")
-    .Does
-    (
-        () =>
-        {
-            string assembly_name_source;
-            string assembly_name_target;
-
-            var assemblies = GetFiles($"generated-net8.0/**/bin/Release/net8.0-android/*.dll");
-
-            foreach(var assembly in assemblies)
-            {
-                assembly_name_source = System.IO.Path.GetFullPath(assembly.ToString());
-                assembly_name_target = System.IO.Path
-                                                .GetDirectoryName(assembly_name_source)
-                                                .Replace
-                                                    (
-                                                        "generated-net8.0",
-                                                        "generated-net10.0-net8.0"
-                                                    );
-                DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
-                DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
-                DateTime dt_w_source = System.IO.File.GetLastWriteTime(assembly_name_source);
-                DateTime dt_c_target = System.IO.File.GetCreationTime(assembly_name_target);
-                DateTime dt_a_target = System.IO.File.GetLastAccessTime(assembly_name_target);
-                DateTime dt_w_target = System.IO.File.GetLastWriteTime(assembly_name_target);
-
-                Information($"{new string('-', 120)}");
-                Information($"source {assembly_name_source}");
-                Information($"          c:    {dt_c_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          w:    {dt_w_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          a:    {dt_a_source.ToString("yyyyMMdd-HHmmss")}");
-                Information($"target {assembly_name_target}");
-                Information($"          c:    {dt_c_target.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          w:    {dt_w_target.ToString("yyyyMMdd-HHmmss")}");
-                Information($"          a:    {dt_a_target.ToString("yyyyMMdd-HHmmss")}");
-
-                CopyFiles(assembly_name_source, assembly_name_target);
-            }
-
-            string s = "generated-net10.0-net8.0";
-            string t = "generated";
-
-            Information($"{new string('-', 120)}");
-            Information($"Moving");
-            Information($"      source      {s}");
-            Information($"      target      {t}");
-            MoveDirectory(s, t);
-        }
-    );
-
 
 Task ("build-prepare-dotnet-android")
     .Does
