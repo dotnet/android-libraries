@@ -17,6 +17,17 @@ Step by step tests:
     git clean -xdf
     dotnet cake -t=net8-prepare-binderate-build
     dotnet cake -t=revert-changes-net8
+    dotnet cake -t=net10-net8-prepare-binderate-build
+    dotnet cake -t=copy-net8-with-net8-to-multi-target
+    dotnet cake -t=nuget-pack-without-build-net10-net8
+    dotnet cake -t=revert-changes-net10-net8
+```
+
+
+```shell
+    git clean -xdf
+    dotnet cake -t=net8-prepare-binderate-build
+    dotnet cake -t=revert-changes-net8
     dotnet cake -t=net10-prepare-binderate-build
     dotnet cake -t=revert-changes-net10
     dotnet cake -t=net10-net8-prepare-binderate-build
@@ -164,6 +175,10 @@ Task ("copy-net8-with-net8-to-multi-target")
     (
         () =>
         {
+            Information("Deleting");
+            Information($"  ./generated/");
+            DeleteDirectories(GetDirectories("./generated/"), delete_directory_setting);
+
             string assembly_name_source;
             string assembly_name_target;
 
@@ -177,7 +192,7 @@ Task ("copy-net8-with-net8-to-multi-target")
                                                 .Replace
                                                     (
                                                         "generated-net8.0",
-                                                        "generated-net10.0-net8.0"
+                                                        "generated"
                                                     );
                 DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
                 DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
@@ -310,8 +325,8 @@ Task ("net10-net8-prepare-binderate-build")
             Information($"Moving");
             Information($"      source      {s}");
             Information($"      target      {t}");
-            // MoveDirectory(s, t);
-            CopyDirectory(s, t);
+            MoveDirectory(s, t);
+            //CopyDirectory(s, t);
         }
     );
 
