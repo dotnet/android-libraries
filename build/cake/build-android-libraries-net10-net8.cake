@@ -117,6 +117,11 @@ Task ("nuget-pack-without-build-net10-net8")
 
             var projects = GetFiles($"./generated/**/*.csproj");
 
+            foreach(var project in projects)
+            {
+                Information($"project = {project}");
+            }
+
             Information($"{new string('=', 120)}");
             string dotnet_pack =    "pack"
                                     + " " +
@@ -148,6 +153,8 @@ Task ("nuget-pack-without-build-net10-net8")
                                                                             "__PLACEHOLDER_PROJECT__",
                                                                             file.ToString()
                                                                         );
+                                Information($"dotnet_pack           =   {dotnet_pack}");
+                                Information($"dotnet_pack_project   =   {dotnet_pack_project}");
                                 StartProcess(dotnet, dotnet_pack_project);
                                 Information($"{file.ToString()}");
                             }
@@ -250,7 +257,7 @@ Task ("net10-net8-prepare-binderate-build")
 
             //git restore pathTo/MyFile
 
-            CopyDirectory("./generated/", "./generated-net10.0-net8.0/");
+            MoveDirectory("./generated/", "./generated-net10.0-net8.0/");
         }
     );
 
@@ -286,8 +293,6 @@ Task ("net8-prepare-binderate-build")
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
 
-            EnsureDirectoryExists("./output");
-
             if (IsMigratingNet10UsingDotnetInstallation == false)
             {
                 dotnet = "../dotnet-android/dotnet-local.sh";
@@ -299,11 +304,6 @@ Task ("net8-prepare-binderate-build")
 
             Information($"{new string('=', 120)}");
             RunTarget("binderate");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net8.0-build-files/");
@@ -450,10 +450,10 @@ Task ("copy-net8-with-net8-to-multi-target")
             string t = "generated";
 
             Information($"{new string('-', 120)}");
-            Information($"copying");
-            Information($"  source      {s}");
-            Information($"  source      {t}");
-            CopyDirectory(s, t);
+            Information($"Moving");
+            Information($"      source      {s}");
+            Information($"      target      {t}");
+            MoveDirectory(s, t);
         }
     );
 
@@ -579,7 +579,7 @@ Task ("revert-changes-net8")
     (
         () =>
         {
-            DeleteFile(path_global_json);
+            // NO OP
         }
     );
 
