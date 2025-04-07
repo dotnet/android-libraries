@@ -311,7 +311,15 @@ Task ("net8-prepare-binderate-build")
 
             RunTarget("nuget-uninstall");
 
-            CopyDirectory("./generated/", "./generated-net8.0/");
+            string s = "generated";
+            string t = "generated-net8.0";
+
+            Information($"{new string('-', 120)}");
+            Information($"Moving");
+            Information($"      source      {s}");
+            Information($"      target      {t}");
+            MoveDirectory(s, t);
+            //CopyDirectory(s, t);
         }
     );
 
@@ -402,7 +410,15 @@ Task ("net10-prepare-binderate-build")
 
             RunTarget("nuget-uninstall");
 
-            CopyDirectory("./generated/", "./generated-net10.0/");
+            string s = "generated";
+            string t = "generated-net10.0";
+
+            Information($"{new string('-', 120)}");
+            Information($"Moving");
+            Information($"      source      {s}");
+            Information($"      target      {t}");
+            MoveDirectory(s, t);
+            //CopyDirectory(s, t);
         }
     );
 
