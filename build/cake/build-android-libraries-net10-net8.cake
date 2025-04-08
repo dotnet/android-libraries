@@ -134,7 +134,7 @@ Task ("nuget-pack-without-build-net10-net8")
                                     + " " +
                                     "--no-build"
                                     + " " +
-                                    "--output ./output/nupkgsfinal-net8.0-net10.0/"
+                                    "--output ./output/"
                                     ;
             /*
             System has ran out of application memory.
