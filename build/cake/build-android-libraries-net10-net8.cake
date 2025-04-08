@@ -134,7 +134,7 @@ Task ("nuget-pack-without-build-net10-net8")
                                     + " " +
                                     "--no-build"
                                     + " " +
-                                    "--output ./output/nupkgs/"
+                                    "--output ./output/nupkgsfinal-net8.0-net10.0/"
                                     ;
             /*
             System has ran out of application memory.
@@ -192,7 +192,7 @@ Task ("copy-net8-with-net8-to-multi-target")
                                                 .Replace
                                                     (
                                                         "generated-net8.0",
-                                                        "generated"
+                                                        "generated-net10.0-net8.0"
                                                     );
                 DateTime dt_c_source = System.IO.File.GetCreationTime(assembly_name_source);
                 DateTime dt_a_source = System.IO.File.GetLastAccessTime(assembly_name_source);
