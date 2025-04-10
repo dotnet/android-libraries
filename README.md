@@ -22,6 +22,9 @@ Note that support for Xamarin.Android ended on [May 1st, 2024](https://dotnet.mi
 - Additional dependencies come from [Maven/Sonatype Central](https://repo1.maven.org/maven2/).
 - The major/minor/patch version numbers mirror the bound Android library version. For example, the NuGet `Xamarin.AndroidX.Core 1.3.2.1` 
   binds version `1.3.2` of the AndroidX library `androidx.core:core`.
+  - Note that some packages like `GooglePlayServices*` may prepend a "1" to the version number. For example, the NuGet 
+  `Xamarin.GooglePlayServices.Base 118.5.0` binds version `18.5.0` of the Java library.
+  - Version and Java artifact information can be found in the NuGet readme ([example](https://www.nuget.org/packages/Xamarin.GooglePlayServices.Base/#readme-body-tab)).
   - The revision version number is used when a new NuGet needs to be built but the Android library has not been updated.
 - We endeavor to release updated NuGets within a few weeks after new Android releases, however large changes occasionally require 
   more time.
