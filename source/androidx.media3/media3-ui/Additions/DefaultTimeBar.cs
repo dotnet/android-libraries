@@ -1,8 +1,15 @@
 using System;
+using System.Runtime.InteropServices;
 using Android.Runtime;
 using Java.Interop;
 
 namespace AndroidX.Media3.UI;
+
+// These are needed until this hand generated code is updated to use the new generator pattern
+#if NET10_0_OR_GREATER
+[UnmanagedFunctionPointer (CallingConvention.Winapi)]
+delegate void _JniMarshal_PPZ_V (nint jnienv, nint klass, bool p0);
+#endif
 
 public partial class DefaultTimeBar
 {

@@ -1,6 +1,15 @@
-﻿using System;
+using System;
+using System.Runtime.InteropServices;
 using Android.Runtime;
 using Java.Interop;
+
+// These are needed until this hand generated code is updated to use the new generator pattern
+#if NET10_0_OR_GREATER
+[UnmanagedFunctionPointer (CallingConvention.Winapi)]
+delegate bool _JniMarshal_PPL_Z (nint jnienv, nint klass, nint p0);
+[UnmanagedFunctionPointer (CallingConvention.Winapi)]
+delegate bool _JniMarshal_PPIL_Z (nint jnienv, nint klass, int p0, nint p1);
+#endif
 
 namespace Xamarin.Protobuf.Lite
 {

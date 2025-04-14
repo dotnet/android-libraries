@@ -94,7 +94,7 @@
   <attr path="/api/package/class[implements[@name='java.util.Iterator']]/method[starts-with(@name,'next-') and count(parameter)=0]" name="return">java.lang.Object</attr>
   <attr path="/api/package/class[implements[@name='java.util.Map']]/method[@name='entrySet' and count(parameter)=0]" name="return">java.util.Set</attr>
 
-  <attr path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='char']]/parameter[1]" name="managedType">Java.Lang.Character</attr>
+  <remove-node path="/api/package[@name='kotlin.ranges']/class[@name='CharRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='char']]" />
   <attr path="/api/package[@name='kotlin.ranges']/class[@name='IntRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]" name="managedType">Java.Lang.Integer</attr>
   <attr path="/api/package[@name='kotlin.ranges']/class[@name='LongRange']/method[@name='contains' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]" name="managedType">Java.Lang.Long</attr>
 

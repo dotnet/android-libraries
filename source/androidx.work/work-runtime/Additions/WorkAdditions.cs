@@ -1,11 +1,12 @@
-﻿using Android.Content;
-using Android.Runtime;
-using Java.Util.Concurrent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Content;
+using Android.Runtime;
+using Java.Util.Concurrent;
+using JniArgumentValue = Java.Interop.JniArgumentValue;
 
 namespace AndroidX.Work
 {
@@ -224,4 +225,64 @@ namespace AndroidX.Work.Impl.Constraints.Trackers
     //         }
     //     }
     // }
+}
+
+namespace AndroidX.Work.Impl.Constraints.Controllers
+{
+	public partial class BatteryChargingController
+	{
+		// Metadata.xml XPath method reference: path="/api/package[@name='androidx.work.impl.constraints.controllers']/class[@name='BatteryChargingController']/method[@name='isConstrained' and count(parameter)=1 and parameter[1][@type='boolean']]"
+		[Register ("isConstrained", "(Z)Z", "")]
+		protected override unsafe bool IsConstrained (global::Java.Lang.Object? value)
+		{
+			const string __id = "isConstrained.(Z)Z";
+			try {
+				JniArgumentValue* __args = stackalloc JniArgumentValue [1];
+				//__args [0] = new JniArgumentValue (value ? (sbyte) 1 : (sbyte) 0);  // Generated
+				__args [0] = new JniArgumentValue ((bool)value ? (sbyte) 1 : (sbyte) 0);
+				var __rm = _members.InstanceMethods.InvokeAbstractBooleanMethod (__id, this, __args);
+				return __rm;
+			} finally {
+				global::System.GC.KeepAlive (value);
+			}
+		}
+	}
+
+	public partial class BatteryNotLowController
+	{
+		// Metadata.xml XPath method reference: path="/api/package[@name='androidx.work.impl.constraints.controllers']/class[@name='BatteryNotLowController']/method[@name='isConstrained' and count(parameter)=1 and parameter[1][@type='boolean']]"
+		[Register ("isConstrained", "(Z)Z", "")]
+		protected override unsafe bool IsConstrained (global::Java.Lang.Object? value)
+		{
+			const string __id = "isConstrained.(Z)Z";
+			try {
+				JniArgumentValue* __args = stackalloc JniArgumentValue [1];
+				//__args [0] = new JniArgumentValue (value ? (sbyte) 1 : (sbyte) 0);  // Generated
+				__args [0] = new JniArgumentValue ((bool)value ? (sbyte) 1 : (sbyte) 0);
+				var __rm = _members.InstanceMethods.InvokeAbstractBooleanMethod (__id, this, __args);
+				return __rm;
+			} finally {
+				global::System.GC.KeepAlive (value);
+			}
+		}
+	}
+
+	public partial class StorageNotLowController
+	{
+		// Metadata.xml XPath method reference: path="/api/package[@name='androidx.work.impl.constraints.controllers']/class[@name='StorageNotLowController']/method[@name='isConstrained' and count(parameter)=1 and parameter[1][@type='boolean']]"
+		[Register ("isConstrained", "(Z)Z", "")]
+		protected override unsafe bool IsConstrained (global::Java.Lang.Object? value)
+		{
+			const string __id = "isConstrained.(Z)Z";
+			try {
+				JniArgumentValue* __args = stackalloc JniArgumentValue [1];
+				//__args [0] = new JniArgumentValue (value ? (sbyte) 1 : (sbyte) 0);  // Generated
+				__args [0] = new JniArgumentValue ((bool)value ? (sbyte) 1 : (sbyte) 0);
+				var __rm = _members.InstanceMethods.InvokeAbstractBooleanMethod (__id, this, __args);
+				return __rm;
+			} finally {
+				global::System.GC.KeepAlive (value);
+			}
+		}
+	}
 }

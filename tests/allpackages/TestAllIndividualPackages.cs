@@ -10,7 +10,7 @@ namespace AllPackagesTests;
 public class TestAllIndividualPackages
 {
 	static string base_dir = "";
-	static string test_dir = Path.Combine ("output", "tests" , "allpackages");
+	static string test_dir = Path.Combine ("output", "tests", "allpackages");
 	static string configuration = "Release";
 	static string platform_version = "29";
 	static string net_version = "net8.0";
@@ -180,20 +180,11 @@ public class TestAllIndividualPackages
 		XmlDocument xd = new ();
 		xd.Load (proj_file);
 
-		XmlNodeList nl = xd.SelectNodes("//*[starts-with(name(), 'TargetFramework')]");
+		ReplaceInXml (xd, "//PropertyGroup/TargetFramework", $"{net_version}-android");
+		ReplaceInXml (xd, "//PropertyGroup/TargetFrameworks", $"{net_version}-android");
+		ReplaceInXml (xd, "//PropertyGroup/SupportedOSPlatformVersion", platform_version);
 
-		if (nl is not null) {
-			foreach (XmlNode node in nl) {
-				node.InnerText = $"{net_version}-android";
-			}
-		}
-		xd.Save(proj_file);
-
-    ReplaceInFile (proj_file, ">21</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
-		ReplaceInFile (proj_file, ">21.0</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
-		ReplaceInFile (proj_file, $";{net_version}-ios", "");
-		ReplaceInFile (proj_file, $";{net_version}-maccatalyst", "");
-		ReplaceInFile (proj_file, $";{net_version}-windows10.0.19041.0", "");
+		xd.Save (proj_file);
 
 		// Get all packages to test
 		var packages = GetAllPackages (isGps);
@@ -230,6 +221,17 @@ public class TestAllIndividualPackages
 		var contents = File.ReadAllText (filename);
 		contents = contents.Replace (oldValue, newValue);
 		File.WriteAllText (filename, contents);
+	}
+
+	static void ReplaceInXml (XmlDocument xml, string xpath, string value)
+	{
+		var nodes = xml.SelectNodes (xpath);
+
+		if (nodes is null)
+			return;
+
+		foreach (XmlElement node in nodes)
+			node.InnerText = value;
 	}
 
 	static void AddPackagesToProjectFile (string filename, BinderatorConfigFileParser.ArtifactModel [] packages)

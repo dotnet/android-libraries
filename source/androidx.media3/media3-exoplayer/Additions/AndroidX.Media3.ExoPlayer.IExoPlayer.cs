@@ -1,11 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Android.Runtime;
 using Java.Interop;
 
 namespace AndroidX.Media3.ExoPlayer;
 
+// These are needed until this hand generated code is updated to use the new generator pattern
+#if NET10_0_OR_GREATER
+[UnmanagedFunctionPointer (CallingConvention.Winapi)]
 delegate void _JniMarshal_PPIIL_V (IntPtr jnienv, IntPtr klass, int p0, int p1, IntPtr p2);
+[UnmanagedFunctionPointer (CallingConvention.Winapi)]
+internal delegate void _JniMarshal_PPLZ_V (nint jnienv, nint klass, nint p0, bool p1);
+#endif
 
 internal partial class IExoPlayerInvoker
 {

@@ -31,4 +31,10 @@ Task ("dotnet-next")
   XmlPoke (directory_build, "/Project/ItemGroup/AndroidXNuGetTargetFolders[starts-with (@Include, 'buildTransitive\\')]/@Include", $@"buildTransitive\net{next_net_framework_version}.0-android{next_api_level_version}.0");
 
   XmlPoke (directory_build, "/Project/ItemGroup/AndroidXNuGetLibFolders/@Include", $@"lib\net{next_net_framework_version}.0-android{next_api_level_version}.0");
+  
+  // Update test target versions
+  var test_all_packages_file = File ("tests/allpackages/TestAllIndividualPackages.cs");
+  var test_all_packages_content = FileReadText (test_all_packages_file);
+  test_all_packages_content = test_all_packages_content.Replace ("static string net_version = \"net8.0\"", $"static string net_version = \"net{next_net_framework_version}.0\"");
+  FileWriteText (test_all_packages_file, test_all_packages_content);
 });    
