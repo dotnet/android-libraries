@@ -6,7 +6,7 @@
     var licenses = string.Join("<br/>", Model.Licenses.Select(l => string.IsNullOrWhiteSpace(l.Url) ? new HtmlString(l.Name).Value : new HtmlString($"[{l.Name}]({l.Url})").Value).ToArray());
     var developers = string.Join("<br/>", Model.Developers.Select(d => new HtmlString(d.Name).Value).ToArray());
 }
-This package provides .NET for Android bindings for the Java library `@(Model.MavenGroupId):@(Model.Name)`.
+This package provides .NET for Android and MAUI bindings for the Java library `@(Model.MavenGroupId):@(Model.Name)`.
 
 ## Java Library
 
