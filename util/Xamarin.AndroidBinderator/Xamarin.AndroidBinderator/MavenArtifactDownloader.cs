@@ -17,6 +17,7 @@ static class MavenArtifactDownloader
 		Directory.CreateDirectory (externals_dir);
 
 		foreach (var artifact in artifacts) {
+			Console.WriteLine($"{artifact.MavenGroupId}:{artifact.Name}:{artifact.Id}");
 			var maven_artifact = artifact.MavenArtifacts.First ();
 			var config_artifact = maven_artifact.MavenArtifactConfig;
 

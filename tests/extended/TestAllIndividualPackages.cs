@@ -1,4 +1,5 @@
 using System.Text;
+using System.Xml;
 using CliWrap;
 using CliWrap.Buffered;
 using NUnit.Framework;

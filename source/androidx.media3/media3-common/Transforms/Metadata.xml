@@ -102,5 +102,20 @@
         >
         true
     </attr>
+    <remove-node
+        path="/api/package[@name='androidx.media3.common']/interface[@name='SimpleBasePlayer.PositionSupplier']"
+        />
+    <remove-node
+        path="/api/package[@name='androidx.media3.common']/class[@name='SimpleBasePlayer.PeriodData']"
+        />
+    <attr
+        path="/api/package[@name='androidx.media3.common']/class[@name='SimpleBasePlayer.MediaItemData']"
+        name="visibility"
+        >
+        public
+    </attr>
+    <remove-node
+        path="/api/package[@name='androidx.media3.common']/interface[@name='VideoGraph.Listener']/method[@name='onOutputFrameRateChanged' and count(parameter)=1 and parameter[1][@type='float']]"
+        />
 
 </metadata>

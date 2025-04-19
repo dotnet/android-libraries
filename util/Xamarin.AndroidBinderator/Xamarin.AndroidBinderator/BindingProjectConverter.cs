@@ -27,6 +27,7 @@ static class BindingProjectConverter
 	// Converts an artifact from config.json to the model used to generate files
 	static BindingProjectModel ConvertArtifact (BindingConfig config, MavenArtifactConfig mavenArtifact, List<Exception> exceptions)
 	{
+		Console.WriteLine($"{mavenArtifact.GroupAndArtifactId}:{mavenArtifact.Version}");
 		var mavenProject = MavenFactory2.GetPomForArtifact (config, mavenArtifact);
 
 		var projectModel = new BindingProjectModel {
