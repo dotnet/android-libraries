@@ -182,9 +182,10 @@ public class TestAllIndividualPackages
 
 		XmlNodeList nl = xd.SelectNodes("//*[starts-with(name(), 'TargetFramework')]");
 
-		foreach (XmlNode node in nl) 
-		{
-			node.InnerText = $"{net_version}-android";
+		if (nl is not null) {
+			foreach (XmlNode node in nl) {
+				node.InnerText = $"{net_version}-android";
+			}
 		}
 		xd.Save(proj_file);
 
