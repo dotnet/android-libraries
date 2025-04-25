@@ -114,4 +114,34 @@
         path="/api/package[@name='io.grpc']/class[@name='ForwardingChannelBuilder']/method[@name='delegate' and count(parameter)=0]"
         />
         
+    <remove-node
+        path="/api/package[@name='io.grpc']/interface[@name='InternalServiceProviders.PriorityAccessor']/typeParameters"
+        />
+        
+    <attr
+        path="/api/package[@name='io.grpc']/class[@name='InternalConfigSelector.Result']/method[@name='getInterceptor' and count(parameter)=0]"
+        name="propertyName"
+        ></attr>
+    <attr
+        path="/api/package[@name='io.grpc']/class[@name='InternalChannelz.ChannelTrace.Event']/method[@name='setSeverity']"
+        name="propertyName"
+        ></attr>
+
+    <remove-node
+        path="/api/package[@name='io.grpc']/interface[@name='ServiceProviders.PriorityAccessor']/typeParameters"
+        />
+
+    <attr
+        path="/api/package[@name='io.grpc']/class[@name='InternalChannelz.ChannelTrace.Event']"
+        name="managedName"
+        >
+        EventData
+    </attr>
+    <attr
+        path="/api/package[@name='io.grpc']/class[@name='InternalChannelz.ChannelTrace.Event.Severity']"
+        name="managedName"
+        >
+        SeverityData
+    </attr>
+
 </metadata>
