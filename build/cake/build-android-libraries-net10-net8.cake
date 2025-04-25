@@ -8,7 +8,7 @@
 Quick test
 
 ```shell
-    git clean -xdf ; dotnet cake -t=build-android-libraries-net10-net8
+git clean -xdf ; dotnet cake -t=build-android-libraries-net10-net8
 ```
 
 Step by step tests:
@@ -257,7 +257,7 @@ Task ("net10-net8-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.2.25164.34",
+                    "version": "10.0.100-preview.3.25201.16",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
@@ -410,7 +410,7 @@ Task ("net10-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.2.25164.34",
+                    "version": "10.0.100-preview.3.25201.16",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
