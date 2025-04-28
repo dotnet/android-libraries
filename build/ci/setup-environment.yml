@@ -33,6 +33,9 @@ steps:
 
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
+      - powershell: dotnet tool uninstall ${{ pair.key }} -g
+        displayName: 'Uninstall tool: ${{ pair.key }}'
+        ignoreLASTEXITCODE: true
       - task: DotNetCoreCLI@2
         displayName: 'Install tool: ${{ pair.key }} ${{ pair.value }}'
         inputs:
