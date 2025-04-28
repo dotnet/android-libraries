@@ -11,6 +11,7 @@ steps:
     displayName: 'Use dotnet $(dotnetVersion)'
     inputs:
       version: $(dotnetVersion)
+      performMultiLevelLookup: true
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
@@ -18,6 +19,7 @@ steps:
     displayName: 'Use dotnet 10.0.100-preview.3.25201.16'
     inputs:
       version: 10.0.100-preview.3.25201.16
+      performMultiLevelLookup: true
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
@@ -26,22 +28,13 @@ steps:
       displayName: 'Use dotnet $(dotnetNextVersion)'
       inputs:
         version: $(dotnetNextVersion)
+        performMultiLevelLookup: true
         includePreviewVersions: true
-
-  - script: dotnet --info
-    displayName: Print dotnet info
-
+      
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
-      - task: DotNetCoreCLI@2
-        displayName: 'Install tool: ${{ pair.key }} ${{ parameters.value }}'
-        inputs:
-          command: custom
-          custom: tool
-          arguments: >-
-            update -g ${{ pair.key }} -v:diag
-            --version ${{ pair.value }}
-            --add-source "https://api.nuget.org/v3/index.json"
+      - pwsh: dotnet tool update -g ${{ pair.key }} --version ${{ pair.value }}
+        displayName: 'Install tool: ${{ pair.key }}'
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
