@@ -11,7 +11,6 @@ steps:
     displayName: 'Use dotnet $(dotnetVersion)'
     inputs:
       version: $(dotnetVersion)
-      performMultiLevelLookup: true
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
@@ -19,7 +18,6 @@ steps:
     displayName: 'Use dotnet 10.0.100-preview.3.25201.16'
     inputs:
       version: 10.0.100-preview.3.25201.16
-      performMultiLevelLookup: true
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
@@ -28,8 +26,10 @@ steps:
       displayName: 'Use dotnet $(dotnetNextVersion)'
       inputs:
         version: $(dotnetNextVersion)
-        performMultiLevelLookup: true
         includePreviewVersions: true
+
+  - script: dotnet --info
+    displayName: Print dotnet info
 
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
