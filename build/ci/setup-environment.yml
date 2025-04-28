@@ -33,7 +33,7 @@ steps:
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
       - task: DotNetCoreCLI@2
-        displayName: 'Install tool: ${{ pair.key }} ${{ parameters.value }}'
+        displayName: 'Install tool: ${{ pair.key }} ${{ pair.value }}'
         inputs:
           command: custom
           custom: tool
@@ -41,9 +41,6 @@ steps:
             update -g ${{ pair.key }} -v:diag
             --version ${{ pair.value }}
             --add-source "https://api.nuget.org/v3/index.json"
-
-      - pwsh: dotnet tool update -g ${{ pair.key }} --version ${{ pair.value }}
-        displayName: 'Install tool: ${{ pair.key }}'
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
