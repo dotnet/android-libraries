@@ -11,6 +11,7 @@ steps:
       dotnet build-server shutdown
       rm -rf $(Agent.ToolsDirectory)/dotnet
     displayName: Remove dotnet cache
+    workingDirectory: $(Pipeline.Workspace)
     condition: eq(variables['Agent.OS'], 'Darwin')
 
   - task: UseDotNet@2
