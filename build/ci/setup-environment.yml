@@ -8,10 +8,10 @@ parameters:
 steps:
   # before the build starts, make sure the tooling is as expected. Clear the cache on shared agents
   - script: |
-    dotnet build-server shutdown
-    rm -rf $(Agent.ToolsDirectory)/dotnet
-  displayName: Remove dotnet cache
-  condition: eq(variables['Agent.OS'], 'Darwin')
+      dotnet build-server shutdown
+      rm -rf $(Agent.ToolsDirectory)/dotnet
+    displayName: Remove dotnet cache
+    condition: eq(variables['Agent.OS'], 'Darwin')
 
   - task: UseDotNet@2
     displayName: 'Use dotnet $(dotnetVersion)'
@@ -29,7 +29,7 @@ steps:
 
   - script: dotnet --info
     displayName: Display dotnet info
-      
+
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
       - task: DotNetCoreCLI@2
