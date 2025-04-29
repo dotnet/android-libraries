@@ -189,7 +189,7 @@ public class TestAllIndividualPackages
 		}
 		xd.Save(proj_file);
 
-		ReplaceInFile (proj_file, ">21</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
+    ReplaceInFile (proj_file, ">21</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
 		ReplaceInFile (proj_file, ">21.0</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
 		ReplaceInFile (proj_file, $";{net_version}-ios", "");
 		ReplaceInFile (proj_file, $";{net_version}-maccatalyst", "");
