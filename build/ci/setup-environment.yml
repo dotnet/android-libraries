@@ -6,12 +6,18 @@ parameters:
   javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
 
 steps:
-  # before the build starts, make sure the tooling is as expected
+  # before the build starts, make sure the tooling is as expected. Clear the cache on shared agents
+  - script: |
+      dotnet build-server shutdown
+      rm -rf $(Agent.ToolsDirectory)/dotnet
+    displayName: Remove dotnet cache
+    workingDirectory: $(Pipeline.Workspace)
+    condition: eq(variables['Agent.OS'], 'Darwin')
+
   - task: UseDotNet@2
     displayName: 'Use dotnet $(dotnetVersion)'
     inputs:
       version: $(dotnetVersion)
-      performMultiLevelLookup: true
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
@@ -20,13 +26,25 @@ steps:
       displayName: 'Use dotnet $(dotnetNextVersion)'
       inputs:
         version: $(dotnetNextVersion)
-        performMultiLevelLookup: true
         includePreviewVersions: true
-      
+
+  - script: dotnet --info
+    displayName: Display dotnet info
+
   - ${{ each tool in parameters.dotnetTools }}:
     - ${{ each pair in tool }}:
-      - pwsh: dotnet tool update -g ${{ pair.key }} --version ${{ pair.value }}
-        displayName: 'Install tool: ${{ pair.key }}'
+      - powershell: dotnet tool uninstall ${{ pair.key }} -g
+        displayName: 'Uninstall tool: ${{ pair.key }}'
+        ignoreLASTEXITCODE: true
+      - task: DotNetCoreCLI@2
+        displayName: 'Install tool: ${{ pair.key }} ${{ pair.value }}'
+        inputs:
+          command: custom
+          custom: tool
+          arguments: >-
+            update -g ${{ pair.key }} -v:diag
+            --version ${{ pair.value }}
+            --add-source "https://api.nuget.org/v3/index.json"
 
   - ${{ if eq(parameters.runDotnetNextTest, true) }}:
     - pwsh: |
