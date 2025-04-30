@@ -1,5 +1,5 @@
 // Used by binderator, "Windows" is fine because we only use managed code from it
-#tool nuget:?package=Microsoft.Android.Sdk.Windows&version=35.0.0-rc.1.80
+#tool nuget:?package=Microsoft.Android.Sdk.Windows&version=35.0.61
 
 // Cake Addins
 #addin nuget:?package=Cake.FileHelpers&version=7.0.0
