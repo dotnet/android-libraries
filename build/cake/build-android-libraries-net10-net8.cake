@@ -346,12 +346,12 @@ Task ("net8-prepare-binderate-build")
             content_global_json =
             """
             {
-                "sdk":
+                "sdk": 
                 {
-                    "version": "8.0.407",
+                    "version": "8.0.408",
                     "rollForward": "patch"
                 },
-                "msbuild-sdks":
+                "msbuild-sdks": 
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
                     "Microsoft.Build.Traversal": "4.1.82",
@@ -506,12 +506,12 @@ Task ("build-prepare-dotnet-android")
             content_global_json =
             """
             {
-                "sdk":
+                "sdk": 
                 {
-                    "version": "8.0.407",
+                    "version": "8.0.408",
                     "rollForward": "patch"
                 },
-                "msbuild-sdks":
+                "msbuild-sdks": 
                 {
                     "MSBuild.Sdk.Extras": "3.0.44",
                     "Microsoft.Build.Traversal": "4.1.82",
