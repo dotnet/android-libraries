@@ -239,7 +239,7 @@
 | 232|androidx.room:room-rxjava3                                            |2.6.1               |Xamarin.AndroidX.Room.Room.RxJava3                                    |2.6.1.10            |
 | 233|androidx.savedstate:savedstate                                        |1.2.1               |Xamarin.AndroidX.SavedState                                           |1.2.1.16            |
 | 234|androidx.savedstate:savedstate-ktx                                    |1.2.1               |Xamarin.AndroidX.SavedState.SavedState.Ktx                            |1.2.1.16            |
-| 235|androidx.security:security-crypto                                     |1.0.0               |Xamarin.AndroidX.Security.SecurityCrypto                              |1.0.0.25            |
+| 235|androidx.security:security-crypto                                     |1.1.0-alpha07       |Xamarin.AndroidX.Security.SecurityCrypto                              |1.1.0.3-alpha07     |
 | 236|androidx.slice:slice-builders                                         |1.0.0               |Xamarin.AndroidX.Slice.Builders                                       |1.0.0.32            |
 | 237|androidx.slice:slice-core                                             |1.0.0               |Xamarin.AndroidX.Slice.Core                                           |1.0.0.32            |
 | 238|androidx.slice:slice-view                                             |1.0.0               |Xamarin.AndroidX.Slice.View                                           |1.0.0.32            |
