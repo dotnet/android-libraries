@@ -33,7 +33,7 @@
     <WarningsAsErrors>$(WarningsAsErrors);NU5104</WarningsAsErrors>
 
     <!-- Ignore binding generator warnings by default -->
-    <_AndroidIgnoreGeneratorWarnings>true</_AndroidIgnoreGeneratorWarnings>
+    <_AndroidIgnoreGeneratorWarnings>false</_AndroidIgnoreGeneratorWarnings>
 
     <!--
       BG8102: Class 'foo' has unknown base type 'foo'.
@@ -64,6 +64,13 @@
     -->
     <NoWarn Condition=" '$(_AndroidIgnoreGeneratorWarnings)' == 'true' ">$(NoWarn);BG8102;BG8103;BG8300;BG8400;BG8401;BG8402;BG8403;BG8501;BG8502;BG8503;BG8504;BG8601;BG8604;BG8605;BG8606;BG8700;BG8701;BG8800;BG8801;BG8A00;BG8A01;BG8A04;BG8B00;BG8C00;BG8C01;nullable</NoWarn>
 
+    <ErrorLog>obj/error-log.sarif</ErrorLog>
+    <!--
+    <Message Text="OutputPath = $(OutputPath)" Importance="high"/>
+
+    <ErrorLog>$(OutputPath)\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
+    <ErrorLog>$(OutputPath)\static-analysis.sarif.json</ErrorLog>
+    -->
     <!-- Common package metadata -->
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
