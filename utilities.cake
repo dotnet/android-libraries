@@ -453,7 +453,7 @@ Task ("spell-check")
 
             var dictionary = WeCantSpell.Hunspell.WordList.CreateFromFiles(@"externals/English (American).dic");
             string[] words =
-            {
+            [
                 "Xamarin",
                 "AndroidX",
                 "IdentifierCommon",
@@ -827,7 +827,8 @@ Task ("spell-check")
                 "RecaptchaBase",
                 "Json",
                 "ViewTree",
-            };
+                "TypeAnnotations",
+           ];
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
 
