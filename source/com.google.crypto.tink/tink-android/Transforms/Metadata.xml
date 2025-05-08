@@ -114,9 +114,9 @@
     </attr>
     <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
-        name="managedReturn"
+        name="return"
         >
-        System.Collections.ICollection
+        java.util.Set
     </attr>
 
     <add-node
@@ -232,16 +232,7 @@
     <remove-node
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='AbstractProtobufList']/method[@name='removeAll' and count(parameter)=1 and parameter[1][@type='java.util.Collection&lt;?&gt;']]"
         />
-    <remove-node
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='LazyStringArrayList']/method[@name='remove' and count(parameter)=1 and parameter[1][@type='int']]"
-        />
 
-    <attr
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='LazyStringArrayList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
-        name="managedReturn"
-        >
-        Java.Lang.Object
-    </attr>
 
     <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='GeneratedMessageLite.Builder']/method[@name='build' and count(parameter)=0]"
@@ -308,10 +299,11 @@
     </attr>
     <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='UnmodifiableLazyStringList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
-        name="managedReturn"
+        name="return"
         >
-        Java.Lang.Object
+        java.lang.Object
     </attr>
+
     <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='AbstractMessageLite.Builder']/method[@name='mergeFrom']"
         name="managedReturn"
@@ -329,13 +321,6 @@
         name="managedReturn"
         >
         Java.Lang.Object
-    </attr>
-
-    <attr
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='MapFieldLite']/method[@name='entrySet' and count(parameter)=0]"
-        name="managedReturn"
-        >
-        System.Collections.ICollection
     </attr>
 
 
@@ -442,22 +427,24 @@
         System.Collections.Generic.ICollection &lt; Java.Util.IMapEntry &gt;
     </attr>
     -->
-    <remove-node
+    <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='MapFieldLite']/method[@name='entrySet' and count(parameter)=0]"
-        />
-    <remove-node
+        name="managedReturn"
+        >
+        System.Collections.ICollection
+    </attr>
+    <!-- <remove-node
+        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='MapFieldLite']/method[@name='entrySet' and count(parameter)=0]"
+        /> -->
+    <attr
         path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='LazyStringArrayList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="return"
+        >
+        java.lang.Object
+    </attr>
+    <remove-node
+        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='LazyStringArrayList']/method[@name='remove' and @return='java.lang.String' and count(parameter)=1 and parameter[1][@type='int']]"
         />
-
-    <remove-node
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='Internal.MapAdapter']/method[@name='entrySet' and count(parameter)=0]"
-    >
-    </remove-node>
-
-    <remove-node
-        path="/api/package[@name='com.google.crypto.tink.shaded.protobuf']/class[@name='UnmodifiableLazyStringList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
-    >
-    </remove-node>
 
     <attr
         path="/api/package[@name='com.google.crypto.tink.mac']/class[@name='AesCmacKey']/method[@name='getParameters' and count(parameter)=0]"
