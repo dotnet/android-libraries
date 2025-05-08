@@ -80,10 +80,25 @@ Task ("build-android-libraries-net10-net8")
             //                 () => RunTarget("net8-prepare-binderate-build")
             //             );
 
-            if (IsMigratingNet10UsingDotnetInstallation == false)
+            if (IsRunningOnMacOs())
             {
-                RunTarget("build-prepare-dotnet-android");
             }
+            else
+            {
+            StartProcess
+                    (
+                        "dotnet",
+                        "build -t:InstallAndroidDependencies"
+                        + " " +
+                        """ -f net8.0-android "-p:AndroidSdkDirectory=C:\Android\android-sdk" """
+                    );
+
+            }        
+
+            if (IsMigratingNet10UsingDotnetInstallation == false)
+                {
+                    RunTarget("build-prepare-dotnet-android");
+                }
             RunTarget("net8-prepare-binderate-build");
             RunTarget("revert-changes-net8");
             // RunTarget("net10-prepare-binderate-build");       // not needed -  for testing purposes only
