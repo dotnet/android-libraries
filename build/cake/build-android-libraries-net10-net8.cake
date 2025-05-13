@@ -80,20 +80,6 @@ Task ("build-android-libraries-net10-net8")
             //                 () => RunTarget("net8-prepare-binderate-build")
             //             );
 
-            if (IsRunningOnMacOs())
-            {
-            }
-            else
-            {
-            StartProcess
-                    (
-                        "dotnet",
-                        "build -t:InstallAndroidDependencies"
-                        + " " +
-                        """ -f net8.0-android "-p:AndroidSdkDirectory=C:\Android\android-sdk" """
-                    );
-
-            }        
 
             if (IsMigratingNet10UsingDotnetInstallation == false)
                 {
@@ -246,6 +232,9 @@ Task ("net10-net8-prepare-binderate-build")
     (
         () =>
         {
+            Information($"{new string('=', 120)}");
+            Information("net10-net8-prepare-binderate-build");
+
             DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated/"), delete_directory_setting);
@@ -286,7 +275,6 @@ Task ("net10-net8-prepare-binderate-build")
             """;
             System.IO.File.WriteAllText(path_global_json, content_global_json);
 
-            Information($"{new string('=', 120)}");
             RunTarget("binderate");
             Parallel.ForEach
                          (
@@ -318,12 +306,41 @@ Task ("net10-net8-prepare-binderate-build")
                             }
                          );
 
-
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
+            Information($"{new string('=', 120)}");
+            if (IsRunningOnMacOs())
+            {
+                // StartProcess
+                //         (
+                //             dotnet,
+                //             "build -t:InstallAndroidDependencies"
+                //             + " " +
+                //             "./generated/AndroidX.sln"
+                //             + " " +
+                //             "-f:net10.0-android"
+                //             + " " +
+                //             "-p:AndroidSdkDirectory=\"$HOME/Library/Android/sdk\""
+                //             + " " +
+                //             "-p:AcceptAndroidSDKLicenses=True"
+                //         );
+                // StartProcess("sudo", $"{dotnet} workload restore ./generated/AndroidX.sln");
+            }
+            if (IsRunningOnWindows())
+            {
+                StartProcess
+                        (
+                            dotnet,
+                            "build -t:InstallAndroidDependencies"
+                            + " " +
+                            "./generated/AndroidX.sln"
+                            + " " +
+                            "-f:net10.0-android"
+                            + " " +
+                            "-p:AndroidSdkDirectory=\"C:\\Android\\android-sdk\\\""
+                            + " " +
+                            "-p:AcceptAndroidSDKLicenses=True"
+                        );
+                StartProcess("dotnet", $"workload restore ./generated/AndroidX.sln");
+            }        
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net10.0-net8.0-build-files/");
@@ -350,6 +367,9 @@ Task ("net8-prepare-binderate-build")
     (
         () =>
         {
+            Information($"{new string('=', 120)}");
+            Information("net8-prepare-binderate-build");
+
             DeleteDirectories(GetDirectories("./output/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./externals/"), delete_directory_setting);
             DeleteDirectories(GetDirectories("./generated/"), delete_directory_setting);
@@ -386,8 +406,41 @@ Task ("net8-prepare-binderate-build")
                 dotnet = "dotnet";
             }
 
-            Information($"{new string('=', 120)}");
             RunTarget("binderate");
+            if (IsRunningOnMacOs())
+            {
+                // StartProcess
+                //         (
+                //             dotnet,
+                //             "build -t:InstallAndroidDependencies"
+                //             + " " +
+                //             "./generated/AndroidX.sln"
+                //             + " " +
+                //             "-f:net8.0-android"
+                //             + " " +
+                //             "-p:AndroidSdkDirectory=\"$HOME/Library/Android/sdk\""
+                //             + " " +
+                //             "-p:AcceptAndroidSDKLicenses=True"
+                //         );
+                // StartProcess("sudo", $"{dotnet} workload restore ./generated/AndroidX.sln");
+            }
+            if (IsRunningOnWindows())
+            {
+                StartProcess
+                        (
+                            dotnet,
+                            "build -t:InstallAndroidDependencies"
+                            + " " +
+                            "./generated/AndroidX.sln"
+                            + " " +
+                            "-f:net8.0-android"
+                            + " " +
+                            "-p:AndroidSdkDirectory=\"C:\\Android\\android-sdk\\\""
+                            + " " +
+                            "-p:AcceptAndroidSDKLicenses=True"
+                        );
+                StartProcess("dotnet", $"workload restore ./generated/AndroidX.sln");
+            }        
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net8.0-build-files/");
@@ -479,14 +532,41 @@ Task ("net10-prepare-binderate-build")
                 dotnet = "dotnet";
             }
 
-            Information("binderate");
             RunTarget("binderate");
-            StartProcess
-                    (
-                        dotnet,
-                        "workload restore --project ./generated/androidx.activity.activity/androidx.activity.activity.csproj"
-                    );
-            Information("binderate");
+            if (IsRunningOnMacOs())
+            {
+                // StartProcess
+                //         (
+                //             dotnet,
+                //             "build -t:InstallAndroidDependencies"
+                //             + " " +
+                //             "./generated/AndroidX.sln"
+                //             + " " +
+                //             "-f:net10.0-android"
+                //             + " " +
+                //             "-p:AndroidSdkDirectory=\"$HOME/Library/Android/sdk\""
+                //             + " " +
+                //             "-p:AcceptAndroidSDKLicenses=True"
+                //         );
+                // StartProcess("sudo", $"{dotnet} workload restore ./generated/AndroidX.sln");
+            }
+            if (IsRunningOnWindows())
+            {
+                StartProcess
+                        (
+                            dotnet,
+                            "build -t:InstallAndroidDependencies"
+                            + " " +
+                            "./generated/AndroidX.sln"
+                            + " " +
+                            "-f:net10.0-android"
+                            + " " +
+                            "-p:AndroidSdkDirectory=\"C:\\Android\\android-sdk\\\""
+                            + " " +
+                            "-p:AcceptAndroidSDKLicenses=True"
+                        );
+                StartProcess("dotnet", $"workload restore ./generated/AndroidX.sln");
+            }        
             RunTarget("nuget");
 
             CopyFiles("./global.json", "./output/net10.0-build-files/");
