@@ -24,7 +24,7 @@ namespace NativeLibraryDownloaderTests
 
 		void AddCoreTargets (ProjectRootElement el)
 		{
-			var baseDir = new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+			var baseDir = new Uri(System.Reflection.Assembly.GetExecutingAssembly().Location).LocalPath;
 
 			var props = Path.Combine (baseDir, "..", "..", "source", "Xamarin.Build.Download", "bin", Configuration, "netstandard20", "Xamarin.Build.Download.props");
 
@@ -504,7 +504,7 @@ namespace NativeLibraryDownloaderTests
 
 			var itemToDownload = project.GetItems ("XamarinBuildDownloadItemToDownload");
 
-			Assert.Equal (1, itemToDownload.Count);
+			Assert.Single (itemToDownload);
 			Assert.True (itemToDownload.First ().GetMetadata ("Url").EvaluatedValue == itemUrl);
 		}
 
@@ -543,7 +543,7 @@ namespace NativeLibraryDownloaderTests
 
 			var itemToDownload = project.GetItems ("XamarinBuildDownloadItemToDownload");
 
-			Assert.Equal (1, itemToDownload.Count);
+			Assert.Single (itemToDownload);
 			Assert.True (itemToDownload.First ().GetMetadata ("Url").EvaluatedValue == itemUrl);
 		}
 
