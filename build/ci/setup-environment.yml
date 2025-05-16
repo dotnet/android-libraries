@@ -111,17 +111,10 @@ steps:
 
   - ${{ if eq(parameters.installAndroidDependencies, true) }}:
     - task: DotNetCoreCLI@2
-      displayName: Create android template
-      inputs:
-        command: custom
-        custom: new
-        arguments: android -o $(Agent.TempDirectory)/TempDroid
-
-    - task: DotNetCoreCLI@2
       displayName: Install android dependencies
       inputs:
         command: build
-        projects: $(Agent.TempDirectory)/TempDroid/TempDroid.csproj
+        projects: build/scripts/provision-android/provision-android.csproj
         arguments: >-
           -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
           -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
