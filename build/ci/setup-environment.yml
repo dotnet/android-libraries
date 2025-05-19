@@ -116,7 +116,7 @@ steps:
         command: build
         projects: build/scripts/provision-android/provision-android.csproj
         arguments: >-
-          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=Google
+          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
           -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
           -v:n -bl:output/install-android-dependencies.binlog
         retryCountOnTaskFailure: 3
