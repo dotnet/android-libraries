@@ -36,10 +36,9 @@
       OnOffsetChangedListener now implements BaseOnOffsetChangedListener with just the same method
       This causes some inheritance problems in .NET so we're going to hide this base interface and make sure everywhere that uses it is patched up and uses OnOffsetChangedListener instead
       Luckily for now any methods that take BaseOnOffsetChangedListener also have an overload for OnOffsetChangedListener
-
+     -->
     <remove-node path="/api/package[@name='com.google.android.material.appbar']/interface[@name='AppBarLayout.BaseOnOffsetChangedListener']" />
     <remove-node path="/api/package[@name='com.google.android.material.appbar']/interface[@name='AppBarLayout.OnOffsetChangedListener']/implements[@name='com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener']" />
-     -->
     <attr path="/api/package[@name='com.google.android.material.appbar']/interface[@name='AppBarLayout.OnOffsetChangedListener']/method[@name='onOffsetChanged']/parameter[1]" name="type">com.google.android.material.appbar.AppBarLayout</attr>
 
     <!-- Google added a new level in between, so we call that 2 :( -->
