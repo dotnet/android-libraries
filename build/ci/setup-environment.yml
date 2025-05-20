@@ -93,17 +93,10 @@ steps:
 
   - ${{ if eq(parameters.installAndroidDependencies, true) }}:
     - task: DotNetCoreCLI@2
-      displayName: Create android template
-      inputs:
-        command: custom
-        custom: new
-        arguments: android -o $(Agent.TempDirectory)/TempDroid
-
-    - task: DotNetCoreCLI@2
       displayName: Install android dependencies
       inputs:
         command: build
-        projects: $(Agent.TempDirectory)/TempDroid/TempDroid.csproj
+        projects: build/scripts/provision-android/provision-android.csproj
         arguments: >-
           -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
           -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
@@ -113,16 +106,6 @@ steps:
     - pwsh: |
         Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
       displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
-
-    - pwsh: |
-        if ($IsWindows) {
-            $env:JAVA_HOME = Get-ChildItem -Path "C:\Program Files (x86)\Android\openjdk" -Filter "*jdk*" | Select-Object -First 1
-        }
-        $sdkManager = Get-ChildItem -Path "${{ parameters.androidSdkRoot }}\cmdline-tools" -Filter "sdkmanager*" -Recurse | Select-Object -First 1
-        $yesInput = "y`n" * 10
-        $yesInput | & $sdkManager --licenses
-        & $sdkManager "build-tools;29.0.3" "platforms;android-29"
-      displayName: Install extra Android SDK packages
 
     - pwsh: |
         $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
