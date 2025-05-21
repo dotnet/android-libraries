@@ -6,7 +6,7 @@
     <RepositoryCommit>$(BUILD_SOURCEVERSION)</RepositoryCommit>
 
     <!-- Default TFM's we build for -->
-    <_DefaultTargetFrameworks>net8.0-android</_DefaultTargetFrameworks>
+    <_DefaultTargetFrameworks>net8.0-android;net9.0-android</_DefaultTargetFrameworks>
     <_DefaultNetTargetFrameworks>net8.0</_DefaultNetTargetFrameworks>
 
     <!-- Enable DIM/SIM for Classic (defaults to true on .NET) -->
@@ -85,11 +85,14 @@
   <ItemGroup>
     <AndroidXNuGetTargetFolders Include="build\net8.0-android34.0" />
     <AndroidXNuGetTargetFolders Include="buildTransitive\net8.0-android34.0" />
+    <AndroidXNuGetTargetFolders Include="build\net9.0-android35.0" />
+    <AndroidXNuGetTargetFolders Include="buildTransitive\net9.0-android35.0" />
   </ItemGroup>
 
   <!-- Folders that _._ files need to go into for packages without managed libraries -->
   <ItemGroup>
     <AndroidXNuGetLibFolders Include="lib\net8.0-android34.0" />
+    <AndroidXNuGetLibFolders Include="lib\net9.0-android35.0" />
   </ItemGroup>
 
   <ItemGroup>
