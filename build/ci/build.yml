@@ -71,7 +71,7 @@ jobs:
     - ${{ if ne(parameters.use1ESTemplate, true) }}:
       - task: PublishPipelineArtifact@1
         displayName: Upload logs
+        condition: always()
         inputs:
           artifactName: output-${{ parameters.name }}
           targetPath: ${{ parameters.artifactsPath }}
-          condition: always()
