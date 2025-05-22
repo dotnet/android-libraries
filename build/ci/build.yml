@@ -68,9 +68,10 @@ jobs:
         }
       displayName: Copy SignList.xml to output
 
-    - task: PublishPipelineArtifact@1
-      displayName: Upload logs
-      inputs:
-        artifactName: output-${{ parameters.name }}
-        targetPath: ${{ parameters.artifactsPath }}
-        condition: always()
+    - ${{ if ne(parameters.use1ESTemplate, true) }}:
+      - task: PublishPipelineArtifact@1
+        displayName: Upload logs
+        inputs:
+          artifactName: output-${{ parameters.name }}
+          targetPath: ${{ parameters.artifactsPath }}
+          condition: always()
