@@ -4,7 +4,7 @@ parameters:
   buildPool:                                                        # VM pool information
   stageCondition: and(succeeded(), ne('$(skipUnitTests)', 'true'))  # When to run this stage
   runDotnetNextTest: false
-  installAndroidDependencies: true
+  installAndroidDependencies: false
 
 stages:
 - stage: standard_tests
