@@ -109,17 +109,16 @@ steps:
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
 
-  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
-    - task: DotNetCoreCLI@2
-      displayName: Install android dependencies
-      inputs:
-        command: build
-        projects: build/scripts/provision-android/provision-android.csproj
-        arguments: >-
-          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
-          -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-          -v:n -bl:output/install-android-dependencies.binlog
-        retryCountOnTaskFailure: 3
+  - task: DotNetCoreCLI@2
+    displayName: Install android dependencies
+    inputs:
+      command: build
+      projects: build/scripts/provision-android/provision-android.csproj
+      arguments: >-
+        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
+        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+        -v:n -bl:output/install-android-dependencies.binlog
+      retryCountOnTaskFailure: 3
 
     - pwsh: |
         Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
