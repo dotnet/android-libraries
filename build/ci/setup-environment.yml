@@ -121,6 +121,7 @@ steps:
       retryCountOnTaskFailure: 3
 
   - pwsh: |
+      Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
 
