@@ -174,5 +174,29 @@
     <remove-node
         path="/api/package[@name='kotlinx.serialization.json']/interface[@name='JsonClassDiscriminator']"
         />
+    <remove-node
+        path="/api/package[@name='kotlinx.serialization.json.internal']/class[@name='StreamingJsonEncoder']"
+        />
+    <remove-node
+         path="/api/package[@name='kotlinx.serialization.json']/interface[@name='JsonIgnoreUnknownKeys']/implements"
+        />
 
+    <attr
+        path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonArray']/method[@name='removeAll' and count(parameter)=1 and parameter[1][@type='java.util.Collection&lt;?&gt;']]/parameter[1]"
+        name="managedType"
+        >
+        System.Collections.ICollection
+    </attr>
+    <attr
+        path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonArray']/method[@name='containsAll' and count(parameter)=1 and parameter[1][@type='java.util.Collection&lt;?&gt;']]/parameter[1]"
+        name="managedType"
+        >
+        System.Collections.ICollection
+    </attr>
+    <attr
+        path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonArray']/method[@name='retainAll' and count(parameter)=1 and parameter[1][@type='java.util.Collection&lt;?&gt;']]/parameter[1]"
+        name="managedType"
+        >
+        System.Collections.ICollection
+    </attr>
 </metadata>
