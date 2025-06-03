@@ -33,6 +33,9 @@ jobs:
           enabled: false
         binskim:
           scanOutputDirectoryOnly: true
+        sourceRepositoriesToScan:
+          exclude:
+          - repository: yaml-templates
       outputs:
       - output: pipelineArtifact
         targetPath: ${{ parameters.artifactsPath }}
