@@ -19,7 +19,9 @@
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='MenuPopup']" name="visibility">public</attr>
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='SubMenuBuilder']/method[@name='getActionViewStatesKey' and count(parameter)=0]" name="visibility">protected</attr>
     <attr path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActionBarContainer']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]" name="visibility">protected</attr>
+    <!--
     <remove-node path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='MenuItemWrapperICS']" />
+    -->
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='ListMenuPresenter.MenuAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='MenuAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='Menu.MenuAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
@@ -29,6 +31,7 @@
     <attr path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActivityChooserModel.PersistHistoryAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Object...']]" name="visibility">protected override</attr>
     <attr path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActivityChooserModel.PersistHistoryAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Object...']]" name="managedReturn">Java.Lang.Object</attr>
     <!-- Manually implement -->
+    <!--
     <remove-node path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='getTitle' and count(parameter)=0]" />
     <remove-node path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='setTitle' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]" />
     <remove-node path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='getSubtitle' and count(parameter)=0]" />
@@ -38,6 +41,7 @@
     <remove-node path="/api/package[@name='androidx.appcompat.widget']/class[@name='AppCompatSpinner']/method[@name='setAdapter' and count(parameter)=1 and parameter[1][@type='android.widget.SpinnerAdapter']]" />
     <remove-node path="/api/package[@name='androidx.appcompat.widget']/class[@name='ListViewCompat']/method[@name='setSelector' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]" />
     <remove-node path="/api/package[@name='androidx.appcompat.widget']/class[@name='ScrollingTabContainerView.TabView']/method[@name='setSelected' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+    -->
     <!-- Fix covariant return types -->
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='ActionMenuItem']/method[@name='setActionView' and count(parameter)=1 and parameter[1][@type='android.view.View']]" name="managedReturn">Android.Views.IMenuItem</attr>
     <attr path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='ActionMenuItem']/method[@name='setActionView' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Android.Views.IMenuItem</attr>
@@ -108,8 +112,10 @@
 
   <remove-node path="/api/package[@name='androidx.appcompat.widget']/class[@name='AbsActionBarView']/field[@name='mActionMenuPresenter']" />
     -->
+    <!--
     <remove-node path="/api/package[@name='androidx.appcompat.widget']/class[@name='MenuPopupWindow.MenuDropDownListView']/method[@name='setSelector' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]"></remove-node>
     <remove-node path="/api/package[@name='androidx.appcompat.view.menu']/class[@name='MenuAdapter']/method[@name='getItem' and count(parameter)=1 and parameter[1][@type='int']]" />
+    -->
     <attr path="/api/package[@name='androidx.appcompat.graphics.drawable']/class[@name='DrawableContainer']" name="visibility">protected</attr>
     <attr path="/api/package[@name='androidx.appcompat.graphics.drawable']/class[@name='DrawableContainer']/method[@name='getConstantState' and count(parameter)=0]" name="propertyName"></attr>
     <attr path="/api/package[@name='androidx.appcompat.graphics.drawable']/class[@name='AnimatedStateListDrawableCompat']/method[@name='getConstantState' and count(parameter)=0]" name="propertyName"></attr>
@@ -230,4 +236,78 @@
       Java.Lang.Object
     </attr>
 
+    <!--
+    .NET 10 fixes
+    -->
+    <attr
+      path="/api/package[@name='androidx.appcompat.widget']/class[@name='MenuPopupWindow.MenuDropDownListView']/method[@name='setSelector' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]"
+      name="managedOverride"
+      >
+      virtual
+    </attr>
+    <attr
+      path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActionBarContextView']/method[@name='setVisibility' and count(parameter)=1 and parameter[1][@type='int']]"
+      name="propertyName"
+      >
+      Visibility
+    </attr>
+
+    <attr
+      path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='setSubtitle' and count(parameter)=1 and parameter[1][@type='int']]"
+      name="propertyName"
+      ></attr>
+    <attr
+      path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='setSubtitle' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]"
+      name="propertyName"
+      >SubtitleFormatted</attr>
+
+    
+    <attr
+      path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']/method[@name='getTitle' and count(parameter)=0]"
+      name="propertyName"
+      >
+      TitleFormatted
+    </attr>
+    
+    <attr
+      path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActionBarContextView']/method[@name='getSubtitle' and count(parameter)=0]"
+      name="managedOverride"
+      >
+      override
+    </attr>
+    <attr
+      path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActionBarContextView']/method[@name='getSubtitle' and count(parameter)=0]"
+      name="managedOverride"
+      >
+      new
+    </attr>
+    
+    
+    <!--
+    TODO: 
+    above metadata did not work
+
+    ./generated/androidx.appcompat.appcompat/obj/Debug/net8.0-android/generated/src/AndroidX.AppCompat.View.SupportActionModeWrapper.cs(609,31): error CS0115: 'SupportActionModeWrapper.SetTitle(ICharSequence?)': no suitable method found to override [./generated/androidx.appcompat.appcompat/androidx.appcompat.appcompat.csproj::TargetFramework=net8.0-android]
+    ./generated/androidx.appcompat.appcompat/obj/Debug/net8.0-android/generated/src/AndroidX.AppCompat.View.SupportActionModeWrapper.cs(21,23): error CS0534: 'SupportActionModeWrapper' does not implement inherited abstract member 'ActionMode.SubtitleFormatted.set' [./generated/androidx.appcompat.appcompat/androidx.appcompat.appcompat.csproj::TargetFramework=net8.0-android]
+    ./generated/androidx.appcompat.appcompat/obj/Debug/net8.0-android/generated/src/AndroidX.AppCompat.View.SupportActionModeWrapper.cs(21,23): error CS0534: 'SupportActionModeWrapper' does not implement inherited abstract member 'ActionMode.TitleFormatted.get' [./generated/androidx.appcompat.appcompat/androidx.appcompat.appcompat.csproj::TargetFramework=net8.0-android]
+    ./generated/androidx.appcompat.appcompat/obj/Debug/net8.0-android/generated/src/AndroidX.AppCompat.View.SupportActionModeWrapper.cs(21,23): error CS0534: 'SupportActionModeWrapper' does not implement inherited abstract member 'ActionMode.TitleFormatted.set' [./generated/androidx.appcompat.appcompat/androidx.appcompat.appcompat.csproj::TargetFramework=net8.0-android]
+    ./generated/androidx.appcompat.appcompat/obj/Debug/net8.0-android/generated/src/AndroidX.AppCompat.Widget.ActionBarContextView.cs(881,31): error CS0115: 'ActionBarContextView.SetVisibility(ViewStates)': no suitable method found to override [./generated/androidx.appcompat.appcompat/androidx.appcompat.appcompat.csproj::TargetFramework=net8.0-android]
+
+    https://learn.microsoft.com/en-us/dotnet/api/android.views.actionmode.titleformatted?view=xamarin-android-sdk-13
+
+    public string? Subtitle { get; set; }
+    public abstract Java.Lang.ICharSequence? SubtitleFormatted {get; set;}
+    public string? Title { get; set; }
+    public abstract Java.Lang.ICharSequence? TitleFormatted { get; set; }
+
+    SetSubtitle(int)
+    SetTitle(int)
+    -->
+    <remove-node
+      path="/api/package[@name='androidx.appcompat.view']/class[@name='SupportActionModeWrapper']"
+      />
+    <remove-node
+      path="/api/package[@name='androidx.appcompat.widget']/class[@name='ActionBarContextView']/method[@name='setVisibility' and count(parameter)=1 and parameter[1][@type='int']]"
+      />
+    
 </metadata>

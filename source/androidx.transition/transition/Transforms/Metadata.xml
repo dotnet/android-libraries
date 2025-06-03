@@ -4,17 +4,8 @@
     <attr path="/api/*/*/method[@name='newArray']/parameter[@name='p0']" name="managedName">size</attr>
     <attr path="/api/*/*/method[@name='writeToParcel']/parameter[@name='p0']" name="managedName">dest</attr>
     <attr path="/api/*/*/method[@name='writeToParcel']/parameter[@name='p1']" name="managedName">flags</attr>
-    <!-- TransitionInterface, TransitionListenerInterface and VisibilityInterface are all marked as private and since they are java interfaces we cannot change visibility -->
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='Transition']/implements[1]" />
-    <remove-node path="/api/package[@name='androidx.transition']/interface[@name='Transition.TransitionListener']/implements[1]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='Visibility']/implements[1]" />
+
     <!-- Currently, we have issues with the generating not adding 'override' keyword, so we'll remove and manuall implement this -->
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='addTargets' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='scheduleRemoveTargets' and count(parameter)=7 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[4][@type='java.lang.Object'] and parameter[5][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[6][@type='java.lang.Object'] and parameter[7][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='swapSharedElementTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='scheduleHideFragmentView' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='android.view.View'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='setSharedElementTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='android.view.View'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
-    <remove-node path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='replaceTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]" />
     <attr path="/api/package[@name='androidx.transition']/interface[@name='Transition.TransitionListener']/method[@name='onTransitionCancel' and count(parameter)=1 and parameter[1][@type='androidx.transition.Transition']]/parameter[1]" name="managedName">transition</attr>
     <attr path="/api/package[@name='androidx.transition']/interface[@name='Transition.TransitionListener']/method[@name='onTransitionEnd' and count(parameter)=1 and parameter[1][@type='androidx.transition.Transition']]/parameter[1]" name="managedName">transition</attr>
     <attr path="/api/package[@name='androidx.transition']/interface[@name='Transition.TransitionListener']/method[@name='onTransitionPause' and count(parameter)=1 and parameter[1][@type='androidx.transition.Transition']]/parameter[1]" name="managedName">transition</attr>
@@ -60,5 +51,44 @@
         >
         OnTransitionStartReversed
     </attr>
+
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='addTargets' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='swapSharedElementTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='scheduleHideFragmentView' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='android.view.View'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='scheduleRemoveTargets' and count(parameter)=7 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[4][@type='java.lang.Object'] and parameter[5][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[6][@type='java.lang.Object'] and parameter[7][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='replaceTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.util.ArrayList&lt;android.view.View&gt;'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.transition']/class[@name='FragmentTransitionSupport']/method[@name='setSharedElementTargets' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='android.view.View'] and parameter[3][@type='java.util.ArrayList&lt;android.view.View&gt;']]"
+        name="managedOverride"
+        >
+        override
+    </attr>
+    
+
 
 </metadata>

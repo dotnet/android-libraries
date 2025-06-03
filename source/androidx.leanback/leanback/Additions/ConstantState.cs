@@ -20,4 +20,3 @@ namespace AndroidX.Leanback.App
 		}
 	}
 }
-

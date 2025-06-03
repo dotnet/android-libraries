@@ -62,21 +62,6 @@
 	<attr path="/api/package[@name='com.google.android.gms.common.data']/class[@name='zzg']" name="obfuscated">false</attr>
 	<attr path="/api/package[@name='com.google.android.gms.common.data']/class[@name='zzg']" name="managedName">InternalAbstractDataBuffer</attr>
 
-	<!-- Finalize is marked override, which C# does not like, so manually implement without override -->
-	<remove-node path="/api/package[@name='com.google.android.gms.common.data']/class[@name='DataHolder']/method[@name='finalize' and count(parameter)=0]" />
-
-	<!-- Generator adds unnecessary override here -->
-	<remove-node path="/api/package[@name='com.google.android.gms.common']/class[@name='SignInButton']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
-
-	<remove-node path="/api/package[@name='com.google.android.gms.common.data']/class[@name='zzf']" />
-
-
-	<add-node path="/api/package[@name='com.google.android.gms.common.data']/class[@name='BitmapTeleporter']">
-		<method abstract="false" deprecated="not deprecated" final="true" name="describeContents" native="false" return="int" static="false" synchronized="false" visibility="public"></method>
-	</add-node>
-	<add-node path="/api/package[@name='com.google.android.gms.auth.api.signin']/class[@name='GoogleSignInAccount']">
-		<method abstract="false" deprecated="not deprecated" final="true" name="describeContents" native="false" return="int" static="false" synchronized="false" visibility="public"></method>
-	</add-node>
 	<add-node path="/api/package[@name='com.google.android.gms.auth.api.signin']/class[@name='GoogleSignInOptions']">
 		<method abstract="false" deprecated="not deprecated" final="true" name="describeContents" native="false" return="int" static="false" synchronized="false" visibility="public"></method>
 	</add-node>
@@ -85,15 +70,7 @@
 
     <!-- In Additions -->
     <remove-node
-        path="/api/package[@name='com.google.android.gms.auth.api.signin']/class[@name='GoogleSignInAccount']/method[@name='describeContents' and count(parameter)=0]"
-        />
-    <!-- In Additions -->
-    <remove-node
         path="/api/package[@name='com.google.android.gms.auth.api.signin']/class[@name='GoogleSignInOptions']/method[@name='describeContents' and count(parameter)=0]"
-        />
-    <!-- In Additions -->
-    <remove-node
-        path="/api/package[@name='com.google.android.gms.common.data']/class[@name='BitmapTeleporter']/method[@name='describeContents' and count(parameter)=0]"
         />
 
     <attr
@@ -176,20 +153,6 @@
         >
         false
     </attr>
-
-    <add-node
-        path="/api/package[@name='com.google.android.gms.common.api.internal']/class[@name='StatusPendingResult']"
-        >
-        <!--
-        <method
-            visibility="protected" static="false" abstract="false" return="java.lang.Object" name="createFailedResultDummy"
-            native="false" deprecated="not deprecated" final="false" synchronized="false"
-            >
-            <parameter type="com.google.android.gms.common.api.Status" name="status" >
-            </parameter>
-        </method>
-        -->
-    </add-node>
 
     <attr
         path="/api/package[@name='com.google.android.gms.common.images']/class[@name='ImageManager.ImageReceiver']"
@@ -458,6 +421,30 @@
         >
         false
     </attr>
+    <attr
+        path="/api/package[@name='com.google.android.gms.common.data']/class[@name='BitmapTeleporter']/method[@name='describeContents' and count(parameter)=0]"
+        name="managedOverride"
+        >
+        none
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.android.gms.common.data']/class[@name='DataHolder']/method[@name='finalize' and count(parameter)=0]"
+        name="managedName"
+        >
+        FinalizeNative
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.android.gms.common.data']/class[@name='DataHolder']/method[@name='finalize' and count(parameter)=0]"
+        name="managedOverride"
+        >
+        none
+    </attr>
+    <attr
+        path="/api/package[@name='com.google.android.gms.common.data']/class[@name='DataHolder']/method[@name='finalize' and count(parameter)=0]"
+        name="final"
+        >
+        false
+    </attr>
 
     <remove-node
         path="/api/package[@name='com.google.android.gms.common.data']/class[@name='zae']/implements"
@@ -469,6 +456,8 @@
         >
         Java.Lang.Object
     </attr>
+   
+   
     <remove-node
         path="/api/package[@name='com.google.android.gms.common.moduleinstall']/class[@name='zac']"
         />
