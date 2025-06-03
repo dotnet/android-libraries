@@ -34,9 +34,8 @@ jobs:
         binskim:
           scanOutputDirectoryOnly: true
         sourceRepositoriesToScan:
-          include:
-            - repository: internal-templates
-          runInSingleJob: true
+          exclude:
+          - repository: yaml-templates
       outputs:
       - output: pipelineArtifact
         targetPath: ${{ parameters.artifactsPath }}
