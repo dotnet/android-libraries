@@ -9,6 +9,7 @@ parameters:
   runDotnetNextTest: false
   use1ESTemplate: true
   installAndroidDependencies: false
+  androidSdkRoot: C:\Android\android-sdk
 
   tools:                                                            # Additional .NET global tools to install
   - 'Cake.Tool': '5.0.0'
@@ -44,6 +45,7 @@ jobs:
         dotnetTools: ${{ parameters.tools }}
         runDotnetNextTest: ${{ parameters.runDotnetNextTest }}
         installAndroidDependencies: ${{ parameters.installAndroidDependencies }}
+        androidSdkRoot: ${{ parameters.androidSdkRoot }}
 
     - template: build-and-test.yml
       parameters:
