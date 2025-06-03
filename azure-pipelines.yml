@@ -38,7 +38,11 @@ resources:
 
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
-  parameters:   
+  parameters:
+    sdl:
+      sourceRepositoriesToScan:
+        exclude:
+        - repository: yaml-templates
     pool:
       name: AzurePipelines-EO
       image: 1ESPT-Windows2022
