@@ -117,7 +117,7 @@ steps:
       arguments: >-
         -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
         -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-        -bl:$(System.DefaultWorkingDirectory)/output/install-android-dependencies.binlog
+        -v:n -bl:output/install-android-dependencies.binlog
       retryCountOnTaskFailure: 3
 
   - pwsh: |
