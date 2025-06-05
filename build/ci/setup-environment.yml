@@ -2,7 +2,7 @@ parameters:
   dotnetTools: []
   runDotnetNextTest: false
   installAndroidDependencies: false
-  androidSdkRoot: C:\Android\android-sdk
+  androidSdkRoot: $(Agent.TempDirectory)/android-sdk
   javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
 
 steps:
@@ -110,17 +110,29 @@ steps:
       jdkSourceOption: 'PreInstalled'
 
   - task: DotNetCoreCLI@2
-    displayName: Install android dependencies
+    displayName: Install android dependencies GoogleV2
     inputs:
       command: build
       projects: build/scripts/provision-android/provision-android.csproj
       arguments: >-
         -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
         -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-        -v:n -bl:output/install-android-dependencies.binlog
+        -v:n -bl:output/install-android-dependencies-GoogleV2.binlog
+      retryCountOnTaskFailure: 3
+
+  - task: DotNetCoreCLI@2
+    displayName: Install android dependencies Xamarin
+    inputs:
+      command: build
+      projects: build/scripts/provision-android/provision-android.csproj
+      arguments: >-
+        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=Xamarin
+        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+        -v:n -bl:output/install-android-dependencies-Xamarin.binlog
       retryCountOnTaskFailure: 3
 
   - pwsh: |
+      Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
 

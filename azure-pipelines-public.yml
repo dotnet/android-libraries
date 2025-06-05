@@ -39,7 +39,6 @@ stages:
         vmImage: macOS-15
       runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
       use1ESTemplate: false
-      androidSdkRoot: $(Agent.TempDirectory)/android-sdk
 
 - template: build/ci/stage-standard-tests.yml@self
   parameters:
