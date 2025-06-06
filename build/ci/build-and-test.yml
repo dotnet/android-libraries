@@ -7,59 +7,59 @@ parameters:
   - Square
 
 steps:
-#  - pwsh: |
-#      dotnet cake build.cake `
-#        --target=ci-build `
-#        --configuration="$(configuration)" `
-#        --verbosity="$(verbosity)"
-#    displayName: 'Build packages'
-#    env:
-#      JavaSdkDirectory: $(JAVA_HOME)
-#      RepositoryCommit: $(Build.SourceVersion)
-#      RepositoryBranch: $(Build.SourceBranchName)
-#      RepositoryUrl: $(Build.Repository.Uri)
-#      RepositoryType: "git"
-#
-#  - pwsh: |
-#      dotnet cake validation.cake `
-#        --namespaces="${{ join(',', parameters.validPackagePrefixes) }}" `
-#        --verbosity="$(verbosity)"
-#    displayName: 'Run NuGet package validation'
-#    
-#  - pwsh: |
-#      dotnet cake nuget-diff.cake `
-#        --artifacts="${{ parameters.artifactsPath }}" `
-#        --output="${{ parameters.artifactsPath }}/api-diff" `
-#        --cache="$(Agent.TempDirectory)/api-diff" `
-#        --verbosity="$(verbosity)"
-#    displayName: 'Generate API diff'
-#
-#  - pwsh: dotnet cake utilities.cake -t=verify-namespace-file
-#    displayName: Verify published namespaces
-#
-#  - pwsh: |
-#      dotnet cake build.cake `
-#        --target=ci-samples `
-#        --configuration="$(configuration)" `
-#        --verbosity="$(verbosity)"
-#    displayName: 'Build samples'
-#    condition: ne(variables['skipSamplesTests'], 'true')
-#    env:
-#      JavaSdkDirectory: $(JAVA_HOME)
-#      RepositoryCommit: $(Build.SourceVersion)
-#      RepositoryBranch: $(Build.SourceBranchName)
-#      RepositoryUrl: $(Build.Repository.Uri)
-#      RepositoryType: "git"
-#    
-#  - task: DotNetCoreCLI@2
-#    displayName: Run unit tests
-#    condition: ne(variables['skipUnitTests'], 'true')
-#    inputs:
-#      command: test
-#      projects: util/**/*.Tests.csproj
-#      arguments: '-c $(configuration)'
+  - pwsh: |
+      dotnet cake build.cake `
+        --target=ci-build `
+        --configuration="$(configuration)" `
+        --verbosity="$(verbosity)"
+    displayName: 'Build packages'
+    env:
+      JavaSdkDirectory: $(JAVA_HOME)
+      RepositoryCommit: $(Build.SourceVersion)
+      RepositoryBranch: $(Build.SourceBranchName)
+      RepositoryUrl: $(Build.Repository.Uri)
+      RepositoryType: "git"
+
+  - pwsh: |
+      dotnet cake validation.cake `
+        --namespaces="${{ join(',', parameters.validPackagePrefixes) }}" `
+        --verbosity="$(verbosity)"
+    displayName: 'Run NuGet package validation'
+    
+  - pwsh: |
+      dotnet cake nuget-diff.cake `
+        --artifacts="${{ parameters.artifactsPath }}" `
+        --output="${{ parameters.artifactsPath }}/api-diff" `
+        --cache="$(Agent.TempDirectory)/api-diff" `
+        --verbosity="$(verbosity)"
+    displayName: 'Generate API diff'
+
+  - pwsh: dotnet cake utilities.cake -t=verify-namespace-file
+    displayName: Verify published namespaces
 
   - pwsh: |
       dotnet cake build.cake `
-        --target=build-android-libraries-net10-net8
-    displayName: 'Build build-android-libraries-net10-net8'
+        --target=ci-samples `
+        --configuration="$(configuration)" `
+        --verbosity="$(verbosity)"
+    displayName: 'Build samples'
+    condition: ne(variables['skipSamplesTests'], 'true')
+    env:
+      JavaSdkDirectory: $(JAVA_HOME)
+      RepositoryCommit: $(Build.SourceVersion)
+      RepositoryBranch: $(Build.SourceBranchName)
+      RepositoryUrl: $(Build.Repository.Uri)
+      RepositoryType: "git"
+    
+  - task: DotNetCoreCLI@2
+    displayName: Run unit tests
+    condition: ne(variables['skipUnitTests'], 'true')
+    inputs:
+      command: test
+      projects: util/**/*.Tests.csproj
+      arguments: '-c $(configuration)'
+
+#  - pwsh: |
+#      dotnet cake build.cake `
+#        --target=build-android-libraries-net10-net8
+#    displayName: 'Build build-android-libraries-net10-net8'
