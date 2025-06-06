@@ -28,6 +28,9 @@ static class BumpCommand
 		var config = await BindingConfig.Load (configFile);
 
 		foreach (var art in config.MavenArtifacts) {
+			if (art.DependencyOnly)
+				continue;
+
 			var version = "";
 			var release = "";
 			var revision = 0;
