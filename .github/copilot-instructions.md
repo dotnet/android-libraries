@@ -63,6 +63,8 @@ dotnet cake utilities.cake
 ## Configuration System
 
 ### config.json Structure
+**Note**: This file is normally updated using Cake build targets (`update-config`, `bump-config`) rather than manual editing.
+
 Each artifact entry contains:
 ```json
 {
@@ -113,6 +115,8 @@ Located in `source/{groupId}/{artifactId}/`:
 - **`merge.targets`**: Custom MSBuild targets to include
 
 ### Common Metadata Patterns
+For comprehensive guidance on troubleshooting binding issues, see: https://github.com/dotnet/java-interop/wiki/Troubleshooting-Android-Bindings-Issues
+
 ```xml
 <!-- Remove problematic APIs -->
 <remove-node path="/api/package[@name='com.example']/class[@name='ProblematicClass']" />
@@ -131,14 +135,8 @@ Located in `source/{groupId}/{artifactId}/`:
 
 ### Current Support
 - **Primary**: `net8.0-android` (API 21+)
-- **Migration**: `net10.0-android` (API 35+) - migration capability exists but not currently enabled
+- **Migration**: `android36.0-android` (API 35+) - migration capability exists but not currently enabled
 - **Legacy**: Xamarin.Android support ended May 1, 2024
-
-### Multi-targeting
-- Current default is `net8.0-android` only
-- Build system supports `net10.0-android` migration (currently disabled)
-- Uses `_DefaultTargetFrameworks` property in Directory.Build.props
-- Different API levels supported per framework version
 
 ## Code Organization Patterns
 
@@ -152,12 +150,12 @@ Located in `source/{groupId}/{artifactId}/`:
 lib/
   net8.0-android34.0/
     {assembly}.dll
-  net10.0-android35.0/
+  android36.0-android35.0/
     {assembly}.dll
 build/
   net8.0-android34.0/
     {package}.targets
-  net10.0-android35.0/
+  android36.0-android35.0/
     {package}.targets
 ```
 
@@ -195,38 +193,5 @@ build/
 2. Ensure all prerequisites are installed
 3. Run `dotnet cake -t=ci` to verify clean build
 4. Check existing issues and PRs for related work
-
-### When Submitting PRs
-1. Complete CLA at https://cla2.dotnetfoundation.org/
-2. Fork/branch from `dev` branch (not `main`)
-3. Ensure `libs`, `samples`, `nuget`, and `component` targets all build
-4. Include parameter name fixes in `Metadata.ParameterNames.xml`
-5. Test changes with relevant packages
-
-### Code Style
-- Follow existing patterns in generated templates
-- Use existing metadata transform patterns
-- Maintain consistency with NuGet package naming conventions
-- Preserve compatibility with existing API surface
-
-## Troubleshooting Common Issues
-
-### Build Failures
-- Check .NET SDK version matches `global.json`
-- Verify `ANDROID_SDK_ROOT` environment variable
-- Ensure JDK 11 is first in PATH
-- Run `dotnet cake -t=clean` before rebuilding
-
-### Config Validation Errors
-- Use `dotnet cake -t=binderate-config-verify` to check format
-- Ensure version numbers follow semantic versioning
-- Check for duplicate `groupId.artifactId` combinations
-- Validate NuGet package naming conventions
-
-### Binding Generation Issues
-- Check for missing dependencies in config.json
-- Review generated diff: `dotnet cake -t=binderate-diff`
-- Look for metadata transform conflicts
-- Verify template customizations in source directory
 
 This repository represents a critical piece of the .NET ecosystem for Android development, enabling C# developers to use the full range of modern Android libraries through automatically maintained bindings.
