@@ -20,11 +20,10 @@ The repository uses a **config-driven approach** where all bindings are defined 
 - **`global.json`**: .NET SDK version requirements (currently .NET 8.0.408)
 
 ### Directory Structure
-- **`source/`**: Contains binding customizations organized by Maven groupId (e.g., `androidx.core`, `com.google.android.gms`)
+- **`source/`**: Contains binding customizations organized by Maven groupId (e.g., `androidx.core`, `com.google.android.gms`) and Razor templates (`.cshtml` files)
 - **`util/Xamarin.AndroidBinderator/`**: The "binderator" tool that generates binding projects from config
 - **`generated/`**: Auto-generated binding projects (created during build, not in source control)
 - **`docs/`**: Additional documentation including artifact lists and development tips
-- **`templates/`**: Razor templates used by binderator to generate projects
 
 ## Build System
 
@@ -132,12 +131,13 @@ Located in `source/{groupId}/{artifactId}/`:
 
 ### Current Support
 - **Primary**: `net8.0-android` (API 21+)
-- **Future**: `net10.0-android` (API 35+) - in migration
+- **Migration**: `net10.0-android` (API 35+) - migration capability exists but not currently enabled
 - **Legacy**: Xamarin.Android support ended May 1, 2024
 
 ### Multi-targeting
-- Most packages target both net8.0-android and net10.0-android
-- Build system uses `_DefaultTargetFrameworks` property
+- Current default is `net8.0-android` only
+- Build system supports `net10.0-android` migration (currently disabled)
+- Uses `_DefaultTargetFrameworks` property in Directory.Build.props
 - Different API levels supported per framework version
 
 ## Code Organization Patterns
@@ -198,8 +198,8 @@ build/
 
 ### When Submitting PRs
 1. Complete CLA at https://cla2.dotnetfoundation.org/
-2. Fork/branch from `main` branch (not `dev`)
-3. Ensure `libs`, `nuget`, and test targets all build
+2. Fork/branch from `dev` branch (not `main`)
+3. Ensure `libs`, `samples`, `nuget`, and `component` targets all build
 4. Include parameter name fixes in `Metadata.ParameterNames.xml`
 5. Test changes with relevant packages
 
