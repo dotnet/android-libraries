@@ -3,4 +3,22 @@
     <remove-node
         path="/api/package[@name='androidx.media3.ui']/class[@name='PlayerView']/method[@name='setControllerVisibilityListener' and count(parameter)=1 and parameter[1][@type='androidx.media3.ui.PlayerControlView.VisibilityListener']]"
         />
+
+
+    <add-node
+        path="/api/package[@name='androidx.media3.ui']/class[@name='DefaultTimeBar']"
+        >
+        <method 
+            visibility="public" static="false" abstract="false" return="void" name="setEnabled"
+            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
+            >
+            <parameter name="p0" type="boolean" jni-type="Z" />
+        </method>
+    </add-node>
+    <attr
+        path="/api/package[@name='androidx.media3.ui']/class[@name='DefaultTimeBar']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]"
+        name="managedOverride"
+        >
+        none
+    </attr>
 </metadata>
