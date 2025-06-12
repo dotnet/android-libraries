@@ -29,6 +29,7 @@ public class TestAllIndividualPackages
 		// - Duplicate Java types
 		"Xamarin.GooglePlayServices.Ads.Base",
 		"Xamarin.GooglePlayServices.Ads.Lite",
+		"Xamarin.GooglePlayServices.Ads.Api",
 		"Xamarin.GooglePlayServices.Gass",
 		"Xamarin.GooglePlayServices.Measurement.Base",
 		"Xamarin.GooglePlayServices.Measurement.Sdk",
