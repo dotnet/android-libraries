@@ -3,12 +3,6 @@ trigger: none
 pr:
 - main
 
-parameters:
-- name: RunDotnetNextTest
-  displayName: Run on .NET next preview?
-  type: boolean
-  default: false
-
 variables:
 - template: build/ci/variables.yml
 
@@ -23,7 +17,6 @@ stages:
         name: $(NetCorePublicPoolName)
         demands:
         - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
-      runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
       use1ESTemplate: false
       installAndroidDependencies: true
 
@@ -37,7 +30,6 @@ stages:
       buildPool:
         name: Azure Pipelines
         vmImage: macOS-15
-      runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
       use1ESTemplate: false
 
 - template: build/ci/stage-standard-tests.yml@self
@@ -46,5 +38,4 @@ stages:
       name: $(NetCorePublicPoolName)
       demands:
       - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
-    runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
     installAndroidDependencies: true

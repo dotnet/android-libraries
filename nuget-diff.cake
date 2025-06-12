@@ -33,8 +33,9 @@ if (!nupkgs.Any()) {
 		if (FileExists(versionFile)) {
 			version = "--version=" + System.IO.File.ReadAllText(versionFile).Trim();
 		}
-		var exitCode = StartProcess("api-tools", new ProcessSettings {
+		var exitCode = StartProcess("dotnet", new ProcessSettings {
 			Arguments = new ProcessArgumentBuilder()
+				.Append("api-tools")
 				.Append("nuget-diff")
 				.AppendQuoted(nupkg.FullPath)
 				.Append(version)
@@ -60,7 +61,7 @@ if (nu_diffs.Any()) {
     foreach (var file in nu_diffs) {
       using (var input = System.IO.File.OpenRead(file.FullPath)) {
           input.CopyTo(output);
-          Console.WriteLine();
+          Information("");
       }
       
       // Delete the individual file because it makes the assembly diffs hard to find
