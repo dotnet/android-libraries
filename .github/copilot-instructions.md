@@ -1,5 +1,7 @@
 # Copilot Instructions for .NET Android Libraries Repository
 
+**Note**: Always update `copilot-instructions.md` with new/relevant information to keep GitHub Copilot suggestions current and accurate.
+
 ## Repository Overview
 
 This repository creates and maintains .NET for Android bindings for Google's Java/Kotlin Android libraries, including:
@@ -17,7 +19,7 @@ The repository uses a **config-driven approach** where all bindings are defined 
 - **`config.json`**: Master configuration containing all 600+ Maven artifacts to bind, their versions, and NuGet package information
 - **`build.cake`**: Main Cake build script orchestrating the entire build process
 - **`BUILDING.md`**: Comprehensive build instructions and prerequisites
-- **`global.json`**: .NET SDK version requirements (currently .NET 8.0.408)
+
 
 ### Directory Structure
 - **`source/`**: Contains binding customizations organized by Maven groupId (e.g., `androidx.core`, `com.google.android.gms`) and Razor templates (`.cshtml` files)
@@ -28,10 +30,10 @@ The repository uses a **config-driven approach** where all bindings are defined 
 ## Build System
 
 ### Prerequisites
-- .NET SDK 8.0.404+ (specified in global.json)
+- a recent .NET SDK
 - Cake .NET Tool: `dotnet tool install -g cake.tool`
 - Microsoft OpenJDK 11 (JDK-17 not supported)
-- Android SDK with API-29+ and `ANDROID_SDK_ROOT` environment variable
+- Android SDK and `$ANDROID_SDK_ROOT` environment variable
 - Optional: `api-tools` for API diffs: `dotnet tool install -g api-tools`
 
 ### Common Build Commands
@@ -135,7 +137,7 @@ For comprehensive guidance on troubleshooting binding issues, see: https://githu
 
 ### Current Support
 - **Primary**: `net8.0-android` (API 21+)
-- **Migration**: `android36.0-android` (API 35+) - migration capability exists but not currently enabled
+- **Migration**: `net10.0-android` (API 35+) - migration capability exists but not currently enabled
 - **Legacy**: Xamarin.Android support ended May 1, 2024
 
 ## Code Organization Patterns
@@ -150,12 +152,12 @@ For comprehensive guidance on troubleshooting binding issues, see: https://githu
 lib/
   net8.0-android34.0/
     {assembly}.dll
-  android36.0-android35.0/
+  net10.0-android36.0/
     {assembly}.dll
 build/
   net8.0-android34.0/
     {package}.targets
-  android36.0-android35.0/
+  net10.0-android36.0/
     {package}.targets
 ```
 
