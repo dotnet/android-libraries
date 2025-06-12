@@ -16,28 +16,28 @@ variables:
   windowsImage: 1ESPT-Windows2022                                                       # Windows VM image name
   
   # macOS specific variables
-  macosAgentPoolName: VSEng-VSMac-Xamarin-Shared                                      # macOS VM pool name
+  macosAgentPoolName: VSEng-VSMac-Xamarin-Shared                                        # macOS VM pool name
   
   # Tool variables
-  dotnetVersion: '8.0.408'                                                              # .NET version to install on agent
-  dotnetWorkloadRollbackFile: 'workloads.json'                                          # Rollback file specifying workload versions to install
+  dotnetVersion: '9.0.301'                                                              # .NET version to install on agent
+  dotnetFrameworkVersion: 9                                                             # The number to use for TF (eg: netX.0-android)
   dotnetNuGetOrgSource: 'https://api.nuget.org/v3/index.json'                           # NuGet.org URL to find workloads
   dotnetWorkloadSource: 'https://aka.ms/dotnet6/nuget/index.json'                       # .NET engineering URL to find workloads
 
   # Standard test variables
-  standardTestProject: tests/allpackages/AllPackagesTests.csproj                              # Standard tests project file
-  standardTestAssembly: tests/allpackages/bin/$(configuration)/net8.0/AllPackagesTests.dll    # Standard tests compiled binary
+  standardTestProject: tests/allpackages/AllPackagesTests.csproj                                                      # Standard tests project file
+  standardTestAssembly: tests/allpackages/bin/$(configuration)/net$(dotnetFrameworkVersion).0/AllPackagesTests.dll    # Standard tests compiled binary
   skipUnitTests: false
   skipSamplesTests: true
 
   # Extended test variables
-  extendedTestProject: tests/extended/ExtendedTests.csproj                              # Extended tests project file
-  extendedTestAssembly: tests/extended/bin/$(configuration)/net8.0/ExtendedTests.dll    # Extended tests compiled binary
+  extendedTestProject: tests/extended/ExtendedTests.csproj                                                      # Extended tests project file
+  extendedTestAssembly: tests/extended/bin/$(configuration)/net$(dotnetFrameworkVersion).0/ExtendedTests.dll    # Extended tests compiled binary
 
   # dotnet-next test variables
-  dotnetNextVersion: 10.0.100-preview.3.25201.16                                        # .NET preview version to install
-  dotnetNextFrameworkVersion: 10                                                        # The number to use for TF (eg: net9.0-android)
-  dotnetNextApiLevel: 35                                                                # The Android SDK API Level to use (eg: -android35.0)
+  dotnetNextVersion: 10.0.100-preview.5.25277.114                                       # .NET preview version to install
+  dotnetNextFrameworkVersion: 10                                                        # The number to use for TF (eg: netX.0-android)
+  dotnetNextApiLevel: 35                                                                # The Android SDK API Level to use (eg: netX.0-androidXX.0)
 
   # dnceng-public variables
   NetCorePublicPoolName: NetCore-Public-XL
