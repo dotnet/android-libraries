@@ -2,6 +2,17 @@
 
 This is a collection of tasks you might want to do in this repository, and how to do them.
 
+## Updating Packages
+
+Initially, run:
+
+```bash
+dotnet cake -t:update-config
+```
+
+Which will lookup Java Maven dependencies and update the `config.json` file
+with the latest versions.
+
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
