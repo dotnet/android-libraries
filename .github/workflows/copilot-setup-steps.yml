@@ -15,11 +15,8 @@ jobs:
       with:
         dotnet-version: '8.x'
 
-    - name: Verify .NET installation
-      run: dotnet --version
-
-    - name: List available workloads
-      run: dotnet workload search
+    - name: Install Cake .NET Tool
+      run: dotnet tool install -g cake.tool
 
     - name: Install Android workload
       run: dotnet workload install android
