@@ -27,8 +27,8 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Run dotnet cake
-      run: dotnet cake
+    - name: Run Cake binderate target (quick verification)
+      run: dotnet cake --target=binderate --dryrun
 
     - name: Display environment info
       run: |
@@ -39,3 +39,5 @@ jobs:
         echo "Java Home: $JAVA_HOME"
         echo "=== Installed Workloads ==="
         dotnet workload list
+        echo "=== Android SDK Platforms ==="
+        ls -la $ANDROID_SDK_ROOT/platforms
