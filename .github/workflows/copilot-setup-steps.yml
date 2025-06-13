@@ -10,7 +10,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup .NET 9
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.x'
@@ -24,25 +24,13 @@ jobs:
     - name: Install Android workload
       run: dotnet workload install android
 
-    - name: List installed workloads
-      run: dotnet workload list
-
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-        api-level: 29
-        build-tools-version: '30.0.3'
-        
-    - name: Accept Android SDK licenses
-      run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
-
     - name: Setup OpenJDK 11
       uses: actions/setup-java@v4
       with:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Run Cake binderate target (quick verification)
+    - name: Run dotnet cake
       run: dotnet cake
 
     - name: Display environment info
@@ -52,6 +40,5 @@ jobs:
         echo "Java Version: $(java -version 2>&1 | head -1)"
         echo "Android SDK Root: $ANDROID_SDK_ROOT"
         echo "Java Home: $JAVA_HOME"
-        echo "Cake Tool: $(dotnet cake --version 2>/dev/null || echo 'Not available')"
         echo "=== Installed Workloads ==="
         dotnet workload list
