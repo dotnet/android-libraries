@@ -1,6 +1,4 @@
 parameters:
-  dotnetTools: []
-  runDotnetNextTest: false
   installAndroidDependencies: false
   androidSdkRoot: $(Agent.TempDirectory)/android-sdk
   javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
@@ -22,75 +20,29 @@ steps:
     condition: ne('$(dotnetVersion)', '')
 
   - task: UseDotNet@2
-    displayName: 'Use dotnet 10.0.100-preview.3.25201.16'
+    displayName: 'Use dotnet $(dotnetNextVersion)'
     inputs:
-      version: 10.0.100-preview.3.25201.16
+      version: $(dotnetNextVersion)
       performMultiLevelLookup: true
       includePreviewVersions: true
-    condition: ne('$(dotnetVersion)', '')
-
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet $(dotnetNextVersion)'
-      inputs:
-        version: $(dotnetNextVersion)
-        includePreviewVersions: true
+    condition: ne('$(dotnetNextVersion)', '')
 
   - script: dotnet --info
     displayName: Display dotnet info
 
-  - ${{ each tool in parameters.dotnetTools }}:
-    - ${{ each pair in tool }}:
-      - powershell: dotnet tool uninstall ${{ pair.key }} -g
-        displayName: 'Uninstall tool: ${{ pair.key }}'
-        ignoreLASTEXITCODE: true
-      - task: DotNetCoreCLI@2
-        displayName: 'Install tool: ${{ pair.key }} ${{ pair.value }}'
-        inputs:
-          command: custom
-          custom: tool
-          arguments: >-
-            update -g ${{ pair.key }} -v:diag
-            --version ${{ pair.value }}
-            --add-source "https://api.nuget.org/v3/index.json"
+  - powershell: dotnet tool restore
+    displayName: 'Install .NET tools'
+    ignoreLASTEXITCODE: true
 
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |
-        dotnet cake -t=dotnet-next `
-          --dotnet-version="$(dotnetNextVersion)" `
-          --framework-version="$(dotnetNextFrameworkVersion)" `
-          --api-level-version="$(dotnetNextApiLevel)"
-      displayName: Set up dotnet-next test changes
-
-  - ${{ if eq(parameters.runDotnetNextTest, false) }}:
-    - pwsh: |
-        Copy-Item -Path .\global.net8.0.json -Destination .\global.json
-        dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
-        dotnet workload install maui-android android --verbosity diag --source https://api.nuget.org/v3/index.json
-        Copy-Item -Path .\global.net10.0.json -Destination .\global.json
-        dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
-        dotnet workload install maui-android android android-net8 --verbosity diag --source https://api.nuget.org/v3/index.json
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install .NET Workloads
-
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |    
-        Copy-Item -Path .\global.net8.0.json -Destination .\global.json
-        dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
-        dotnet workload install maui-android android --verbosity diag --source https://api.nuget.org/v3/index.json
-        Copy-Item -Path .\global.net10.0.json -Destination .\global.json
-        dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
-        dotnet workload install maui-android android android-net8 --verbosity diag --source https://api.nuget.org/v3/index.json
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install Preview .NET Workloads
+  - pwsh: |    
+      dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
+      dotnet workload install maui-android android --verbosity diag --source https://api.nuget.org/v3/index.json
+      if ($LASTEXITCODE -ne 0) {
+          Write-Host "##vso[task.logissue type=error]Failed to install workloads."
+          Write-Host "##vso[task.complete result=Failed;]"
+          exit 0
+      }
+    displayName: Install .NET Workloads
 
   - bash: |
       if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
