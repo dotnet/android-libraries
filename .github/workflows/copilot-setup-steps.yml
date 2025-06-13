@@ -13,13 +13,7 @@ jobs:
     - name: Setup .NET 9
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x'
-
-    - name: Verify .NET installation
-      run: dotnet --version
-
-    - name: List available workloads
-      run: dotnet workload search
+        dotnet-version: '8.x'
 
     - name: Install Android workload
       run: dotnet workload install android
@@ -27,32 +21,14 @@ jobs:
     - name: Install Cake .NET Tool
       run: dotnet tool install -g cake.tool
 
-    - name: List installed workloads
-      run: dotnet workload list
-
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-        api-level: 29
-        build-tools-version: '30.0.3'
-        
-    - name: Accept Android SDK licenses
-      run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
-
     - name: Setup OpenJDK 11
       uses: actions/setup-java@v4
       with:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Verify Java installation
-      run: |
-        java -version
-        javac -version
-        echo "JAVA_HOME=$JAVA_HOME"
-
-    - name: Run Cake binderate target (quick verification)
-      run: timeout 300 dotnet cake --target=binderate --dry-run || echo "Binderate dry-run completed (timeout or success)"
+    - name: Run dotnet cake
+      run: dotnet cake
 
     - name: Display environment info
       run: |
