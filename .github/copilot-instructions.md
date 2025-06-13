@@ -196,4 +196,11 @@ build/
 3. Run `dotnet cake -t=ci` to verify clean build
 4. Check existing issues and PRs for related work
 
+### GitHub Copilot Development Environment
+For GitHub Copilot development, use the provided setup workflow:
+- **`.github/workflows/copilot-setup-steps.yml`**: Automated setup for Copilot development environment
+- Provisions .NET 9, Android workload, Cake tool, Android SDK, and OpenJDK 11
+- Verifies environment by running `dotnet cake --target=binderate`
+- Can be triggered manually via workflow_dispatch for environment setup and testing
+
 This repository represents a critical piece of the .NET ecosystem for Android development, enabling C# developers to use the full range of modern Android libraries through automatically maintained bindings.
