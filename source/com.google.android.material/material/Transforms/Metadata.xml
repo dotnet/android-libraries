@@ -57,17 +57,20 @@
     <attr path="/api/package[@name='com.google.android.material.tabs']/class[@name='TabLayout.ViewPagerOnTabSelectedListener']/method[@name='onTabUnselected']/parameter[1]" name="managedType">Google.Android.Material.Tabs.TabLayout.Tab</attr>
 
     <!-- Remove some non-public interfaces that the generator tries to bind -->
+    <!--
     <remove-node path="/api/package[@name='com.google.android.material.snackbar']/interface[@name='BaseTransientBottomBar.OnAttachStateChangeListener']" />
     <remove-node path="/api/package[@name='com.google.android.material.snackbar']/interface[@name='BaseTransientBottomBar.OnLayoutChangeListener']" />
-
+    -->
     <!-- These setters are overridden, but the getters are not. Generator doesn't support setter-only properties, so it's generating a method instead
          of a property, that is trying to override a non-existant base method. We can remove them as we don't really *need* to bind overrides. -->
+    <!--
     <remove-node path="/api/package[@name='com.google.android.material.slider']/class[@name='RangeSlider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
     <remove-node path="/api/package[@name='com.google.android.material.slider']/class[@name='Slider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
     <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]" />
     <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintList' and count(parameter)=1 and parameter[1][@type='android.content.res.ColorStateList']]" />
     <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintMode' and count(parameter)=1 and parameter[1][@type='android.graphics.PorterDuff.Mode']]" />
     <remove-node path="/api/package[@name='com.google.android.material.textfield']/class[@name='MaterialAutoCompleteTextView']/method[@name='setAdapter' and count(parameter)=1 and parameter[1][@type='T']]" />
+    -->
 
     <attr
       path="/api/package[@name='com.google.android.material.bottomappbar']/class[@name='BottomAppBar']/method[@name='getBehavior' and count(parameter)=0]"
@@ -261,5 +264,59 @@
       >
       Java.Lang.Object
     </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.appbar']/class[@name='AppBarLayout.ChildScrollEffect']/method[@name='onOffsetChanged' and count(parameter)=3 and parameter[1][@type='com.google.android.material.appbar.AppBarLayout'] and parameter[2][@type='android.view.View'] and parameter[3][@type='float']]"
+      name="managedOverride"
+      >
+      new
+    </attr>
 
- </metadata>
+    <!--
+    TODO:
+    nothing worked
+    -->
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='RangeSlider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]"
+      name="managedOverride"
+      >
+      virtual
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]"
+      name="managedOverride"
+      >
+      none
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintList' and count(parameter)=1 and parameter[1][@type='android.content.res.ColorStateList']]"
+      name="managedOverride"
+      >
+      none
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='Slider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]"
+      name="managedOverride"
+      >
+      none
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.textfield']/class[@name='MaterialAutoCompleteTextView']/method[@name='setAdapter' and count(parameter)=1 and parameter[1][@type='T']]"
+      name="managedOverride"
+      >
+      none
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintMode' and count(parameter)=1 and parameter[1][@type='android.graphics.PorterDuff.Mode']]"
+      name="managedOverride"
+      >
+      none
+    </attr>
+
+    <attr
+      path="/api/package[@name='com.google.android.material.appbar']/interface[@name='AppBarLayout.BaseOnOffsetChangedListener']/method[@name='onOffsetChanged' and count(parameter)=2 and parameter[1][@type='T'] and parameter[2][@type='int']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.appbar.AppBarLayout
+    </attr>
+
+</metadata>

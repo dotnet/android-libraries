@@ -31,15 +31,18 @@ resources:
       type: git
       name: 1ESPipelineTemplates/1ESPipelineTemplates
       ref: refs/tags/release
-    - repository: internal-templates
-      type: github
-      name: xamarin/yaml-templates
-      endpoint: xamarin
+    - repository: yaml-templates
+      type: git
+      name: DevDiv/Xamarin.yaml-templates
       ref: refs/heads/main
 
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
-  parameters:   
+  parameters:
+    sdl:
+      sourceRepositoriesToScan:
+        exclude:
+        - repository: yaml-templates
     pool:
       name: AzurePipelines-EO
       image: 1ESPT-Windows2022

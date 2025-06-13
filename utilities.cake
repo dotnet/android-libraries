@@ -1,17 +1,27 @@
-// debugging prerequisity
+/* 
+debugging prerequisity
 #tool nuget:?package=Cake.CoreCLR
+*/
 /*
      dotnet cake spell-check.cake
     dotnet cake spell-check.cake -t=spell-check
  */
-#addin nuget:?package=WeCantSpell.Hunspell&version=5.0.0
+#addin nuget:?package=WeCantSpell.Hunspell&version=6.0.0
 #addin nuget:?package=Newtonsoft.Json&version=13.0.3
 #addin nuget:?package=Cake.FileHelpers&version=7.0.0
-#addin nuget:?package=Mono.Cecil&version=0.11.5
 
+#addin nuget:?package=Mono.Cecil&version=0.11.6
 #addin nuget:?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
 #addin nuget:?package=HolisticWare.Core.Net.HTTP&version=0.0.4
 #addin nuget:?package=HolisticWare.Core.IO&version=0.0.4
+#addin nuget:?package=CliWrap&version=3.8.2
+
+/*
+#addin nuget:https://api.nuget.org/v3/index.json?package=Mono.Cecil&version=0.11.6
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.Net.HTTP&version=0.0.4
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.IO&version=0.0.4
+*/
 
 #load "build/cake/performance-timings.cake"
 
@@ -31,8 +41,8 @@ string file_spell_errors = "./output/spell-errors.txt";
 List<string> spell_errors = null;
 JArray binderator_json_array = null;
 
-List<(string, string, string, string)> mappings_artifact_nuget = new List<(string, string, string, string)>();
-Dictionary<string, string> Licenses = new Dictionary<string, string>();
+List<(string, string, string, string)> mappings_artifact_nuget = new ();
+Dictionary<string, string> Licenses = new ();
 
 // modifying default method for licenses
 Manifest.Defaults.VersionBasedOnFullyQualifiedArtifactIdDelegate = delegate(string fully_qualified_artifact_id)
