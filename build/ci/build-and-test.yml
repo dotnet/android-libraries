@@ -33,6 +33,7 @@ steps:
         --cache="$(Agent.TempDirectory)/api-diff" `
         --verbosity="$(verbosity)"
     displayName: 'Generate API diff'
+    condition: eq(variables['Agent.OS'], 'Windows_NT')
 
   - pwsh: dotnet cake utilities.cake -t=verify-namespace-file
     displayName: Verify published namespaces
