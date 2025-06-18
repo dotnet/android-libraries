@@ -1,0 +1,41 @@
+name: "Copilot Setup Steps"
+
+on: workflow_dispatch
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'
+
+    - name: Install Cake .NET Tool
+      run: dotnet tool install -g cake.tool
+
+    - name: Install Android workload
+      run: dotnet workload install android
+
+    - name: Setup OpenJDK 11
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'microsoft'
+        java-version: '11'
+
+    - name: Run dotnet cake
+      run: dotnet cake
+
+    - name: Display environment info
+      run: |
+        echo "=== Environment Summary ==="
+        echo ".NET Version: $(dotnet --version)"
+        echo "Java Version: $(java -version 2>&1 | head -1)"
+        echo "Android SDK Root: $ANDROID_SDK_ROOT"
+        echo "Java Home: $JAVA_HOME"
+        echo "=== Installed Workloads ==="
+        dotnet workload list
