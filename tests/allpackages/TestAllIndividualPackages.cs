@@ -13,7 +13,7 @@ public class TestAllIndividualPackages
 	static string test_dir = Path.Combine ("output", "tests" , "allpackages");
 	static string configuration = "Release";
 	static string platform_version = "29";
-	static string net_version = "net8.0";
+	static string net_version = "net9.0";
 
 	// These packages are ignored because they contain the same Java code as
 	// other packages, which causes a conflict when building the project.
@@ -190,7 +190,7 @@ public class TestAllIndividualPackages
 		}
 		xd.Save(proj_file);
 
-    ReplaceInFile (proj_file, ">21</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
+    	ReplaceInFile (proj_file, ">21</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
 		ReplaceInFile (proj_file, ">21.0</SupportedOSPlatformVersion>", $">{platform_version}</SupportedOSPlatformVersion>");
 		ReplaceInFile (proj_file, $";{net_version}-ios", "");
 		ReplaceInFile (proj_file, $";{net_version}-maccatalyst", "");
