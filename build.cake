@@ -31,7 +31,6 @@ var VERBOSITY = Argument ("v", Argument ("verbosity", Verbosity.Normal));
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
 var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
-var NUGET_VERSION_SUFFIX = EnvironmentVariable("NUGET_VERSION_SUFFIX") ?? "";
 
 var JAVA_HOME = EnvironmentVariable ("JAVA_HOME") ?? Argument ("java_home", "");
 

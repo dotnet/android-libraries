@@ -10,7 +10,6 @@ Task ("nuget")
         .EnableBinaryLogger ($"./output/nuget.{CONFIGURATION}.binlog")
         .WithProperty ("NoBuild", "true")
         .WithProperty ("PackageOutputPath", MakeAbsolute ((DirectoryPath)"./output/").FullPath)
-        .WithProperty ("PackageVersionSuffix", NUGET_VERSION_SUFFIX)
         .WithTarget ("Pack");
 
     settings.NodeReuse = false;
