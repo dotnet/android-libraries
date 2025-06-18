@@ -2,6 +2,10 @@ variables:
 
   BUILD_NUMBER: $(Build.BuildNumber)
   BUILD_COMMIT: $(Build.SourceVersion)
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+    NUGET_VERSION_SUFFIX: '-ci.$(Build.BuildId)'
+  ${{ else }}:
+    NUGET_VERSION_SUFFIX: ''
 
   # Build variables
   mainBranchName: main                                                                  # Name of Git "main" branch
