@@ -21,6 +21,24 @@ dotnet cake utilities.cake -t=generate-namespace-file
 dotnet cake utilities.cake -t=list-artifacts
 ```
 
+For PR descriptions, run:
+
+```bash
+dotnet cake utilities.cake -t=api-diff-markdown-info-pr
+```
+
+This outputs a bunch of lines like this, you can copy/paste into your PR description:
+
+```md
+========================================
+api-diff-markdown-info-pr
+========================================
+   1. `androidx.appcompat:appcompat` - 1.7.0 -> 1.7.1
+   2. `androidx.appcompat:appcompatresources` - 1.7.0 -> 1.7.1
+   3. `androidx.autofill:autofill` - 1.1.0 -> 1.3.0
+   4. `androidx.compose.animation:animation` - 1.7.8 -> 1.8.3
+```
+
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
