@@ -454,7 +454,7 @@
 | 447|com.google.android.ump:user-messaging-platform                        |3.2.0               |Xamarin.Google.UserMessagingPlatform                                  |3.2.0.2             |
 | 448|com.google.assistant.appactions:suggestions                           |1.0.0               |Xamarin.Google.Assistant.AppActions.Suggestions                       |1.0.0.19            |
 | 449|com.google.assistant.appactions:widgets                               |0.0.1               |Xamarin.Google.Assistant.AppActions.Widgets                           |0.0.1.20            |
-| 450|com.google.auto.value:auto-value                                      |1.11.0              |Xamarin.Google.AutoValue                                              |1.11.0              |
+| 450|com.google.auto.value:auto-value                                      |1.8.1               |Xamarin.Google.AutoValue                                              |1.8.1               |
 | 451|com.google.auto.value:auto-value-annotations                          |1.11.0              |Xamarin.Google.AutoValue.Annotations                                  |1.11.0.7            |
 | 452|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.20            |
 | 453|com.google.code.gson:gson                                             |2.13.1              |GoogleGson                                                            |2.13.1              |
