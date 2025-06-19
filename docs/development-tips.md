@@ -21,6 +21,48 @@ dotnet cake utilities.cake -t=generate-namespace-file
 dotnet cake utilities.cake -t=list-artifacts
 ```
 
+### Troubleshooting
+
+This is an example list of problems and how to fix them.
+
+#### Example 1
+
+```
+generated\androidx.webkit.webkit\obj\Debug\net8.0-android\generated\src\AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface.cs(202,89):
+error CS0535: 'WebViewBuilderBoundaryInterfaceConfig' does not implement interface member 'IConsumer.Accept(Object?)'
+[generated\androidx.webkit.webkit\androidx.webkit.webkit.csproj]
+```
+
+In this case, the `WebViewBuilderBoundaryInterfaceConfig` class has:
+
+```csharp
+// Metadata.xml XPath method reference: path="/api/package[@name='org.chromium.support_lib_boundary']/class[@name='WebViewBuilderBoundaryInterface.Config']/method[@name='accept' and count(parameter)=1 and parameter[1][@type='java.util.function.BiConsumer&lt;java.lang.Integer, java.lang.Object&gt;']]"
+[Register ("accept", "(Ljava/util/function/BiConsumer;)V", "GetAccept_Ljava_util_function_BiConsumer_Handler")]
+public virtual unsafe void Accept (global::Java.Util.Functions.IBiConsumer? chromiumConfig)
+```
+
+Java can change the type of parameters on methods in type inheritance, while C# does *not* allow this.
+
+In C#, the `IConsumer` interface requires:
+
+```csharp
+public virtual unsafe void Accept (global::Java.Lang.Object? chromiumConfig)
+```
+
+To fix this, I added `source\androidx.webkit\webkit\Additions\AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface.cs`:
+
+```csharp
+namespace AndroidX.WebKit.ChromiumLibBoundary;
+
+public partial class WebViewBuilderBoundaryInterfaceConfig
+{
+    public virtual unsafe void Accept (Java.Lang.Object? chromiumConfig)
+    {
+        this.Accept ((Java.Util.Functions.IBiConsumer?) chromiumConfig);
+    }
+}
+```
+
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
