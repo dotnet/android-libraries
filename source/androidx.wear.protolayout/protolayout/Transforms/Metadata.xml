@@ -96,12 +96,18 @@
     <remove-node
         path="/api/package[@name='androidx.wear.protolayout']/class[@name='DimensionBuilders']"
         />
-    <remove-node
-        path="/api/package[@name='androidx.wear.protolayout']/class[@name='LayoutElementBuilders']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.wear.protolayout']/class[@name='TriggerBuilders']"
-        />
+    <attr
+        path="/api/package[@name='androidx.wear.protolayout']/class[@name='TriggerBuilders.OnVisibleOnceTrigger.Builder']/method[@name='build' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.wear.protolayout']/class[@name='TriggerBuilders.OnVisibleTrigger.Builder']/method[@name='build' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger
+    </attr>
     <attr
         path="/api/package[@name='androidx.wear.protolayout']/class[@name='ColorBuilders.LinearGradient.Builder']/method[@name='build' and count(parameter)=0]"
         name="managedReturn"
@@ -113,6 +119,12 @@
         name="managedReturn"
         >
         AndroidX.Wear.ProtoLayout.ColorBuilders.IBrush
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.wear.protolayout']/class[@name='LayoutElementBuilders.DashedArcLine.Builder']/method[@name='build' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Wear.ProtoLayout.LayoutElementBuilders.IArcLayoutElement
     </attr>
 
 </metadata>
