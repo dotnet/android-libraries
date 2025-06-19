@@ -63,6 +63,51 @@ public partial class WebViewBuilderBoundaryInterfaceConfig
 }
 ```
 
+#### Example 2
+
+```
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(136,44): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(151,42): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(166,44): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(181,25): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(196,45): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(211,44): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
+```
+
+Java you can have multiple methods with the same name, parameters, and *different* return type. C# does not allow this.
+
+So, in this case, I renamed the five methods in C#, so for example:
+
+```csharp
+// Metadata.xml XPath method reference: path="/api/package[@name='androidx.wear.protolayout.expression']/class[@name='DynamicDataMap']/method[@name='get' and count(parameter)=1 and parameter[1][@type='androidx.wear.protolayout.expression.DynamicDataKey&lt;androidx.wear.protolayout.expression.DynamicBuilders.DynamicBool&gt;']]"
+[Register ("get", "(Landroidx/wear/protolayout/expression/DynamicDataKey;)Ljava/lang/Boolean;", "")]
+public unsafe global::Java.Lang.Boolean? Get (global::AndroidX.Wear.ProtoLayout.Expression.DynamicDataKey key)
+{
+    const string __id = "get.(Landroidx/wear/protolayout/expression/DynamicDataKey;)Ljava/lang/Boolean;";
+    try {
+        JniArgumentValue* __args = stackalloc JniArgumentValue [1];
+        __args [0] = new JniArgumentValue ((key == null) ? IntPtr.Zero : ((global::Java.Lang.Object) key).Handle);
+        var __rm = _members.InstanceMethods.InvokeNonvirtualObjectMethod (__id, this, __args);
+        return global::Java.Lang.Object.GetObject<global::Java.Lang.Boolean> (__rm.Handle, JniHandleOwnership.TransferLocalRef);
+    } finally {
+        global::System.GC.KeepAlive (key);
+    }
+}
+```
+
+You can rename this to `GetBoolean` in `source\androidx.wear.protolayout\protolayout-expression\Transforms\Metadata.xml`, such as:
+
+```xml
+<attr
+    path="/api/package[@name='androidx.wear.protolayout.expression']/class[@name='DynamicDataMap']/method[@name='get' and count(parameter)=1 and parameter[1][@type='androidx.wear.protolayout.expression.DynamicDataKey&lt;androidx.wear.protolayout.expression.DynamicBuilders.DynamicBool&gt;']]"
+    name="managedName"
+    >
+    GetBoolean
+</attr>
+```
+
+I did this for all five methods.
+
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
