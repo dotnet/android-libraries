@@ -58,6 +58,14 @@ public static class Extensions
 		if (!dependency.Version.HasValue ())
 			throw new Exception ("no value");
 
+		// Example:
+		// No matching artifact config found for:
+		//     org.jetbrains.kotlin:kotlin-stdlib:unspecified.0
+		// to satisfy dependency of:
+		//     androidx.compose.ui:ui-text-android:1.8.3
+		if (dependency.Version.StartsWith ("unspecified", StringComparison.OrdinalIgnoreCase))
+			return true;
+
 		var version = MavenVersion.Parse (value);
 		var range = MavenVersionRange.Parse (dependency.Version);
 
