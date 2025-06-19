@@ -80,7 +80,7 @@ This is an example list of problems and how to fix them.
 
 ### Example 1
 
-```
+```log
 generated\androidx.webkit.webkit\obj\Debug\net8.0-android\generated\src\AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface.cs(202,89):
 error CS0535: 'WebViewBuilderBoundaryInterfaceConfig' does not implement interface member 'IConsumer.Accept(Object?)'
 [generated\androidx.webkit.webkit\androidx.webkit.webkit.csproj]
@@ -118,7 +118,7 @@ public partial class WebViewBuilderBoundaryInterfaceConfig
 
 ### Example 2
 
-```
+```log
 generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(136,44): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
 generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(151,42): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
 generated\androidx.wear.protolayout.protolayout-expression\obj\Release\net8.0-android\generated\src\AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap.cs(166,44): error CS0111: Type 'DynamicDataMap' already defines a member called 'Get' with the same parameter types
@@ -160,6 +160,26 @@ You can rename this to `GetBoolean` in `source\androidx.wear.protolayout\protola
 ```
 
 I did this for all five methods.
+
+### Example 3
+
+```log
+generated\com.google.android.libraries.places.places\obj\Release\net8.0-android\generated\src\Xamarin.GoogleAndroid.Libraries.Places.Widget.Listener.IPredictionSelectionListener.cs(136,10): error CS0111: Type 'ErrorEventArgs' already defines a member called 'ErrorEventArgs' with the same parameter types
+```
+
+This means that more than C# `EventArgs` type is being generated for
+two Java callback methods with the same name, in the same namespace.
+
+To solve this, I added to `source\com.google.android.libraries.places\places\Transforms\Metadata.xml`:
+
+```xml
+<attr
+    path="/api/package[@name='com.google.android.libraries.places.widget.listener']/interface[@name='PredictionSelectionListener']/method[@name='onError' and count(parameter)=1 and parameter[1][@type='com.google.android.gms.common.api.Status']]"
+    name="argsType"
+    >
+    PredictionSelectionEventArgs
+</attr>
+```
 
 [1118]: https://github.com/dotnet/android-libraries/pull/1118
 [androidx.security]: https://github.com/dotnet/android-libraries/tree/androidx.security
