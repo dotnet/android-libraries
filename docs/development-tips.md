@@ -13,6 +13,13 @@ dotnet cake -t:update-config
 Which will lookup Java Maven dependencies and update the `config.json` file
 with the latest versions.
 
+To update other files in the repo, run:
+
+```bash
+dotnet cake utilities.cake -t=list-artifacts
+dotnet cake utilities.cake -t=generate-component-governance
+```
+
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
