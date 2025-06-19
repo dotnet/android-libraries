@@ -16,8 +16,9 @@ with the latest versions.
 To update other files in the repo, run:
 
 ```bash
-dotnet cake utilities.cake -t=list-artifacts
 dotnet cake utilities.cake -t=generate-component-governance
+dotnet cake utilities.cake -t=generate-namespace-file
+dotnet cake utilities.cake -t=list-artifacts
 ```
 
 ## Tagging and Releasing
