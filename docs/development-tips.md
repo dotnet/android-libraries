@@ -199,6 +199,49 @@ To solve this, I added to `source\com.google.android.libraries.places\places\Tra
 </attr>
 ```
 
+### Example 4
+
+```log
+generated\io.grpc.grpc-api\obj\Debug\net8.0-android\generated\src\Xamarin.Grpc.LongGaugeMetricInstrument.cs(20,84):
+error CS0738: 'LongGaugeMetricInstrument' does not implement interface member 'IMetricInstrument.OptionalLabelKeys'. 'LongGaugeMetricInstrument.OptionalLabelKeys' cannot implement 'IMetricInstrument.OptionalLabelKeys' because it does not have the matching return type of 'IList<string>'.
+generated\io.grpc.grpc-api\obj\Debug\net8.0-android\generated\src\Xamarin.Grpc.LongGaugeMetricInstrument.cs(20,84):
+error CS0738: 'LongGaugeMetricInstrument' does not implement interface member 'IMetricInstrument.RequiredLabelKeys'. 'LongGaugeMetricInstrument.RequiredLabelKeys' cannot implement 'IMetricInstrument.RequiredLabelKeys' because it does not have the matching return type of 'IList<string>'.
+```
+
+At first, I thought I could do something like:
+
+```xml
+<attr
+    path="/api/package[@name='io.grpc']/class[@name='LongGaugeMetricInstrument']/method[@name='getOptionalLabelKeys' and count(parameter)=0]"
+    name="managedReturn"
+    >
+    System.Collections.IList&gt;System.String&lt;
+</attr>
+```
+
+But this results in the error:
+
+```log
+BINDINGSGENERATOR : error BG0000: System.ArgumentOutOfRangeException: length ('-15') must be a non-negative value. (Parameter 'length')
+```
+
+So, I'm not sure we support putting generic types in the `managedReturn` value.
+
+So instead, I used a C# additions and an explicit interface implementation:
+
+```csharp
+using System.Collections.Generic;
+
+namespace Xamarin.Grpc;
+
+public partial class LongGaugeMetricInstrument
+{
+    IList<string>? IMetricInstrument.OptionalLabelKeys => (IList<string>?) OptionalLabelKeys;
+
+    IList<string>? IMetricInstrument.RequiredLabelKeys => (IList<string>?) RequiredLabelKeys;
+}
+```
+
 [1118]: https://github.com/dotnet/android-libraries/pull/1118
 [androidx.security]: https://github.com/dotnet/android-libraries/tree/androidx.security
 [androidx-pipeline]: https://devdiv.visualstudio.com/DevDiv/_build?definitionId=25324
