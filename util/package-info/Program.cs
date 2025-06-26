@@ -34,7 +34,16 @@ public class Config
 
 class Program
 {
-    private static readonly HttpClient httpClient = new();
+    private static readonly HttpClient httpClient = new()
+    {
+        Timeout = TimeSpan.FromSeconds(30) // Increase timeout for better reliability
+    };
+    
+    static Program()
+    {
+        // Set a user agent to be more respectful
+        httpClient.DefaultRequestHeaders.Add("User-Agent", "NuGet-Package-Analyzer/1.0 (https://github.com/xamarin/AndroidX)");
+    }
     
     static async Task Main(string[] args)
     {
@@ -72,7 +81,7 @@ class Program
         Console.WriteLine("Fetching package information from NuGet.org...\n");
 
         var packages = new List<PackageInfo>();
-        var semaphore = new SemaphoreSlim(testMode ? 3 : 5); // Limit concurrent requests
+        var semaphore = new SemaphoreSlim(testMode ? 2 : 3); // Reduced concurrent requests to avoid rate limiting
 
         var tasks = artifactsToProcess.Select(async artifact =>
         {
@@ -90,7 +99,9 @@ class Program
                     }
                     else if (packages.Count % 10 == 0)
                     {
-                        Console.WriteLine($"Processed {packages.Count}/{artifactsToProcess.Count} packages... ({packages.Count * 100.0 / artifactsToProcess.Count:F1}%)");
+                        var rateLimited = packages.Count(p => p.Downloads == "Rate Limited");
+                        var errors = packages.Count(p => p.Downloads != null && p.Downloads.Contains("Error"));
+                        Console.WriteLine($"Processed {packages.Count}/{artifactsToProcess.Count} packages... ({packages.Count * 100.0 / artifactsToProcess.Count:F1}%) [Rate Limited: {rateLimited}, Errors: {errors}]");
                     }
                 }
                 return packageInfo;
@@ -120,63 +131,119 @@ class Program
             PackageUrl = $"https://www.nuget.org/packages/{artifact.nugetId}"
         };
 
-        try
-        {
-            if (!testMode)
-            {
-                Console.WriteLine($"  Fetching: {packageInfo.PackageUrl}");
-            }
-            var response = await httpClient.GetAsync(packageInfo.PackageUrl);
-            if (response.IsSuccessStatusCode)
-            {
-                var html = await response.Content.ReadAsStringAsync();
-                var doc = new HtmlDocument();
-                doc.LoadHtml(html);
+        const int maxRetries = 3;
+        var baseDelay = TimeSpan.FromSeconds(testMode ? 1 : 2);
 
-                // Extract download count - try multiple selectors
-                string? downloads = null;
-                
-                // Look for "Total X.XM" pattern in the text
-                var allText = doc.DocumentNode.InnerText;
-                
-                // Handle multiline text with potential whitespace
-                var downloadMatch = Regex.Match(allText, @"Total\s+([\d,.]+[KMB]?)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                if (downloadMatch.Success)
+        for (int attempt = 0; attempt <= maxRetries; attempt++)
+        {
+            try
+            {
+                if (!testMode && attempt == 0)
                 {
-                    downloads = downloadMatch.Groups[1].Value;
+                    Console.WriteLine($"  Fetching: {packageInfo.PackageUrl}");
+                }
+                else if (attempt > 0)
+                {
+                    Console.WriteLine($"  Retry {attempt}/{maxRetries}: {packageInfo.NugetId}");
                 }
 
-                packageInfo.Downloads = downloads ?? "N/A";
-
-                // Extract "Used by" count - look for "NuGet packages (89)" pattern
-                string? usedBy = null;
+                var response = await httpClient.GetAsync(packageInfo.PackageUrl);
                 
-                // Look for "NuGet packages (X)" pattern in the all text
-                var usedByMatch = Regex.Match(allText, @"NuGet packages[^\d]*\((\d+)\)", RegexOptions.IgnoreCase);
-                if (usedByMatch.Success)
+                if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
                 {
-                    usedBy = usedByMatch.Groups[1].Value;
+                    if (attempt < maxRetries)
+                    {
+                        // Calculate exponential backoff delay
+                        var delay = TimeSpan.FromSeconds(baseDelay.TotalSeconds * Math.Pow(2, attempt));
+                        
+                        // Check for Retry-After header
+                        if (response.Headers.RetryAfter?.Delta.HasValue == true)
+                        {
+                            delay = response.Headers.RetryAfter.Delta.Value;
+                        }
+                        else if (response.Headers.RetryAfter?.Date.HasValue == true)
+                        {
+                            delay = response.Headers.RetryAfter.Date.Value - DateTimeOffset.Now;
+                        }
+
+                        Console.WriteLine($"  Rate limited. Waiting {delay.TotalSeconds:F1}s before retry {attempt + 1}/{maxRetries}...");
+                        await Task.Delay(delay);
+                        continue;
+                    }
+                    else
+                    {
+                        packageInfo.Downloads = "Rate Limited";
+                        packageInfo.UsedBy = "Rate Limited";
+                        return packageInfo;
+                    }
                 }
                 
-                packageInfo.UsedBy = usedBy ?? "N/A";
+                if (response.IsSuccessStatusCode)
+                {
+                    var html = await response.Content.ReadAsStringAsync();
+                    var doc = new HtmlDocument();
+                    doc.LoadHtml(html);
 
-                // Clean up the values
-                packageInfo.Downloads = CleanStatValue(packageInfo.Downloads);
-                packageInfo.UsedBy = CleanStatValue(packageInfo.UsedBy);
+                    // Extract download count - try multiple selectors
+                    string? downloads = null;
+                    
+                    // Look for "Total X.XM" pattern in the text
+                    var allText = doc.DocumentNode.InnerText;
+                    
+                    // Handle multiline text with potential whitespace
+                    var downloadMatch = Regex.Match(allText, @"Total\s+([\d,.]+[KMB]?)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                    if (downloadMatch.Success)
+                    {
+                        downloads = downloadMatch.Groups[1].Value;
+                    }
 
-                // Add a small delay to be respectful
-                await Task.Delay(testMode ? 500 : 200);
+                    packageInfo.Downloads = downloads ?? "N/A";
+
+                    // Extract "Used by" count - look for "NuGet packages (89)" pattern
+                    string? usedBy = null;
+                    
+                    // Look for "NuGet packages (X)" pattern in the all text
+                    var usedByMatch = Regex.Match(allText, @"NuGet packages[^\d]*\((\d+)\)", RegexOptions.IgnoreCase);
+                    if (usedByMatch.Success)
+                    {
+                        usedBy = usedByMatch.Groups[1].Value;
+                    }
+                    
+                    packageInfo.UsedBy = usedBy ?? "N/A";
+
+                    // Clean up the values
+                    packageInfo.Downloads = CleanStatValue(packageInfo.Downloads);
+                    packageInfo.UsedBy = CleanStatValue(packageInfo.UsedBy);
+
+                    // Add a small delay to be respectful (longer after rate limiting)
+                    var normalDelay = testMode ? 500 : (attempt > 0 ? 1000 : 300);
+                    await Task.Delay(normalDelay);
+                    
+                    return packageInfo; // Success!
+                }
+                else
+                {
+                    packageInfo.Downloads = $"HTTP {response.StatusCode}";
+                    packageInfo.UsedBy = $"HTTP {response.StatusCode}";
+                    return packageInfo;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                packageInfo.Downloads = $"HTTP {response.StatusCode}";
-                packageInfo.UsedBy = $"HTTP {response.StatusCode}";
+                if (attempt < maxRetries)
+                {
+                    var delay = TimeSpan.FromSeconds(baseDelay.TotalSeconds * Math.Pow(2, attempt));
+                    Console.WriteLine($"  Error: {ex.Message}. Retrying in {delay.TotalSeconds:F1}s...");
+                    await Task.Delay(delay);
+                    continue;
+                }
+                else
+                {
+                    packageInfo.Downloads = $"Error: {ex.Message}";
+                    packageInfo.UsedBy = $"Error: {ex.Message}";
+                    return packageInfo;
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            packageInfo.Downloads = $"Error: {ex.Message}";
-            packageInfo.UsedBy = $"Error: {ex.Message}";
         }
 
         return packageInfo;

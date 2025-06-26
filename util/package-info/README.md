@@ -20,9 +20,11 @@ This tool analyzes all NuGet packages defined in the `config.json` file and gene
 - ✅ Extracts all NuGet package IDs from `config.json` (658 packages)
 - ✅ Fetches download counts from NuGet.org (e.g., "52.9M", "1.2K")
 - ✅ Extracts "Used By" statistics (number of dependent packages)
-- ✅ Generates organized markdown tables grouped by package family
+- ✅ Generates single table sorted by download count (most popular first)
 - ✅ Provides summary statistics and progress reporting
-- ✅ Handles rate limiting with concurrent request management
+- ✅ **Intelligent retry logic** with exponential backoff for rate limiting
+- ✅ **Respects NuGet.org rate limits** with automatic retry after 429 errors
+- ✅ Handles concurrent request management (max 3 concurrent)
 - ✅ Test mode for quick verification
 
 ## Sample Output
@@ -110,16 +112,23 @@ The generated report includes:
 2. **Web Scraping**: For each package, fetches the NuGet.org page and extracts:
    - Download count using regex: `Total\s+([\d,.]+[KMB]?)`
    - "Used By" count using regex: `NuGet packages[^\d]*\((\d+)\)`
-3. **Data Processing**: Cleans and formats the extracted data
-4. **Report Generation**: Creates organized markdown tables grouped by package family
-5. **Rate Limiting**: Uses semaphore to limit concurrent requests (5 max) and includes delays
+3. **Rate Limit Handling**:
+   - Detects HTTP 429 (Too Many Requests) responses
+   - Implements exponential backoff retry strategy (2s, 4s, 8s delays)
+   - Respects `Retry-After` headers when provided by NuGet.org
+   - Falls back to "Rate Limited" status after 3 failed attempts
+4. **Data Processing**: Cleans and formats the extracted data
+5. **Report Generation**: Creates single table sorted by download count (highest first)
+6. **Concurrent Control**: Uses semaphore to limit concurrent requests (max 3)
 
 ### Performance
 
-- **Test Mode**: 5 packages in ~10 seconds
-- **Full Mode**: 658 packages in ~10-15 minutes
-- **Concurrent Requests**: Limited to 5 to avoid overwhelming NuGet.org
-- **Request Delay**: 200ms between requests (500ms in test mode)
+- **Test Mode**: 5 packages in ~15 seconds (with retry logic)
+- **Full Mode**: 658 packages in ~15-25 minutes (with automatic retries)
+- **Concurrent Requests**: Limited to 3 to respect NuGet.org rate limits
+- **Request Delay**: 300ms between requests (1000ms after retries)
+- **Retry Logic**: Up to 3 retries with exponential backoff for rate limiting
+- **Rate Limit Handling**: Automatic detection and respect for HTTP 429 responses
 
 ## Troubleshooting
 
