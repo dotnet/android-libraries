@@ -211,37 +211,32 @@ class Program
         markdown.AppendLine($"Total packages analyzed: {packages.Count}");
         markdown.AppendLine();
 
-        // Group packages by prefix for better organization
-        var groupedPackages = packages
-            .GroupBy(p => GetPackagePrefix(p.NugetId))
-            .OrderBy(g => g.Key);
+        // Create a single table sorted by downloads
+        markdown.AppendLine("| Package ID | Version | NuGet Version | Downloads | Used By | Package URL |");
+        markdown.AppendLine("|------------|---------|---------------|-----------|---------|-------------|");
 
-        foreach (var group in groupedPackages)
+        // Sort packages by download count (convert to numeric for proper sorting)
+        var sortedPackages = packages
+            .OrderByDescending(p => ConvertDownloadsToNumber(p.Downloads))
+            .ThenBy(p => p.NugetId);
+
+        foreach (var package in sortedPackages)
         {
-            markdown.AppendLine($"## {group.Key}");
-            markdown.AppendLine();
-            markdown.AppendLine("| Package ID | Version | NuGet Version | Downloads | Used By | Package URL |");
-            markdown.AppendLine("|------------|---------|---------------|-----------|---------|-------------|");
-
-            foreach (var package in group.OrderBy(p => p.NugetId))
-            {
-                var escapedId = package.NugetId.Replace("|", "\\|");
-                var packageLink = $"[{escapedId}]({package.PackageUrl})";
-                
-                markdown.AppendLine($"| {packageLink} | {package.Version} | {package.NugetVersion} | {package.Downloads} | {package.UsedBy} | {package.PackageUrl} |");
-            }
+            var escapedId = package.NugetId.Replace("|", "\\|");
+            var packageLink = $"[{escapedId}]({package.PackageUrl})";
             
-            markdown.AppendLine();
+            markdown.AppendLine($"| {packageLink} | {package.Version} | {package.NugetVersion} | {package.Downloads} | {package.UsedBy} | {package.PackageUrl} |");
         }
+        
+        markdown.AppendLine();
 
         // Add summary statistics
         markdown.AppendLine("## Summary Statistics");
         markdown.AppendLine();
         
         var validDownloads = packages
-            .Select(p => p.Downloads?.Replace(",", ""))
-            .Where(d => !string.IsNullOrEmpty(d) && long.TryParse(d, out _))
-            .Select(d => long.Parse(d!))
+            .Select(p => ConvertDownloadsToNumber(p.Downloads))
+            .Where(d => d > 0)
             .ToList();
             
         var totalDownloads = validDownloads.Sum();
@@ -249,11 +244,57 @@ class Program
         
         markdown.AppendLine($"- **Total packages analyzed:** {packages.Count}");
         markdown.AppendLine($"- **Packages with download stats:** {packagesWithStats}");
-        markdown.AppendLine($"- **Total downloads (estimated):** {totalDownloads:N0}");
-        markdown.AppendLine($"- **Average downloads per package:** {(validDownloads.Any() ? validDownloads.Average() : 0):N0}");
+        markdown.AppendLine($"- **Total downloads (estimated):** {FormatLargeNumber(totalDownloads)}");
+        markdown.AppendLine($"- **Average downloads per package:** {(validDownloads.Any() ? FormatLargeNumber((long)validDownloads.Average()) : "0")}");
         markdown.AppendLine($"- **Analysis date:** {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 
         await File.WriteAllTextAsync(outputFile, markdown.ToString());
+    }
+
+    static long ConvertDownloadsToNumber(string? downloads)
+    {
+        if (string.IsNullOrEmpty(downloads) || downloads == "N/A" || downloads.Contains("Error"))
+            return 0;
+
+        // Remove any extra characters and get the numeric part
+        var cleanValue = downloads.Replace(",", "").Trim();
+        
+        // Handle K, M, B suffixes
+        var multiplier = 1L;
+        if (cleanValue.EndsWith("K", StringComparison.OrdinalIgnoreCase))
+        {
+            multiplier = 1_000L;
+            cleanValue = cleanValue[..^1];
+        }
+        else if (cleanValue.EndsWith("M", StringComparison.OrdinalIgnoreCase))
+        {
+            multiplier = 1_000_000L;
+            cleanValue = cleanValue[..^1];
+        }
+        else if (cleanValue.EndsWith("B", StringComparison.OrdinalIgnoreCase))
+        {
+            multiplier = 1_000_000_000L;
+            cleanValue = cleanValue[..^1];
+        }
+
+        if (double.TryParse(cleanValue, out var number))
+        {
+            return (long)(number * multiplier);
+        }
+
+        return 0;
+    }
+
+    static string FormatLargeNumber(long number)
+    {
+        if (number >= 1_000_000_000)
+            return $"{number / 1_000_000_000.0:F1}B";
+        if (number >= 1_000_000)
+            return $"{number / 1_000_000.0:F1}M";
+        if (number >= 1_000)
+            return $"{number / 1_000.0:F1}K";
+        
+        return number.ToString("N0");
     }
 
     static string GetPackagePrefix(string packageId)
