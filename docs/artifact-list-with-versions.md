@@ -104,10 +104,10 @@
 |  97|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.33            |
 |  98|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0               |
 |  99|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0               |
-| 100|androidx.databinding:databinding-adapters                             |8.10.1              |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |8.10.1              |
-| 101|androidx.databinding:databinding-common                               |8.10.1              |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |8.10.1              |
-| 102|androidx.databinding:databinding-runtime                              |8.10.1              |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |8.10.1              |
-| 103|androidx.databinding:viewbinding                                      |8.10.1              |Xamarin.AndroidX.DataBinding.ViewBinding                              |8.10.1              |
+| 100|androidx.databinding:databinding-adapters                             |8.11.0              |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |8.11.0              |
+| 101|androidx.databinding:databinding-common                               |8.11.0              |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |8.11.0              |
+| 102|androidx.databinding:databinding-runtime                              |8.11.0              |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |8.11.0              |
+| 103|androidx.databinding:viewbinding                                      |8.11.0              |Xamarin.AndroidX.DataBinding.ViewBinding                              |8.11.0              |
 | 104|androidx.datastore:datastore                                          |1.1.7               |Xamarin.AndroidX.DataStore                                            |1.1.7               |
 | 105|androidx.datastore:datastore-android                                  |1.1.7               |Xamarin.AndroidX.DataStore.Android                                    |1.1.7               |
 | 106|androidx.datastore:datastore-core                                     |1.1.7               |Xamarin.AndroidX.DataStore.Core                                       |1.1.7               |
@@ -403,7 +403,7 @@
 | 396|com.google.android.gms:play-services-mlkit-text-recognition-korean    |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Korean              |116.0.1.4           |
 | 397|com.google.android.gms:play-services-nearby                           |19.3.0              |Xamarin.GooglePlayServices.Nearby                                     |119.3.0.6           |
 | 398|com.google.android.gms:play-services-oss-licenses                     |17.1.0              |Xamarin.GooglePlayServices.Oss.Licenses                               |117.1.0.6           |
-| 399|com.google.android.gms:play-services-pal                              |22.0.0              |Xamarin.GooglePlayServices.PAL                                        |122.0.0.2           |
+| 399|com.google.android.gms:play-services-pal                              |22.1.0              |Xamarin.GooglePlayServices.PAL                                        |122.1.0             |
 | 400|com.google.android.gms:play-services-panorama                         |17.1.0              |Xamarin.GooglePlayServices.Panorama                                   |117.1.0.12          |
 | 401|com.google.android.gms:play-services-password-complexity              |18.1.0              |Xamarin.GooglePlayServices.PasswordComplexity                         |118.1.0.6           |
 | 402|com.google.android.gms:play-services-pay                              |16.5.0              |Xamarin.GooglePlayServices.Pay                                        |116.5.0.6           |
@@ -460,8 +460,8 @@
 | 453|com.google.code.gson:gson                                             |2.13.1              |GoogleGson                                                            |2.13.1              |
 | 454|com.google.crypto.tink:tink-android                                   |1.18.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.18.0              |
 | 455|com.google.dagger:dagger                                              |2.56.2              |Xamarin.Google.Dagger                                                 |2.56.2.2            |
-| 456|com.google.errorprone:error_prone_annotations                         |2.38.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.38.0              |
-| 457|com.google.errorprone:error_prone_type_annotations                    |2.38.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.38.0              |
+| 456|com.google.errorprone:error_prone_annotations                         |2.39.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.39.0              |
+| 457|com.google.errorprone:error_prone_type_annotations                    |2.39.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.39.0              |
 | 458|com.google.firebase:firebase-abt                                      |22.0.0              |Xamarin.Firebase.Abt                                                  |122.0.0.6           |
 | 459|com.google.firebase:firebase-ads                                      |23.6.0              |Xamarin.Firebase.Ads                                                  |123.6.0.3           |
 | 460|com.google.firebase:firebase-analytics                                |22.4.0              |Xamarin.Firebase.Analytics                                            |122.4.0             |
