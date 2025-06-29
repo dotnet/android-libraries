@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net10.0-android</TargetFramework>
+    <!-- Build with the latest -->
+    <TargetFramework>$(_DefaultTargetFrameworkNext)</TargetFramework>
   </PropertyGroup>
-  <!-- Required for .NET 8 projects -->
   <ItemGroup>
-    <AndroidDependency Include="platforms/android-34" />
+    <!-- But also install the base -->
+    <AndroidDependency Include="platforms/android-$(_DefaultPlatformVersionBase)" />
   </ItemGroup>
 </Project>
