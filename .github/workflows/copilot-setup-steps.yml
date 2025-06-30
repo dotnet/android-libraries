@@ -15,9 +15,6 @@ jobs:
       with:
         dotnet-version: '9.x'
 
-    - name: Install Cake .NET Tool
-      run: dotnet tool install -g cake.tool
-
     - name: Install Android workload
       run: dotnet workload install android
 
@@ -26,6 +23,9 @@ jobs:
       with:
         distribution: 'microsoft'
         java-version: '11'
+
+    - name: Restore dotnet tools
+      run: dotnet tool restore
 
     - name: Run dotnet cake
       run: dotnet cake
