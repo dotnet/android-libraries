@@ -7,27 +7,20 @@
 #addin nuget:?package=SharpZipLib&version=1.4.2
 
 // Imported scripts
-#load "build/cake/nuget-install.cake"
 #load "build/cake/setup-environment.cake"
 #load "build/cake/update-config.cake"
 #load "build/cake/tests.cake"
 #load "build/cake/gps-parameters.cake"
-#load "build/cake/dotnet-next.cake"
 #load "build/cake/binderate.cake"
 #load "build/cake/build-and-package.cake"
 #load "build/cake/validations.cake"
 #load "build/cake/executive-order.cake"
 #load "build/cake/clean.cake"
 #load "build/cake/performance-timings.cake"
-#load "build/cake/build-android-libraries-net10-net8.cake"
-
-// Migrate packages to net10 
-bool IsMigratingNet10 = false;
 
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
 
 // The main configuration points
 var TARGET = Argument ("t", Argument ("target", "Default"));
@@ -47,13 +40,6 @@ Information ($"JAVA_HOME            : {JAVA_HOME}");
 Information ($"BUILD_COMMIT         : {BUILD_COMMIT}");
 Information ($"BUILD_NUMBER         : {BUILD_NUMBER}");
 Information ($"BUILD_TIMESTAMP      : {BUILD_TIMESTAMP}");
-
-RunTarget("nuget-install");
-
-if (IsMigratingNet10) 
-{
-    RunTarget("build-android-libraries-net10-net8");
-}
 
 Task ("packages")
     .IsDependentOn ("binderate")

@@ -136,7 +136,7 @@ For comprehensive guidance on troubleshooting binding issues, see: https://githu
 ## Target Frameworks
 
 ### Current Support
-- **Primary**: `net8.0-android` (API 21+)
+- **Primary**: `net9.0-android` (API 21+)
 - **Migration**: `net10.0-android` (API 35+) - migration capability exists but not currently enabled
 - **Legacy**: Xamarin.Android support ended May 1, 2024
 
@@ -150,12 +150,12 @@ For comprehensive guidance on troubleshooting binding issues, see: https://githu
 ### NuGet Package Structure
 ```
 lib/
-  net8.0-android34.0/
+  net9.0-android35.0/
     {assembly}.dll
   net10.0-android36.0/
     {assembly}.dll
 build/
-  net8.0-android34.0/
+  net9.0-android35.0/
     {package}.targets
   net10.0-android36.0/
     {package}.targets

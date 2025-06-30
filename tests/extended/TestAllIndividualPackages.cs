@@ -13,7 +13,7 @@ public class TestAllIndividualPackages
 	static string test_dir = Path.Combine ("output", "tests");
 	static string configuration = "Release";
 	static string platform_version = "29";
-	static string net_version = "net8.0";
+	static string net_version = "net9.0";
 
 	static TestAllIndividualPackages ()
 	{

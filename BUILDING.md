@@ -4,7 +4,7 @@
 
 Before building the libraries and samples in this repository, you will need to install:
 
-  * [.NET](https://dotnet.microsoft.com/download) ([.NET SDK 8.0.404](https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.11/8.0.11.md?WT.mc_id=dotnet-35129-website) is currently required)
+  * [.NET 9.0](https://dotnet.microsoft.com/download) (.NET SDK 9.0 is currently required)
 
   * [Cake .NET Tool](http://cakebuild.net):
 

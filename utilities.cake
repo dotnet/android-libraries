@@ -287,7 +287,7 @@ Task ("generate-component-governance")
 
             manifest.MappingMavenArtifact2NuGetPackage = mappings_artifact_nuget;
 
-            Console.WriteLine($"Saving ComponetGovernanceManifest cgmanifest.json...");
+            Information($"Saving ComponetGovernanceManifest cgmanifest.json...");
             manifest.Save("./cgmanifest.json");
 
             System.IO.File.WriteAllText
@@ -453,7 +453,7 @@ Task ("spell-check")
 
             var dictionary = WeCantSpell.Hunspell.WordList.CreateFromFiles(@"externals/English (American).dic");
             string[] words =
-            [
+            {
                 "Xamarin",
                 "AndroidX",
                 "IdentifierCommon",
@@ -828,7 +828,7 @@ Task ("spell-check")
                 "Json",
                 "ViewTree",
                 "TypeAnnotations",
-           ];
+           };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
 
@@ -1743,24 +1743,24 @@ Task("verify-namespace-file")
 
             if (new_ns.Any ()) {
                 unhandled_changes = true;
-                Console.WriteLine ("New Namespaces");
-                Console.WriteLine ("--------------");
+                Information ("New Namespaces");
+                Information ("--------------");
 
                 foreach (var ns in new_ns)
-                  Console.WriteLine (ns);
+                  Information (ns);
 
-                Console.WriteLine ();
+                Information ("");
             }
 
             var removed_ns = old_list.Except (new_list);
 
             if (removed_ns.Any ()) {
                 unhandled_changes = true;
-                Console.WriteLine ("Removed Namespaces");
-                Console.WriteLine ("------------------");
+                Information ("Removed Namespaces");
+                Information ("------------------");
 
                 foreach (var ns in removed_ns)
-                    Console.WriteLine (ns);
+                    Information (ns);
             }
 
             if (unhandled_changes)
@@ -1920,10 +1920,10 @@ Task("tools-executive-oreder-csv-and-markdown")
             no version info
 
             let's parse
-                dotnet tool list --global
+                dotnet tool list
             */
 			process = "dotnet";
-			process_args = "tool list --global";
+			process_args = "tool list";
             process_settings = new ProcessSettings ()
 			{
                 Arguments = process_args,
@@ -2053,7 +2053,7 @@ Task("tools-executive-oreder-csv-and-markdown")
             return;
         } catch (Exception ex) { 
           // Don't fail the build if this fails.
-          Console.WriteLine (ex); 
+          Information (ex); 
         }
         }
     );

@@ -6,8 +6,17 @@
     <RepositoryCommit>$(BUILD_SOURCEVERSION)</RepositoryCommit>
 
     <!-- Default TFM's we build for -->
-    <_DefaultTargetFrameworks>net8.0-android</_DefaultTargetFrameworks>
-    <_DefaultNetTargetFrameworks>net8.0</_DefaultNetTargetFrameworks>
+    <_DefaultNetTargetFramework>net9.0</_DefaultNetTargetFramework>
+    <!-- base -->
+    <_DefaultPlatformVersionBase>35</_DefaultPlatformVersionBase>
+    <_DefaultTargetFrameworkVersionBase>9.0</_DefaultTargetFrameworkVersionBase>
+    <_DefaultTargetFrameworkBase>net$(_DefaultTargetFrameworkVersionBase)-android$(_DefaultPlatformVersionBase).0</_DefaultTargetFrameworkBase>
+    <!-- next -->
+    <_DefaultPlatformVersionNext>36</_DefaultPlatformVersionNext>
+    <_DefaultTargetFrameworkVersionNext>10.0</_DefaultTargetFrameworkVersionNext>
+    <_DefaultTargetFrameworkNext>net$(_DefaultTargetFrameworkVersionNext)-android$(_DefaultPlatformVersionNext).0</_DefaultTargetFrameworkNext>
+    <!-- combined -->
+    <_DefaultTargetFrameworks>$(_DefaultTargetFrameworkBase);$(_DefaultTargetFrameworkNext)</_DefaultTargetFrameworks>
 
     <CheckEolWorkloads>false</CheckEolWorkloads>
 
@@ -85,13 +94,16 @@
 
   <!-- Folders that .targets files need to go into -->
   <ItemGroup>
-    <AndroidXNuGetTargetFolders Include="build\net8.0-android34.0" />
-    <AndroidXNuGetTargetFolders Include="buildTransitive\net8.0-android34.0" />
+    <AndroidXNuGetTargetFolders Include="build\$(_DefaultTargetFrameworkBase)" />
+    <AndroidXNuGetTargetFolders Include="buildTransitive\$(_DefaultTargetFrameworkBase)" />
+    <AndroidXNuGetTargetFolders Include="build\$(_DefaultTargetFrameworkNext)" />
+    <AndroidXNuGetTargetFolders Include="buildTransitive\$(_DefaultTargetFrameworkNext)" />
   </ItemGroup>
 
   <!-- Folders that _._ files need to go into for packages without managed libraries -->
   <ItemGroup>
-    <AndroidXNuGetLibFolders Include="lib\net8.0-android34.0" />
+    <AndroidXNuGetLibFolders Include="lib\$(_DefaultTargetFrameworkBase)" />
+    <AndroidXNuGetLibFolders Include="lib\$(_DefaultTargetFrameworkNext)" />
   </ItemGroup>
 
   <ItemGroup>
