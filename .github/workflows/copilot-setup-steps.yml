@@ -10,17 +10,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - run: df -h
-      name: Display disk space
-
-    - run: du -h /usr/local/share/
-      name: Display size of /usr/local/share/
-
-    - name: Setup .NET 10 Preview
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.x'
-        dotnet-quality: 'preview'
+        dotnet-version: '9.x'
 
     - name: Install Android workload
       run: dotnet workload install android
@@ -30,12 +23,6 @@ jobs:
       with:
         distribution: 'microsoft'
         java-version: '11'
-
-    - run: df -h
-      name: Display disk space
-
-    - run: du -h /usr/local/share/
-      name: Display size of /usr/local/share/
 
     - name: Restore dotnet tools
       run: dotnet tool restore
