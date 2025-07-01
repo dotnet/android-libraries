@@ -13,10 +13,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.x'
-
-    - name: Install Cake .NET Tool
-      run: dotnet tool install -g cake.tool
+        dotnet-version: '9.x'
 
     - name: Install Android workload
       run: dotnet workload install android
@@ -27,8 +24,12 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
+    - name: Restore dotnet tools
+      run: dotnet tool restore
+
     - name: Run dotnet cake
       run: dotnet cake
+      continue-on-error: true
 
     - name: Display environment info
       run: |

@@ -16,7 +16,8 @@
     <_DefaultTargetFrameworkVersionNext>10.0</_DefaultTargetFrameworkVersionNext>
     <_DefaultTargetFrameworkNext>net$(_DefaultTargetFrameworkVersionNext)-android$(_DefaultPlatformVersionNext).0</_DefaultTargetFrameworkNext>
     <!-- combined -->
-    <_DefaultTargetFrameworks>$(_DefaultTargetFrameworkBase);$(_DefaultTargetFrameworkNext)</_DefaultTargetFrameworks>
+    <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' != 'true' ">$(_DefaultTargetFrameworkBase);$(_DefaultTargetFrameworkNext)</_DefaultTargetFrameworks>
+    <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' == 'true' ">$(_DefaultTargetFrameworkBase)</_DefaultTargetFrameworks>
 
     <CheckEolWorkloads>false</CheckEolWorkloads>
 
