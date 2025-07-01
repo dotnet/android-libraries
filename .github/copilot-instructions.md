@@ -188,6 +188,36 @@ build/
 - [AndroidX Release Notes](https://developer.android.com/jetpack/androidx/versions/stable-channel)
 - [Google Play Services Release Notes](https://developers.google.com/android/guides/releases)
 
+## Common Binding Issues and Solutions
+
+### Interface Implementation Issues
+When a generated class doesn't implement interface methods with the correct signature, typically showing errors like:
+```
+error CS0535: 'ClassName' does not implement interface member 'IInterface.Method(IEncoder, Object?)'
+```
+
+This occurs when Java allows method overloading with different parameter types, but C# requires exact interface implementation. 
+
+**Solution**: Create an Additions file with a method that matches the interface signature and calls the strongly-typed method:
+
+```csharp
+namespace PackageName;
+
+public partial class ClassName
+{
+    public unsafe void Method(IEncoder encoder, Java.Lang.Object? value)
+    {
+        this.Method(encoder, (SpecificType?) value);
+    }
+}
+```
+
+Place this in `source/{groupId}/{artifactId}/Additions/ClassName.cs`.
+
+### Reference Documentation
+- **`docs/development-tips.md`**: Contains detailed examples of common binding fixes
+- [Java Interop Troubleshooting Guide](https://github.com/dotnet/java-interop/wiki/Troubleshooting-Android-Bindings-Issues): Comprehensive binding issue resolution
+
 ## Best Practices for Contributors
 
 ### Before Making Changes
