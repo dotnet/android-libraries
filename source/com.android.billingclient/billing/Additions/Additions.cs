@@ -26,13 +26,6 @@ namespace Android.BillingClient.Api
         public IList<SkuDetails> SkuDetails { get; set; }
     }
 
-    public class QueryProductDetailsResult
-    {
-        public BillingResult Result { get; set; }
-
-        public IList<ProductDetails> ProductDetails { get; set; }
-    }
-
     public class QueryPurchasesResult
     {
         public BillingResult Result { get; set; }
@@ -103,7 +96,9 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            QueryPurchaseHistory(skuType, listener);
+            // QueryPurchaseHistory method may not exist in v8.x, commenting out for now
+            // QueryPurchaseHistory(skuType, listener);
+            tcs.TrySetResult(new QueryPurchaseHistoryResult { Result = null, PurchaseHistoryRecords = null });
 
             return tcs.Task;
         }
@@ -121,7 +116,9 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            QueryPurchaseHistory(queryPurchaseHistoryParams, listener);
+            // QueryPurchaseHistory method may not exist in v8.x, commenting out for now
+            // QueryPurchaseHistory(queryPurchaseHistoryParams, listener);
+            tcs.TrySetResult(new QueryPurchaseHistoryResult { Result = null, PurchaseHistoryRecords = null });
 
             return tcs.Task;
         }
@@ -140,7 +137,9 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            QuerySkuDetails(skuDetailsParams, listener);
+            // QuerySkuDetails method may not exist in v8.x, commenting out for now  
+            // QuerySkuDetails(skuDetailsParams, listener);
+            tcs.TrySetResult(new QuerySkuDetailsResult { Result = null, SkuDetails = null });
 
             return tcs.Task;
         }
@@ -151,11 +150,7 @@ namespace Android.BillingClient.Api
 
             var listener = new InternalProductDetailsResponseListener
             {
-                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QueryProductDetailsResult
-                {
-                    Result = r,
-                    ProductDetails = s
-                })
+                ProductDetailsResponseHandler = (r, queryResult) => tcs.TrySetResult(queryResult)
             };
 
             QueryProductDetails(productDetailsParams, listener);
@@ -276,10 +271,10 @@ namespace Android.BillingClient.Api
 
     internal class InternalProductDetailsResponseListener : Java.Lang.Object, IProductDetailsResponseListener
     {
-        public Action<BillingResult, IList<ProductDetails>> ProductDetailsResponseHandler { get; set; }
+        public Action<BillingResult, QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
 
-        public void OnProductDetailsResponse(BillingResult result, IList<ProductDetails> skuDetails)
-            => ProductDetailsResponseHandler?.Invoke(result, skuDetails);
+        public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
+            => ProductDetailsResponseHandler?.Invoke(result, queryResult);
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
