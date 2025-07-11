@@ -83,65 +83,43 @@ namespace Android.BillingClient.Api
         }
 
         [Obsolete("Use QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams) instead")]
+        [Obsolete("QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.")]
         public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(string skuType)
         {
-            var tcs = new TaskCompletionSource<QueryPurchaseHistoryResult>();
-
-            var listener = new InternalPurchaseHistoryResponseListener
-            {
-                PurchaseHistoryResponseHandler = (r, h) => tcs.TrySetResult(new QueryPurchaseHistoryResult
-                {
-                    Result = r,
-                    PurchaseHistoryRecords = h
-                })
+            // QueryPurchaseHistory method was removed in Billing Client v8.0.0
+            // Developers should use QueryPurchases instead for current purchases
+            var result = new QueryPurchaseHistoryResult 
+            { 
+                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
+                PurchaseHistoryRecords = null 
             };
-
-            // QueryPurchaseHistory method may not exist in v8.x, commenting out for now
-            // QueryPurchaseHistory(skuType, listener);
-            tcs.TrySetResult(new QueryPurchaseHistoryResult { Result = null, PurchaseHistoryRecords = null });
-
-            return tcs.Task;
+            return Task.FromResult(result);
         }
 
+        [Obsolete("QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.")]
         public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
         {
-            var tcs = new TaskCompletionSource<QueryPurchaseHistoryResult>();
-
-            var listener = new InternalPurchaseHistoryResponseListener
-            {
-                PurchaseHistoryResponseHandler = (r, h) => tcs.TrySetResult(new QueryPurchaseHistoryResult
-                {
-                    Result = r,
-                    PurchaseHistoryRecords = h
-                })
+            // QueryPurchaseHistory method was removed in Billing Client v8.0.0
+            // Developers should use QueryPurchases instead for current purchases
+            var result = new QueryPurchaseHistoryResult 
+            { 
+                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
+                PurchaseHistoryRecords = null 
             };
-
-            // QueryPurchaseHistory method may not exist in v8.x, commenting out for now
-            // QueryPurchaseHistory(queryPurchaseHistoryParams, listener);
-            tcs.TrySetResult(new QueryPurchaseHistoryResult { Result = null, PurchaseHistoryRecords = null });
-
-            return tcs.Task;
+            return Task.FromResult(result);
         }
 
-        [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
+        [Obsolete("QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync(QueryProductDetailsParams) instead.")]
         public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
         {
-            var tcs = new TaskCompletionSource<QuerySkuDetailsResult>();
-
-            var listener = new InternalSkuDetailsResponseListener
-            {
-                SkuDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QuerySkuDetailsResult
-                {
-                    Result = r,
-                    SkuDetails = s
-                })
+            // QuerySkuDetails method was removed in Billing Client v8.0.0
+            // Developers should use QueryProductDetailsAsync instead
+            var result = new QuerySkuDetailsResult 
+            { 
+                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
+                SkuDetails = null 
             };
-
-            // QuerySkuDetails method may not exist in v8.x, commenting out for now  
-            // QuerySkuDetails(skuDetailsParams, listener);
-            tcs.TrySetResult(new QuerySkuDetailsResult { Result = null, SkuDetails = null });
-
-            return tcs.Task;
+            return Task.FromResult(result);
         }
 
         public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
