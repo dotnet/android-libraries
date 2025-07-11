@@ -11,6 +11,7 @@ namespace Android.BillingClient.Api
         public string PurchaseToken { get; set; }
     }
 
+    [Obsolete("QueryPurchaseHistory was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead.")]
     public class QueryPurchaseHistoryResult
     {
         public BillingResult Result { get; set; }
@@ -82,21 +83,33 @@ namespace Android.BillingClient.Api
             return tcs.Task;
         }
 
-        const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.";
+        const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead. See: https://developer.android.com/google/play/billing/migrate";
 
         [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
-        public Task QueryPurchaseHistoryAsync(string skuType) =>
+        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(string skuType)
+        {
+            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
+            // However, we cannot provide automatic migration as the parameters and return types are different
             throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
+        }
 
         [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams) =>
+        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
+        {
+            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
+            // However, we cannot provide automatic migration as the parameters and return types are different
             throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
+        }
 
-        const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead.";
+        const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead. See: https://developer.android.com/google/play/billing/migrate";
 
         [Obsolete(QuerySkuDetailsNotSupported, error: true)]
-        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams) =>
+        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
+        {
+            // Migration: QuerySkuDetails was replaced by QueryProductDetails
+            // However, we cannot provide automatic migration as the parameters and return types are different
             throw new NotSupportedException(QuerySkuDetailsNotSupported);
+        }
 
         public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
         {
