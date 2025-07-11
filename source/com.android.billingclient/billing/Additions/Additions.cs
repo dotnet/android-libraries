@@ -82,45 +82,21 @@ namespace Android.BillingClient.Api
             return tcs.Task;
         }
 
-        [Obsolete("Use QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams) instead")]
-        [Obsolete("QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.")]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(string skuType)
-        {
-            // QueryPurchaseHistory method was removed in Billing Client v8.0.0
-            // Developers should use QueryPurchases instead for current purchases
-            var result = new QueryPurchaseHistoryResult 
-            { 
-                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
-                PurchaseHistoryRecords = null 
-            };
-            return Task.FromResult(result);
-        }
+        const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.";
 
-        [Obsolete("QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchases instead.")]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
-        {
-            // QueryPurchaseHistory method was removed in Billing Client v8.0.0
-            // Developers should use QueryPurchases instead for current purchases
-            var result = new QueryPurchaseHistoryResult 
-            { 
-                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
-                PurchaseHistoryRecords = null 
-            };
-            return Task.FromResult(result);
-        }
+        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
+        public Task QueryPurchaseHistoryAsync(string skuType) =>
+            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
 
-        [Obsolete("QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync(QueryProductDetailsParams) instead.")]
-        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
-        {
-            // QuerySkuDetails method was removed in Billing Client v8.0.0
-            // Developers should use QueryProductDetailsAsync instead
-            var result = new QuerySkuDetailsResult 
-            { 
-                Result = new BillingResult { ResponseCode = BillingClient.BillingResponseCodeUnsupported },
-                SkuDetails = null 
-            };
-            return Task.FromResult(result);
-        }
+        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
+        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams) =>
+            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
+
+        const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead.";
+
+        [Obsolete(QuerySkuDetailsNotSupported, error: true)]
+        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams) =>
+            throw new NotSupportedException(QuerySkuDetailsNotSupported);
 
         public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
         {
