@@ -11,6 +11,7 @@ namespace Android.BillingClient.Api
         public string PurchaseToken { get; set; }
     }
 
+    [Obsolete("QueryPurchaseHistory was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead.")]
     public class QueryPurchaseHistoryResult
     {
         public BillingResult Result { get; set; }
@@ -24,13 +25,6 @@ namespace Android.BillingClient.Api
         public BillingResult Result { get; set; }
 
         public IList<SkuDetails> SkuDetails { get; set; }
-    }
-
-    public class QueryProductDetailsResult
-    {
-        public BillingResult Result { get; set; }
-
-        public IList<ProductDetails> ProductDetails { get; set; }
     }
 
     public class QueryPurchasesResult
@@ -89,60 +83,32 @@ namespace Android.BillingClient.Api
             return tcs.Task;
         }
 
-        [Obsolete("Use QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams) instead")]
+        const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead. See: https://developer.android.com/google/play/billing/migrate";
+
+        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
         public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(string skuType)
         {
-            var tcs = new TaskCompletionSource<QueryPurchaseHistoryResult>();
-
-            var listener = new InternalPurchaseHistoryResponseListener
-            {
-                PurchaseHistoryResponseHandler = (r, h) => tcs.TrySetResult(new QueryPurchaseHistoryResult
-                {
-                    Result = r,
-                    PurchaseHistoryRecords = h
-                })
-            };
-
-            QueryPurchaseHistory(skuType, listener);
-
-            return tcs.Task;
+            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
+            // However, we cannot provide automatic migration as the parameters and return types are different
+            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
         }
 
+        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
         public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
         {
-            var tcs = new TaskCompletionSource<QueryPurchaseHistoryResult>();
-
-            var listener = new InternalPurchaseHistoryResponseListener
-            {
-                PurchaseHistoryResponseHandler = (r, h) => tcs.TrySetResult(new QueryPurchaseHistoryResult
-                {
-                    Result = r,
-                    PurchaseHistoryRecords = h
-                })
-            };
-
-            QueryPurchaseHistory(queryPurchaseHistoryParams, listener);
-
-            return tcs.Task;
+            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
+            // However, we cannot provide automatic migration as the parameters and return types are different
+            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
         }
 
-        [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
+        const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead. See: https://developer.android.com/google/play/billing/migrate";
+
+        [Obsolete(QuerySkuDetailsNotSupported, error: true)]
         public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
         {
-            var tcs = new TaskCompletionSource<QuerySkuDetailsResult>();
-
-            var listener = new InternalSkuDetailsResponseListener
-            {
-                SkuDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QuerySkuDetailsResult
-                {
-                    Result = r,
-                    SkuDetails = s
-                })
-            };
-
-            QuerySkuDetails(skuDetailsParams, listener);
-
-            return tcs.Task;
+            // Migration: QuerySkuDetails was replaced by QueryProductDetails
+            // However, we cannot provide automatic migration as the parameters and return types are different
+            throw new NotSupportedException(QuerySkuDetailsNotSupported);
         }
 
         public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
@@ -151,11 +117,7 @@ namespace Android.BillingClient.Api
 
             var listener = new InternalProductDetailsResponseListener
             {
-                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QueryProductDetailsResult
-                {
-                    Result = r,
-                    ProductDetails = s
-                })
+                ProductDetailsResponseHandler = (r, queryResult) => tcs.TrySetResult(queryResult)
             };
 
             QueryProductDetails(productDetailsParams, listener);
@@ -276,10 +238,10 @@ namespace Android.BillingClient.Api
 
     internal class InternalProductDetailsResponseListener : Java.Lang.Object, IProductDetailsResponseListener
     {
-        public Action<BillingResult, IList<ProductDetails>> ProductDetailsResponseHandler { get; set; }
+        public Action<BillingResult, QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
 
-        public void OnProductDetailsResponse(BillingResult result, IList<ProductDetails> skuDetails)
-            => ProductDetailsResponseHandler?.Invoke(result, skuDetails);
+        public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
+            => ProductDetailsResponseHandler?.Invoke(result, queryResult);
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
