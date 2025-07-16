@@ -1,0 +1,84 @@
+﻿#nullable enable
+AndroidX.Camera.Effects.Frame
+AndroidX.Camera.Effects.Frame.Frame() -> void
+AndroidX.Camera.Effects.Frame.Frame(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl
+AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.SurfaceProcessorImpl(int queueDepth, Android.OS.Handler! glHandler) -> void
+AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.SurfaceProcessorImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Effects.Internal.Utils
+AndroidX.Camera.Effects.Internal.Utils.Utils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Effects.OpenGL.GlContext
+AndroidX.Camera.Effects.OpenGL.GlContext.GlContext() -> void
+AndroidX.Camera.Effects.OpenGL.GlContext.GlContext(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Effects.OpenGL.GlProgram
+AndroidX.Camera.Effects.OpenGL.GlProgram.GlProgram(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Effects.OpenGL.GlProgram.Use() -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer
+AndroidX.Camera.Effects.OpenGL.GlRenderer.CreateBufferTextureIds(Android.Util.Size! size) -> int[]!
+AndroidX.Camera.Effects.OpenGL.GlRenderer.GlRenderer(int queueDepth) -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.Init() -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.InputTextureId.get -> int
+AndroidX.Camera.Effects.OpenGL.GlRenderer.OverlayTextureId.get -> int
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RegisterOutputSurface(Android.Views.Surface! surface) -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.Release() -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RenderInputToBitmap(int width, int height, float[]! textureTransform) -> Android.Graphics.Bitmap!
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RenderInputToQueueTexture(int textureId) -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RenderInputToSurface(long timestampNs, float[]! textureTransform, Android.Views.Surface! surface) -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RenderQueueTextureToBitmap(int textureId, int width, int height, float[]! textureTransform) -> Android.Graphics.Bitmap!
+AndroidX.Camera.Effects.OpenGL.GlRenderer.RenderQueueTextureToSurface(int textureId, long timestampNs, float[]! textureTransform, Android.Views.Surface! surface) -> void
+AndroidX.Camera.Effects.OpenGL.GlRenderer.UnregisterOutputSurface(Android.Views.Surface! surface) -> void
+AndroidX.Camera.Effects.OverlayEffect
+AndroidX.Camera.Effects.OverlayEffect.IDrawFrameResult
+AndroidX.Camera.Effects.OverlayEffect.OverlayEffect(int targets, int queueDepth, Android.OS.Handler! handler, AndroidX.Core.Util.IConsumer! errorListener) -> void
+AndroidX.Camera.Effects.OverlayEffect.OverlayEffect(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+abstract AndroidX.Camera.Effects.Frame.CropRect.get -> Android.Graphics.Rect!
+abstract AndroidX.Camera.Effects.Frame.IsMirroring.get -> bool
+abstract AndroidX.Camera.Effects.Frame.RotationDegrees.get -> int
+abstract AndroidX.Camera.Effects.Frame.SensorToBufferTransform.get -> Android.Graphics.Matrix!
+abstract AndroidX.Camera.Effects.Frame.Size.get -> Android.Util.Size!
+abstract AndroidX.Camera.Effects.Frame.TimestampNanos.get -> long
+const AndroidX.Camera.Effects.OverlayEffect.ResultCancelledByCaller = 4 -> int
+const AndroidX.Camera.Effects.OverlayEffect.ResultFrameNotFound = 2 -> int
+const AndroidX.Camera.Effects.OverlayEffect.ResultInvalidSurface = 3 -> int
+const AndroidX.Camera.Effects.OverlayEffect.ResultSuccess = 1 -> int
+override AndroidX.Camera.Effects.Frame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.Frame.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.Frame.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Effects.Internal.Utils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.Internal.Utils.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.Internal.Utils.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Effects.OpenGL.GlContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.OpenGL.GlContext.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.OpenGL.GlContext.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Effects.OpenGL.GlProgram.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.OpenGL.GlProgram.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.OpenGL.GlProgram.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Effects.OpenGL.GlRenderer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.OverlayEffect.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Effects.OverlayEffect.ThresholdClass.get -> nint
+override AndroidX.Camera.Effects.OverlayEffect.ThresholdType.get -> System.Type!
+static AndroidX.Camera.Effects.Frame.Of(Android.Views.Surface! overlaySurface, long timestampNanos, Android.Util.Size! size, AndroidX.Camera.Core.SurfaceRequest.TransformationInfo! transformationInfo) -> AndroidX.Camera.Effects.Frame!
+static AndroidX.Camera.Effects.Internal.Utils.LockCanvas(Android.Views.Surface! surface) -> Android.Graphics.Canvas!
+virtual AndroidX.Camera.Effects.Frame.IsOverlayDirty.get -> bool
+virtual AndroidX.Camera.Effects.Frame.OverlayCanvas.get -> Android.Graphics.Canvas!
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.DrawFrameAsync(long timestampNs) -> Google.Common.Util.Concurrent.IListenableFuture!
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.GlExecutor.get -> Java.Util.Concurrent.IExecutor!
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.GlHandler.get -> Android.OS.Handler!
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.OnFrameAvailable(Android.Graphics.SurfaceTexture! surfaceTexture) -> void
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.OnInputSurface(AndroidX.Camera.Core.SurfaceRequest! surfaceRequest) -> void
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.OnOutputSurface(AndroidX.Camera.Core.ISurfaceOutput! surfaceOutput) -> void
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.OverlaySurface.get -> Android.Views.Surface!
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.QueueDepth.get -> int
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.Release() -> void
+virtual AndroidX.Camera.Effects.Internal.SurfaceProcessorImpl.SetOnDrawListener(AndroidX.Arch.Core.Util.IFunction? onDrawListener) -> void
+virtual AndroidX.Camera.Effects.OpenGL.GlProgram.Configure() -> void
+virtual AndroidX.Camera.Effects.OpenGL.GlProgram.Release() -> void
+virtual AndroidX.Camera.Effects.OverlayEffect.ClearOnDrawListener() -> void
+virtual AndroidX.Camera.Effects.OverlayEffect.Close() -> void
+virtual AndroidX.Camera.Effects.OverlayEffect.DrawFrameAsync(long timestampNs) -> Google.Common.Util.Concurrent.IListenableFuture!
+virtual AndroidX.Camera.Effects.OverlayEffect.Handler.get -> Android.OS.Handler!
+virtual AndroidX.Camera.Effects.OverlayEffect.QueueDepth.get -> int
+virtual AndroidX.Camera.Effects.OverlayEffect.SetOnDrawListener(AndroidX.Arch.Core.Util.IFunction! onDrawListener) -> void

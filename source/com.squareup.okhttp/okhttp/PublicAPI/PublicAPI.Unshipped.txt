@@ -1,0 +1,562 @@
+﻿#nullable enable
+Square.OkHttp.Address
+Square.OkHttp.Address.Address(string? uriHost, int uriPort, Square.OkHttp.IDns? dns, Javax.Net.SocketFactory? socketFactory, Javax.Net.Ssl.SSLSocketFactory? sslSocketFactory, Javax.Net.Ssl.IHostnameVerifier? hostnameVerifier, Square.OkHttp.CertificatePinner? certificatePinner, Square.OkHttp.IAuthenticator? authenticator, Java.Net.Proxy? proxy, System.Collections.Generic.IList<Square.OkHttp.Protocol!>? protocols, System.Collections.Generic.IList<Square.OkHttp.ConnectionSpec!>? connectionSpecs, Java.Net.ProxySelector? proxySelector) -> void
+Square.OkHttp.Address.Authenticator.get -> Square.OkHttp.IAuthenticator?
+Square.OkHttp.Address.CertificatePinner.get -> Square.OkHttp.CertificatePinner?
+Square.OkHttp.Address.ConnectionSpecs.get -> System.Collections.Generic.IList<Square.OkHttp.ConnectionSpec!>?
+Square.OkHttp.Address.Dns.get -> Square.OkHttp.IDns?
+Square.OkHttp.Address.HostnameVerifier.get -> Javax.Net.Ssl.IHostnameVerifier?
+Square.OkHttp.Address.Protocols.get -> System.Collections.Generic.IList<Square.OkHttp.Protocol!>?
+Square.OkHttp.Address.Proxy.get -> Java.Net.Proxy?
+Square.OkHttp.Address.ProxySelector.get -> Java.Net.ProxySelector?
+Square.OkHttp.Address.SocketFactory.get -> Javax.Net.SocketFactory?
+Square.OkHttp.Address.SslSocketFactory.get -> Javax.Net.Ssl.SSLSocketFactory?
+Square.OkHttp.Address.Url() -> Square.OkHttp.HttpUrl?
+Square.OkHttp.Cache
+Square.OkHttp.Cache.Cache(Java.IO.File? directory, long maxSize) -> void
+Square.OkHttp.Cache.Close() -> void
+Square.OkHttp.Cache.Delete() -> void
+Square.OkHttp.Cache.Directory.get -> Java.IO.File?
+Square.OkHttp.Cache.EvictAll() -> void
+Square.OkHttp.Cache.Flush() -> void
+Square.OkHttp.Cache.HitCount.get -> int
+Square.OkHttp.Cache.Initialize() -> void
+Square.OkHttp.Cache.IsClosed.get -> bool
+Square.OkHttp.Cache.MaxSize.get -> long
+Square.OkHttp.Cache.NetworkCount.get -> int
+Square.OkHttp.Cache.RequestCount.get -> int
+Square.OkHttp.Cache.Size.get -> long
+Square.OkHttp.Cache.Urls() -> Java.Util.IIterator?
+Square.OkHttp.Cache.WriteAbortCount.get -> int
+Square.OkHttp.Cache.WriteSuccessCount.get -> int
+Square.OkHttp.CacheControl
+Square.OkHttp.CacheControl.Builder
+Square.OkHttp.CacheControl.Builder.Build() -> Square.OkHttp.CacheControl?
+Square.OkHttp.CacheControl.Builder.Builder() -> void
+Square.OkHttp.CacheControl.Builder.MaxAge(int maxAge, Java.Util.Concurrent.TimeUnit? timeUnit) -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.MaxStale(int maxStale, Java.Util.Concurrent.TimeUnit? timeUnit) -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.MinFresh(int minFresh, Java.Util.Concurrent.TimeUnit? timeUnit) -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.NoCache() -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.NoStore() -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.NoTransform() -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.Builder.OnlyIfCached() -> Square.OkHttp.CacheControl.Builder?
+Square.OkHttp.CacheControl.IsPrivate.get -> bool
+Square.OkHttp.CacheControl.IsPublic.get -> bool
+Square.OkHttp.CacheControl.MaxAgeSeconds() -> int
+Square.OkHttp.CacheControl.MaxStaleSeconds() -> int
+Square.OkHttp.CacheControl.MinFreshSeconds() -> int
+Square.OkHttp.CacheControl.MustRevalidate() -> bool
+Square.OkHttp.CacheControl.NoCache() -> bool
+Square.OkHttp.CacheControl.NoStore() -> bool
+Square.OkHttp.CacheControl.NoTransform() -> bool
+Square.OkHttp.CacheControl.OnlyIfCached() -> bool
+Square.OkHttp.CacheControl.SMaxAgeSeconds() -> int
+Square.OkHttp.Call
+Square.OkHttp.Call.Call(Square.OkHttp.OkHttpClient? client, Square.OkHttp.Request? originalRequest) -> void
+Square.OkHttp.Call.Call(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.Call.Enqueue(System.Action<Square.OkHttp.Response!>! onResponse, System.Action<Square.OkHttp.Request!, Java.IO.IOException!>! onFailure) -> void
+Square.OkHttp.Call.ExecuteAsync() -> System.Threading.Tasks.Task<Square.OkHttp.Response!>!
+Square.OkHttp.CertificatePinner
+Square.OkHttp.CertificatePinner.Builder
+Square.OkHttp.CertificatePinner.Builder.Add(string? hostname, params string![]? pins) -> Square.OkHttp.CertificatePinner.Builder?
+Square.OkHttp.CertificatePinner.Builder.Build() -> Square.OkHttp.CertificatePinner?
+Square.OkHttp.CertificatePinner.Builder.Builder() -> void
+Square.OkHttp.CertificatePinner.Check(string! p0, Java.Security.Cert.Certificate![]! p1) -> void
+Square.OkHttp.CertificatePinner.Check(string? hostname, System.Collections.Generic.IList<Java.Security.Cert.Certificate!>? peerCertificates) -> void
+Square.OkHttp.Challenge
+Square.OkHttp.Challenge.Challenge(string? scheme, string? realm) -> void
+Square.OkHttp.Challenge.Realm.get -> string?
+Square.OkHttp.Challenge.Scheme.get -> string?
+Square.OkHttp.CipherSuite
+Square.OkHttp.ConnectionPool
+Square.OkHttp.ConnectionPool.ConnectionCount.get -> int
+Square.OkHttp.ConnectionPool.ConnectionPool(int maxIdleConnections, long keepAliveDuration, Java.Util.Concurrent.TimeUnit? timeUnit) -> void
+Square.OkHttp.ConnectionPool.ConnectionPool(int maxIdleConnections, long keepAliveDurationMs) -> void
+Square.OkHttp.ConnectionPool.EvictAll() -> void
+Square.OkHttp.ConnectionPool.HttpConnectionCount.get -> int
+Square.OkHttp.ConnectionPool.IdleConnectionCount.get -> int
+Square.OkHttp.ConnectionPool.MultiplexedConnectionCount.get -> int
+Square.OkHttp.ConnectionSpec
+Square.OkHttp.ConnectionSpec.Builder
+Square.OkHttp.ConnectionSpec.Builder.AllEnabledCipherSuites() -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.AllEnabledTlsVersions() -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.Build() -> Square.OkHttp.ConnectionSpec?
+Square.OkHttp.ConnectionSpec.Builder.Builder(Square.OkHttp.ConnectionSpec? connectionSpec) -> void
+Square.OkHttp.ConnectionSpec.Builder.CipherSuites(params Square.OkHttp.CipherSuite![]? cipherSuites) -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.CipherSuites(params string![]? cipherSuites) -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.SupportsTlsExtensions(bool supportsTlsExtensions) -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.TlsVersions(params Square.OkHttp.TlsVersion![]? tlsVersions) -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.Builder.TlsVersions(params string![]? tlsVersions) -> Square.OkHttp.ConnectionSpec.Builder?
+Square.OkHttp.ConnectionSpec.CipherSuites() -> System.Collections.Generic.IList<Square.OkHttp.CipherSuite!>?
+Square.OkHttp.ConnectionSpec.IsCompatible(Javax.Net.Ssl.SSLSocket? socket) -> bool
+Square.OkHttp.ConnectionSpec.IsTls.get -> bool
+Square.OkHttp.ConnectionSpec.SupportsTlsExtensions() -> bool
+Square.OkHttp.ConnectionSpec.TlsVersions() -> System.Collections.Generic.IList<Square.OkHttp.TlsVersion!>?
+Square.OkHttp.Credentials
+Square.OkHttp.Dispatcher
+Square.OkHttp.Dispatcher.Cancel(Java.Lang.Object? tag) -> void
+Square.OkHttp.Dispatcher.Dispatcher() -> void
+Square.OkHttp.Dispatcher.Dispatcher(Java.Util.Concurrent.IExecutorService? executorService) -> void
+Square.OkHttp.Dispatcher.ExecutorService.get -> Java.Util.Concurrent.IExecutorService?
+Square.OkHttp.Dispatcher.MaxRequests.get -> int
+Square.OkHttp.Dispatcher.MaxRequests.set -> void
+Square.OkHttp.Dispatcher.MaxRequestsPerHost.get -> int
+Square.OkHttp.Dispatcher.MaxRequestsPerHost.set -> void
+Square.OkHttp.Dispatcher.QueuedCallCount.get -> int
+Square.OkHttp.Dispatcher.RunningCallCount.get -> int
+Square.OkHttp.Dns
+Square.OkHttp.DnsConsts
+Square.OkHttp.FormEncodingBuilder
+Square.OkHttp.FormEncodingBuilder.Add(string? name, string? value) -> Square.OkHttp.FormEncodingBuilder?
+Square.OkHttp.FormEncodingBuilder.AddEncoded(string? name, string? value) -> Square.OkHttp.FormEncodingBuilder?
+Square.OkHttp.FormEncodingBuilder.Build() -> Square.OkHttp.RequestBody?
+Square.OkHttp.FormEncodingBuilder.FormEncodingBuilder() -> void
+Square.OkHttp.Handshake
+Square.OkHttp.Handshake.CipherSuite() -> string?
+Square.OkHttp.Handshake.LocalCertificates() -> System.Collections.Generic.IList<Java.Security.Cert.Certificate!>?
+Square.OkHttp.Handshake.LocalPrincipal() -> Java.Security.IPrincipal?
+Square.OkHttp.Handshake.PeerCertificates() -> System.Collections.Generic.IList<Java.Security.Cert.Certificate!>?
+Square.OkHttp.Handshake.PeerPrincipal() -> Java.Security.IPrincipal?
+Square.OkHttp.Headers
+Square.OkHttp.Headers.Builder
+Square.OkHttp.Headers.Builder.Add(string? line) -> Square.OkHttp.Headers.Builder?
+Square.OkHttp.Headers.Builder.Add(string? name, string? value) -> Square.OkHttp.Headers.Builder?
+Square.OkHttp.Headers.Builder.Build() -> Square.OkHttp.Headers?
+Square.OkHttp.Headers.Builder.Builder() -> void
+Square.OkHttp.Headers.Builder.Get(string? name) -> string?
+Square.OkHttp.Headers.Builder.RemoveAll(string? name) -> Square.OkHttp.Headers.Builder?
+Square.OkHttp.Headers.Builder.Set(string? name, string? value) -> Square.OkHttp.Headers.Builder?
+Square.OkHttp.Headers.Get(string? name) -> string?
+Square.OkHttp.Headers.GetDate(string? name) -> Java.Util.Date?
+Square.OkHttp.Headers.Name(int index) -> string?
+Square.OkHttp.Headers.Names() -> System.Collections.Generic.ICollection<string!>?
+Square.OkHttp.Headers.NewBuilder() -> Square.OkHttp.Headers.Builder?
+Square.OkHttp.Headers.Size() -> int
+Square.OkHttp.Headers.ToMultimap() -> System.Collections.Generic.IDictionary<string!, System.Collections.Generic.IList<string!>!>?
+Square.OkHttp.Headers.Value(int index) -> string?
+Square.OkHttp.Headers.Values(string? name) -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.HttpUrl
+Square.OkHttp.HttpUrl.Builder
+Square.OkHttp.HttpUrl.Builder.AddEncodedPathSegment(string? encodedPathSegment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.AddEncodedQueryParameter(string? encodedName, string? encodedValue) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.AddPathSegment(string? pathSegment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.AddQueryParameter(string? name, string? value) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Build() -> Square.OkHttp.HttpUrl?
+Square.OkHttp.HttpUrl.Builder.Builder() -> void
+Square.OkHttp.HttpUrl.Builder.EncodedFragment(string? encodedFragment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.EncodedPassword(string? encodedPassword) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.EncodedPath(string? encodedPath) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.EncodedQuery(string? encodedQuery) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.EncodedUsername(string? encodedUsername) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Fragment(string? fragment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Host(string? host) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Password(string? password) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Port(int port) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Query(string? query) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.RemoveAllEncodedQueryParameters(string? encodedName) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.RemoveAllQueryParameters(string? name) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.RemovePathSegment(int index) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Scheme(string? scheme) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.SetEncodedPathSegment(int index, string? encodedPathSegment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.SetEncodedQueryParameter(string? encodedName, string? encodedValue) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.SetPathSegment(int index, string? pathSegment) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.SetQueryParameter(string? name, string? value) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Builder.Username(string? username) -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.EncodedFragment() -> string?
+Square.OkHttp.HttpUrl.EncodedPassword() -> string?
+Square.OkHttp.HttpUrl.EncodedPath() -> string?
+Square.OkHttp.HttpUrl.EncodedPathSegments() -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.HttpUrl.EncodedQuery() -> string?
+Square.OkHttp.HttpUrl.EncodedUsername() -> string?
+Square.OkHttp.HttpUrl.Fragment() -> string?
+Square.OkHttp.HttpUrl.Host() -> string?
+Square.OkHttp.HttpUrl.IsHttps.get -> bool
+Square.OkHttp.HttpUrl.NewBuilder() -> Square.OkHttp.HttpUrl.Builder?
+Square.OkHttp.HttpUrl.Password() -> string?
+Square.OkHttp.HttpUrl.PathSegments() -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.HttpUrl.PathSize() -> int
+Square.OkHttp.HttpUrl.Port() -> int
+Square.OkHttp.HttpUrl.Query() -> string?
+Square.OkHttp.HttpUrl.QueryParameter(string? name) -> string?
+Square.OkHttp.HttpUrl.QueryParameterName(int index) -> string?
+Square.OkHttp.HttpUrl.QueryParameterNames() -> System.Collections.Generic.ICollection<string!>?
+Square.OkHttp.HttpUrl.QueryParameterValue(int index) -> string?
+Square.OkHttp.HttpUrl.QueryParameterValues(string? name) -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.HttpUrl.QuerySize() -> int
+Square.OkHttp.HttpUrl.Resolve(string? link) -> Square.OkHttp.HttpUrl?
+Square.OkHttp.HttpUrl.Scheme() -> string?
+Square.OkHttp.HttpUrl.Uri() -> Java.Net.URI?
+Square.OkHttp.HttpUrl.Url() -> Java.Net.URL?
+Square.OkHttp.HttpUrl.Username() -> string?
+Square.OkHttp.IAuthenticator
+Square.OkHttp.IAuthenticator.Authenticate(Java.Net.Proxy? proxy, Square.OkHttp.Response? response) -> Square.OkHttp.Request?
+Square.OkHttp.IAuthenticator.AuthenticateProxy(Java.Net.Proxy? proxy, Square.OkHttp.Response? response) -> Square.OkHttp.Request?
+Square.OkHttp.ICallback
+Square.OkHttp.ICallback.OnFailure(Square.OkHttp.Request? request, Java.IO.IOException? iOException) -> void
+Square.OkHttp.ICallback.OnResponse(Square.OkHttp.Response? response) -> void
+Square.OkHttp.IConnection
+Square.OkHttp.IConnection.Handshake.get -> Square.OkHttp.Handshake?
+Square.OkHttp.IConnection.Protocol.get -> Square.OkHttp.Protocol?
+Square.OkHttp.IConnection.Route.get -> Square.OkHttp.Route?
+Square.OkHttp.IConnection.Socket.get -> Java.Net.Socket?
+Square.OkHttp.IDns
+Square.OkHttp.IDns.Lookup(string? hostname) -> System.Collections.Generic.IList<Java.Net.InetAddress!>?
+Square.OkHttp.IDns.System.get -> Square.OkHttp.IDns?
+Square.OkHttp.IInterceptor
+Square.OkHttp.IInterceptor.Intercept(Square.OkHttp.IInterceptorChain? chain) -> Square.OkHttp.Response?
+Square.OkHttp.IInterceptorChain
+Square.OkHttp.IInterceptorChain.Connection() -> Square.OkHttp.IConnection?
+Square.OkHttp.IInterceptorChain.Proceed(Square.OkHttp.Request? request) -> Square.OkHttp.Response?
+Square.OkHttp.IInterceptorChain.Request() -> Square.OkHttp.Request?
+Square.OkHttp.MediaType
+Square.OkHttp.MediaType.Charset() -> Java.Nio.Charset.Charset?
+Square.OkHttp.MediaType.Charset(Java.Nio.Charset.Charset? defaultValue) -> Java.Nio.Charset.Charset?
+Square.OkHttp.MediaType.Subtype() -> string?
+Square.OkHttp.MediaType.Type() -> string?
+Square.OkHttp.MultipartBuilder
+Square.OkHttp.MultipartBuilder.AddFormDataPart(string? name, string? filename, Square.OkHttp.RequestBody? value) -> Square.OkHttp.MultipartBuilder?
+Square.OkHttp.MultipartBuilder.AddFormDataPart(string? name, string? value) -> Square.OkHttp.MultipartBuilder?
+Square.OkHttp.MultipartBuilder.AddPart(Square.OkHttp.Headers? headers, Square.OkHttp.RequestBody? body) -> Square.OkHttp.MultipartBuilder?
+Square.OkHttp.MultipartBuilder.AddPart(Square.OkHttp.RequestBody? body) -> Square.OkHttp.MultipartBuilder?
+Square.OkHttp.MultipartBuilder.Build() -> Square.OkHttp.RequestBody?
+Square.OkHttp.MultipartBuilder.MultipartBuilder() -> void
+Square.OkHttp.MultipartBuilder.MultipartBuilder(string? boundary) -> void
+Square.OkHttp.MultipartBuilder.Type(Square.OkHttp.MediaType? type) -> Square.OkHttp.MultipartBuilder?
+Square.OkHttp.OkHttpClient
+Square.OkHttp.OkHttpClient.OkHttpClient() -> void
+Square.OkHttp.OkHttpClient.OkHttpClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.Protocol
+Square.OkHttp.Request
+Square.OkHttp.Request.Body() -> Square.OkHttp.RequestBody?
+Square.OkHttp.Request.Builder
+Square.OkHttp.Request.Builder.Builder() -> void
+Square.OkHttp.Request.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.Request.CacheControl() -> Square.OkHttp.CacheControl?
+Square.OkHttp.Request.Header(string? name) -> string?
+Square.OkHttp.Request.Headers() -> Square.OkHttp.Headers?
+Square.OkHttp.Request.Headers(string? name) -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.Request.HttpUrl() -> Square.OkHttp.HttpUrl?
+Square.OkHttp.Request.IsHttps.get -> bool
+Square.OkHttp.Request.Method() -> string?
+Square.OkHttp.Request.NewBuilder() -> Square.OkHttp.Request.Builder?
+Square.OkHttp.Request.Tag() -> Java.Lang.Object?
+Square.OkHttp.Request.Uri() -> Java.Net.URI?
+Square.OkHttp.Request.Url() -> Java.Net.URL?
+Square.OkHttp.Request.UrlString() -> string?
+Square.OkHttp.RequestBody
+Square.OkHttp.RequestBody.RequestBody() -> void
+Square.OkHttp.RequestBody.RequestBody(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.Response
+Square.OkHttp.Response.Body() -> Square.OkHttp.ResponseBody?
+Square.OkHttp.Response.Builder
+Square.OkHttp.Response.Builder.Builder() -> void
+Square.OkHttp.Response.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.Response.CacheControl() -> Square.OkHttp.CacheControl?
+Square.OkHttp.Response.CacheResponse() -> Square.OkHttp.Response?
+Square.OkHttp.Response.Challenges() -> System.Collections.Generic.IList<Square.OkHttp.Challenge!>?
+Square.OkHttp.Response.Code() -> int
+Square.OkHttp.Response.Handshake() -> Square.OkHttp.Handshake?
+Square.OkHttp.Response.Header(string? name) -> string?
+Square.OkHttp.Response.Header(string? name, string? defaultValue) -> string?
+Square.OkHttp.Response.Headers() -> Square.OkHttp.Headers?
+Square.OkHttp.Response.Headers(string? name) -> System.Collections.Generic.IList<string!>?
+Square.OkHttp.Response.IsRedirect.get -> bool
+Square.OkHttp.Response.IsSuccessful.get -> bool
+Square.OkHttp.Response.Message() -> string?
+Square.OkHttp.Response.NetworkResponse() -> Square.OkHttp.Response?
+Square.OkHttp.Response.NewBuilder() -> Square.OkHttp.Response.Builder?
+Square.OkHttp.Response.PriorResponse() -> Square.OkHttp.Response?
+Square.OkHttp.Response.Protocol() -> Square.OkHttp.Protocol?
+Square.OkHttp.Response.Request() -> Square.OkHttp.Request?
+Square.OkHttp.ResponseBody
+Square.OkHttp.ResponseBody.ByteStream() -> System.IO.Stream?
+Square.OkHttp.ResponseBody.Bytes() -> byte[]?
+Square.OkHttp.ResponseBody.BytesAsync() -> System.Threading.Tasks.Task<byte[]!>!
+Square.OkHttp.ResponseBody.CharStream() -> Java.IO.Reader?
+Square.OkHttp.ResponseBody.ResponseBody() -> void
+Square.OkHttp.ResponseBody.ResponseBody(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp.ResponseBody.String() -> string?
+Square.OkHttp.ResponseBody.StringAsync() -> System.Threading.Tasks.Task<string!>!
+Square.OkHttp.Route
+Square.OkHttp.Route.Address.get -> Square.OkHttp.Address?
+Square.OkHttp.Route.Proxy.get -> Java.Net.Proxy?
+Square.OkHttp.Route.RequiresTunnel() -> bool
+Square.OkHttp.Route.Route(Square.OkHttp.Address? address, Java.Net.Proxy? proxy, Java.Net.InetSocketAddress? inetSocketAddress) -> void
+Square.OkHttp.Route.SocketAddress.get -> Java.Net.InetSocketAddress?
+Square.OkHttp.TlsVersion
+Square.OkHttp.TlsVersion.JavaName() -> string?
+abstract Square.OkHttp.RequestBody.ContentType() -> Square.OkHttp.MediaType?
+abstract Square.OkHttp.ResponseBody.ContentLength() -> long
+abstract Square.OkHttp.ResponseBody.ContentType() -> Square.OkHttp.MediaType?
+override Square.OkHttp.Address.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Cache.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.CacheControl.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.CacheControl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Call.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Call.ThresholdClass.get -> nint
+override Square.OkHttp.Call.ThresholdType.get -> System.Type!
+override Square.OkHttp.CertificatePinner.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.CertificatePinner.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Challenge.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.CipherSuite.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.ConnectionPool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.ConnectionSpec.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.ConnectionSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Credentials.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Dispatcher.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.FormEncodingBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Handshake.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Headers.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Headers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.HttpUrl.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.HttpUrl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.MediaType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.MultipartBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.OkHttpClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.OkHttpClient.ThresholdClass.get -> nint
+override Square.OkHttp.OkHttpClient.ThresholdType.get -> System.Type!
+override Square.OkHttp.Protocol.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Request.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Request.Builder.ThresholdClass.get -> nint
+override Square.OkHttp.Request.Builder.ThresholdType.get -> System.Type!
+override Square.OkHttp.Request.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.RequestBody.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.RequestBody.ThresholdClass.get -> nint
+override Square.OkHttp.RequestBody.ThresholdType.get -> System.Type!
+override Square.OkHttp.Response.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.Response.Builder.ThresholdClass.get -> nint
+override Square.OkHttp.Response.Builder.ThresholdType.get -> System.Type!
+override Square.OkHttp.Response.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.ResponseBody.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.ResponseBody.ThresholdClass.get -> nint
+override Square.OkHttp.ResponseBody.ThresholdType.get -> System.Type!
+override Square.OkHttp.Route.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp.TlsVersion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+static Square.OkHttp.CacheControl.ForceCache.get -> Square.OkHttp.CacheControl?
+static Square.OkHttp.CacheControl.ForceNetwork.get -> Square.OkHttp.CacheControl?
+static Square.OkHttp.CacheControl.Parse(Square.OkHttp.Headers? headers) -> Square.OkHttp.CacheControl?
+static Square.OkHttp.CertificatePinner.Default.get -> Square.OkHttp.CertificatePinner?
+static Square.OkHttp.CertificatePinner.Pin(Java.Security.Cert.Certificate? certificate) -> string?
+static Square.OkHttp.CipherSuite.ForJavaName(string? javaName) -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonEXPORTWITHDES40CBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonEXPORTWITHRC440MD5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITH3DESEDECBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES128CBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES128CBCSHA256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES128GCMSHA256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES256CBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES256CBCSHA256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHAES256GCMSHA384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHDESCBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSDHAnonWITHRC4128MD5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSECDHAnonWITH3DESEDECBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSECDHAnonWITHAES128CBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSECDHAnonWITHAES256CBCSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSECDHAnonWITHNULLSHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TLSECDHAnonWITHRC4128SHA.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssExportWithDes40CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes256CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheDssWithDesCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaExportWithDes40CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes256CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsDheRsaWithDesCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes256CbcSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithNullSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhEcdsaWithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes256CbcSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithNullSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdhRsaWithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes256CbcSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithNullSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheEcdsaWithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes256CbcSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithNullSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEcdheRsaWithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsEmptyRenegotiationInfoScsv.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5ExportWithDesCbc40Md5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5ExportWithDesCbc40Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5ExportWithRc440Md5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5ExportWithRc440Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5With3desEdeCbcMd5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5With3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5WithDesCbcMd5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5WithDesCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5WithRc4128Md5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsKrb5WithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaExportWithDes40CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaExportWithRc440Md5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWith3desEdeCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes128CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes128CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes128GcmSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes256CbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes256CbcSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithAes256GcmSha384.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithDesCbcSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithNullMd5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithNullSha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithNullSha256.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithRc4128Md5.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.TlsRsaWithRc4128Sha.get -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.ValueOf(string? name) -> Square.OkHttp.CipherSuite?
+static Square.OkHttp.CipherSuite.Values() -> Square.OkHttp.CipherSuite![]?
+static Square.OkHttp.ConnectionPool.Default.get -> Square.OkHttp.ConnectionPool?
+static Square.OkHttp.ConnectionSpec.Cleartext.get -> Square.OkHttp.ConnectionSpec?
+static Square.OkHttp.ConnectionSpec.CompatibleTls.get -> Square.OkHttp.ConnectionSpec?
+static Square.OkHttp.ConnectionSpec.ModernTls.get -> Square.OkHttp.ConnectionSpec?
+static Square.OkHttp.Credentials.Basic(string? userName, string? password) -> string?
+static Square.OkHttp.Dns.System.get -> Square.OkHttp.IDns?
+static Square.OkHttp.Handshake.Get(Javax.Net.Ssl.ISSLSession? session) -> Square.OkHttp.Handshake?
+static Square.OkHttp.Handshake.Get(string? cipherSuite, System.Collections.Generic.IList<Java.Security.Cert.Certificate!>? peerCertificates, System.Collections.Generic.IList<Java.Security.Cert.Certificate!>? localCertificates) -> Square.OkHttp.Handshake?
+static Square.OkHttp.Headers.Of(System.Collections.Generic.IDictionary<string!, string!>? headers) -> Square.OkHttp.Headers?
+static Square.OkHttp.Headers.Of(params string![]? namesAndValues) -> Square.OkHttp.Headers?
+static Square.OkHttp.HttpUrl.DefaultPort(string? scheme) -> int
+static Square.OkHttp.HttpUrl.Get(Java.Net.URI? uri) -> Square.OkHttp.HttpUrl?
+static Square.OkHttp.HttpUrl.Get(Java.Net.URL? url) -> Square.OkHttp.HttpUrl?
+static Square.OkHttp.HttpUrl.Parse(string? url) -> Square.OkHttp.HttpUrl?
+static Square.OkHttp.MediaType.Parse(string? string) -> Square.OkHttp.MediaType?
+static Square.OkHttp.MultipartBuilder.Alternative.get -> Square.OkHttp.MediaType?
+static Square.OkHttp.MultipartBuilder.Digest.get -> Square.OkHttp.MediaType?
+static Square.OkHttp.MultipartBuilder.Form.get -> Square.OkHttp.MediaType?
+static Square.OkHttp.MultipartBuilder.Mixed.get -> Square.OkHttp.MediaType?
+static Square.OkHttp.MultipartBuilder.Parallel.get -> Square.OkHttp.MediaType?
+static Square.OkHttp.Protocol.Get(string? protocol) -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.Http10.get -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.Http11.get -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.Http2.get -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.Spdy3.get -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.ValueOf(string? name) -> Square.OkHttp.Protocol?
+static Square.OkHttp.Protocol.Values() -> Square.OkHttp.Protocol![]?
+static Square.OkHttp.RequestBody.Create(Square.OkHttp.MediaType? contentType, Java.IO.File? file) -> Square.OkHttp.RequestBody?
+static Square.OkHttp.RequestBody.Create(Square.OkHttp.MediaType? contentType, byte[]? content) -> Square.OkHttp.RequestBody?
+static Square.OkHttp.RequestBody.Create(Square.OkHttp.MediaType? contentType, byte[]? content, int offset, int byteCount) -> Square.OkHttp.RequestBody?
+static Square.OkHttp.RequestBody.Create(Square.OkHttp.MediaType? contentType, string? content) -> Square.OkHttp.RequestBody?
+static Square.OkHttp.ResponseBody.Create(Square.OkHttp.MediaType? contentType, byte[]? content) -> Square.OkHttp.ResponseBody?
+static Square.OkHttp.ResponseBody.Create(Square.OkHttp.MediaType? contentType, string? content) -> Square.OkHttp.ResponseBody?
+static Square.OkHttp.TlsVersion.ForJavaName(string? javaName) -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.Ssl30.get -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.Tls10.get -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.Tls11.get -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.Tls12.get -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.ValueOf(string? name) -> Square.OkHttp.TlsVersion?
+static Square.OkHttp.TlsVersion.Values() -> Square.OkHttp.TlsVersion![]?
+virtual Square.OkHttp.Call.Cancel() -> void
+virtual Square.OkHttp.Call.Enqueue(Square.OkHttp.ICallback? responseCallback) -> void
+virtual Square.OkHttp.Call.Execute() -> Square.OkHttp.Response?
+virtual Square.OkHttp.Call.IsCanceled.get -> bool
+virtual Square.OkHttp.Call.IsExecuted.get -> bool
+virtual Square.OkHttp.OkHttpClient.Authenticator.get -> Square.OkHttp.IAuthenticator?
+virtual Square.OkHttp.OkHttpClient.Cache.get -> Square.OkHttp.Cache?
+virtual Square.OkHttp.OkHttpClient.Cancel(Java.Lang.Object? tag) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.CertificatePinner.get -> Square.OkHttp.CertificatePinner?
+virtual Square.OkHttp.OkHttpClient.Clone() -> Java.Lang.Object?
+virtual Square.OkHttp.OkHttpClient.ConnectTimeout.get -> int
+virtual Square.OkHttp.OkHttpClient.ConnectionPool.get -> Square.OkHttp.ConnectionPool?
+virtual Square.OkHttp.OkHttpClient.ConnectionSpecs.get -> System.Collections.Generic.IList<Square.OkHttp.ConnectionSpec!>?
+virtual Square.OkHttp.OkHttpClient.CookieHandler.get -> Java.Net.CookieHandler?
+virtual Square.OkHttp.OkHttpClient.Dispatcher.get -> Square.OkHttp.Dispatcher?
+virtual Square.OkHttp.OkHttpClient.Dns.get -> Square.OkHttp.IDns?
+virtual Square.OkHttp.OkHttpClient.FollowRedirects.get -> bool
+virtual Square.OkHttp.OkHttpClient.FollowRedirects.set -> void
+virtual Square.OkHttp.OkHttpClient.FollowSslRedirects.get -> bool
+virtual Square.OkHttp.OkHttpClient.HostnameVerifier.get -> Javax.Net.Ssl.IHostnameVerifier?
+virtual Square.OkHttp.OkHttpClient.Interceptors() -> System.Collections.Generic.IList<Square.OkHttp.IInterceptor!>?
+virtual Square.OkHttp.OkHttpClient.NetworkInterceptors() -> System.Collections.Generic.IList<Square.OkHttp.IInterceptor!>?
+virtual Square.OkHttp.OkHttpClient.NewCall(Square.OkHttp.Request? request) -> Square.OkHttp.Call?
+virtual Square.OkHttp.OkHttpClient.Protocols.get -> System.Collections.Generic.IList<Square.OkHttp.Protocol!>?
+virtual Square.OkHttp.OkHttpClient.Proxy.get -> Java.Net.Proxy?
+virtual Square.OkHttp.OkHttpClient.ProxySelector.get -> Java.Net.ProxySelector?
+virtual Square.OkHttp.OkHttpClient.ReadTimeout.get -> int
+virtual Square.OkHttp.OkHttpClient.RetryOnConnectionFailure.get -> bool
+virtual Square.OkHttp.OkHttpClient.RetryOnConnectionFailure.set -> void
+virtual Square.OkHttp.OkHttpClient.SetAuthenticator(Square.OkHttp.IAuthenticator? authenticator) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetCache(Square.OkHttp.Cache? cache) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetCertificatePinner(Square.OkHttp.CertificatePinner? certificatePinner) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetConnectTimeout(long timeout, Java.Util.Concurrent.TimeUnit? unit) -> void
+virtual Square.OkHttp.OkHttpClient.SetConnectionPool(Square.OkHttp.ConnectionPool? connectionPool) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetConnectionSpecs(System.Collections.Generic.IList<Square.OkHttp.ConnectionSpec!>? connectionSpecs) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetCookieHandler(Java.Net.CookieHandler? cookieHandler) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetDispatcher(Square.OkHttp.Dispatcher? dispatcher) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetDns(Square.OkHttp.IDns? dns) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetFollowSslRedirects(bool followProtocolRedirects) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetHostnameVerifier(Javax.Net.Ssl.IHostnameVerifier? hostnameVerifier) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetProtocols(System.Collections.Generic.IList<Square.OkHttp.Protocol!>? protocols) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetProxy(Java.Net.Proxy? proxy) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetProxySelector(Java.Net.ProxySelector? proxySelector) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetReadTimeout(long timeout, Java.Util.Concurrent.TimeUnit? unit) -> void
+virtual Square.OkHttp.OkHttpClient.SetSocketFactory(Javax.Net.SocketFactory? socketFactory) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetSslSocketFactory(Javax.Net.Ssl.SSLSocketFactory? sslSocketFactory) -> Square.OkHttp.OkHttpClient?
+virtual Square.OkHttp.OkHttpClient.SetWriteTimeout(long timeout, Java.Util.Concurrent.TimeUnit? unit) -> void
+virtual Square.OkHttp.OkHttpClient.SocketFactory.get -> Javax.Net.SocketFactory?
+virtual Square.OkHttp.OkHttpClient.SslSocketFactory.get -> Javax.Net.Ssl.SSLSocketFactory?
+virtual Square.OkHttp.OkHttpClient.WriteTimeout.get -> int
+virtual Square.OkHttp.Request.Builder.AddHeader(string? name, string? value) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Build() -> Square.OkHttp.Request?
+virtual Square.OkHttp.Request.Builder.CacheControl(Square.OkHttp.CacheControl? cacheControl) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Delete() -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Delete(Square.OkHttp.RequestBody? body) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Get() -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Head() -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Header(string? name, string? value) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Headers(Square.OkHttp.Headers? headers) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Method(string? method, Square.OkHttp.RequestBody? body) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Patch(Square.OkHttp.RequestBody? body) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Post(Square.OkHttp.RequestBody? body) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Put(Square.OkHttp.RequestBody? body) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.RemoveHeader(string? name) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Tag(Java.Lang.Object? tag) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Url(Java.Net.URL? url) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Url(Square.OkHttp.HttpUrl? url) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.Request.Builder.Url(string? url) -> Square.OkHttp.Request.Builder?
+virtual Square.OkHttp.RequestBody.ContentLength() -> long
+virtual Square.OkHttp.Response.Builder.AddHeader(string? name, string? value) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Body(Square.OkHttp.ResponseBody? body) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Build() -> Square.OkHttp.Response?
+virtual Square.OkHttp.Response.Builder.CacheResponse(Square.OkHttp.Response? cacheResponse) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Code(int code) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Handshake(Square.OkHttp.Handshake? handshake) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Header(string? name, string? value) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Headers(Square.OkHttp.Headers? headers) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Message(string? message) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.NetworkResponse(Square.OkHttp.Response? networkResponse) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.PriorResponse(Square.OkHttp.Response? priorResponse) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Protocol(Square.OkHttp.Protocol? protocol) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.RemoveHeader(string? name) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.Response.Builder.Request(Square.OkHttp.Request? request) -> Square.OkHttp.Response.Builder?
+virtual Square.OkHttp.ResponseBody.Close() -> void

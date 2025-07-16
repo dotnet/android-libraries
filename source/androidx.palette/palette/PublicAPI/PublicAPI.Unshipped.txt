@@ -1,0 +1,90 @@
+﻿#nullable enable
+AndroidX.Palette.Graphics.Palette
+AndroidX.Palette.Graphics.Palette.Builder
+AndroidX.Palette.Graphics.Palette.Builder.AddFilter(AndroidX.Palette.Graphics.Palette.IFilter? filter) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.AddTarget(AndroidX.Palette.Graphics.Target! target) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.Builder(Android.Graphics.Bitmap! bitmap) -> void
+AndroidX.Palette.Graphics.Palette.Builder.Builder(System.Collections.Generic.IList<AndroidX.Palette.Graphics.Palette.Swatch!>! swatches) -> void
+AndroidX.Palette.Graphics.Palette.Builder.ClearFilters() -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.ClearRegion() -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.ClearTargets() -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.Generate() -> AndroidX.Palette.Graphics.Palette!
+AndroidX.Palette.Graphics.Palette.Builder.Generate(AndroidX.Palette.Graphics.Palette.IPaletteAsyncListener! listener) -> Android.OS.AsyncTask!
+AndroidX.Palette.Graphics.Palette.Builder.MaximumColorCount(int colors) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.ResizeBitmapArea(int area) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.ResizeBitmapSize(int maxDimension) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.Builder.SetRegion(int left, int top, int right, int bottom) -> AndroidX.Palette.Graphics.Palette.Builder!
+AndroidX.Palette.Graphics.Palette.DarkMutedSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.DarkVibrantSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.DominantSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.GetColorForTarget(AndroidX.Palette.Graphics.Target! target, int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetDarkMutedColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetDarkVibrantColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetDominantColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetLightMutedColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetLightVibrantColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetMutedColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.GetSwatchForTarget(AndroidX.Palette.Graphics.Target! target) -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.GetVibrantColor(int defaultColor) -> int
+AndroidX.Palette.Graphics.Palette.IFilter
+AndroidX.Palette.Graphics.Palette.IFilter.IsAllowed(int rgb, float[]! hsl) -> bool
+AndroidX.Palette.Graphics.Palette.IPaletteAsyncListener
+AndroidX.Palette.Graphics.Palette.IPaletteAsyncListener.OnGenerated(AndroidX.Palette.Graphics.Palette? palette) -> void
+AndroidX.Palette.Graphics.Palette.LightMutedSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.LightVibrantSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.MutedSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Palette.PaletteAsyncEventArgs
+AndroidX.Palette.Graphics.Palette.PaletteAsyncEventArgs.Palette.get -> AndroidX.Palette.Graphics.Palette?
+AndroidX.Palette.Graphics.Palette.PaletteAsyncEventArgs.PaletteAsyncEventArgs(AndroidX.Palette.Graphics.Palette? palette) -> void
+AndroidX.Palette.Graphics.Palette.Swatch
+AndroidX.Palette.Graphics.Palette.Swatch.BodyTextColor.get -> int
+AndroidX.Palette.Graphics.Palette.Swatch.GetHsl() -> float[]!
+AndroidX.Palette.Graphics.Palette.Swatch.Population.get -> int
+AndroidX.Palette.Graphics.Palette.Swatch.Rgb.get -> int
+AndroidX.Palette.Graphics.Palette.Swatch.Swatch(int color, int population) -> void
+AndroidX.Palette.Graphics.Palette.Swatch.TitleTextColor.get -> int
+AndroidX.Palette.Graphics.Palette.Swatches.get -> System.Collections.Generic.IList<AndroidX.Palette.Graphics.Palette.Swatch!>!
+AndroidX.Palette.Graphics.Palette.Targets.get -> System.Collections.Generic.IList<AndroidX.Palette.Graphics.Target!>!
+AndroidX.Palette.Graphics.Palette.VibrantSwatch.get -> AndroidX.Palette.Graphics.Palette.Swatch?
+AndroidX.Palette.Graphics.Target
+AndroidX.Palette.Graphics.Target.Builder
+AndroidX.Palette.Graphics.Target.Builder.Build() -> AndroidX.Palette.Graphics.Target!
+AndroidX.Palette.Graphics.Target.Builder.Builder() -> void
+AndroidX.Palette.Graphics.Target.Builder.Builder(AndroidX.Palette.Graphics.Target! target) -> void
+AndroidX.Palette.Graphics.Target.Builder.SetExclusive(bool exclusive) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetLightnessWeight(float weight) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetMaximumLightness(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetMaximumSaturation(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetMinimumLightness(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetMinimumSaturation(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetPopulationWeight(float weight) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetSaturationWeight(float weight) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetTargetLightness(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.Builder.SetTargetSaturation(float value) -> AndroidX.Palette.Graphics.Target.Builder!
+AndroidX.Palette.Graphics.Target.IsExclusive.get -> bool
+AndroidX.Palette.Graphics.Target.LightnessWeight.get -> float
+AndroidX.Palette.Graphics.Target.MaximumLightness.get -> float
+AndroidX.Palette.Graphics.Target.MaximumSaturation.get -> float
+AndroidX.Palette.Graphics.Target.MinimumLightness.get -> float
+AndroidX.Palette.Graphics.Target.MinimumSaturation.get -> float
+AndroidX.Palette.Graphics.Target.PopulationWeight.get -> float
+AndroidX.Palette.Graphics.Target.SaturationWeight.get -> float
+AndroidX.Palette.Graphics.Target.TargetLightness.get -> float
+AndroidX.Palette.Graphics.Target.TargetSaturation.get -> float
+override AndroidX.Palette.Graphics.Palette.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Palette.Graphics.Palette.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Palette.Graphics.Palette.Swatch.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Palette.Graphics.Target.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Palette.Graphics.Target.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+static AndroidX.Palette.Graphics.Palette.From(Android.Graphics.Bitmap! bitmap) -> AndroidX.Palette.Graphics.Palette.Builder!
+static AndroidX.Palette.Graphics.Palette.From(System.Collections.Generic.IList<AndroidX.Palette.Graphics.Palette.Swatch!>! swatches) -> AndroidX.Palette.Graphics.Palette!
+static AndroidX.Palette.Graphics.Palette.Generate(Android.Graphics.Bitmap? bitmap) -> AndroidX.Palette.Graphics.Palette?
+static AndroidX.Palette.Graphics.Palette.Generate(Android.Graphics.Bitmap? bitmap, int numColors) -> AndroidX.Palette.Graphics.Palette?
+static AndroidX.Palette.Graphics.Palette.GenerateAsync(Android.Graphics.Bitmap? bitmap, AndroidX.Palette.Graphics.Palette.IPaletteAsyncListener? listener) -> Android.OS.AsyncTask?
+static AndroidX.Palette.Graphics.Palette.GenerateAsync(Android.Graphics.Bitmap? bitmap, int numColors, AndroidX.Palette.Graphics.Palette.IPaletteAsyncListener? listener) -> Android.OS.AsyncTask?
+static AndroidX.Palette.Graphics.Target.DarkMuted.get -> AndroidX.Palette.Graphics.Target?
+static AndroidX.Palette.Graphics.Target.DarkVibrant.get -> AndroidX.Palette.Graphics.Target?
+static AndroidX.Palette.Graphics.Target.LightMuted.get -> AndroidX.Palette.Graphics.Target?
+static AndroidX.Palette.Graphics.Target.LightVibrant.get -> AndroidX.Palette.Graphics.Target?
+static AndroidX.Palette.Graphics.Target.Muted.get -> AndroidX.Palette.Graphics.Target?
+static AndroidX.Palette.Graphics.Target.Vibrant.get -> AndroidX.Palette.Graphics.Target?

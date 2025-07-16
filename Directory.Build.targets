@@ -1,6 +1,6 @@
 <Project>
   <!-- Enables "ExactVersion" attribute on "ProjectReference" to allow an exact NuGet reference version to be used.
-       https://github.com/NuGet/Home/issues/5556#issuecomment-1179526189  -->
+      https://github.com/NuGet/Home/issues/5556#issuecomment-1179526189  -->
   <Target Name="UseExplicitPackageVersions" BeforeTargets="GenerateNuspec">
     <ItemGroup>
       <_ProjectReferenceWithExplicitPackageVersion Include="@(ProjectReference->'%(FullPath)')" Condition="'%(ProjectReference.PackageVersion)' != ''" />
@@ -15,10 +15,46 @@
       <_ProjectReferencesWithVersions Include="@(_ProjectReferenceWithReassignedVersion)" />
     </ItemGroup>
   </Target>
-  
+
   <PropertyGroup>
     <!-- Mark .NET6+ packages as supporting trimming -->
     <IsTrimmable Condition=" $([MSBuild]::VersionGreaterThanOrEquals('$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)'))', '6.0')) ">true</IsTrimmable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.ApiTools.MSBuildTasks" Version="0.4.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <Target Name="_GeneratePublicApiFiles"
+          AfterTargets="Build"
+          Condition="'$(TargetFramework)' != '' and '$(PublicAPIShippedFile)' != '' and '$(PublicAPIUnshippedFile)' != ''"
+          Inputs="$(TargetDir)$(AssemblyName).dll"
+          Outputs="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp">
+
+    <!-- Make sure the empty files exist -->
+    <WriteLinesToFile
+      Condition="!Exists('$(PublicAPIShippedFile)')"
+      File="$(PublicAPIShippedFile)"
+      Lines="#nullable enable" />
+    <WriteLinesToFile
+      Condition="!Exists('$(PublicAPIUnshippedFile)')"
+      File="$(PublicAPIUnshippedFile)"
+      Lines="#nullable enable" />
+
+    <!-- Generate the public API files -->
+    <GeneratePublicApiFiles
+      Assembly="$(TargetDir)$(AssemblyName).dll"
+      Files="@(PublicAPIFiles)"
+      ReferenceSearchPaths="@(ReferencePath)" />
+
+    <!-- Touch the stamp file to indicate that the public API files have been generated -->
+    <Touch
+      Files="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp"
+      AlwaysCreate="True" />
+    <ItemGroup>
+      <FileWrites Include="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp" />
+    </ItemGroup>
+
+  </Target>
 
 </Project>

@@ -1,0 +1,178 @@
+﻿#nullable enable
+Firebase.Components.BuildConfig
+Firebase.Components.BuildConfig.BuildConfig() -> void
+Firebase.Components.Component
+Firebase.Components.Component.Builder
+Firebase.Components.Component.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.Component.Dependencies.get -> System.Collections.Generic.ICollection<Firebase.Components.Dependency!>?
+Firebase.Components.Component.Factory.get -> Firebase.Components.IComponentFactory?
+Firebase.Components.Component.IsAlwaysEager.get -> bool
+Firebase.Components.Component.IsEagerInDefaultApp.get -> bool
+Firebase.Components.Component.IsLazy.get -> bool
+Firebase.Components.Component.IsValue.get -> bool
+Firebase.Components.Component.Name.get -> string?
+Firebase.Components.Component.ProvidedInterfaces.get -> System.Collections.ICollection?
+Firebase.Components.Component.PublishedEvents.get -> System.Collections.Generic.ICollection<Java.Lang.Class!>?
+Firebase.Components.Component.WithFactory(Firebase.Components.IComponentFactory? factory) -> Firebase.Components.Component?
+Firebase.Components.ComponentDiscovery
+Firebase.Components.ComponentDiscovery.Discover() -> System.Collections.Generic.IList<Firebase.Components.IComponentRegistrar!>?
+Firebase.Components.ComponentDiscovery.DiscoverLazy() -> System.Collections.Generic.IList<Firebase.Inject.IProvider!>?
+Firebase.Components.ComponentRegistrarProcessor
+Firebase.Components.ComponentRegistrarProcessorConsts
+Firebase.Components.ComponentRuntime
+Firebase.Components.ComponentRuntime.Builder
+Firebase.Components.ComponentRuntime.Builder.AddComponent(Firebase.Components.Component? component) -> Firebase.Components.ComponentRuntime.Builder?
+Firebase.Components.ComponentRuntime.Builder.AddComponentRegistrar(Firebase.Components.IComponentRegistrar? registrar) -> Firebase.Components.ComponentRuntime.Builder?
+Firebase.Components.ComponentRuntime.Builder.AddLazyComponentRegistrars(System.Collections.Generic.ICollection<Firebase.Inject.IProvider!>? registrars) -> Firebase.Components.ComponentRuntime.Builder?
+Firebase.Components.ComponentRuntime.Builder.Build() -> Firebase.Components.ComponentRuntime?
+Firebase.Components.ComponentRuntime.Builder.SetProcessor(Firebase.Components.IComponentRegistrarProcessor? processor) -> Firebase.Components.ComponentRuntime.Builder?
+Firebase.Components.ComponentRuntime.ComponentRuntime(Java.Util.Concurrent.IExecutor? defaultEventExecutor, Java.Lang.IIterable? registrars, params Firebase.Components.Component![]? additionalComponents) -> void
+Firebase.Components.ComponentRuntime.ComponentRuntime(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.Dependency
+Firebase.Components.Dependency.Interface.get -> Firebase.Components.Qualified?
+Firebase.Components.Dependency.IsDeferred.get -> bool
+Firebase.Components.Dependency.IsDirectInjection.get -> bool
+Firebase.Components.Dependency.IsRequired.get -> bool
+Firebase.Components.Dependency.IsSet.get -> bool
+Firebase.Components.DependencyCycleException
+Firebase.Components.DependencyCycleException.DependencyCycleException(System.Collections.Generic.IList<Firebase.Components.Component!>? componentsInCycle) -> void
+Firebase.Components.DependencyCycleException.DependencyCycleException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.DependencyException
+Firebase.Components.DependencyException.DependencyException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.DependencyException.DependencyException(string? msg) -> void
+Firebase.Components.IComponentContainer
+Firebase.Components.IComponentContainer.Get(Firebase.Components.Qualified? anInterface) -> Java.Lang.Object?
+Firebase.Components.IComponentContainer.Get(Java.Lang.Class? anInterface) -> Java.Lang.Object?
+Firebase.Components.IComponentContainer.GetDeferred(Firebase.Components.Qualified? p0) -> Firebase.Inject.IDeferred?
+Firebase.Components.IComponentContainer.GetDeferred(Java.Lang.Class? anInterface) -> Firebase.Inject.IDeferred?
+Firebase.Components.IComponentContainer.GetProvider(Firebase.Components.Qualified? p0) -> Firebase.Inject.IProvider?
+Firebase.Components.IComponentContainer.GetProvider(Java.Lang.Class? anInterface) -> Firebase.Inject.IProvider?
+Firebase.Components.IComponentContainer.SetOf(Firebase.Components.Qualified? anInterface) -> System.Collections.ICollection?
+Firebase.Components.IComponentContainer.SetOf(Java.Lang.Class? anInterface) -> System.Collections.ICollection?
+Firebase.Components.IComponentContainer.SetOfProvider(Firebase.Components.Qualified? p0) -> Firebase.Inject.IProvider?
+Firebase.Components.IComponentContainer.SetOfProvider(Java.Lang.Class? anInterface) -> Firebase.Inject.IProvider?
+Firebase.Components.IComponentFactory
+Firebase.Components.IComponentFactory.Create(Firebase.Components.IComponentContainer? p0) -> Java.Lang.Object?
+Firebase.Components.IComponentRegistrar
+Firebase.Components.IComponentRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>?
+Firebase.Components.IComponentRegistrarProcessor
+Firebase.Components.IComponentRegistrarProcessor.Noop.get -> Firebase.Components.IComponentRegistrarProcessor?
+Firebase.Components.IComponentRegistrarProcessor.ProcessRegistrar(Firebase.Components.IComponentRegistrar? p0) -> System.Collections.Generic.IList<Firebase.Components.Component!>?
+Firebase.Components.InvalidRegistrarException
+Firebase.Components.InvalidRegistrarException.InvalidRegistrarException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.InvalidRegistrarException.InvalidRegistrarException(string? message) -> void
+Firebase.Components.InvalidRegistrarException.InvalidRegistrarException(string? message, Java.Lang.Throwable? cause) -> void
+Firebase.Components.Lazy
+Firebase.Components.Lazy.Lazy(Firebase.Inject.IProvider? provider) -> void
+Firebase.Components.Lazy.Lazy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.MissingDependencyException
+Firebase.Components.MissingDependencyException.MissingDependencyException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Components.MissingDependencyException.MissingDependencyException(string? msg) -> void
+Firebase.Components.Preconditions
+Firebase.Components.Preconditions.Preconditions() -> void
+Firebase.Components.Qualified
+Firebase.Components.Qualified.Qualified(Java.Lang.Class? qualifier, Java.Lang.Class? type) -> void
+Firebase.DynamicLoading.IComponentLoader
+Firebase.DynamicLoading.IComponentLoader.DiscoverComponents() -> void
+Firebase.Events.Event
+Firebase.Events.Event.Event(Java.Lang.Class? type, Java.Lang.Object? payload) -> void
+Firebase.Events.Event.Event(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Events.IEventHandler
+Firebase.Events.IEventHandler.Handle(Firebase.Events.Event? p0) -> void
+Firebase.Events.IPublisher
+Firebase.Events.IPublisher.Publish(Firebase.Events.Event? p0) -> void
+Firebase.Events.ISubscriber
+Firebase.Events.ISubscriber.Subscribe(Java.Lang.Class? p0, Firebase.Events.IEventHandler? p1) -> void
+Firebase.Events.ISubscriber.Subscribe(Java.Lang.Class? p0, Java.Util.Concurrent.IExecutor? p1, Firebase.Events.IEventHandler? p2) -> void
+Firebase.Events.ISubscriber.Unsubscribe(Java.Lang.Class? p0, Firebase.Events.IEventHandler? p1) -> void
+Firebase.Inject.IDeferred
+Firebase.Inject.IDeferred.WhenAvailable(Firebase.Inject.IDeferredDeferredHandler! p0) -> void
+Firebase.Inject.IDeferredDeferredHandler
+Firebase.Inject.IDeferredDeferredHandler.Handle(Firebase.Inject.IProvider? p0) -> void
+Firebase.Inject.IProvider
+Firebase.Inject.IProvider.Get() -> Java.Lang.Object?
+const Firebase.Components.BuildConfig.BuildType = "release" -> string!
+const Firebase.Components.BuildConfig.Debug = false -> bool
+const Firebase.Components.BuildConfig.LibraryPackageName = "com.google.firebase.components" -> string!
+const Firebase.Components.BuildConfig.VersionName = "19.0.0" -> string!
+override Firebase.Components.BuildConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.Component.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.Component.Builder.ThresholdClass.get -> nint
+override Firebase.Components.Component.Builder.ThresholdType.get -> System.Type!
+override Firebase.Components.Component.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.ComponentDiscovery.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.ComponentRuntime.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.ComponentRuntime.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.ComponentRuntime.ThresholdClass.get -> nint
+override Firebase.Components.ComponentRuntime.ThresholdType.get -> System.Type!
+override Firebase.Components.Dependency.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.DependencyCycleException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.DependencyCycleException.ThresholdClass.get -> nint
+override Firebase.Components.DependencyCycleException.ThresholdType.get -> System.Type!
+override Firebase.Components.DependencyException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.DependencyException.ThresholdClass.get -> nint
+override Firebase.Components.DependencyException.ThresholdType.get -> System.Type!
+override Firebase.Components.InvalidRegistrarException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.InvalidRegistrarException.ThresholdClass.get -> nint
+override Firebase.Components.InvalidRegistrarException.ThresholdType.get -> System.Type!
+override Firebase.Components.Lazy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.Lazy.ThresholdClass.get -> nint
+override Firebase.Components.Lazy.ThresholdType.get -> System.Type!
+override Firebase.Components.MissingDependencyException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.MissingDependencyException.ThresholdClass.get -> nint
+override Firebase.Components.MissingDependencyException.ThresholdType.get -> System.Type!
+override Firebase.Components.Preconditions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Components.Qualified.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Events.Event.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Events.Event.ThresholdClass.get -> nint
+override Firebase.Events.Event.ThresholdType.get -> System.Type!
+static Firebase.Components.Component.IntoSet(Java.Lang.Object? value, Firebase.Components.Qualified? anInterface) -> Firebase.Components.Component?
+static Firebase.Components.Component.IntoSet(Java.Lang.Object? value, Java.Lang.Class? anInterface) -> Firebase.Components.Component?
+static Firebase.Components.Component.IntoSetBuilder(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.IntoSetBuilder(Java.Lang.Class? anInterface) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.InvokeBuilder(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.InvokeBuilder(Firebase.Components.Qualified? anInterface, params Firebase.Components.Qualified![]? additionalInterfaces) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.InvokeBuilder(Java.Lang.Class? anInterface) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.InvokeBuilder(Java.Lang.Class? anInterface, params Java.Lang.Class![]? additionalInterfaces) -> Firebase.Components.Component.Builder?
+static Firebase.Components.Component.Of(Java.Lang.Class? anInterface, Java.Lang.Object? value) -> Firebase.Components.Component?
+static Firebase.Components.Component.Of(Java.Lang.Object? value, Firebase.Components.Qualified? anInterface, params Firebase.Components.Qualified![]? additionalInterfaces) -> Firebase.Components.Component?
+static Firebase.Components.Component.Of(Java.Lang.Object? value, Java.Lang.Class? anInterface, params Java.Lang.Class![]? additionalInterfaces) -> Firebase.Components.Component?
+static Firebase.Components.ComponentDiscovery.ForContext(Android.Content.Context? context, Java.Lang.Class? discoveryService) -> Firebase.Components.ComponentDiscovery?
+static Firebase.Components.ComponentRegistrarProcessor.Noop.get -> Firebase.Components.IComponentRegistrarProcessor?
+static Firebase.Components.ComponentRuntime.InvokeBuilder(Java.Util.Concurrent.IExecutor? defaultEventExecutor) -> Firebase.Components.ComponentRuntime.Builder?
+static Firebase.Components.Dependency.Deferred(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.Deferred(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.Optional(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.OptionalProvider(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.OptionalProvider(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.Required(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.Required(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.RequiredProvider(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.RequiredProvider(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.SetOf(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.SetOf(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.SetOfProvider(Firebase.Components.Qualified? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Dependency.SetOfProvider(Java.Lang.Class? anInterface) -> Firebase.Components.Dependency?
+static Firebase.Components.Preconditions.CheckArgument(bool expression, string? errorMessage) -> void
+static Firebase.Components.Preconditions.CheckNotNull(Java.Lang.Object? reference) -> Java.Lang.Object?
+static Firebase.Components.Preconditions.CheckNotNull(Java.Lang.Object? reference, string? errorMessage) -> Java.Lang.Object?
+static Firebase.Components.Preconditions.CheckState(bool expression, string? errorMesage) -> void
+static Firebase.Components.Qualified.InvokeQualified(Java.Lang.Class? qualifier, Java.Lang.Class? type) -> Firebase.Components.Qualified!
+static Firebase.Components.Qualified.Unqualified(Java.Lang.Class? type) -> Firebase.Components.Qualified!
+virtual Firebase.Components.Component.Builder.Add(Firebase.Components.Dependency? dependency) -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.Component.Builder.AlwaysEager() -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.Component.Builder.Build() -> Firebase.Components.Component?
+virtual Firebase.Components.Component.Builder.EagerInDefaultApp() -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.Component.Builder.Factory(Firebase.Components.IComponentFactory? value) -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.Component.Builder.Name(string! name) -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.Component.Builder.Publishes(Java.Lang.Class? eventType) -> Firebase.Components.Component.Builder?
+virtual Firebase.Components.ComponentRuntime.DiscoverComponents() -> void
+virtual Firebase.Components.ComponentRuntime.GetDeferred(Firebase.Components.Qualified? anInterface) -> Firebase.Inject.IDeferred?
+virtual Firebase.Components.ComponentRuntime.GetProvider(Firebase.Components.Qualified? anInterface) -> Firebase.Inject.IProvider?
+virtual Firebase.Components.ComponentRuntime.InitializeAllComponentsForTests() -> void
+virtual Firebase.Components.ComponentRuntime.InitializeEagerComponents(bool isDefaultApp) -> void
+virtual Firebase.Components.ComponentRuntime.SetOfProvider(Firebase.Components.Qualified? anInterface) -> Firebase.Inject.IProvider?
+virtual Firebase.Components.DependencyCycleException.ComponentsInCycle.get -> System.Collections.Generic.IList<Firebase.Components.Component!>?
+virtual Firebase.Components.Lazy.Get() -> Java.Lang.Object?
+virtual Firebase.Events.Event.Payload.get -> Java.Lang.Object?
+virtual Firebase.Events.Event.Type.get -> Java.Lang.Class?
