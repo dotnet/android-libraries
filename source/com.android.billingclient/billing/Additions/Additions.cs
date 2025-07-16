@@ -251,8 +251,8 @@ namespace Android.BillingClient.Api
     {
         public Action<BillingResult, IList<ProductDetails>> ProductDetailsResponseHandler { get; set; }
 
-        public void OnProductDetailsResponse(BillingResult result, IList<ProductDetails> productDetails)
-            => ProductDetailsResponseHandler?.Invoke(result, productDetails);
+        public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryProductDetailsResult)
+            => ProductDetailsResponseHandler?.Invoke(result, queryProductDetailsResult?.ProductDetails);
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
