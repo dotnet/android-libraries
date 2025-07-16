@@ -1,8 +1,6 @@
 parameters:
-  dotnetTools: []
-  runDotnetNextTest: false
   installAndroidDependencies: false
-  androidSdkRoot: C:\Android\android-sdk
+  androidSdkRoot: $(Agent.TempDirectory)/android-sdk
   javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
 
 steps:
@@ -21,58 +19,30 @@ steps:
       includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet $(dotnetNextVersion)'
-      inputs:
-        version: $(dotnetNextVersion)
-        includePreviewVersions: true
+  - task: UseDotNet@2
+    displayName: 'Use dotnet $(dotnetNextVersion)'
+    inputs:
+      version: $(dotnetNextVersion)
+      performMultiLevelLookup: true
+      includePreviewVersions: true
+    condition: ne('$(dotnetNextVersion)', '')
 
   - script: dotnet --info
     displayName: Display dotnet info
 
-  - ${{ each tool in parameters.dotnetTools }}:
-    - ${{ each pair in tool }}:
-      - powershell: dotnet tool uninstall ${{ pair.key }} -g
-        displayName: 'Uninstall tool: ${{ pair.key }}'
-        ignoreLASTEXITCODE: true
-      - task: DotNetCoreCLI@2
-        displayName: 'Install tool: ${{ pair.key }} ${{ pair.value }}'
-        inputs:
-          command: custom
-          custom: tool
-          arguments: >-
-            update -g ${{ pair.key }} -v:diag
-            --version ${{ pair.value }}
-            --add-source "https://api.nuget.org/v3/index.json"
+  - powershell: dotnet tool restore
+    displayName: 'Install .NET tools'
+    ignoreLASTEXITCODE: true
 
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |
-        dotnet cake -t=dotnet-next `
-          --dotnet-version="$(dotnetNextVersion)" `
-          --framework-version="$(dotnetNextFrameworkVersion)" `
-          --api-level-version="$(dotnetNextApiLevel)"
-      displayName: Set up dotnet-next test changes
-
-  - ${{ if eq(parameters.runDotnetNextTest, false) }}:
-    - pwsh: |
-        dotnet workload install maui --verbosity diag --from-rollback-file $(dotnetWorkloadRollbackFile) --source $(dotnetWorkloadSource) --source $(dotnetNuGetOrgSource)
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install .NET Workloads
-
-  - ${{ if eq(parameters.runDotnetNextTest, true) }}:
-    - pwsh: |
-        dotnet workload install maui --verbosity diag
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "##vso[task.logissue type=error]Failed to install workloads."
-            Write-Host "##vso[task.complete result=Failed;]"
-            exit 0
-        }
-      displayName: Install Preview .NET Workloads
+  - pwsh: |    
+      dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
+      dotnet workload install maui-android android --verbosity diag --source https://api.nuget.org/v3/index.json
+      if ($LASTEXITCODE -ne 0) {
+          Write-Host "##vso[task.logissue type=error]Failed to install workloads."
+          Write-Host "##vso[task.complete result=Failed;]"
+          exit 0
+      }
+    displayName: Install .NET Workloads
 
   - bash: |
       if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
@@ -91,39 +61,34 @@ steps:
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
 
+  - task: DotNetCoreCLI@2
+    displayName: Install android dependencies GoogleV2
+    inputs:
+      command: build
+      projects: build/scripts/provision-android/provision-android.csproj
+      arguments: >-
+        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
+        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+        -v:n -bl:output/install-android-dependencies-GoogleV2.binlog
+      retryCountOnTaskFailure: 3
+
+  - task: DotNetCoreCLI@2
+    displayName: Install android dependencies Xamarin
+    inputs:
+      command: build
+      projects: build/scripts/provision-android/provision-android.csproj
+      arguments: >-
+        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=Xamarin
+        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
+        -v:n -bl:output/install-android-dependencies-Xamarin.binlog
+      retryCountOnTaskFailure: 3
+
+  - pwsh: |
+      Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
+      Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
+    displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
+
   - ${{ if eq(parameters.installAndroidDependencies, true) }}:
-    - task: DotNetCoreCLI@2
-      displayName: Create android template
-      inputs:
-        command: custom
-        custom: new
-        arguments: android -o $(Agent.TempDirectory)/TempDroid
-
-    - task: DotNetCoreCLI@2
-      displayName: Install android dependencies
-      inputs:
-        command: build
-        projects: $(Agent.TempDirectory)/TempDroid/TempDroid.csproj
-        arguments: >-
-          -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true
-          -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-          -v:n -bl:output/install-android-dependencies.binlog
-        retryCountOnTaskFailure: 3
-
-    - pwsh: |
-        Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
-      displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
-
-    - pwsh: |
-        if ($IsWindows) {
-            $env:JAVA_HOME = Get-ChildItem -Path "C:\Program Files (x86)\Android\openjdk" -Filter "*jdk*" | Select-Object -First 1
-        }
-        $sdkManager = Get-ChildItem -Path "${{ parameters.androidSdkRoot }}\cmdline-tools" -Filter "sdkmanager*" -Recurse | Select-Object -First 1
-        $yesInput = "y`n" * 10
-        $yesInput | & $sdkManager --licenses
-        & $sdkManager "build-tools;29.0.3" "platforms;android-29"
-      displayName: Install extra Android SDK packages
-
     - pwsh: |
         $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
         if ($IsMacOS) {
@@ -143,3 +108,4 @@ steps:
         jdkSourceOption: LocalDirectory
         jdkFile: $(JDK_11_FILE_PATH)
         jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
+        cleanDestinationDirectory: true

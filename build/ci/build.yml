@@ -4,16 +4,12 @@ parameters:
   buildPool:                                                        # VM pool information
 
   # Build Parameters
-  timeoutInMinutes: 300                                             # Max job runtime in minutes
+  timeoutInMinutes: 600                                             # Max job runtime in minutes
   runAPIScan: false                                                 # Run APIScan analysis
-  runDotnetNextTest: false
   use1ESTemplate: true
   installAndroidDependencies: false
+  androidSdkRoot: $(Agent.TempDirectory)/android-sdk
 
-  tools:                                                            # Additional .NET global tools to install
-  - 'Cake.Tool': '5.0.0'
-  - 'private-api-tools': '1.0.3'
-  
   # Reporting/Analysis Parameters
   artifactsPath: 'output'                                           # Path to the NuGet packages that need to be signed, verified and published
   signListPath: 'SignList.xml'                                      # Path to 'SignList.xml' used for signing NuGet packages
@@ -41,9 +37,8 @@ jobs:
   steps:
     - template: setup-environment.yml
       parameters:
-        dotnetTools: ${{ parameters.tools }}
-        runDotnetNextTest: ${{ parameters.runDotnetNextTest }}
         installAndroidDependencies: ${{ parameters.installAndroidDependencies }}
+        androidSdkRoot: ${{ parameters.androidSdkRoot }}
 
     - template: build-and-test.yml
       parameters:
@@ -71,7 +66,7 @@ jobs:
     - ${{ if ne(parameters.use1ESTemplate, true) }}:
       - task: PublishPipelineArtifact@1
         displayName: Upload logs
+        condition: always()
         inputs:
           artifactName: output-${{ parameters.name }}
           targetPath: ${{ parameters.artifactsPath }}
-          condition: always()

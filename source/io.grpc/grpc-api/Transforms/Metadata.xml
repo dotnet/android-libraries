@@ -113,5 +113,13 @@
     <remove-node 
         path="/api/package[@name='io.grpc']/class[@name='ForwardingChannelBuilder']/method[@name='delegate' and count(parameter)=0]"
         />
+
+    <!-- Remove anything with the name "Internal" -->
+    <remove-node
+        path="/api/package[@name='io.grpc']/class[starts-with(@name, 'Internal')]"
+        />
+    <remove-node
+        path="/api/package[@name='io.grpc']/interface[starts-with(@name, 'Internal')]"
+        />
         
 </metadata>

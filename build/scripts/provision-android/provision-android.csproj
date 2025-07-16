@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Build with the latest -->
+    <TargetFramework>$(_DefaultTargetFrameworkNext)</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- But also install the base -->
+    <AndroidDependency Include="platforms/android-$(_DefaultPlatformVersionBase)" />
+  </ItemGroup>
+</Project>

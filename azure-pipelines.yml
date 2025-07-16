@@ -16,10 +16,6 @@ parameters:
   displayName: Run Extended Tests?
   type: boolean
   default: false
-- name: RunDotnetNextTest
-  displayName: Run on .NET next preview?
-  type: boolean
-  default: false
   
 variables:
   # Variables used by both AndroidX/GPS go in the template
@@ -31,15 +27,18 @@ resources:
       type: git
       name: 1ESPipelineTemplates/1ESPipelineTemplates
       ref: refs/tags/release
-    - repository: internal-templates
-      type: github
-      name: xamarin/yaml-templates
-      endpoint: xamarin
+    - repository: yaml-templates
+      type: git
+      name: DevDiv/Xamarin.yaml-templates
       ref: refs/heads/main
 
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
-  parameters:   
+  parameters:
+    sdl:
+      sourceRepositoriesToScan:
+        exclude:
+        - repository: yaml-templates
     pool:
       name: AzurePipelines-EO
       image: 1ESPT-Windows2022
@@ -58,7 +57,6 @@ extends:
             image: $(windowsImage)
             os: windows
           runAPIScan: true
-          runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
 
     - stage: build_mac
       displayName: Build - Mac
@@ -74,7 +72,6 @@ extends:
             demands:
               - macOS.Name -equals Sonoma
               - macOS.Architecture -equals x64
-          runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
 
     - template: build/ci/stage-standard-tests.yml@self
       parameters:
@@ -82,7 +79,6 @@ extends:
           name: $(windowsAgentPoolName)
           image: $(windowsImage)
           os: windows
-        runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
 
     - template: build/ci/stage-extended-tests.yml@self
       parameters:
@@ -91,6 +87,5 @@ extends:
           name: $(windowsAgentPoolName)
           image: $(windowsImage)
           os: windows
-        runDotnetNextTest: ${{ parameters.RunDotnetNextTest }}
 
     - template: build/ci/stage-sign-artifacts.yml@self

@@ -11,7 +11,6 @@
 #load "build/cake/update-config.cake"
 #load "build/cake/tests.cake"
 #load "build/cake/gps-parameters.cake"
-#load "build/cake/dotnet-next.cake"
 #load "build/cake/binderate.cake"
 #load "build/cake/build-and-package.cake"
 #load "build/cake/validations.cake"
@@ -22,7 +21,6 @@
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
 
 // The main configuration points
 var TARGET = Argument ("t", Argument ("target", "Default"));

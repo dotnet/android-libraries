@@ -4,20 +4,16 @@
 
 ```
 {
-    "sdk": 
-    {
-        "version": "8.0.400",
-        "rollForward": "patch"
+    "sdk": {
+        "version": "9.0.301",
+        "rollForward": "latestMajor",
+        "allowPrerelease": true
     },
-    "msbuild-sdks": 
-    {
-        "MSBuild.Sdk.Extras": "3.0.44",
+    "msbuild-sdks": {
         "Microsoft.Build.Traversal": "4.1.0",
-        "Microsoft.Build.NoTargets": "3.7.56",
-        "Xamarin.Legacy.Sdk": "0.2.0-alpha4"
+        "Microsoft.Build.NoTargets": "3.7.56"
     }
 }
-
 ```
-version8.0.400
-rollForwardpatch
+version9.0.301
+rollForwardlatestMajor

@@ -1,17 +1,27 @@
-// debugging prerequisity
+/* 
+debugging prerequisity
 #tool nuget:?package=Cake.CoreCLR
+*/
 /*
      dotnet cake spell-check.cake
     dotnet cake spell-check.cake -t=spell-check
  */
-#addin nuget:?package=WeCantSpell.Hunspell&version=5.0.0
+#addin nuget:?package=WeCantSpell.Hunspell&version=6.0.0
 #addin nuget:?package=Newtonsoft.Json&version=13.0.3
 #addin nuget:?package=Cake.FileHelpers&version=7.0.0
-#addin nuget:?package=Mono.Cecil&version=0.11.5
 
+#addin nuget:?package=Mono.Cecil&version=0.11.6
 #addin nuget:?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
 #addin nuget:?package=HolisticWare.Core.Net.HTTP&version=0.0.4
 #addin nuget:?package=HolisticWare.Core.IO&version=0.0.4
+#addin nuget:?package=CliWrap&version=3.8.2
+
+/*
+#addin nuget:https://api.nuget.org/v3/index.json?package=Mono.Cecil&version=0.11.6
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.Net.HTTP&version=0.0.4
+#addin nuget:https://api.nuget.org/v3/index.json??package=HolisticWare.Core.IO&version=0.0.4
+*/
 
 #load "build/cake/performance-timings.cake"
 
@@ -31,8 +41,8 @@ string file_spell_errors = "./output/spell-errors.txt";
 List<string> spell_errors = null;
 JArray binderator_json_array = null;
 
-List<(string, string, string, string)> mappings_artifact_nuget = new List<(string, string, string, string)>();
-Dictionary<string, string> Licenses = new Dictionary<string, string>();
+List<(string, string, string, string)> mappings_artifact_nuget = new ();
+Dictionary<string, string> Licenses = new ();
 
 // modifying default method for licenses
 Manifest.Defaults.VersionBasedOnFullyQualifiedArtifactIdDelegate = delegate(string fully_qualified_artifact_id)
@@ -277,7 +287,7 @@ Task ("generate-component-governance")
 
             manifest.MappingMavenArtifact2NuGetPackage = mappings_artifact_nuget;
 
-            Console.WriteLine($"Saving ComponetGovernanceManifest cgmanifest.json...");
+            Information($"Saving ComponetGovernanceManifest cgmanifest.json...");
             manifest.Save("./cgmanifest.json");
 
             System.IO.File.WriteAllText
@@ -443,7 +453,7 @@ Task ("spell-check")
 
             var dictionary = WeCantSpell.Hunspell.WordList.CreateFromFiles(@"externals/English (American).dic");
             string[] words =
-            [
+            {
                 "Xamarin",
                 "AndroidX",
                 "IdentifierCommon",
@@ -818,7 +828,7 @@ Task ("spell-check")
                 "Json",
                 "ViewTree",
                 "TypeAnnotations",
-           ];
+           };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
 
@@ -1733,24 +1743,24 @@ Task("verify-namespace-file")
 
             if (new_ns.Any ()) {
                 unhandled_changes = true;
-                Console.WriteLine ("New Namespaces");
-                Console.WriteLine ("--------------");
+                Information ("New Namespaces");
+                Information ("--------------");
 
                 foreach (var ns in new_ns)
-                  Console.WriteLine (ns);
+                  Information (ns);
 
-                Console.WriteLine ();
+                Information ("");
             }
 
             var removed_ns = old_list.Except (new_list);
 
             if (removed_ns.Any ()) {
                 unhandled_changes = true;
-                Console.WriteLine ("Removed Namespaces");
-                Console.WriteLine ("------------------");
+                Information ("Removed Namespaces");
+                Information ("------------------");
 
                 foreach (var ns in removed_ns)
-                    Console.WriteLine (ns);
+                    Information (ns);
             }
 
             if (unhandled_changes)
@@ -1910,10 +1920,10 @@ Task("tools-executive-oreder-csv-and-markdown")
             no version info
 
             let's parse
-                dotnet tool list --global
+                dotnet tool list
             */
 			process = "dotnet";
-			process_args = "tool list --global";
+			process_args = "tool list";
             process_settings = new ProcessSettings ()
 			{
                 Arguments = process_args,
@@ -2043,7 +2053,7 @@ Task("tools-executive-oreder-csv-and-markdown")
             return;
         } catch (Exception ex) { 
           // Don't fail the build if this fails.
-          Console.WriteLine (ex); 
+          Information (ex); 
         }
         }
     );
