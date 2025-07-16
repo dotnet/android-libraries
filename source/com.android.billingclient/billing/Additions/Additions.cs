@@ -31,7 +31,12 @@ namespace Android.BillingClient.Api
     {
         public BillingResult Result { get; set; }
 
-        public IList<ProductDetails> ProductDetails { get; set; }
+        [Obsolete ($"Use {nameof(ProductDetailsList)} instead")]
+        public IList<ProductDetails> ProductDetails
+        {
+            get => ProductDetailsList;
+            set { /* Obsolete property setter does nothing */ }
+        }
     }
 
     public class QueryPurchasesResult
@@ -124,11 +129,7 @@ namespace Android.BillingClient.Api
 
             var listener = new InternalProductDetailsResponseListener
             {
-                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QueryProductDetailsResult
-                {
-                    Result = r,
-                    ProductDetails = s
-                })
+                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(s)
             };
 
             QueryProductDetails(productDetailsParams, listener);
@@ -249,10 +250,14 @@ namespace Android.BillingClient.Api
 
     internal class InternalProductDetailsResponseListener : Java.Lang.Object, IProductDetailsResponseListener
     {
-        public Action<BillingResult, IList<ProductDetails>> ProductDetailsResponseHandler { get; set; }
+        public Action<BillingResult, QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
 
         public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryProductDetailsResult)
-            => ProductDetailsResponseHandler?.Invoke(result, queryProductDetailsResult?.ProductDetails);
+        {
+            queryProductDetailsResult ??= new();
+            queryProductDetailsResult.Result = result;
+            ProductDetailsResponseHandler?.Invoke(result, queryProductDetailsResult);
+        }
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
