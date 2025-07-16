@@ -21,4 +21,46 @@
     <IsTrimmable Condition=" $([MSBuild]::VersionGreaterThanOrEquals('$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)'))', '6.0')) ">true</IsTrimmable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mono.ApiTools.MSBuildTasks" Version="0.4.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PublicAPIFiles Include="PublicAPI\PublicAPI.Shipped.txt" />
+    <PublicAPIFiles Include="PublicAPI\PublicAPI.Unshipped.txt" />
+    <AdditionalFiles Include="@(PublicAPIFiles)" />
+  </ItemGroup>
+
+  <Target Name="_GeneratePublicApiFiles"
+          AfterTargets="Build"
+          Condition="'$(TargetFramework)' != ''"
+          Inputs="$(TargetDir)$(AssemblyName).dll"
+          Outputs="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp">
+
+    <!-- Make sure the empty files exist -->
+    <WriteLinesToFile
+      Condition="!Exists('PublicAPI\PublicAPI.Shipped.txt')"
+      File="PublicAPI\PublicAPI.Shipped.txt"
+      Lines="#nullable enable" />
+    <WriteLinesToFile
+      Condition="!Exists('PublicAPI\PublicAPI.Unshipped.txt')"
+      File="PublicAPI\PublicAPI.Unshipped.txt"
+      Lines="#nullable enable" />
+
+    <!-- Generate the public API files -->
+    <GeneratePublicApiFiles
+      Assembly="$(TargetDir)$(AssemblyName).dll"
+      Files="@(PublicAPIFiles)"
+      ReferenceSearchPaths="@(ReferencePath)" />
+
+    <!-- Touch the stamp file to indicate that the public API files have been generated -->
+    <Touch
+      Files="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp"
+      AlwaysCreate="True" />
+    <ItemGroup>
+      <FileWrites Include="$(IntermediateOutputPath)GeneratePublicApiFiles.stamp" />
+    </ItemGroup>
+
+  </Target>
+
 </Project>
