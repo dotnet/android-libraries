@@ -31,11 +31,7 @@ namespace Android.BillingClient.Api
     {
         public BillingResult Result { get; set; }
 
-        public IList<ProductDetails> ProductDetails 
-        { 
-            get => ProductDetailsList;
-            set => throw new NotSupportedException("ProductDetails property is read-only. Use ProductDetailsList instead.");
-        }
+        public IList<ProductDetails> ProductDetails { get; set; }
     }
 
     public class QueryPurchasesResult
@@ -128,12 +124,11 @@ namespace Android.BillingClient.Api
 
             var listener = new InternalProductDetailsResponseListener
             {
-                ProductDetailsResponseHandler = (r, s) => 
+                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(new QueryProductDetailsResult
                 {
-                    if (s != null)
-                        s.Result = r;
-                    tcs.TrySetResult(s);
-                }
+                    Result = r,
+                    ProductDetails = s
+                })
             };
 
             QueryProductDetails(productDetailsParams, listener);
@@ -254,10 +249,10 @@ namespace Android.BillingClient.Api
 
     internal class InternalProductDetailsResponseListener : Java.Lang.Object, IProductDetailsResponseListener
     {
-        public Action<BillingResult, Android.BillingClient.Api.QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
+        public Action<BillingResult, IList<ProductDetails>> ProductDetailsResponseHandler { get; set; }
 
-        public void OnProductDetailsResponse(BillingResult result, Android.BillingClient.Api.QueryProductDetailsResult queryProductDetailsResult)
-            => ProductDetailsResponseHandler?.Invoke(result, queryProductDetailsResult);
+        public void OnProductDetailsResponse(BillingResult result, IList<ProductDetails> productDetails)
+            => ProductDetailsResponseHandler?.Invoke(result, productDetails);
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
