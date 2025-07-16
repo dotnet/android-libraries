@@ -29,6 +29,8 @@ namespace Android.BillingClient.Api
 
     public partial class QueryProductDetailsResult
     {
+        public QueryProductDetailsResult () { }
+
         public BillingResult Result { get; set; }
 
         [Obsolete ($"Use {nameof(ProductDetailsList)} instead")]
