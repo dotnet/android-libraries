@@ -129,7 +129,7 @@ namespace Android.BillingClient.Api
 
             var listener = new InternalProductDetailsResponseListener
             {
-                ProductDetailsResponseHandler = (r, s) => tcs.TrySetResult(s)
+                ProductDetailsResponseHandler = (r, queryResult) => tcs.TrySetResult(queryResult)
             };
 
             QueryProductDetails(productDetailsParams, listener);
@@ -252,11 +252,11 @@ namespace Android.BillingClient.Api
     {
         public Action<BillingResult, QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
 
-        public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryProductDetailsResult)
+        public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
         {
-            queryProductDetailsResult ??= new();
-            queryProductDetailsResult.Result = result;
-            ProductDetailsResponseHandler?.Invoke(result, queryProductDetailsResult);
+            queryResult ??= new();
+            queryResult.Result = result;
+            ProductDetailsResponseHandler?.Invoke(result, queryResult);
         }
     }
 
