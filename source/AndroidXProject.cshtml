@@ -149,6 +149,15 @@
     }
   </ItemGroup>
 
+  <!-- Public API files -->
+  <PropertyGroup>
+    <PublicAPIShippedFile>..\..\source\@(Model.MavenGroupId)\@(Model.Name)\PublicAPI\PublicAPI.Shipped.txt</PublicAPIShippedFile>
+    <PublicAPIUnshippedFile>..\..\source\@(Model.MavenGroupId)\@(Model.Name)\PublicAPI\PublicAPI.Unshipped.txt</PublicAPIUnshippedFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PublicAPIFiles Include="$(PublicAPIShippedFile);$(PublicAPIUnshippedFile)" />
+  </ItemGroup>
+
   @{ await IncludeAsync("source/_PackageLevelCustomizations.cshtml", Model); }
 
 </Project>

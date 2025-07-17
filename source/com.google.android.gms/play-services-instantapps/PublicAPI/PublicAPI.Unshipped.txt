@@ -1,0 +1,77 @@
+﻿#nullable enable
+Android.Gms.InstantApp.IActivityCompat
+Android.Gms.InstantApp.IActivityCompat.CallingActivity.get -> Android.Content.ComponentName?
+Android.Gms.InstantApp.IActivityCompat.CallingPackage.get -> string?
+Android.Gms.InstantApp.ILauncher
+Android.Gms.InstantApp.ILauncher.GetInstantAppIntentData(string! p0, Android.Content.Intent? p1) -> Android.Gms.InstantApp.InstantAppIntentData!
+Android.Gms.InstantApp.ILauncher.GetInstantAppLaunchData(string! url) -> Android.Gms.Tasks.Task!
+Android.Gms.InstantApp.ILauncher.InitializeIntentClient() -> bool
+Android.Gms.InstantApp.IPackageManagerCompat
+Android.Gms.InstantApp.IPackageManagerCompat.GetApplicationInfo(string! p0, int p1) -> Android.Content.PM.ApplicationInfo!
+Android.Gms.InstantApp.IPackageManagerCompat.GetApplicationLabelFormatted(Android.Content.PM.ApplicationInfo! info) -> Java.Lang.ICharSequence?
+Android.Gms.InstantApp.IPackageManagerCompat.GetInstallerPackageName(string! packageName) -> string?
+Android.Gms.InstantApp.IPackageManagerCompat.GetInstantAppCookie() -> byte[]?
+Android.Gms.InstantApp.IPackageManagerCompat.GetPackageInfo(string! p0, int p1) -> Android.Content.PM.PackageInfo!
+Android.Gms.InstantApp.IPackageManagerCompat.GetPackagesForUid(int uid) -> string![]?
+Android.Gms.InstantApp.IPackageManagerCompat.InstantAppCookieMaxSize.get -> int
+Android.Gms.InstantApp.IPackageManagerCompat.InvokeIsInstantApp(string! packageName) -> bool
+Android.Gms.InstantApp.IPackageManagerCompat.IsInstantApp.get -> bool
+Android.Gms.InstantApp.IPackageManagerCompat.SetInstantAppCookie(byte[]? cookie) -> bool
+Android.Gms.InstantApp.IPackageManagerCompatExtensions
+Android.Gms.InstantApp.InstantAppIntentData
+Android.Gms.InstantApp.InstantAppIntentData.IMatchResult
+Android.Gms.InstantApp.InstantAppIntentData.InstantAppIntentData(Android.Content.Intent? p0, int p1, string? p2) -> void
+Android.Gms.InstantApp.InstantAppIntentData.InstantAppIntentData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.InstantApp.InstantApps
+Android.Gms.InstantApp.InstantAppsClient
+Android.Gms.InstantApp.InstantAppsClient.GetInstantAppDataAsync() -> System.Threading.Tasks.Task<Android.OS.ParcelFileDescriptor!>!
+Android.Gms.InstantApp.InstantAppsClient.InstantAppDate.get -> Android.Gms.Tasks.Task!
+Android.Gms.InstantApp.InstantAppsClient.InstantAppsClient(Android.App.Activity! p0) -> void
+Android.Gms.InstantApp.InstantAppsClient.InstantAppsClient(Android.Content.Context! p0) -> void
+Android.Gms.InstantApp.InstantAppsClient.InstantAppsClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.InstantApp.InstantAppsClient.Zza(string! p0) -> Android.Gms.Tasks.Task!
+Android.Gms.InstantApp.LaunchData
+Android.Gms.InstantApp.LaunchData.LaunchData(Android.Content.Intent! p0, string! p1, string! p2, Android.Gms.Common.Data.BitmapTeleporter! p3) -> void
+Android.Gms.InstantApp.LaunchData.LaunchData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.InstantApp.Launcher
+Android.Gms.InstantApp.LauncherConsts
+const Android.Gms.InstantApp.InstantAppIntentData.ResultLaunchOk = 0 -> int
+const Android.Gms.InstantApp.InstantAppIntentData.ResultNoLaunch = 1 -> int
+const Android.Gms.InstantApp.InstantAppIntentData.ResultNoLaunchHoldback = 2 -> int
+const Android.Gms.InstantApp.InstantAppIntentData.ResultUserPrefersBrowser = 3 -> int
+const Android.Gms.InstantApp.Launcher.ExtraDoNotLaunchInstantApp = "com.google.android.gms.instantapps.DO_NOT_LAUNCH_INSTANT_APP" -> string!
+const Android.Gms.InstantApp.Launcher.ExtraIsReferrerTrusted = "com.google.android.gms.instantapps.IS_REFERRER_TRUSTED" -> string!
+const Android.Gms.InstantApp.Launcher.ExtraIsUserConfirmedLaunch = "com.google.android.gms.instantapps.IS_USER_CONFIRMED_LAUNCH" -> string!
+const Android.Gms.InstantApp.Launcher.ExtraTrustedReferrerPkg = "com.google.android.gms.instantapps.TRUSTED_REFERRER_PKG" -> string!
+override Android.Gms.InstantApp.InstantAppIntentData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.InstantApp.InstantAppIntentData.ThresholdClass.get -> nint
+override Android.Gms.InstantApp.InstantAppIntentData.ThresholdType.get -> System.Type!
+override Android.Gms.InstantApp.InstantAppIntentData.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.InstantApp.InstantApps.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.InstantApp.InstantAppsClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.InstantApp.InstantAppsClient.ThresholdClass.get -> nint
+override Android.Gms.InstantApp.InstantAppsClient.ThresholdType.get -> System.Type!
+override Android.Gms.InstantApp.LaunchData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.InstantApp.LaunchData.ThresholdClass.get -> nint
+override Android.Gms.InstantApp.LaunchData.ThresholdType.get -> System.Type!
+override Android.Gms.InstantApp.LaunchData.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+static Android.Gms.InstantApp.IPackageManagerCompatExtensions.GetApplicationLabel(this Android.Gms.InstantApp.IPackageManagerCompat! self, Android.Content.PM.ApplicationInfo! info) -> string?
+static Android.Gms.InstantApp.InstantAppIntentData.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.InstantApp.InstantAppIntentData.Zza.get -> Android.Gms.InstantApp.InstantAppIntentData!
+static Android.Gms.InstantApp.InstantApps.GetActivityCompat(Android.App.Activity! activity) -> Android.Gms.InstantApp.IActivityCompat!
+static Android.Gms.InstantApp.InstantApps.GetInstantAppsClient(Android.App.Activity! activity) -> Android.Gms.InstantApp.InstantAppsClient!
+static Android.Gms.InstantApp.InstantApps.GetInstantAppsClient(Android.Content.Context! context) -> Android.Gms.InstantApp.InstantAppsClient!
+static Android.Gms.InstantApp.InstantApps.GetLauncher(Android.Content.Context! context) -> Android.Gms.InstantApp.ILauncher!
+static Android.Gms.InstantApp.InstantApps.GetPackageManagerCompat(Android.Content.Context! context) -> Android.Gms.InstantApp.IPackageManagerCompat!
+static Android.Gms.InstantApp.InstantApps.ShowInstallPrompt(Android.App.Activity! activity, Android.Content.Intent? postInstallIntent, int requestCode, string? referrer) -> bool
+static Android.Gms.InstantApp.InstantApps.Zza.get -> Android.Gms.Common.Apis.Api!
+static Android.Gms.InstantApp.LaunchData.Creator.get -> Android.OS.IParcelableCreator!
+virtual Android.Gms.InstantApp.InstantAppIntentData.Intent.get -> Android.Content.Intent?
+virtual Android.Gms.InstantApp.InstantAppIntentData.MatchResult.get -> int
+virtual Android.Gms.InstantApp.InstantAppIntentData.PackageName.get -> string?
+virtual Android.Gms.InstantApp.InstantAppsClient.AreInstantAppsEnabledForDevice() -> Android.Gms.Tasks.Task!
+virtual Android.Gms.InstantApp.InstantAppsClient.GetInstantAppData() -> Android.Gms.Tasks.Task!
+virtual Android.Gms.InstantApp.LaunchData.ApplicationIcon.get -> Android.Graphics.Bitmap?
+virtual Android.Gms.InstantApp.LaunchData.ApplicationLabel.get -> string?
+virtual Android.Gms.InstantApp.LaunchData.Intent.get -> Android.Content.Intent?
+virtual Android.Gms.InstantApp.LaunchData.PackageName.get -> string?

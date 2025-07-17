@@ -1,0 +1,97 @@
+﻿#nullable enable
+Android.Gms.Auth.Api.Phone.IIncomingCallRetrieverClient
+Android.Gms.Auth.Api.Phone.IIncomingCallRetrieverClient.StartIncomingCallRetriever(Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest! incomingCallRetrieverRequest) -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient
+Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient.CheckPermissionState() -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient.HasOngoingSmsRequest(string! p0) -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient.StartSmsCodeRetriever() -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClientPermissionState
+Android.Gms.Auth.Api.Phone.ISmsCodeBrowserClient
+Android.Gms.Auth.Api.Phone.ISmsCodeBrowserClient.StartSmsCodeRetriever() -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsRetrieverApi
+Android.Gms.Auth.Api.Phone.ISmsRetrieverApi.StartSmsRetriever() -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.ISmsRetrieverApi.StartSmsUserConsent(string? p0) -> Android.Gms.Tasks.Task!
+Android.Gms.Auth.Api.Phone.IncomingCallRetriever
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.Companion
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.CountryCode.get -> string!
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.EndRange.get -> string!
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.IncomingCallRetrieverRequest(string! countryCode, string! prefix, string! startRange, string! endRange) -> void
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.Prefix.get -> string!
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.StartRange.get -> string!
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.Companion
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.ErrorDetails.get -> string?
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.IncomingCallRetrieverResponse(string? phoneNumber, string! incomingCallVerificationStatusCode, string? errorDetails) -> void
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.IncomingCallVerificationStatusCode.get -> string!
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.PhoneNumber.get -> string?
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes
+Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.GetVerificationStatusCodeString(int statusCode) -> string!
+Android.Gms.Auth.Api.Phone.SmsCodeAutofillClientPermissionState
+Android.Gms.Auth.Api.Phone.SmsCodeAutofillClientPermissionStateConsts
+Android.Gms.Auth.Api.Phone.SmsCodeRetriever
+Android.Gms.Auth.Api.Phone.SmsRetriever
+Android.Gms.Auth.Api.Phone.SmsRetrieverClient
+Android.Gms.Auth.Api.Phone.SmsRetrieverClient.SmsRetrieverClient(Android.App.Activity! p0) -> void
+Android.Gms.Auth.Api.Phone.SmsRetrieverClient.SmsRetrieverClient(Android.Content.Context! p0) -> void
+Android.Gms.Auth.Api.Phone.SmsRetrieverClient.SmsRetrieverClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes
+abstract Android.Gms.Auth.Api.Phone.SmsRetrieverClient.StartSmsRetriever() -> Android.Gms.Tasks.Task!
+abstract Android.Gms.Auth.Api.Phone.SmsRetrieverClient.StartSmsUserConsent(string? p0) -> Android.Gms.Tasks.Task!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetriever.ActivityResultIntentExtraMessage = "MESSAGE" -> string!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetriever.ActivityResultIntentExtraStatusCode = "STATUS_CODE" -> string!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetriever.PhoneVerificationStatusIntentAction = "com.google.android.gms.auth.api.phone.PHONE_VERIFICATION_STATUS_INTENT_ACTION" -> string!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetriever.PhoneVerificationStatusIntentExtra = "PHONE_VERIFICATION_STATUS_INTENT_EXTRA" -> string!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetriever.SendPermission = "com.google.android.gms.auth.api.phone.permission.SEND" -> string!
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.ApiUnavailable = 53003 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.ConcurrentRequests = 53001 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.FailureOther = 53008 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.InEmergencyCall = 53002 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.InvalidPhoneNumberRange = 53006 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.RateLimitReached = 53004 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.TelephonyFeatureUnavailable = 53005 -> int
+const Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.UserConsentDenied = 53007 -> int
+const Android.Gms.Auth.Api.Phone.SmsCodeAutofillClientPermissionState.Denied = 2 -> int
+const Android.Gms.Auth.Api.Phone.SmsCodeAutofillClientPermissionState.Granted = 1 -> int
+const Android.Gms.Auth.Api.Phone.SmsCodeAutofillClientPermissionState.None = 0 -> int
+const Android.Gms.Auth.Api.Phone.SmsCodeRetriever.ExtraSmsCode = "com.google.android.gms.auth.api.phone.EXTRA_SMS_CODE" -> string!
+const Android.Gms.Auth.Api.Phone.SmsCodeRetriever.ExtraSmsCodeLine = "com.google.android.gms.auth.api.phone.EXTRA_SMS_CODE_LINE" -> string!
+const Android.Gms.Auth.Api.Phone.SmsCodeRetriever.ExtraStatus = "com.google.android.gms.auth.api.phone.EXTRA_STATUS" -> string!
+const Android.Gms.Auth.Api.Phone.SmsCodeRetriever.SmsCodeRetrievedAction = "com.google.android.gms.auth.api.phone.SMS_CODE_RETRIEVED" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.ExtraConsentIntent = "com.google.android.gms.auth.api.phone.EXTRA_CONSENT_INTENT" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.ExtraSimSubscriptionId = "com.google.android.gms.auth.api.phone.EXTRA_SIM_SUBSCRIPTION_ID" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.ExtraSmsMessage = "com.google.android.gms.auth.api.phone.EXTRA_SMS_MESSAGE" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.ExtraSmsOriginatingAddress = "com.google.android.gms.auth.api.phone.EXTRA_SMS_ORIGINATING_ADDRESS" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.ExtraStatus = "com.google.android.gms.auth.api.phone.EXTRA_STATUS" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.SendPermission = "com.google.android.gms.auth.api.phone.permission.SEND" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetriever.SmsRetrievedAction = "com.google.android.gms.auth.api.phone.SMS_RETRIEVED" -> string!
+const Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes.ApiNotAvailable = 36501 -> int
+const Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes.PlatformNotSupported = 36500 -> int
+const Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes.UserPermissionRequired = 36502 -> int
+override Android.Gms.Auth.Api.Phone.IncomingCallRetriever.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.SmsCodeRetriever.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.SmsRetriever.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.SmsRetrieverClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Phone.SmsRetrieverClient.ThresholdClass.get -> nint
+override Android.Gms.Auth.Api.Phone.SmsRetrieverClient.ThresholdType.get -> System.Type!
+override Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetriever.GetClient(Android.App.Activity! activity) -> Android.Gms.Auth.Api.Phone.IIncomingCallRetrieverClient!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetriever.GetClient(Android.Content.Context! context) -> Android.Gms.Auth.Api.Phone.IIncomingCallRetrieverClient!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetriever.Instance.get -> Android.Gms.Auth.Api.Phone.IncomingCallRetriever!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetrieverRequest.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetrieverResponse.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes.Instance.get -> Android.Gms.Auth.Api.Phone.IncomingCallRetrieverStatusCodes!
+static Android.Gms.Auth.Api.Phone.SmsCodeRetriever.GetAutofillClient(Android.App.Activity! activity) -> Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient!
+static Android.Gms.Auth.Api.Phone.SmsCodeRetriever.GetAutofillClient(Android.Content.Context! context) -> Android.Gms.Auth.Api.Phone.ISmsCodeAutofillClient!
+static Android.Gms.Auth.Api.Phone.SmsCodeRetriever.GetBrowserClient(Android.App.Activity! activity) -> Android.Gms.Auth.Api.Phone.ISmsCodeBrowserClient!
+static Android.Gms.Auth.Api.Phone.SmsCodeRetriever.GetBrowserClient(Android.Content.Context! context) -> Android.Gms.Auth.Api.Phone.ISmsCodeBrowserClient!
+static Android.Gms.Auth.Api.Phone.SmsRetriever.GetClient(Android.App.Activity! activity) -> Android.Gms.Auth.Api.Phone.SmsRetrieverClient!
+static Android.Gms.Auth.Api.Phone.SmsRetriever.GetClient(Android.Content.Context! context) -> Android.Gms.Auth.Api.Phone.SmsRetrieverClient!
+static Android.Gms.Auth.Api.Phone.SmsRetrieverStatusCodes.GetStatusCodeString(int statusCode) -> string!
