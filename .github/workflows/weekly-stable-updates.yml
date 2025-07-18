@@ -43,6 +43,19 @@ jobs:
 
           And put the contents from this command in the PR description and commit messages.`;
 
+          // Check for existing issues with the same title
+          const existingIssues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            per_page: 100
+          });
+          const duplicateIssue = existingIssues.data.find(issue => /^Stable Updates \d{8}$/.test(issue.title));
+          if (duplicateIssue) {
+            console.log(`Issue with title "${duplicateIssue.title}" already exists: #${duplicateIssue.number}`);
+            return;
+          }
+
           const response = await github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -54,6 +67,7 @@ jobs:
           core.setOutput('issue-number', response.data.number);
 
     - name: Add assignee to issue
+      if: steps.create-issue.outputs.issue-number && steps.create-issue.outputs.issue-number != ''
       run: gh issue edit ${{ steps.create-issue.outputs.issue-number }} --add-assignee "@copilot" -R dotnet/android-libraries
       env:
         GH_TOKEN: ${{ secrets.ANDROID_TEAM_PAT }}
