@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <!-- Remove the problematic classes that cause partial class conflicts -->
+  <remove-node path="/api/package[@name='androidx.health.platform.client.impl.sdkservice']/class[@name='HealthDataSdkService']" />
+  
+  <!-- Remove the Client.IServiceGetter class that causes accessibility issues -->
+  <remove-node path="/api/package[@name='androidx.health.platform.client.impl.ipc']/class[@name='Client.IServiceGetter']" />
+  
+  <!-- Remove the problematic Client constructor with accessibility issues -->
+  <remove-node path="/api/package[@name='androidx.health.platform.client.impl.ipc']/class[@name='Client']/constructor[@name='Client' and count(parameter)=4]" />
+</metadata>
