@@ -54,6 +54,6 @@ jobs:
           core.setOutput('issue-number', response.data.number);
 
     - name: Add assignee to issue
-      run: gh issue edit ${{ steps.create-issue.outputs.issue-number }} --add-assignee "@copilot"
+      run: gh issue edit ${{ steps.create-issue.outputs.issue-number }} --add-assignee "@copilot" -R dotnet/android-libraries
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
