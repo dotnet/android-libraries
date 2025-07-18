@@ -51,3 +51,9 @@ jobs:
           });
           
           console.log(`Created issue #${response.data.number}: ${response.data.title}`);
+          core.setOutput('issue-number', response.data.number);
+
+    - name: Add assignee to issue
+      run: gh issue edit ${{ steps.create-issue.outputs.issue-number }} --add-assignee "@copilot"
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
