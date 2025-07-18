@@ -56,4 +56,4 @@ jobs:
     - name: Add assignee to issue
       run: gh issue edit ${{ steps.create-issue.outputs.issue-number }} --add-assignee "@copilot" -R dotnet/android-libraries
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.ANDROID_TEAM_PAT }}
