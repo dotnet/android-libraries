@@ -27,9 +27,30 @@ jobs:
     - name: Restore dotnet tools
       run: dotnet tool restore
 
+    # Cache the externals directory based on config.json content
+    # This caches the Maven artifacts downloaded by the binderator tool
+    # to avoid re-downloading the same artifacts on subsequent runs
+    - name: Restore externals cache
+      id: cache-externals-restore
+      uses: actions/cache/restore@v4
+      with:
+        path: ./externals
+        key: externals-${{ hashFiles('config.json') }}
+
     - name: Run dotnet cake
       run: dotnet cake
       continue-on-error: true
+
+    # Save the externals cache after dotnet cake runs
+    # This ensures the cache reflects the original config.json state
+    # before any potential modifications by the build process
+    - name: Save externals cache
+      id: cache-externals-save
+      uses: actions/cache/save@v4
+      if: steps.cache-externals-restore.outputs.cache-hit != 'true'
+      with:
+        path: ./externals
+        key: externals-${{ hashFiles('config.json') }}
 
     - name: Display environment info
       run: |
