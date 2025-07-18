@@ -27,6 +27,20 @@ namespace Android.BillingClient.Api
         public IList<SkuDetails> SkuDetails { get; set; }
     }
 
+    public partial class QueryProductDetailsResult
+    {
+        public QueryProductDetailsResult() { }
+
+        public BillingResult Result { get; set; }
+
+        [Obsolete ($"Use {nameof(ProductDetailsList)} instead")]
+        public IList<ProductDetails> ProductDetails
+        {
+            get => ProductDetailsList;
+            set { /* Obsolete property setter does nothing */ }
+        }
+    }
+
     public class QueryPurchasesResult
     {
         public BillingResult Result { get; set; }
@@ -241,7 +255,11 @@ namespace Android.BillingClient.Api
         public Action<BillingResult, QueryProductDetailsResult> ProductDetailsResponseHandler { get; set; }
 
         public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
-            => ProductDetailsResponseHandler?.Invoke(result, queryResult);
+        {
+            queryResult ??= new();
+            queryResult.Result = result;
+            ProductDetailsResponseHandler?.Invoke(result, queryResult);
+        }
     }
 
     internal class InternalPurchasesResponseListener : Java.Lang.Object, IPurchasesResponseListener
