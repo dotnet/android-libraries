@@ -56,7 +56,13 @@ AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.CoordinatorOriginUri.get -> Android.Net.Uri?
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.GetAdSelectionDataRequest(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! seller) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.GetAdSelectionDataRequest(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! seller, Android.Net.Uri? coordinatorOriginUri) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.GetAdSelectionDataRequest(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! seller, Android.Net.Uri? coordinatorOriginUri, AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration? sellerConfiguration) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.Seller.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier!
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.SellerConfiguration.get -> AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration?
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration.Buyer.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier!
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration.PerBuyerConfiguration(int targetInputSizeBytes, AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration.TargetInputSizeBytes.get -> int
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PersistAdSelectionResultRequest
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PersistAdSelectionResultRequest.AdSelectionId.get -> long
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PersistAdSelectionResultRequest.GetAdSelectionResult() -> byte[]?
@@ -79,6 +85,10 @@ AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportImpressionRequest.AdSel
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportImpressionRequest.AdSelectionId.get -> long
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportImpressionRequest.ReportImpressionRequest(long adSelectionId) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportImpressionRequest.ReportImpressionRequest(long adSelectionId, AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.AdSelectionConfig! adSelectionConfig) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration.MaximumPayloadSizeBytes.get -> int
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration.PerBuyerConfigurations.get -> System.Collections.Generic.ICollection<AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration!>!
+AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration.SellerConfiguration(int maximumPayloadSizeBytes, System.Collections.Generic.ICollection<AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration!>! perBuyerConfigurations) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.UpdateAdCounterHistogramRequest
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.UpdateAdCounterHistogramRequest.AdEventType.get -> int
 AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.UpdateAdCounterHistogramRequest.AdSelectionId.get -> long
@@ -134,6 +144,7 @@ AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeatures
 AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesExt10OptIn
 AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesExt11OptIn
 AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesExt12OptIn
+AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesExt14OptIn
 AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesExt8OptIn
 AndroidX.PrivacySandbox.Ads.AdServices.Common.IExperimentalFeaturesRegisterSourceOptIn
 AndroidX.PrivacySandbox.Ads.AdServices.Common.KeyedFrequencyCap
@@ -144,24 +155,31 @@ AndroidX.PrivacySandbox.Ads.AdServices.Common.KeyedFrequencyCap.MaxCount.get -> 
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.ActivationTime.get -> Java.Time.Instant?
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Ads.get -> System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.Common.AdData!>!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.AuctionServerRequestFlags.get -> int
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.BiddingLogicUri.get -> Android.Net.Uri!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.Build() -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.Builder(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer, string! name, Android.Net.Uri! dailyUpdateUri, Android.Net.Uri! biddingLogicUri, System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.Common.AdData!>! ads) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetActivationTime(Java.Time.Instant! activationTime) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetAds(System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.Common.AdData!>! ads) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetAuctionServerRequestFlags(int auctionServerRequestFlag) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetBiddingLogicUri(Android.Net.Uri! biddingLogicUri) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetBuyer(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetDailyUpdateUri(Android.Net.Uri! dailyUpdateUri) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetExpirationTime(Java.Time.Instant! expirationTime) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetName(string! name) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetPriority(double priority) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetTrustedBiddingData(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData! trustedBiddingSignals) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.SetUserBiddingSignals(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals! userBiddingSignals) -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Buyer.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Companion
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.CustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer, string! name, Android.Net.Uri! dailyUpdateUri, Android.Net.Uri! biddingLogicUri, System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.Common.AdData!>! ads, Java.Time.Instant? activationTime, Java.Time.Instant? expirationTime, AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals? userBiddingSignals, AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData? trustedBiddingSignals) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.CustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer, string! name, Android.Net.Uri! dailyUpdateUri, Android.Net.Uri! biddingLogicUri, System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.Common.AdData!>! ads, Java.Time.Instant? activationTime, Java.Time.Instant? expirationTime, AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals? userBiddingSignals, AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData? trustedBiddingSignals, int auctionServerRequestFlags, double priority) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.DailyUpdateUri.get -> Android.Net.Uri!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.ExpirationTime.get -> Java.Time.Instant?
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.IAuctionServerRequestFlag
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Name.get -> string!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Priority.get -> double
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.TrustedBiddingSignals.get -> AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData?
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.UserBiddingSignals.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals?
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager
@@ -194,6 +212,22 @@ AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest.Buyer.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest.LeaveCustomAudienceRequest(AndroidX.PrivacySandbox.Ads.AdServices.Common.AdTechIdentifier! buyer, string! name) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest.Name.get -> string!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.ActivationTime.get -> Java.Time.Instant?
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.ExpirationTime.get -> Java.Time.Instant?
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.Name.get -> string!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.PartialCustomAudience(string! name) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.PartialCustomAudience(string! name, Java.Time.Instant? activationTime) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.PartialCustomAudience(string! name, Java.Time.Instant? activationTime, Java.Time.Instant? expirationTime) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.PartialCustomAudience(string! name, Java.Time.Instant? activationTime, Java.Time.Instant? expirationTime, AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals? userBiddingSignals) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.UserBiddingSignals.get -> AndroidX.PrivacySandbox.Ads.AdServices.Common.AdSelectionSignals?
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.MinDelay.get -> Java.Time.Duration!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.PartialCustomAudienceList.get -> System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience!>!
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.ScheduleCustomAudienceUpdateRequest(Android.Net.Uri! updateUri, Java.Time.Duration! minDelay, System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience!>! partialCustomAudienceList) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.ScheduleCustomAudienceUpdateRequest(Android.Net.Uri! updateUri, Java.Time.Duration! minDelay, System.Collections.Generic.IList<AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience!>! partialCustomAudienceList, bool shouldReplacePendingUpdates) -> void
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.ShouldReplacePendingUpdates() -> bool
+AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.UpdateUri.get -> Android.Net.Uri!
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData.TrustedBiddingData(Android.Net.Uri! trustedBiddingUri, System.Collections.Generic.IList<string!>! trustedBiddingKeys) -> void
 AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData.TrustedBiddingKeys.get -> System.Collections.Generic.IList<string!>!
@@ -330,6 +364,7 @@ abstract AndroidX.PrivacySandbox.Ads.AdServices.AppSetId.AppSetIdManager.GetAppS
 abstract AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.FetchAndJoinCustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.FetchAndJoinCustomAudienceRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 abstract AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.JoinCustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.JoinCustomAudienceRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 abstract AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.LeaveCustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+abstract AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.ScheduleCustomAudienceUpdate(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 abstract AndroidX.PrivacySandbox.Ads.AdServices.Measurement.MeasurementManager.DeleteRegistrations(AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest! deletionRequest, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 abstract AndroidX.PrivacySandbox.Ads.AdServices.Measurement.MeasurementManager.GetMeasurementApiStatus(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 abstract AndroidX.PrivacySandbox.Ads.AdServices.Measurement.MeasurementManager.RegisterSource(Android.Net.Uri! attributionSource, Android.Views.InputEvent? inputEvent, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
@@ -347,6 +382,9 @@ const AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.AdEventT
 const AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.AdEventTypeImpression = 1 -> int
 const AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.AdEventTypeView = 2 -> int
 const AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.AdEventTypeWin = 0 -> int
+const AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.FlagAuctionServerRequestDefault = 0 -> int
+const AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.FlagAuctionServerRequestOmitAds = 1 -> int
+const AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.PriorityDefault = 0 -> double
 const AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest.DeletionModeAll = 0 -> int
 const AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest.DeletionModeExcludeInternalData = 1 -> int
 const AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest.MatchBehaviorDelete = 0 -> int
@@ -386,10 +424,12 @@ override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.AdSelectionOutcome.C
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.AdSelectionOutcome.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataOutcome.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.GetAdSelectionDataRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PerBuyerConfiguration.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.PersistAdSelectionResultRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportEventRequest.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportEventRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.ReportImpressionRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.SellerConfiguration.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AdSelection.UpdateAdCounterHistogramRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AppSetId.AppSetId.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.AppSetId.AppSetId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -411,6 +451,7 @@ override AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.Compa
 override AndroidX.PrivacySandbox.Ads.AdServices.Common.FrequencyCapFilters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.Common.KeyedFrequencyCap.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudience.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManager.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -422,11 +463,14 @@ override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceMan
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.JoinCustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.JoinCustomAudienceRequest! request, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.LeaveCustomAudience(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest! request, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.ScheduleCustomAudienceUpdate(AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest! request, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.ThresholdClass.get -> nint
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.CustomAudienceManagerImplCommon.ThresholdType.get -> System.Type!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.FetchAndJoinCustomAudienceRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.JoinCustomAudienceRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.LeaveCustomAudienceRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.PartialCustomAudience.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.ScheduleCustomAudienceUpdateRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.CustomAudience.TrustedBiddingData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.PrivacySandbox.Ads.AdServices.Measurement.DeletionRequest.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!

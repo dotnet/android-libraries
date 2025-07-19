@@ -227,8 +227,8 @@
 | 220|androidx.preference:preference                                        |1.2.1               |Xamarin.AndroidX.Preference                                           |1.2.1.14            |
 | 221|androidx.preference:preference-ktx                                    |1.2.1               |Xamarin.AndroidX.Preference.Preference.Ktx                            |1.2.1.14            |
 | 222|androidx.print:print                                                  |1.1.0               |Xamarin.AndroidX.Print                                                |1.1.0               |
-| 223|androidx.privacysandbox.ads:ads-adservices                            |1.1.0-beta11        |Xamarin.AndroidX.PrivacySandbox.Ads.AdsServices                       |1.1.0.2-beta11      |
-| 224|androidx.privacysandbox.ads:ads-adservices-java                       |1.1.0-beta11        |Xamarin.AndroidX.PrivacySandbox.Ads.AdsServices.Java                  |1.1.0.2-beta11      |
+| 223|androidx.privacysandbox.ads:ads-adservices                            |1.1.0-beta12        |Xamarin.AndroidX.PrivacySandbox.Ads.AdsServices                       |1.1.0.2-beta12      |
+| 224|androidx.privacysandbox.ads:ads-adservices-java                       |1.1.0-beta12        |Xamarin.AndroidX.PrivacySandbox.Ads.AdsServices.Java                  |1.1.0.2-beta12      |
 | 225|androidx.profileinstaller:profileinstaller                            |1.4.1               |Xamarin.AndroidX.ProfileInstaller.ProfileInstaller                    |1.4.1.4             |
 | 226|androidx.recommendation:recommendation                                |1.0.0               |Xamarin.AndroidX.Recommendation                                       |1.0.0.33            |
 | 227|androidx.recyclerview:recyclerview                                    |1.4.0               |Xamarin.AndroidX.RecyclerView                                         |1.4.0.2             |
@@ -331,7 +331,7 @@
 | 324|com.google.accompanist:accompanist-placeholder-material               |0.36.0              |Xamarin.Google.Accompanist.Placeholder.Material                       |0.36.0.5            |
 | 325|com.google.accompanist:accompanist-swiperefresh                       |0.36.0              |Xamarin.Google.Accompanist.SwipeRefresh                               |0.36.0.5            |
 | 326|com.google.accompanist:accompanist-systemuicontroller                 |0.36.0              |Xamarin.Google.Accompanist.SystemUIController                         |0.36.0.5            |
-| 327|com.google.ads.interactivemedia.v3:interactivemedia                   |3.37.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.37.0              |
+| 327|com.google.ads.interactivemedia.v3:interactivemedia                   |3.36.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.36.0.3            |
 | 328|com.google.ai.edge.litert:litert                                      |1.4.0               |Xamarin.Google.AI.Edge.LiteRT                                         |1.4.0               |
 | 329|com.google.ai.edge.litert:litert-api                                  |1.4.0               |Xamarin.Google.AI.Edge.LiteRT.API                                     |1.4.0               |
 | 330|com.google.ai.edge.litert:litert-gpu                                  |1.4.0               |Xamarin.Google.AI.Edge.LiteRT.GPU                                     |1.4.0               |
@@ -459,7 +459,7 @@
 | 452|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.20            |
 | 453|com.google.code.gson:gson                                             |2.13.1              |GoogleGson                                                            |2.13.1              |
 | 454|com.google.crypto.tink:tink-android                                   |1.18.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.18.0              |
-| 455|com.google.dagger:dagger                                              |2.57.0              |Xamarin.Google.Dagger                                                 |2.57.0              |
+| 455|com.google.dagger:dagger                                              |2.56.2              |Xamarin.Google.Dagger                                                 |2.56.2              |
 | 456|com.google.errorprone:error_prone_annotations                         |2.40.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.40.0              |
 | 457|com.google.errorprone:error_prone_type_annotations                    |2.40.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.40.0              |
 | 458|com.google.firebase:firebase-abt                                      |22.0.0              |Xamarin.Firebase.Abt                                                  |122.0.0.6           |
