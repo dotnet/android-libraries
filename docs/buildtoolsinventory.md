@@ -17,3 +17,4 @@
 ```
 version9.0.301
 rollForwardlatestMajor
+allowPrereleaseTrue
