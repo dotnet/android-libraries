@@ -16,7 +16,7 @@ jobs:
         dotnet-version: '9.x'
 
     - name: Install Android workload
-      run: dotnet workload install android
+      run: dotnet workload install android --from-rollback-file net9.0-workloads.json --source https://api.nuget.org/v3/index.json --source https://pkgs.dev.azure.com/dnceng/public/_packaging/darc-pub-dotnet-android-be1cab92/nuget/v3/index.json
 
     - name: Setup OpenJDK 11
       uses: actions/setup-java@v4
