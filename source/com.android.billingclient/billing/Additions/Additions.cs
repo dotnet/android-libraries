@@ -65,7 +65,7 @@ namespace Android.BillingClient.Api
             }
         }
 
-        public async Task<BillingResult> AcknowledgePurchaseAsync(AcknowledgePurchaseParams acknowledgePurchaseParams)
+        public Task<BillingResult> AcknowledgePurchaseAsync(AcknowledgePurchaseParams acknowledgePurchaseParams)
         {
             var tcs = new TaskCompletionSource<BillingResult>();
 
@@ -76,12 +76,10 @@ namespace Android.BillingClient.Api
 
             AcknowledgePurchase(acknowledgePurchaseParams, listener);
 
-            var result = await tcs.Task;
-            GC.KeepAlive(listener);
-            return result;
+            return tcs.Task;
         }
 
-        public async Task<ConsumeResult> ConsumeAsync(ConsumeParams consumeParams)
+        public Task<ConsumeResult> ConsumeAsync(ConsumeParams consumeParams)
         {
             var tcs = new TaskCompletionSource<ConsumeResult>();
 
@@ -96,9 +94,7 @@ namespace Android.BillingClient.Api
 
             Consume(consumeParams, listener);
 
-            var result = await tcs.Task;
-            GC.KeepAlive(listener);
-            return result;
+            return tcs.Task;
         }
 
         const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead. See: https://developer.android.com/google/play/billing/migrate";
@@ -129,7 +125,7 @@ namespace Android.BillingClient.Api
             throw new NotSupportedException(QuerySkuDetailsNotSupported);
         }
 
-        public async Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
+        public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
         {
             var tcs = new TaskCompletionSource<QueryProductDetailsResult>();
 
@@ -140,12 +136,10 @@ namespace Android.BillingClient.Api
 
             QueryProductDetails(productDetailsParams, listener);
 
-            var result = await tcs.Task;
-            GC.KeepAlive(listener);
-            return result;
+            return tcs.Task;
         }
 
-        public async Task<QueryPurchasesResult> QueryPurchasesAsync(QueryPurchasesParams purchasesParams)
+        public Task<QueryPurchasesResult> QueryPurchasesAsync(QueryPurchasesParams purchasesParams)
         {
             var tcs = new TaskCompletionSource<QueryPurchasesResult>();
 
@@ -160,12 +154,10 @@ namespace Android.BillingClient.Api
 
             QueryPurchases(purchasesParams, listener);
 
-            var result = await tcs.Task;
-            GC.KeepAlive(listener);
-            return result;
+            return tcs.Task;
         }
 
-        public async Task<BillingResult> StartConnectionAsync(Action onDisconnected = null)
+        public Task<BillingResult> StartConnectionAsync(Action onDisconnected = null)
         {
             var tcs = new TaskCompletionSource<BillingResult>();
 
@@ -182,9 +174,7 @@ namespace Android.BillingClient.Api
 
             StartConnection(listener);
 
-            var result = await tcs.Task;
-            GC.KeepAlive(listener);
-            return result;
+            return tcs.Task;
         }
 
         public void StartConnection(Action<BillingResult> setupFinished, Action onDisconnected)
@@ -206,7 +196,15 @@ namespace Android.BillingClient.Api
         public Action<BillingResult> AcknowledgePurchaseResponseHandler { get; set; }
 
         public void OnAcknowledgePurchaseResponse(BillingResult result)
-            => AcknowledgePurchaseResponseHandler?.Invoke(result);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            AcknowledgePurchaseResponseHandler?.Invoke(resultCopy);
+        }
     }
 
     internal class InternalBillingClientStateListener : Java.Lang.Object, IBillingClientStateListener
@@ -219,21 +217,45 @@ namespace Android.BillingClient.Api
             => BillingServiceDisconnectedHandler?.Invoke();
 
         public void OnBillingSetupFinished(BillingResult result)
-            => BillingSetupFinishedHandler?.Invoke(result);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            BillingSetupFinishedHandler?.Invoke(resultCopy);
+        }
     }
 
     internal class InternalConsumeResponseListener : Java.Lang.Object, IConsumeResponseListener
     {
         public Action<BillingResult, string> ConsumeResponseHandler { get; set; }
         public void OnConsumeResponse(BillingResult result, string str)
-            => ConsumeResponseHandler?.Invoke(result, str);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            ConsumeResponseHandler?.Invoke(resultCopy, str);
+        }
     }
 
     internal class InternalPriceChangeConfirmationListener : Java.Lang.Object //, IPriceChangeConfirmationListener
     {
         public Action<BillingResult> PriceChangeConfirmationHandler { get; set; }
         public void OnPriceChangeConfirmationResult(BillingResult result)
-            => PriceChangeConfirmationHandler?.Invoke(result);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            PriceChangeConfirmationHandler?.Invoke(resultCopy);
+        }
     }
 
     internal class InternalPurchaseHistoryResponseListener : Java.Lang.Object, IPurchaseHistoryResponseListener
@@ -241,14 +263,30 @@ namespace Android.BillingClient.Api
         public Action<BillingResult, IList<PurchaseHistoryRecord>> PurchaseHistoryResponseHandler { get; set; }
 
         public void OnPurchaseHistoryResponse(BillingResult result, IList<PurchaseHistoryRecord> history)
-            => PurchaseHistoryResponseHandler?.Invoke(result, history);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            PurchaseHistoryResponseHandler?.Invoke(resultCopy, history);
+        }
     }
 
     internal class InternalPurchasesUpdatedListener : Java.Lang.Object, IPurchasesUpdatedListener
     {
         public Action<BillingResult, IList<Purchase>> PurchasesUpdatedHandler { get; set; }
         public void OnPurchasesUpdated(BillingResult result, IList<Purchase> purchases)
-            => PurchasesUpdatedHandler?.Invoke(result, purchases);
+        {
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            PurchasesUpdatedHandler?.Invoke(resultCopy, purchases);
+        }
     }
 
     [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
@@ -267,8 +305,15 @@ namespace Android.BillingClient.Api
         public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
         {
             queryResult ??= new();
-            queryResult.Result = result;
-            ProductDetailsResponseHandler?.Invoke(result, queryResult);
+            // Create a copy of the BillingResult to ensure it stays alive after the callback
+            // The original result may be disposed by the native side, causing ObjectDisposedException
+            var resultCopy = BillingResult.NewBuilder()
+                .SetResponseCode((int)result.ResponseCode)
+                .SetDebugMessage(result.DebugMessage)
+                .SetOnPurchasesUpdatedSubResponseCode(result.OnPurchasesUpdatedSubResponseCode)
+                .Build();
+            queryResult.Result = resultCopy;
+            ProductDetailsResponseHandler?.Invoke(resultCopy, queryResult);
         }
     }
 
