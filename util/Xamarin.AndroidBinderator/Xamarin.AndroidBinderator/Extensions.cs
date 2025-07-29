@@ -123,24 +123,17 @@ public class ProjectResolver : IProjectResolver
 
 	public Project Resolve (Artifact artifact)
 	{
-		try {
-			if (repository.TryGetFilePath (artifact, $"{artifact.Id}-{artifact.Version}.pom", out var path)) {
-				using (var stream = File.OpenRead (path)) {
-					var pom = Project.Load (stream) ?? throw new InvalidOperationException ($"Could not deserialize POM for {artifact}");
+		if (repository.TryGetFilePath (artifact, $"{artifact.Id}-{artifact.Version}.pom", out var path)) {
+			using (var stream = File.OpenRead (path)) {
+				var pom = Project.Load (stream) ?? throw new InvalidOperationException ($"Could not deserialize POM for {artifact}");
 
-					// Use index instead of Add to handle duplicates
-					ResolvedPoms [artifact.VersionedArtifactString] = path;
+				// Use index instead of Add to handle duplicates
+				ResolvedPoms [artifact.VersionedArtifactString] = path;
 
-					return pom;
-				}
+				return pom;
 			}
-
-			throw new InvalidOperationException ($"No POM found for {artifact}");
-		} catch (Exception ex) {
-			Console.WriteLine ($"Failed to resolve dependency: {artifact.GroupId}:{artifact.Id}:{artifact.Version}");
-			Console.WriteLine ($"Artifact details - GroupId: {artifact.GroupId}, ArtifactId: {artifact.Id}, Version: {artifact.Version}");
-			Console.WriteLine ($"Full artifact string: {artifact.VersionedArtifactString}");
-			throw;
 		}
+
+		throw new InvalidOperationException ($"No POM found for {artifact}");
 	}
 }
