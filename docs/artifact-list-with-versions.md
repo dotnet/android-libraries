@@ -459,7 +459,7 @@
 | 452|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.20            |
 | 453|com.google.code.gson:gson                                             |2.13.1              |GoogleGson                                                            |2.13.1              |
 | 454|com.google.crypto.tink:tink-android                                   |1.18.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.18.0              |
-| 455|com.google.dagger:dagger                                              |2.57.0              |Xamarin.Google.Dagger                                                 |2.57.0              |
+| 455|com.google.dagger:dagger                                              |2.56.2              |Xamarin.Google.Dagger                                                 |2.56.2              |
 | 456|com.google.errorprone:error_prone_annotations                         |2.41.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.41.0              |
 | 457|com.google.errorprone:error_prone_type_annotations                    |2.41.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.41.0              |
 | 458|com.google.firebase:firebase-abt                                      |23.0.0              |Xamarin.Firebase.Abt                                                  |123.0.0             |
