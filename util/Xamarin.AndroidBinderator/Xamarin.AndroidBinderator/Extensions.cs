@@ -134,62 +134,13 @@ public class ProjectResolver : IProjectResolver
 					return pom;
 				}
 			}
-		} catch (Exception ex) when (IsHttpError(ex)) {
-			// Handle HTTP errors gracefully by logging and returning a minimal POM
-			Console.WriteLine ($"Warning: Could not resolve POM for {artifact.VersionedArtifactString} (HTTP error: {GetHttpErrorMessage(ex)}). Continuing with minimal dependency information.");
-			return CreateMinimalProject (artifact);
+
+			throw new InvalidOperationException ($"No POM found for {artifact}");
+		} catch (Exception ex) {
+			Console.WriteLine ($"Failed to resolve dependency: {artifact.GroupId}:{artifact.Id}:{artifact.Version}");
+			Console.WriteLine ($"Artifact details - GroupId: {artifact.GroupId}, ArtifactId: {artifact.Id}, Version: {artifact.Version}");
+			Console.WriteLine ($"Full artifact string: {artifact.VersionedArtifactString}");
+			throw;
 		}
-
-		throw new InvalidOperationException ($"No POM found for {artifact}");
-	}
-
-	Project CreateMinimalProject (Artifact artifact)
-	{
-		// Create a minimal POM XML and parse it
-		var minimalPomXml = $@"<?xml version=""1.0"" encoding=""UTF-8""?>
-<project xmlns=""http://maven.apache.org/POM/4.0.0""
-         xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
-         xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/xsd/maven-4.0.0.xsd"">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>{artifact.GroupId}</groupId>
-  <artifactId>{artifact.Id}</artifactId>
-  <version>{artifact.Version}</version>
-  <description>Minimal POM for {artifact.VersionedArtifactString} (original POM not accessible)</description>
-  <licenses>
-    <license>
-      <name>Apache 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-</project>";
-
-		using (var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(minimalPomXml))) {
-			return Project.Load(stream) ?? throw new InvalidOperationException($"Could not create minimal POM for {artifact}");
-		}
-	}
-
-	static bool IsHttpError (Exception ex)
-	{
-		// Check if this is an HTTP-related error that we should handle gracefully
-		return ex.Message.Contains("404") || 
-		       ex.Message.Contains("Response status code does not indicate success") ||
-		       ex.InnerException?.Message.Contains("404") == true ||
-		       ex.InnerException?.Message.Contains("Response status code does not indicate success") == true ||
-		       ex.GetType().Name.Contains("Http");
-	}
-
-	static string GetHttpErrorMessage (Exception ex)
-	{
-		if (ex.Message.Contains("404"))
-			return "404 Not Found";
-		if (ex.Message.Contains("Response status code does not indicate success"))
-			return "HTTP error";
-		if (ex.InnerException?.Message.Contains("404") == true)
-			return "404 Not Found";
-		if (ex.InnerException?.Message.Contains("Response status code does not indicate success") == true)
-			return "HTTP error";
-		return ex.Message;
 	}
 }
