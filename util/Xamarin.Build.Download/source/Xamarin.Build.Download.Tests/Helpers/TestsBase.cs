@@ -64,7 +64,7 @@ namespace Xamarin.ContentPipeline.Tests
 			}
 			if (err.Message.Contains ("Could not find 7zip"))
 			{
-				Assert.Ignore ("Test ignored due to known issue: " + err.Message);
+				Assert.Skip ("Test ignored due to known issue: " + err.Message);
 			}
 			else
 			{
