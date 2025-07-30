@@ -44,4 +44,11 @@
 		>
 		Java.Lang.Object
 	</attr>
+	<!-- Remove duplicate methods in DoubleCheck to fix CS0111 errors -->
+    <remove-node
+        path="/api/package[@name='com.google.firebase.functions.dagger.internal']/class[@name='DoubleCheck']/method[@name='lazy' and count(parameter)=1 and parameter[1][@type='P']]"
+        />
+    <remove-node
+        path="/api/package[@name='com.google.firebase.functions.dagger.internal']/class[@name='DoubleCheck']/method[@name='provider' and count(parameter)=1 and parameter[1][@type='P']]"
+        />
 </metadata>

@@ -24,11 +24,24 @@
 		>
 		Java.Lang.Object
 	</attr>
+	<attr
+		path="/api/package[@name='com.google.firebase.sessions']/class[@name='FirebaseSessionsComponent_MainModule_Companion_SessionDataStoreFactory']/method[@name='get' and count(parameter)=0]"
+		name="managedReturn"
+		>
+		Java.Lang.Object
+	</attr>
     <remove-node
         path="/api/package[@name='com.google.firebase.sessions']/class[@name='FirebaseSessionsComponent_MainModule_Companion_TimeProviderFactory']/method[@name='timeProvider' and count(parameter)=0]"
         />
     <remove-node
         path="/api/package[@name='com.google.firebase.sessions']/class[@name='FirebaseSessionsComponent_MainModule_Companion_UuidGeneratorFactory']/method[@name='uuidGenerator' and count(parameter)=0]"
+        />
+    <!-- Remove duplicate methods in DoubleCheck to fix CS0111 errors -->
+    <remove-node
+        path="/api/package[@name='com.google.firebase.sessions.dagger.internal']/class[@name='DoubleCheck']/method[@name='lazy' and count(parameter)=1 and parameter[1][@type='P']]"
+        />
+    <remove-node
+        path="/api/package[@name='com.google.firebase.sessions.dagger.internal']/class[@name='DoubleCheck']/method[@name='provider' and count(parameter)=1 and parameter[1][@type='P']]"
         />
         
 </metadata>
