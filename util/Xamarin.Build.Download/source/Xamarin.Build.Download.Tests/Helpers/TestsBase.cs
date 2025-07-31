@@ -62,7 +62,14 @@ namespace Xamarin.ContentPipeline.Tests
 					return;
 				}
 			}
-			throw new Exception (err.Message);
+			if (err.Message.Contains ("Could not find 7zip"))
+			{
+				Assert.Skip ("Test ignored due to known issue: " + err.Message);
+			}
+			else
+			{
+				Assert.Fail ("Unexpected error: " + err.Message);
+			}
 		}
 
 		// work around Mono's ProjectInstance.Build using a separate BuildManager and not shutting it down
