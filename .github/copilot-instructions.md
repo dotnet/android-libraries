@@ -19,6 +19,7 @@ The repository uses a **config-driven approach** where all bindings are defined 
 - **`config.json`**: Master configuration containing all 600+ Maven artifacts to bind, their versions, and NuGet package information
 - **`build.cake`**: Main Cake build script orchestrating the entire build process
 - **`BUILDING.md`**: Comprehensive build instructions and prerequisites
+- **`source/AssemblyInfo.cs`**: Contains build metadata placeholders that are replaced during the build process. **DO NOT EDIT** this file or modify the placeholder tokens - always revert any changes to maintain the original placeholder format.
 
 
 ### Directory Structure

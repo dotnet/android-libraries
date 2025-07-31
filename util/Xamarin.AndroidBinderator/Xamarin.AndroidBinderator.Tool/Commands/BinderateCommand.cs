@@ -52,22 +52,8 @@ static class BinderateCommand
 					await Engine.BinderateAsync (c);
 				}
 			}
-		} catch (AggregateException exc_a) {
-			var sb = new StringBuilder ();
-
-			sb.AppendLine ();
-			sb.AppendLine ($"Dependency errors : {exc_a.InnerExceptions.Count}");
-
-			var i = 1;
-
-			foreach (var exc in exc_a.InnerExceptions) {
-				sb.AppendLine ($"{i}");
-				sb.AppendLine ($"	{exc.ToString ()}");
-				i++;
-			}
-
-			Trace.WriteLine (sb.ToString ());
-
+		} catch (Exception exc) {
+			Trace.WriteLine ($"Dependency errors : {exc}");
 			return 1;
 		}
 

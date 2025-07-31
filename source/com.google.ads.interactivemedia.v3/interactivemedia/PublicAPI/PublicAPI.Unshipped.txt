@@ -45,8 +45,6 @@ Google.Ads.InteractiveMedia.V3.Api.IAd.SurveyUrl.get -> string!
 Google.Ads.InteractiveMedia.V3.Api.IAd.Title.get -> string!
 Google.Ads.InteractiveMedia.V3.Api.IAd.TraffickingParameters.get -> string!
 Google.Ads.InteractiveMedia.V3.Api.IAd.UiElements.get -> System.Collections.Generic.ICollection<Google.Ads.InteractiveMedia.V3.Api.IUiElement!>!
-Google.Ads.InteractiveMedia.V3.Api.IAd.UniversalAdIdRegistry.get -> string!
-Google.Ads.InteractiveMedia.V3.Api.IAd.UniversalAdIdValue.get -> string!
 Google.Ads.InteractiveMedia.V3.Api.IAd.VastMediaBitrate.get -> int
 Google.Ads.InteractiveMedia.V3.Api.IAd.VastMediaHeight.get -> int
 Google.Ads.InteractiveMedia.V3.Api.IAd.VastMediaWidth.get -> int
@@ -62,9 +60,16 @@ Google.Ads.InteractiveMedia.V3.Api.IAdErrorEventAdErrorListener.OnAdError(Google
 Google.Ads.InteractiveMedia.V3.Api.IAdEvent
 Google.Ads.InteractiveMedia.V3.Api.IAdEvent.Ad.get -> Google.Ads.InteractiveMedia.V3.Api.IAd!
 Google.Ads.InteractiveMedia.V3.Api.IAdEvent.AdData.get -> System.Collections.Generic.IDictionary<string!, string!>!
+Google.Ads.InteractiveMedia.V3.Api.IAdEvent.AdPeriodInfo.get -> Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo?
+Google.Ads.InteractiveMedia.V3.Api.IAdEvent.AdProgressInfo.get -> Google.Ads.InteractiveMedia.V3.Api.IAdProgressInfo?
 Google.Ads.InteractiveMedia.V3.Api.IAdEvent.Type.get -> Google.Ads.InteractiveMedia.V3.Api.AdEventAdEventType!
 Google.Ads.InteractiveMedia.V3.Api.IAdEventAdEventListener
 Google.Ads.InteractiveMedia.V3.Api.IAdEventAdEventListener.OnAdEvent(Google.Ads.InteractiveMedia.V3.Api.IAdEvent! p0) -> void
+Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo
+Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo.AdsDuration.get -> double
+Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo.SlateDuration.get -> double
+Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo.TotalAds.get -> int
+Google.Ads.InteractiveMedia.V3.Api.IAdPeriodInfo.TotalDuration.get -> double
 Google.Ads.InteractiveMedia.V3.Api.IAdPodInfo
 Google.Ads.InteractiveMedia.V3.Api.IAdPodInfo.AdPosition.get -> int
 Google.Ads.InteractiveMedia.V3.Api.IAdPodInfo.IsBumper.get -> bool
@@ -79,12 +84,18 @@ Google.Ads.InteractiveMedia.V3.Api.IAdProgressInfo.AdPosition.get -> int
 Google.Ads.InteractiveMedia.V3.Api.IAdProgressInfo.CurrentTime.get -> double
 Google.Ads.InteractiveMedia.V3.Api.IAdProgressInfo.Duration.get -> double
 Google.Ads.InteractiveMedia.V3.Api.IAdProgressInfo.TotalAds.get -> int
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.Container.get -> Android.Views.ViewGroup!
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.Container.set -> void
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.Height.get -> int
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.IsFilled.get -> bool
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.SetSize(int p0, int p1) -> void
+Google.Ads.InteractiveMedia.V3.Api.IAdSlot.Width.get -> int
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.AdCuePoints.get -> System.Collections.Generic.IList<Java.Lang.Float!>!
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.Clicked() -> void
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.DiscardAdBreak() -> void
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.Pause() -> void
-Google.Ads.InteractiveMedia.V3.Api.IAdsManager.RequestNextAdBreak() -> void
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.Resume() -> void
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.Skip() -> void
 Google.Ads.InteractiveMedia.V3.Api.IAdsManager.Start() -> void
@@ -115,6 +126,8 @@ Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.Claim() -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.CompanionSlots.get -> System.Collections.Generic.ICollection<Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot!>!
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.CompanionSlots.set -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.Destroy() -> void
+Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.PauseAdSlot.get -> Google.Ads.InteractiveMedia.V3.Api.IAdSlot!
+Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.PauseAdSlot.set -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.RegisterFriendlyObstruction(Google.Ads.InteractiveMedia.V3.Api.IFriendlyObstruction! p0) -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.RegisterVideoControlsOverlay(Android.Views.View! p0) -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseDisplayContainer.UnregisterAllFriendlyObstructions() -> void
@@ -128,7 +141,6 @@ Google.Ads.InteractiveMedia.V3.Api.IBaseManager.Destroy() -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseManager.Focus() -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseManager.Init() -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseManager.Init(Google.Ads.InteractiveMedia.V3.Api.IAdsRenderingSettings! p0) -> void
-Google.Ads.InteractiveMedia.V3.Api.IBaseManager.IsCustomPlaybackUsed.get -> bool
 Google.Ads.InteractiveMedia.V3.Api.IBaseManager.RemoveAdErrorListener(Google.Ads.InteractiveMedia.V3.Api.IAdErrorEventAdErrorListener! p0) -> void
 Google.Ads.InteractiveMedia.V3.Api.IBaseManager.RemoveAdEventListener(Google.Ads.InteractiveMedia.V3.Api.IAdEventAdEventListener! p0) -> void
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAd
@@ -138,13 +150,7 @@ Google.Ads.InteractiveMedia.V3.Api.ICompanionAd.ResourceValue.get -> string!
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAd.Width.get -> int
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.AddClickListener(Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlotClickListener! p0) -> void
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.Container.get -> Android.Views.ViewGroup!
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.Container.set -> void
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.Height.get -> int
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.IsFilled.get -> bool
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.RemoveClickListener(Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlotClickListener! p0) -> void
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.SetSize(int p0, int p1) -> void
-Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot.Width.get -> int
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlotClickListener
 Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlotClickListener.OnCompanionAdClick() -> void
 Google.Ads.InteractiveMedia.V3.Api.ICuePoint
@@ -186,11 +192,8 @@ Google.Ads.InteractiveMedia.V3.Api.IStreamDisplayContainer.VideoStreamPlayer.get
 Google.Ads.InteractiveMedia.V3.Api.IStreamDisplayContainer.VideoStreamPlayer.set -> void
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager.CuePoints.get -> System.Collections.Generic.IList<Google.Ads.InteractiveMedia.V3.Api.ICuePoint!>!
-Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetContentTimeForStreamTime(double p0) -> double
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetContentTimeMsForStreamTimeMs(long p0) -> long
-Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetPreviousCuePointForStreamTime(double p0) -> Google.Ads.InteractiveMedia.V3.Api.ICuePoint!
-Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetPreviousCuePointForStreamTimeMs(long p0) -> Google.Ads.InteractiveMedia.V3.Api.ICuePoint!
-Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetStreamTimeForContentTime(double p0) -> double
+Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetPreviousCuePointForStreamTimeMs(long p0) -> Google.Ads.InteractiveMedia.V3.Api.ICuePoint?
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager.GetStreamTimeMsForContentTimeMs(long p0) -> long
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager.LoadThirdPartyStream(string! p0, System.Collections.Generic.IList<System.Collections.Generic.IDictionary<string!, string!>!>! p1) -> void
 Google.Ads.InteractiveMedia.V3.Api.IStreamManager.ReplaceAdTagParameters(System.Collections.Generic.IDictionary<string!, string!>! p0) -> void
@@ -214,6 +217,9 @@ Google.Ads.InteractiveMedia.V3.Api.Player.IAdProgressProvider
 Google.Ads.InteractiveMedia.V3.Api.Player.IAdProgressProvider.AdProgress.get -> Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate!
 Google.Ads.InteractiveMedia.V3.Api.Player.IContentProgressProvider
 Google.Ads.InteractiveMedia.V3.Api.Player.IContentProgressProvider.ContentProgress.get -> Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate!
+Google.Ads.InteractiveMedia.V3.Api.Player.IPlaybackMeasurementCollector
+Google.Ads.InteractiveMedia.V3.Api.Player.IPlaybackMeasurementCollector.Release() -> void
+Google.Ads.InteractiveMedia.V3.Api.Player.IPlaybackMeasurementCollector.Zza(AndroidX.Media3.Common.MediaItem! p0) -> Google.Common.Util.Concurrent.IListenableFuture!
 Google.Ads.InteractiveMedia.V3.Api.Player.IResizablePlayer
 Google.Ads.InteractiveMedia.V3.Api.Player.IResizablePlayer.Resize(int p0, int p1, int p2, int p3) -> void
 Google.Ads.InteractiveMedia.V3.Api.Player.IVideoAdPlayer
@@ -255,9 +261,7 @@ Google.Ads.InteractiveMedia.V3.Api.Player.IVideoStreamPlayerVideoStreamPlayerCal
 Google.Ads.InteractiveMedia.V3.Api.Player.IVolumeProvider
 Google.Ads.InteractiveMedia.V3.Api.Player.IVolumeProvider.Volume.get -> int
 Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate
-Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate.CurrentTime.get -> float
 Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate.CurrentTimeMs.get -> long
-Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate.Duration.get -> float
 Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate.DurationMs.get -> long
 Google.Ads.InteractiveMedia.V3.Api.Player.VideoProgressUpdate.VideoProgressUpdate(long currentTimeMs, long durationMs) -> void
 Google.Ads.InteractiveMedia.V3.Api.Signals.ISecureSignalsAdapter
@@ -308,13 +312,14 @@ Google.Ads.InteractiveMedia.V3.Impl.ImaSdkSettingsImpl.SetRestrictToCustomPlayer
 Google.Ads.InteractiveMedia.V3.Impl.ImaSdkSettingsImpl.TestingConfig.get -> Google.Ads.InteractiveMedia.V3.Impl.Data.TestingConfiguration!
 Google.Ads.InteractiveMedia.V3.Impl.ImaSdkSettingsImpl.TestingConfig.set -> void
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage
-Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.JavaScriptMessage(Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel! p0, Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType! p1, string! p2, Java.Lang.Object! p3) -> void
+Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.JavaScriptMessage(Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel! p0, Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType! p1, string! p2, Java.Lang.Object! p3, string! p4) -> void
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.Zza() -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.Zzb() -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.Zzc() -> Java.Lang.Object!
 Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.Zzd() -> string!
+Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.Zze() -> string!
 abstract Google.Ads.InteractiveMedia.V3.Impl.Data.TestingConfiguration.DisableExperiments() -> bool
 abstract Google.Ads.InteractiveMedia.V3.Impl.Data.TestingConfiguration.DisableOnScreenDetection() -> bool
 abstract Google.Ads.InteractiveMedia.V3.Impl.Data.TestingConfiguration.DisableSkipFadeTransition() -> bool
@@ -386,6 +391,7 @@ static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode.VastNonlinearAsset
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode.VastTooManyRedirects.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode!
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode.VastTraffickingError.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode!
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode.VideoPlayError.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode!
+static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode.WebViewError.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorCode!
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType.Load.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType!
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType.Play.get -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType!
 static Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType.ValueOf(string! name) -> Google.Ads.InteractiveMedia.V3.Api.AdError.AdErrorType!
@@ -438,6 +444,7 @@ static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.AdsLoade
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.AdsManager.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.ContentTimeUpdate.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.DisplayContainer.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.GestureSignal.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.Log.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.NativeUi.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.NativeXhr.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
@@ -447,6 +454,7 @@ static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.Values()
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.VideoDisplay1.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.VideoDisplay2.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.WebViewLoaded.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.WebViewNavigationDetected.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel.Zza(string! p0) -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgChannel!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Activate.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.AdBreakEnded.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
@@ -465,6 +473,8 @@ static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.AppBackgrou
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.AppForegrounding.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.AppStateChanged.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Click.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.ClickSignalRequest.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.ClickSignalResponse.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.CompanionView.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Complete.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.ContentComplete.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
@@ -490,6 +500,7 @@ static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.IconRendere
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Impression.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Init.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Initialized.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.IsDestroyed.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Load.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.LoadStream.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.LoadStreamMetadata.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
@@ -530,16 +541,18 @@ static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.UpdateUiSta
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Values() -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType![]!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.VideoClicked.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.VideoIconClicked.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.ViewSignalRequest.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.ViewSignalResponse.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Viewability.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.VolumeChange.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Waiting.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
+static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.WebViewNavigationDetected.get -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
 static Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType.Zza(string! p0) -> Google.Ads.InteractiveMedia.V3.Impl.JavaScriptMessage.MsgType!
-virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateAdDisplayContainer() -> Google.Ads.InteractiveMedia.V3.Api.IAdDisplayContainer!
+virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateAdSlot() -> Google.Ads.InteractiveMedia.V3.Api.IAdSlot!
 virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateAdsRenderingSettings() -> Google.Ads.InteractiveMedia.V3.Api.IAdsRenderingSettings!
-virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateAudioAdDisplayContainer(Android.Content.Context! context) -> Google.Ads.InteractiveMedia.V3.Api.IAdDisplayContainer!
 virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateCompanionAdSlot() -> Google.Ads.InteractiveMedia.V3.Api.ICompanionAdSlot!
 virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateFriendlyObstruction(Android.Views.View! view, Google.Ads.InteractiveMedia.V3.Api.FriendlyObstructionPurpose! purpose, string? detailedReason) -> Google.Ads.InteractiveMedia.V3.Api.IFriendlyObstruction!
 virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateImaSdkSettings() -> Google.Ads.InteractiveMedia.V3.Api.IImaSdkSettings!
-virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreateStreamDisplayContainer() -> Google.Ads.InteractiveMedia.V3.Api.IStreamDisplayContainer!
+virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.CreatePlaybackMeasurementCollector(AndroidX.Media3.Common.IPlayer! player) -> Google.Ads.InteractiveMedia.V3.Api.Player.IPlaybackMeasurementCollector!
 virtual Google.Ads.InteractiveMedia.V3.Api.ImaSdkFactory.Initialize(Android.Content.Context! context, Google.Ads.InteractiveMedia.V3.Api.IImaSdkSettings! settings) -> void
 virtual Google.Ads.InteractiveMedia.V3.Api.Player.AdMediaInfo.Url.get -> string!

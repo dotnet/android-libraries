@@ -42,6 +42,7 @@ Firebase.Functions.Dagger.Interal.DoubleCheck
 Firebase.Functions.Dagger.Interal.DoubleCheck.Get() -> Java.Lang.Object?
 Firebase.Functions.Dagger.Interal.IDaggerGenerated
 Firebase.Functions.Dagger.Interal.IFactory
+Firebase.Functions.Dagger.Interal.IProvider
 Firebase.Functions.Dagger.Interal.IQualifierMetadata
 Firebase.Functions.Dagger.Interal.IQualifierMetadata.Value() -> string![]?
 Firebase.Functions.Dagger.Interal.IScopeMetadata
@@ -49,6 +50,7 @@ Firebase.Functions.Dagger.Interal.IScopeMetadata.Value() -> string?
 Firebase.Functions.Dagger.Interal.InstanceFactory
 Firebase.Functions.Dagger.Interal.InstanceFactory.Get() -> Java.Lang.Object?
 Firebase.Functions.Dagger.Interal.Preconditions
+Firebase.Functions.Dagger.Interal.Providers
 Firebase.Functions.Dagger.Interal.QualifierMetadataAttribute
 Firebase.Functions.Dagger.Interal.QualifierMetadataAttribute.QualifierMetadataAttribute() -> void
 Firebase.Functions.Dagger.Interal.QualifierMetadataAttribute.Value.get -> string![]?
@@ -123,10 +125,6 @@ Firebase.Functions.HttpsCallableReference.Timeout.get -> long
 Firebase.Functions.HttpsCallableReference.WithTimeout(long timeout, Java.Util.Concurrent.TimeUnit! units) -> Firebase.Functions.HttpsCallableReference!
 Firebase.Functions.HttpsCallableResult
 Firebase.Functions.HttpsCallableResult.Data.get -> Java.Lang.Object?
-Firebase.Functions.Ktx.FirebaseFunctionsKtxRegistrar
-Firebase.Functions.Ktx.FirebaseFunctionsKtxRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>!
-Firebase.Functions.Ktx.FirebaseFunctionsKtxRegistrar.FirebaseFunctionsKtxRegistrar() -> void
-Firebase.Functions.Ktx.FunctionsKt
 Firebase.Functions.StreamResponse
 Firebase.Functions.StreamResponse.Message
 Firebase.Functions.StreamResponse.Message.GetMessage() -> Firebase.Functions.HttpsCallableResult!
@@ -138,11 +136,12 @@ Firebase.Functions.StreamResponse.StreamResponse(nint javaReference, Android.Run
 const Firebase.Functions.BuildConfig.BuildType = "release" -> string!
 const Firebase.Functions.BuildConfig.Debug = false -> bool
 const Firebase.Functions.BuildConfig.LibraryPackageName = "com.google.firebase.functions" -> string!
-const Firebase.Functions.BuildConfig.VersionName = "21.2.1" -> string!
+const Firebase.Functions.BuildConfig.VersionName = "22.0.0" -> string!
 override Firebase.Functions.BuildConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.Dagger.Interal.DoubleCheck.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.Dagger.Interal.InstanceFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.Dagger.Interal.Preconditions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Functions.Dagger.Interal.Providers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.DaggerFunctionsComponent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.FirebaseContextProvider_Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.FirebaseFunctions.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -161,15 +160,11 @@ override Firebase.Functions.HttpsCallableOptions.Builder.JniPeerMembers.get -> J
 override Firebase.Functions.HttpsCallableOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.HttpsCallableReference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.HttpsCallableResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Functions.Ktx.FirebaseFunctionsKtxRegistrar.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Functions.Ktx.FunctionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.StreamResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.StreamResponse.Message.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.StreamResponse.Result.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.StreamResponse.ThresholdClass.get -> nint
 override Firebase.Functions.StreamResponse.ThresholdType.get -> System.Type!
-static Firebase.Functions.Dagger.Interal.DoubleCheck.Lazy(Java.Lang.Object? provider) -> Firebase.Functions.Dagger.ILazy?
-static Firebase.Functions.Dagger.Interal.DoubleCheck.Provider(Java.Lang.Object? delegate) -> JavaX.Inject.IProvider?
 static Firebase.Functions.Dagger.Interal.InstanceFactory.Create(Java.Lang.Object? instance) -> Firebase.Functions.Dagger.Interal.IFactory?
 static Firebase.Functions.Dagger.Interal.InstanceFactory.CreateNullable(Java.Lang.Object? instance) -> Firebase.Functions.Dagger.Interal.IFactory?
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckBuilderRequirement(Java.Lang.Object? requirement, Java.Lang.Class? clazz) -> void
@@ -178,6 +173,7 @@ static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNull(Java.Lang.Ob
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNull(Java.Lang.Object? reference, string? errorMessageTemplate, Java.Lang.Object? errorMessageArg) -> Java.Lang.Object?
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNullFromComponent(Java.Lang.Object? reference) -> Java.Lang.Object?
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNullFromProvides(Java.Lang.Object? reference) -> Java.Lang.Object?
+static Firebase.Functions.Dagger.Interal.Providers.AsDaggerProvider(JavaX.Inject.IProvider? provider) -> Firebase.Functions.Dagger.Interal.IProvider?
 static Firebase.Functions.FirebaseContextProvider_Factory.Create(JavaX.Inject.IProvider? tokenProvider, JavaX.Inject.IProvider? instanceIdProvider, JavaX.Inject.IProvider? appCheckDeferredProvider, JavaX.Inject.IProvider? executorProvider) -> Firebase.Functions.FirebaseContextProvider_Factory?
 static Firebase.Functions.FirebaseContextProvider_Factory.NewInstance(Firebase.Inject.IProvider? tokenProvider, Firebase.Inject.IProvider? instanceId, Firebase.Inject.IDeferred? appCheckDeferred, Java.Util.Concurrent.IExecutor? executor) -> Java.Lang.Object?
 static Firebase.Functions.FirebaseFunctions.GetInstance(Firebase.FirebaseApp! app) -> Firebase.Functions.FirebaseFunctions!
@@ -189,6 +185,7 @@ static Firebase.Functions.FirebaseFunctionsException.Code.AlreadyExists.get -> F
 static Firebase.Functions.FirebaseFunctionsException.Code.Cancelled.get -> Firebase.Functions.FirebaseFunctionsException.Code?
 static Firebase.Functions.FirebaseFunctionsException.Code.DataLoss.get -> Firebase.Functions.FirebaseFunctionsException.Code?
 static Firebase.Functions.FirebaseFunctionsException.Code.DeadlineExceeded.get -> Firebase.Functions.FirebaseFunctionsException.Code?
+static Firebase.Functions.FirebaseFunctionsException.Code.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Firebase.Functions.FirebaseFunctionsException.Code.FailedPrecondition.get -> Firebase.Functions.FirebaseFunctionsException.Code?
 static Firebase.Functions.FirebaseFunctionsException.Code.FromHttpStatus(int status) -> Firebase.Functions.FirebaseFunctionsException.Code!
 static Firebase.Functions.FirebaseFunctionsException.Code.FromValue(int value) -> Firebase.Functions.FirebaseFunctionsException.Code!
@@ -216,5 +213,3 @@ static Firebase.Functions.FunctionsKt.GetHttpsCallable(Firebase.Functions.Fireba
 static Firebase.Functions.FunctionsKt.GetHttpsCallableFromUrl(Firebase.Functions.FirebaseFunctions! obj, Java.Net.URL! url, Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Functions.HttpsCallableReference!
 static Firebase.Functions.FunctionsMultiResourceComponent_Factory.Create(JavaX.Inject.IProvider? functionsFactoryProvider) -> Firebase.Functions.FunctionsMultiResourceComponent_Factory?
 static Firebase.Functions.FunctionsMultiResourceComponent_FirebaseFunctionsFactory_Impl.Create(Firebase.Functions.FirebaseFunctions_Factory? delegateFactory) -> JavaX.Inject.IProvider?
-static Firebase.Functions.Ktx.FunctionsKt.GetHttpsCallable(Firebase.Functions.FirebaseFunctions! obj, string! name, Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Functions.HttpsCallableReference!
-static Firebase.Functions.Ktx.FunctionsKt.GetHttpsCallableFromUrl(Firebase.Functions.FirebaseFunctions! obj, Java.Net.URL! url, Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Functions.HttpsCallableReference!
