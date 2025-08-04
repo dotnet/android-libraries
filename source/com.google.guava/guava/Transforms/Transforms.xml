@@ -1,4 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<metadata>
-	<remove-node path="/api/package" />
+﻿<metadata>
+
+	<!-- Fix BG8403 -->
+	<attr path="/api/package[@name='com.google.common.eventbus']/class[@name='EventBus']" name="managedName">EventBusImpl</attr>
+	<attr path="/api/package[@name='com.google.common.primitives']/class[@name='Primitives']" name="managedName">PrimitivesImpl</attr>
+
+	<!-- Fix CS0111 -->
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ArrayTable']/method[@name='columnKeySet' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ArrayTable']/method[@name='rowKeySet' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingObject']/method[@name='delegate' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingCollection']/method[@name='delegate' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingIterator']/method[@name='delegate' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.util.concurrent']/class[@name='ForwardingFuture']/method[@name='delegate' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='Sets.SetView']/method[@name='iterator' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='MultimapBuilder']/method[@name='build' and count(parameter)=0]" />
+
+
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterEntries' and count(parameter)=2 and parameter[1][@type='java.util.Map&lt;K, V&gt;']]" name="managedType">Java.Util.IMap</attr>
+
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterEntries' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V&gt;']]" name="managedType">Java.Util.ISortedMap</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterEntries' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V&gt;'] and parameter[2][@type='com.google.common.base.Predicate&lt;? super java.util.Map.Entry&lt;K, V&gt;&gt;']]" name="managedName">FilterEntriesAsSortedMap</attr>
+
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterKeys' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V&gt;']]" name="managedType">Java.Util.ISortedMap</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterKeys' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V&gt;'] and parameter[2][@type='com.google.common.base.Predicate&lt;? super K&gt;']]" name="managedName">FilterKeysAsSortedMap</attr>
+
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='difference' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, ? extends V&gt;'] and parameter[2][@type='java.util.Map&lt;? extends K, ? extends V&gt;']]" name="managedName">DifferenceAsSortedMap</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='filterValues' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V&gt;'] and parameter[2][@type='com.google.common.base.Predicate&lt;? super V&gt;']]" name="managedName">FilterValueAsSortedMap</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='transformEntries' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V1&gt;'] and parameter[2][@type='com.google.common.collect.Maps.EntryTransformer&lt;? super K, ? super V1, V2&gt;']]" name="managedName">TransformEntriesAsSortedMap</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='transformValues' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V1&gt;'] and parameter[2][@type='com.google.common.base.Function&lt;? super V1, V2&gt;']]" name="managedName">TransformValuesAsSortedMap</attr>
+
+	<!-- Fix CS0508 -->
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='HashBiMap']/method[@name='entrySet' and count(parameter)=0]" name="return">java.util.Set</attr>
+
+
+	<!-- Fix CS0738 -->
+	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=1 and parameter[1][@type='java.lang.Runnable']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
+	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='T']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
+	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='T']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
+	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=1 and parameter[1][@type='java.util.concurrent.Callable&lt;T&gt;']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
+	
+	<!-- Interfaces -->
+	<remove-node path="/api/package[@name='com.google.common.hash']/interface[@name='Hasher']" />
+	
+	<remove-node path="/api/package[@name='com.google.common.collect']/interface[@name='ListMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/interface[@name='RowSortedTable']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/interface[@name='SortedMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/interface[@name='SortedSetMultimap']" />
+
+	<!-- Classes -->
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ArrayListMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ConcurrentHashMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='EnumMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingList']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingListMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingMapEntry']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingNavigableMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingNavigableSet']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingQueue']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSet']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSetMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSortedMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSortedMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSortedSet']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingSortedSetMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ForwardingTable']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='HashBasedTable']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='HashMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='HashMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableClassToInstanceMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableListMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableRangeMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableRangeSet']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSetMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSortedMap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSortedMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableTable']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='LinkedHashMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='LinkedHashMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='LinkedListMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='TreeBasedTable']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='TreeMultimap']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='TreeMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='TreeRangeSet']" />
+
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='AbstractGraph']" />
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='AbstractValueGraph']" />
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='EndpointPair']" />
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='ImmutableGraph']" />
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='ImmutableNetwork']" />
+	<remove-node path="/api/package[@name='com.google.common.graph']/class[@name='ImmutableValueGraph']" />
+
+	<!-- Fixes in combination with Addition class -->
+	<!-- Fix CS1503 -->
+	<!-- Fix CS0266 -->
+	<remove-node path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']"/>
+	<remove-node path="/api/package[@name='com.google.common.util.concurrent']/class[@name='AbstractListeningExecutorService']" />
+
 </metadata>
