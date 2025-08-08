@@ -18,6 +18,7 @@ stages:
         demands:
         - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
       use1ESTemplate: false
+      installAndroidDependencies: true
 
 - stage: build_mac
   displayName: Build - Mac
@@ -37,3 +38,4 @@ stages:
       name: $(NetCorePublicPoolName)
       demands:
       - ImageOverride -equals $(WindowsPoolImageNetCorePublic)
+    installAndroidDependencies: true
