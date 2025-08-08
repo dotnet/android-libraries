@@ -1,7 +1,5 @@
 parameters:
-  installAndroidDependencies: false
   androidSdkRoot: $(Agent.TempDirectory)/android-sdk
-  javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
 
 steps:
   # before the build starts, make sure the tooling is as expected. Clear the cache on shared agents
@@ -44,22 +42,11 @@ steps:
       }
     displayName: Install .NET Workloads
 
-  - bash: |
-      if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
-          echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
-      else
-          echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
-      fi
-    displayName: Use Java 11 SDK (Mac)
-    condition: eq( variables['Agent.OS'], 'Darwin' )
-
   - task: JavaToolInstaller@0
-    displayName: Use Java 11 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
+    displayName: Use Java 21 SDK
     inputs:
-      versionSpec: '11'
+      versionSpec: '21'
       jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'PreInstalled'
 
   - task: DotNetCoreCLI@2
     displayName: Install android dependencies GoogleV2
@@ -87,25 +74,3 @@ steps:
       Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
-
-  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
-    - pwsh: |
-        $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
-        if ($IsMacOS) {
-            $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz"
-        }
-        $fileName = [System.IO.Path]::GetFileName($url)
-        Invoke-WebRequest -Uri $url -OutFile $fileName
-        Write-Host "##vso[task.setvariable variable=JDK_11_FILE_PATH]$(Build.StagingDirectory)/$fileName"
-      displayName: Download Java 11 SDK
-      workingDirectory: $(Build.StagingDirectory)
-
-    - task: JavaToolInstaller@0
-      displayName: Use Java 11 SDK
-      inputs:
-        versionSpec: '11'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: LocalDirectory
-        jdkFile: $(JDK_11_FILE_PATH)
-        jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
-        cleanDestinationDirectory: true

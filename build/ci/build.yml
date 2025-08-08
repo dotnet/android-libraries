@@ -7,7 +7,6 @@ parameters:
   timeoutInMinutes: 600                                             # Max job runtime in minutes
   runAPIScan: false                                                 # Run APIScan analysis
   use1ESTemplate: true
-  installAndroidDependencies: false
   androidSdkRoot: $(Agent.TempDirectory)/android-sdk
 
   # Reporting/Analysis Parameters
@@ -37,7 +36,6 @@ jobs:
   steps:
     - template: setup-environment.yml
       parameters:
-        installAndroidDependencies: ${{ parameters.installAndroidDependencies }}
         androidSdkRoot: ${{ parameters.androidSdkRoot }}
 
     - template: build-and-test.yml
