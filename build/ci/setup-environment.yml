@@ -86,7 +86,8 @@ steps:
   - pwsh: |
       Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
-    displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
+      Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
+    displayName: Set ANDROID_SDK_ROOT and ANDROID_HOME to ${{ parameters.androidSdkRoot }}
 
   - ${{ if eq(parameters.installAndroidDependencies, true) }}:
     - pwsh: |
