@@ -18,6 +18,7 @@
     <!-- combined -->
     <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' != 'true' ">$(_DefaultTargetFrameworkBase);$(_DefaultTargetFrameworkNext)</_DefaultTargetFrameworks>
     <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' == 'true' ">$(_DefaultTargetFrameworkBase)</_DefaultTargetFrameworks>
+    <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' == ''">$(_DefaultTargetFrameworkBase)</_DefaultTargetFrameworks>
 
     <CheckEolWorkloads>false</CheckEolWorkloads>
 
