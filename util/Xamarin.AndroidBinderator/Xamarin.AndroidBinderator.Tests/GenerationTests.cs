@@ -567,5 +567,374 @@ namespace Xamarin.AndroidBinderator.Tests
 				File = path
 			};
 		}
+
+		[Fact]
+		public async Task OkHttpRemappingWorksCorrectly()
+		{
+			var externals = Path.Combine(RootDirectory, "externals");
+			var generated = Path.Combine(RootDirectory, "generated");
+
+			// Simplified version of the actual Google Places POM with only the OkHttp dependency we care about
+			// Original POM downloaded from: https://dl.google.com/dl/android/maven2/com/google/android/libraries/places/places/4.4.1/places-4.4.1.pom
+			var pomContent = @"<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.android.libraries.places</groupId>
+  <artifactId>places</artifactId>
+  <version>4.4.1</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>2.7.2</version>
+      <scope>compile</scope>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+  <name>places</name>
+  <licenses>
+    <license>
+      <name>Google Maps Platform Terms of Service</name>
+      <url>https://cloud.google.com/maps-platform/terms/</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+</project>";
+
+			// Create the externals structure
+			var placesDir = Path.Combine(externals, "com.google.android.libraries.places", "places");
+			Directory.CreateDirectory(placesDir);
+			File.WriteAllText(Path.Combine(placesDir, "places-4.4.1.pom"), pomContent);
+			File.WriteAllText(Path.Combine(placesDir, "places-4.4.1.aar"), ""); // Empty aar file
+
+			var config = new BindingConfig
+			{
+				DownloadExternals = false,
+				ExternalsDir = externals,
+				BasePath = RootDirectory,
+				Templates = { new TemplateConfig(CreateTemplate(@"
+<Project Sdk=""Microsoft.NET.Sdk"">
+	<PropertyGroup>
+		<PackageId>@(Model.NuGetPackageId)</PackageId>
+		<PackageVersion>@(Model.NuGetVersion)</PackageVersion>
+	</PropertyGroup>
+	<ItemGroup>
+	@foreach (var dep in @Model.NuGetDependencies) {
+		<PackageReference Include=""@(dep.NuGetPackageId)"" Version=""@(dep.NuGetVersion)"" />
+	}
+	</ItemGroup>
+</Project>"), "generated/{artifactid}.csproj") },
+				MavenArtifacts =
+				{
+					// The artifact we're testing (Google Places with OkHttp v2 dependency)
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.libraries.places",
+						ArtifactId = "places",
+						Version = "4.4.1",
+						NugetPackageId = "Xamarin.GoogleAndroid.Libraries.Places",
+						NugetVersion = "4.4.1.1",
+					},
+					// The target artifact (OkHttp3) that the old OkHttp should be remapped to
+					// Note: We intentionally do NOT include com.squareup.okhttp:okhttp in the config
+					// This forces the remapping to be tested
+					new MavenArtifactConfig
+					{
+						GroupId = "com.squareup.okhttp3",
+						ArtifactId = "okhttp",
+						Version = "4.12.0",
+						NugetPackageId = "Square.OkHttp3",
+						NugetVersion = "4.12.0.1",
+						DependencyOnly = true
+					},
+					// Add missing dependencies for Google Places library test
+					new MavenArtifactConfig
+					{
+						GroupId = "org.jetbrains.kotlinx",
+						ArtifactId = "kotlinx-coroutines-play-services",
+						Version = "1.8.0",
+						NugetPackageId = "Xamarin.KotlinX.Coroutines.Play.Services",
+						NugetVersion = "1.8.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "org.jetbrains.kotlinx",
+						ArtifactId = "kotlinx-coroutines-android",
+						Version = "1.8.0",
+						NugetPackageId = "Xamarin.KotlinX.Coroutines.Android",
+						NugetVersion = "1.8.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "org.jetbrains.kotlinx",
+						ArtifactId = "kotlinx-coroutines-core",
+						Version = "1.8.0",
+						NugetPackageId = "Xamarin.KotlinX.Coroutines.Core",
+						NugetVersion = "1.8.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "org.jetbrains.kotlin",
+						ArtifactId = "kotlin-stdlib",
+						Version = "2.1.0",
+						NugetPackageId = "Xamarin.Kotlin.StdLib",
+						NugetVersion = "2.1.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.auto.value",
+						ArtifactId = "auto-value-annotations",
+						Version = "1.6.2",
+						NugetPackageId = "Xamarin.Google.AutoValue.Annotations",
+						NugetVersion = "1.6.2.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.code.gson",
+						ArtifactId = "gson",
+						Version = "2.10",
+						NugetPackageId = "Xamarin.Google.Gson",
+						NugetVersion = "2.10.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.appcompat",
+						ArtifactId = "appcompat",
+						Version = "1.0.0",
+						NugetPackageId = "Xamarin.AndroidX.AppCompat",
+						NugetVersion = "1.0.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.cardview",
+						ArtifactId = "cardview",
+						Version = "1.0.0",
+						NugetPackageId = "Xamarin.AndroidX.CardView",
+						NugetVersion = "1.0.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.constraintlayout",
+						ArtifactId = "constraintlayout",
+						Version = "2.1.4",
+						NugetPackageId = "Xamarin.AndroidX.ConstraintLayout",
+						NugetVersion = "2.1.4.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.exifinterface",
+						ArtifactId = "exifinterface",
+						Version = "1.0.0",
+						NugetPackageId = "Xamarin.AndroidX.ExifInterface",
+						NugetVersion = "1.0.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.fragment",
+						ArtifactId = "fragment",
+						Version = "1.1.0",
+						NugetPackageId = "Xamarin.AndroidX.Fragment",
+						NugetVersion = "1.1.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.lifecycle",
+						ArtifactId = "lifecycle-runtime-ktx",
+						Version = "2.8.7",
+						NugetPackageId = "Xamarin.AndroidX.Lifecycle.Runtime.Ktx",
+						NugetVersion = "2.8.7.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.lifecycle",
+						ArtifactId = "lifecycle-viewmodel",
+						Version = "2.0.0",
+						NugetPackageId = "Xamarin.AndroidX.Lifecycle.ViewModel",
+						NugetVersion = "2.0.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.lifecycle",
+						ArtifactId = "lifecycle-viewmodel-ktx",
+						Version = "2.8.7",
+						NugetPackageId = "Xamarin.AndroidX.Lifecycle.ViewModel.Ktx",
+						NugetVersion = "2.8.7.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.recyclerview",
+						ArtifactId = "recyclerview",
+						Version = "1.3.2",
+						NugetPackageId = "Xamarin.AndroidX.RecyclerView",
+						NugetVersion = "1.3.2.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.viewpager2",
+						ArtifactId = "viewpager2",
+						Version = "1.1.0",
+						NugetPackageId = "Xamarin.AndroidX.ViewPager2",
+						NugetVersion = "1.1.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.android.volley",
+						ArtifactId = "volley",
+						Version = "1.2.1",
+						NugetPackageId = "Xamarin.Android.Volley",
+						NugetVersion = "1.2.1.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.github.bumptech.glide",
+						ArtifactId = "glide",
+						Version = "4.11.0",
+						NugetPackageId = "Xamarin.Glide",
+						NugetVersion = "4.11.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.datatransport",
+						ArtifactId = "transport-api",
+						Version = "3.1.0",
+						NugetPackageId = "Xamarin.Google.Android.DataTransport.Api",
+						NugetVersion = "3.1.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.datatransport",
+						ArtifactId = "transport-backend-cct",
+						Version = "3.2.0",
+						NugetPackageId = "Xamarin.Google.Android.DataTransport.BackendCct",
+						NugetVersion = "3.2.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.datatransport",
+						ArtifactId = "transport-runtime",
+						Version = "3.2.0",
+						NugetPackageId = "Xamarin.Google.Android.DataTransport.Runtime",
+						NugetVersion = "3.2.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.gms",
+						ArtifactId = "play-services-base",
+						Version = "18.5.0",
+						NugetPackageId = "Xamarin.GooglePlayServices.Base",
+						NugetVersion = "18.5.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.gms",
+						ArtifactId = "play-services-basement",
+						Version = "18.4.0",
+						NugetPackageId = "Xamarin.GooglePlayServices.Basement",
+						NugetVersion = "18.4.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.gms",
+						ArtifactId = "play-services-location",
+						Version = "21.0.1",
+						NugetPackageId = "Xamarin.GooglePlayServices.Location",
+						NugetVersion = "21.0.1.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.gms",
+						ArtifactId = "play-services-maps",
+						Version = "17.0.0",
+						NugetPackageId = "Xamarin.GooglePlayServices.Maps",
+						NugetVersion = "17.0.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.gms",
+						ArtifactId = "play-services-tasks",
+						Version = "18.2.0",
+						NugetPackageId = "Xamarin.GooglePlayServices.Tasks",
+						NugetVersion = "18.2.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.android.material",
+						ArtifactId = "material",
+						Version = "1.12.0",
+						NugetPackageId = "Xamarin.Google.Android.Material",
+						NugetVersion = "1.12.0.1",
+						DependencyOnly = true
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "com.google.guava",
+						ArtifactId = "guava",
+						Version = "33.3.0-android",
+						NugetPackageId = "Xamarin.Google.Guava",
+						NugetVersion = "33.3.0.1",
+						DependencyOnly = true
+					}
+				},
+				Licenses = { 
+					CreateLicense(), // Apache License for default testing
+					CreateGoogleMapsLicense() // Google Maps Platform license for Places library
+				}
+			};
+
+			// This should succeed without throwing an exception
+			// If remapping doesn't work, it would throw because com.squareup.okhttp:okhttp is not in config
+			await Engine.BinderateAsync(config);
+
+			// Verify the project was generated
+			var projectFile = Path.Combine(generated, "places.csproj");
+			Assert.True(File.Exists(projectFile), "Project file should be generated when OkHttp remapping works");
+			
+			// Verify the project file contents have the correct remapped dependency
+			var projectContent = File.ReadAllText(projectFile);
+			Assert.Contains("<PackageReference Include=\"Square.OkHttp3\"", projectContent);
+			Assert.DoesNotContain("<PackageReference Include=\"Square.OkHttp\"", projectContent);
+		}
+
+		LicenseConfig CreateGoogleMapsLicense ()
+		{
+			var path = Path.Combine (RootDirectory, "licenses");
+			Directory.CreateDirectory (path);
+			path = Path.Combine (path, "GOOGLE_MAPS_LICENSE.txt");
+
+			if (!File.Exists (path))
+				File.WriteAllText (path, "Google Maps Platform Terms of Service Example Text");
+
+			return new LicenseConfig {
+				Name = "Google Maps Platform Terms of Service",
+				File = path
+			};
+		}
 	}
 }
