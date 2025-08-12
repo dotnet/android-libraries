@@ -924,6 +924,7 @@ AndroidX.Media3.Common.IVideoGraphFactory.SupportsMultipleInputs() -> bool
 AndroidX.Media3.Common.IVideoGraphListener
 AndroidX.Media3.Common.IVideoGraphListener.OnEnded(long finalFramePresentationTimeUs) -> void
 AndroidX.Media3.Common.IVideoGraphListener.OnError(AndroidX.Media3.Common.VideoFrameProcessingException? exc) -> void
+AndroidX.Media3.Common.IVideoGraphListener.OnOutputFrameAvailableForRenderingPrivate(long framePresentationTimeUs, bool isRedrawnFrame) -> void
 AndroidX.Media3.Common.IVideoGraphListener.OnOutputSizeChanged(int size1, int size2) -> void
 AndroidX.Media3.Common.IllegalSeekPositionException
 AndroidX.Media3.Common.IllegalSeekPositionException.IllegalSeekPositionException(AndroidX.Media3.Common.Timeline? timeline, int windowIndex, long positionMs) -> void
@@ -1337,6 +1338,10 @@ AndroidX.Media3.Common.OutputFrameAvailableForRenderingEventArgs
 AndroidX.Media3.Common.OutputFrameAvailableForRenderingEventArgs.IsRedrawnFrame.get -> bool
 AndroidX.Media3.Common.OutputFrameAvailableForRenderingEventArgs.OutputFrameAvailableForRenderingEventArgs(long presentationTimeUs, bool isRedrawnFrame) -> void
 AndroidX.Media3.Common.OutputFrameAvailableForRenderingEventArgs.PresentationTimeUs.get -> long
+AndroidX.Media3.Common.OutputFrameAvailableForRenderingPrivateEventArgs
+AndroidX.Media3.Common.OutputFrameAvailableForRenderingPrivateEventArgs.FramePresentationTimeUs.get -> long
+AndroidX.Media3.Common.OutputFrameAvailableForRenderingPrivateEventArgs.IsRedrawnFrame.get -> bool
+AndroidX.Media3.Common.OutputFrameAvailableForRenderingPrivateEventArgs.OutputFrameAvailableForRenderingPrivateEventArgs(long framePresentationTimeUs, bool isRedrawnFrame) -> void
 AndroidX.Media3.Common.OutputFrameRateChangedEventArgs
 AndroidX.Media3.Common.OutputFrameRateChangedEventArgs.FrameRate.get -> float
 AndroidX.Media3.Common.OutputFrameRateChangedEventArgs.OutputFrameRateChangedEventArgs(float frameRate) -> void
