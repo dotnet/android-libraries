@@ -45,8 +45,8 @@ steps:
     displayName: Install .NET Workloads
 
   - bash: |
-      if [[ -d "$(JAVA_HOME_21_X64)" ]]; then
-          echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_21_X64)"
+      if [[ -n "$JAVA_HOME_21_X64" && -d "$JAVA_HOME_21_X64" ]]; then
+          echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME_21_X64"
       else
           echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-21.jdk/Contents/Home"
       fi
