@@ -45,7 +45,7 @@ steps:
     displayName: Install .NET Workloads
 
   - bash: |
-      if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
+      if [[ -d "$(JAVA_HOME_21_X64)" ]]; then
           echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_21_X64)"
       else
           echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-21.jdk/Contents/Home"
