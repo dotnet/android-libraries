@@ -2629,6 +2629,7 @@ AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnLoadStar
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnSourceInfoRefreshed(AndroidX.Media3.ExoPlayer.Source.IMediaSource? source, AndroidX.Media3.Common.Timeline? timeline) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnUpstreamDiscarded(int windowIndex, AndroidX.Media3.ExoPlayer.Source.MediaSourceMediaPeriodId? mediaPeriodId, AndroidX.Media3.ExoPlayer.Source.MediaLoadData? mediaLoadData) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.ServerSideAdInsertionMediaSource(AndroidX.Media3.ExoPlayer.Source.IMediaSource? mediaSource, AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.IAdPlaybackStateUpdater? adPlaybackStateUpdater) -> void
+AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.SetAdPlaybackStates(Google.Common.Collect.ImmutableMap? adPlaybackStates, AndroidX.Media3.Common.Timeline? contentTimeline) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.UpdateMediaItem(AndroidX.Media3.Common.MediaItem? mediaItem) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionUtil
 AndroidX.Media3.ExoPlayer.Source.Ads.SinglePeriodAdTimeline
@@ -3452,7 +3453,10 @@ AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.Length.get -> int
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.Length.set -> void
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.ToBundle() -> Android.OS.Bundle?
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.TrackGroupArray(params AndroidX.Media3.Common.TrackGroup![]? trackGroups) -> void
+AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.TrackTypes.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException
+AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.SniffFailures.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.SniffFailures.set -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(string? message, Android.Net.Uri? uri) -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(string? message, Android.Net.Uri? uri, System.Collections.Generic.IList<AndroidX.Media3.Extractor.ISniffFailure!>? sniffFailures) -> void
@@ -5800,7 +5804,19 @@ static AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.CreateFallbac
 static AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.CreateTrackSelectionsForDefinitions(AndroidX.Media3.ExoPlayer.TrackSelection.ExoTrackSelectionDefinition![]? definitions, AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.IAdaptiveTrackSelectionFactory? adaptiveTrackSelectionFactory) -> AndroidX.Media3.ExoPlayer.TrackSelection.IExoTrackSelection![]?
 static AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.GetMaxVideoSizeInViewport(bool orientationMayChange, int viewportWidth, int viewportHeight, int videoWidth, int videoHeight) -> Android.Graphics.Point?
 static AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.UpdateParametersWithOverride(AndroidX.Media3.ExoPlayer.TrackSelection.DefaultTrackSelector.Parameters? parameters, int rendererIndex, AndroidX.Media3.ExoPlayer.Source.TrackGroupArray? trackGroupArray, bool isDisabled, AndroidX.Media3.ExoPlayer.TrackSelection.DefaultTrackSelector.SelectionOverride? override) -> AndroidX.Media3.ExoPlayer.TrackSelection.DefaultTrackSelector.Parameters?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimates2g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimates3g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimates4g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimates5gNsa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimates5gSa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.DefaultInitialBitrateEstimatesWifi.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.GetSingletonInstance(Android.Content.Context? context) -> AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates2g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates3g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates4g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates5gNsa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates5gSa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimatesWifi.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.GetAgeBasedEvictionFunction(long maxAgeMs) -> AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.ISampleEvictionFunction?
 static AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.GetMaxCountEvictionFunction(long maxSamplesCount) -> AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.ISampleEvictionFunction?
 static AndroidX.Media3.ExoPlayer.Upstream.Loader.CreateRetryAction(bool resetErrorCount, long retryDelayMillis) -> AndroidX.Media3.ExoPlayer.Upstream.Loader.LoadErrorAction?
@@ -6231,6 +6247,7 @@ virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.OnChildSourceInfoRe
 virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.PrepareSourceInternal() -> void
 virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.UpdateMediaItem(AndroidX.Media3.Common.MediaItem? mediaItem) -> void
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.CanSelectFormat(AndroidX.Media3.Common.Format? format, int trackBitrate, long effectiveBitrate) -> bool
+virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.Factory.CreateAdaptiveTrackSelection(AndroidX.Media3.Common.TrackGroup? group, int[]? tracks, int type, AndroidX.Media3.ExoPlayer.Upstream.IBandwidthMeter? bandwidthMeter, Google.Common.Collect.ImmutableList? adaptationCheckpoints) -> AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection?
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.LatestBitrateEstimate.get -> long
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.MinDurationToRetainAfterDiscardUs.get -> long
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.ShouldEvaluateQueueSize(long nowMs, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Source.Chunk.MediaChunk!>? queue) -> bool
