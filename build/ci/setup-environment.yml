@@ -54,7 +54,7 @@ steps:
               echo "Downloading Microsoft JDK 21 for macOS..."
               mkdir -p "$JDK_DIR"
               curl -L "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz" -o "$TEMP_FILE"
-              tar -xzf "$TEMP_FILE" -C "$JDK_DIR" --strip-components=1
+              tar -xzf "$TEMP_FILE" -C "$JDK_DIR" --strip-components=4
               rm "$TEMP_FILE"
           fi
           echo "##vso[task.setvariable variable=JAVA_HOME]$JDK_DIR"
