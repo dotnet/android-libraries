@@ -19,17 +19,5 @@ namespace AndroidX.Media3.ExoPlayer.TrackSelection
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-        /// <summary>
-        /// Returns all non-null track selections of type <typeparamref name="T"/>.
-        /// </summary>
-        public IEnumerable<T> OfType<T>() where T : class, ITrackSelection
-        {
-            for (int i = 0; i < Length; i++)
-            {
-                if (Get(i) is T t)
-                    yield return t;
-            }
-        }
     }
 }
