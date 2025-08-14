@@ -142,6 +142,9 @@ Firebase.Perf.Network.InstrHttpsURLConnection
 Firebase.Perf.Network.InstrumentApacheHttpResponseHandler
 Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.InstrumentApacheHttpResponseHandler(Org.Apache.Http.Client.IResponseHandler? responseHandler, Firebase.Perf.Util.Timer? timer, Firebase.Perf.Metrics.NetworkRequestMetricBuilder? builder) -> void
 Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.InstrumentApacheHttpResponseHandler(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback
+Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.InstrumentOkHttpEnqueueCallback(Square.OkHttp3.ICallback? callback, Firebase.Perf.Transport.TransportManager? transportManager, Firebase.Perf.Util.Timer? timer, long startTime) -> void
+Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.InstrumentOkHttpEnqueueCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Perf.Network.NetworkRequestMetricBuilderUtil
 Firebase.Perf.PerformanceKt
 Firebase.Perf.Session.Gauges.CpuGaugeCollector
@@ -1138,6 +1141,9 @@ override Firebase.Perf.Network.InstrHttpsURLConnection.UsingProxy() -> bool
 override Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.ThresholdClass.get -> nint
 override Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.ThresholdType.get -> System.Type!
+override Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.ThresholdClass.get -> nint
+override Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.ThresholdType.get -> System.Type!
 override Firebase.Perf.Network.NetworkRequestMetricBuilderUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Perf.PerformanceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Perf.Session.Gauges.CpuGaugeCollector.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1268,6 +1274,8 @@ static Firebase.Perf.Network.FirebasePerfHttpClient.Execute(Org.Apache.Http.Clie
 static Firebase.Perf.Network.FirebasePerfHttpClient.Execute(Org.Apache.Http.Client.IHttpClient? client, Org.Apache.Http.HttpHost? target, Org.Apache.Http.IHttpRequest? request, Org.Apache.Http.Client.IResponseHandler? responseHandler) -> Java.Lang.Object?
 static Firebase.Perf.Network.FirebasePerfHttpClient.Execute(Org.Apache.Http.Client.IHttpClient? client, Org.Apache.Http.HttpHost? target, Org.Apache.Http.IHttpRequest? request, Org.Apache.Http.Client.IResponseHandler? responseHandler, Org.Apache.Http.Protocol.IHttpContext? context) -> Java.Lang.Object?
 static Firebase.Perf.Network.FirebasePerfHttpClient.Execute(Org.Apache.Http.Client.IHttpClient? client, Org.Apache.Http.HttpHost? target, Org.Apache.Http.IHttpRequest? request, Org.Apache.Http.Protocol.IHttpContext? context) -> Org.Apache.Http.IHttpResponse?
+static Firebase.Perf.Network.FirebasePerfOkHttpClient.Enqueue(Square.OkHttp3.ICall? call, Square.OkHttp3.ICallback? callback) -> void
+static Firebase.Perf.Network.FirebasePerfOkHttpClient.Execute(Square.OkHttp3.ICall? call) -> Square.OkHttp3.Response?
 static Firebase.Perf.Network.FirebasePerfUrlConnection.GetContent(Java.Net.URL? url) -> Java.Lang.Object?
 static Firebase.Perf.Network.FirebasePerfUrlConnection.GetContent(Java.Net.URL? url, Java.Lang.Class![]? types) -> Java.Lang.Object?
 static Firebase.Perf.Network.FirebasePerfUrlConnection.Instrument(Java.Lang.Object? connection) -> Java.Lang.Object?
@@ -1767,6 +1775,8 @@ virtual Firebase.Perf.Metrics.Trace.Stop() -> void
 virtual Firebase.Perf.Metrics.Trace.UpdateSession(Firebase.Perf.Session.PerfSession? session) -> void
 virtual Firebase.Perf.Metrics.Trace.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
 virtual Firebase.Perf.Network.InstrumentApacheHttpResponseHandler.HandleResponse(Org.Apache.Http.IHttpResponse? httpResponse) -> Java.Lang.Object?
+virtual Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.OnFailure(Square.OkHttp3.ICall? call, Java.IO.IOException? e) -> void
+virtual Firebase.Perf.Network.InstrumentOkHttpEnqueueCallback.OnResponse(Square.OkHttp3.ICall? call, Square.OkHttp3.Response? response) -> void
 virtual Firebase.Perf.Session.Gauges.CpuGaugeCollector.CollectOnce(Firebase.Perf.Util.Timer? referenceTime) -> void
 virtual Firebase.Perf.Session.Gauges.CpuGaugeCollector.StartCollecting(long cpuMetricCollectionRateMs, Firebase.Perf.Util.Timer? referenceTime) -> void
 virtual Firebase.Perf.Session.Gauges.CpuGaugeCollector.StopCollecting() -> void
