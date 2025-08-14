@@ -6,8 +6,6 @@ namespace AndroidX.Media3.ExoPlayer.Source;
 // and the intuitive GetGroup(...) naming some developers attempt to use.
 public partial class TrackGroupArray
 {
-    // Alias matching the user's attempted call tracks.GetGroup(i)
-    public TrackGroup? GetGroup(int index) => Get(index);
 
     // Indexer for more idiomatic C# access: trackGroups[i]
     public TrackGroup? this[int index] => Get(index);
