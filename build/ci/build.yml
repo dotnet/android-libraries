@@ -51,6 +51,7 @@ jobs:
 
     # Copy SignList.xml to output
     - pwsh: |
+        Get-Content $PSCommandPath
         $srcExists = (Test-Path "${{ parameters.signListPath }}")
         $dstExists = (Test-Path "${{ parameters.artifactsPath }}\SignList.xml")
         if ($srcExists -and !$dstExists) {

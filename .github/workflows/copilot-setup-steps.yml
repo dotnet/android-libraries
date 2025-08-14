@@ -18,11 +18,11 @@ jobs:
     - name: Install Android workload
       run: dotnet workload install android
 
-    - name: Setup OpenJDK 11
+    - name: Setup OpenJDK 21
       uses: actions/setup-java@v4
       with:
         distribution: 'microsoft'
-        java-version: '11'
+        java-version: '21'
 
     - name: Restore dotnet tools
       run: dotnet tool restore
@@ -58,6 +58,7 @@ jobs:
         echo ".NET Version: $(dotnet --version)"
         echo "Java Version: $(java -version 2>&1 | head -1)"
         echo "Android SDK Root: $ANDROID_SDK_ROOT"
+        echo "Android Home: $ANDROID_HOME"
         echo "Java Home: $JAVA_HOME"
         echo "=== Installed Workloads ==="
         dotnet workload list
