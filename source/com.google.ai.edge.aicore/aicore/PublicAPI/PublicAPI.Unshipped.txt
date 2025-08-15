@@ -92,8 +92,6 @@ Google.AI.Edge.AICore.GenerativeModel.GenerationConfig.get -> Google.AI.Edge.AIC
 Google.AI.Edge.AICore.GenerativeModel.GenerativeModel(Google.AI.Edge.AICore.GenerationConfig! generationConfig) -> void
 Google.AI.Edge.AICore.GenerativeModel.GenerativeModel(Google.AI.Edge.AICore.GenerationConfig! generationConfig, Google.AI.Edge.AICore.DownloadConfig! downloadConfig) -> void
 Google.AI.Edge.AICore.GenerativeModel.PrepareInferenceEngine(Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
-Google.AI.Edge.AICore.GenerativeModelFutures
-Google.AI.Edge.AICore.GenerativeModelFutures.GenerativeModelFutures(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.AI.Edge.AICore.IDownloadCallback
 Google.AI.Edge.AICore.IDownloadCallback.OnDownloadCompleted() -> void
 Google.AI.Edge.AICore.IDownloadCallback.OnDownloadDidNotStart(Google.AI.Edge.AICore.GenerativeAIException! e) -> void
@@ -103,15 +101,17 @@ Google.AI.Edge.AICore.IDownloadCallback.OnDownloadProgress(long totalBytesDownlo
 Google.AI.Edge.AICore.IDownloadCallback.OnDownloadStarted(long bytesToDownload) -> void
 Google.AI.Edge.AICore.IPart
 Google.AI.Edge.AICore.InferenceException
+Google.AI.Edge.AICore.Java.GenerativeModelFutures
+Google.AI.Edge.AICore.Java.GenerativeModelFutures.GenerativeModelFutures(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.AI.Edge.AICore.PreparationException
 Google.AI.Edge.AICore.TextPart
 Google.AI.Edge.AICore.TextPart.Text.get -> string!
 Google.AI.Edge.AICore.TextPart.TextPart(string! text) -> void
 Google.AI.Edge.AICore.TokenizationException
 Google.AI.Edge.AICore.UnknownException
-abstract Google.AI.Edge.AICore.GenerativeModelFutures.GenerateContent(params Google.AI.Edge.AICore.Content![]! prompt) -> Google.Common.Util.Concurrent.IListenableFuture!
-abstract Google.AI.Edge.AICore.GenerativeModelFutures.GenerateContentStream(params Google.AI.Edge.AICore.Content![]! prompt) -> ReactiveStreams.IPublisher!
-abstract Google.AI.Edge.AICore.GenerativeModelFutures.GenerativeModel.get -> Google.AI.Edge.AICore.GenerativeModel!
+abstract Google.AI.Edge.AICore.Java.GenerativeModelFutures.GenerateContent(params Google.AI.Edge.AICore.Content![]! prompt) -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.AI.Edge.AICore.Java.GenerativeModelFutures.GenerateContentStream(params Google.AI.Edge.AICore.Content![]! prompt) -> ReactiveStreams.IPublisher!
+abstract Google.AI.Edge.AICore.Java.GenerativeModelFutures.GenerativeModel.get -> Google.AI.Edge.AICore.GenerativeModel!
 override Google.AI.Edge.AICore.Candidate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.AICore.ConnectionException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.AICore.Content.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -125,12 +125,12 @@ override Google.AI.Edge.AICore.GenerativeAIException.JniPeerMembers.get -> Java.
 override Google.AI.Edge.AICore.GenerativeAIException.ThresholdClass.get -> nint
 override Google.AI.Edge.AICore.GenerativeAIException.ThresholdType.get -> System.Type!
 override Google.AI.Edge.AICore.GenerativeModel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Google.AI.Edge.AICore.GenerativeModelFutures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Google.AI.Edge.AICore.GenerativeModelFutures.ThresholdClass.get -> nint
-override Google.AI.Edge.AICore.GenerativeModelFutures.ThresholdType.get -> System.Type!
 override Google.AI.Edge.AICore.InferenceException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.AICore.Java.GenerativeModelFutures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.AICore.Java.GenerativeModelFutures.ThresholdClass.get -> nint
+override Google.AI.Edge.AICore.Java.GenerativeModelFutures.ThresholdType.get -> System.Type!
 override Google.AI.Edge.AICore.PreparationException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.AICore.TextPart.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.AICore.TokenizationException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.AICore.UnknownException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-static Google.AI.Edge.AICore.GenerativeModelFutures.From(Google.AI.Edge.AICore.GenerativeModel! model) -> Google.AI.Edge.AICore.GenerativeModelFutures!
+static Google.AI.Edge.AICore.Java.GenerativeModelFutures.From(Google.AI.Edge.AICore.GenerativeModel! model) -> Google.AI.Edge.AICore.Java.GenerativeModelFutures!
