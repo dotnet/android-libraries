@@ -38,6 +38,8 @@ AndroidX.Media3.Transformer.Composition.HdrMode.set -> void
 AndroidX.Media3.Transformer.Composition.IHdrMode
 AndroidX.Media3.Transformer.Composition.RetainHdrFromUltraHdrImage.get -> bool
 AndroidX.Media3.Transformer.Composition.RetainHdrFromUltraHdrImage.set -> void
+AndroidX.Media3.Transformer.Composition.Sequences.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Transformer.Composition.Sequences.set -> void
 AndroidX.Media3.Transformer.Composition.TransmuxAudio.get -> bool
 AndroidX.Media3.Transformer.Composition.TransmuxAudio.set -> void
 AndroidX.Media3.Transformer.Composition.TransmuxVideo.get -> bool
@@ -145,6 +147,7 @@ AndroidX.Media3.Transformer.DefaultMuxer.Factory
 AndroidX.Media3.Transformer.DefaultMuxer.Factory.Create(string? path) -> AndroidX.Media3.Transformer.IMuxer?
 AndroidX.Media3.Transformer.DefaultMuxer.Factory.Factory() -> void
 AndroidX.Media3.Transformer.DefaultMuxer.Factory.Factory(long videoDurationMs) -> void
+AndroidX.Media3.Transformer.DefaultMuxer.Factory.GetSupportedSampleMimeTypes(int trackType) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Transformer.DefaultMuxer.Factory.SetVideoDurationUs(long videoDurationUs) -> AndroidX.Media3.Transformer.DefaultMuxer.Factory?
 AndroidX.Media3.Transformer.DefaultMuxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, Android.Media.MediaCodec.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Transformer.DurationUsEventArgs
@@ -188,15 +191,22 @@ AndroidX.Media3.Transformer.EditedMediaItemSequence.Builder.SetIsLooping(bool is
 AndroidX.Media3.Transformer.EditedMediaItemSequence.EditedMediaItemSequence(AndroidX.Media3.Transformer.EditedMediaItem? editedMediaItem, params AndroidX.Media3.Transformer.EditedMediaItem![]? editedMediaItems) -> void
 AndroidX.Media3.Transformer.EditedMediaItemSequence.EditedMediaItemSequence(System.Collections.Generic.IList<AndroidX.Media3.Transformer.EditedMediaItem!>? editedMediaItems) -> void
 AndroidX.Media3.Transformer.EditedMediaItemSequence.EditedMediaItemSequence(System.Collections.Generic.IList<AndroidX.Media3.Transformer.EditedMediaItem!>? editedMediaItems, bool isLooping) -> void
+AndroidX.Media3.Transformer.EditedMediaItemSequence.EditedMediaItems.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Transformer.EditedMediaItemSequence.EditedMediaItems.set -> void
 AndroidX.Media3.Transformer.EditedMediaItemSequence.IsLooping.get -> bool
 AndroidX.Media3.Transformer.EditedMediaItemSequence.IsLooping.set -> void
 AndroidX.Media3.Transformer.Effects
+AndroidX.Media3.Transformer.Effects.AudioProcessors.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Transformer.Effects.AudioProcessors.set -> void
 AndroidX.Media3.Transformer.Effects.Effects(System.Collections.Generic.IList<AndroidX.Media3.Common.Audio.IAudioProcessor!>? audioProcessors, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? videoEffects) -> void
+AndroidX.Media3.Transformer.Effects.VideoEffects.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Transformer.Effects.VideoEffects.set -> void
 AndroidX.Media3.Transformer.EncoderUtil
 AndroidX.Media3.Transformer.ErrorEventArgs
 AndroidX.Media3.Transformer.ErrorEventArgs.ErrorEventArgs(AndroidX.Media3.Transformer.ExportException? p0) -> void
 AndroidX.Media3.Transformer.ErrorEventArgs.P0.get -> AndroidX.Media3.Transformer.ExportException?
 AndroidX.Media3.Transformer.ExoPlayerAssetLoader
+AndroidX.Media3.Transformer.ExoPlayerAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.ExoPlayerAssetLoader.Factory
 AndroidX.Media3.Transformer.ExoPlayerAssetLoader.Factory.CreateAssetLoader(AndroidX.Media3.Transformer.EditedMediaItem? editedMediaItem, Android.OS.Looper? looper, AndroidX.Media3.Transformer.IAssetLoaderListener? listener, AndroidX.Media3.Transformer.AssetLoaderCompositionSettings? compositionSettings) -> AndroidX.Media3.Transformer.IAssetLoader?
 AndroidX.Media3.Transformer.ExoPlayerAssetLoader.Factory.Factory(Android.Content.Context? context, AndroidX.Media3.Transformer.ICodecDecoderFactory? decoderFactory, AndroidX.Media3.Common.Util.IClock? clock) -> void
@@ -322,6 +332,7 @@ AndroidX.Media3.Transformer.ExportResult.VideoMimeType.set -> void
 AndroidX.Media3.Transformer.ExportResult.Width.get -> int
 AndroidX.Media3.Transformer.ExportResult.Width.set -> void
 AndroidX.Media3.Transformer.IAssetLoader
+AndroidX.Media3.Transformer.IAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.IAssetLoader.GetProgress(AndroidX.Media3.Transformer.ProgressHolder? p0) -> int
 AndroidX.Media3.Transformer.IAssetLoader.Release() -> void
 AndroidX.Media3.Transformer.IAssetLoader.Start() -> void
@@ -374,6 +385,7 @@ AndroidX.Media3.Transformer.ICodecEncoderFactory.CreateForVideoEncoding(AndroidX
 AndroidX.Media3.Transformer.ICodecEncoderFactory.VideoNeedsEncoding() -> bool
 AndroidX.Media3.Transformer.IEncoderSelector
 AndroidX.Media3.Transformer.IEncoderSelector.Default.get -> AndroidX.Media3.Transformer.IEncoderSelector?
+AndroidX.Media3.Transformer.IEncoderSelector.SelectEncoderInfos(string? p0) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Transformer.IMuxer
 AndroidX.Media3.Transformer.IMuxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? p0) -> void
 AndroidX.Media3.Transformer.IMuxer.AddTrack(AndroidX.Media3.Common.Format? p0) -> int
@@ -381,6 +393,7 @@ AndroidX.Media3.Transformer.IMuxer.Close() -> void
 AndroidX.Media3.Transformer.IMuxer.WriteSampleData(int p0, Java.Nio.ByteBuffer? p1, Android.Media.MediaCodec.BufferInfo? p2) -> void
 AndroidX.Media3.Transformer.IMuxerFactory
 AndroidX.Media3.Transformer.IMuxerFactory.Create(string? p0) -> AndroidX.Media3.Transformer.IMuxer?
+AndroidX.Media3.Transformer.IMuxerFactory.GetSupportedSampleMimeTypes(int p0) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Transformer.ISampleConsumer
 AndroidX.Media3.Transformer.ISampleConsumer.InputBuffer.get -> AndroidX.Media3.Decoder.DecoderInputBuffer?
 AndroidX.Media3.Transformer.ISampleConsumer.InputSurface.get -> Android.Views.Surface?
@@ -394,6 +407,7 @@ AndroidX.Media3.Transformer.ISampleConsumer.SetOnInputSurfaceReadyListener(Java.
 AndroidX.Media3.Transformer.ISampleConsumer.SignalEndOfVideoInput() -> void
 AndroidX.Media3.Transformer.ISampleConsumerInputResult
 AndroidX.Media3.Transformer.ImageAssetLoader
+AndroidX.Media3.Transformer.ImageAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.ImageAssetLoader.Factory
 AndroidX.Media3.Transformer.ImageAssetLoader.Factory.CreateAssetLoader(AndroidX.Media3.Transformer.EditedMediaItem? editedMediaItem, Android.OS.Looper? looper, AndroidX.Media3.Transformer.IAssetLoaderListener? listener, AndroidX.Media3.Transformer.AssetLoaderCompositionSettings? compositionSettings) -> AndroidX.Media3.Transformer.IAssetLoader?
 AndroidX.Media3.Transformer.ImageAssetLoader.Factory.Factory(Android.Content.Context? context, AndroidX.Media3.Common.Util.IBitmapLoader? bitmapLoader) -> void
@@ -409,6 +423,7 @@ AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory
 AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory.Create(string? path) -> AndroidX.Media3.Transformer.IMuxer?
 AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory.Factory() -> void
 AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory.Factory(long fragmentDurationMs) -> void
+AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory.GetSupportedSampleMimeTypes(int trackType) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory.SetVideoDurationUs(long videoDurationUs) -> AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.Factory?
 AndroidX.Media3.Transformer.InAppFragmentedMp4Muxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, Android.Media.MediaCodec.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Transformer.InAppMp4Muxer
@@ -419,12 +434,14 @@ AndroidX.Media3.Transformer.InAppMp4Muxer.Factory
 AndroidX.Media3.Transformer.InAppMp4Muxer.Factory.Create(string? path) -> AndroidX.Media3.Transformer.IMuxer?
 AndroidX.Media3.Transformer.InAppMp4Muxer.Factory.Factory() -> void
 AndroidX.Media3.Transformer.InAppMp4Muxer.Factory.Factory(AndroidX.Media3.Transformer.InAppMp4Muxer.IMetadataProvider? metadataProvider) -> void
+AndroidX.Media3.Transformer.InAppMp4Muxer.Factory.GetSupportedSampleMimeTypes(int trackType) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Transformer.InAppMp4Muxer.Factory.SetVideoDurationUs(long videoDurationUs) -> AndroidX.Media3.Transformer.InAppMp4Muxer.Factory?
 AndroidX.Media3.Transformer.InAppMp4Muxer.IMetadataProvider
 AndroidX.Media3.Transformer.InAppMp4Muxer.IMetadataProvider.UpdateMetadataEntries(System.Collections.Generic.ICollection<AndroidX.Media3.Common.Metadata.IEntry!>? p0) -> void
 AndroidX.Media3.Transformer.InAppMp4Muxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, Android.Media.MediaCodec.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Transformer.JsonUtil
 AndroidX.Media3.Transformer.MediaProjectionAssetLoader
+AndroidX.Media3.Transformer.MediaProjectionAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.MediaProjectionAssetLoader.Factory
 AndroidX.Media3.Transformer.MediaProjectionAssetLoader.Factory.CreateAssetLoader(AndroidX.Media3.Transformer.EditedMediaItem? editedMediaItem, Android.OS.Looper? looper, AndroidX.Media3.Transformer.IAssetLoaderListener? listener, AndroidX.Media3.Transformer.AssetLoaderCompositionSettings? compositionSettings) -> AndroidX.Media3.Transformer.IAssetLoader?
 AndroidX.Media3.Transformer.MediaProjectionAssetLoader.Factory.Factory(Android.Media.Projection.MediaProjection? mediaProjection, Android.Graphics.Rect? bounds, int densityDpi) -> void
@@ -437,6 +454,7 @@ AndroidX.Media3.Transformer.ProgressHolder.Progress.get -> int
 AndroidX.Media3.Transformer.ProgressHolder.Progress.set -> void
 AndroidX.Media3.Transformer.ProgressHolder.ProgressHolder() -> void
 AndroidX.Media3.Transformer.RawAssetLoader
+AndroidX.Media3.Transformer.RawAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.RawAssetLoader.GetProgress(AndroidX.Media3.Transformer.ProgressHolder? progressHolder) -> int
 AndroidX.Media3.Transformer.RawAssetLoader.InterfaceConsts
 AndroidX.Media3.Transformer.RawAssetLoader.QueueAudioData(Java.Nio.ByteBuffer? audioData, long presentationTimeUs, bool isLast) -> bool
@@ -446,6 +464,7 @@ AndroidX.Media3.Transformer.RawAssetLoader.Release() -> void
 AndroidX.Media3.Transformer.RawAssetLoader.SignalEndOfVideoInput() -> void
 AndroidX.Media3.Transformer.RawAssetLoader.Start() -> void
 AndroidX.Media3.Transformer.SurfaceAssetLoader
+AndroidX.Media3.Transformer.SurfaceAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.SurfaceAssetLoader.EditedMediaItem.get -> AndroidX.Media3.Transformer.EditedMediaItem?
 AndroidX.Media3.Transformer.SurfaceAssetLoader.Factory
 AndroidX.Media3.Transformer.SurfaceAssetLoader.Factory.CreateAssetLoader(AndroidX.Media3.Transformer.EditedMediaItem? editedMediaItem, Android.OS.Looper? looper, AndroidX.Media3.Transformer.IAssetLoaderListener? listener, AndroidX.Media3.Transformer.AssetLoaderCompositionSettings? compositionSettings) -> AndroidX.Media3.Transformer.IAssetLoader?
@@ -460,6 +479,7 @@ AndroidX.Media3.Transformer.SurfaceAssetLoader.SetContentFormat(AndroidX.Media3.
 AndroidX.Media3.Transformer.SurfaceAssetLoader.SignalEndOfInput() -> void
 AndroidX.Media3.Transformer.SurfaceAssetLoader.Start() -> void
 AndroidX.Media3.Transformer.TextureAssetLoader
+AndroidX.Media3.Transformer.TextureAssetLoader.DecoderNames.get -> Google.Common.Collect.ImmutableMap?
 AndroidX.Media3.Transformer.TextureAssetLoader.GetProgress(AndroidX.Media3.Transformer.ProgressHolder? progressHolder) -> int
 AndroidX.Media3.Transformer.TextureAssetLoader.InterfaceConsts
 AndroidX.Media3.Transformer.TextureAssetLoader.QueueInputTexture(int texId, long presentationTimeUs) -> bool
@@ -702,9 +722,14 @@ static AndroidX.Media3.Transformer.Effects.CreateExperimentalSpeedChangingEffect
 static AndroidX.Media3.Transformer.Effects.Empty.get -> AndroidX.Media3.Transformer.Effects?
 static AndroidX.Media3.Transformer.EncoderUtil.ClearCachedEncoders() -> void
 static AndroidX.Media3.Transformer.EncoderUtil.FindHighestSupportedEncodingLevel(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType, int profile) -> int
+static AndroidX.Media3.Transformer.EncoderUtil.FindSupportedEncodingProfiles(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> Google.Common.Collect.ImmutableSet?
 static AndroidX.Media3.Transformer.EncoderUtil.GetClosestSupportedSampleRate(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType, int requestedSampleRate) -> int
+static AndroidX.Media3.Transformer.EncoderUtil.GetCodecProfilesForHdrFormat(string? mimeType, int colorTransfer) -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Transformer.EncoderUtil.GetMaxSupportedInstances(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> int
 static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedBitrateRange(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> Android.Util.Range?
+static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedColorFormats(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedEncoders(string? mimeType) -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedEncodersForHdrEditing(string? mimeType, AndroidX.Media3.Common.ColorInfo? colorInfo) -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedHeights(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType, int width) -> Android.Util.Range?
 static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedResolution(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType, int width, int height) -> Android.Util.Size?
 static AndroidX.Media3.Transformer.EncoderUtil.GetSupportedResolutionRanges(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> Android.Util.Pair?
@@ -713,6 +738,7 @@ static AndroidX.Media3.Transformer.EncoderUtil.IsFeatureSupported(Android.Media.
 static AndroidX.Media3.Transformer.EncoderUtil.IsHardwareAccelerated(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType) -> bool
 static AndroidX.Media3.Transformer.EncoderUtil.IsHdrEditingSupported(Android.Media.MediaCodecInfo? mediaCodecInfo, string? mimeType, AndroidX.Media3.Common.ColorInfo? colorInfo) -> bool
 static AndroidX.Media3.Transformer.EncoderUtil.IsSizeSupported(Android.Media.MediaCodecInfo? encoderInfo, string? mimeType, int width, int height) -> bool
+static AndroidX.Media3.Transformer.EncoderUtil.SupportedMimeTypes.get -> Google.Common.Collect.ImmutableSet?
 static AndroidX.Media3.Transformer.ExperimentalAnalyzerModeFactory.BuildAnalyzer(Android.Content.Context? context) -> AndroidX.Media3.Transformer.Transformer?
 static AndroidX.Media3.Transformer.ExperimentalAnalyzerModeFactory.BuildAnalyzer(Android.Content.Context? context, AndroidX.Media3.Transformer.Transformer? transformer) -> AndroidX.Media3.Transformer.Transformer?
 static AndroidX.Media3.Transformer.ExportException.CreateForAssetLoader(Java.Lang.Throwable? cause, int errorCode) -> AndroidX.Media3.Transformer.ExportException?
@@ -723,6 +749,7 @@ static AndroidX.Media3.Transformer.ExportException.GetErrorCodeName(int errorCod
 static AndroidX.Media3.Transformer.JsonUtil.DeviceDetailsAsJsonObject.get -> Org.Json.JSONObject?
 static AndroidX.Media3.Transformer.JsonUtil.ExceptionAsJsonObject(Java.Lang.Exception? exception) -> Org.Json.JSONObject?
 static AndroidX.Media3.Transformer.JsonUtil.ExportResultAsJsonObject(AndroidX.Media3.Transformer.ExportResult? exportResult) -> Org.Json.JSONObject?
+static AndroidX.Media3.Transformer.JsonUtil.ProcessedInputsAsJsonArray(Google.Common.Collect.ImmutableList? processedInputs) -> Org.Json.JSONArray?
 static AndroidX.Media3.Transformer.Transformer.DefaultMaxDelayBetweenMuxerSamplesMs.get -> long
 static AndroidX.Media3.Transformer.TransformerUtil.GetDecoderOutputColor(AndroidX.Media3.Common.ColorInfo? decoderInputColor, bool isMediaCodecToneMappingRequested) -> AndroidX.Media3.Common.ColorInfo?
 static AndroidX.Media3.Transformer.TransformerUtil.GetImageMimeType(Android.Content.Context? context, AndroidX.Media3.Common.MediaItem? mediaItem) -> string?

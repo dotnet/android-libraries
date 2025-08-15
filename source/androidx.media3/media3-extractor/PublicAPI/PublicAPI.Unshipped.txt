@@ -635,6 +635,8 @@ AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.TextInformationFrame
 AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.TextInformationFrame(string? id, string? description, string? value) -> void
 AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.Value.get -> string?
 AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.Value.set -> void
+AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.Values.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.Values.set -> void
 AndroidX.Media3.Extractor.Metadata.Id3.UrlLinkFrame
 AndroidX.Media3.Extractor.Metadata.Id3.UrlLinkFrame.Description.get -> string?
 AndroidX.Media3.Extractor.Metadata.Id3.UrlLinkFrame.Description.set -> void
@@ -947,6 +949,7 @@ AndroidX.Media3.Extractor.Mp4.Mp4Extractor.Read(AndroidX.Media3.Extractor.IExtra
 AndroidX.Media3.Extractor.Mp4.Mp4Extractor.Release() -> void
 AndroidX.Media3.Extractor.Mp4.Mp4Extractor.Seek(long position, long timeUs) -> void
 AndroidX.Media3.Extractor.Mp4.Mp4Extractor.Sniff(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
+AndroidX.Media3.Extractor.Mp4.Mp4Extractor.SniffFailureDetails.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Extractor.Mp4.NoDeclaredBrandSniffFailure
 AndroidX.Media3.Extractor.Mp4.PsshAtomUtil
 AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.PsshAtom
@@ -1361,6 +1364,8 @@ AndroidX.Media3.Extractor.Text.CueEncoder
 AndroidX.Media3.Extractor.Text.CueEncoder.CueEncoder() -> void
 AndroidX.Media3.Extractor.Text.CueEncoder.Encode(System.Collections.Generic.IList<AndroidX.Media3.Common.Text.Cue!>? cues, long durationUs) -> byte[]?
 AndroidX.Media3.Extractor.Text.CuesWithTiming
+AndroidX.Media3.Extractor.Text.CuesWithTiming.Cues.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Extractor.Text.CuesWithTiming.Cues.set -> void
 AndroidX.Media3.Extractor.Text.CuesWithTiming.CuesWithTiming(System.Collections.Generic.IList<AndroidX.Media3.Common.Text.Cue!>? cues, long startTimeUs, long durationUs) -> void
 AndroidX.Media3.Extractor.Text.CuesWithTiming.CuesWithTiming(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Extractor.Text.CuesWithTiming.DurationUs.get -> long
@@ -1372,7 +1377,7 @@ AndroidX.Media3.Extractor.Text.CuesWithTiming.StartTimeUs.set -> void
 AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle
 AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.CuesWithTimingSubtitle(System.Collections.Generic.IList<AndroidX.Media3.Extractor.Text.CuesWithTiming!>? cuesWithTimingList) -> void
 AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.EventTimeCount.get -> int
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetCues(long count) -> System.Collections.Generic.IList<AndroidX.Media3.Common.Text.Cue!>?
+AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetCues(long timeUs) -> System.Collections.Generic.IList<AndroidX.Media3.Common.Text.Cue!>?
 AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetEventTime(int index) -> long
 AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetNextEventTimeIndex(long timeUs) -> int
 AndroidX.Media3.Extractor.Text.DefaultSubtitleParserFactory
@@ -2268,6 +2273,7 @@ static AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.ValidateWebvttHead
 static AndroidX.Media3.Extractor.VorbisUtil.GetVorbisToAndroidChannelLayoutMapping(int channelCount) -> int[]?
 static AndroidX.Media3.Extractor.VorbisUtil.ILog(int x) -> int
 static AndroidX.Media3.Extractor.VorbisUtil.ParseVorbisComments(System.Collections.Generic.IList<string!>? vorbisComments) -> AndroidX.Media3.Common.Metadata?
+static AndroidX.Media3.Extractor.VorbisUtil.ParseVorbisCsdFromEsdsInitializationData(byte[]? initializationData) -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Extractor.VorbisUtil.CommentHeader?
 static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, bool hasMetadataHeader, bool hasFramingBit) -> AndroidX.Media3.Extractor.VorbisUtil.CommentHeader?
 static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisIdentificationHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader?
@@ -2342,6 +2348,7 @@ virtual AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.Read(AndroidX.Media
 virtual AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.Release() -> void
 virtual AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.Seek(long position, long timeUs) -> void
 virtual AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.Sniff(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
+virtual AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.SniffFailureDetails.get -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.Extractor.Ogg.OggExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 virtual AndroidX.Media3.Extractor.Ogg.OggExtractor.Read(AndroidX.Media3.Extractor.IExtractorInput? input, AndroidX.Media3.Extractor.PositionHolder? seekPosition) -> int
 virtual AndroidX.Media3.Extractor.Ogg.OggExtractor.Release() -> void

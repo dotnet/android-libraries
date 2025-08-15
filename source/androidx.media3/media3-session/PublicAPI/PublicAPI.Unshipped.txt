@@ -27,6 +27,7 @@ AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.SetAllowCustomC
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.SetAllowedPlayerCommandsForSlot(int slot, AndroidX.Media3.Common.PlayerCommands? allowedPlayerCommands) -> AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder?
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.SetAllowedSessionCommandsForSlot(int slot, AndroidX.Media3.Session.SessionCommands? allowedSessionCommands) -> AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder?
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.SetMaxButtonsForSlot(int slot, int maxButtons) -> AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder?
+AndroidX.Media3.Session.CommandButton.DisplayConstraints.Resolve(System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? mediaButtonPreferences, AndroidX.Media3.Common.IPlayer? player) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.CommandButton.DisplayName.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Session.CommandButton.DisplayName.set -> void
 AndroidX.Media3.Session.CommandButton.Extras.get -> Android.OS.Bundle?
@@ -54,6 +55,7 @@ AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder.SetChannelId(st
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder.SetChannelName(int channelNameResourceId) -> AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder?
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder.SetNotificationId(int notificationId) -> AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder?
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder.SetNotificationIdProvider(AndroidX.Media3.Session.DefaultMediaNotificationProvider.INotificationIdProvider? notificationIdProvider) -> AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder?
+AndroidX.Media3.Session.DefaultMediaNotificationProvider.CreateNotification(AndroidX.Media3.Session.MediaSession? mediaSession, Google.Common.Collect.ImmutableList? mediaButtonPreferences, AndroidX.Media3.Session.MediaNotification.IActionFactory? actionFactory, AndroidX.Media3.Session.MediaNotification.IProviderCallback? onNotificationChangedCallback) -> AndroidX.Media3.Session.MediaNotification?
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultMediaNotificationProvider(Android.Content.Context? context) -> void
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultMediaNotificationProvider(Android.Content.Context? context, AndroidX.Media3.Session.DefaultMediaNotificationProvider.INotificationIdProvider? notificationIdProvider, string? channelId, int channelNameResourceId) -> void
 AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultMediaNotificationProvider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -575,8 +577,10 @@ AndroidX.Media3.Session.MediaBrowser.Builder.SetBitmapLoader(AndroidX.Media3.Com
 AndroidX.Media3.Session.MediaBrowser.Builder.SetConnectionHints(Android.OS.Bundle? connectionHints) -> AndroidX.Media3.Session.MediaBrowser.Builder?
 AndroidX.Media3.Session.MediaBrowser.Builder.SetListener(AndroidX.Media3.Session.MediaBrowser.IListener? listener) -> AndroidX.Media3.Session.MediaBrowser.Builder?
 AndroidX.Media3.Session.MediaBrowser.Builder.SetMaxCommandsForMediaItems(int maxCommandsForMediaItems) -> AndroidX.Media3.Session.MediaBrowser.Builder?
+AndroidX.Media3.Session.MediaBrowser.GetChildren(string? parentId, int page, int pageSize, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaBrowser.GetItem(string? mediaId) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaBrowser.GetLibraryRoot(AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaBrowser.GetSearchResult(string? query, int page, int pageSize, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaBrowser.IListener
 AndroidX.Media3.Session.MediaBrowser.IListener.OnChildrenChanged(AndroidX.Media3.Session.MediaBrowser? browser, string? parentId, int itemCount, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> void
 AndroidX.Media3.Session.MediaBrowser.IListener.OnSearchResultChanged(AndroidX.Media3.Session.MediaBrowser? browser, string? query, int itemCount, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> void
@@ -635,6 +639,7 @@ AndroidX.Media3.Session.MediaController.CurrentPosition.get -> long
 AndroidX.Media3.Session.MediaController.CurrentTimeline.get -> AndroidX.Media3.Common.Timeline?
 AndroidX.Media3.Session.MediaController.CurrentTracks.get -> AndroidX.Media3.Common.Tracks?
 AndroidX.Media3.Session.MediaController.CurrentWindowIndex.get -> int
+AndroidX.Media3.Session.MediaController.CustomLayout.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.MediaController.CustomLayoutChangedEventArgs
 AndroidX.Media3.Session.MediaController.CustomLayoutChangedEventArgs.Controller.get -> AndroidX.Media3.Session.MediaController?
 AndroidX.Media3.Session.MediaController.CustomLayoutChangedEventArgs.CustomLayoutChangedEventArgs(AndroidX.Media3.Session.MediaController? controller, System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? layout) -> void
@@ -658,6 +663,7 @@ AndroidX.Media3.Session.MediaController.ExtrasChangedEventArgs
 AndroidX.Media3.Session.MediaController.ExtrasChangedEventArgs.Controller.get -> AndroidX.Media3.Session.MediaController?
 AndroidX.Media3.Session.MediaController.ExtrasChangedEventArgs.Extras.get -> Android.OS.Bundle?
 AndroidX.Media3.Session.MediaController.ExtrasChangedEventArgs.ExtrasChangedEventArgs(AndroidX.Media3.Session.MediaController? controller, Android.OS.Bundle? extras) -> void
+AndroidX.Media3.Session.MediaController.GetCommandButtonsForMediaItem(AndroidX.Media3.Common.MediaItem? mediaItem) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.MediaController.GetMediaItemAt(int index) -> AndroidX.Media3.Common.MediaItem?
 AndroidX.Media3.Session.MediaController.HasNext.get -> bool
 AndroidX.Media3.Session.MediaController.HasNextMediaItem.get -> bool
@@ -689,6 +695,7 @@ AndroidX.Media3.Session.MediaController.IsPlayingAd.get -> bool
 AndroidX.Media3.Session.MediaController.IsSessionCommandAvailable(AndroidX.Media3.Session.SessionCommand? sessionCommand) -> bool
 AndroidX.Media3.Session.MediaController.IsSessionCommandAvailable(int sessionCommandCode) -> bool
 AndroidX.Media3.Session.MediaController.MaxSeekToPreviousPosition.get -> long
+AndroidX.Media3.Session.MediaController.MediaButtonPreferences.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.MediaController.MediaButtonPreferencesChangedEventArgs
 AndroidX.Media3.Session.MediaController.MediaButtonPreferencesChangedEventArgs.Controller.get -> AndroidX.Media3.Session.MediaController?
 AndroidX.Media3.Session.MediaController.MediaButtonPreferencesChangedEventArgs.MediaButtonPreferences.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>?
@@ -832,9 +839,12 @@ AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.Builder.SetSessi
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.Builder.SetShowPlayButtonIfPlaybackIsSuppressed(bool p0) -> Java.Lang.Object?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.Builder.SetShowPlayButtonIfPlaybackIsSuppressedBuilder(bool showPlayButtonIfPlaybackIsSuppressed) -> AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.Builder?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ClearReplicatedLibraryError() -> void
+AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.GetSubscribedControllers(string? mediaId) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback
+AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnGetChildren(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? parentId, int page, int pageSize, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnGetItem(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? mediaId) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnGetLibraryRoot(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnGetSearchResult(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? query, int page, int pageSize, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnSearch(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? query, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnSubscribe(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? parentId, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession.ICallback.OnUnsubscribe(AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? browser, string? parentId) -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -850,6 +860,7 @@ AndroidX.Media3.Session.MediaNotification.IActionFactory.CreateMediaActionPendin
 AndroidX.Media3.Session.MediaNotification.IActionFactory.CreateNotificationDismissalIntent(AndroidX.Media3.Session.MediaSession? mediaSession) -> Android.App.PendingIntent?
 AndroidX.Media3.Session.MediaNotification.IProvider
 AndroidX.Media3.Session.MediaNotification.IProvider.CreateNotification(AndroidX.Media3.Session.MediaSession? mediaSession, Java.Lang.Object? mediaButtonPreferences, AndroidX.Media3.Session.MediaNotification.IActionFactory? actionFactory, AndroidX.Media3.Session.MediaNotification.IProviderCallback? onNotificationChangedCallback) -> AndroidX.Media3.Session.MediaNotification?
+AndroidX.Media3.Session.MediaNotification.IProvider.CreateNotification(AndroidX.Media3.Session.MediaSession? p0, Google.Common.Collect.ImmutableList? p1, AndroidX.Media3.Session.MediaNotification.IActionFactory? p2, AndroidX.Media3.Session.MediaNotification.IProviderCallback? p3) -> AndroidX.Media3.Session.MediaNotification?
 AndroidX.Media3.Session.MediaNotification.IProvider.HandleCustomCommand(AndroidX.Media3.Session.MediaSession? p0, string? p1, Android.OS.Bundle? p2) -> bool
 AndroidX.Media3.Session.MediaNotification.IProviderCallback
 AndroidX.Media3.Session.MediaNotification.IProviderCallback.OnNotificationChanged(AndroidX.Media3.Session.MediaNotification? p0) -> void
@@ -897,8 +908,12 @@ AndroidX.Media3.Session.MediaSession.ConnectionResult.AvailablePlayerCommands.ge
 AndroidX.Media3.Session.MediaSession.ConnectionResult.AvailablePlayerCommands.set -> void
 AndroidX.Media3.Session.MediaSession.ConnectionResult.AvailableSessionCommands.get -> AndroidX.Media3.Session.SessionCommands?
 AndroidX.Media3.Session.MediaSession.ConnectionResult.AvailableSessionCommands.set -> void
+AndroidX.Media3.Session.MediaSession.ConnectionResult.CustomLayout.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Session.MediaSession.ConnectionResult.CustomLayout.set -> void
 AndroidX.Media3.Session.MediaSession.ConnectionResult.IsAccepted.get -> bool
 AndroidX.Media3.Session.MediaSession.ConnectionResult.IsAccepted.set -> void
+AndroidX.Media3.Session.MediaSession.ConnectionResult.MediaButtonPreferences.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Session.MediaSession.ConnectionResult.MediaButtonPreferences.set -> void
 AndroidX.Media3.Session.MediaSession.ConnectionResult.SessionActivity.get -> Android.App.PendingIntent?
 AndroidX.Media3.Session.MediaSession.ConnectionResult.SessionActivity.set -> void
 AndroidX.Media3.Session.MediaSession.ConnectionResult.SessionExtras.get -> Android.OS.Bundle?
@@ -929,6 +944,8 @@ AndroidX.Media3.Session.MediaSession.Id.get -> string?
 AndroidX.Media3.Session.MediaSession.IsAutoCompanionController(AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo) -> bool
 AndroidX.Media3.Session.MediaSession.IsAutomotiveController(AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo) -> bool
 AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition
+AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition.MediaItems.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition.MediaItems.set -> void
 AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition.MediaItemsWithStartPosition(System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? mediaItems, int startIndex, long startPositionMs) -> void
 AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition.StartIndex.get -> int
 AndroidX.Media3.Session.MediaSession.MediaItemsWithStartPosition.StartIndex.set -> void
@@ -1020,6 +1037,8 @@ AndroidX.Media3.Session.SessionCommands.Builder.Build() -> AndroidX.Media3.Sessi
 AndroidX.Media3.Session.SessionCommands.Builder.Builder() -> void
 AndroidX.Media3.Session.SessionCommands.Builder.Remove(AndroidX.Media3.Session.SessionCommand? command) -> AndroidX.Media3.Session.SessionCommands.Builder?
 AndroidX.Media3.Session.SessionCommands.Builder.Remove(int commandCode) -> AndroidX.Media3.Session.SessionCommands.Builder?
+AndroidX.Media3.Session.SessionCommands.Commands.get -> Google.Common.Collect.ImmutableSet?
+AndroidX.Media3.Session.SessionCommands.Commands.set -> void
 AndroidX.Media3.Session.SessionCommands.Contains(AndroidX.Media3.Session.SessionCommand? command) -> bool
 AndroidX.Media3.Session.SessionCommands.Contains(int commandCode) -> bool
 AndroidX.Media3.Session.SessionCommands.ToBundle() -> Android.OS.Bundle?
@@ -1962,6 +1981,7 @@ static AndroidX.Media3.Session.Legacy.RatingCompat.NewStarRating(int starRatingS
 static AndroidX.Media3.Session.Legacy.RatingCompat.NewThumbRating(bool thumbIsUp) -> AndroidX.Media3.Session.Legacy.RatingCompat?
 static AndroidX.Media3.Session.Legacy.RatingCompat.NewUnratedRating(int ratingStyle) -> AndroidX.Media3.Session.Legacy.RatingCompat?
 static AndroidX.Media3.Session.LibraryResult.FromItemBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.LibraryResult?
+static AndroidX.Media3.Session.LibraryResult.FromItemListBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.FromUnknownBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.FromVoidBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.OfError(AndroidX.Media3.Session.SessionError? sessionError) -> AndroidX.Media3.Session.LibraryResult?
@@ -1969,6 +1989,7 @@ static AndroidX.Media3.Session.LibraryResult.OfError(AndroidX.Media3.Session.Ses
 static AndroidX.Media3.Session.LibraryResult.OfError(int errorCode) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.OfError(int errorCode, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.OfItem(AndroidX.Media3.Common.MediaItem? item, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> AndroidX.Media3.Session.LibraryResult?
+static AndroidX.Media3.Session.LibraryResult.OfItemList(System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? items, AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.OfVoid() -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.LibraryResult.OfVoid(AndroidX.Media3.Session.MediaLibraryService.LibraryParams? params) -> AndroidX.Media3.Session.LibraryResult?
 static AndroidX.Media3.Session.MediaController.ReleaseFuture(Java.Util.Concurrent.IFuture? controllerFuture) -> void
@@ -1996,6 +2017,9 @@ static AndroidX.Media3.Session.SessionToken.CreateSessionToken(Android.Content.C
 static AndroidX.Media3.Session.SessionToken.CreateSessionToken(Android.Content.Context? context, Android.OS.IParcelable? token) -> Google.Common.Util.Concurrent.IListenableFuture?
 static AndroidX.Media3.Session.SessionToken.CreateSessionToken(Android.Content.Context? context, Android.OS.IParcelable? token, Android.OS.Looper? completionLooper) -> Google.Common.Util.Concurrent.IListenableFuture?
 static AndroidX.Media3.Session.SessionToken.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.SessionToken?
+static AndroidX.Media3.Session.SessionToken.GetAllServiceTokens(Android.Content.Context? context) -> Google.Common.Collect.ImmutableSet?
+virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.AddNotificationActions(AndroidX.Media3.Session.MediaSession? mediaSession, Google.Common.Collect.ImmutableList? mediaButtons, AndroidX.Core.App.NotificationCompat.Builder? builder, AndroidX.Media3.Session.MediaNotification.IActionFactory? actionFactory) -> int[]?
+virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetMediaButtons(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Common.PlayerCommands? playerCommands, Google.Common.Collect.ImmutableList? mediaButtonPreferences, bool showPauseButton) -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetNotificationContentTextFormatted(AndroidX.Media3.Common.MediaMetadata? metadata) -> Java.Lang.ICharSequence?
 virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetNotificationContentTitleFormatted(AndroidX.Media3.Common.MediaMetadata? metadata) -> Java.Lang.ICharSequence?
 virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.AudioAttributesImplBase.AudioAttributes.get -> Java.Lang.Object?
@@ -2172,7 +2196,9 @@ virtual AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuil
 virtual AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder.SetMediaButtonPreferences(System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? mediaButtonPreferences) -> AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder?
 virtual AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder.SetSessionActivity(Android.App.PendingIntent? sessionActivity) -> AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder?
 virtual AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder.SetSessionExtras(Android.OS.Bundle? sessionExtras) -> AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder?
+virtual AndroidX.Media3.Session.MediaSession.CustomLayout.get -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.Session.MediaSession.IsMediaNotificationController(AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo) -> bool
+virtual AndroidX.Media3.Session.MediaSession.MediaButtonPreferences.get -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.Session.MediaSession.MediaNotificationControllerInfo.get -> AndroidX.Media3.Session.MediaSession.ControllerInfo?
 virtual AndroidX.Media3.Session.MediaSessionDefault.AddMediaItem(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.OS.Bundle? mediaItemBundle) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.AddMediaItemWithIndex(AndroidX.Media3.Session.IMediaController? caller, int seq, int index, Android.OS.Bundle? mediaItemBundle) -> void
