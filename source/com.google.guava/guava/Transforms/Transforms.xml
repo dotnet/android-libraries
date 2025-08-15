@@ -29,16 +29,29 @@
 	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='transformEntries' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V1&gt;'] and parameter[2][@type='com.google.common.collect.Maps.EntryTransformer&lt;? super K, ? super V1, V2&gt;']]" name="managedName">TransformEntriesAsSortedMap</attr>
 	<attr path="/api/package[@name='com.google.common.collect']/class[@name='Maps']/method[@name='transformValues' and count(parameter)=2 and parameter[1][@type='java.util.SortedMap&lt;K, V1&gt;'] and parameter[2][@type='com.google.common.base.Function&lt;? super V1, V2&gt;']]" name="managedName">TransformValuesAsSortedMap</attr>
 
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='Lists']/method[@name='charactersOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection.ArrayBasedBuilder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList.Builder']" />
+
+	<!-- Fix CS0115 -->
+	<!-- Fix CS0534 -->
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList']" name="managedType">Java.Lang.Object</attr>
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection']/method[@name='spliterator' and count(parameter)=0]" />
+
 	<!-- Fix CS0508 -->
 	<attr path="/api/package[@name='com.google.common.collect']/class[@name='HashBiMap']/method[@name='entrySet' and count(parameter)=0]" name="return">java.util.Set</attr>
 
+	<!-- Fix CS0533 -->
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection']/method[@name='iterator' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList']/method[@name='iterator' and count(parameter)=0]" />
 
 	<!-- Fix CS0738 -->
 	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=1 and parameter[1][@type='java.lang.Runnable']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
 	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='T']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
 	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='T']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
 	<attr path="/api/package[@name='com.google.common.util.concurrent']/interface[@name='ListeningExecutorService']/method[@name='submit' and count(parameter)=1 and parameter[1][@type='java.util.concurrent.Callable&lt;T&gt;']]" name="managedReturn">Java.Util.Concurrent.IFuture</attr>
-	
+	<remove-node path="//class[@jni-signature='Lcom/google/common/collect/ImmutableList;']/implements[@name='java.util.List']" />
+
 	<!-- Interfaces -->
 	<remove-node path="/api/package[@name='com.google.common.hash']/interface[@name='Hasher']" />
 	
@@ -71,16 +84,17 @@
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='HashMultimap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='HashMultiset']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableClassToInstanceMap']" />
-	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableListMultimap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMultimap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableMultiset']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableRangeMap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableRangeSet']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSetMultimap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSortedMap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSortedMultiset']" />
+	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSortedSet']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableTable']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='LinkedHashMultimap']" />
 	<remove-node path="/api/package[@name='com.google.common.collect']/class[@name='LinkedHashMultiset']" />
