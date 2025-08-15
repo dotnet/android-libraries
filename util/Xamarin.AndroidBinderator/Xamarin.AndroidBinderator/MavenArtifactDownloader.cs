@@ -70,6 +70,7 @@ static class MavenArtifactDownloader
 		var a = artifact.ToArtifact ();
 
 		if (artifact_model.MavenArtifactPackaging == "jar" || artifact_model.MavenArtifactPackaging == "aar") {
+			Console.WriteLine ($"Downloading {a} from {repository.Name}...");
 			if (repository.TryGetFilePath (a, FormatPayloadFileName (a, artifact_model.MavenArtifactPackaging), out var payload_path))
 				return payload_path;
 
@@ -78,11 +79,13 @@ static class MavenArtifactDownloader
 
 		// Sometimes the "MavenArtifactPackaging" isn't useful, like "bundle" for Guava or "pom" for KotlinX Coroutines.
 		// In this case we're going to try "jar" and "aar" to try to find the real payload
+		Console.WriteLine ($"Downloading {a} as a jar from {repository.Name}...");
 		if (repository.TryGetFilePath (a, FormatPayloadFileName (a, "jar"), out var jar_path)) {
 			artifact_model.MavenArtifactPackaging = "jar";
 			return jar_path;
 		}
 
+		Console.WriteLine ($"Downloading {a} as an aar from {repository.Name}...");
 		if (repository.TryGetFilePath (a, FormatPayloadFileName (a, "aar"), out var aar_path)) {
 			artifact_model.MavenArtifactPackaging = "aar";
 			return aar_path;
@@ -102,18 +105,21 @@ static class MavenArtifactDownloader
 		if (config.DownloadJavaSourceJars) {
 			var source_file = FormatMavenFileName (art) + "-sources.jar";
 			var dest_file = base_output_file_name + "-sources.jar";
+			Console.WriteLine ($"Downloading {art} sources jar from {repository.Name}...");
 			TryDownloadFile (repository, art, source_file, Path.Combine (artifact_dir, dest_file));
 		}
 
 		if (config.DownloadPoms) {
 			var pom_file = FormatMavenFileName (art) + ".pom";
 			var dest_file = base_output_file_name + ".pom";
+			Console.WriteLine ($"Downloading {art} pom file from {repository.Name}...");
 			TryDownloadFile (repository, art, pom_file, Path.Combine (artifact_dir, dest_file));
 		}
 
 		if (config.DownloadJavaDocJars) {
 			var javadoc_file = FormatMavenFileName (art) + "-javadoc.jar";
 			var dest_file = base_output_file_name + "-javadoc.jar";
+			Console.WriteLine ($"Downloading {art} javadoc jar from {repository.Name}...");
 			TryDownloadFile (repository, art, javadoc_file, Path.Combine (artifact_dir, dest_file));
 		}
 	}
