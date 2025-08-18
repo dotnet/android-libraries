@@ -172,6 +172,7 @@ Square.Retrofit2.ICall.Enqueue(Square.Retrofit2.ICallback? p0) -> void
 Square.Retrofit2.ICall.Execute() -> Square.Retrofit2.Response?
 Square.Retrofit2.ICall.IsCanceled.get -> bool
 Square.Retrofit2.ICall.IsExecuted.get -> bool
+Square.Retrofit2.ICall.Request() -> Square.OkHttp3.Request?
 Square.Retrofit2.ICall.Timeout() -> Square.OkIO.Timeout?
 Square.Retrofit2.ICallAdapter
 Square.Retrofit2.ICallAdapter.Adapt(Square.Retrofit2.ICall? p0) -> Java.Lang.Object?
@@ -192,27 +193,39 @@ Square.Retrofit2.OptionalConverterFactory
 Square.Retrofit2.Response
 Square.Retrofit2.Response.Body() -> Java.Lang.Object?
 Square.Retrofit2.Response.Code() -> int
+Square.Retrofit2.Response.ErrorBody() -> Square.OkHttp3.ResponseBody?
+Square.Retrofit2.Response.Headers() -> Square.OkHttp3.Headers?
 Square.Retrofit2.Response.IsSuccessful.get -> bool
 Square.Retrofit2.Response.Message() -> string?
+Square.Retrofit2.Response.Raw() -> Square.OkHttp3.Response?
 Square.Retrofit2.Retrofit
+Square.Retrofit2.Retrofit.BaseUrl() -> Square.OkHttp3.HttpUrl?
 Square.Retrofit2.Retrofit.Builder
 Square.Retrofit2.Retrofit.Builder.AddCallAdapterFactory(Square.Retrofit2.CallAdapterFactory? factory) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.AddConverterFactory(Square.Retrofit2.ConverterFactory? factory) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.BaseUrl(Java.Net.URL? baseUrl) -> Square.Retrofit2.Retrofit.Builder?
+Square.Retrofit2.Retrofit.Builder.BaseUrl(Square.OkHttp3.HttpUrl? baseUrl) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.BaseUrl(string? baseUrl) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.Build() -> Square.Retrofit2.Retrofit?
 Square.Retrofit2.Retrofit.Builder.Builder() -> void
 Square.Retrofit2.Retrofit.Builder.CallAdapterFactories() -> System.Collections.Generic.IList<Square.Retrofit2.CallAdapterFactory!>?
+Square.Retrofit2.Retrofit.Builder.CallFactory(Square.OkHttp3.ICallFactory? factory) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.CallbackExecutor(Java.Util.Concurrent.IExecutor? executor) -> Square.Retrofit2.Retrofit.Builder?
+Square.Retrofit2.Retrofit.Builder.Client(Square.OkHttp3.OkHttpClient? client) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.Builder.ConverterFactories() -> System.Collections.Generic.IList<Square.Retrofit2.ConverterFactory!>?
 Square.Retrofit2.Retrofit.Builder.ValidateEagerly(bool validateEagerly) -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.CallAdapter(Java.Lang.Reflect.IType? returnType, Java.Lang.Annotation.IAnnotation![]? annotations) -> Square.Retrofit2.ICallAdapter?
 Square.Retrofit2.Retrofit.CallAdapterFactories() -> System.Collections.Generic.IList<Square.Retrofit2.CallAdapterFactory!>?
+Square.Retrofit2.Retrofit.CallFactory() -> Square.OkHttp3.ICallFactory?
 Square.Retrofit2.Retrofit.CallbackExecutor() -> Java.Util.Concurrent.IExecutor?
 Square.Retrofit2.Retrofit.ConverterFactories() -> System.Collections.Generic.IList<Square.Retrofit2.ConverterFactory!>?
 Square.Retrofit2.Retrofit.Create(Java.Lang.Class? service) -> Java.Lang.Object?
 Square.Retrofit2.Retrofit.NewBuilder() -> Square.Retrofit2.Retrofit.Builder?
 Square.Retrofit2.Retrofit.NextCallAdapter(Square.Retrofit2.CallAdapterFactory? skipPast, Java.Lang.Reflect.IType? returnType, Java.Lang.Annotation.IAnnotation![]? annotations) -> Square.Retrofit2.ICallAdapter?
+Square.Retrofit2.Retrofit.NextRequestBodyConverter(Square.Retrofit2.ConverterFactory? skipPast, Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? parameterAnnotations, Java.Lang.Annotation.IAnnotation![]? methodAnnotations) -> Square.Retrofit2.IConverter?
+Square.Retrofit2.Retrofit.NextResponseBodyConverter(Square.Retrofit2.ConverterFactory? skipPast, Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? annotations) -> Square.Retrofit2.IConverter?
+Square.Retrofit2.Retrofit.RequestBodyConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? parameterAnnotations, Java.Lang.Annotation.IAnnotation![]? methodAnnotations) -> Square.Retrofit2.IConverter?
+Square.Retrofit2.Retrofit.ResponseBodyConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? annotations) -> Square.Retrofit2.IConverter?
 Square.Retrofit2.Retrofit.StringConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? annotations) -> Square.Retrofit2.IConverter?
 Square.Retrofit2.SkipCallbackExecutorAttribute
 Square.Retrofit2.SkipCallbackExecutorAttribute.SkipCallbackExecutorAttribute() -> void
@@ -242,8 +255,14 @@ static Square.Retrofit2.KotlinExtensions.AwaitNullable(Square.Retrofit2.ICall! o
 static Square.Retrofit2.KotlinExtensions.AwaitResponse(Square.Retrofit2.ICall! obj, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Square.Retrofit2.KotlinExtensions.AwaitUnit(Square.Retrofit2.ICall! obj, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Square.Retrofit2.OptionalConverterFactory.Create() -> Square.Retrofit2.OptionalConverterFactory?
+static Square.Retrofit2.Response.Error(Square.OkHttp3.ResponseBody? body, Square.OkHttp3.Response? rawResponse) -> Square.Retrofit2.Response?
+static Square.Retrofit2.Response.Error(int code, Square.OkHttp3.ResponseBody? body) -> Square.Retrofit2.Response?
 static Square.Retrofit2.Response.Success(Java.Lang.Object? body) -> Square.Retrofit2.Response?
+static Square.Retrofit2.Response.Success(Java.Lang.Object? body, Square.OkHttp3.Headers? headers) -> Square.Retrofit2.Response?
+static Square.Retrofit2.Response.Success(Java.Lang.Object? body, Square.OkHttp3.Response? rawResponse) -> Square.Retrofit2.Response?
 static Square.Retrofit2.Response.Success(int code, Java.Lang.Object? body) -> Square.Retrofit2.Response?
+virtual Square.Retrofit2.ConverterFactory.RequestBodyConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? parameterAnnotations, Java.Lang.Annotation.IAnnotation![]? methodAnnotations, Square.Retrofit2.Retrofit? retrofit) -> Square.Retrofit2.IConverter?
+virtual Square.Retrofit2.ConverterFactory.ResponseBodyConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? annotations, Square.Retrofit2.Retrofit? retrofit) -> Square.Retrofit2.IConverter?
 virtual Square.Retrofit2.ConverterFactory.StringConverter(Java.Lang.Reflect.IType? type, Java.Lang.Annotation.IAnnotation![]? annotations, Square.Retrofit2.Retrofit? retrofit) -> Square.Retrofit2.IConverter?
 virtual Square.Retrofit2.HttpException.Code() -> int
 virtual Square.Retrofit2.HttpException.InvokeMessage() -> string?

@@ -1,4 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <metadata>
-	<remove-node path="/api/package" />
+	<remove-node path="/api/package/class[
+		@name!='ImmutableList' and 
+		@name!='ImmutableList.Builder' and 
+		@name!='ImmutableCollection' and
+		@name!='ImmutableCollection.Builder' and
+		@name!='ImmutableCollection.ArrayBasedBuilder' and
+		@name!='ImmutableMap' and
+		@name!='ImmutableMap.Builder' and
+		@name!='ImmutableSet' and
+		@name!='ImmutableSet.Builder']" />
+	<remove-node path="/api/package/interface" />
+	<remove-node path="/api/package/class[@name='ImmutableCollection.ArrayBasedBuilder']/method" />
+	<remove-node path="/api/package/class[@name='ImmutableList.Builder']/method[@synthetic='true']" />
+	<remove-node path="/api/package/class[@name='ImmutableSet.Builder']/method[@synthetic='true']" />
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection.Builder']/method[@name='build' and count(parameter)=0]" name="managedName">OnBuild</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableCollection.Builder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" name="managedName">OnAdd</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList.Builder']/method[@name='build' and count(parameter)=0]" name="managedName">OnBuild</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Google.Common.Collect.ImmutableCollection</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList.Builder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" name="managedReturn">Google.Common.Collect.ImmutableCollection.Builder</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableList.Builder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" name="managedName">OnAdd</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet.Builder']/method[@name='build' and count(parameter)=0]" name="managedName">OnBuild</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Google.Common.Collect.ImmutableCollection</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet.Builder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" name="managedReturn">Google.Common.Collect.ImmutableCollection.Builder</attr>
+	<attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet.Builder']/method[@name='add' and count(parameter)=1 and parameter[1][@type='E']]" name="managedName">OnAdd</attr>
+	<!-- <attr path="/api/package[@name='com.google.common.collect']/class[@name='ImmutableSet.Builder']" name="extends">com.google.common.collect.ImmutableCollection.Builder</attr> -->
 </metadata>

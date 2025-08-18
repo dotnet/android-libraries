@@ -2738,6 +2738,7 @@ AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnLoadStar
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnSourceInfoRefreshed(AndroidX.Media3.ExoPlayer.Source.IMediaSource? source, AndroidX.Media3.Common.Timeline? timeline) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.OnUpstreamDiscarded(int windowIndex, AndroidX.Media3.ExoPlayer.Source.MediaSourceMediaPeriodId? mediaPeriodId, AndroidX.Media3.ExoPlayer.Source.MediaLoadData? mediaLoadData) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.ServerSideAdInsertionMediaSource(AndroidX.Media3.ExoPlayer.Source.IMediaSource? mediaSource, AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.IAdPlaybackStateUpdater? adPlaybackStateUpdater) -> void
+AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.SetAdPlaybackStates(Google.Common.Collect.ImmutableMap? adPlaybackStates, AndroidX.Media3.Common.Timeline? contentTimeline) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionMediaSource.UpdateMediaItem(AndroidX.Media3.Common.MediaItem? mediaItem) -> void
 AndroidX.Media3.ExoPlayer.Source.Ads.ServerSideAdInsertionUtil
 AndroidX.Media3.ExoPlayer.Source.Ads.SinglePeriodAdTimeline
@@ -3597,7 +3598,10 @@ AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.Length.get -> int
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.Length.set -> void
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.ToBundle() -> Android.OS.Bundle?
 AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.TrackGroupArray(params AndroidX.Media3.Common.TrackGroup![]? trackGroups) -> void
+AndroidX.Media3.ExoPlayer.Source.TrackGroupArray.TrackTypes.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException
+AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.SniffFailures.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.SniffFailures.set -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(string? message, Android.Net.Uri? uri) -> void
 AndroidX.Media3.ExoPlayer.Source.UnrecognizedInputFormatException.UnrecognizedInputFormatException(string? message, Android.Net.Uri? uri, System.Collections.Generic.IList<AndroidX.Media3.Extractor.ISniffFailure!>? sniffFailures) -> void
@@ -5994,6 +5998,12 @@ static AndroidX.Media3.ExoPlayer.TrackSelection.TrackSelectionUtil.UpdateParamet
 static AndroidX.Media3.ExoPlayer.Upstream.CmcdData.RemoveFromDataSpec(AndroidX.Media3.DataSource.DataSpec? dataSpec) -> AndroidX.Media3.DataSource.DataSpec?
 static AndroidX.Media3.ExoPlayer.Upstream.CmcdData.RemoveFromUri(Android.Net.Uri? uri) -> Android.Net.Uri?
 static AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter.GetSingletonInstance(Android.Content.Context? context) -> AndroidX.Media3.ExoPlayer.Upstream.DefaultBandwidthMeter?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates2g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates3g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates4g.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates5gNsa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimates5gSa.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Upstream.Experimental.ExperimentalBandwidthMeter.DefaultInitialBitrateEstimatesWifi.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.GetAgeBasedEvictionFunction(long maxAgeMs) -> AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.ISampleEvictionFunction?
 static AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.GetMaxCountEvictionFunction(long maxSamplesCount) -> AndroidX.Media3.ExoPlayer.Upstream.Experimental.SlidingWeightedAverageBandwidthStatistic.ISampleEvictionFunction?
 static AndroidX.Media3.ExoPlayer.Upstream.Loader.CreateRetryAction(bool resetErrorCount, long retryDelayMillis) -> AndroidX.Media3.ExoPlayer.Upstream.Loader.LoadErrorAction?
@@ -6462,6 +6472,7 @@ virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.OnChildSourceInfoRe
 virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.PrepareSourceInternal() -> void
 virtual AndroidX.Media3.ExoPlayer.Source.WrappingMediaSource.UpdateMediaItem(AndroidX.Media3.Common.MediaItem? mediaItem) -> void
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.CanSelectFormat(AndroidX.Media3.Common.Format? format, int trackBitrate, long effectiveBitrate) -> bool
+virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.Factory.CreateAdaptiveTrackSelection(AndroidX.Media3.Common.TrackGroup? group, int[]? tracks, int type, AndroidX.Media3.ExoPlayer.Upstream.IBandwidthMeter? bandwidthMeter, Google.Common.Collect.ImmutableList? adaptationCheckpoints) -> AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection?
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.LatestBitrateEstimate.get -> long
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.MinDurationToRetainAfterDiscardUs.get -> long
 virtual AndroidX.Media3.ExoPlayer.TrackSelection.AdaptiveTrackSelection.ShouldEvaluateQueueSize(long nowMs, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Source.Chunk.MediaChunk!>? queue) -> bool

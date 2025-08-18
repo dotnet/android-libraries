@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.12.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.12.0)" variant="all" version="8.12.0">
+
+    <issue
+        id="PlaySdkIndexDeprecated"
+        message="Google Play Core (com.google.android.play:core) has been deprecated by its developer. Consider updating to an alternative SDK before publishing a new release.&#xA;The developer has recommended these alternatives:&#xA;```&#xA; - Google Play Feature Delivery (com.google.android.play:feature-delivery)&#xA; - Google Play Asset Delivery (com.google.android.play:asset-delivery)&#xA; - Google Play In-App Updates (com.google.android.play:app-update)&#xA; - Google Play In-App Reviews (com.google.android.play:review)&#xA;```"
+        errorLine1="    implementation &apos;com.google.android.play:core:1.10.2&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="37"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="RiskyLibrary"
+        message="**[Prevents app release in Google Play Console]** com.google.android.play:core version 1.10.2 has been reported as problematic by its author and will block publishing of your app to Play Console.&#xA;**Note:** Update your Play Core Maven dependency to an Android 14 compatible version! &#xA;Your current Play Core library is incompatible with targetSdkVersion 34 (Android 14), which introduces a backwards-incompatible change to broadcast receivers to improve user security. As a reminder, from August 31, Google Play requires all new app releases to target Android 14. Update to the latest Play Core library version dependency to avoid app crashes: https://developer.android.com/guide/playcore#playcore-migration"
+        errorLine1="    implementation &apos;com.google.android.play:core:1.10.2&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="37"
+            column="20"/>
+    </issue>
+
+</issues>

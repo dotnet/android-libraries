@@ -1,7 +1,7 @@
 parameters:
   installAndroidDependencies: false
   androidSdkRoot: $(Agent.TempDirectory)/android-sdk
-  javaSdkRoot: $(Agent.ToolsDirectory)\jdk11
+  javaSdkRoot: $(Agent.ToolsDirectory)\jdk21
 
 steps:
   # before the build starts, make sure the tooling is as expected. Clear the cache on shared agents
@@ -45,19 +45,28 @@ steps:
     displayName: Install .NET Workloads
 
   - bash: |
-      if [[ "$(Agent.Name)" == *"Azure Pipelines"* ]]; then
-          echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
+      if [[ -n "$JAVA_HOME_21_X64" && -d "$JAVA_HOME_21_X64" ]]; then
+          echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME_21_X64"
       else
-          echo "##vso[task.setvariable variable=JAVA_HOME]/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
+          JDK_DIR="$(Agent.ToolsDirectory)/jdk-21"
+          TEMP_FILE="$(Agent.TempDirectory)/microsoft-jdk-21.tar.gz"
+          if [[ ! -d "$JDK_DIR" || ! -f "$JDK_DIR/bin/java" ]]; then
+              echo "Downloading Microsoft JDK 21 for macOS..."
+              mkdir -p "$JDK_DIR"
+              curl -L "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz" -o "$TEMP_FILE"
+              tar -xzf "$TEMP_FILE" -C "$JDK_DIR" --strip-components=4
+              rm "$TEMP_FILE"
+          fi
+          echo "##vso[task.setvariable variable=JAVA_HOME]$JDK_DIR"
       fi
-    displayName: Use Java 11 SDK (Mac)
+    displayName: Use Java 21 SDK (Mac)
     condition: eq( variables['Agent.OS'], 'Darwin' )
 
   - task: JavaToolInstaller@0
-    displayName: Use Java 11 SDK (Windows)
+    displayName: Use Java 21 SDK (Windows)
     condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
     inputs:
-      versionSpec: '11'
+      versionSpec: '21'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
 
@@ -86,26 +95,27 @@ steps:
   - pwsh: |
       Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
-    displayName: Set ANDROID_SDK_ROOT to ${{ parameters.androidSdkRoot }}
+      Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
+    displayName: Set ANDROID_SDK_ROOT and ANDROID_HOME to ${{ parameters.androidSdkRoot }}
 
   - ${{ if eq(parameters.installAndroidDependencies, true) }}:
     - pwsh: |
-        $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-windows-x64.zip"
+        $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip"
         if ($IsMacOS) {
-            $url = "https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz"
+            $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz"
         }
         $fileName = [System.IO.Path]::GetFileName($url)
         Invoke-WebRequest -Uri $url -OutFile $fileName
-        Write-Host "##vso[task.setvariable variable=JDK_11_FILE_PATH]$(Build.StagingDirectory)/$fileName"
-      displayName: Download Java 11 SDK
+        Write-Host "##vso[task.setvariable variable=JDK_21_FILE_PATH]$(Build.StagingDirectory)/$fileName"
+      displayName: Download Java 21 SDK
       workingDirectory: $(Build.StagingDirectory)
 
     - task: JavaToolInstaller@0
-      displayName: Use Java 11 SDK
+      displayName: Use Java 21 SDK
       inputs:
-        versionSpec: '11'
+        versionSpec: '21'
         jdkArchitectureOption: 'x64'
         jdkSourceOption: LocalDirectory
-        jdkFile: $(JDK_11_FILE_PATH)
+        jdkFile: $(JDK_21_FILE_PATH)
         jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
         cleanDestinationDirectory: true

@@ -12,10 +12,9 @@ Before building the libraries and samples in this repository, you will need to i
     dotnet tool install -g cake.tool
     ```
 
-  * [Microsoft OpenJDK *11*](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-11)
-    (JDK-17 is not currently supported).
+  * [Microsoft OpenJDK *21*](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-21)
 
-    The `javac` from your JDK 11 installation must be *first* in `$PATH`/`%PATH%`.
+    The `javac` from your JDK 21 installation must be *first* in `$PATH`/`%PATH%`.
 
   * The [Android SDK](https://developer.android.com/studio), and the
     `ANDROID_SDK_ROOT` environment variable set to the Android SDK location.

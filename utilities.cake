@@ -8,7 +8,7 @@ debugging prerequisity
  */
 #addin nuget:?package=WeCantSpell.Hunspell&version=6.0.0
 #addin nuget:?package=Newtonsoft.Json&version=13.0.3
-#addin nuget:?package=Cake.FileHelpers&version=7.0.0
+#addin nuget:?package=Cake.FileHelpers&version=4.0.1
 
 #addin nuget:?package=Mono.Cecil&version=0.11.6
 #addin nuget:?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4

@@ -2,7 +2,7 @@
 #tool nuget:?package=Microsoft.Android.Sdk.Windows&version=35.0.61
 
 // Cake Addins
-#addin nuget:?package=Cake.FileHelpers&version=7.0.0
+#addin nuget:?package=Cake.FileHelpers&version=4.0.1
 #addin nuget:?package=Newtonsoft.Json&version=13.0.3
 #addin nuget:?package=SharpZipLib&version=1.4.2
 

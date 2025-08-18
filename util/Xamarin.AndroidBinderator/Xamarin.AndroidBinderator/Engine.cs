@@ -44,7 +44,10 @@ public class Engine
 		BindingProjectConsistencyVerifier.Verify (models);
 
 		if (config.DownloadExternals)
+		{
+			Console.WriteLine ("	Downloading Maven artifacts...");
 			MavenArtifactDownloader.Download (config, models);
+		}
 
 		// This isn't really correct, as it could be .aar, but it'll do until we hit that case and need to fix it
 		foreach (var artifact in models.Where (a => a.MavenArtifacts.First ().MavenArtifactPackaging == "bundle"))

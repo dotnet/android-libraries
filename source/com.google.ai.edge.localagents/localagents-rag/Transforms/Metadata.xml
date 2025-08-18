@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <!-- Remove proto packages as they are internal types -->
+  <remove-node path="/api/package[@name='com.google.ai.edge.localagents.rag.memory.proto']" />
+  <remove-node path="/api/package[@name='com.google.ai.edge.localagents.rag.models.proto']" />
+  <!-- Chain is internal -->
+  <remove-node path="/api/package/class/implements[@name='com.google.ai.edge.localagents.rag.chains.Chain']" />
+  <!-- Vector Stores with nested generics -->
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/interface[@name='VectorStore']/method[@name='getNearestRecords']" name="return">java.util.List&lt;com.google.ai.edge.localagents.rag.memory.VectorStoreRecord&gt;</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/interface[@name='VectorStore']/method[@name='insert' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.memory.VectorStoreRecord</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/class[@name='DefaultVectorStore']/method[@name='getNearestRecords']" name="return">java.util.List&lt;com.google.ai.edge.localagents.rag.memory.VectorStoreRecord&gt;</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/class[@name='DefaultVectorStore']/method[@name='insert' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.memory.VectorStoreRecord</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/class[@name='SqliteVectorStore']/method[@name='getNearestRecords']" name="return">java.util.List&lt;com.google.ai.edge.localagents.rag.memory.VectorStoreRecord&gt;</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/class[@name='SqliteVectorStore']/method[@name='insert' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.memory.VectorStoreRecord</attr>
+  <!-- Memory with nested generics -->
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/interface[@name='SemanticMemory']/method[@name='retrieveResults' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.retrieval.RetrievalRequest</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/interface[@name='SemanticMemory']/method[@name='recordMemoryItem' and count(parameter)=1]/parameter[1]" name="type">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/interface[@name='SemanticMemory']/method[@name='recordMemoryEntry' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.retrieval.SemanticDataEntry</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.memory']/class[@name='DefaultSemanticTextMemory']/method[@name='recordMemoryItem' and count(parameter)=1]/parameter[1]" name="type">java.lang.Object</attr>
+  <!-- Embedder with nested generics -->
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.models']/interface[@name='Embedder']/method[@name='getBatchEmbeddings' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.models.EmbeddingRequest</attr>
+  <attr path="/api/package[@name='com.google.ai.edge.localagents.rag.models']/interface[@name='Embedder']/method[@name='getEmbeddings' and count(parameter)=1]/parameter[1]" name="type">com.google.ai.edge.localagents.rag.models.EmbeddingRequest</attr>
+</metadata>

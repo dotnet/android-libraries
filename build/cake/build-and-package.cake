@@ -92,6 +92,8 @@ void BuildGradleProject (string root, string outputDir, bool moveFile)
 void RunGradle (DirectoryPath root, string target)
 {
     root = MakeAbsolute (root);
+
+    Information($"Running Gradle {target} in {root}");
     
     var proc = IsRunningOnWindows ()
         ? root.CombineWithFilePath ("gradlew.bat").FullPath
@@ -101,6 +103,8 @@ void RunGradle (DirectoryPath root, string target)
         : root.CombineWithFilePath ("gradlew").FullPath;
         
     args += $" {target} -p {root}";
+
+    Information($"Running {proc} {args}");
 
     var exitCode = StartProcess (proc, args);
     
