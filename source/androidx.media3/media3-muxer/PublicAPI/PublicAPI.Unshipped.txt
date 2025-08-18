@@ -37,6 +37,7 @@ AndroidX.Media3.Muxer.IMuxer.Close() -> void
 AndroidX.Media3.Muxer.IMuxer.WriteSampleData(int p0, Java.Nio.ByteBuffer? p1, AndroidX.Media3.Muxer.BufferInfo? p2) -> void
 AndroidX.Media3.Muxer.IMuxerFactory
 AndroidX.Media3.Muxer.IMuxerFactory.Create(string? p0) -> AndroidX.Media3.Muxer.IMuxer?
+AndroidX.Media3.Muxer.IMuxerFactory.GetSupportedSampleMimeTypes(int p0) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Muxer.IMuxerFactory.SupportsWritingNegativeTimestampsInEditList() -> bool
 AndroidX.Media3.Muxer.Mp4Muxer
 AndroidX.Media3.Muxer.Mp4Muxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
@@ -83,5 +84,9 @@ override AndroidX.Media3.Muxer.Mp4Muxer.JniPeerMembers.get -> Java.Interop.JniPe
 override AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.MuxerException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.MuxerUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+static AndroidX.Media3.Muxer.FragmentedMp4Muxer.SupportedAudioSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Muxer.FragmentedMp4Muxer.SupportedVideoSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Muxer.Mp4Muxer.SupportedAudioSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Muxer.Mp4Muxer.SupportedVideoSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Muxer.MuxerUtil.GetMuxerBufferInfoFromMediaCodecBufferInfo(Android.Media.MediaCodec.BufferInfo? mediaCodecBufferInfo) -> AndroidX.Media3.Muxer.BufferInfo?
 static AndroidX.Media3.Muxer.MuxerUtil.IsMetadataSupported(AndroidX.Media3.Common.Metadata.IEntry? metadata) -> bool
