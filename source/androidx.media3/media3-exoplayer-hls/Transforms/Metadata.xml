@@ -133,4 +133,27 @@
         AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
     </attr>
 
+    <!-- Remove duplicate methods in HlsDownloader.Factory -->
+    <!--
+    Some work done in the base interface
+
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='create' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+        />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='create' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem' and @name='p0']]" />
+    -->
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='create' and @return='androidx.media3.exoplayer.offline.SegmentDownloader' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+        />
+
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='setDurationUs' and @return='androidx.media3.exoplayer.hls.offline.HlsDownloader.Factory' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node 
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='setExecutor' and @return='androidx.media3.exoplayer.hls.offline.HlsDownloader.Factory' and count(parameter)=1 and parameter[1][@type='java.util.concurrent.Executor']]" />
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='setMaxMergedSegmentStartTimeDiffMs' and @return='androidx.media3.exoplayer.hls.offline.HlsDownloader.Factory' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node
+        path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='setStartPositionUs' and @return='androidx.media3.exoplayer.hls.offline.HlsDownloader.Factory' and count(parameter)=1 and parameter[1][@type='long']]" />
+
+    
 </metadata>

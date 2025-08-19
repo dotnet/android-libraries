@@ -457,4 +457,38 @@
         path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onLoadStarted' and count(parameter)=3 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='androidx.media3.exoplayer.source.LoadEventInfo'] and parameter[3][@type='androidx.media3.exoplayer.source.MediaLoadData']]"
         />
 
+    <!-- Fix duplicate EventArgs constructors for Media3 1.8.0 -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.audio']/interface[@name='AudioSink.Listener']/method[@name='onAudioSessionIdChanged' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="argsType"
+        >
+        AudioSinkAudioSessionIdChangedEventArgs
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.video']/interface[@name='VideoSink.Listener']/method[@name='onVideoSizeChanged' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.VideoSize']]"
+        name="argsType"
+        >
+        VideoSinkVideoSizeChangedEventArgs
+    </attr>
+
+    <!-- Fix TrimmingAudioProcessor virtual member in sealed class -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.audio']/class[@name='TrimmingAudioProcessor']"
+        name="final"
+        >
+        false
+    </attr>
+
+    <!-- Fix DefaultPreloadManager abstract/sealed conflict -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.source.preload']/class[@name='DefaultPreloadManager']"
+        name="final"
+        >
+        false
+    </attr>
+
+    <remove-node
+      path="/api/package[@name='androidx.media3.exoplayer.offline']/interface[@name='SegmentDownloaderFactory']/method[@name='create' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]"
+      />
+
 </metadata> 
