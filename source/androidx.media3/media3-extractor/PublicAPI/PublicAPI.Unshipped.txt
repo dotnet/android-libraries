@@ -137,6 +137,12 @@ AndroidX.Media3.Extractor.ChunkIndex.Sizes.get -> System.Collections.Generic.ILi
 AndroidX.Media3.Extractor.ChunkIndex.Sizes.set -> void
 AndroidX.Media3.Extractor.ChunkIndex.TimesUs.get -> System.Collections.Generic.IList<long>?
 AndroidX.Media3.Extractor.ChunkIndex.TimesUs.set -> void
+AndroidX.Media3.Extractor.ChunkIndexMerger
+AndroidX.Media3.Extractor.ChunkIndexMerger.Add(AndroidX.Media3.Extractor.ChunkIndex? chunk) -> void
+AndroidX.Media3.Extractor.ChunkIndexMerger.ChunkIndexMerger() -> void
+AndroidX.Media3.Extractor.ChunkIndexMerger.Clear() -> void
+AndroidX.Media3.Extractor.ChunkIndexMerger.Merge() -> AndroidX.Media3.Extractor.ChunkIndex?
+AndroidX.Media3.Extractor.ChunkIndexMerger.Size() -> int
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize, bool allowSeeksIfLengthUnknown) -> void
@@ -190,13 +196,6 @@ AndroidX.Media3.Extractor.DiscardingTrackOutput.InterfaceConsts
 AndroidX.Media3.Extractor.DiscardingTrackOutput.SampleData(AndroidX.Media3.Common.IDataReader? input, int length, bool allowEndOfInput, int sampleDataPart) -> int
 AndroidX.Media3.Extractor.DiscardingTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length, int sampleDataPart) -> void
 AndroidX.Media3.Extractor.DiscardingTrackOutput.SampleMetadata(long timeUs, int flags, int size, int offset, AndroidX.Media3.Extractor.TrackOutputCryptoData? cryptoData) -> void
-AndroidX.Media3.Extractor.DolbyVisionConfig
-AndroidX.Media3.Extractor.DolbyVisionConfig.Codecs.get -> string?
-AndroidX.Media3.Extractor.DolbyVisionConfig.Codecs.set -> void
-AndroidX.Media3.Extractor.DolbyVisionConfig.Level.get -> int
-AndroidX.Media3.Extractor.DolbyVisionConfig.Level.set -> void
-AndroidX.Media3.Extractor.DolbyVisionConfig.Profile.get -> int
-AndroidX.Media3.Extractor.DolbyVisionConfig.Profile.set -> void
 AndroidX.Media3.Extractor.DtsUtil
 AndroidX.Media3.Extractor.DtsUtil.DtsHeader
 AndroidX.Media3.Extractor.DtsUtil.DtsHeader.Bitrate.get -> int
@@ -350,6 +349,10 @@ AndroidX.Media3.Extractor.HevcConfig.ColorSpace.get -> int
 AndroidX.Media3.Extractor.HevcConfig.ColorSpace.set -> void
 AndroidX.Media3.Extractor.HevcConfig.ColorTransfer.get -> int
 AndroidX.Media3.Extractor.HevcConfig.ColorTransfer.set -> void
+AndroidX.Media3.Extractor.HevcConfig.DecodedHeight.get -> int
+AndroidX.Media3.Extractor.HevcConfig.DecodedHeight.set -> void
+AndroidX.Media3.Extractor.HevcConfig.DecodedWidth.get -> int
+AndroidX.Media3.Extractor.HevcConfig.DecodedWidth.set -> void
 AndroidX.Media3.Extractor.HevcConfig.Height.get -> int
 AndroidX.Media3.Extractor.HevcConfig.Height.set -> void
 AndroidX.Media3.Extractor.HevcConfig.InitializationData.get -> System.Collections.IList?
@@ -1374,12 +1377,6 @@ AndroidX.Media3.Extractor.Text.CuesWithTiming.EndTimeUs.get -> long
 AndroidX.Media3.Extractor.Text.CuesWithTiming.EndTimeUs.set -> void
 AndroidX.Media3.Extractor.Text.CuesWithTiming.StartTimeUs.get -> long
 AndroidX.Media3.Extractor.Text.CuesWithTiming.StartTimeUs.set -> void
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.CuesWithTimingSubtitle(System.Collections.Generic.IList<AndroidX.Media3.Extractor.Text.CuesWithTiming!>? cuesWithTimingList) -> void
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.EventTimeCount.get -> int
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetCues(long timeUs) -> System.Collections.Generic.IList<AndroidX.Media3.Common.Text.Cue!>?
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetEventTime(int index) -> long
-AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.GetNextEventTimeIndex(long timeUs) -> int
 AndroidX.Media3.Extractor.Text.DefaultSubtitleParserFactory
 AndroidX.Media3.Extractor.Text.DefaultSubtitleParserFactory.Create(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Extractor.Text.ISubtitleParser?
 AndroidX.Media3.Extractor.Text.DefaultSubtitleParserFactory.DefaultSubtitleParserFactory() -> void
@@ -1754,6 +1751,7 @@ const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.InterfaceConsts.ResultEndOfInpu
 const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.InterfaceConsts.ResultSeek = 1 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEmitRawSubtitleData = 32 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEnableEmsgTrack = 4 -> int
+const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagMergeFragmentedSidx = 256 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagReadWithinGopSampleDependencies = 64 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagReadWithinGopSampleDependenciesH265 = 128 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagWorkaroundEveryVideoFrameIsSyncFrame = 1 -> int
@@ -1916,13 +1914,13 @@ override AndroidX.Media3.Extractor.BinarySearchSeeker.TimestampSearchResult.JniP
 override AndroidX.Media3.Extractor.Bmp.BmpExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.CeaUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.ChunkIndex.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.ChunkIndexMerger.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.ConstantBitrateSeekMap.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ThresholdClass.get -> nint
 override AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.DefaultExtractorInput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DefaultExtractorsFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DiscardingTrackOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.DolbyVisionConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DtsUtil.DtsHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DtsUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DummyExtractorOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2085,7 +2083,6 @@ override AndroidX.Media3.Extractor.Text.CueEncoder.JniPeerMembers.get -> Java.In
 override AndroidX.Media3.Extractor.Text.CuesWithTiming.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Text.CuesWithTiming.ThresholdClass.get -> nint
 override AndroidX.Media3.Extractor.Text.CuesWithTiming.ThresholdType.get -> System.Type!
-override AndroidX.Media3.Extractor.Text.CuesWithTimingSubtitle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Text.DefaultSubtitleParserFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Text.Dvb.DvbParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Text.LegacySubtitleUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2163,7 +2160,6 @@ static AndroidX.Media3.Extractor.BinarySearchSeeker.TimestampSearchResult.Undere
 static AndroidX.Media3.Extractor.CeaUtil.Consume(long presentationTimeUs, AndroidX.Media3.Common.Util.ParsableByteArray? seiBuffer, AndroidX.Media3.Extractor.ITrackOutput![]? outputs) -> void
 static AndroidX.Media3.Extractor.CeaUtil.ConsumeCcData(long presentationTimeUs, AndroidX.Media3.Common.Util.ParsableByteArray? ccDataBuffer, AndroidX.Media3.Extractor.ITrackOutput![]? outputs) -> void
 static AndroidX.Media3.Extractor.DefaultExtractorsFactory.InterfaceConsts.Empty.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
-static AndroidX.Media3.Extractor.DolbyVisionConfig.Parse(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Extractor.DolbyVisionConfig?
 static AndroidX.Media3.Extractor.DtsUtil.GetDtsFrameSize(byte[]? data) -> int
 static AndroidX.Media3.Extractor.DtsUtil.GetFrameType(int word) -> int
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
@@ -2175,6 +2171,7 @@ static AndroidX.Media3.Extractor.DtsUtil.ParseDtsUhdHeader(byte[]? header, Java.
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsUhdHeaderSize(byte[]? headerPrefix) -> int
 static AndroidX.Media3.Extractor.DummyExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
 static AndroidX.Media3.Extractor.ExtractorUtil.CheckContainerInput(bool expression, string? message) -> void
+static AndroidX.Media3.Extractor.ExtractorUtil.GetMaximumEncodedRateBytesPerSecond(int encoding) -> int
 static AndroidX.Media3.Extractor.ExtractorUtil.PeekFullyQuietly(AndroidX.Media3.Extractor.IExtractorInput? input, byte[]? output, int offset, int length, bool allowEndOfInput) -> bool
 static AndroidX.Media3.Extractor.ExtractorUtil.PeekToLength(AndroidX.Media3.Extractor.IExtractorInput? input, byte[]? target, int offset, int length) -> int
 static AndroidX.Media3.Extractor.ExtractorUtil.ReadFullyQuietly(AndroidX.Media3.Extractor.IExtractorInput? input, byte[]? output, int offset, int length) -> bool

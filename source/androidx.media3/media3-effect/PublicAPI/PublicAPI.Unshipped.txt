@@ -83,11 +83,12 @@ AndroidX.Media3.Effect.DefaultGlObjectsProvider.DefaultGlObjectsProvider() -> vo
 AndroidX.Media3.Effect.DefaultGlObjectsProvider.DefaultGlObjectsProvider(Android.Opengl.EGLContext? sharedEglContext) -> void
 AndroidX.Media3.Effect.DefaultGlObjectsProvider.Release(Android.Opengl.EGLDisplay? eglDisplay) -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor
-AndroidX.Media3.Effect.DefaultVideoCompositor.DefaultVideoCompositor(Android.Content.Context? context, AndroidX.Media3.Common.IGlObjectsProvider? glObjectsProvider, AndroidX.Media3.Common.IVideoCompositorSettings? settings, Java.Util.Concurrent.IExecutorService? executorService, AndroidX.Media3.Effect.IVideoCompositorListener? listener, AndroidX.Media3.Effect.IGlTextureProducerListener? textureOutputListener, int textureOutputCapacity) -> void
+AndroidX.Media3.Effect.DefaultVideoCompositor.DefaultVideoCompositor(Android.Content.Context? context, AndroidX.Media3.Common.IGlObjectsProvider? glObjectsProvider, Java.Util.Concurrent.IExecutorService? executorService, AndroidX.Media3.Effect.IVideoCompositorListener? listener, AndroidX.Media3.Effect.IGlTextureProducerListener? textureOutputListener, int textureOutputCapacity) -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor.QueueInputTexture(int inputIndex, AndroidX.Media3.Effect.IGlTextureProducer? textureProducer, AndroidX.Media3.Common.GlTextureInfo? inputTexture, AndroidX.Media3.Common.ColorInfo? colorInfo, long presentationTimeUs) -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor.RegisterInputSource(int inputIndex) -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor.Release() -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor.ReleaseOutputTexture(long presentationTimeUs) -> void
+AndroidX.Media3.Effect.DefaultVideoCompositor.SetVideoCompositorSettings(AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings) -> void
 AndroidX.Media3.Effect.DefaultVideoCompositor.SignalEndOfInputSource(int inputIndex) -> void
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory
@@ -95,6 +96,7 @@ AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.BuildUpon() -> Android
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.Build() -> AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory?
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.Builder() -> void
+AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.SetEnableReplayableCache(bool enableReplayableCache) -> AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder?
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.SetExecutorService(Java.Util.Concurrent.IExecutorService? executorService) -> AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder?
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.SetExperimentalAdjustSurfaceTextureTransformationMatrix(bool experimentalAdjustSurfaceTextureTransformationMatrix) -> AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder?
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder.SetExperimentalRepeatInputBitmapWithoutResampling(bool experimentalRepeatInputBitmapWithoutResampling) -> AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Factory.Builder?
@@ -111,6 +113,7 @@ AndroidX.Media3.Effect.DefaultVideoFrameProcessor.InputSurface.get -> Android.Vi
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.PendingInputFrameCount.get -> int
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.QueueInputBitmap(Android.Graphics.Bitmap? inputBitmap, AndroidX.Media3.Common.Util.ITimestampIterator? timestampIterator) -> bool
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.QueueInputTexture(int textureId, long presentationTimeUs) -> bool
+AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Redraw() -> void
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.RegisterInputFrame() -> bool
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.RegisterInputStream(int inputType, AndroidX.Media3.Common.Format? format, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? effects, long offsetToAddUs) -> void
 AndroidX.Media3.Effect.DefaultVideoFrameProcessor.Release() -> void
@@ -218,6 +221,7 @@ AndroidX.Media3.Effect.IVideoCompositor
 AndroidX.Media3.Effect.IVideoCompositor.QueueInputTexture(int p0, AndroidX.Media3.Effect.IGlTextureProducer? p1, AndroidX.Media3.Common.GlTextureInfo? p2, AndroidX.Media3.Common.ColorInfo? p3, long p4) -> void
 AndroidX.Media3.Effect.IVideoCompositor.RegisterInputSource(int p0) -> void
 AndroidX.Media3.Effect.IVideoCompositor.Release() -> void
+AndroidX.Media3.Effect.IVideoCompositor.SetVideoCompositorSettings(AndroidX.Media3.Common.IVideoCompositorSettings? p0) -> void
 AndroidX.Media3.Effect.IVideoCompositor.SignalEndOfInputSource(int p0) -> void
 AndroidX.Media3.Effect.IVideoCompositorListener
 AndroidX.Media3.Effect.IVideoCompositorListener.OnEnded() -> void
@@ -229,8 +233,30 @@ AndroidX.Media3.Effect.LanczosResample
 AndroidX.Media3.Effect.LanczosResample.IsNoOp(int inputWidth, int inputHeight) -> bool
 AndroidX.Media3.Effect.LanczosResample.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
 AndroidX.Media3.Effect.MultipleInputVideoGraph
-AndroidX.Media3.Effect.MultipleInputVideoGraph.MultipleInputVideoGraph(Android.Content.Context? context, AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? compositionEffects, long initialTimestampOffsetUs, bool renderFramesAutomatically) -> void
-AndroidX.Media3.Effect.MultipleInputVideoGraph.MultipleInputVideoGraph(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.Create(Android.Content.Context? context, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, long initialTimestampOffsetUs, bool renderFramesAutomatically) -> AndroidX.Media3.Common.IVideoGraph?
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.Factory() -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.Factory(AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.SupportsMultipleInputs() -> bool
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Flush() -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.GetInputSurface(int inputIndex) -> Android.Views.Surface?
+AndroidX.Media3.Effect.MultipleInputVideoGraph.GetPendingInputFrameCount(int inputIndex) -> int
+AndroidX.Media3.Effect.MultipleInputVideoGraph.HasProducedFrameWithTimestampZero.get -> bool
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Initialize() -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.QueueInputBitmap(int inputIndex, Android.Graphics.Bitmap? inputBitmap, AndroidX.Media3.Common.Util.ITimestampIterator? timestampIterator) -> bool
+AndroidX.Media3.Effect.MultipleInputVideoGraph.QueueInputTexture(int inputIndex, int textureId, long presentationTimeUs) -> bool
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Redraw() -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.RegisterInput(int inputIndex) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.RegisterInputFrame(int inputIndex) -> bool
+AndroidX.Media3.Effect.MultipleInputVideoGraph.RegisterInputStream(int inputIndex, int inputType, AndroidX.Media3.Common.Format? format, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? effects, long offsetToAddUs) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.Release() -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.RenderOutputFrame(long renderTimeNs) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SetCompositionEffects(System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? compositionEffects) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SetCompositorSettings(AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SetOnInputFrameProcessedListener(int inputIndex, AndroidX.Media3.Common.IOnInputFrameProcessedListener? listener) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SetOnInputSurfaceReadyListener(int inputIndex, Java.Lang.IRunnable? listener) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SetOutputSurfaceInfo(AndroidX.Media3.Common.SurfaceInfo? outputSurfaceInfo) -> void
+AndroidX.Media3.Effect.MultipleInputVideoGraph.SignalEndOfInput(int inputIndex) -> void
 AndroidX.Media3.Effect.OutputFrameAvailableEventArgs
 AndroidX.Media3.Effect.OutputFrameAvailableEventArgs.OutputFrameAvailableEventArgs(AndroidX.Media3.Common.GlTextureInfo? outputTexture, long presentationTimeUs) -> void
 AndroidX.Media3.Effect.OutputFrameAvailableEventArgs.OutputTexture.get -> AndroidX.Media3.Common.GlTextureInfo?
@@ -255,19 +281,6 @@ AndroidX.Media3.Effect.Presentation.GetMatrix(long presentationTimeUs) -> Androi
 AndroidX.Media3.Effect.Presentation.GlTextureMinFilter.get -> int
 AndroidX.Media3.Effect.Presentation.ILayout
 AndroidX.Media3.Effect.Presentation.IsNoOp(int inputWidth, int inputHeight) -> bool
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.Factory
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.Factory.Create(Android.Content.Context? context, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? compositionEffects, long initialTimestampOffsetUs) -> AndroidX.Media3.Common.IPreviewingVideoGraph?
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.Factory.Factory() -> void
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.Factory.SupportsMultipleInputs() -> bool
-AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.RenderOutputFrame(long renderTimeNs) -> void
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory.Create(Android.Content.Context? context, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? compositionEffects, long initialTimestampOffsetUs) -> AndroidX.Media3.Common.IPreviewingVideoGraph?
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory.Factory() -> void
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory.Factory(AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory) -> void
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory.SupportsMultipleInputs() -> bool
-AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.RenderOutputFrame(long renderTimeNs) -> void
 AndroidX.Media3.Effect.RgbAdjustment
 AndroidX.Media3.Effect.RgbAdjustment.Builder
 AndroidX.Media3.Effect.RgbAdjustment.Builder.Build() -> AndroidX.Media3.Effect.RgbAdjustment?
@@ -321,7 +334,12 @@ AndroidX.Media3.Effect.SingleColorLut.GetLutTextureId(long presentationTimeUs) -
 AndroidX.Media3.Effect.SingleColorLut.Release() -> void
 AndroidX.Media3.Effect.SingleColorLut.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
 AndroidX.Media3.Effect.SingleInputVideoGraph
-AndroidX.Media3.Effect.SingleInputVideoGraph.SingleInputVideoGraph(Android.Content.Context? context, AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IVideoGraphListener? listener, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, Java.Util.Concurrent.IExecutor? listenerExecutor, AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings, bool renderFramesAutomatically, long initialTimestampOffsetUs) -> void
+AndroidX.Media3.Effect.SingleInputVideoGraph.Factory
+AndroidX.Media3.Effect.SingleInputVideoGraph.Factory.Create(Android.Content.Context? context, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, long initialTimestampOffsetUs, bool renderFramesAutomatically) -> AndroidX.Media3.Common.IVideoGraph?
+AndroidX.Media3.Effect.SingleInputVideoGraph.Factory.Factory() -> void
+AndroidX.Media3.Effect.SingleInputVideoGraph.Factory.Factory(AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory) -> void
+AndroidX.Media3.Effect.SingleInputVideoGraph.Factory.SupportsMultipleInputs() -> bool
+AndroidX.Media3.Effect.SingleInputVideoGraph.SingleInputVideoGraph(Android.Content.Context? context, AndroidX.Media3.Common.IVideoFrameProcessorFactory? videoFrameProcessorFactory, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IVideoGraphListener? listener, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, Java.Util.Concurrent.IExecutor? listenerExecutor, bool renderFramesAutomatically) -> void
 AndroidX.Media3.Effect.SingleInputVideoGraph.SingleInputVideoGraph(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Effect.SpeedChangeEffect
 AndroidX.Media3.Effect.SpeedChangeEffect.GetDurationAfterEffectApplied(long durationUs) -> long
@@ -361,6 +379,7 @@ AndroidX.Media3.Effect.TexturePool.FreeTexture(AndroidX.Media3.Common.GlTextureI
 AndroidX.Media3.Effect.TexturePool.FreeTextureCount() -> int
 AndroidX.Media3.Effect.TexturePool.IsConfigured.get -> bool
 AndroidX.Media3.Effect.TexturePool.IsUsingTexture(AndroidX.Media3.Common.GlTextureInfo? textureInfo) -> bool
+AndroidX.Media3.Effect.TexturePool.MostRecentlyUsedTexture.get -> AndroidX.Media3.Common.GlTextureInfo?
 AndroidX.Media3.Effect.TexturePool.TexturePool(bool useHighPrecisionColorComponents, int capacity) -> void
 AndroidX.Media3.Effect.TexturePool.UseTexture() -> AndroidX.Media3.Common.GlTextureInfo?
 AndroidX.Media3.Effect.TimestampAdjustment
@@ -485,18 +504,13 @@ override AndroidX.Media3.Effect.GaussianFunction.JniPeerMembers.get -> Java.Inte
 override AndroidX.Media3.Effect.HslAdjustment.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.HslAdjustment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.LanczosResample.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.MultipleInputVideoGraph.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Effect.MultipleInputVideoGraph.ThresholdClass.get -> nint
-override AndroidX.Media3.Effect.MultipleInputVideoGraph.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Effect.OverlayEffect.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.PassthroughShaderProgram.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.PassthroughShaderProgram.ThresholdClass.get -> nint
 override AndroidX.Media3.Effect.PassthroughShaderProgram.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Effect.Presentation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Effect.PreviewingMultipleInputVideoGraph.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Effect.PreviewingSingleInputVideoGraph.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.RgbAdjustment.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.RgbAdjustment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.RgbFilter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -509,6 +523,7 @@ override AndroidX.Media3.Effect.SeparableConvolutionShaderProgram.JniPeerMembers
 override AndroidX.Media3.Effect.SeparableConvolutionShaderProgram.ThresholdClass.get -> nint
 override AndroidX.Media3.Effect.SeparableConvolutionShaderProgram.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Effect.SingleColorLut.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.SingleInputVideoGraph.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.SingleInputVideoGraph.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.SingleInputVideoGraph.ThresholdClass.get -> nint
 override AndroidX.Media3.Effect.SingleInputVideoGraph.ThresholdType.get -> System.Type!
@@ -543,8 +558,10 @@ static AndroidX.Media3.Effect.DrawableOverlay.CreateStaticDrawableOverlay(Androi
 static AndroidX.Media3.Effect.FrameDropEffect.CreateDefaultFrameDropEffect(float targetFrameRate) -> AndroidX.Media3.Effect.FrameDropEffect?
 static AndroidX.Media3.Effect.FrameDropEffect.CreateSimpleFrameDropEffect(float expectedFrameRate, float targetFrameRate) -> AndroidX.Media3.Effect.FrameDropEffect?
 static AndroidX.Media3.Effect.LanczosResample.ScaleToFit(int width, int height) -> AndroidX.Media3.Effect.LanczosResample?
+static AndroidX.Media3.Effect.LanczosResample.ScaleToFitWithFlexibleOrientation(int firstDimension, int secondDimension) -> AndroidX.Media3.Effect.LanczosResample?
 static AndroidX.Media3.Effect.Presentation.CreateForAspectRatio(float aspectRatio, int layout) -> AndroidX.Media3.Effect.Presentation?
 static AndroidX.Media3.Effect.Presentation.CreateForHeight(int height) -> AndroidX.Media3.Effect.Presentation?
+static AndroidX.Media3.Effect.Presentation.CreateForShortSide(int shortSide) -> AndroidX.Media3.Effect.Presentation?
 static AndroidX.Media3.Effect.Presentation.CreateForWidthAndHeight(int width, int height, int layout) -> AndroidX.Media3.Effect.Presentation?
 static AndroidX.Media3.Effect.RgbFilter.CreateGrayscaleFilter() -> AndroidX.Media3.Effect.RgbFilter?
 static AndroidX.Media3.Effect.RgbFilter.CreateInvertedFilter() -> AndroidX.Media3.Effect.RgbFilter?
@@ -564,14 +581,6 @@ virtual AndroidX.Media3.Effect.BaseGlShaderProgram.SignalEndOfCurrentInputStream
 virtual AndroidX.Media3.Effect.ByteBufferGlEffect.Image.CopyToBitmap() -> Android.Graphics.Bitmap?
 virtual AndroidX.Media3.Effect.ByteBufferGlEffect.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
 virtual AndroidX.Media3.Effect.CanvasOverlay.SetCanvasSize(int width, int height) -> void
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.CompositionVideoFrameProcessor.get -> AndroidX.Media3.Common.IVideoFrameProcessor?
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.GetProcessor(int inputIndex) -> AndroidX.Media3.Common.IVideoFrameProcessor?
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.HasProducedFrameWithTimestampZero.get -> bool
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.InitialTimestampOffsetUs.get -> long
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.Initialize() -> void
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.RegisterInput(int inputIndex) -> void
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.Release() -> void
-virtual AndroidX.Media3.Effect.MultipleInputVideoGraph.SetOutputSurfaceInfo(AndroidX.Media3.Common.SurfaceInfo? outputSurfaceInfo) -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.Flush() -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.QueueInputFrame(AndroidX.Media3.Common.IGlObjectsProvider? glObjectsProvider, AndroidX.Media3.Common.GlTextureInfo? inputTexture, long presentationTimeUs) -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.Release() -> void
@@ -583,14 +592,25 @@ virtual AndroidX.Media3.Effect.PassthroughShaderProgram.SignalEndOfCurrentInputS
 virtual AndroidX.Media3.Effect.SeparableConvolution.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
 virtual AndroidX.Media3.Effect.SeparableConvolutionShaderProgram.OnBlurRendered(AndroidX.Media3.Common.GlTextureInfo? inputTexture) -> void
 virtual AndroidX.Media3.Effect.SeparableConvolutionShaderProgram.Release() -> void
-virtual AndroidX.Media3.Effect.SingleInputVideoGraph.GetProcessor(int inputIndex) -> AndroidX.Media3.Common.IVideoFrameProcessor?
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.Flush() -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.GetInputSurface(int inputIndex) -> Android.Views.Surface?
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.GetPendingInputFrameCount(int inputIndex) -> int
 virtual AndroidX.Media3.Effect.SingleInputVideoGraph.HasProducedFrameWithTimestampZero.get -> bool
-virtual AndroidX.Media3.Effect.SingleInputVideoGraph.InitialTimestampOffsetUs.get -> long
 virtual AndroidX.Media3.Effect.SingleInputVideoGraph.Initialize() -> void
-virtual AndroidX.Media3.Effect.SingleInputVideoGraph.InputIndex.get -> int
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.QueueInputBitmap(int inputIndex, Android.Graphics.Bitmap? inputBitmap, AndroidX.Media3.Common.Util.ITimestampIterator? timestampIterator) -> bool
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.QueueInputTexture(int inputIndex, int textureId, long presentationTimeUs) -> bool
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.Redraw() -> void
 virtual AndroidX.Media3.Effect.SingleInputVideoGraph.RegisterInput(int inputIndex) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.RegisterInputFrame(int inputIndex) -> bool
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.RegisterInputStream(int inputIndex, int inputType, AndroidX.Media3.Common.Format? format, System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? effects, long offsetToAddUs) -> void
 virtual AndroidX.Media3.Effect.SingleInputVideoGraph.Release() -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.RenderOutputFrame(long renderTimeNs) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SetCompositionEffects(System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? compositionEffects) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SetCompositorSettings(AndroidX.Media3.Common.IVideoCompositorSettings? videoCompositorSettings) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SetOnInputFrameProcessedListener(int inputIndex, AndroidX.Media3.Common.IOnInputFrameProcessedListener? listener) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SetOnInputSurfaceReadyListener(int inputIndex, Java.Lang.IRunnable? listener) -> void
 virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SetOutputSurfaceInfo(AndroidX.Media3.Common.SurfaceInfo? outputSurfaceInfo) -> void
+virtual AndroidX.Media3.Effect.SingleInputVideoGraph.SignalEndOfInput(int inputIndex) -> void
 virtual AndroidX.Media3.Effect.TextureOverlay.Configure(AndroidX.Media3.Common.Util.Size? videoSize) -> void
 virtual AndroidX.Media3.Effect.TextureOverlay.GetOverlaySettings(long presentationTimeUs) -> AndroidX.Media3.Common.IOverlaySettings?
 virtual AndroidX.Media3.Effect.TextureOverlay.GetVertexTransformation(long presentationTimeUs) -> float[]?

@@ -289,8 +289,13 @@ AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement.Value.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader
 AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.DashDownloader(AndroidX.Media3.Common.MediaItem? mediaItem, AndroidX.Media3.DataSource.Cache.CacheDataSource.Factory? cacheDataSourceFactory) -> void
 AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.DashDownloader(AndroidX.Media3.Common.MediaItem? mediaItem, AndroidX.Media3.DataSource.Cache.CacheDataSource.Factory? cacheDataSourceFactory, Java.Util.Concurrent.IExecutor? executor) -> void
-AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.DashDownloader(AndroidX.Media3.Common.MediaItem? mediaItem, AndroidX.Media3.ExoPlayer.Upstream.ParsingLoadable.IParser? manifestParser, AndroidX.Media3.DataSource.Cache.CacheDataSource.Factory? cacheDataSourceFactory, Java.Util.Concurrent.IExecutor? executor) -> void
-AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.DashDownloader(AndroidX.Media3.Common.MediaItem? mediaItem, AndroidX.Media3.ExoPlayer.Upstream.ParsingLoadable.IParser? manifestParser, AndroidX.Media3.DataSource.Cache.CacheDataSource.Factory? cacheDataSourceFactory, Java.Util.Concurrent.IExecutor? executor, long maxMergedSegmentStartTimeDiffMs) -> void
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.Factory(AndroidX.Media3.DataSource.Cache.CacheDataSource.Factory? cacheDataSourceFactory) -> void
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.SetDurationUs(long durationUs) -> Java.Lang.Object?
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.SetExecutor(Java.Util.Concurrent.IExecutor? executor) -> Java.Lang.Object?
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.SetManifestParser(AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser? manifestParser) -> AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory?
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.SetMaxMergedSegmentStartTimeDiffMs(long maxMergedSegmentStartTimeDiffMs) -> Java.Lang.Object?
+AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.SetStartPositionUs(long startPositionUs) -> Java.Lang.Object?
 AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler
 AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler.HandleMessage(Android.OS.Message? message) -> bool
 AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler.IPlayerEmsgCallback
@@ -395,6 +400,7 @@ override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.ThresholdType.get -
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.ServiceDescriptionElement.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.UrlTemplate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Offline.DashDownloader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler.PlayerTrackEmsgHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!

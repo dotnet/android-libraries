@@ -108,7 +108,7 @@ AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Colorspace.get -> int
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Colorspace.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Data.get -> Java.Nio.ByteBuffer?
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Data.set -> void
-AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.DecoderPrivate.get -> int
+AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.DecoderPrivate.get -> long
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.DecoderPrivate.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Format.get -> AndroidX.Media3.Common.Format?
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Format.set -> void
@@ -118,10 +118,14 @@ AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Mode.get -> int
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Mode.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.SupplementalData.get -> Java.Nio.ByteBuffer?
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.SupplementalData.set -> void
+AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.UvStride.get -> int
+AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.UvStride.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.VideoDecoderOutputBuffer(AndroidX.Media3.Decoder.DecoderOutputBuffer.IOwner? owner) -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.VideoDecoderOutputBuffer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Width.get -> int
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Width.set -> void
+AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.YStride.get -> int
+AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.YStride.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.YuvPlanes.get -> System.Collections.Generic.IList<Java.Nio.ByteBuffer!>?
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.YuvPlanes.set -> void
 AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.YuvStrides.get -> System.Collections.Generic.IList<int>?
@@ -172,5 +176,6 @@ virtual AndroidX.Media3.Decoder.SimpleDecoder.ReleaseOutputBuffer(Java.Lang.Obje
 virtual AndroidX.Media3.Decoder.SimpleDecoderOutputBuffer.Grow(int newSize) -> Java.Nio.ByteBuffer?
 virtual AndroidX.Media3.Decoder.SimpleDecoderOutputBuffer.Init(long timeUs, int size) -> Java.Nio.ByteBuffer?
 virtual AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.Init(long timeUs, int mode, Java.Nio.ByteBuffer? supplementalData) -> void
+virtual AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.InitForOffsetFrames(int offset, int width, int height, int yStride, int uvStride, int colorspace, int alignedHeight) -> bool
 virtual AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.InitForPrivateFrame(int width, int height) -> void
 virtual AndroidX.Media3.Decoder.VideoDecoderOutputBuffer.InitForYuvFrame(int width, int height, int yStride, int uvStride, int colorspace) -> bool

@@ -150,5 +150,19 @@
         AndroidX.Media3.Common.IVideoFrameProcessor
     </attr>
 
+    <!-- Fix IVideoGraphFactory.Create return types for Media3 1.8.0 -->
+    <attr
+        path="/api/package[@name='androidx.media3.effect']/class[@name='MultipleInputVideoGraph.Factory']/method[@name='create' and count(parameter)=7 and parameter[1][@type='android.content.Context'] and parameter[2][@type='androidx.media3.common.ColorInfo'] and parameter[3][@type='androidx.media3.common.DebugViewProvider'] and parameter[4][@type='androidx.media3.common.VideoGraph.Listener'] and parameter[5][@type='java.util.concurrent.Executor'] and parameter[6][@type='long'] and parameter[7][@type='boolean']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.Common.IVideoGraph
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.media3.effect']/class[@name='SingleInputVideoGraph.Factory']/method[@name='create' and count(parameter)=7 and parameter[1][@type='android.content.Context'] and parameter[2][@type='androidx.media3.common.ColorInfo'] and parameter[3][@type='androidx.media3.common.DebugViewProvider'] and parameter[4][@type='androidx.media3.common.VideoGraph.Listener'] and parameter[5][@type='java.util.concurrent.Executor'] and parameter[6][@type='long'] and parameter[7][@type='boolean']]"
+        name="managedReturn"
+        >
+        AndroidX.Media3.Common.IVideoGraph
+    </attr>
+
 
 </metadata>
