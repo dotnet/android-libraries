@@ -4,7 +4,7 @@ stages:
 - stage: sign_artifacts
   displayName: Sign Artifacts
   dependsOn: build_windows
-  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  condition: succeeded()
   
   jobs:
   
@@ -14,3 +14,8 @@ stages:
       artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
+      signType:
+        ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+          Real
+        ${{ else }}:
+          Test
