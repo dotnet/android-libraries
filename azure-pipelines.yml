@@ -34,9 +34,9 @@ resources:
 
 extends:
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
-    template: MicroBuild.1ES.Official.yml@1esPipelines
+    template: azure-pipelines/MicroBuild.1ES.Official.yml@1esPipelines
   ${{ else }}:
-    template: MicroBuild.1ES.Unofficial.yml@1esPipelines
+    template: azure-pipelines/MicroBuild.1ES.Unofficial.yml@1esPipelines
   parameters:
     mb:
       signing:
