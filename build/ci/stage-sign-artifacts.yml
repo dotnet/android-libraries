@@ -14,8 +14,4 @@ stages:
       artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
-      signType:
-        ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
-          Real
-        ${{ else }}:
-          Test
+      signType: ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}Real${{ else }}Test${{ end }}
