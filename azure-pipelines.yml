@@ -35,6 +35,11 @@ resources:
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
   parameters:
+    mb:
+      signing:
+        enabled: true
+        signType: $(signType)
+        signWithProd: $(signWithProd)
     sdl:
       sourceRepositoriesToScan:
         exclude:

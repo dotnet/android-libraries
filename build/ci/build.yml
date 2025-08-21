@@ -23,14 +23,6 @@ jobs:
     clean: all
   ${{ if eq(parameters.use1ESTemplate, true) }}:
     templateContext:
-      mb:
-        signing:
-          enabled: true
-          ${{ if(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
-            signType: real
-            signWithProd: true
-          ${{ else }}:
-            signType: test
       sdl:
         spotBugs:
           enabled: false

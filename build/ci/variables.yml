@@ -40,3 +40,11 @@ variables:
   # dnceng-public variables
   NetCorePublicPoolName: NetCore-Public-XL
   WindowsPoolImageNetCorePublic: windows.vs2022.amd64.open
+
+  # Signing settings
+  ${{ if(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
+    signType: real
+    signWithProd: true
+  ${{ else }}:
+    signType: test
+    signWithProd: false
