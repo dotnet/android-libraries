@@ -5,6 +5,8 @@ stages:
   displayName: Sign Artifacts
   dependsOn: build_windows
   condition: succeeded()
+  variables:
+    signType: $[ if(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), 'Real', 'Test') ]
   
   jobs:
   
@@ -14,4 +16,4 @@ stages:
       artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
-      signType: $[ if(startsWith(variables['Build.SourceBranch'], 'refs/tags/'), 'Real', 'Test') ]
+      signType: $(signType)
