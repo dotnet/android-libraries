@@ -45,6 +45,7 @@ Xamarin.Protobuf.Lite.Api.Builder.AddOptions(Xamarin.Protobuf.Lite.Option.Builde
 Xamarin.Protobuf.Lite.Api.Builder.AddOptions(Xamarin.Protobuf.Lite.Option? value) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.AddOptions(int index, Xamarin.Protobuf.Lite.Option.Builder? builderForValue) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.AddOptions(int index, Xamarin.Protobuf.Lite.Option? value) -> Xamarin.Protobuf.Lite.Api.Builder?
+Xamarin.Protobuf.Lite.Api.Builder.ClearEdition() -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.ClearMethods() -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.ClearMixins() -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.ClearName() -> Xamarin.Protobuf.Lite.Api.Builder?
@@ -52,6 +53,8 @@ Xamarin.Protobuf.Lite.Api.Builder.ClearOptions() -> Xamarin.Protobuf.Lite.Api.Bu
 Xamarin.Protobuf.Lite.Api.Builder.ClearSourceContext() -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.ClearSyntax() -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.ClearVersion() -> Xamarin.Protobuf.Lite.Api.Builder?
+Xamarin.Protobuf.Lite.Api.Builder.Edition.get -> string?
+Xamarin.Protobuf.Lite.Api.Builder.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.Api.Builder.GetMethods(int index) -> Xamarin.Protobuf.Lite.Method?
 Xamarin.Protobuf.Lite.Api.Builder.GetMixins(int index) -> Xamarin.Protobuf.Lite.Mixin?
 Xamarin.Protobuf.Lite.Api.Builder.GetOptions(int index) -> Xamarin.Protobuf.Lite.Option?
@@ -68,6 +71,8 @@ Xamarin.Protobuf.Lite.Api.Builder.OptionsList.get -> System.Collections.Generic.
 Xamarin.Protobuf.Lite.Api.Builder.RemoveMethods(int index) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.RemoveMixins(int index) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.RemoveOptions(int index) -> Xamarin.Protobuf.Lite.Api.Builder?
+Xamarin.Protobuf.Lite.Api.Builder.SetEdition(string? value) -> Xamarin.Protobuf.Lite.Api.Builder?
+Xamarin.Protobuf.Lite.Api.Builder.SetEditionBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.SetMethods(int index, Xamarin.Protobuf.Lite.Method.Builder? builderForValue) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.SetMethods(int index, Xamarin.Protobuf.Lite.Method? value) -> Xamarin.Protobuf.Lite.Api.Builder?
 Xamarin.Protobuf.Lite.Api.Builder.SetMixins(int index, Xamarin.Protobuf.Lite.Mixin.Builder? builderForValue) -> Xamarin.Protobuf.Lite.Api.Builder?
@@ -87,6 +92,8 @@ Xamarin.Protobuf.Lite.Api.Builder.Syntax.get -> Xamarin.Protobuf.Lite.Syntax?
 Xamarin.Protobuf.Lite.Api.Builder.SyntaxValue.get -> int
 Xamarin.Protobuf.Lite.Api.Builder.Version.get -> string?
 Xamarin.Protobuf.Lite.Api.Builder.VersionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Protobuf.Lite.Api.Edition.get -> string?
+Xamarin.Protobuf.Lite.Api.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.Api.GetMethods(int index) -> Xamarin.Protobuf.Lite.Method?
 Xamarin.Protobuf.Lite.Api.GetMethodsOrBuilder(int index) -> Xamarin.Protobuf.Lite.IMethodOrBuilder?
 Xamarin.Protobuf.Lite.Api.GetMixins(int index) -> Xamarin.Protobuf.Lite.Mixin?
@@ -2671,6 +2678,8 @@ Xamarin.Protobuf.Lite.IAnyOrBuilder.TypeUrl.get -> string?
 Xamarin.Protobuf.Lite.IAnyOrBuilder.TypeUrlBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.IAnyOrBuilder.Value.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.IApiOrBuilder
+Xamarin.Protobuf.Lite.IApiOrBuilder.Edition.get -> string?
+Xamarin.Protobuf.Lite.IApiOrBuilder.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.IApiOrBuilder.GetMethods(int index) -> Xamarin.Protobuf.Lite.Method?
 Xamarin.Protobuf.Lite.IApiOrBuilder.GetMixins(int index) -> Xamarin.Protobuf.Lite.Mixin?
 Xamarin.Protobuf.Lite.IApiOrBuilder.GetOptions(int index) -> Xamarin.Protobuf.Lite.Option?
@@ -2803,6 +2812,8 @@ Xamarin.Protobuf.Lite.IMessageLiteOrBuilder
 Xamarin.Protobuf.Lite.IMessageLiteOrBuilder.DefaultInstanceForType.get -> Xamarin.Protobuf.Lite.IMessageLite?
 Xamarin.Protobuf.Lite.IMessageLiteOrBuilder.IsInitialized.get -> bool
 Xamarin.Protobuf.Lite.IMethodOrBuilder
+Xamarin.Protobuf.Lite.IMethodOrBuilder.Edition.get -> string?
+Xamarin.Protobuf.Lite.IMethodOrBuilder.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.IMethodOrBuilder.GetOptions(int index) -> Xamarin.Protobuf.Lite.Option?
 Xamarin.Protobuf.Lite.IMethodOrBuilder.Name.get -> string?
 Xamarin.Protobuf.Lite.IMethodOrBuilder.NameBytes.get -> Xamarin.Protobuf.Lite.ByteString?
@@ -3090,6 +3101,7 @@ Xamarin.Protobuf.Lite.Method.Builder.AddOptions(Xamarin.Protobuf.Lite.Option.Bui
 Xamarin.Protobuf.Lite.Method.Builder.AddOptions(Xamarin.Protobuf.Lite.Option? value) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.AddOptions(int index, Xamarin.Protobuf.Lite.Option.Builder? builderForValue) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.AddOptions(int index, Xamarin.Protobuf.Lite.Option? value) -> Xamarin.Protobuf.Lite.Method.Builder?
+Xamarin.Protobuf.Lite.Method.Builder.ClearEdition() -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.ClearName() -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.ClearOptions() -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.ClearRequestStreaming() -> Xamarin.Protobuf.Lite.Method.Builder?
@@ -3097,6 +3109,8 @@ Xamarin.Protobuf.Lite.Method.Builder.ClearRequestTypeUrl() -> Xamarin.Protobuf.L
 Xamarin.Protobuf.Lite.Method.Builder.ClearResponseStreaming() -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.ClearResponseTypeUrl() -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.ClearSyntax() -> Xamarin.Protobuf.Lite.Method.Builder?
+Xamarin.Protobuf.Lite.Method.Builder.Edition.get -> string?
+Xamarin.Protobuf.Lite.Method.Builder.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.Method.Builder.GetOptions(int index) -> Xamarin.Protobuf.Lite.Option?
 Xamarin.Protobuf.Lite.Method.Builder.Name.get -> string?
 Xamarin.Protobuf.Lite.Method.Builder.NameBytes.get -> Xamarin.Protobuf.Lite.ByteString?
@@ -3109,6 +3123,8 @@ Xamarin.Protobuf.Lite.Method.Builder.RequestTypeUrlBytes.get -> Xamarin.Protobuf
 Xamarin.Protobuf.Lite.Method.Builder.ResponseStreaming.get -> bool
 Xamarin.Protobuf.Lite.Method.Builder.ResponseTypeUrl.get -> string?
 Xamarin.Protobuf.Lite.Method.Builder.ResponseTypeUrlBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Protobuf.Lite.Method.Builder.SetEdition(string? value) -> Xamarin.Protobuf.Lite.Method.Builder?
+Xamarin.Protobuf.Lite.Method.Builder.SetEditionBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.SetName(string? value) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.SetNameBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.SetOptions(int index, Xamarin.Protobuf.Lite.Option.Builder? builderForValue) -> Xamarin.Protobuf.Lite.Method.Builder?
@@ -3123,6 +3139,8 @@ Xamarin.Protobuf.Lite.Method.Builder.SetSyntax(Xamarin.Protobuf.Lite.Syntax? val
 Xamarin.Protobuf.Lite.Method.Builder.SetSyntaxValue(int value) -> Xamarin.Protobuf.Lite.Method.Builder?
 Xamarin.Protobuf.Lite.Method.Builder.Syntax.get -> Xamarin.Protobuf.Lite.Syntax?
 Xamarin.Protobuf.Lite.Method.Builder.SyntaxValue.get -> int
+Xamarin.Protobuf.Lite.Method.Edition.get -> string?
+Xamarin.Protobuf.Lite.Method.EditionBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Protobuf.Lite.Method.GetOptions(int index) -> Xamarin.Protobuf.Lite.Option?
 Xamarin.Protobuf.Lite.Method.GetOptionsOrBuilder(int index) -> Xamarin.Protobuf.Lite.IOptionOrBuilder?
 Xamarin.Protobuf.Lite.Method.Name.get -> string?
@@ -3506,6 +3524,7 @@ abstract Xamarin.Protobuf.Lite.ExtensionLite.Number.get -> int
 abstract Xamarin.Protobuf.Lite.GeneratedMessageLite.DynamicMethod(Xamarin.Protobuf.Lite.GeneratedMessageLite.MethodToInvoke? method, Java.Lang.Object? arg0, Java.Lang.Object? arg1) -> Java.Lang.Object?
 const Xamarin.Protobuf.Lite.Any.TypeUrlFieldNumber = 1 -> int
 const Xamarin.Protobuf.Lite.Any.ValueFieldNumber = 2 -> int
+const Xamarin.Protobuf.Lite.Api.EditionFieldNumber = 8 -> int
 const Xamarin.Protobuf.Lite.Api.MethodsFieldNumber = 2 -> int
 const Xamarin.Protobuf.Lite.Api.MixinsFieldNumber = 6 -> int
 const Xamarin.Protobuf.Lite.Api.NameFieldNumber = 1 -> int
@@ -3848,6 +3867,7 @@ const Xamarin.Protobuf.Lite.JavaFeaturesProto.JavaFeatures.Utf8Validation.Verify
 const Xamarin.Protobuf.Lite.JavaFeaturesProto.JavaFeatures.Utf8ValidationFieldNumber = 2 -> int
 const Xamarin.Protobuf.Lite.JavaFeaturesProto.JavaFieldNumber = 1001 -> int
 const Xamarin.Protobuf.Lite.ListValue.ValuesFieldNumber = 1 -> int
+const Xamarin.Protobuf.Lite.Method.EditionFieldNumber = 8 -> int
 const Xamarin.Protobuf.Lite.Method.NameFieldNumber = 1 -> int
 const Xamarin.Protobuf.Lite.Method.OptionsFieldNumber = 6 -> int
 const Xamarin.Protobuf.Lite.Method.RequestStreamingFieldNumber = 3 -> int
@@ -3861,12 +3881,12 @@ const Xamarin.Protobuf.Lite.NullValue.NullValueValue = 0 -> int
 const Xamarin.Protobuf.Lite.Option.NameFieldNumber = 1 -> int
 const Xamarin.Protobuf.Lite.Option.ValueFieldNumber = 2 -> int
 const Xamarin.Protobuf.Lite.RuntimeVersion.Major = 4 -> int
-const Xamarin.Protobuf.Lite.RuntimeVersion.Minor = 31 -> int
+const Xamarin.Protobuf.Lite.RuntimeVersion.Minor = 32 -> int
 const Xamarin.Protobuf.Lite.RuntimeVersion.OssMajor = 4 -> int
-const Xamarin.Protobuf.Lite.RuntimeVersion.OssMinor = 31 -> int
-const Xamarin.Protobuf.Lite.RuntimeVersion.OssPatch = 1 -> int
+const Xamarin.Protobuf.Lite.RuntimeVersion.OssMinor = 32 -> int
+const Xamarin.Protobuf.Lite.RuntimeVersion.OssPatch = 0 -> int
 const Xamarin.Protobuf.Lite.RuntimeVersion.OssSuffix = "" -> string!
-const Xamarin.Protobuf.Lite.RuntimeVersion.Patch = 1 -> int
+const Xamarin.Protobuf.Lite.RuntimeVersion.Patch = 0 -> int
 const Xamarin.Protobuf.Lite.RuntimeVersion.Suffix = "" -> string!
 const Xamarin.Protobuf.Lite.SourceContext.FileNameFieldNumber = 1 -> int
 const Xamarin.Protobuf.Lite.StringValue.ValueFieldNumber = 1 -> int
