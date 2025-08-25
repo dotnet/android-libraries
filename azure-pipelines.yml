@@ -23,7 +23,7 @@ variables:
 
 resources:
   repositories:
-    - repository: CustomPipelineTemplates
+    - repository: 1esPipelines
       type: git
       name: 1ESPipelineTemplates/MicroBuildTemplate
 
@@ -34,9 +34,9 @@ resources:
 
 extends:
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
-    template: azure-pipelines/MicroBuild.1ES.Official.yml@CustomPipelineTemplates
+    template: azure-pipelines/MicroBuild.1ES.Official.yml@1esPipelines
   ${{ else }}:
-    template: azure-pipelines/MicroBuild.1ES.Unofficial.yml@CustomPipelineTemplates
+    template: azure-pipelines/MicroBuild.1ES.Unofficial.yml@1esPipelines
   parameters:
     mb:
       signing:
