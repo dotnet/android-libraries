@@ -42,9 +42,7 @@ variables:
   WindowsPoolImageNetCorePublic: windows.vs2022.amd64.open
 
   # Signing settings
-  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
-    signType: real
-    signWithProd: true
+  ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+    signType: Real
   ${{ else }}:
-    signType: test
-    signWithProd: false
+    signType: Test
