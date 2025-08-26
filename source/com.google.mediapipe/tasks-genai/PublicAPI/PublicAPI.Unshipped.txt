@@ -1,4 +1,10 @@
 ﻿#nullable enable
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.AudioModelOptions() -> void
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.AudioModelOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.Builder() -> void
+Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.MediaPipe.Tasks.GenAI.LlmInference.ErrorEventArgs
 Google.MediaPipe.Tasks.GenAI.LlmInference.ErrorEventArgs.ErrorEventArgs(Java.Lang.RuntimeException? e) -> void
 Google.MediaPipe.Tasks.GenAI.LlmInference.ErrorEventArgs.Event.get -> Java.Lang.RuntimeException?
@@ -48,10 +54,16 @@ Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder.Builder() -
 Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.VisionModelOptions() -> void
 Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.VisionModelOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.SetMaxAudioSequenceLength(int maxAudioSequenceLength) -> Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder?
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.MaxAudioSequenceLength() -> int
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.SetEnableAudioModality(bool enableAudioModality) -> Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.SetEnableVisionModality(bool enableVisionModality) -> Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.SetIncludeTokenCostCalculator(bool includeTokenCostCalculator) -> Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder?
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.EnableAudioModality() -> bool
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.EnableVisionModality() -> bool
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.IncludeTokenCostCalculator() -> bool
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.AudioModelOptions() -> Java.Util.Optional?
+abstract Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder.SetAudioModelOptions(Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions? audioModelOptions) -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder.SetMaxNumImages(int maxNumImages) -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder.SetMaxTokens(int maxTokens) -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder.SetMaxTopK(int maxTopK) -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.LlmInferenceOptions.Builder?
@@ -100,6 +112,12 @@ abstract Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.AdapterPat
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder.SetAdapterPath(string? adapterPath) -> Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder.SetEncoderPath(string? encoderPath) -> Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder?
 abstract Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.EncoderPath.get -> Java.Util.Optional?
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.ThresholdClass.get -> nint
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.ThresholdType.get -> System.Type!
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.ThresholdClass.get -> nint
+override Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.ThresholdType.get -> System.Type!
 override Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.ThresholdClass.get -> nint
 override Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.ThresholdType.get -> System.Type!
@@ -137,6 +155,7 @@ override Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder.Th
 override Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.ThresholdClass.get -> nint
 override Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.ThresholdType.get -> System.Type!
+static Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.InvokeBuilder() -> Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder?
 static Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.InvokeBuilder() -> Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder?
 static Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.Backend.Cpu.get -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.Backend?
 static Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.Backend.Default.get -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.Backend?
@@ -149,6 +168,7 @@ static Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.CreateFromO
 static Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.LlmInferenceSessionOptions.InvokeBuilder() -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.LlmInferenceSessionOptions.Builder?
 static Google.MediaPipe.Tasks.GenAI.LlmInference.PromptTemplates.InvokeBuilder() -> Google.MediaPipe.Tasks.GenAI.LlmInference.PromptTemplates.Builder?
 static Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.InvokeBuilder() -> Google.MediaPipe.Tasks.GenAI.LlmInference.VisionModelOptions.Builder?
+virtual Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions.Builder.Build() -> Google.MediaPipe.Tasks.GenAI.LlmInference.AudioModelOptions?
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions.Builder.Build() -> Google.MediaPipe.Tasks.GenAI.LlmInference.GraphOptions?
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.Close() -> void
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.GenerateResponse(string? inputText) -> string?
@@ -156,6 +176,7 @@ virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.GenerateResponseA
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.GenerateResponseAsync(string? inputText, Google.MediaPipe.Tasks.GenAI.LlmInference.IProgressListener? progressListener) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.SentencePieceProcessorHandle.get -> long
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInference.SizeInTokens(string? text) -> int
+virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.AddAudio(byte[]? audioData) -> void
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.AddQueryChunk(string? inputText) -> void
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.CancelGenerateResponseAsync() -> void
 virtual Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession.CloneSession() -> Google.MediaPipe.Tasks.GenAI.LlmInference.LlmInferenceSession?

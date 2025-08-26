@@ -324,6 +324,23 @@ AndroidX.Core.App.NotificationCompat.MessagingStyle.SetConversationTitle(string?
 AndroidX.Core.App.NotificationCompat.MessagingStyle.UserDisplayName.get -> string?
 AndroidX.Core.App.NotificationCompat.NotificationCompat() -> void
 AndroidX.Core.App.NotificationCompat.NotificationCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Color.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Id.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Point(int position) -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Position.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SetColor(int color) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Point?
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SetId(int id) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Point?
+AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStyle() -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStyle(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Color.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Id.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Length.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Segment(int length) -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SetColor(int color) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment?
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SetId(int id) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment?
 AndroidX.Core.App.NotificationCompat.Style
 AndroidX.Core.App.NotificationCompat.Style.MBuilder.get -> AndroidX.Core.App.NotificationCompat.Builder?
 AndroidX.Core.App.NotificationCompat.Style.MBuilder.set -> void
@@ -400,6 +417,7 @@ AndroidX.Core.App.NotificationCompatSideChannelService.NotificationCompatSideCha
 AndroidX.Core.App.NotificationManagerCompat
 AndroidX.Core.App.NotificationManagerCompat.ActiveNotifications.get -> System.Collections.Generic.IList<Android.Service.Notification.StatusBarNotification!>?
 AndroidX.Core.App.NotificationManagerCompat.AreNotificationsEnabled() -> bool
+AndroidX.Core.App.NotificationManagerCompat.CanPostPromotedNotifications() -> bool
 AndroidX.Core.App.NotificationManagerCompat.CanUseFullScreenIntent() -> bool
 AndroidX.Core.App.NotificationManagerCompat.Cancel(int id) -> void
 AndroidX.Core.App.NotificationManagerCompat.Cancel(string? tag, int id) -> void
@@ -686,9 +704,10 @@ AndroidX.Core.Content.Resources.FontResourcesParserCompat.IFetchStrategy
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.FallbackRequest.get -> AndroidX.Core.Provider.FontRequest?
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.FetchStrategy.get -> int
-AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.ProviderResourceEntry(AndroidX.Core.Provider.FontRequest? request, AndroidX.Core.Provider.FontRequest? fallbackRequest, int strategy, int timeoutMs, string? systemFontFamilyName) -> void
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.ProviderResourceEntry(AndroidX.Core.Provider.FontRequest? request, int strategy, int timeoutMs) -> void
+AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.ProviderResourceEntry(System.Collections.Generic.IList<AndroidX.Core.Provider.FontRequest!>? requests, int strategy, int timeoutMs, string? systemFontFamilyName) -> void
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.Request.get -> AndroidX.Core.Provider.FontRequest?
+AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.Requests.get -> System.Collections.Generic.IList<AndroidX.Core.Provider.FontRequest!>?
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.SystemFontFamilyName.get -> string?
 AndroidX.Core.Content.Resources.FontResourcesParserCompat.ProviderResourceEntry.Timeout.get -> int
 AndroidX.Core.Content.Resources.ResourcesCompat
@@ -715,6 +734,19 @@ AndroidX.Core.Content.UriMatcherCompat.UriMatcherCompat(nint javaReference, Andr
 AndroidX.Core.Database.CursorWindowCompat
 AndroidX.Core.Database.DatabaseUtilsCompat
 AndroidX.Core.Database.SqlLite.SQLiteCursorCompat
+AndroidX.Core.Flagging.AconfigPackageCompat
+AndroidX.Core.Flagging.AconfigPackageCompatCompanion
+AndroidX.Core.Flagging.AconfigPackageCompatCompanion.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
+AndroidX.Core.Flagging.AconfigPackageCompatConsts
+AndroidX.Core.Flagging.Flags
+AndroidX.Core.Flagging.Flags.Companion
+AndroidX.Core.Flagging.Flags.Companion.GetBooleanFlagValue(string! packageName, string! flagName) -> bool
+AndroidX.Core.Flagging.Flags.Companion.GetBooleanFlagValue(string! packageName, string! flagName, bool defaultValue) -> bool
+AndroidX.Core.Flagging.Flags.Flags() -> void
+AndroidX.Core.Flagging.IAconfigPackageCompat
+AndroidX.Core.Flagging.IAconfigPackageCompat.Companion.get -> AndroidX.Core.Flagging.AconfigPackageCompatCompanion!
+AndroidX.Core.Flagging.IAconfigPackageCompat.GetBooleanFlagValue(string! flagName, bool defaultValue) -> bool
+AndroidX.Core.Flagging.IAconfigPackageCompat.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
 AndroidX.Core.Graphics.BitmapCompat
 AndroidX.Core.Graphics.BlendModeColorFilterCompat
 AndroidX.Core.Graphics.BlendModeColorFilterCompat.BlendModeColorFilterCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -974,18 +1006,23 @@ AndroidX.Core.Provider.FontRequest
 AndroidX.Core.Provider.FontRequest.Certificates.get -> System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>?
 AndroidX.Core.Provider.FontRequest.CertificatesArrayResId.get -> int
 AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>? certificates) -> void
+AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>? certificates, string? systemFont, string? variationSettings) -> void
 AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, int certificates) -> void
 AndroidX.Core.Provider.FontRequest.Identifier.get -> string?
 AndroidX.Core.Provider.FontRequest.ProviderAuthority.get -> string?
 AndroidX.Core.Provider.FontRequest.ProviderPackage.get -> string?
 AndroidX.Core.Provider.FontRequest.Query.get -> string?
+AndroidX.Core.Provider.FontRequest.SystemFont.get -> string?
+AndroidX.Core.Provider.FontRequest.VariationSettings.get -> string?
 AndroidX.Core.Provider.FontsContractCompat
 AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult
 AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult.FontFamilyResult(int statusCode, AndroidX.Core.Provider.FontsContractCompat.FontInfo![]? fonts) -> void
 AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult.FontFamilyResult(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Provider.FontsContractCompat.FontInfo
 AndroidX.Core.Provider.FontsContractCompat.FontInfo.FontInfo(Android.Net.Uri? uri, int ttcIndex, int weight, bool italic, int resultCode) -> void
+AndroidX.Core.Provider.FontsContractCompat.FontInfo.FontInfo(Android.Net.Uri? uri, int ttcIndex, int weight, bool italic, string? variationSettings, int resultCode) -> void
 AndroidX.Core.Provider.FontsContractCompat.FontInfo.FontInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Provider.FontsContractCompat.FontInfo.FontInfo(string? systemFont, string? variationSettings) -> void
 AndroidX.Core.Provider.FontsContractCompat.FontRequestCallback
 AndroidX.Core.Provider.FontsContractCompat.FontRequestCallback.FontRequestCallback() -> void
 AndroidX.Core.Provider.FontsContractCompat.FontRequestCallback.FontRequestCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1198,6 +1235,8 @@ AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RoleDescription.get
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RoleDescription.set -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescription.get -> string?
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescription.set -> void
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescription.get -> string?
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescription.set -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Text.get -> string?
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Text.set -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TooltipText.get -> string?
@@ -1514,6 +1553,14 @@ AndroidX.Core.View.OneShotPreDrawListener.RemoveListener() -> void
 AndroidX.Core.View.PointerIconCompat
 AndroidX.Core.View.PointerIconCompat.PointerIcon.get -> Java.Lang.Object?
 AndroidX.Core.View.ReceiveContentHandler
+AndroidX.Core.View.RoundedCornerCompat
+AndroidX.Core.View.RoundedCornerCompat.Center.get -> Android.Graphics.Point?
+AndroidX.Core.View.RoundedCornerCompat.CenterX.get -> int
+AndroidX.Core.View.RoundedCornerCompat.CenterY.get -> int
+AndroidX.Core.View.RoundedCornerCompat.IPosition
+AndroidX.Core.View.RoundedCornerCompat.Position.get -> int
+AndroidX.Core.View.RoundedCornerCompat.Radius.get -> int
+AndroidX.Core.View.RoundedCornerCompat.RoundedCornerCompat(int position, int radius, int centerX, int centerY) -> void
 AndroidX.Core.View.ScaleGestureDetectorCompat
 AndroidX.Core.View.ScrollFeedbackProviderCompat
 AndroidX.Core.View.ScrollFeedbackProviderCompat.ScrollFeedbackProviderCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1628,6 +1675,8 @@ AndroidX.Core.View.WindowInsetsCompat.Builder.SetDisplayCutout(AndroidX.Core.Vie
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetInsets(int typeMask, AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetInsetsIgnoringVisibility(int typeMask, AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetMandatorySystemGestureInsets(AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
+AndroidX.Core.View.WindowInsetsCompat.Builder.SetPrivacyIndicatorBounds(Android.Graphics.Rect? bounds) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
+AndroidX.Core.View.WindowInsetsCompat.Builder.SetRoundedCorner(int position, AndroidX.Core.View.RoundedCornerCompat? roundedCorner) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetStableInsets(AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetSystemGestureInsets(AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
 AndroidX.Core.View.WindowInsetsCompat.Builder.SetSystemWindowInsets(AndroidX.Core.Graphics.Insets? insets) -> AndroidX.Core.View.WindowInsetsCompat.Builder?
@@ -1924,14 +1973,22 @@ const AndroidX.Core.App.NotificationCompat.ExtraPicture = "android.picture" -> s
 const AndroidX.Core.App.NotificationCompat.ExtraPictureContentDescription = "android.pictureContentDescription" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraPictureIcon = "android.pictureIcon" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgress = "android.progress" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraProgressEndIcon = "android.progressEndIcon" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgressIndeterminate = "android.progressIndeterminate" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgressMax = "android.progressMax" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraProgressPoints = "android.progressPoints" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraProgressSegments = "android.progressSegments" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraProgressStartIcon = "android.progressStartIcon" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraProgressTrackerIcon = "android.progressTrackerIcon" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraRemoteInputHistory = "android.remoteInputHistory" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraRequestPromotedOngoing = "android.requestPromotedOngoing" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraSelfDisplayName = "android.selfDisplayName" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraShortCriticalText = "android.shortCriticalText" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraShowBigPictureWhenCollapsed = "android.showBigPictureWhenCollapsed" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraShowChronometer = "android.showChronometer" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraShowWhen = "android.showWhen" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraSmallIcon = "android.icon" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraStyledByProgress = "android.styledByProgress" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraSubText = "android.subText" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraSummaryText = "android.summaryText" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraTemplate = "android.template" -> string!
@@ -2389,6 +2446,10 @@ const AndroidX.Core.View.PointerIconCompat.TypeVerticalText = 1009 -> int
 const AndroidX.Core.View.PointerIconCompat.TypeWait = 1004 -> int
 const AndroidX.Core.View.PointerIconCompat.TypeZoomIn = 1018 -> int
 const AndroidX.Core.View.PointerIconCompat.TypeZoomOut = 1019 -> int
+const AndroidX.Core.View.RoundedCornerCompat.PositionBottomLeft = 3 -> int
+const AndroidX.Core.View.RoundedCornerCompat.PositionBottomRight = 2 -> int
+const AndroidX.Core.View.RoundedCornerCompat.PositionTopLeft = 0 -> int
+const AndroidX.Core.View.RoundedCornerCompat.PositionTopRight = 1 -> int
 const AndroidX.Core.View.ViewCompat.AccessibilityLiveRegionAssertive = 2 -> int
 const AndroidX.Core.View.ViewCompat.AccessibilityLiveRegionNone = 0 -> int
 const AndroidX.Core.View.ViewCompat.AccessibilityLiveRegionPolite = 1 -> int
@@ -2579,6 +2640,11 @@ override AndroidX.Core.App.NotificationCompat.MessagingStyle.JniPeerMembers.get 
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.Message.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.ThresholdClass.get -> nint
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.ThresholdType.get -> System.Type!
+override AndroidX.Core.App.NotificationCompat.ProgressStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.ProgressStyle.ThresholdClass.get -> nint
+override AndroidX.Core.App.NotificationCompat.ProgressStyle.ThresholdType.get -> System.Type!
 override AndroidX.Core.App.NotificationCompat.Style.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.Style.ThresholdClass.get -> nint
 override AndroidX.Core.App.NotificationCompat.Style.ThresholdType.get -> System.Type!
@@ -2722,6 +2788,9 @@ override AndroidX.Core.Content.UriMatcherCompat.ThresholdType.get -> System.Type
 override AndroidX.Core.Database.CursorWindowCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Database.DatabaseUtilsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Database.SqlLite.SQLiteCursorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Flagging.AconfigPackageCompatCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Flagging.Flags.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Flagging.Flags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BitmapCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BlendModeColorFilterCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BlendModeColorFilterCompat.ThresholdClass.get -> nint
@@ -3026,6 +3095,7 @@ override AndroidX.Core.View.NestedScrollingParentHelper.ThresholdClass.get -> ni
 override AndroidX.Core.View.NestedScrollingParentHelper.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.OneShotPreDrawListener.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.PointerIconCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.RoundedCornerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ScaleGestureDetectorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ScrollFeedbackProviderCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ScrollFeedbackProviderCompat.ThresholdClass.get -> nint
@@ -3211,6 +3281,7 @@ static AndroidX.Core.App.NotificationCompat.GetPeople(Android.App.Notification? 
 static AndroidX.Core.App.NotificationCompat.GetPublicVersion(Android.App.Notification? notification) -> Android.App.Notification?
 static AndroidX.Core.App.NotificationCompat.GetSettingsText(Android.App.Notification? notification) -> string?
 static AndroidX.Core.App.NotificationCompat.GetSettingsTextFormatted(Android.App.Notification? notification) -> Java.Lang.ICharSequence?
+static AndroidX.Core.App.NotificationCompat.GetShortCriticalText(Android.App.Notification? notification) -> string?
 static AndroidX.Core.App.NotificationCompat.GetShortcutId(Android.App.Notification? notification) -> string?
 static AndroidX.Core.App.NotificationCompat.GetShowWhen(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.GetSortKey(Android.App.Notification? notification) -> string?
@@ -3219,7 +3290,9 @@ static AndroidX.Core.App.NotificationCompat.GetSubTextFormatted(Android.App.Noti
 static AndroidX.Core.App.NotificationCompat.GetTimeoutAfter(Android.App.Notification? notification) -> long
 static AndroidX.Core.App.NotificationCompat.GetUsesChronometer(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.GetVisibility(Android.App.Notification? notification) -> int
+static AndroidX.Core.App.NotificationCompat.HasPromotableCharacteristics(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.IsGroupSummary(Android.App.Notification? notification) -> bool
+static AndroidX.Core.App.NotificationCompat.IsRequestPromotedOngoing(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.MessagingStyle.ExtractMessagingStyleFromNotification(Android.App.Notification? notification) -> AndroidX.Core.App.NotificationCompat.MessagingStyle?
 static AndroidX.Core.App.NotificationCompat.ReduceLargeIconSize(Android.Content.Context? context, Android.Graphics.Bitmap? icon) -> Android.Graphics.Bitmap?
 static AndroidX.Core.App.NotificationCompat.Style.ExtractStyleFromNotification(Android.App.Notification? notification) -> AndroidX.Core.App.NotificationCompat.Style?
@@ -3389,6 +3462,10 @@ static AndroidX.Core.Database.CursorWindowCompat.Create(string? name, long windo
 static AndroidX.Core.Database.DatabaseUtilsCompat.AppendSelectionArgs(string![]? originalValues, string![]? newValues) -> string![]?
 static AndroidX.Core.Database.DatabaseUtilsCompat.ConcatenateWhere(string? a, string? b) -> string?
 static AndroidX.Core.Database.SqlLite.SQLiteCursorCompat.SetFillWindowForwardOnly(Android.Database.Sqlite.SQLiteCursor? cursor, bool fillWindowForwardOnly) -> void
+static AndroidX.Core.Flagging.AconfigPackageCompat.Companion.get -> AndroidX.Core.Flagging.AconfigPackageCompatCompanion!
+static AndroidX.Core.Flagging.AconfigPackageCompat.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
+static AndroidX.Core.Flagging.Flags.GetBooleanFlagValue(string! packageName, string! flagName) -> bool
+static AndroidX.Core.Flagging.Flags.GetBooleanFlagValue(string! packageName, string! flagName, bool defaultValue) -> bool
 static AndroidX.Core.Graphics.BitmapCompat.CreateScaledBitmap(Android.Graphics.Bitmap? srcBm, int dstW, int dstH, Android.Graphics.Rect? srcRect, bool scaleInLinearSpace) -> Android.Graphics.Bitmap?
 static AndroidX.Core.Graphics.BitmapCompat.GetAllocationByteCount(Android.Graphics.Bitmap? bitmap) -> int
 static AndroidX.Core.Graphics.BitmapCompat.HasMipMap(Android.Graphics.Bitmap? bitmap) -> bool
@@ -3517,6 +3594,8 @@ static AndroidX.Core.Graphics.TypefaceCompat.CreateFromResourcesFontFile(Android
 static AndroidX.Core.Graphics.TypefaceCompat.CreateFromResourcesFontFile(Android.Content.Context? context, Android.Content.Res.Resources? resources, int id, string? path, int style) -> Android.Graphics.Typeface?
 static AndroidX.Core.Graphics.TypefaceCompat.FindFromCache(Android.Content.Res.Resources? resources, int id, int style) -> Android.Graphics.Typeface?
 static AndroidX.Core.Graphics.TypefaceCompat.FindFromCache(Android.Content.Res.Resources? resources, int id, string? path, int cookie, int style) -> Android.Graphics.Typeface?
+static AndroidX.Core.Graphics.TypefaceCompat.GetSystemFontFamily(string? familyName) -> Android.Graphics.Typeface?
+static AndroidX.Core.Graphics.TypefaceCompat.GuessPrimaryFont(Android.Graphics.Typeface? typeface) -> Android.Graphics.Fonts.Font?
 static AndroidX.Core.Graphics.TypefaceCompatUtil.CloseQuietly(Java.IO.ICloseable? c) -> void
 static AndroidX.Core.Graphics.TypefaceCompatUtil.CopyToDirectBuffer(Android.Content.Context? context, Android.Content.Res.Resources? res, int id) -> Java.Nio.ByteBuffer?
 static AndroidX.Core.Graphics.TypefaceCompatUtil.CopyToFile(Java.IO.File? file, Android.Content.Res.Resources? res, int id) -> bool
@@ -3888,6 +3967,7 @@ static AndroidX.Core.View.ContentCapture.ContentCaptureSessionCompat.ToContentCa
 static AndroidX.Core.View.ContentInfoCompat.Partition(Android.Views.ContentInfo? payload, Java.Util.Functions.IPredicate? itemPredicate) -> Android.Util.Pair?
 static AndroidX.Core.View.ContentInfoCompat.ToContentInfoCompat(Android.Views.ContentInfo? platContentInfo) -> AndroidX.Core.View.ContentInfoCompat?
 static AndroidX.Core.View.DisplayCompat.GetMode(Android.Content.Context? context, Android.Views.Display? display) -> AndroidX.Core.View.DisplayCompat.ModeCompat?
+static AndroidX.Core.View.DisplayCompat.GetRoundedCorner(Android.Views.Display? display, int position) -> AndroidX.Core.View.RoundedCornerCompat?
 static AndroidX.Core.View.DisplayCompat.GetSupportedModes(Android.Content.Context? context, Android.Views.Display? display) -> AndroidX.Core.View.DisplayCompat.ModeCompat![]?
 static AndroidX.Core.View.DragAndDropPermissionsCompat.Request(Android.App.Activity? activity, Android.Views.DragEvent? dragEvent) -> AndroidX.Core.View.DragAndDropPermissionsCompat?
 static AndroidX.Core.View.GravityCompat.Apply(int gravity, int w, int h, Android.Graphics.Rect? container, Android.Graphics.Rect? outRect, int layoutDirection) -> void
@@ -4208,6 +4288,7 @@ static AndroidX.Core.View.ViewParentCompat.OnStopNestedScroll(Android.Views.IVie
 static AndroidX.Core.View.ViewParentCompat.OnStopNestedScroll(Android.Views.IViewParent? parent, Android.Views.View? target, int type) -> void
 static AndroidX.Core.View.ViewParentCompat.RequestSendAccessibilityEvent(Android.Views.IViewParent? parent, Android.Views.View? child, Android.Views.Accessibility.AccessibilityEvent? e) -> bool
 static AndroidX.Core.View.ViewStructureCompat.ToViewStructureCompat(Android.Views.ViewStructure? contentCaptureSession) -> AndroidX.Core.View.ViewStructureCompat?
+static AndroidX.Core.View.WindowCompat.EnableEdgeToEdge(Android.Views.Window? window) -> void
 static AndroidX.Core.View.WindowCompat.GetInsetsController(Android.Views.Window? window, Android.Views.View? view) -> AndroidX.Core.View.WindowInsetsControllerCompat?
 static AndroidX.Core.View.WindowCompat.RequireViewById(Android.Views.Window? window, int id) -> Java.Lang.Object?
 static AndroidX.Core.View.WindowCompat.SetDecorFitsSystemWindows(Android.Views.Window? window, bool decorFitsSystemWindows) -> void
@@ -4458,7 +4539,9 @@ virtual AndroidX.Core.App.NotificationCompat.Builder.SetPriority(int pri) -> And
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetProgress(int max, int progress, bool indeterminate) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetPublicVersion(Android.App.Notification? n) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetRemoteInputHistory(Java.Lang.ICharSequence![]? text) -> AndroidX.Core.App.NotificationCompat.Builder?
+virtual AndroidX.Core.App.NotificationCompat.Builder.SetRequestPromotedOngoing(bool requestPromotedOngoing) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetSettingsText(Java.Lang.ICharSequence? text) -> AndroidX.Core.App.NotificationCompat.Builder?
+virtual AndroidX.Core.App.NotificationCompat.Builder.SetShortCriticalText(string? shortCriticalText) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetShortcutId(string? shortcutId) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetShortcutInfo(AndroidX.Core.Content.PM.ShortcutInfoCompat? shortcutInfo) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetShowWhen(bool show) -> AndroidX.Core.App.NotificationCompat.Builder?
@@ -4513,6 +4596,25 @@ virtual AndroidX.Core.App.NotificationCompat.MessagingStyle.SetConversationTitle
 virtual AndroidX.Core.App.NotificationCompat.MessagingStyle.SetGroupConversation(bool isGroupConversation) -> AndroidX.Core.App.NotificationCompat.MessagingStyle?
 virtual AndroidX.Core.App.NotificationCompat.MessagingStyle.User.get -> AndroidX.Core.App.Person?
 virtual AndroidX.Core.App.NotificationCompat.MessagingStyle.UserDisplayNameFormatted.get -> Java.Lang.ICharSequence?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.AddProgressPoint(AndroidX.Core.App.NotificationCompat.ProgressStyle.Point? point) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.AddProgressSegment(AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment? segment) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.IsProgressIndeterminate.get -> bool
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.IsStyledByProgress.get -> bool
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.Progress.get -> int
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressEndIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressMax.get -> int
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressPoints.get -> System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Point!>?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressSegments.get -> System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment!>?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStartIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressTrackerIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgress(int progress) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressEndIcon(AndroidX.Core.Graphics.Drawable.IconCompat? endIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressIndeterminate(bool indeterminate) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressPoints(System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Point!>? points) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressSegments(System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment!>? progressSegments) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressStartIcon(AndroidX.Core.Graphics.Drawable.IconCompat? startIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressTrackerIcon(AndroidX.Core.Graphics.Drawable.IconCompat? trackerIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetStyledByProgress(bool enabled) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.Style.AddCompatExtras(Android.OS.Bundle? extras) -> void
 virtual AndroidX.Core.App.NotificationCompat.Style.Apply(AndroidX.Core.App.INotificationBuilderWithBuilderAccessor? builder) -> void
 virtual AndroidX.Core.App.NotificationCompat.Style.ApplyStandardTemplate(bool showSmallIcon, int resId, bool fitIn1U) -> Android.Widget.RemoteViews?
@@ -4708,9 +4810,12 @@ virtual AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult.FontsWithFal
 virtual AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult.GetFonts() -> AndroidX.Core.Provider.FontsContractCompat.FontInfo![]?
 virtual AndroidX.Core.Provider.FontsContractCompat.FontFamilyResult.StatusCode.get -> int
 virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.IsItalic.get -> bool
+virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.IsSystemFont.get -> bool
 virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.ResultCode.get -> int
+virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.SystemFont.get -> string?
 virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.TtcIndex.get -> int
 virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.Uri.get -> Android.Net.Uri?
+virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.VariationSettings.get -> string?
 virtual AndroidX.Core.Provider.FontsContractCompat.FontInfo.Weight.get -> int
 virtual AndroidX.Core.Provider.FontsContractCompat.FontRequestCallback.OnTypefaceRequestFailed(int reason) -> void
 virtual AndroidX.Core.Provider.FontsContractCompat.FontRequestCallback.OnTypefaceRetrieved(Android.Graphics.Typeface? typeface) -> void
@@ -4766,13 +4871,15 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddAction(A
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddAction(int action) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddChild(Android.Views.View? child) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddChild(Android.Views.View? root, int virtualDescendantId) -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddLabeledBy(Android.Views.View? label) -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddLabeledBy(Android.Views.View? root, int virtualDescendantId) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AddSpansToExtras(Java.Lang.ICharSequence? text, Android.Views.View? view) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AvailableExtraData.get -> System.Collections.Generic.IList<string!>?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AvailableExtraData.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.CanOpenPopup() -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Checkable.get -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Checkable.set -> void
-virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Checked.get -> bool
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Checked.get -> int
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Checked.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ChildCount.get -> int
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ClassNameFormatted.get -> Java.Lang.ICharSequence?
@@ -4813,6 +4920,8 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Enabled.get
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Enabled.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ErrorFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ErrorFormatted.set -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ExpandedState.get -> int
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ExpandedState.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ExtraRenderingInfo.get -> Android.Views.Accessibility.AccessibilityNodeInfo.ExtraRenderingInfo?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Extras.get -> Android.OS.Bundle?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.FieldRequired.get -> bool
@@ -4843,8 +4952,10 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ImportantFo
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Info.get -> Java.Lang.Object?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.InputType.get -> int
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.InputType.set -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.IsChecked.get -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LabelFor.get -> AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LabeledBy.get -> AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat?
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LabeledByList.get -> System.Collections.Generic.IList<AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat!>?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LiveRegion.get -> int
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LiveRegion.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.LongClickable.get -> bool
@@ -4877,6 +4988,8 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Refresh() -
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RemoveAction(AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat? action) -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RemoveChild(Android.Views.View? child) -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RemoveChild(Android.Views.View? root, int virtualDescendantId) -> bool
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RemoveLabeledBy(Android.Views.View? label) -> bool
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RemoveLabeledBy(Android.Views.View? root, int virtualDescendantId) -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RoleDescriptionFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RoleDescriptionFormatted.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ScreenReaderFocusable.get -> bool
@@ -4889,6 +5002,7 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetBoundsIn
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetBoundsInScreen(Android.Graphics.Rect? bounds) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetBoundsInWindow(Android.Graphics.Rect? bounds) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetCanOpenPopup(bool opensPopup) -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetChecked(bool checked) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetCollectionInfo(Java.Lang.Object? collectionInfo) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetCollectionItemInfo(Java.Lang.Object? collectionItemInfo) -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SetLabelFor(Android.Views.View? labeled) -> void
@@ -4910,6 +5024,8 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ShowingHint
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ShowingHintText.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescriptionFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescriptionFormatted.set -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescriptionFormatted.get -> Java.Lang.ICharSequence?
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescriptionFormatted.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TextEntryKey.get -> bool
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TextEntryKey.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TextFormatted.get -> Java.Lang.ICharSequence?
@@ -5108,6 +5224,7 @@ virtual AndroidX.Core.View.WindowInsetsCompat.ConsumeSystemWindowInsets() -> And
 virtual AndroidX.Core.View.WindowInsetsCompat.DisplayCutout.get -> AndroidX.Core.View.DisplayCutoutCompat?
 virtual AndroidX.Core.View.WindowInsetsCompat.GetInsets(int typeMask) -> AndroidX.Core.Graphics.Insets?
 virtual AndroidX.Core.View.WindowInsetsCompat.GetInsetsIgnoringVisibility(int typeMask) -> AndroidX.Core.Graphics.Insets?
+virtual AndroidX.Core.View.WindowInsetsCompat.GetRoundedCorner(int position) -> AndroidX.Core.View.RoundedCornerCompat?
 virtual AndroidX.Core.View.WindowInsetsCompat.HasInsets.get -> bool
 virtual AndroidX.Core.View.WindowInsetsCompat.HasStableInsets.get -> bool
 virtual AndroidX.Core.View.WindowInsetsCompat.HasSystemWindowInsets.get -> bool
@@ -5117,6 +5234,7 @@ virtual AndroidX.Core.View.WindowInsetsCompat.IsConsumed.get -> bool
 virtual AndroidX.Core.View.WindowInsetsCompat.IsRound.get -> bool
 virtual AndroidX.Core.View.WindowInsetsCompat.IsVisible(int typeMask) -> bool
 virtual AndroidX.Core.View.WindowInsetsCompat.MandatorySystemGestureInsets.get -> AndroidX.Core.Graphics.Insets?
+virtual AndroidX.Core.View.WindowInsetsCompat.PrivacyIndicatorBounds.get -> Android.Graphics.Rect?
 virtual AndroidX.Core.View.WindowInsetsCompat.ReplaceSystemWindowInsets(Android.Graphics.Rect? systemWindowInsets) -> AndroidX.Core.View.WindowInsetsCompat?
 virtual AndroidX.Core.View.WindowInsetsCompat.ReplaceSystemWindowInsets(int left, int top, int right, int bottom) -> AndroidX.Core.View.WindowInsetsCompat?
 virtual AndroidX.Core.View.WindowInsetsCompat.StableInsetBottom.get -> int
