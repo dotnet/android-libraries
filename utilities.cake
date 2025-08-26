@@ -828,6 +828,12 @@ Task ("spell-check")
                 "Json",
                 "ViewTree",
                 "TypeAnnotations",
+                "WindowCore",
+                "LocalAgents",
+                "FunctionCalling",
+                "AICore",
+                "GenAI",
+                "JavaNetCookieJar",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);

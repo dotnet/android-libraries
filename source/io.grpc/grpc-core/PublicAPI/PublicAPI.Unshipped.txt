@@ -316,6 +316,7 @@ Xamarin.Grpc.Core.Internal.ReadableBuffers
 Xamarin.Grpc.Core.Internal.ReflectionLongAdderCounter
 Xamarin.Grpc.Core.Internal.ReflectionLongAdderCounter.Add(long delta) -> void
 Xamarin.Grpc.Core.Internal.ReflectionLongAdderCounter.Value() -> long
+Xamarin.Grpc.Core.Internal.RetryingNameResolver
 Xamarin.Grpc.Core.Internal.SerializingExecutor
 Xamarin.Grpc.Core.Internal.SerializingExecutor.Execute(Java.Lang.IRunnable? r) -> void
 Xamarin.Grpc.Core.Internal.SerializingExecutor.Run() -> void
@@ -415,7 +416,7 @@ const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultMaxMessageSize = 4194304 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortPlaintext = 80 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortSsl = 443 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.HttpMethod = "POST" -> string!
-const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.74.0" -> string!
+const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.75.0" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.KeepaliveTimeNanosDisabled = 9223372036854775807 -> long
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageAcceptEncoding = "grpc-accept-encoding" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageEncoding = "grpc-encoding" -> string!
@@ -522,6 +523,13 @@ override Xamarin.Grpc.Core.Internal.PickSubchannelArgsImpl.JniPeerMembers.get ->
 override Xamarin.Grpc.Core.Internal.PickSubchannelArgsImpl.MethodDescriptor.get -> Xamarin.Grpc.MethodDescriptor?
 override Xamarin.Grpc.Core.Internal.ReadableBuffers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ReflectionLongAdderCounter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.Refresh() -> void
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.ServiceAuthority.get -> string?
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.Shutdown() -> void
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.Start(Xamarin.Grpc.NameResolver.IListener? p0) -> void
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.Start(Xamarin.Grpc.NameResolver.Listener2? listener) -> void
+override Xamarin.Grpc.Core.Internal.RetryingNameResolver.ToString() -> string?
 override Xamarin.Grpc.Core.Internal.SerializingExecutor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ServiceConfigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ServiceConfigUtil.LbConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -641,6 +649,7 @@ static Xamarin.Grpc.Core.Internal.ReadableBuffers.ReadAsStringUtf8(Xamarin.Grpc.
 static Xamarin.Grpc.Core.Internal.ReadableBuffers.Wrap(Java.Nio.ByteBuffer? bytes) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?
 static Xamarin.Grpc.Core.Internal.ReadableBuffers.Wrap(byte[]? bytes) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?
 static Xamarin.Grpc.Core.Internal.ReadableBuffers.Wrap(byte[]? bytes, int offset, int length) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?
+static Xamarin.Grpc.Core.Internal.RetryingNameResolver.Wrap(Xamarin.Grpc.NameResolver? retriedNameResolver, Xamarin.Grpc.NameResolver.Args? args) -> Xamarin.Grpc.NameResolver?
 static Xamarin.Grpc.Core.Internal.ServiceConfigUtil.GetHealthCheckedService(System.Collections.Generic.IDictionary<string!, object!>? serviceConfig) -> System.Collections.Generic.IDictionary<string!, object!>?
 static Xamarin.Grpc.Core.Internal.ServiceConfigUtil.GetHealthCheckedServiceName(System.Collections.Generic.IDictionary<string!, object!>? healthCheckedServiceConfig) -> string?
 static Xamarin.Grpc.Core.Internal.ServiceConfigUtil.GetLoadBalancingConfigsFromServiceConfig(System.Collections.Generic.IDictionary<string!, object!>? serviceConfig) -> System.Collections.Generic.IList<System.Collections.Generic.IDictionary<string!, object!>!>?
