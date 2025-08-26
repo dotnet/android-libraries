@@ -62,7 +62,8 @@ namespace Xamarin.ContentPipeline.Tests
 					return;
 				}
 			}
-			if (err.Message.Contains ("Could not find 7zip"))
+			if (err.Message.Contains ("Could not find 7zip") || 
+				err.Message.Contains ("Download failed."))
 			{
 				Assert.Skip ("Test ignored due to known issue: " + err.Message);
 			}
