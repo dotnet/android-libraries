@@ -4,14 +4,14 @@ stages:
 - stage: sign_artifacts
   displayName: Sign Artifacts
   dependsOn: build_windows
-  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  condition: succeeded()
   
   jobs:
   
-  - template: sign-artifacts/jobs/v2.yml@yaml-templates
+  - template: sign-artifacts/jobs/v4.yml@yaml-templates
     parameters:
       timeoutInMinutes: 120
       artifactName: output-windows
       usePipelineArtifactTasks: true
-      use1ESTemplate: true
       checkoutType: self
+      signType: $(signType)
