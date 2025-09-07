@@ -354,7 +354,7 @@
 | 347|com.google.android.gms:play-services-ads-api                          |24.5.0              |Xamarin.GooglePlayServices.Ads.Api                                    |124.5.0.1           |
 | 348|com.google.android.gms:play-services-ads-base                         |24.1.0              |Xamarin.GooglePlayServices.Ads.Base                                   |124.1.0.1           |
 | 349|com.google.android.gms:play-services-ads-identifier                   |18.2.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.2.0.4           |
-| 350|com.google.android.gms:play-services-ads-lite                         |24.3.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.3.0             |
+| 350|com.google.android.gms:play-services-ads-lite                         |24.0.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.0.0.3           |
 | 351|com.google.android.gms:play-services-afs-native                       |19.1.0              |Xamarin.GooglePlayServices.AFS.Native                                 |119.1.0.7           |
 | 352|com.google.android.gms:play-services-analytics                        |18.1.1              |Xamarin.GooglePlayServices.Analytics                                  |118.1.1.5           |
 | 353|com.google.android.gms:play-services-analytics-impl                   |18.2.0              |Xamarin.GooglePlayServices.Analytics.Impl                             |118.2.0.5           |
