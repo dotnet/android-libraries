@@ -1,6 +1,6 @@
 trigger:
   - main
-  - refs/tags/*
+  - release/*
 
 pr: none
 
@@ -25,15 +25,18 @@ resources:
   repositories:
     - repository: 1esPipelines
       type: git
-      name: 1ESPipelineTemplates/1ESPipelineTemplates
-      ref: refs/tags/release
+      name: 1ESPipelineTemplates/MicroBuildTemplate
+
     - repository: yaml-templates
       type: git
       name: DevDiv/Xamarin.yaml-templates
       ref: refs/heads/main
 
 extends:
-  template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
+  ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+    template: azure-pipelines/MicroBuild.1ES.Official.yml@1esPipelines
+  ${{ else }}:
+    template: azure-pipelines/MicroBuild.1ES.Unofficial.yml@1esPipelines
   parameters:
     sdl:
       sourceRepositoriesToScan:

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+  <!-- fix companions -->
+  <attr path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion']" name="managedName">CompanionStatic</attr>
+  <remove-node path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion' and count(method)=0 and count(field)=0]" />
+  <attr path="/api/package/class[substring(@name,string-length(@name)-7)='.Default']" name="managedName">DefaultStatic</attr>
+  <remove-node path="/api/package/class[substring(@name,string-length(@name)-7)='.Default' and count(method)=0 and count(field)=0]" />
+
+  <!-- remove unused companions -->
+  <remove-node path="/api/package/class[@name='Candidate.FinishReason.Companion']" />
+  <remove-node path="/api/package/class[@name='Content.Companion']" />
+  <remove-node path="/api/package/class[@name='Content.Role.Companion']" />
+  <remove-node path="/api/package/class[@name='GenerationConfig.Companion']" />
+  <remove-node path="/api/package/class[@name='GenerativeAIException.ErrorCode.Companion']" />
+  <remove-node path="/api/package/class[@name='GenerativeModelFutures.Companion']" />
+
+  <!-- remove unused Kotlin helpers -->
+  <remove-node path="/api/package/class[@name='ContentKt']" />
+  <remove-node path="/api/package/class[@name='GenerationConfigKt']" />
+  <remove-node path="/api/package/class[@name='PartKt']" />
+
+  <!-- fix enums -->
+  <remove-node path="/api/package/interface[@name='Candidate.FinishReason']" />
+  <remove-node path="/api/package/interface[@name='Content.Role']" />
+  <remove-node path="/api/package/interface[@name='GenerativeAIException.ErrorCode']" />
+
+  <!-- fix parameter types -->
+  <attr path="/api/package/class[@name='Content.Builder']/method[@name='addPart' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]" name="managedType">Google.AI.Edge.AICore.IPart</attr>
+
+</metadata>

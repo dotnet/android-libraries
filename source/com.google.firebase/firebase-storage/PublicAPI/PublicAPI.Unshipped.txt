@@ -46,18 +46,6 @@ Firebase.Storage.Internal.StorageReferenceUri.StorageReferenceUri(nint javaRefer
 Firebase.Storage.Internal.Util
 Firebase.Storage.Internal.Util.Util() -> void
 Firebase.Storage.Internal.Util.Util(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Firebase.Storage.Ktx.FirebaseStorageKtxRegistrar
-Firebase.Storage.Ktx.FirebaseStorageKtxRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>!
-Firebase.Storage.Ktx.FirebaseStorageKtxRegistrar.FirebaseStorageKtxRegistrar() -> void
-Firebase.Storage.Ktx.StorageKt
-Firebase.Storage.Ktx.TaskState
-Firebase.Storage.Ktx.TaskState.InProgress
-Firebase.Storage.Ktx.TaskState.InProgress.InProgress(Java.Lang.Object? snapshot) -> void
-Firebase.Storage.Ktx.TaskState.InProgress.Snapshot.get -> Java.Lang.Object?
-Firebase.Storage.Ktx.TaskState.Paused
-Firebase.Storage.Ktx.TaskState.Paused.Paused(Java.Lang.Object? snapshot) -> void
-Firebase.Storage.Ktx.TaskState.Paused.Snapshot.get -> Java.Lang.Object?
-Firebase.Storage.Ktx.TaskState.TaskState(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Storage.ListResult
 Firebase.Storage.ListResult.Items.get -> System.Collections.Generic.IList<Firebase.Storage.StorageReference!>!
 Firebase.Storage.ListResult.PageToken.get -> string?
@@ -170,7 +158,7 @@ abstract Firebase.Storage.Network.NetworkRequest.Action.get -> string!
 const Firebase.Storage.BuildConfig.BuildType = "release" -> string!
 const Firebase.Storage.BuildConfig.Debug = false -> bool
 const Firebase.Storage.BuildConfig.LibraryPackageName = "com.google.firebase.storage" -> string!
-const Firebase.Storage.BuildConfig.VersionName = "21.0.2" -> string!
+const Firebase.Storage.BuildConfig.VersionName = "22.0.0" -> string!
 const Firebase.Storage.Internal.ExponentialBackoffSender.RndMax = 250 -> int
 const Firebase.Storage.Internal.Util.Iso8601Format = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" -> string!
 const Firebase.Storage.Internal.Util.NetworkUnavailable = -2 -> int
@@ -228,13 +216,6 @@ override Firebase.Storage.Internal.StorageReferenceUri.ThresholdType.get -> Syst
 override Firebase.Storage.Internal.Util.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Storage.Internal.Util.ThresholdClass.get -> nint
 override Firebase.Storage.Internal.Util.ThresholdType.get -> System.Type!
-override Firebase.Storage.Ktx.FirebaseStorageKtxRegistrar.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Storage.Ktx.StorageKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Storage.Ktx.TaskState.InProgress.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Storage.Ktx.TaskState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Storage.Ktx.TaskState.Paused.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Storage.Ktx.TaskState.ThresholdClass.get -> nint
-override Firebase.Storage.Ktx.TaskState.ThresholdType.get -> System.Type!
 override Firebase.Storage.ListResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Storage.Network.Connection.HttpURLConnectionFactoryImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Storage.Network.Connection.HttpURLConnectionFactoryImpl.ThresholdClass.get -> nint
@@ -363,20 +344,6 @@ static Firebase.Storage.Internal.Util.GetCurrentAppCheckToken(Firebase.AppCheck.
 static Firebase.Storage.Internal.Util.GetCurrentAuthToken(Firebase.Auth.Internal.IInternalAuthProvider? authProvider) -> string?
 static Firebase.Storage.Internal.Util.Normalize(Firebase.FirebaseApp! app, string? s) -> Android.Net.Uri?
 static Firebase.Storage.Internal.Util.ParseDateTime(string? dateString) -> long
-static Firebase.Storage.Ktx.StorageKt.Component1(Firebase.Storage.FileDownloadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component1(Firebase.Storage.ListResult! obj) -> System.Collections.Generic.IList<Firebase.Storage.StorageReference!>!
-static Firebase.Storage.Ktx.StorageKt.Component1(Firebase.Storage.StreamDownloadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component1(Firebase.Storage.UploadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component2(Firebase.Storage.FileDownloadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component2(Firebase.Storage.ListResult! obj) -> System.Collections.Generic.IList<Firebase.Storage.StorageReference!>!
-static Firebase.Storage.Ktx.StorageKt.Component2(Firebase.Storage.StreamDownloadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component2(Firebase.Storage.UploadTask.TaskSnapshot! obj) -> long
-static Firebase.Storage.Ktx.StorageKt.Component3(Firebase.Storage.ListResult! obj) -> string?
-static Firebase.Storage.Ktx.StorageKt.Component3(Firebase.Storage.StreamDownloadTask.TaskSnapshot! obj) -> System.IO.Stream!
-static Firebase.Storage.Ktx.StorageKt.Component3(Firebase.Storage.UploadTask.TaskSnapshot! obj) -> Firebase.Storage.StorageMetadata?
-static Firebase.Storage.Ktx.StorageKt.Component4(Firebase.Storage.UploadTask.TaskSnapshot! obj) -> Android.Net.Uri?
-static Firebase.Storage.Ktx.StorageKt.GetTaskState(Firebase.Storage.StorageTask! obj) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
-static Firebase.Storage.Ktx.StorageKt.StorageMetadata(Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Storage.StorageMetadata!
 static Firebase.Storage.Network.NetworkRequest.GetBaseUrl(Firebase.Emulators.EmulatedServiceSettings? emulatorSettings) -> Android.Net.Uri!
 static Firebase.Storage.Network.NetworkRequest.ProdBaseUrl.get -> Android.Net.Uri?
 static Firebase.Storage.Network.ResumableUploadCancelRequest.CancelCalled.get -> bool

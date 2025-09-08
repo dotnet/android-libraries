@@ -40,3 +40,10 @@ variables:
   # dnceng-public variables
   NetCorePublicPoolName: NetCore-Public-XL
   WindowsPoolImageNetCorePublic: windows.vs2022.amd64.open
+
+  # Signing settings
+  TeamName: .NET MAUI
+  ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+    signType: Real
+  ${{ else }}:
+    signType: Test

@@ -71,7 +71,7 @@ Firebase.RemoteConfig.Internal.CodeAttribute
 Firebase.RemoteConfig.Internal.CodeAttribute.CodeAttribute() -> void
 Firebase.RemoteConfig.Internal.CodeConsts
 Firebase.RemoteConfig.Internal.ConfigAutoFetch
-Firebase.RemoteConfig.Internal.ConfigAutoFetch.ConfigAutoFetch(Java.Net.HttpURLConnection? httpURLConnection, Firebase.RemoteConfig.Internal.ConfigFetchHandler? configFetchHandler, Firebase.RemoteConfig.Internal.ConfigCacheClient? activatedCache, System.Collections.Generic.ICollection<Firebase.RemoteConfig.IConfigUpdateListener!>? eventListeners, Firebase.RemoteConfig.IConfigUpdateListener? retryCallback, Java.Util.Concurrent.IScheduledExecutorService? scheduledExecutorService) -> void
+Firebase.RemoteConfig.Internal.ConfigAutoFetch.ConfigAutoFetch(Java.Net.HttpURLConnection? httpURLConnection, Firebase.RemoteConfig.Internal.ConfigFetchHandler? configFetchHandler, Firebase.RemoteConfig.Internal.ConfigCacheClient? activatedCache, System.Collections.Generic.ICollection<Firebase.RemoteConfig.IConfigUpdateListener!>? eventListeners, Firebase.RemoteConfig.IConfigUpdateListener? retryCallback, Java.Util.Concurrent.IScheduledExecutorService? scheduledExecutorService, Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient? sharedPrefsClient) -> void
 Firebase.RemoteConfig.Internal.ConfigAutoFetch.ConfigAutoFetch(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.RemoteConfig.Internal.ConfigCacheClient
 Firebase.RemoteConfig.Internal.ConfigCacheClient.ConfigCacheClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -130,10 +130,6 @@ Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateFactory.RolloutsStateFactor
 Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler
 Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler.RolloutsStateSubscriptionsHandler(Firebase.RemoteConfig.Internal.ConfigCacheClient! activatedConfigsCache, Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateFactory! rolloutsStateFactory, Java.Util.Concurrent.IExecutor! executor) -> void
 Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler.RolloutsStateSubscriptionsHandler(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Firebase.RemoteConfig.Ktx.FirebaseRemoteConfigKtxRegistrar
-Firebase.RemoteConfig.Ktx.FirebaseRemoteConfigKtxRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>!
-Firebase.RemoteConfig.Ktx.FirebaseRemoteConfigKtxRegistrar.FirebaseRemoteConfigKtxRegistrar() -> void
-Firebase.RemoteConfig.Ktx.RemoteConfigKt
 Firebase.RemoteConfig.RemoteConfigComponent
 Firebase.RemoteConfig.RemoteConfigComponent.RemoteConfigComponent(Android.Content.Context? context, Java.Util.Concurrent.IScheduledExecutorService? executor, Firebase.FirebaseApp? firebaseApp, Firebase.Installations.IFirebaseInstallationsApi? firebaseInstallations, Firebase.Abt.FirebaseABTesting? firebaseAbt, Firebase.Inject.IProvider? analyticsConnector, bool loadGetDefault) -> void
 Firebase.RemoteConfig.RemoteConfigComponent.RemoteConfigComponent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -158,7 +154,7 @@ abstract Firebase.RemoteConfig.ConfigUpdate.UpdatedKeys.get -> System.Collection
 const Firebase.RemoteConfig.BuildConfig.BuildType = "release" -> string!
 const Firebase.RemoteConfig.BuildConfig.Debug = false -> bool
 const Firebase.RemoteConfig.BuildConfig.LibraryPackageName = "com.google.firebase.remoteconfig" -> string!
-const Firebase.RemoteConfig.BuildConfig.VersionName = "22.1.2" -> string!
+const Firebase.RemoteConfig.BuildConfig.VersionName = "23.0.0" -> string!
 const Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultValueForBoolean = false -> bool
 const Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultValueForDouble = 0 -> double
 const Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultValueForLong = 0 -> long
@@ -334,8 +330,6 @@ override Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateFactory.ThresholdT
 override Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler.ThresholdClass.get -> nint
 override Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateSubscriptionsHandler.ThresholdType.get -> System.Type!
-override Firebase.RemoteConfig.Ktx.FirebaseRemoteConfigKtxRegistrar.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.RemoteConfig.Ktx.RemoteConfigKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.RemoteConfig.RemoteConfigComponent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.RemoteConfig.RemoteConfigComponent.ThresholdClass.get -> nint
 override Firebase.RemoteConfig.RemoteConfigComponent.ThresholdType.get -> System.Type!
@@ -372,9 +366,6 @@ static Firebase.RemoteConfig.Internal.ConfigStorageClient.ClearInstancesForTest(
 static Firebase.RemoteConfig.Internal.ConfigStorageClient.GetInstance(Android.Content.Context? context, string? fileName) -> Firebase.RemoteConfig.Internal.ConfigStorageClient?
 static Firebase.RemoteConfig.Internal.DefaultsXmlParser.GetDefaultsFromXml(Android.Content.Context? context, int resourceId) -> System.Collections.Generic.IDictionary<string!, string!>?
 static Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateFactory.Create(Firebase.RemoteConfig.Internal.ConfigCacheClient! activatedConfigsCache, Firebase.RemoteConfig.Internal.ConfigCacheClient! defaultConfigsCache) -> Firebase.RemoteConfig.Internal.Rollouts.RolloutsStateFactory!
-static Firebase.RemoteConfig.Ktx.RemoteConfigKt.Get(Firebase.RemoteConfig.FirebaseRemoteConfig! obj, string! key) -> Firebase.RemoteConfig.IFirebaseRemoteConfigValue!
-static Firebase.RemoteConfig.Ktx.RemoteConfigKt.GetConfigUpdates(Firebase.RemoteConfig.FirebaseRemoteConfig! obj) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
-static Firebase.RemoteConfig.Ktx.RemoteConfigKt.RemoteConfigSettings(Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.RemoteConfig.FirebaseRemoteConfigSettings!
 static Firebase.RemoteConfig.RemoteConfigKt.CustomSignals(Kotlin.Jvm.Functions.IFunction1! builder) -> Firebase.RemoteConfig.CustomSignals!
 static Firebase.RemoteConfig.RemoteConfigKt.Get(Firebase.RemoteConfig.FirebaseRemoteConfig! obj, string! key) -> Firebase.RemoteConfig.IFirebaseRemoteConfigValue!
 static Firebase.RemoteConfig.RemoteConfigKt.GetConfigUpdates(Firebase.RemoteConfig.FirebaseRemoteConfig! obj) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -478,6 +469,7 @@ virtual Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient.Info.get -> Fireb
 virtual Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient.MinimumFetchIntervalInSeconds.get -> long
 virtual Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient.SetConfigSettings(Firebase.RemoteConfig.FirebaseRemoteConfigSettings? settings) -> void
 virtual Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient.SetConfigSettingsWithoutWaitingOnDiskWrite(Firebase.RemoteConfig.FirebaseRemoteConfigSettings? settings) -> void
+virtual Firebase.RemoteConfig.Internal.ConfigSharedPrefsClient.SetRealtimeBackoffEndTime(Java.Util.Date? backoffEndTime) -> void
 virtual Firebase.RemoteConfig.Internal.ConfigStorageClient.Clear() -> Java.Lang.Void?
 virtual Firebase.RemoteConfig.Internal.ConfigStorageClient.Read() -> Firebase.RemoteConfig.Internal.ConfigContainer?
 virtual Firebase.RemoteConfig.Internal.ConfigStorageClient.Write(Firebase.RemoteConfig.Internal.ConfigContainer? container) -> Java.Lang.Void?

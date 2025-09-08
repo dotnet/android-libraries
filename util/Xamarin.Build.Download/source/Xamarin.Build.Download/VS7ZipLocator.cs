@@ -14,6 +14,14 @@ namespace Xamarin.Build.Download
 
 		public static string Locate7Zip(string vsInstallRoot)
 		{
+			// On non-Windows platforms, check for system-installed 7z first
+			if (!Platform.IsWindows)
+			{
+				var linuxPath = "/usr/bin/7z";
+				if (File.Exists(linuxPath))
+					return linuxPath;
+			}
+
 			var path = FindLegacy();
 
 			if (!string.IsNullOrEmpty(path))

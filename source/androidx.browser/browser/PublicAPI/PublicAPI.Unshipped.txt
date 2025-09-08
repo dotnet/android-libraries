@@ -1,4 +1,17 @@
 ﻿#nullable enable
+Android.Support.CustomTabs.AuthTabCallback
+Android.Support.CustomTabs.AuthTabCallbackConsts
+Android.Support.CustomTabs.AuthTabCallbackDefault
+Android.Support.CustomTabs.AuthTabCallbackDefault.AuthTabCallbackDefault() -> void
+Android.Support.CustomTabs.AuthTabCallbackDefault.AuthTabCallbackDefault(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Support.CustomTabs.AuthTabCallbackDefault.InterfaceConsts
+Android.Support.CustomTabs.AuthTabCallbackStub
+Android.Support.CustomTabs.AuthTabCallbackStub.AuthTabCallbackStub() -> void
+Android.Support.CustomTabs.AuthTabCallbackStub.AuthTabCallbackStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Support.CustomTabs.AuthTabCallbackStub.InterfaceConsts
+Android.Support.CustomTabs.AuthTabCallback_Parcel
+Android.Support.CustomTabs.AuthTabCallback_Parcel.AuthTabCallback_Parcel() -> void
+Android.Support.CustomTabs.AuthTabCallback_Parcel.AuthTabCallback_Parcel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Support.CustomTabs.CustomTabsCallback
 Android.Support.CustomTabs.CustomTabsCallbackConsts
 Android.Support.CustomTabs.CustomTabsCallbackDefault
@@ -38,6 +51,12 @@ Android.Support.CustomTabs.EngagementSignalsCallbackStub.InterfaceConsts
 Android.Support.CustomTabs.EngagementSignalsCallback_Parcel
 Android.Support.CustomTabs.EngagementSignalsCallback_Parcel.EngagementSignalsCallback_Parcel() -> void
 Android.Support.CustomTabs.EngagementSignalsCallback_Parcel.EngagementSignalsCallback_Parcel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Support.CustomTabs.IAuthTabCallback
+Android.Support.CustomTabs.IAuthTabCallback.Descriptor.get -> string?
+Android.Support.CustomTabs.IAuthTabCallback.OnExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
+Android.Support.CustomTabs.IAuthTabCallback.OnExtraCallbackWithResult(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
+Android.Support.CustomTabs.IAuthTabCallback.OnNavigationEvent(int p0, Android.OS.Bundle? p1) -> void
+Android.Support.CustomTabs.IAuthTabCallback.OnWarmupCompleted(Android.OS.Bundle? p0) -> void
 Android.Support.CustomTabs.ICustomTabsCallback
 Android.Support.CustomTabs.ICustomTabsCallback.Descriptor.get -> string?
 Android.Support.CustomTabs.ICustomTabsCallback.ExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
@@ -56,9 +75,12 @@ Android.Support.CustomTabs.ICustomTabsService.Descriptor.get -> string?
 Android.Support.CustomTabs.ICustomTabsService.ExtraCommand(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
 Android.Support.CustomTabs.ICustomTabsService.IsEngagementSignalsApiAvailable(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.OS.Bundle? p1) -> bool
 Android.Support.CustomTabs.ICustomTabsService.MayLaunchUrl(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2, System.Collections.Generic.IList<Android.OS.Bundle!>? p3) -> bool
+Android.Support.CustomTabs.ICustomTabsService.NewAuthTabSession(Android.Support.CustomTabs.IAuthTabCallback? p0, Android.OS.Bundle? p1) -> bool
 Android.Support.CustomTabs.ICustomTabsService.NewSession(Android.Support.CustomTabs.ICustomTabsCallback? p0) -> bool
 Android.Support.CustomTabs.ICustomTabsService.NewSessionWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.OS.Bundle? p1) -> bool
 Android.Support.CustomTabs.ICustomTabsService.PostMessage(Android.Support.CustomTabs.ICustomTabsCallback? p0, string? p1, Android.OS.Bundle? p2) -> int
+Android.Support.CustomTabs.ICustomTabsService.Prefetch(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2) -> void
+Android.Support.CustomTabs.ICustomTabsService.PrefetchWithMultipleUrls(Android.Support.CustomTabs.ICustomTabsCallback? p0, System.Collections.Generic.IList<Android.Net.Uri!>? p1, Android.OS.Bundle? p2) -> void
 Android.Support.CustomTabs.ICustomTabsService.ReceiveFile(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, int p2, Android.OS.Bundle? p3) -> bool
 Android.Support.CustomTabs.ICustomTabsService.RequestPostMessageChannel(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1) -> bool
 Android.Support.CustomTabs.ICustomTabsService.RequestPostMessageChannelWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2) -> bool
@@ -126,35 +148,100 @@ Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.TrustedWebActiv
 Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel
 Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel.TrustedWebActivityService_Parcel() -> void
 Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel.TrustedWebActivityService_Parcel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.Auth.AuthTabColorSchemeParams
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.Build() -> AndroidX.Browser.Auth.AuthTabColorSchemeParams?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.Builder() -> void
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.SetNavigationBarColor(int color) -> AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.SetToolbarColor(int color) -> AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.NavigationBarColor.get -> Java.Lang.Integer?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.NavigationBarDividerColor.get -> Java.Lang.Integer?
+AndroidX.Browser.Auth.AuthTabColorSchemeParams.ToolbarColor.get -> Java.Lang.Integer?
+AndroidX.Browser.Auth.AuthTabIntent
+AndroidX.Browser.Auth.AuthTabIntent.AuthResult
+AndroidX.Browser.Auth.AuthTabIntent.AuthResult.ResultCode.get -> int
+AndroidX.Browser.Auth.AuthTabIntent.AuthResult.ResultCode.set -> void
+AndroidX.Browser.Auth.AuthTabIntent.AuthResult.ResultUri.get -> Android.Net.Uri?
+AndroidX.Browser.Auth.AuthTabIntent.AuthResult.ResultUri.set -> void
+AndroidX.Browser.Auth.AuthTabIntent.AuthTabIntent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.Auth.AuthTabIntent.Builder
+AndroidX.Browser.Auth.AuthTabIntent.Builder.Build() -> AndroidX.Browser.Auth.AuthTabIntent?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.Builder() -> void
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetCloseButtonIcon(Android.Graphics.Bitmap? icon) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetColorScheme(int colorScheme) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetColorSchemeParams(int colorScheme, AndroidX.Browser.Auth.AuthTabColorSchemeParams? params) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetDefaultColorSchemeParams(AndroidX.Browser.Auth.AuthTabColorSchemeParams? params) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetEphemeralBrowsingEnabled(bool enabled) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetPendingSession(AndroidX.Browser.Auth.AuthTabSession.PendingSession? session) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.Builder.SetSession(AndroidX.Browser.Auth.AuthTabSession? session) -> AndroidX.Browser.Auth.AuthTabIntent.Builder?
+AndroidX.Browser.Auth.AuthTabIntent.IResultCode
+AndroidX.Browser.Auth.AuthTabIntent.Intent.get -> Android.Content.Intent?
+AndroidX.Browser.Auth.AuthTabIntent.Intent.set -> void
+AndroidX.Browser.Auth.AuthTabSession
+AndroidX.Browser.Auth.AuthTabSession.AuthTabSession(Android.Support.CustomTabs.IAuthTabCallback? callback, Android.Content.ComponentName? componentName, Android.App.PendingIntent? sessionId) -> void
+AndroidX.Browser.Auth.AuthTabSession.PendingSession
+AndroidX.Browser.Auth.AuthTabSession.PendingSession.PendingSession(Android.App.PendingIntent? sessionId, Java.Util.Concurrent.IExecutor? executor, AndroidX.Browser.Auth.IAuthTabCallback? callback) -> void
+AndroidX.Browser.Auth.AuthTabSession.PendingSession.PendingSession(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.Auth.AuthTabSessionToken
+AndroidX.Browser.Auth.AuthTabSessionToken.AuthTabSessionToken(Android.Support.CustomTabs.IAuthTabCallback? callbackBinder, Android.App.PendingIntent? sessionId) -> void
+AndroidX.Browser.Auth.AuthTabSessionToken.Callback.get -> AndroidX.Browser.Auth.IAuthTabCallback?
+AndroidX.Browser.Auth.AuthTabSessionToken.CallbackBinder.get -> Android.OS.IBinder?
+AndroidX.Browser.Auth.AuthTabSessionToken.HasId.get -> bool
+AndroidX.Browser.Auth.AuthTabSessionToken.Id.get -> Android.App.PendingIntent?
+AndroidX.Browser.Auth.AuthTabSessionToken.IsAssociatedWith(AndroidX.Browser.Auth.AuthTabSession? session) -> bool
+AndroidX.Browser.Auth.IAuthTabCallback
+AndroidX.Browser.Auth.IAuthTabCallback.OnExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
+AndroidX.Browser.Auth.IAuthTabCallback.OnExtraCallbackWithResult(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
+AndroidX.Browser.Auth.IAuthTabCallback.OnNavigationEvent(int p0, Android.OS.Bundle? p1) -> void
+AndroidX.Browser.Auth.IAuthTabCallback.OnWarmupCompleted(Android.OS.Bundle? p0) -> void
 AndroidX.Browser.BrowserActions.BrowserActionItem
 AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string! title, Android.App.PendingIntent! action) -> void
-AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string! title, Android.App.PendingIntent! action, Android.Net.Uri! iconUri) -> void
-AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string! title, Android.App.PendingIntent! action, int iconId) -> void
+AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string? title, Android.App.PendingIntent? action) -> void
+AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string? title, Android.App.PendingIntent? action, Android.Net.Uri? iconUri) -> void
+AndroidX.Browser.BrowserActions.BrowserActionItem.BrowserActionItem(string? title, Android.App.PendingIntent? action, int iconId) -> void
 AndroidX.Browser.BrowserActions.BrowserActionsFallbackMenuView
-AndroidX.Browser.BrowserActions.BrowserActionsFallbackMenuView.BrowserActionsFallbackMenuView(Android.Content.Context! context, Android.Util.IAttributeSet! attrs) -> void
+AndroidX.Browser.BrowserActions.BrowserActionsFallbackMenuView.BrowserActionsFallbackMenuView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.Browser.BrowserActions.BrowserActionsFallbackMenuView.BrowserActionsFallbackMenuView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.BrowserActions.BrowserActionsIntent
 AndroidX.Browser.BrowserActions.BrowserActionsIntent.BrowserActionsIntent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.Build() -> AndroidX.Browser.BrowserActions.BrowserActionsIntent!
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.Builder(Android.Content.Context! context, Android.Net.Uri! uri) -> void
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetCustomItems(System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>! items) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder!
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetCustomItems(params AndroidX.Browser.BrowserActions.BrowserActionItem![]! items) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder!
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetOnItemSelectedAction(Android.App.PendingIntent! onItemSelectedPendingIntent) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder!
-AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetUrlType(int type) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder!
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.Build() -> AndroidX.Browser.BrowserActions.BrowserActionsIntent?
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.Builder(Android.Content.Context? context, Android.Net.Uri? uri) -> void
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetCustomItems(System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>? items) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder?
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetCustomItems(params AndroidX.Browser.BrowserActions.BrowserActionItem![]? items) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder?
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetOnItemSelectedAction(Android.App.PendingIntent? onItemSelectedPendingIntent) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder?
+AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder.SetUrlType(int type) -> AndroidX.Browser.BrowserActions.BrowserActionsIntent.Builder?
 AndroidX.Browser.BrowserActions.BrowserActionsIntent.IBrowserActionsItemId
 AndroidX.Browser.BrowserActions.BrowserActionsIntent.IBrowserActionsUrlType
 AndroidX.Browser.BrowserActions.BrowserServiceFileProvider
 AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.BrowserServiceFileProvider() -> void
+AndroidX.Browser.CustomTabs.ContentActionSelectedData
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.ClickedContentTargetType.get -> int
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.ImageAltText.get -> string?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.ImageDataUri.get -> Android.Net.Uri?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.ImageUrl.get -> string?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.Intent.get -> Android.Content.Intent?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.LinkText.get -> string?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.LinkUrl.get -> string?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.PageUrl.get -> Android.Net.Uri?
+AndroidX.Browser.CustomTabs.ContentActionSelectedData.TriggeredActionId.get -> int
+AndroidX.Browser.CustomTabs.CustomContentAction
+AndroidX.Browser.CustomTabs.CustomContentAction.Builder
+AndroidX.Browser.CustomTabs.CustomContentAction.Builder.Build() -> AndroidX.Browser.CustomTabs.CustomContentAction?
+AndroidX.Browser.CustomTabs.CustomContentAction.Builder.Builder(int id, string? label, Android.App.PendingIntent? pendingIntent, int targetType) -> void
+AndroidX.Browser.CustomTabs.CustomContentAction.Id.get -> int
+AndroidX.Browser.CustomTabs.CustomContentAction.Label.get -> string?
+AndroidX.Browser.CustomTabs.CustomContentAction.PendingIntent.get -> Android.App.PendingIntent?
+AndroidX.Browser.CustomTabs.CustomContentAction.TargetType.get -> int
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder
-AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.Build() -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams!
+AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.Build() -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams?
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.Builder() -> void
-AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetNavigationBarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder!
-AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder!
-AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetSecondaryToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder!
-AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder!
+AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetNavigationBarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder?
+AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder?
+AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetSecondaryToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder?
+AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.SetToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder?
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.NavigationBarColor.get -> Java.Lang.Integer?
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.NavigationBarColor.set -> void
 AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.NavigationBarDividerColor.get -> Java.Lang.Integer?
@@ -190,6 +277,7 @@ AndroidX.Browser.CustomTabs.CustomTabsCallback
 AndroidX.Browser.CustomTabs.CustomTabsCallback.CustomTabsCallback() -> void
 AndroidX.Browser.CustomTabs.CustomTabsCallback.CustomTabsCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.CustomTabs.CustomTabsCallback.IActivityLayoutState
+AndroidX.Browser.CustomTabs.CustomTabsCallback.INavigationEvent
 AndroidX.Browser.CustomTabs.CustomTabsClient
 AndroidX.Browser.CustomTabs.CustomTabsClient.CustomTabsClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.CustomTabs.CustomTabsClient.ExtraCallbackDelegate
@@ -203,60 +291,68 @@ AndroidX.Browser.CustomTabs.CustomTabsHelper
 AndroidX.Browser.CustomTabs.CustomTabsHelper.CustomTabsHelper() -> void
 AndroidX.Browser.CustomTabs.CustomTabsIntent
 AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddDefaultShareMenuItem() -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddMenuItem(string! label, Android.App.PendingIntent! pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddToolbarItem(int id, Android.Graphics.Bitmap! icon, string! description, Android.App.PendingIntent! pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.Build() -> AndroidX.Browser.CustomTabs.CustomTabsIntent!
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddCustomContentAction(AndroidX.Browser.CustomTabs.CustomContentAction? action) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddDefaultShareMenuItem() -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddMenuItem(string? label, Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.AddToolbarItem(int id, Android.Graphics.Bitmap? icon, string? description, Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.Build() -> AndroidX.Browser.CustomTabs.CustomTabsIntent?
 AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.Builder() -> void
 AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.Builder(AndroidX.Browser.CustomTabs.CustomTabsSession? session) -> void
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.EnableUrlBarHiding() -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActionButton(Android.Graphics.Bitmap! icon, string! description, Android.App.PendingIntent! pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActionButton(Android.Graphics.Bitmap! icon, string! description, Android.App.PendingIntent! pendingIntent, bool shouldTint) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetBreakpointDp(int breakpointDp) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetDecorationType(int decorationType) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetMaximizationEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetPosition(int position) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetRoundedCornersPosition(int roundedCornersPosition) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetBackgroundInteractionEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetBookmarksButtonEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetCloseButtonIcon(Android.Graphics.Bitmap! icon) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetCloseButtonPosition(int position) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetColorScheme(int colorScheme) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetColorSchemeParams(int colorScheme, AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams! params) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDefaultColorSchemeParams(AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams! params) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDefaultShareMenuItemEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDownloadButtonEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetExitAnimations(Android.Content.Context! context, int enterResId, int exitResId) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityHeightPx(int initialHeightPx) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityHeightPx(int initialHeightPx, int activityHeightResizeBehavior) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityWidthPx(int initialWidthPx) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInstantAppsEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetNavigationBarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetPendingSession(AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession! session) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarSwipeUpGesture(Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarViews(Android.Widget.RemoteViews! remoteViews, int[]? clickableIDs, Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSendToExternalDefaultHandlerEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSession(AndroidX.Browser.CustomTabs.CustomTabsSession! session) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShareIdentityEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShareState(int shareState) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShowTitle(bool showTitle) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetStartAnimations(Android.Content.Context! context, int enterResId, int exitResId) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetToolbarCornerRadiusDp(int cornerRadiusDp) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetTranslateLocale(Java.Util.Locale! locale) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetUrlBarHidingEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder!
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.EnableUrlBarHiding() -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActionButton(Android.Graphics.Bitmap? icon, string? description, Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActionButton(Android.Graphics.Bitmap? icon, string? description, Android.App.PendingIntent? pendingIntent, bool shouldTint) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetBreakpointDp(int breakpointDp) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetDecorationType(int decorationType) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetMaximizationEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetPosition(int position) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetActivitySideSheetRoundedCornersPosition(int roundedCornersPosition) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetBackgroundInteractionEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetBookmarksButtonEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetCloseButtonEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetCloseButtonIcon(Android.Graphics.Bitmap? icon) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetCloseButtonPosition(int position) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetColorScheme(int colorScheme) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetColorSchemeParams(int colorScheme, AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams? params) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDefaultColorSchemeParams(AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams? params) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDefaultShareMenuItemEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetDownloadButtonEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetEphemeralBrowsingEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetExitAnimations(Android.Content.Context? context, int enterResId, int exitResId) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityHeightPx(int initialHeightPx) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityHeightPx(int initialHeightPx, int activityHeightResizeBehavior) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInitialActivityWidthPx(int initialWidthPx) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetInstantAppsEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetNavigationBarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetNetwork(Android.Net.Network? network) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetOpenInBrowserButtonState(int openInBrowserState) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetPendingSession(AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession? session) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarSwipeUpGesture(Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSecondaryToolbarViews(Android.Widget.RemoteViews? remoteViews, int[]? clickableIDs, Android.App.PendingIntent? pendingIntent) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSendToExternalDefaultHandlerEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetSession(AndroidX.Browser.CustomTabs.CustomTabsSession? session) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShareIdentityEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShareState(int shareState) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetShowTitle(bool showTitle) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetStartAnimations(Android.Content.Context? context, int enterResId, int exitResId) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetToolbarColor(int color) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetToolbarCornerRadiusDp(int cornerRadiusDp) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetTranslateLocale(Java.Util.Locale? locale) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.SetUrlBarHidingEnabled(bool enabled) -> AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder?
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IActivityHeightResizeBehavior
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IActivitySideSheetDecorationType
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IActivitySideSheetPosition
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IActivitySideSheetRoundedCornersPosition
 AndroidX.Browser.CustomTabs.CustomTabsIntent.ICloseButtonPosition
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IColorScheme
+AndroidX.Browser.CustomTabs.CustomTabsIntent.IContentTargetType
+AndroidX.Browser.CustomTabs.CustomTabsIntent.IOpenInBrowserState
 AndroidX.Browser.CustomTabs.CustomTabsIntent.IShareState
-AndroidX.Browser.CustomTabs.CustomTabsIntent.Intent.get -> Android.Content.Intent!
+AndroidX.Browser.CustomTabs.CustomTabsIntent.Intent.get -> Android.Content.Intent?
 AndroidX.Browser.CustomTabs.CustomTabsIntent.Intent.set -> void
-AndroidX.Browser.CustomTabs.CustomTabsIntent.LaunchUrl(Android.Content.Context! context, Android.Net.Uri! url) -> void
+AndroidX.Browser.CustomTabs.CustomTabsIntent.IsEphemeralBrowsingEnabled.get -> bool
+AndroidX.Browser.CustomTabs.CustomTabsIntent.LaunchUrl(Android.Content.Context? context, Android.Net.Uri? url) -> void
 AndroidX.Browser.CustomTabs.CustomTabsIntent.StartAnimationBundle.get -> Android.OS.Bundle?
 AndroidX.Browser.CustomTabs.CustomTabsIntent.StartAnimationBundle.set -> void
 AndroidX.Browser.CustomTabs.CustomTabsService
@@ -268,36 +364,47 @@ AndroidX.Browser.CustomTabs.CustomTabsService.IResult
 AndroidX.Browser.CustomTabs.CustomTabsServiceConnection
 AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.CustomTabsServiceConnection() -> void
 AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.CustomTabsServiceConnection(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.OnServiceConnected(Android.Content.ComponentName! name, Android.OS.IBinder! service) -> void
+AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.OnServiceConnected(Android.Content.ComponentName? name, Android.OS.IBinder? service) -> void
 AndroidX.Browser.CustomTabs.CustomTabsSession
-AndroidX.Browser.CustomTabs.CustomTabsSession.IsEngagementSignalsApiAvailable(Android.OS.Bundle! extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.IsEngagementSignalsApiAvailable(Android.OS.Bundle? extras) -> bool
 AndroidX.Browser.CustomTabs.CustomTabsSession.MayLaunchUrl(Android.Net.Uri? url, Android.OS.Bundle? extras, System.Collections.Generic.IList<Android.OS.Bundle!>? otherLikelyBundles) -> bool
 AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession
 AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession.PendingSession(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Browser.CustomTabs.CustomTabsSession.PostMessage(string! message, Android.OS.Bundle? extras) -> int
-AndroidX.Browser.CustomTabs.CustomTabsSession.ReceiveFile(Android.Net.Uri! uri, int purpose, Android.OS.Bundle? extras) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.RequestPostMessageChannel(Android.Net.Uri! postMessageOrigin) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.RequestPostMessageChannel(Android.Net.Uri! postMessageOrigin, Android.Net.Uri? postMessageTargetOrigin, Android.OS.Bundle! extras) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.SetActionButton(Android.Graphics.Bitmap! icon, string! description) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.SetEngagementSignalsCallback(AndroidX.Browser.CustomTabs.IEngagementSignalsCallback! callback, Android.OS.Bundle! extras) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.SetEngagementSignalsCallback(Java.Util.Concurrent.IExecutor! executor, AndroidX.Browser.CustomTabs.IEngagementSignalsCallback! callback, Android.OS.Bundle! extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.PostMessage(string? message, Android.OS.Bundle? extras) -> int
+AndroidX.Browser.CustomTabs.CustomTabsSession.Prefetch(Android.Net.Uri? url, AndroidX.Browser.CustomTabs.PrefetchOptions? options) -> void
+AndroidX.Browser.CustomTabs.CustomTabsSession.Prefetch(System.Collections.Generic.IList<Android.Net.Uri!>? urls, AndroidX.Browser.CustomTabs.PrefetchOptions? options) -> void
+AndroidX.Browser.CustomTabs.CustomTabsSession.ReceiveFile(Android.Net.Uri? uri, int purpose, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.RequestPostMessageChannel(Android.Net.Uri? postMessageOrigin) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.RequestPostMessageChannel(Android.Net.Uri? postMessageOrigin, Android.Net.Uri? postMessageTargetOrigin, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.SetActionButton(Android.Graphics.Bitmap? icon, string? description) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.SetEngagementSignalsCallback(AndroidX.Browser.CustomTabs.IEngagementSignalsCallback? callback, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.SetEngagementSignalsCallback(Java.Util.Concurrent.IExecutor? executor, AndroidX.Browser.CustomTabs.IEngagementSignalsCallback? callback, Android.OS.Bundle? extras) -> bool
 AndroidX.Browser.CustomTabs.CustomTabsSession.SetSecondaryToolbarSwipeUpGesture(Android.App.PendingIntent? pendingIntent) -> bool
 AndroidX.Browser.CustomTabs.CustomTabsSession.SetSecondaryToolbarViews(Android.Widget.RemoteViews? remoteViews, int[]? clickableIDs, Android.App.PendingIntent? pendingIntent) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.SetToolbarItem(int id, Android.Graphics.Bitmap! icon, string! description) -> bool
-AndroidX.Browser.CustomTabs.CustomTabsSession.ValidateRelationship(int relation, Android.Net.Uri! origin, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.SetToolbarItem(int id, Android.Graphics.Bitmap? icon, string? description) -> bool
+AndroidX.Browser.CustomTabs.CustomTabsSession.ValidateRelationship(int relation, Android.Net.Uri? origin, Android.OS.Bundle? extras) -> bool
 AndroidX.Browser.CustomTabs.CustomTabsSessionToken
 AndroidX.Browser.CustomTabs.CustomTabsSessionToken.CustomTabsSessionToken(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Browser.CustomTabs.ExperimentalMinimizationCallbackAttribute
-AndroidX.Browser.CustomTabs.ExperimentalMinimizationCallbackAttribute.ExperimentalMinimizationCallbackAttribute() -> void
+AndroidX.Browser.CustomTabs.ExperimentalCustomContentActionAttribute
+AndroidX.Browser.CustomTabs.ExperimentalCustomContentActionAttribute.ExperimentalCustomContentActionAttribute() -> void
+AndroidX.Browser.CustomTabs.ExperimentalOpenInBrowserAttribute
+AndroidX.Browser.CustomTabs.ExperimentalOpenInBrowserAttribute.ExperimentalOpenInBrowserAttribute() -> void
+AndroidX.Browser.CustomTabs.ExperimentalPendingSessionAttribute
+AndroidX.Browser.CustomTabs.ExperimentalPendingSessionAttribute.ExperimentalPendingSessionAttribute() -> void
+AndroidX.Browser.CustomTabs.ExperimentalPrefetchAttribute
+AndroidX.Browser.CustomTabs.ExperimentalPrefetchAttribute.ExperimentalPrefetchAttribute() -> void
 AndroidX.Browser.CustomTabs.IEngagementSignalsCallback
-AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnGreatestScrollPercentageIncreased(int scrollPercentage, Android.OS.Bundle! extras) -> void
-AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnSessionEnded(bool didUserInteract, Android.OS.Bundle! extras) -> void
-AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnVerticalScrollEvent(bool isDirectionUp, Android.OS.Bundle! extras) -> void
-AndroidX.Browser.CustomTabs.IExperimentalMinimizationCallback
+AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnGreatestScrollPercentageIncreased(int scrollPercentage, Android.OS.Bundle? extras) -> void
+AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnSessionEnded(bool didUserInteract, Android.OS.Bundle? extras) -> void
+AndroidX.Browser.CustomTabs.IEngagementSignalsCallback.OnVerticalScrollEvent(bool isDirectionUp, Android.OS.Bundle? extras) -> void
+AndroidX.Browser.CustomTabs.IExperimentalCustomContentAction
+AndroidX.Browser.CustomTabs.IExperimentalOpenInBrowser
+AndroidX.Browser.CustomTabs.IExperimentalPendingSession
+AndroidX.Browser.CustomTabs.IExperimentalPrefetch
 AndroidX.Browser.CustomTabs.IPostMessageBackend
-AndroidX.Browser.CustomTabs.IPostMessageBackend.OnDisconnectChannel(Android.Content.Context! p0) -> void
+AndroidX.Browser.CustomTabs.IPostMessageBackend.OnDisconnectChannel(Android.Content.Context? p0) -> void
 AndroidX.Browser.CustomTabs.IPostMessageBackend.OnNotifyMessageChannelReady(Android.OS.Bundle? p0) -> bool
-AndroidX.Browser.CustomTabs.IPostMessageBackend.OnPostMessage(string! p0, Android.OS.Bundle? p1) -> bool
+AndroidX.Browser.CustomTabs.IPostMessageBackend.OnPostMessage(string? p0, Android.OS.Bundle? p1) -> bool
 AndroidX.Browser.CustomTabs.KeepAliveService
 AndroidX.Browser.CustomTabs.KeepAliveService.KeepAliveService() -> void
 AndroidX.Browser.CustomTabs.PostMessageService
@@ -306,20 +413,37 @@ AndroidX.Browser.CustomTabs.PostMessageService.PostMessageService(nint javaRefer
 AndroidX.Browser.CustomTabs.PostMessageServiceConnection
 AndroidX.Browser.CustomTabs.PostMessageServiceConnection.NotifyMessageChannelReady(Android.OS.Bundle? extras) -> bool
 AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnNotifyMessageChannelReady(Android.OS.Bundle? extras) -> bool
-AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnPostMessage(string! message, Android.OS.Bundle? extras) -> bool
-AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnServiceConnected(Android.Content.ComponentName! name, Android.OS.IBinder! service) -> void
-AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnServiceDisconnected(Android.Content.ComponentName! name) -> void
-AndroidX.Browser.CustomTabs.PostMessageServiceConnection.PostMessage(string! message, Android.OS.Bundle? extras) -> bool
-AndroidX.Browser.CustomTabs.PostMessageServiceConnection.PostMessageServiceConnection(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! session) -> void
+AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnPostMessage(string? message, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnServiceConnected(Android.Content.ComponentName? name, Android.OS.IBinder? service) -> void
+AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnServiceDisconnected(Android.Content.ComponentName? name) -> void
+AndroidX.Browser.CustomTabs.PostMessageServiceConnection.PostMessage(string? message, Android.OS.Bundle? extras) -> bool
+AndroidX.Browser.CustomTabs.PostMessageServiceConnection.PostMessageServiceConnection(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? session) -> void
 AndroidX.Browser.CustomTabs.PostMessageServiceConnection.PostMessageServiceConnection(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.CustomTabs.PrefetchOptions
+AndroidX.Browser.CustomTabs.PrefetchOptions.Builder
+AndroidX.Browser.CustomTabs.PrefetchOptions.Builder.Build() -> AndroidX.Browser.CustomTabs.PrefetchOptions?
+AndroidX.Browser.CustomTabs.PrefetchOptions.Builder.Builder() -> void
+AndroidX.Browser.CustomTabs.PrefetchOptions.Builder.SetRequiresAnonymousIpWhenCrossOrigin(bool requiresAnonymousIpWhenCrossOrigin) -> AndroidX.Browser.CustomTabs.PrefetchOptions.Builder?
+AndroidX.Browser.CustomTabs.PrefetchOptions.Builder.SetSourceOrigin(Android.Net.Uri? sourceOrigin) -> AndroidX.Browser.CustomTabs.PrefetchOptions.Builder?
+AndroidX.Browser.CustomTabs.PrefetchOptions.RequiresAnonymousIpWhenCrossOrigin.get -> bool
+AndroidX.Browser.CustomTabs.PrefetchOptions.RequiresAnonymousIpWhenCrossOrigin.set -> void
+AndroidX.Browser.CustomTabs.PrefetchOptions.SourceOrigin.get -> Android.Net.Uri?
+AndroidX.Browser.CustomTabs.PrefetchOptions.SourceOrigin.set -> void
 AndroidX.Browser.CustomTabs.TrustedWebUtils
 AndroidX.Browser.CustomTabs.TrustedWebUtils.TrustedWebUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.Trusted.FileHandlingData
+AndroidX.Browser.Trusted.FileHandlingData.FileHandlingData(System.Collections.Generic.IList<Android.Net.Uri!>? uris) -> void
+AndroidX.Browser.Trusted.FileHandlingData.ToBundle() -> Android.OS.Bundle?
+AndroidX.Browser.Trusted.FileHandlingData.Uris.get -> System.Collections.IList?
+AndroidX.Browser.Trusted.FileHandlingData.Uris.set -> void
 AndroidX.Browser.Trusted.ITokenStore
 AndroidX.Browser.Trusted.ITokenStore.Load() -> AndroidX.Browser.Trusted.Token?
 AndroidX.Browser.Trusted.ITokenStore.Store(AndroidX.Browser.Trusted.Token? p0) -> void
 AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode
-AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode.FromBundle(Android.OS.Bundle! bundle) -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode!
-AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode.ToBundle() -> Android.OS.Bundle!
+AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode?
+AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode.ToBundle() -> Android.OS.Bundle?
+AndroidX.Browser.Trusted.LaunchHandlerClientMode
+AndroidX.Browser.Trusted.LaunchHandlerClientMode.IClientMode
 AndroidX.Browser.Trusted.NotificationApiHelperForM
 AndroidX.Browser.Trusted.NotificationApiHelperForM.NotificationApiHelperForM(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.ScreenOrientation
@@ -330,19 +454,19 @@ AndroidX.Browser.Trusted.Sharing.ShareData.Text.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareData.Text.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareData.Title.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareData.Title.set -> void
-AndroidX.Browser.Trusted.Sharing.ShareData.ToBundle() -> Android.OS.Bundle!
+AndroidX.Browser.Trusted.Sharing.ShareData.ToBundle() -> Android.OS.Bundle?
 AndroidX.Browser.Trusted.Sharing.ShareData.Uris.get -> System.Collections.IList?
 AndroidX.Browser.Trusted.Sharing.ShareData.Uris.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareTarget
-AndroidX.Browser.Trusted.Sharing.ShareTarget.Action.get -> string!
+AndroidX.Browser.Trusted.Sharing.ShareTarget.Action.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.Action.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareTarget.EncodingType.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.EncodingType.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField
-AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.AcceptedTypes.get -> System.Collections.IList!
+AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.AcceptedTypes.get -> System.Collections.IList?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.AcceptedTypes.set -> void
-AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.FileFormField(string! name, System.Collections.Generic.IList<string!>! acceptedTypes) -> void
-AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.Name.get -> string!
+AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.FileFormField(string? name, System.Collections.Generic.IList<string!>? acceptedTypes) -> void
+AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.Name.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.FileFormField.Name.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareTarget.IEncodingType
 AndroidX.Browser.Trusted.Sharing.ShareTarget.IRequestMethod
@@ -357,19 +481,23 @@ AndroidX.Browser.Trusted.Sharing.ShareTarget.Params.Text.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.Params.Text.set -> void
 AndroidX.Browser.Trusted.Sharing.ShareTarget.Params.Title.get -> string?
 AndroidX.Browser.Trusted.Sharing.ShareTarget.Params.Title.set -> void
-AndroidX.Browser.Trusted.Sharing.ShareTarget.ShareTarget(string! action, string? method, string? encodingType, AndroidX.Browser.Trusted.Sharing.ShareTarget.Params! params) -> void
-AndroidX.Browser.Trusted.Sharing.ShareTarget.ToBundle() -> Android.OS.Bundle!
+AndroidX.Browser.Trusted.Sharing.ShareTarget.ShareTarget(string? action, string? method, string? encodingType, AndroidX.Browser.Trusted.Sharing.ShareTarget.Params? params) -> void
+AndroidX.Browser.Trusted.Sharing.ShareTarget.ToBundle() -> Android.OS.Bundle?
 AndroidX.Browser.Trusted.Splashscreens.SplashScreenParamKey
 AndroidX.Browser.Trusted.Splashscreens.SplashScreenVersion
 AndroidX.Browser.Trusted.Token
-AndroidX.Browser.Trusted.Token.Matches(string! packageName, Android.Content.PM.PackageManager! packageManager) -> bool
-AndroidX.Browser.Trusted.Token.Serialize() -> byte[]!
+AndroidX.Browser.Trusted.Token.Matches(string? packageName, Android.Content.PM.PackageManager? packageManager) -> bool
+AndroidX.Browser.Trusted.Token.Serialize() -> byte[]?
 AndroidX.Browser.Trusted.TrustedWebActivityCallback
 AndroidX.Browser.Trusted.TrustedWebActivityCallback.TrustedWebActivityCallback() -> void
 AndroidX.Browser.Trusted.TrustedWebActivityCallback.TrustedWebActivityCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote
 AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.TrustedWebActivityCallbackRemote(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayMode
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.InterfaceConsts
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.TrustedWebActivityDisplayModeBrowserMode() -> void
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.TrustedWebActivityDisplayModeBrowserMode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeConsts
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.InterfaceConsts
@@ -379,27 +507,38 @@ AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.InterfaceConsts
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.TrustedWebActivityDisplayModeImmersiveMode(bool isSticky, int layoutInDisplayCutoutMode) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.TrustedWebActivityDisplayModeImmersiveMode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.InterfaceConsts
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.TrustedWebActivityDisplayModeMinimalUiMode() -> void
+AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.TrustedWebActivityDisplayModeMinimalUiMode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityIntent
-AndroidX.Browser.Trusted.TrustedWebActivityIntent.Intent.get -> Android.Content.Intent!
-AndroidX.Browser.Trusted.TrustedWebActivityIntent.LaunchTrustedWebActivity(Android.Content.Context! context) -> void
+AndroidX.Browser.Trusted.TrustedWebActivityIntent.FileHandlingData.get -> AndroidX.Browser.Trusted.FileHandlingData?
+AndroidX.Browser.Trusted.TrustedWebActivityIntent.Intent.get -> Android.Content.Intent?
+AndroidX.Browser.Trusted.TrustedWebActivityIntent.LaunchHandlerClientMode.get -> int
+AndroidX.Browser.Trusted.TrustedWebActivityIntent.LaunchTrustedWebActivity(Android.Content.Context? context) -> void
+AndroidX.Browser.Trusted.TrustedWebActivityIntent.OriginalLaunchUrl.get -> Android.Net.Uri?
 AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder
-AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.TrustedWebActivityIntentBuilder(Android.Net.Uri! uri) -> void
+AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.TrustedWebActivityIntentBuilder(Android.Net.Uri? uri) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.TrustedWebActivityIntentBuilder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityService
 AndroidX.Browser.Trusted.TrustedWebActivityService.TrustedWebActivityService() -> void
 AndroidX.Browser.Trusted.TrustedWebActivityService.TrustedWebActivityService(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.AreNotificationsEnabled(string! channelName) -> bool
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.Cancel(string! platformTag, int platformId) -> void
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.ComponentName.get -> Android.Content.ComponentName!
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.GetActiveNotifications() -> Android.OS.IParcelable![]!
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.Notify(string! platformTag, int platformId, Android.App.Notification! notification, string! channel) -> bool
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.SendExtraCommand(string! commandName, Android.OS.Bundle! args, AndroidX.Browser.Trusted.TrustedWebActivityCallback? callback) -> Android.OS.Bundle?
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.AreNotificationsEnabled(string? channelName) -> bool
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.Cancel(string? platformTag, int platformId) -> void
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.ComponentName.get -> Android.Content.ComponentName?
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.GetActiveNotifications() -> Android.OS.IParcelable![]?
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.Notify(string? platformTag, int platformId, Android.App.Notification? notification, string? channel) -> bool
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.SendExtraCommand(string? commandName, Android.OS.Bundle? args, AndroidX.Browser.Trusted.TrustedWebActivityCallback? callback) -> Android.OS.Bundle?
 AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.SmallIconBitmap.get -> Android.Graphics.Bitmap?
 AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.SmallIconId.get -> int
 AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.Connect(Android.Net.Uri! scope, System.Collections.Generic.ICollection<AndroidX.Browser.Trusted.Token!>! possiblePackages, Java.Util.Concurrent.IExecutor! executor) -> Google.Common.Util.Concurrent.IListenableFuture!
-AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.ServiceExistsForScope(Android.Net.Uri! scope, System.Collections.Generic.ICollection<AndroidX.Browser.Trusted.Token!>! possiblePackages) -> bool
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.Connect(Android.Net.Uri? scope, System.Collections.Generic.ICollection<AndroidX.Browser.Trusted.Token!>? possiblePackages, Java.Util.Concurrent.IExecutor? executor) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.ServiceExistsForScope(Android.Net.Uri? scope, System.Collections.Generic.ICollection<AndroidX.Browser.Trusted.Token!>? possiblePackages) -> bool
+abstract Android.Support.CustomTabs.AuthTabCallbackStub.OnExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
+abstract Android.Support.CustomTabs.AuthTabCallbackStub.OnExtraCallbackWithResult(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
+abstract Android.Support.CustomTabs.AuthTabCallbackStub.OnNavigationEvent(int p0, Android.OS.Bundle? p1) -> void
+abstract Android.Support.CustomTabs.AuthTabCallbackStub.OnWarmupCompleted(Android.OS.Bundle? p0) -> void
 abstract Android.Support.CustomTabs.CustomTabsCallbackStub.ExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
 abstract Android.Support.CustomTabs.CustomTabsCallbackStub.ExtraCallbackWithResult(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
 abstract Android.Support.CustomTabs.CustomTabsCallbackStub.OnActivityLayout(int p0, int p1, int p2, int p3, int p4, Android.OS.Bundle? p5) -> void
@@ -414,9 +553,12 @@ abstract Android.Support.CustomTabs.CustomTabsCallbackStub.OnWarmupCompleted(And
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.ExtraCommand(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.IsEngagementSignalsApiAvailable(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.OS.Bundle? p1) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.MayLaunchUrl(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2, System.Collections.Generic.IList<Android.OS.Bundle!>? p3) -> bool
+abstract Android.Support.CustomTabs.CustomTabsServiceStub.NewAuthTabSession(Android.Support.CustomTabs.IAuthTabCallback? p0, Android.OS.Bundle? p1) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.NewSession(Android.Support.CustomTabs.ICustomTabsCallback? p0) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.NewSessionWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.OS.Bundle? p1) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.PostMessage(Android.Support.CustomTabs.ICustomTabsCallback? p0, string? p1, Android.OS.Bundle? p2) -> int
+abstract Android.Support.CustomTabs.CustomTabsServiceStub.Prefetch(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2) -> void
+abstract Android.Support.CustomTabs.CustomTabsServiceStub.PrefetchWithMultipleUrls(Android.Support.CustomTabs.ICustomTabsCallback? p0, System.Collections.Generic.IList<Android.Net.Uri!>? p1, Android.OS.Bundle? p2) -> void
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.ReceiveFile(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, int p2, Android.OS.Bundle? p3) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.RequestPostMessageChannel(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1) -> bool
 abstract Android.Support.CustomTabs.CustomTabsServiceStub.RequestPostMessageChannelWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2) -> bool
@@ -437,19 +579,28 @@ abstract Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.ExtraC
 abstract Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.NotifyNotificationWithChannel(Android.OS.Bundle? p0) -> Android.OS.Bundle?
 abstract Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.SmallIconBitmap.get -> Android.OS.Bundle?
 abstract Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.SmallIconId.get -> int
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.ExtraCommand(string! p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.MayLaunchUrl(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, Android.Net.Uri? p1, Android.OS.Bundle? p2, System.Collections.Generic.IList<Android.OS.Bundle!>? p3) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.NewSession(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.PostMessage(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, string! p1, Android.OS.Bundle? p2) -> int
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.ReceiveFile(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, Android.Net.Uri! p1, int p2, Android.OS.Bundle? p3) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.RequestPostMessageChannel(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, Android.Net.Uri! p1) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.UpdateVisuals(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, Android.OS.Bundle? p1) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsService.ValidateRelationship(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! p0, int p1, Android.Net.Uri! p2, Android.OS.Bundle? p3) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.ExtraCommand(string? p0, Android.OS.Bundle? p1) -> Android.OS.Bundle?
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.MayLaunchUrl(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, Android.Net.Uri? p1, Android.OS.Bundle? p2, System.Collections.Generic.IList<Android.OS.Bundle!>? p3) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.NewSession(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.PostMessage(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, string? p1, Android.OS.Bundle? p2) -> int
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.ReceiveFile(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, Android.Net.Uri? p1, int p2, Android.OS.Bundle? p3) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.RequestPostMessageChannel(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, Android.Net.Uri? p1) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.UpdateVisuals(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, Android.OS.Bundle? p1) -> bool
+abstract AndroidX.Browser.CustomTabs.CustomTabsService.ValidateRelationship(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? p0, int p1, Android.Net.Uri? p2, Android.OS.Bundle? p3) -> bool
 abstract AndroidX.Browser.CustomTabs.CustomTabsService.Warmup(long p0) -> bool
-abstract AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.OnCustomTabsServiceConnected(Android.Content.ComponentName! name, AndroidX.Browser.CustomTabs.CustomTabsClient! client) -> void
+abstract AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.OnCustomTabsServiceConnected(Android.Content.ComponentName? name, AndroidX.Browser.CustomTabs.CustomTabsClient? client) -> void
 abstract AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.OnServiceDisconnected(Android.Content.ComponentName? name) -> void
-abstract AndroidX.Browser.Trusted.TrustedWebActivityCallback.OnExtraCallback(string! p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Browser.Trusted.TrustedWebActivityService.TokenStore.get -> AndroidX.Browser.Trusted.ITokenStore!
+abstract AndroidX.Browser.Trusted.TrustedWebActivityCallback.OnExtraCallback(string? p0, Android.OS.Bundle? p1) -> void
+abstract AndroidX.Browser.Trusted.TrustedWebActivityService.TokenStore.get -> AndroidX.Browser.Trusted.ITokenStore?
+const AndroidX.Browser.Auth.AuthTabIntent.ExtraHttpsRedirectHost = "androidx.browser.auth.extra.HTTPS_REDIRECT_HOST" -> string!
+const AndroidX.Browser.Auth.AuthTabIntent.ExtraHttpsRedirectPath = "androidx.browser.auth.extra.HTTPS_REDIRECT_PATH" -> string!
+const AndroidX.Browser.Auth.AuthTabIntent.ExtraLaunchAuthTab = "androidx.browser.auth.extra.LAUNCH_AUTH_TAB" -> string!
+const AndroidX.Browser.Auth.AuthTabIntent.ExtraRedirectScheme = "androidx.browser.auth.extra.REDIRECT_SCHEME" -> string!
+const AndroidX.Browser.Auth.AuthTabIntent.ResultCanceled = 0 -> int
+const AndroidX.Browser.Auth.AuthTabIntent.ResultOk = -1 -> int
+const AndroidX.Browser.Auth.AuthTabIntent.ResultUnknownCode = -2 -> int
+const AndroidX.Browser.Auth.AuthTabIntent.ResultVerificationFailed = 2 -> int
+const AndroidX.Browser.Auth.AuthTabIntent.ResultVerificationTimedOut = 3 -> int
 const AndroidX.Browser.BrowserActions.BrowserActionsIntent.ActionBrowserActionsOpen = "androidx.browser.browseractions.browser_action_open" -> string!
 const AndroidX.Browser.BrowserActions.BrowserActionsIntent.ExtraAppId = "androidx.browser.browseractions.APP_ID" -> string!
 const AndroidX.Browser.BrowserActions.BrowserActionsIntent.ExtraMenuItems = "androidx.browser.browseractions.extra.MENU_ITEMS" -> string!
@@ -504,6 +655,8 @@ const AndroidX.Browser.CustomTabs.CustomTabsIntent.CloseButtonPositionStart = 1 
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ColorSchemeDark = 2 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ColorSchemeLight = 1 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ColorSchemeSystem = 0 -> int
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ContentTargetTypeImage = 1 -> int
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ContentTargetTypeLink = 2 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActionButtonBundle = "android.support.customtabs.extra.ACTION_BUTTON_BUNDLE" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivityHeightResizeBehavior = "androidx.browser.customtabs.extra.ACTIVITY_HEIGHT_RESIZE_BEHAVIOR" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivitySideSheetBreakpointDp = "androidx.browser.customtabs.extra.ACTIVITY_SIDE_SHEET_BREAKPOINT_DP" -> string!
@@ -511,14 +664,23 @@ const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivitySideSheetDecorat
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivitySideSheetEnableMaximization = "androidx.browser.customtabs.extra.ACTIVITY_SIDE_SHEET_ENABLE_MAXIMIZATION" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivitySideSheetPosition = "androidx.browser.customtabs.extra.ACTIVITY_SIDE_SHEET_POSITION" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraActivitySideSheetRoundedCornersPosition = "androidx.browser.customtabs.extra.ACTIVITY_SIDE_SHEET_ROUNDED_CORNERS_POSITION" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraClickedContentTargetType = "androidx.browser.customtabs.extra.CLICKED_CONTENT_TARGET_TYPE" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraCloseButtonEnabled = "androidx.browser.customtabs.extra.CLOSE_BUTTON_ENABLED" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraCloseButtonIcon = "android.support.customtabs.extra.CLOSE_BUTTON_ICON" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraCloseButtonPosition = "androidx.browser.customtabs.extra.CLOSE_BUTTON_POSITION" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraColorScheme = "androidx.browser.customtabs.extra.COLOR_SCHEME" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraColorSchemeParams = "androidx.browser.customtabs.extra.COLOR_SCHEME_PARAMS" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraContextImageAltText = "androidx.browser.customtabs.extra.CONTEXT_IMAGE_ALT_TEXT" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraContextImageDataUri = "androidx.browser.customtabs.extra.CONTEXT_IMAGE_DATA_URI" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraContextImageUrl = "androidx.browser.customtabs.extra.CONTEXT_IMAGE_URL" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraContextLinkText = "androidx.browser.customtabs.extra.CONTEXT_LINK_TEXT" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraContextLinkUrl = "androidx.browser.customtabs.extra.CONTEXT_LINK_URL" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraCustomContentActions = "androidx.browser.customtabs.extra.CUSTOM_CONTENT_ACTIONS" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraDefaultShareMenuItem = "android.support.customtabs.extra.SHARE_MENU_ITEM" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraDisableBackgroundInteraction = "androidx.browser.customtabs.extra.DISABLE_BACKGROUND_INTERACTION" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraDisableBookmarksButton = "org.chromium.chrome.browser.customtabs.EXTRA_DISABLE_STAR_BUTTON" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraDisableDownloadButton = "org.chromium.chrome.browser.customtabs.EXTRA_DISABLE_DOWNLOAD_BUTTON" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraEnableEphemeralBrowsing = "androidx.browser.customtabs.extra.ENABLE_EPHEMERAL_BROWSING" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraEnableInstantApps = "android.support.customtabs.extra.EXTRA_ENABLE_INSTANT_APPS" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraEnableUrlbarHiding = "android.support.customtabs.extra.ENABLE_URLBAR_HIDING" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraExitAnimationBundle = "android.support.customtabs.extra.EXIT_ANIMATION_BUNDLE" -> string!
@@ -527,6 +689,8 @@ const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraInitialActivityWidthPx =
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraMenuItems = "android.support.customtabs.extra.MENU_ITEMS" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraNavigationBarColor = "androidx.browser.customtabs.extra.NAVIGATION_BAR_COLOR" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraNavigationBarDividerColor = "androidx.browser.customtabs.extra.NAVIGATION_BAR_DIVIDER_COLOR" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraNetwork = "androidx.browser.customtabs.extra.NETWORK" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraOpenInBrowserState = "androidx.browser.customtabs.extra.OPEN_IN_BROWSER_STATE" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraRemoteviews = "android.support.customtabs.extra.EXTRA_REMOTEVIEWS" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraRemoteviewsClickedId = "android.support.customtabs.extra.EXTRA_REMOTEVIEWS_CLICKED_ID" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraRemoteviewsPendingintent = "android.support.customtabs.extra.EXTRA_REMOTEVIEWS_PENDINGINTENT" -> string!
@@ -543,20 +707,27 @@ const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraToolbarColor = "android.
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraToolbarCornerRadiusDp = "androidx.browser.customtabs.extra.TOOLBAR_CORNER_RADIUS_DP" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraToolbarItems = "android.support.customtabs.extra.TOOLBAR_ITEMS" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraTranslateLanguageTag = "androidx.browser.customtabs.extra.TRANSLATE_LANGUAGE_TAG" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.ExtraTriggeredCustomContentActionId = "androidx.browser.customtabs.extra.TRIGGERED_CUSTOM_CONTENT_ACTION_ID" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.KeyDescription = "android.support.customtabs.customaction.DESCRIPTION" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.KeyIcon = "android.support.customtabs.customaction.ICON" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.KeyId = "android.support.customtabs.customaction.ID" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.KeyMenuItemTitle = "android.support.customtabs.customaction.MENU_ITEM_TITLE" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.KeyPendingIntent = "android.support.customtabs.customaction.PENDING_INTENT" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.NoTitle = 0 -> int
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.OpenInBrowserStateDefault = 0 -> int
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.OpenInBrowserStateOff = 2 -> int
+const AndroidX.Browser.CustomTabs.CustomTabsIntent.OpenInBrowserStateOn = 1 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ShareStateDefault = 0 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ShareStateOff = 2 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ShareStateOn = 1 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ShowPageTitle = 1 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsIntent.ToolbarActionButtonId = 0 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsService.ActionCustomTabsConnection = "android.support.customtabs.action.CustomTabsService" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryAuthTab = "androidx.browser.auth.category.AuthTab" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryColorSchemeCustomization = "androidx.browser.customtabs.category.ColorSchemeCustomization" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryEphemeralBrowsing = "androidx.browser.customtabs.category.EphemeralBrowsing" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryNavbarColorCustomization = "androidx.browser.customtabs.category.NavBarColorCustomization" -> string!
+const AndroidX.Browser.CustomTabs.CustomTabsService.CategorySetNetwork = "androidx.browser.customtabs.category.SetNetwork" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryTrustedWebActivityImmersiveMode = "androidx.browser.trusted.category.ImmersiveMode" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsService.CategoryWebShareTargetV2 = "androidx.browser.trusted.category.WebShareTargetV2" -> string!
 const AndroidX.Browser.CustomTabs.CustomTabsService.FilePurposeTrustedWebActivitySplashImage = 1 -> int
@@ -571,6 +742,11 @@ const AndroidX.Browser.CustomTabs.CustomTabsService.ResultSuccess = 0 -> int
 const AndroidX.Browser.CustomTabs.CustomTabsService.TrustedWebActivityCategory = "androidx.browser.trusted.category.TrustedWebActivities" -> string!
 const AndroidX.Browser.CustomTabs.TrustedWebUtils.ActionManageTrustedWebActivityData = "android.support.customtabs.action.ACTION_MANAGE_TRUSTED_WEB_ACTIVITY_DATA" -> string!
 const AndroidX.Browser.CustomTabs.TrustedWebUtils.ExtraLaunchAsTrustedWebActivity = "android.support.customtabs.extra.LAUNCH_AS_TRUSTED_WEB_ACTIVITY" -> string!
+const AndroidX.Browser.Trusted.FileHandlingData.KeyUris = "androidx.browser.trusted.KEY_URIS" -> string!
+const AndroidX.Browser.Trusted.LaunchHandlerClientMode.Auto = 0 -> int
+const AndroidX.Browser.Trusted.LaunchHandlerClientMode.FocusExisting = 2 -> int
+const AndroidX.Browser.Trusted.LaunchHandlerClientMode.NavigateExisting = 1 -> int
+const AndroidX.Browser.Trusted.LaunchHandlerClientMode.NavigateNew = 3 -> int
 const AndroidX.Browser.Trusted.ScreenOrientation.Any = 5 -> int
 const AndroidX.Browser.Trusted.ScreenOrientation.Default = 0 -> int
 const AndroidX.Browser.Trusted.ScreenOrientation.Landscape = 6 -> int
@@ -603,12 +779,17 @@ const AndroidX.Browser.Trusted.Splashscreens.SplashScreenParamKey.KeyScaleType =
 const AndroidX.Browser.Trusted.Splashscreens.SplashScreenParamKey.KeyVersion = "androidx.browser.trusted.KEY_SPLASH_SCREEN_VERSION" -> string!
 const AndroidX.Browser.Trusted.Splashscreens.SplashScreenVersion.V1 = "androidx.browser.trusted.category.TrustedWebActivitySplashScreensV1" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityDisplayMode.KeyId = "androidx.browser.trusted.displaymode.KEY_ID" -> string!
+const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.InterfaceConsts.KeyId = "androidx.browser.trusted.displaymode.KEY_ID" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.InterfaceConsts.KeyId = "androidx.browser.trusted.displaymode.KEY_ID" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.InterfaceConsts.KeyId = "androidx.browser.trusted.displaymode.KEY_ID" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.KeyCutoutMode = "androidx.browser.trusted.displaymode.KEY_CUTOUT_MODE" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.KeySticky = "androidx.browser.trusted.displaymode.KEY_STICKY" -> string!
+const AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.InterfaceConsts.KeyId = "androidx.browser.trusted.displaymode.KEY_ID" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraAdditionalTrustedOrigins = "android.support.customtabs.extra.ADDITIONAL_TRUSTED_ORIGINS" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraDisplayMode = "androidx.browser.trusted.extra.DISPLAY_MODE" -> string!
+const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraFileHandlingData = "androidx.browser.trusted.extra.FILE_HANDLING_DATA" -> string!
+const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraLaunchHandlerClientMode = "androidx.browser.trusted.extra.LAUNCH_HANDLER_CLIENT_MODE" -> string!
+const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraOriginalLaunchUrl = "androidx.browser.trusted.extra.ORIGINAL_LAUNCH_URL" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraScreenOrientation = "androidx.browser.trusted.extra.SCREEN_ORIENTATION" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraShareData = "androidx.browser.trusted.extra.SHARE_DATA" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ExtraShareTarget = "androidx.browser.trusted.extra.SHARE_TARGET" -> string!
@@ -618,6 +799,15 @@ const AndroidX.Browser.Trusted.TrustedWebActivityService.KeySmallIconBitmap = "a
 const AndroidX.Browser.Trusted.TrustedWebActivityService.KeySuccess = "androidx.browser.trusted.SUCCESS" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityService.MetaDataNameSmallIcon = "android.support.customtabs.trusted.SMALL_ICON" -> string!
 const AndroidX.Browser.Trusted.TrustedWebActivityService.SmallIconNotSet = -1 -> int
+override Android.Support.CustomTabs.AuthTabCallbackDefault.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Support.CustomTabs.AuthTabCallbackDefault.ThresholdClass.get -> nint
+override Android.Support.CustomTabs.AuthTabCallbackDefault.ThresholdType.get -> System.Type!
+override Android.Support.CustomTabs.AuthTabCallbackStub.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Support.CustomTabs.AuthTabCallbackStub.ThresholdClass.get -> nint
+override Android.Support.CustomTabs.AuthTabCallbackStub.ThresholdType.get -> System.Type!
+override Android.Support.CustomTabs.AuthTabCallback_Parcel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Support.CustomTabs.AuthTabCallback_Parcel.ThresholdClass.get -> nint
+override Android.Support.CustomTabs.AuthTabCallback_Parcel.ThresholdType.get -> System.Type!
 override Android.Support.CustomTabs.CustomTabsCallbackDefault.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Support.CustomTabs.CustomTabsCallbackDefault.ThresholdClass.get -> nint
 override Android.Support.CustomTabs.CustomTabsCallbackDefault.ThresholdType.get -> System.Type!
@@ -672,6 +862,18 @@ override Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.Thresh
 override Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel.ThresholdClass.get -> nint
 override Android.Support.Customtabs.Trusted.TrustedWebActivityService_Parcel.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Auth.AuthTabColorSchemeParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabColorSchemeParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabIntent.AuthResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabIntent.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabIntent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabIntent.ThresholdClass.get -> nint
+override AndroidX.Browser.Auth.AuthTabIntent.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Auth.AuthTabSession.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabSession.PendingSession.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Auth.AuthTabSession.PendingSession.ThresholdClass.get -> nint
+override AndroidX.Browser.Auth.AuthTabSession.PendingSession.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Auth.AuthTabSessionToken.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.BrowserActions.BrowserActionItem.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.BrowserActions.BrowserActionItem.ThresholdClass.get -> nint
 override AndroidX.Browser.BrowserActions.BrowserActionItem.ThresholdType.get -> System.Type!
@@ -683,6 +885,9 @@ override AndroidX.Browser.BrowserActions.BrowserActionsIntent.JniPeerMembers.get
 override AndroidX.Browser.BrowserActions.BrowserActionsIntent.ThresholdClass.get -> nint
 override AndroidX.Browser.BrowserActions.BrowserActionsIntent.ThresholdType.get -> System.Type!
 override AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.CustomTabs.ContentActionSelectedData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.CustomTabs.CustomContentAction.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.CustomTabs.CustomContentAction.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.CustomTabsCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -697,7 +902,7 @@ override AndroidX.Browser.CustomTabs.CustomTabsFeatures.ThresholdType.get -> Sys
 override AndroidX.Browser.CustomTabs.CustomTabsIntent.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.CustomTabsIntent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.CustomTabsService.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Browser.CustomTabs.CustomTabsService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder!
+override AndroidX.Browser.CustomTabs.CustomTabsService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder?
 override AndroidX.Browser.CustomTabs.CustomTabsService.ThresholdClass.get -> nint
 override AndroidX.Browser.CustomTabs.CustomTabsService.ThresholdType.get -> System.Type!
 override AndroidX.Browser.CustomTabs.CustomTabsServiceConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -712,15 +917,19 @@ override AndroidX.Browser.CustomTabs.CustomTabsSessionToken.ThresholdClass.get -
 override AndroidX.Browser.CustomTabs.CustomTabsSessionToken.ThresholdType.get -> System.Type!
 override AndroidX.Browser.CustomTabs.KeepAliveService.OnBind(Android.Content.Intent! intent) -> Android.OS.IBinder!
 override AndroidX.Browser.CustomTabs.PostMessageService.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Browser.CustomTabs.PostMessageService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder!
+override AndroidX.Browser.CustomTabs.PostMessageService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder?
 override AndroidX.Browser.CustomTabs.PostMessageService.ThresholdClass.get -> nint
 override AndroidX.Browser.CustomTabs.PostMessageService.ThresholdType.get -> System.Type!
 override AndroidX.Browser.CustomTabs.PostMessageServiceConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.PostMessageServiceConnection.ThresholdClass.get -> nint
 override AndroidX.Browser.CustomTabs.PostMessageServiceConnection.ThresholdType.get -> System.Type!
+override AndroidX.Browser.CustomTabs.PrefetchOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.CustomTabs.PrefetchOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.TrustedWebUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.CustomTabs.TrustedWebUtils.ThresholdClass.get -> nint
 override AndroidX.Browser.CustomTabs.TrustedWebUtils.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Trusted.FileHandlingData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Trusted.LaunchHandlerClientMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.NotificationApiHelperForM.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.NotificationApiHelperForM.ThresholdClass.get -> nint
 override AndroidX.Browser.Trusted.NotificationApiHelperForM.ThresholdType.get -> System.Type!
@@ -740,12 +949,18 @@ override AndroidX.Browser.Trusted.TrustedWebActivityCallback.ThresholdType.get -
 override AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.ThresholdClass.get -> nint
 override AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.ThresholdClass.get -> nint
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.ThresholdType.get -> System.Type!
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.ThresholdClass.get -> nint
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.ThresholdType.get -> System.Type!
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.ThresholdClass.get -> nint
 override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.ThresholdType.get -> System.Type!
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.ThresholdClass.get -> nint
+override AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.ThresholdType.get -> System.Type!
 override AndroidX.Browser.Trusted.TrustedWebActivityIntent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.ThresholdClass.get -> nint
@@ -757,6 +972,10 @@ override AndroidX.Browser.Trusted.TrustedWebActivityServiceConnection.JniPeerMem
 override AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed AndroidX.Browser.Trusted.TrustedWebActivityService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder?
 override sealed AndroidX.Browser.Trusted.TrustedWebActivityService.OnUnbind(Android.Content.Intent? intent) -> bool
+static Android.Support.CustomTabs.AuthTabCallback.Descriptor.get -> string?
+static Android.Support.CustomTabs.AuthTabCallbackDefault.InterfaceConsts.Descriptor.get -> string?
+static Android.Support.CustomTabs.AuthTabCallbackStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.CustomTabs.IAuthTabCallback?
+static Android.Support.CustomTabs.AuthTabCallbackStub.InterfaceConsts.Descriptor.get -> string?
 static Android.Support.CustomTabs.CustomTabsCallback.Descriptor.get -> string?
 static Android.Support.CustomTabs.CustomTabsCallbackDefault.InterfaceConsts.Descriptor.get -> string?
 static Android.Support.CustomTabs.CustomTabsCallbackStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.CustomTabs.ICustomTabsCallback?
@@ -781,59 +1000,80 @@ static Android.Support.Customtabs.Trusted.TrustedWebActivityService.Descriptor.g
 static Android.Support.Customtabs.Trusted.TrustedWebActivityServiceDefault.InterfaceConsts.Descriptor.get -> string?
 static Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.Customtabs.Trusted.ITrustedWebActivityService?
 static Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.InterfaceConsts.Descriptor.get -> string?
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetBrowserActionsIntentHandlers(Android.Content.Context! context) -> System.Collections.Generic.IList<Android.Content.PM.ResolveInfo!>!
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetCreatorPackageName(Android.Content.Intent! intent) -> string?
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetUntrustedCreatorPackageName(Android.Content.Intent! intent) -> string?
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.LaunchIntent(Android.Content.Context! context, Android.Content.Intent! intent) -> void
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.OpenBrowserAction(Android.Content.Context! context, Android.Net.Uri! uri) -> void
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.OpenBrowserAction(Android.Content.Context! context, Android.Net.Uri! uri, int type, System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>! items, Android.App.PendingIntent! pendingIntent) -> void
-static AndroidX.Browser.BrowserActions.BrowserActionsIntent.ParseBrowserActionItems(System.Collections.Generic.IList<Android.OS.Bundle!>! bundles) -> System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>!
-static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.GrantReadPermission(Android.Content.Intent! intent, System.Collections.Generic.IList<Android.Net.Uri!>? uris, Android.Content.Context! context) -> void
-static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.LoadBitmap(Android.Content.ContentResolver! resolver, Android.Net.Uri! uri) -> Google.Common.Util.Concurrent.IListenableFuture!
-static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.SaveBitmap(Android.Content.Context! context, Android.Graphics.Bitmap! bitmap, string! name, int version) -> AndroidX.Concurrent.Futures.ResolvableFuture!
+static AndroidX.Browser.Auth.AuthTabIntent.GetColorSchemeParams(Android.Content.Intent? intent, int colorScheme) -> AndroidX.Browser.Auth.AuthTabColorSchemeParams?
+static AndroidX.Browser.Auth.AuthTabIntent.RegisterActivityResultLauncher(AndroidX.Activity.Result.IActivityResultCaller? caller, AndroidX.Activity.Result.IActivityResultCallback? callback) -> AndroidX.Activity.Result.ActivityResultLauncher?
+static AndroidX.Browser.Auth.AuthTabSessionToken.CreateSessionTokenFromIntent(Android.Content.Intent? intent) -> AndroidX.Browser.Auth.AuthTabSessionToken?
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetBrowserActionsIntentHandlers(Android.Content.Context? context) -> System.Collections.Generic.IList<Android.Content.PM.ResolveInfo!>?
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetCreatorPackageName(Android.Content.Intent? intent) -> string?
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.GetUntrustedCreatorPackageName(Android.Content.Intent? intent) -> string?
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.LaunchIntent(Android.Content.Context? context, Android.Content.Intent? intent) -> void
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.OpenBrowserAction(Android.Content.Context? context, Android.Net.Uri? uri) -> void
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.OpenBrowserAction(Android.Content.Context? context, Android.Net.Uri? uri, int type, System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>? items, Android.App.PendingIntent? pendingIntent) -> void
+static AndroidX.Browser.BrowserActions.BrowserActionsIntent.ParseBrowserActionItems(System.Collections.Generic.IList<Android.OS.Bundle!>? bundles) -> System.Collections.Generic.IList<AndroidX.Browser.BrowserActions.BrowserActionItem!>?
+static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.GrantReadPermission(Android.Content.Intent? intent, System.Collections.Generic.IList<Android.Net.Uri!>? uris, Android.Content.Context? context) -> void
+static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.LoadBitmap(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri) -> Google.Common.Util.Concurrent.IListenableFuture?
+static AndroidX.Browser.BrowserActions.BrowserServiceFileProvider.SaveBitmap(Android.Content.Context? context, Android.Graphics.Bitmap? bitmap, string? name, int version) -> AndroidX.Concurrent.Futures.ResolvableFuture?
+static AndroidX.Browser.CustomTabs.ContentActionSelectedData.FromIntent(Android.Content.Intent? intent) -> AndroidX.Browser.CustomTabs.ContentActionSelectedData?
 static AndroidX.Browser.CustomTabs.CustomTabsActivityManager.From(Android.App.Activity! parentActivity, string? servicePackageName = null) -> AndroidX.Browser.CustomTabs.CustomTabsActivityManager!
-static AndroidX.Browser.CustomTabs.CustomTabsClient.BindCustomTabsService(Android.Content.Context! context, string? packageName, AndroidX.Browser.CustomTabs.CustomTabsServiceConnection! connection) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsClient.BindCustomTabsServicePreservePriority(Android.Content.Context! context, string? packageName, AndroidX.Browser.CustomTabs.CustomTabsServiceConnection! connection) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsClient.ConnectAndInitialize(Android.Content.Context! context, string! packageName) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsClient.GetPackageName(Android.Content.Context! context, System.Collections.Generic.IList<string!>? packages) -> string?
-static AndroidX.Browser.CustomTabs.CustomTabsClient.GetPackageName(Android.Content.Context! context, System.Collections.Generic.IList<string!>? packages, bool ignoreDefault) -> string?
-static AndroidX.Browser.CustomTabs.CustomTabsClient.NewPendingSession(Android.Content.Context! context, AndroidX.Browser.CustomTabs.CustomTabsCallback? callback, int id) -> AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession!
+static AndroidX.Browser.CustomTabs.CustomTabsClient.BindCustomTabsService(Android.Content.Context? context, string? packageName, AndroidX.Browser.CustomTabs.CustomTabsServiceConnection? connection) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.BindCustomTabsServicePreservePriority(Android.Content.Context? context, string? packageName, AndroidX.Browser.CustomTabs.CustomTabsServiceConnection? connection) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.ConnectAndInitialize(Android.Content.Context? context, string? packageName) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.CreatePendingAuthTabSession(Android.Content.Context? context, int id) -> AndroidX.Browser.Auth.AuthTabSession.PendingSession?
+static AndroidX.Browser.CustomTabs.CustomTabsClient.CreatePendingAuthTabSession(Android.Content.Context? context, int id, Java.Util.Concurrent.IExecutor? executor, AndroidX.Browser.Auth.IAuthTabCallback? callback) -> AndroidX.Browser.Auth.AuthTabSession.PendingSession?
+static AndroidX.Browser.CustomTabs.CustomTabsClient.GetPackageName(Android.Content.Context? context, System.Collections.Generic.IList<string!>? packages) -> string?
+static AndroidX.Browser.CustomTabs.CustomTabsClient.GetPackageName(Android.Content.Context? context, System.Collections.Generic.IList<string!>? packages, bool ignoreDefault) -> string?
+static AndroidX.Browser.CustomTabs.CustomTabsClient.IsAuthTabSupported(Android.Content.Context? context, string? provider) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.IsEphemeralBrowsingSupported(Android.Content.Context? context, string? provider) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.IsSetNetworkSupported(Android.Content.Context? context, string? provider) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsClient.NewPendingSession(Android.Content.Context? context, AndroidX.Browser.CustomTabs.CustomTabsCallback? callback, int id) -> AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession?
 static AndroidX.Browser.CustomTabs.CustomTabsHelper.AddKeepAliveExtra(Android.Content.Context! context, Android.Content.Intent! intent) -> void
 static AndroidX.Browser.CustomTabs.CustomTabsHelper.GetPackageNameToUse(Android.Content.Context! context) -> string!
 static AndroidX.Browser.CustomTabs.CustomTabsHelper.Packages -> string![]!
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivityResizeBehavior(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetBreakpointDp(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetDecorationType(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetPosition(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetRoundedCornersPosition(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetCloseButtonPosition(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetColorSchemeParams(Android.Content.Intent! intent, int colorScheme) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams!
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetInitialActivityHeightPx(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetInitialActivityWidthPx(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetSecondaryToolbarSwipeUpGesture(Android.Content.Intent! intent) -> Android.App.PendingIntent?
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetToolbarCornerRadiusDp(Android.Content.Intent! intent) -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetTranslateLocale(Android.Content.Intent! intent) -> Java.Util.Locale?
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsActivitySideSheetMaximizationEnabled(Android.Content.Intent! intent) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsBackgroundInteractionEnabled(Android.Content.Intent! intent) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsBookmarksButtonEnabled(Android.Content.Intent! intent) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsDownloadButtonEnabled(Android.Content.Intent! intent) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsSendToExternalDefaultHandlerEnabled(Android.Content.Intent! intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivityResizeBehavior(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetBreakpointDp(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetDecorationType(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetPosition(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetActivitySideSheetRoundedCornersPosition(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetCloseButtonPosition(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetColorSchemeParams(Android.Content.Intent? intent, int colorScheme) -> AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetCustomContentActions(Android.Content.Intent? intent) -> System.Collections.Generic.IList<AndroidX.Browser.CustomTabs.CustomContentAction!>?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetInitialActivityHeightPx(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetInitialActivityWidthPx(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetNetwork(Android.Content.Intent? intent) -> Android.Net.Network?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetOpenInBrowserButtonState(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetSecondaryToolbarSwipeUpGesture(Android.Content.Intent? intent) -> Android.App.PendingIntent?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetToolbarCornerRadiusDp(Android.Content.Intent? intent) -> int
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.GetTranslateLocale(Android.Content.Intent? intent) -> Java.Util.Locale?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsActivitySideSheetMaximizationEnabled(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsBackgroundInteractionEnabled(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsBookmarksButtonEnabled(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsCloseButtonEnabled(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsDownloadButtonEnabled(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.IsSendToExternalDefaultHandlerEnabled(Android.Content.Intent? intent) -> bool
 static AndroidX.Browser.CustomTabs.CustomTabsIntent.MaxToolbarItems.get -> int
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.SetAlwaysUseBrowserUI(Android.Content.Intent? intent) -> Android.Content.Intent!
-static AndroidX.Browser.CustomTabs.CustomTabsIntent.ShouldAlwaysUseBrowserUI(Android.Content.Intent! intent) -> bool
-static AndroidX.Browser.CustomTabs.CustomTabsSession.CreateMockSessionForTesting(Android.Content.ComponentName! componentName) -> AndroidX.Browser.CustomTabs.CustomTabsSession!
-static AndroidX.Browser.CustomTabs.CustomTabsSessionToken.CreateMockSessionTokenForTesting() -> AndroidX.Browser.CustomTabs.CustomTabsSessionToken!
-static AndroidX.Browser.CustomTabs.CustomTabsSessionToken.GetSessionTokenFromIntent(Android.Content.Intent! intent) -> AndroidX.Browser.CustomTabs.CustomTabsSessionToken?
-static AndroidX.Browser.CustomTabs.TrustedWebUtils.AreSplashScreensSupported(Android.Content.Context! context, string! packageName, string! version) -> bool
-static AndroidX.Browser.CustomTabs.TrustedWebUtils.LaunchAsTrustedWebActivity(Android.Content.Context! context, AndroidX.Browser.CustomTabs.CustomTabsIntent! customTabsIntent, Android.Net.Uri! uri) -> void
-static AndroidX.Browser.CustomTabs.TrustedWebUtils.LaunchBrowserSiteSettings(Android.Content.Context! context, AndroidX.Browser.CustomTabs.CustomTabsSession! session, Android.Net.Uri! uri) -> void
-static AndroidX.Browser.CustomTabs.TrustedWebUtils.TransferSplashImage(Android.Content.Context! context, Java.IO.File! file, string! fileProviderAuthority, string! packageName, AndroidX.Browser.CustomTabs.CustomTabsSession! session) -> bool
-static AndroidX.Browser.Trusted.Sharing.ShareData.FromBundle(Android.OS.Bundle! bundle) -> AndroidX.Browser.Trusted.Sharing.ShareData!
-static AndroidX.Browser.Trusted.Sharing.ShareTarget.FromBundle(Android.OS.Bundle! bundle) -> AndroidX.Browser.Trusted.Sharing.ShareTarget?
-static AndroidX.Browser.Trusted.Token.Create(string! packageName, Android.Content.PM.PackageManager! packageManager) -> AndroidX.Browser.Trusted.Token?
-static AndroidX.Browser.Trusted.Token.Deserialize(byte[]! serialized) -> AndroidX.Browser.Trusted.Token!
-static AndroidX.Browser.Trusted.TrustedWebActivityDisplayMode.FromBundle(Android.OS.Bundle! bundle) -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode!
-static AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.Create(Android.Content.Context! context) -> AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool!
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.SetAlwaysUseBrowserUI(Android.Content.Intent? intent) -> Android.Content.Intent?
+static AndroidX.Browser.CustomTabs.CustomTabsIntent.ShouldAlwaysUseBrowserUI(Android.Content.Intent? intent) -> bool
+static AndroidX.Browser.CustomTabs.CustomTabsSession.CreateMockSessionForTesting(Android.Content.ComponentName? componentName) -> AndroidX.Browser.CustomTabs.CustomTabsSession?
+static AndroidX.Browser.CustomTabs.CustomTabsSessionToken.CreateMockSessionTokenForTesting() -> AndroidX.Browser.CustomTabs.CustomTabsSessionToken?
+static AndroidX.Browser.CustomTabs.CustomTabsSessionToken.GetSessionTokenFromIntent(Android.Content.Intent? intent) -> AndroidX.Browser.CustomTabs.CustomTabsSessionToken?
+static AndroidX.Browser.CustomTabs.TrustedWebUtils.AreSplashScreensSupported(Android.Content.Context? context, string? packageName, string? version) -> bool
+static AndroidX.Browser.CustomTabs.TrustedWebUtils.LaunchAsTrustedWebActivity(Android.Content.Context? context, AndroidX.Browser.CustomTabs.CustomTabsIntent? customTabsIntent, Android.Net.Uri? uri) -> void
+static AndroidX.Browser.CustomTabs.TrustedWebUtils.LaunchBrowserSiteSettings(Android.Content.Context? context, AndroidX.Browser.CustomTabs.CustomTabsSession? session, Android.Net.Uri? uri) -> void
+static AndroidX.Browser.CustomTabs.TrustedWebUtils.TransferSplashImage(Android.Content.Context? context, Java.IO.File? file, string? fileProviderAuthority, string? packageName, AndroidX.Browser.CustomTabs.CustomTabsSession? session) -> bool
+static AndroidX.Browser.Trusted.FileHandlingData.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Browser.Trusted.FileHandlingData?
+static AndroidX.Browser.Trusted.Sharing.ShareData.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Browser.Trusted.Sharing.ShareData?
+static AndroidX.Browser.Trusted.Sharing.ShareTarget.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Browser.Trusted.Sharing.ShareTarget?
+static AndroidX.Browser.Trusted.Token.Create(string? packageName, Android.Content.PM.PackageManager? packageManager) -> AndroidX.Browser.Trusted.Token?
+static AndroidX.Browser.Trusted.Token.Deserialize(byte[]? serialized) -> AndroidX.Browser.Trusted.Token?
+static AndroidX.Browser.Trusted.TrustedWebActivityDisplayMode.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode?
+static AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool.Create(Android.Content.Context? context) -> AndroidX.Browser.Trusted.TrustedWebActivityServiceConnectionPool?
+virtual Android.Support.CustomTabs.AuthTabCallbackDefault.AsBinder() -> Android.OS.IBinder?
+virtual Android.Support.CustomTabs.AuthTabCallbackDefault.OnExtraCallback(string? callbackName, Android.OS.Bundle? args) -> void
+virtual Android.Support.CustomTabs.AuthTabCallbackDefault.OnExtraCallbackWithResult(string? callbackName, Android.OS.Bundle? args) -> Android.OS.Bundle?
+virtual Android.Support.CustomTabs.AuthTabCallbackDefault.OnNavigationEvent(int navigationEvent, Android.OS.Bundle? extras) -> void
+virtual Android.Support.CustomTabs.AuthTabCallbackDefault.OnWarmupCompleted(Android.OS.Bundle? extras) -> void
+virtual Android.Support.CustomTabs.AuthTabCallbackStub.AsBinder() -> Android.OS.IBinder?
+virtual Android.Support.CustomTabs.AuthTabCallbackStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual Android.Support.CustomTabs.CustomTabsCallbackDefault.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.CustomTabs.CustomTabsCallbackDefault.ExtraCallback(string? callbackName, Android.OS.Bundle? args) -> void
 virtual Android.Support.CustomTabs.CustomTabsCallbackDefault.ExtraCallbackWithResult(string? callbackName, Android.OS.Bundle? args) -> Android.OS.Bundle?
@@ -852,9 +1092,12 @@ virtual Android.Support.CustomTabs.CustomTabsServiceDefault.AsBinder() -> Androi
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.ExtraCommand(string? commandName, Android.OS.Bundle? args) -> Android.OS.Bundle?
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.IsEngagementSignalsApiAvailable(Android.Support.CustomTabs.ICustomTabsCallback? customTabsCallback, Android.OS.Bundle? extras) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.MayLaunchUrl(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.Net.Uri? url, Android.OS.Bundle? extras, System.Collections.Generic.IList<Android.OS.Bundle!>? otherLikelyBundles) -> bool
+virtual Android.Support.CustomTabs.CustomTabsServiceDefault.NewAuthTabSession(Android.Support.CustomTabs.IAuthTabCallback? callback, Android.OS.Bundle? extras) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.NewSession(Android.Support.CustomTabs.ICustomTabsCallback? callback) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.NewSessionWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.OS.Bundle? extras) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.PostMessage(Android.Support.CustomTabs.ICustomTabsCallback? callback, string? message, Android.OS.Bundle? extras) -> int
+virtual Android.Support.CustomTabs.CustomTabsServiceDefault.Prefetch(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.Net.Uri? url, Android.OS.Bundle? options) -> void
+virtual Android.Support.CustomTabs.CustomTabsServiceDefault.PrefetchWithMultipleUrls(Android.Support.CustomTabs.ICustomTabsCallback? callback, System.Collections.Generic.IList<Android.Net.Uri!>? urls, Android.OS.Bundle? options) -> void
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.ReceiveFile(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.Net.Uri? uri, int purpose, Android.OS.Bundle? extras) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.RequestPostMessageChannel(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.Net.Uri? postMessageOrigin) -> bool
 virtual Android.Support.CustomTabs.CustomTabsServiceDefault.RequestPostMessageChannelWithExtras(Android.Support.CustomTabs.ICustomTabsCallback? callback, Android.Net.Uri? postMessageOrigin, Android.OS.Bundle? extras) -> bool
@@ -889,73 +1132,94 @@ virtual Android.Support.Customtabs.Trusted.TrustedWebActivityServiceDefault.Smal
 virtual Android.Support.Customtabs.Trusted.TrustedWebActivityServiceDefault.SmallIconId.get -> int
 virtual Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.Customtabs.Trusted.TrustedWebActivityServiceStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
-virtual AndroidX.Browser.BrowserActions.BrowserActionItem.Action.get -> Android.App.PendingIntent!
+virtual AndroidX.Browser.Auth.AuthTabIntent.CloseButtonIcon.get -> Android.Graphics.Bitmap?
+virtual AndroidX.Browser.Auth.AuthTabIntent.IsEphemeralBrowsingEnabled.get -> bool
+virtual AndroidX.Browser.Auth.AuthTabIntent.Launch(AndroidX.Activity.Result.ActivityResultLauncher? launcher, Android.Net.Uri? url, string? redirectHost, string? redirectPath) -> void
+virtual AndroidX.Browser.Auth.AuthTabIntent.Launch(AndroidX.Activity.Result.ActivityResultLauncher? launcher, Android.Net.Uri? url, string? redirectScheme) -> void
+virtual AndroidX.Browser.Auth.AuthTabIntent.PendingSession.get -> AndroidX.Browser.Auth.AuthTabSession.PendingSession?
+virtual AndroidX.Browser.Auth.AuthTabIntent.Session.get -> AndroidX.Browser.Auth.AuthTabSession?
+virtual AndroidX.Browser.Auth.AuthTabSession.PendingSession.Callback.get -> AndroidX.Browser.Auth.IAuthTabCallback?
+virtual AndroidX.Browser.Auth.AuthTabSession.PendingSession.Executor.get -> Java.Util.Concurrent.IExecutor?
+virtual AndroidX.Browser.Auth.AuthTabSession.PendingSession.Id.get -> Android.App.PendingIntent?
+virtual AndroidX.Browser.BrowserActions.BrowserActionItem.Action.get -> Android.App.PendingIntent?
 virtual AndroidX.Browser.BrowserActions.BrowserActionItem.IconId.get -> int
 virtual AndroidX.Browser.BrowserActions.BrowserActionItem.IconUri.get -> Android.Net.Uri?
-virtual AndroidX.Browser.BrowserActions.BrowserActionItem.Title.get -> string!
-virtual AndroidX.Browser.BrowserActions.BrowserActionsIntent.Intent.get -> Android.Content.Intent!
+virtual AndroidX.Browser.BrowserActions.BrowserActionItem.Title.get -> string?
+virtual AndroidX.Browser.BrowserActions.BrowserActionsIntent.Intent.get -> Android.Content.Intent?
 virtual AndroidX.Browser.CustomTabs.CustomTabsActivityManager.CustomTabsServiceConnectedDelegate.Invoke(Android.Content.ComponentName! name, AndroidX.Browser.CustomTabs.CustomTabsClient! client) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsActivityManager.CustomTabsServiceDisconnectedDelegate.Invoke(Android.Content.ComponentName! name) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsActivityManager.ExtraCallbackDelegate.Invoke(object! sender, AndroidX.Browser.CustomTabs.CustomTabsActivityManager.ExtraCallbackEventArgs! e) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsActivityManager.NavigationEventDelegate.Invoke(int navigationEvent, Android.OS.Bundle! extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.ExtraCallback(string! callbackName, Android.OS.Bundle? args) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.ExtraCallbackWithResult(string! callbackName, Android.OS.Bundle? args) -> Android.OS.Bundle?
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnActivityLayout(int left, int top, int right, int bottom, int state, Android.OS.Bundle! extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnActivityResized(int height, int width, Android.OS.Bundle! extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.ExtraCallback(string? callbackName, Android.OS.Bundle? args) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.ExtraCallbackWithResult(string? callbackName, Android.OS.Bundle? args) -> Android.OS.Bundle?
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnActivityLayout(int left, int top, int right, int bottom, int state, Android.OS.Bundle? extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnActivityResized(int height, int width, Android.OS.Bundle? extras) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnMessageChannelReady(Android.OS.Bundle? extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnMinimized(Android.OS.Bundle! extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnMinimized(Android.OS.Bundle? extras) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnNavigationEvent(int navigationEvent, Android.OS.Bundle? extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnPostMessage(string! message, Android.OS.Bundle? extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnRelationshipValidationResult(int relation, Android.Net.Uri! requestedOrigin, bool result, Android.OS.Bundle? extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnUnminimized(Android.OS.Bundle! extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnWarmupCompleted(Android.OS.Bundle! extras) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsClient.AttachSession(AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession! session) -> AndroidX.Browser.CustomTabs.CustomTabsSession?
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnPostMessage(string? message, Android.OS.Bundle? extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnRelationshipValidationResult(int relation, Android.Net.Uri? requestedOrigin, bool result, Android.OS.Bundle? extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnUnminimized(Android.OS.Bundle? extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsCallback.OnWarmupCompleted(Android.OS.Bundle? extras) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsClient.AttachAuthTabSession(AndroidX.Browser.Auth.AuthTabSession.PendingSession? session) -> AndroidX.Browser.Auth.AuthTabSession?
+virtual AndroidX.Browser.CustomTabs.CustomTabsClient.AttachSession(AndroidX.Browser.CustomTabs.CustomTabsSession.PendingSession? session) -> AndroidX.Browser.CustomTabs.CustomTabsSession?
 virtual AndroidX.Browser.CustomTabs.CustomTabsClient.ExtraCallbackDelegate.Invoke(string! callbackName, Android.OS.Bundle! args) -> void
-virtual AndroidX.Browser.CustomTabs.CustomTabsClient.ExtraCommand(string! commandName, Android.OS.Bundle? args) -> Android.OS.Bundle?
+virtual AndroidX.Browser.CustomTabs.CustomTabsClient.ExtraCommand(string? commandName, Android.OS.Bundle? args) -> Android.OS.Bundle?
+virtual AndroidX.Browser.CustomTabs.CustomTabsClient.NewAuthTabSession(AndroidX.Browser.Auth.IAuthTabCallback? callback, Java.Util.Concurrent.IExecutor? executor) -> AndroidX.Browser.Auth.AuthTabSession?
+virtual AndroidX.Browser.CustomTabs.CustomTabsClient.NewAuthTabSession(AndroidX.Browser.Auth.IAuthTabCallback? callback, Java.Util.Concurrent.IExecutor? executor, int id) -> AndroidX.Browser.Auth.AuthTabSession?
 virtual AndroidX.Browser.CustomTabs.CustomTabsClient.NewSession(AndroidX.Browser.CustomTabs.CustomTabsCallback? callback) -> AndroidX.Browser.CustomTabs.CustomTabsSession?
 virtual AndroidX.Browser.CustomTabs.CustomTabsClient.NewSession(AndroidX.Browser.CustomTabs.CustomTabsCallback? callback, int id) -> AndroidX.Browser.CustomTabs.CustomTabsSession?
 virtual AndroidX.Browser.CustomTabs.CustomTabsClient.OnNavigationEventDelegate.Invoke(int navigationEvent, Android.OS.Bundle! extras) -> void
 virtual AndroidX.Browser.CustomTabs.CustomTabsClient.Warmup(long flags) -> bool
-virtual AndroidX.Browser.CustomTabs.CustomTabsService.CleanUpSession(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! sessionToken) -> bool
-virtual AndroidX.Browser.CustomTabs.CustomTabsService.IsEngagementSignalsApiAvailable(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! sessionToken, Android.OS.Bundle! extras) -> bool
-virtual AndroidX.Browser.CustomTabs.CustomTabsService.RequestPostMessageChannel(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! sessionToken, Android.Net.Uri! postMessageOrigin, Android.Net.Uri? postMessageTargetOrigin, Android.OS.Bundle! extras) -> bool
-virtual AndroidX.Browser.CustomTabs.CustomTabsService.SetEngagementSignalsCallback(AndroidX.Browser.CustomTabs.CustomTabsSessionToken! sessionToken, AndroidX.Browser.CustomTabs.IEngagementSignalsCallback! callback, Android.OS.Bundle! extras) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.CleanUpSession(AndroidX.Browser.Auth.AuthTabSessionToken? sessionToken) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.CleanUpSession(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.IsEngagementSignalsApiAvailable(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken, Android.OS.Bundle? extras) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.Prefetch(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken, Android.Net.Uri? url, AndroidX.Browser.CustomTabs.PrefetchOptions? options) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.Prefetch(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken, System.Collections.Generic.IList<Android.Net.Uri!>? urls, AndroidX.Browser.CustomTabs.PrefetchOptions? options) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.RegisterAuthTabSession(AndroidX.Browser.Auth.AuthTabSessionToken? sessionToken) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.RequestPostMessageChannel(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken, Android.Net.Uri? postMessageOrigin, Android.Net.Uri? postMessageTargetOrigin, Android.OS.Bundle? extras) -> bool
+virtual AndroidX.Browser.CustomTabs.CustomTabsService.SetEngagementSignalsCallback(AndroidX.Browser.CustomTabs.CustomTabsSessionToken? sessionToken, AndroidX.Browser.CustomTabs.IEngagementSignalsCallback? callback, Android.OS.Bundle? extras) -> bool
 virtual AndroidX.Browser.CustomTabs.CustomTabsSessionToken.Callback.get -> AndroidX.Browser.CustomTabs.CustomTabsCallback?
 virtual AndroidX.Browser.CustomTabs.CustomTabsSessionToken.HasCallback.get -> bool
 virtual AndroidX.Browser.CustomTabs.CustomTabsSessionToken.HasId.get -> bool
-virtual AndroidX.Browser.CustomTabs.CustomTabsSessionToken.IsAssociatedWith(AndroidX.Browser.CustomTabs.CustomTabsSession! session) -> bool
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.BindSessionToPostMessageService(Android.Content.Context! appContext) -> bool
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.BindSessionToPostMessageService(Android.Content.Context! context, string! packageName) -> bool
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.Cleanup(Android.Content.Context! context) -> void
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnDisconnectChannel(Android.Content.Context! appContext) -> void
+virtual AndroidX.Browser.CustomTabs.CustomTabsSessionToken.IsAssociatedWith(AndroidX.Browser.CustomTabs.CustomTabsSession? session) -> bool
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.BindSessionToPostMessageService(Android.Content.Context? appContext) -> bool
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.BindSessionToPostMessageService(Android.Content.Context? context, string? packageName) -> bool
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.Cleanup(Android.Content.Context? context) -> void
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnDisconnectChannel(Android.Content.Context? appContext) -> void
 virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnPostMessageServiceConnected() -> void
 virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.OnPostMessageServiceDisconnected() -> void
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.SetPackageName(string! packageName) -> void
-virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.UnbindFromContext(Android.Content.Context! context) -> void
-virtual AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.RunExtraCallback(string! callbackName, Android.OS.Bundle! args) -> void
-virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.ToBundle() -> Android.OS.Bundle!
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.SetPackageName(string? packageName) -> void
+virtual AndroidX.Browser.CustomTabs.PostMessageServiceConnection.UnbindFromContext(Android.Content.Context? context) -> void
+virtual AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote.RunExtraCallback(string? callbackName, Android.OS.Bundle? args) -> void
+virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeBrowserMode.ToBundle() -> Android.OS.Bundle?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeDefaultMode.ToBundle() -> Android.OS.Bundle?
 virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.IsSticky.get -> bool
 virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.LayoutInDisplayCutoutMode() -> int
-virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.ToBundle() -> Android.OS.Bundle!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.Build(AndroidX.Browser.CustomTabs.CustomTabsSession! session) -> AndroidX.Browser.Trusted.TrustedWebActivityIntent!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.BuildCustomTabsIntent() -> AndroidX.Browser.CustomTabs.CustomTabsIntent!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.DisplayMode.get -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetAdditionalTrustedOrigins(System.Collections.Generic.IList<string!>! origins) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetColorScheme(int colorScheme) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetColorSchemeParams(int colorScheme, AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams! params) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetDefaultColorSchemeParams(AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams! params) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetDisplayMode(AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode! displayMode) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetNavigationBarColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetScreenOrientation(int orientation) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetShareParams(AndroidX.Browser.Trusted.Sharing.ShareTarget! shareTarget, AndroidX.Browser.Trusted.Sharing.ShareData! shareData) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetSplashScreenParams(Android.OS.Bundle! splashScreenParams) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetToolbarColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.Uri.get -> Android.Net.Uri!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnAreNotificationsEnabled(string! channelName) -> bool
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnCancelNotification(string! platformTag, int platformId) -> void
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnExtraCommand(string! commandName, Android.OS.Bundle! args, AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote? callbackRemote) -> Android.OS.Bundle?
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnGetActiveNotifications() -> Android.OS.IParcelable![]!
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnGetSmallIconBitmap() -> Android.OS.Bundle!
+virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeImmersiveMode.ToBundle() -> Android.OS.Bundle?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityDisplayModeMinimalUiMode.ToBundle() -> Android.OS.Bundle?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.Build(AndroidX.Browser.CustomTabs.CustomTabsSession? session) -> AndroidX.Browser.Trusted.TrustedWebActivityIntent?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.BuildCustomTabsIntent() -> AndroidX.Browser.CustomTabs.CustomTabsIntent?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.DisplayMode.get -> AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetAdditionalTrustedOrigins(System.Collections.Generic.IList<string!>? origins) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetColorScheme(int colorScheme) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetColorSchemeParams(int colorScheme, AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams? params) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetDefaultColorSchemeParams(AndroidX.Browser.CustomTabs.CustomTabColorSchemeParams? params) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetDisplayMode(AndroidX.Browser.Trusted.ITrustedWebActivityDisplayMode? displayMode) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetFileHandlingData(AndroidX.Browser.Trusted.FileHandlingData? fileHandlingData) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetLaunchHandlerClientMode(int launchHandlerClientMode) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetNavigationBarColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetNavigationBarDividerColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetOriginalLaunchUrl(Android.Net.Uri? originalLaunchUrl) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetScreenOrientation(int orientation) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetShareParams(AndroidX.Browser.Trusted.Sharing.ShareTarget? shareTarget, AndroidX.Browser.Trusted.Sharing.ShareData? shareData) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetSplashScreenParams(Android.OS.Bundle? splashScreenParams) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.SetToolbarColor(int color) -> AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityIntentBuilder.Uri.get -> Android.Net.Uri?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnAreNotificationsEnabled(string? channelName) -> bool
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnCancelNotification(string? platformTag, int platformId) -> void
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnExtraCommand(string? commandName, Android.OS.Bundle? args, AndroidX.Browser.Trusted.TrustedWebActivityCallbackRemote? callbackRemote) -> Android.OS.Bundle?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnGetActiveNotifications() -> Android.OS.IParcelable![]?
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnGetSmallIconBitmap() -> Android.OS.Bundle?
 virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnGetSmallIconId() -> int
-virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnNotifyNotificationWithChannel(string! platformTag, int platformId, Android.App.Notification! notification, string! channelName) -> bool
+virtual AndroidX.Browser.Trusted.TrustedWebActivityService.OnNotifyNotificationWithChannel(string? platformTag, int platformId, Android.App.Notification? notification, string? channelName) -> bool

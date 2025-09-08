@@ -8,6 +8,7 @@ parameters:
 
 steps:
   - pwsh: |
+      Get-Content $PSCommandPath
       dotnet cake build.cake `
         --target=ci-build `
         --configuration="$(configuration)" `
@@ -21,12 +22,14 @@ steps:
       RepositoryType: "git"
 
   - pwsh: |
+      Get-Content $PSCommandPath
       dotnet cake validation.cake `
         --namespaces="${{ join(',', parameters.validPackagePrefixes) }}" `
         --verbosity="$(verbosity)"
     displayName: 'Run NuGet package validation'
     
   - pwsh: |
+      Get-Content $PSCommandPath
       dotnet cake nuget-diff.cake `
         --artifacts="${{ parameters.artifactsPath }}" `
         --output="${{ parameters.artifactsPath }}/api-diff" `
@@ -35,10 +38,13 @@ steps:
     displayName: 'Generate API diff'
     condition: eq(variables['Agent.OS'], 'Windows_NT')
 
-  - pwsh: dotnet cake utilities.cake -t=verify-namespace-file
+  - pwsh: |
+      Get-Content $PSCommandPath
+      dotnet cake utilities.cake -t=verify-namespace-file
     displayName: Verify published namespaces
 
   - pwsh: |
+      Get-Content $PSCommandPath
       dotnet cake build.cake `
         --target=ci-samples `
         --configuration="$(configuration)" `

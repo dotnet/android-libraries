@@ -36,14 +36,14 @@ jobs:
       arguments: -c $(configuration)
   
   # Figure out which tests this slice is running
-  - pwsh: >-
-      dotnet dotnet-test-slicer 
-      slice
-      --test-assembly="${{ parameters.testAssembly }}"
-      --test-filter="${{ parameters.testFilter }}"
-      --slice-number=$(System.JobPositionInPhase)
-      --total-slices=$(System.TotalJobsInPhase)
-      --outfile="${{ parameters.testAssembly }}.runsettings"
+  - pwsh: |
+      Get-Content $PSCommandPath
+      dotnet dotnet-test-slicer slice `
+        --test-assembly="${{ parameters.testAssembly }}" `
+        --test-filter="${{ parameters.testFilter }}" `
+        --slice-number=$(System.JobPositionInPhase) `
+        --total-slices=$(System.TotalJobsInPhase) `
+        --outfile="${{ parameters.testAssembly }}.runsettings"
     displayName: Slice unit tests
     failOnStderr: true      
     
