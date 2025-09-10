@@ -14,6 +14,8 @@ Bumptech.Glide.GlideBuilder.Build(Android.Content.Context! context) -> Bumptech.
 Bumptech.Glide.GlideBuilder.GlideBuilder() -> void
 Bumptech.Glide.GlideBuilder.LogRequestOrigins
 Bumptech.Glide.GlideBuilder.LogRequestOrigins.LogRequestOrigins() -> void
+Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority
+Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority.OverrideGlideThreadPriority() -> void
 Bumptech.Glide.GlideBuilder.SetAnimationExecutor(Bumptech.Glide.Load.Engine.Executor.GlideExecutor? service) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetArrayPool(Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool? arrayPool) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetBitmapPool(Bumptech.Glide.Load.Engine.BitmapRecycle.IBitmapPool? bitmapPool) -> Bumptech.Glide.GlideBuilder!
@@ -24,6 +26,7 @@ Bumptech.Glide.GlideBuilder.SetDefaultTransitionOptions(Java.Lang.Class! clazz, 
 Bumptech.Glide.GlideBuilder.SetDisableHardwareBitmapsOnO(bool disableHardwareBitmapsOnO) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetDiskCache(Bumptech.Glide.Load.Engine.Cache.IDiskCacheFactory? diskCacheFactory) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetDiskCacheExecutor(Bumptech.Glide.Load.Engine.Executor.GlideExecutor? service) -> Bumptech.Glide.GlideBuilder!
+Bumptech.Glide.GlideBuilder.SetEnableHardwareGainmapFixOnU(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetImageDecoderEnabledForBitmaps(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetIsActiveResourceRetentionAllowed(bool isActiveResourceRetentionAllowed) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetLogLevel(int logLevel) -> Bumptech.Glide.GlideBuilder!
@@ -31,8 +34,13 @@ Bumptech.Glide.GlideBuilder.SetLogRequestOrigins(bool isEnabled) -> Bumptech.Gli
 Bumptech.Glide.GlideBuilder.SetMemoryCache(Bumptech.Glide.Load.Engine.Cache.IMemoryCache? memoryCache) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetMemorySizeCalculator(Bumptech.Glide.Load.Engine.Cache.MemorySizeCalculator.Builder! builder) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetMemorySizeCalculator(Bumptech.Glide.Load.Engine.Cache.MemorySizeCalculator? calculator) -> Bumptech.Glide.GlideBuilder!
+Bumptech.Glide.GlideBuilder.SetOverrideGlideThreadPriority(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
+Bumptech.Glide.GlideBuilder.SetPreserveGainmapAndColorSpaceForTransformations(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetResizeExecutor(Bumptech.Glide.Load.Engine.Executor.GlideExecutor? service) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetSourceExecutor(Bumptech.Glide.Load.Engine.Executor.GlideExecutor? service) -> Bumptech.Glide.GlideBuilder!
+Bumptech.Glide.GlideBuilder.SetUseMediaStoreOpenFileApisIfPossible(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
+Bumptech.Glide.GlideBuilder.UseMediaStoreOpenFileApisIfPossible
+Bumptech.Glide.GlideBuilder.UseMediaStoreOpenFileApisIfPossible.UseMediaStoreOpenFileApisIfPossible() -> void
 Bumptech.Glide.GlideContext
 Bumptech.Glide.GlideContext.GlideContext(Android.Content.Context! context, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! arrayPool, Bumptech.Glide.Util.GlideSuppliers.IGlideSupplier! registry, Bumptech.Glide.Request.Target.ImageViewTargetFactory! imageViewTargetFactory, Bumptech.Glide.Glide.IRequestOptionsFactory! defaultRequestOptionsFactory, System.Collections.Generic.IDictionary<Java.Lang.Class!, Bumptech.Glide.TransitionOptions!>! defaultTransitionOptions, System.Collections.Generic.IList<Bumptech.Glide.Request.IRequestListener!>! defaultRequestListeners, Bumptech.Glide.Load.Engine.Engine! engine, Bumptech.Glide.GlideExperiments! experiments, int logLevel) -> void
 Bumptech.Glide.GlideContext.GlideContext(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -48,6 +56,7 @@ Bumptech.Glide.ListPreloader.ListPreloader(Bumptech.Glide.RequestManager! reques
 Bumptech.Glide.ListPreloader.ListPreloader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Data.AssetFileDescriptorLocalUriFetcher
 Bumptech.Glide.Load.Data.AssetFileDescriptorLocalUriFetcher.AssetFileDescriptorLocalUriFetcher(Android.Content.ContentResolver? contentResolver, Android.Net.Uri? uri) -> void
+Bumptech.Glide.Load.Data.AssetFileDescriptorLocalUriFetcher.AssetFileDescriptorLocalUriFetcher(Android.Content.ContentResolver? contentResolver, Android.Net.Uri? uri, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Data.AssetPathFetcher
 Bumptech.Glide.Load.Data.AssetPathFetcher.AssetPathFetcher(Android.Content.Res.AssetManager? assetManager, string? assetPath) -> void
 Bumptech.Glide.Load.Data.AssetPathFetcher.AssetPathFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -63,6 +72,7 @@ Bumptech.Glide.Load.Data.FileDescriptorAssetPathFetcher.FileDescriptorAssetPathF
 Bumptech.Glide.Load.Data.FileDescriptorAssetPathFetcher.FileDescriptorAssetPathFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Data.FileDescriptorLocalUriFetcher
 Bumptech.Glide.Load.Data.FileDescriptorLocalUriFetcher.FileDescriptorLocalUriFetcher(Android.Content.ContentResolver? contentResolver, Android.Net.Uri? uri) -> void
+Bumptech.Glide.Load.Data.FileDescriptorLocalUriFetcher.FileDescriptorLocalUriFetcher(Android.Content.ContentResolver? contentResolver, Android.Net.Uri? uri, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Data.FileDescriptorLocalUriFetcher.FileDescriptorLocalUriFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Data.HttpUrlFetcher
 Bumptech.Glide.Load.Data.HttpUrlFetcher.HttpUrlFetcher(Bumptech.Glide.Load.Model.GlideUrl? glideUrl, int timeout) -> void
@@ -95,6 +105,8 @@ Bumptech.Glide.Load.Data.LocalUriFetcher
 Bumptech.Glide.Load.Data.LocalUriFetcher.LoadData(Bumptech.Glide.Priority! priority, Bumptech.Glide.Load.Data.IDataFetcherDataCallback! callback) -> void
 Bumptech.Glide.Load.Data.LocalUriFetcher.LocalUriFetcher(Android.Content.ContentResolver? contentResolver, Android.Net.Uri? uri) -> void
 Bumptech.Glide.Load.Data.LocalUriFetcher.LocalUriFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Bumptech.Glide.Load.Data.LocalUriFetcher.UseMediaStoreApisIfAvailable.get -> bool
+Bumptech.Glide.Load.Data.LocalUriFetcher.UseMediaStoreApisIfAvailable.set -> void
 Bumptech.Glide.Load.Data.Mediastore.IThumbnailQuery
 Bumptech.Glide.Load.Data.Mediastore.IThumbnailQuery.Query(Android.Net.Uri? p0) -> Android.Database.ICursor?
 Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil
@@ -113,6 +125,7 @@ Bumptech.Glide.Load.Data.StreamAssetPathFetcher.StreamAssetPathFetcher(Android.C
 Bumptech.Glide.Load.Data.StreamAssetPathFetcher.StreamAssetPathFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Data.StreamLocalUriFetcher
 Bumptech.Glide.Load.Data.StreamLocalUriFetcher.StreamLocalUriFetcher(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri) -> void
+Bumptech.Glide.Load.Data.StreamLocalUriFetcher.StreamLocalUriFetcher(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Data.StreamLocalUriFetcher.StreamLocalUriFetcher(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.DataSource
 Bumptech.Glide.Load.DecodeFormat
@@ -335,6 +348,8 @@ Bumptech.Glide.Load.IImageHeaderParser.GetOrientation(Java.Nio.ByteBuffer! p0, B
 Bumptech.Glide.Load.IImageHeaderParser.GetOrientation(System.IO.Stream! p0, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! p1) -> int
 Bumptech.Glide.Load.IImageHeaderParser.GetType(Java.Nio.ByteBuffer! p0) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
 Bumptech.Glide.Load.IImageHeaderParser.GetType(System.IO.Stream! p0) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
+Bumptech.Glide.Load.IImageHeaderParser.HasJpegMpf(Java.Nio.ByteBuffer! p0, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! p1) -> bool
+Bumptech.Glide.Load.IImageHeaderParser.HasJpegMpf(System.IO.Stream! p0, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! p1) -> bool
 Bumptech.Glide.Load.IKey
 Bumptech.Glide.Load.IKey.Charset.get -> Java.Nio.Charset.Charset?
 Bumptech.Glide.Load.IKey.Equals(Java.Lang.Object? p0) -> bool
@@ -565,16 +580,19 @@ Bumptech.Glide.Load.Model.UnitModelLoader.UnitModelLoader(nint javaReference, An
 Bumptech.Glide.Load.Model.UriLoader
 Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory
 Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory.AssetFileDescriptorFactory(Android.Content.ContentResolver? contentResolver) -> void
+Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory.AssetFileDescriptorFactory(Android.Content.ContentResolver? contentResolver, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory.Build(Android.Net.Uri? uri) -> Bumptech.Glide.Load.Data.IDataFetcher?
 Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory.Build(Bumptech.Glide.Load.Model.MultiModelLoaderFactory? multiFactory) -> Bumptech.Glide.Load.Model.IModelLoader?
 Bumptech.Glide.Load.Model.UriLoader.AssetFileDescriptorFactory.Teardown() -> void
 Bumptech.Glide.Load.Model.UriLoader.FileDescriptorFactory
 Bumptech.Glide.Load.Model.UriLoader.FileDescriptorFactory.FileDescriptorFactory(Android.Content.ContentResolver? contentResolver) -> void
+Bumptech.Glide.Load.Model.UriLoader.FileDescriptorFactory.FileDescriptorFactory(Android.Content.ContentResolver? contentResolver, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Model.UriLoader.FileDescriptorFactory.FileDescriptorFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Model.UriLoader.ILocalUriFetcherFactory
 Bumptech.Glide.Load.Model.UriLoader.ILocalUriFetcherFactory.Build(Android.Net.Uri? p0) -> Bumptech.Glide.Load.Data.IDataFetcher?
 Bumptech.Glide.Load.Model.UriLoader.StreamFactory
 Bumptech.Glide.Load.Model.UriLoader.StreamFactory.StreamFactory(Android.Content.ContentResolver? contentResolver) -> void
+Bumptech.Glide.Load.Model.UriLoader.StreamFactory.StreamFactory(Android.Content.ContentResolver? contentResolver, bool useMediaStoreApisIfAvailable) -> void
 Bumptech.Glide.Load.Model.UriLoader.StreamFactory.StreamFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Bumptech.Glide.Load.Model.UriLoader.UriLoader(Bumptech.Glide.Load.Model.UriLoader.ILocalUriFetcherFactory? factory) -> void
 Bumptech.Glide.Load.Model.UriLoader.UriLoader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -660,6 +678,8 @@ Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.GetOrientation(Java
 Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.GetOrientation(System.IO.Stream! is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> int
 Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.GetType(Java.Nio.ByteBuffer! byteBuffer) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
 Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.GetType(System.IO.Stream! is) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
+Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.HasJpegMpf(Java.Nio.ByteBuffer! byteBuffer, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
+Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.HasJpegMpf(System.IO.Stream! is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
 Bumptech.Glide.Load.Resource.Bitmap.DefaultImageHeaderParser.InterfaceConsts
 Bumptech.Glide.Load.Resource.Bitmap.DownsampleStrategy
 Bumptech.Glide.Load.Resource.Bitmap.DownsampleStrategy.DownsampleStrategy() -> void
@@ -686,6 +706,8 @@ Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.GetOrientatio
 Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.GetOrientation(System.IO.Stream! is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> int
 Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.GetType(Java.Nio.ByteBuffer! byteBuffer) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
 Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.GetType(System.IO.Stream! is) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
+Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.HasJpegMpf(Java.Nio.ByteBuffer! byteBuffer, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
+Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.HasJpegMpf(System.IO.Stream! is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
 Bumptech.Glide.Load.Resource.Bitmap.ExifInterfaceImageHeaderParser.InterfaceConsts
 Bumptech.Glide.Load.Resource.Bitmap.FitCenter
 Bumptech.Glide.Load.Resource.Bitmap.FitCenter.FitCenter() -> void
@@ -1010,8 +1032,8 @@ Bumptech.Glide.Request.IRequestCoordinator.OnRequestFailed(Bumptech.Glide.Reques
 Bumptech.Glide.Request.IRequestCoordinator.OnRequestSuccess(Bumptech.Glide.Request.IRequest? p0) -> void
 Bumptech.Glide.Request.IRequestCoordinator.Root.get -> Bumptech.Glide.Request.IRequestCoordinator?
 Bumptech.Glide.Request.IRequestListener
-Bumptech.Glide.Request.IRequestListener.OnLoadFailed(Bumptech.Glide.Load.Engine.GlideException? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget! p2, bool p3) -> bool
-Bumptech.Glide.Request.IRequestListener.OnResourceReady(Java.Lang.Object! p0, Java.Lang.Object! p1, Bumptech.Glide.Request.Target.ITarget? p2, Bumptech.Glide.Load.DataSource! p3, bool p4) -> bool
+Bumptech.Glide.Request.IRequestListener.OnLoadFailed(Bumptech.Glide.Load.Engine.GlideException? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget? p2, bool p3) -> bool
+Bumptech.Glide.Request.IRequestListener.OnResourceReady(Java.Lang.Object? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget? p2, Bumptech.Glide.Load.DataSource? p3, bool p4) -> bool
 Bumptech.Glide.Request.IResourceCallback
 Bumptech.Glide.Request.IResourceCallback.Lock.get -> Java.Lang.Object?
 Bumptech.Glide.Request.IResourceCallback.OnLoadFailed(Bumptech.Glide.Load.Engine.GlideException? p0) -> void
@@ -1019,10 +1041,10 @@ Bumptech.Glide.Request.IResourceCallback.OnResourceReady(Bumptech.Glide.Load.Eng
 Bumptech.Glide.Request.LoadFailedEventArgs
 Bumptech.Glide.Request.LoadFailedEventArgs.Handled.get -> bool
 Bumptech.Glide.Request.LoadFailedEventArgs.Handled.set -> void
-Bumptech.Glide.Request.LoadFailedEventArgs.LoadFailedEventArgs(bool handled, Bumptech.Glide.Load.Engine.GlideException? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget! p2, bool p3) -> void
+Bumptech.Glide.Request.LoadFailedEventArgs.LoadFailedEventArgs(bool handled, Bumptech.Glide.Load.Engine.GlideException? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget? p2, bool p3) -> void
 Bumptech.Glide.Request.LoadFailedEventArgs.P0.get -> Bumptech.Glide.Load.Engine.GlideException?
 Bumptech.Glide.Request.LoadFailedEventArgs.P1.get -> Java.Lang.Object?
-Bumptech.Glide.Request.LoadFailedEventArgs.P2.get -> Bumptech.Glide.Request.Target.ITarget!
+Bumptech.Glide.Request.LoadFailedEventArgs.P2.get -> Bumptech.Glide.Request.Target.ITarget?
 Bumptech.Glide.Request.LoadFailedEventArgs.P3.get -> bool
 Bumptech.Glide.Request.RequestCoordinatorRequestState
 Bumptech.Glide.Request.RequestFutureTarget
@@ -1034,12 +1056,12 @@ Bumptech.Glide.Request.RequestOptions.RequestOptions(nint javaReference, Android
 Bumptech.Glide.Request.ResourceReadyEventArgs
 Bumptech.Glide.Request.ResourceReadyEventArgs.Handled.get -> bool
 Bumptech.Glide.Request.ResourceReadyEventArgs.Handled.set -> void
-Bumptech.Glide.Request.ResourceReadyEventArgs.P0.get -> Java.Lang.Object!
-Bumptech.Glide.Request.ResourceReadyEventArgs.P1.get -> Java.Lang.Object!
+Bumptech.Glide.Request.ResourceReadyEventArgs.P0.get -> Java.Lang.Object?
+Bumptech.Glide.Request.ResourceReadyEventArgs.P1.get -> Java.Lang.Object?
 Bumptech.Glide.Request.ResourceReadyEventArgs.P2.get -> Bumptech.Glide.Request.Target.ITarget?
-Bumptech.Glide.Request.ResourceReadyEventArgs.P3.get -> Bumptech.Glide.Load.DataSource!
+Bumptech.Glide.Request.ResourceReadyEventArgs.P3.get -> Bumptech.Glide.Load.DataSource?
 Bumptech.Glide.Request.ResourceReadyEventArgs.P4.get -> bool
-Bumptech.Glide.Request.ResourceReadyEventArgs.ResourceReadyEventArgs(bool handled, Java.Lang.Object! p0, Java.Lang.Object! p1, Bumptech.Glide.Request.Target.ITarget? p2, Bumptech.Glide.Load.DataSource! p3, bool p4) -> void
+Bumptech.Glide.Request.ResourceReadyEventArgs.ResourceReadyEventArgs(bool handled, Java.Lang.Object? p0, Java.Lang.Object? p1, Bumptech.Glide.Request.Target.ITarget? p2, Bumptech.Glide.Load.DataSource? p3, bool p4) -> void
 Bumptech.Glide.Request.SingleRequest
 Bumptech.Glide.Request.SingleRequest.Begin() -> void
 Bumptech.Glide.Request.SingleRequest.Clear() -> void
@@ -1307,6 +1329,7 @@ abstract Bumptech.Glide.Request.Target.ImageViewTarget.SetResource(Java.Lang.Obj
 abstract Bumptech.Glide.Request.Target.ThumbnailImageViewTarget.GetDrawable(Java.Lang.Object? p0) -> Android.Graphics.Drawables.Drawable?
 abstract Bumptech.Glide.Request.Transition.BitmapContainerTransitionFactory.GetBitmap(Java.Lang.Object? p0) -> Android.Graphics.Bitmap?
 abstract Bumptech.Glide.Util.Pool.StateVerifier.ThrowIfRecycled() -> void
+const Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.MinExtensionVersionForOpenFileApis = 17 -> int
 const Bumptech.Glide.Load.Engine.BitmapRecycle.ArrayPool.StandardBufferSizeBytes = 65536 -> int
 const Bumptech.Glide.Load.Engine.BitmapRecycle.LruArrayPool.InterfaceConsts.StandardBufferSizeBytes = 65536 -> int
 const Bumptech.Glide.Load.Engine.Cache.DiskCacheAdapter.Factory.InterfaceConsts.DefaultDiskCacheDir = "image_manager_disk_cache" -> string!
@@ -1316,6 +1339,7 @@ const Bumptech.Glide.Load.Engine.Cache.DiskCacheFactory.DefaultDiskCacheSize = 2
 const Bumptech.Glide.Load.Engine.Cache.DiskLruCacheFactory.InterfaceConsts.DefaultDiskCacheDir = "image_manager_disk_cache" -> string!
 const Bumptech.Glide.Load.Engine.Cache.DiskLruCacheFactory.InterfaceConsts.DefaultDiskCacheSize = 262144000 -> int
 const Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.NoThreadTimeout = 0 -> long
+const Bumptech.Glide.Load.Engine.Executor.GlideExecutor.DefaultPriority = 9 -> int
 const Bumptech.Glide.Load.HttpException.Unknown = -1 -> int
 const Bumptech.Glide.Load.ImageHeaderParser.UnknownOrientation = -1 -> int
 const Bumptech.Glide.Load.Key.StringCharsetName = "UTF-8" -> string!
@@ -1349,6 +1373,8 @@ override Bumptech.Glide.Glide.ThresholdClass.get -> nint
 override Bumptech.Glide.Glide.ThresholdType.get -> System.Type!
 override Bumptech.Glide.GlideBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideBuilder.LogRequestOrigins.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Bumptech.Glide.GlideBuilder.UseMediaStoreOpenFileApisIfPossible.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideContext.ThresholdClass.get -> nint
 override Bumptech.Glide.GlideContext.ThresholdType.get -> System.Type!
@@ -2037,9 +2063,11 @@ static Bumptech.Glide.Glide.With(AndroidX.Fragment.App.Fragment! fragment) -> Bu
 static Bumptech.Glide.Glide.With(AndroidX.Fragment.App.FragmentActivity! activity) -> Bumptech.Glide.RequestManager!
 static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsAndroidPickerUri(Android.Net.Uri? uri) -> bool
 static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsMediaStoreImageUri(Android.Net.Uri? uri) -> bool
+static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsMediaStoreOpenFileApisAvailable.get -> bool
 static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsMediaStoreUri(Android.Net.Uri? uri) -> bool
 static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsMediaStoreVideoUri(Android.Net.Uri? uri) -> bool
 static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.IsThumbnailSize(int width, int height) -> bool
+static Bumptech.Glide.Load.Data.Mediastore.MediaStoreUtil.OpenAssetFileDescriptor(Android.Net.Uri? uri, Android.Content.ContentResolver? contentResolver) -> Android.Content.Res.AssetFileDescriptor?
 static Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher.BuildImageFetcher(Android.Content.Context? context, Android.Net.Uri? uri) -> Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher?
 static Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher.BuildVideoFetcher(Android.Content.Context? context, Android.Net.Uri? uri) -> Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher?
 static Bumptech.Glide.Load.Data.ParcelFileDescriptorRewinder.IsSupported.get -> bool
@@ -2103,6 +2131,9 @@ static Bumptech.Glide.Load.ImageHeaderParserUtils.GetOrientation(System.Collecti
 static Bumptech.Glide.Load.ImageHeaderParserUtils.GetType(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, Bumptech.Glide.Load.Data.ParcelFileDescriptorRewinder! parcelFileDescriptorRewinder, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
 static Bumptech.Glide.Load.ImageHeaderParserUtils.GetType(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, Java.Nio.ByteBuffer? buffer) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
 static Bumptech.Glide.Load.ImageHeaderParserUtils.GetType(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, System.IO.Stream? is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> Bumptech.Glide.Load.ImageHeaderParserImageType!
+static Bumptech.Glide.Load.ImageHeaderParserUtils.HasJpegMpf(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, Bumptech.Glide.Load.Data.ParcelFileDescriptorRewinder! parcelFileDescriptorRewinder, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
+static Bumptech.Glide.Load.ImageHeaderParserUtils.HasJpegMpf(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, Java.Nio.ByteBuffer? buffer, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
+static Bumptech.Glide.Load.ImageHeaderParserUtils.HasJpegMpf(System.Collections.Generic.IList<Bumptech.Glide.Load.IImageHeaderParser!>! parsers, System.IO.Stream? is, Bumptech.Glide.Load.Engine.BitmapRecycle.IArrayPool! byteArrayPool) -> bool
 static Bumptech.Glide.Load.Key.Charset.get -> Java.Nio.Charset.Charset?
 static Bumptech.Glide.Load.Model.DirectResourceLoader.AssetFileDescriptorFactory(Android.Content.Context? context) -> Bumptech.Glide.Load.Model.IModelLoaderFactory?
 static Bumptech.Glide.Load.Model.DirectResourceLoader.DrawableFactory(Android.Content.Context? context) -> Bumptech.Glide.Load.Model.IModelLoaderFactory?
@@ -2262,6 +2293,7 @@ static Bumptech.Glide.Util.ExceptionCatchingInputStream.Obtain(System.IO.Stream!
 static Bumptech.Glide.Util.ExceptionPassthroughInputStream.Obtain(System.IO.Stream! toWrap) -> Bumptech.Glide.Util.ExceptionPassthroughInputStream!
 static Bumptech.Glide.Util.Executors.DirectExecutor() -> Java.Util.Concurrent.IExecutor?
 static Bumptech.Glide.Util.Executors.MainThreadExecutor() -> Java.Util.Concurrent.IExecutor?
+static Bumptech.Glide.Util.Executors.MainThreadExecutorFront() -> Java.Util.Concurrent.IExecutor?
 static Bumptech.Glide.Util.Executors.ShutdownAndAwaitTermination(Java.Util.Concurrent.IExecutorService? pool) -> void
 static Bumptech.Glide.Util.GlideSuppliers.Memorize(Bumptech.Glide.Util.GlideSuppliers.IGlideSupplier? supplier) -> Bumptech.Glide.Util.GlideSuppliers.IGlideSupplier?
 static Bumptech.Glide.Util.LogTime.GetElapsedMillis(long logTime) -> double
@@ -2307,6 +2339,7 @@ static Bumptech.Glide.Util.Util.IsOnBackgroundThread.get -> bool
 static Bumptech.Glide.Util.Util.IsOnMainThread.get -> bool
 static Bumptech.Glide.Util.Util.IsValidDimension(int dimen) -> bool
 static Bumptech.Glide.Util.Util.IsValidDimensions(int width, int height) -> bool
+static Bumptech.Glide.Util.Util.PostAtFrontOfQueueOnUiThread(Java.Lang.IRunnable? runnable) -> void
 static Bumptech.Glide.Util.Util.PostOnUiThread(Java.Lang.IRunnable? runnable) -> void
 static Bumptech.Glide.Util.Util.RemoveCallbacksOnUiThread(Java.Lang.IRunnable? runnable) -> void
 static Bumptech.Glide.Util.Util.Sha256BytesToHex(byte[]! bytes) -> string!
@@ -2354,6 +2387,7 @@ virtual Bumptech.Glide.Load.Data.HttpUrlFetcher.LoadData(Bumptech.Glide.Priority
 virtual Bumptech.Glide.Load.Data.LocalUriFetcher.Cancel() -> void
 virtual Bumptech.Glide.Load.Data.LocalUriFetcher.Cleanup() -> void
 virtual Bumptech.Glide.Load.Data.LocalUriFetcher.DataSource.get -> Bumptech.Glide.Load.DataSource!
+virtual Bumptech.Glide.Load.Data.LocalUriFetcher.OpenAssetFileDescriptor(Android.Net.Uri? uri) -> Android.Content.Res.AssetFileDescriptor?
 virtual Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher.Cancel() -> void
 virtual Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher.Cleanup() -> void
 virtual Bumptech.Glide.Load.Data.Mediastore.ThumbFetcher.DataClass.get -> Java.Lang.Class!
@@ -2723,10 +2757,10 @@ virtual Bumptech.Glide.Request.RequestFutureTarget.IsDone.get -> bool
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnDestroy() -> void
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnLoadCleared(Android.Graphics.Drawables.Drawable? placeholder) -> void
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnLoadFailed(Android.Graphics.Drawables.Drawable? errorDrawable) -> void
-virtual Bumptech.Glide.Request.RequestFutureTarget.OnLoadFailed(Bumptech.Glide.Load.Engine.GlideException? e, Java.Lang.Object? model, Bumptech.Glide.Request.Target.ITarget! target, bool isFirstResource) -> bool
+virtual Bumptech.Glide.Request.RequestFutureTarget.OnLoadFailed(Bumptech.Glide.Load.Engine.GlideException? e, Java.Lang.Object? model, Bumptech.Glide.Request.Target.ITarget? target, bool isFirstResource) -> bool
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnLoadStarted(Android.Graphics.Drawables.Drawable? placeholder) -> void
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnResourceReady(Java.Lang.Object! resource, Bumptech.Glide.Request.Transition.ITransition? transition) -> void
-virtual Bumptech.Glide.Request.RequestFutureTarget.OnResourceReady(Java.Lang.Object! resource, Java.Lang.Object! model, Bumptech.Glide.Request.Target.ITarget? target, Bumptech.Glide.Load.DataSource! dataSource, bool isFirstResource) -> bool
+virtual Bumptech.Glide.Request.RequestFutureTarget.OnResourceReady(Java.Lang.Object? resource, Java.Lang.Object? model, Bumptech.Glide.Request.Target.ITarget? target, Bumptech.Glide.Load.DataSource? dataSource, bool isFirstResource) -> bool
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnStart() -> void
 virtual Bumptech.Glide.Request.RequestFutureTarget.OnStop() -> void
 virtual Bumptech.Glide.Request.RequestFutureTarget.RemoveCallback(Bumptech.Glide.Request.Target.ISizeReadyCallback! cb) -> void
@@ -2852,6 +2886,9 @@ virtual Bumptech.Glide.RequestBuilder.Error(Android.Graphics.Drawables.Drawable!
 virtual Bumptech.Glide.RequestBuilder.Error(Bumptech.Glide.RequestBuilder? errorBuilder) -> Bumptech.Glide.RequestBuilder!
 virtual Bumptech.Glide.RequestBuilder.Error(Java.Lang.Object? model) -> Bumptech.Glide.RequestBuilder!
 virtual Bumptech.Glide.RequestBuilder.Error(int resourceId) -> Bumptech.Glide.RequestBuilder!
+virtual Bumptech.Glide.RequestBuilder.ExperimentalIntoFront(Android.Widget.ImageView! view) -> Bumptech.Glide.Request.Target.ViewTarget!
+virtual Bumptech.Glide.RequestBuilder.ExperimentalIntoFront(Java.Lang.Object! target) -> Java.Lang.Object!
+virtual Bumptech.Glide.RequestBuilder.ExperimentalPreloadFront(int width, int height) -> Bumptech.Glide.Request.Target.ITarget!
 virtual Bumptech.Glide.RequestBuilder.Fallback(Android.Graphics.Drawables.Drawable! drawable) -> Bumptech.Glide.RequestBuilder!
 virtual Bumptech.Glide.RequestBuilder.Fallback(int resourceId) -> Bumptech.Glide.RequestBuilder!
 virtual Bumptech.Glide.RequestBuilder.FitCenter() -> Bumptech.Glide.RequestBuilder!
