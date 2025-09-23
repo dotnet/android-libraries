@@ -1,5 +1,4 @@
-using AndroidX.Camera.Core;
-using AndroidX.Camera.Core.Internal.Config;
+using AndroidX.Camera.Core.Impl;
 using Java.Lang;
 
 namespace AndroidX.Camera.Video
