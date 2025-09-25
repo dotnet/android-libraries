@@ -70,6 +70,14 @@ steps:
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
 
+  - pwsh: |
+      if (Test-Path "${{ parameters.androidSdkRoot }}") {
+        Remove-Item "${{ parameters.androidSdkRoot }}" -Recurse -Force
+      }
+      New-Item -ItemType Directory -Path "${{ parameters.androidSdkRoot }}" -Force
+    displayName: Clean and create Android SDK directory
+    condition: eq(${{ parameters.installAndroidDependencies }}, true)
+
   - task: DotNetCoreCLI@2
     displayName: Install android dependencies GoogleV2
     inputs:
