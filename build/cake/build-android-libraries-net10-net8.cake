@@ -261,7 +261,7 @@ Task ("net10-net8-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.3.25201.16",
+                    "version": "10.0.100-rc.1.25451.107",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
@@ -478,7 +478,7 @@ Task ("net10-prepare-binderate-build")
             {
                 "sdk":
                 {
-                    "version": "10.0.100-preview.3.25201.16",
+                    "version": "10.0.100-rc.1.25451.107",
                     "rollForward": "patch"
                 },
                 "msbuild-sdks":
