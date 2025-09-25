@@ -6,11 +6,23 @@ AndroidX.Sqlite.Driver.AndroidSQLiteConnection
 AndroidX.Sqlite.Driver.AndroidSQLiteConnection.AndroidSQLiteConnection(Android.Database.Sqlite.SQLiteDatabase! db) -> void
 AndroidX.Sqlite.Driver.AndroidSQLiteConnection.Close() -> void
 AndroidX.Sqlite.Driver.AndroidSQLiteConnection.Db.get -> Android.Database.Sqlite.SQLiteDatabase!
+AndroidX.Sqlite.Driver.AndroidSQLiteConnection.InTransaction() -> bool
 AndroidX.Sqlite.Driver.AndroidSQLiteConnection.Prepare(string! sql) -> AndroidX.Sqlite.ISQLiteStatement!
 AndroidX.Sqlite.Driver.AndroidSQLiteDriver
 AndroidX.Sqlite.Driver.AndroidSQLiteDriver.AndroidSQLiteDriver() -> void
+AndroidX.Sqlite.Driver.AndroidSQLiteDriver.HasConnectionPool.get -> bool
 AndroidX.Sqlite.Driver.AndroidSQLiteDriver.Open(string! fileName) -> AndroidX.Sqlite.ISQLiteConnection!
-AndroidX.Sqlite.Driver.AndroidSQLiteStatement_androidKt
+AndroidX.Sqlite.Driver.SupportSQLiteConnection
+AndroidX.Sqlite.Driver.SupportSQLiteConnection.Close() -> void
+AndroidX.Sqlite.Driver.SupportSQLiteConnection.Db.get -> AndroidX.Sqlite.Db.ISupportSQLiteDatabase!
+AndroidX.Sqlite.Driver.SupportSQLiteConnection.InTransaction() -> bool
+AndroidX.Sqlite.Driver.SupportSQLiteConnection.Prepare(string! sql) -> AndroidX.Sqlite.ISQLiteStatement!
+AndroidX.Sqlite.Driver.SupportSQLiteConnection.SupportSQLiteConnection(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db) -> void
+AndroidX.Sqlite.Driver.SupportSQLiteDriver
+AndroidX.Sqlite.Driver.SupportSQLiteDriver.HasConnectionPool.get -> bool
+AndroidX.Sqlite.Driver.SupportSQLiteDriver.Open(string! fileName) -> AndroidX.Sqlite.Driver.SupportSQLiteConnection!
+AndroidX.Sqlite.Driver.SupportSQLiteDriver.SupportSQLiteDriver(AndroidX.Sqlite.Db.ISupportSQLiteOpenHelper! openHelper) -> void
+AndroidX.Sqlite.Driver.SupportSQLiteStatement_androidKt
 AndroidX.Sqlite.Util.ProcessLock
 AndroidX.Sqlite.Util.ProcessLock.Lock(bool processLock) -> void
 AndroidX.Sqlite.Util.ProcessLock.ProcessLock(string! name, Java.IO.File? lockDir, bool processLock) -> void
@@ -18,5 +30,7 @@ AndroidX.Sqlite.Util.ProcessLock.Unlock() -> void
 override AndroidX.Sqlite.Db.Framework.FrameworkSQLiteOpenHelperFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Driver.AndroidSQLiteConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Driver.AndroidSQLiteDriver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Sqlite.Driver.AndroidSQLiteStatement_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Sqlite.Driver.SupportSQLiteConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Sqlite.Driver.SupportSQLiteDriver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Sqlite.Driver.SupportSQLiteStatement_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Util.ProcessLock.JniPeerMembers.get -> Java.Interop.JniPeerMembers!

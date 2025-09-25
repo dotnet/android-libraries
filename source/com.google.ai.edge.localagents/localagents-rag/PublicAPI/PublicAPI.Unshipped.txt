@@ -90,6 +90,10 @@ Google.AI.Edge.LocalAgents.RAG.Models.GeminiEmbedder
 Google.AI.Edge.LocalAgents.RAG.Models.GeminiEmbedder.GeminiEmbedder(string? model, string? apiKey) -> void
 Google.AI.Edge.LocalAgents.RAG.Models.GeminiEmbedder.GetBatchEmbeddings(Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest? request) -> Google.Common.Util.Concurrent.IListenableFuture?
 Google.AI.Edge.LocalAgents.RAG.Models.GeminiEmbedder.GetEmbeddings(Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest? request) -> Google.Common.Util.Concurrent.IListenableFuture?
+Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel
+Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel.GemmaEmbeddingModel(string? embeddingModelPath, string? sentencePieceModelPath, bool useGpu) -> void
+Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel.GetBatchEmbeddings(Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest? request) -> Google.Common.Util.Concurrent.IListenableFuture?
+Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel.GetEmbeddings(Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest? request) -> Google.Common.Util.Concurrent.IListenableFuture?
 Google.AI.Edge.LocalAgents.RAG.Models.IAsyncProgressListener
 Google.AI.Edge.LocalAgents.RAG.Models.IAsyncProgressListener.Run(Java.Lang.Object? partialResult, bool done) -> void
 Google.AI.Edge.LocalAgents.RAG.Models.IEmbedder
@@ -202,8 +206,10 @@ abstract Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.RawData.get -> 
 abstract Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.ToBuilder() -> Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Builder?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder.Build() -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder.SetData(Java.Lang.Object? data) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
+abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder.SetIsQuery(bool isQuery) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder.SetMetadata(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? additionalData) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder.SetTask(Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType? taskType) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
+abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.IsQuery.get -> bool
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Metadata.get -> Google.Common.Collect.ImmutableMap?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.RawData.get -> Java.Lang.Object?
 abstract Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Task.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
@@ -271,6 +277,7 @@ const Google.AI.Edge.LocalAgents.RAG.Memory.SqliteVectorStore.DefaultEmbeddingsC
 const Google.AI.Edge.LocalAgents.RAG.Memory.SqliteVectorStore.DefaultTableName = "rag_vector_store" -> string!
 const Google.AI.Edge.LocalAgents.RAG.Memory.SqliteVectorStore.DefaultTextColumnName = "text" -> string!
 const Google.AI.Edge.LocalAgents.RAG.Models.GeckoEmbeddingModel.TitleKey = "title" -> string!
+const Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel.TitleKey = "title" -> string!
 override Google.AI.Edge.LocalAgents.RAG.Chains.ChainConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LocalAgents.RAG.Chains.ChainConfig.Builder.ThresholdClass.get -> nint
 override Google.AI.Edge.LocalAgents.RAG.Chains.ChainConfig.Builder.ThresholdType.get -> System.Type!
@@ -317,6 +324,7 @@ override Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest.ThresholdClass.g
 override Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest.ThresholdType.get -> System.Type!
 override Google.AI.Edge.LocalAgents.RAG.Models.GeckoEmbeddingModel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LocalAgents.RAG.Models.GeminiEmbedder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LocalAgents.RAG.Models.GemmaEmbeddingModel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LocalAgents.RAG.Models.LanguageModelRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LocalAgents.RAG.Models.LanguageModelRequest.Builder.ThresholdClass.get -> nint
 override Google.AI.Edge.LocalAgents.RAG.Models.LanguageModelRequest.Builder.ThresholdType.get -> System.Type!
@@ -392,10 +400,12 @@ static Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Create(Java.Lang.
 static Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Create(Java.Lang.Object? data, Google.Common.Collect.ImmutableList? embeddings, Google.Common.Collect.ImmutableMap? metadata) -> Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord?
 static Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.InvokeBuilder() -> Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Builder?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Create(Java.Lang.Object? data, Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType? taskType) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData?
-static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Create(Java.Lang.Object? data, Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType? taskType, Google.Common.Collect.ImmutableMap? metadata) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData?
+static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Create(Java.Lang.Object? data, Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType? taskType, bool isQuery) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData?
+static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Create(Java.Lang.Object? data, Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType? taskType, bool isQuery, Google.Common.Collect.ImmutableMap? metadata) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.InvokeBuilder() -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.Classification.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.Clustering.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
+static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.CodeRetrieval.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.FactVerification.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.QuestionAnswering.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType.RetrievalDocument.get -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.TaskType?
@@ -413,6 +423,8 @@ static Google.AI.Edge.LocalAgents.RAG.Models.LanguageModelResponse.InvokeBuilder
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.Create(int topK, Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType? taskType) -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig?
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.Create(int topK, float minSimilarityScore, Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType? taskType) -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig?
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.InvokeBuilder() -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.Builder?
+static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType.CodeRetrieval.get -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType?
+static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType.FactVerification.get -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType.QuestionAnswering.get -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType.RetrievalQuery.get -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType?
 static Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType.TaskUnspecified.get -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalConfig.TaskType?
@@ -436,6 +448,7 @@ static Google.AI.Edge.LocalAgents.RAG.Shared.VectorOperations.CosineSimilarity(S
 static Google.AI.Edge.LocalAgents.RAG.Shared.VectorOperations.Dot(System.Collections.Generic.IList<Java.Lang.Float!>? x, System.Collections.Generic.IList<Java.Lang.Float!>? y) -> float
 virtual Google.AI.Edge.LocalAgents.RAG.Memory.TableConfig.Builder.AddColumn(Google.AI.Edge.LocalAgents.RAG.Memory.ColumnConfig? column) -> Google.AI.Edge.LocalAgents.RAG.Memory.TableConfig.Builder?
 virtual Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Builder.AddMetadata(string? key, Java.Lang.Object? value) -> Google.AI.Edge.LocalAgents.RAG.Memory.VectorStoreRecord.Builder?
+virtual Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.ToBuilder() -> Google.AI.Edge.LocalAgents.RAG.Models.EmbedData.Builder?
 virtual Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest.Builder.AddEmbedData(Google.AI.Edge.LocalAgents.RAG.Models.EmbedData? embedData) -> Google.AI.Edge.LocalAgents.RAG.Models.EmbeddingRequest.Builder?
 virtual Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalEntity.Builder.AddMetadata(string? key, Java.Lang.Object? value) -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalEntity.Builder?
 virtual Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalResponse.Builder.AddEntity(Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalEntity? entity) -> Google.AI.Edge.LocalAgents.RAG.Retrieval.RetrievalResponse.Builder?

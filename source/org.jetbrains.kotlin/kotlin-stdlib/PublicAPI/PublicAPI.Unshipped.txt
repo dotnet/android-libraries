@@ -221,15 +221,21 @@ Kotlin.Contracts.ContractBuilderDefaultImpls
 Kotlin.Contracts.ContractBuilderKt
 Kotlin.Contracts.ExperimentalContractsAttribute
 Kotlin.Contracts.ExperimentalContractsAttribute.ExperimentalContractsAttribute() -> void
+Kotlin.Contracts.ExperimentalExtendedContractsAttribute
+Kotlin.Contracts.ExperimentalExtendedContractsAttribute.ExperimentalExtendedContractsAttribute() -> void
 Kotlin.Contracts.ICallsInPlace
 Kotlin.Contracts.IConditionalEffect
 Kotlin.Contracts.IContractBuilder
 Kotlin.Contracts.IContractBuilder.CallsInPlace(Kotlin.IFunction! lambda, Kotlin.Contracts.InvocationKind! kind) -> Kotlin.Contracts.ICallsInPlace!
+Kotlin.Contracts.IContractBuilder.HoldsIn(bool p0, Kotlin.IFunction! lambda) -> Kotlin.Contracts.IHoldsIn!
+Kotlin.Contracts.IContractBuilder.Implies(bool p0, Kotlin.Contracts.IReturnsNotNull! value) -> void
 Kotlin.Contracts.IContractBuilder.Returns() -> Kotlin.Contracts.IReturns!
 Kotlin.Contracts.IContractBuilder.Returns(Java.Lang.Object? value) -> Kotlin.Contracts.IReturns!
 Kotlin.Contracts.IContractBuilder.ReturnsNotNull() -> Kotlin.Contracts.IReturnsNotNull!
 Kotlin.Contracts.IEffect
 Kotlin.Contracts.IExperimentalContracts
+Kotlin.Contracts.IExperimentalExtendedContracts
+Kotlin.Contracts.IHoldsIn
 Kotlin.Contracts.IReturns
 Kotlin.Contracts.IReturnsNotNull
 Kotlin.Contracts.ISimpleEffect
@@ -325,6 +331,8 @@ Kotlin.Experimental.IExperimentalNativeApi
 Kotlin.Experimental.IExperimentalObjCName
 Kotlin.Experimental.IExperimentalObjCRefinement
 Kotlin.Experimental.IExperimentalTypeInference
+Kotlin.ExperimentalContextParametersAttribute
+Kotlin.ExperimentalContextParametersAttribute.ExperimentalContextParametersAttribute() -> void
 Kotlin.ExperimentalMultiplatformAttribute
 Kotlin.ExperimentalMultiplatformAttribute.ExperimentalMultiplatformAttribute() -> void
 Kotlin.ExperimentalStdlibApiAttribute
@@ -351,6 +359,7 @@ Kotlin.IDeprecatedSinceKotlin.ErrorSince() -> string?
 Kotlin.IDeprecatedSinceKotlin.HiddenSince() -> string?
 Kotlin.IDeprecatedSinceKotlin.WarningSince() -> string?
 Kotlin.IDslMarker
+Kotlin.IExperimentalContextParameters
 Kotlin.IExperimentalMultiplatform
 Kotlin.IExperimentalStdlibApi
 Kotlin.IExperimentalSubclassOptIn
@@ -1034,7 +1043,7 @@ Kotlin.Ranges.OpenEndRangeDefaultImpls
 Kotlin.Ranges.RangesKt
 Kotlin.Ranges.UIntProgression
 Kotlin.Ranges.UIntProgression.CompanionStatic
-Kotlin.Ranges.UIntProgression.CompanionStatic.FromClosedRange_Nkh28Cs(uint rangeStart, uint rangeEnd, int step) -> Kotlin.Ranges.UIntProgression!
+Kotlin.Ranges.UIntProgression.CompanionStatic.FromClosedRange_Nkh28Cs(uint _v_c_kotlin_UInt__rangeStart_0, uint _v_c_kotlin_UInt__rangeEnd_0, int step) -> Kotlin.Ranges.UIntProgression!
 Kotlin.Ranges.UIntProgression.First.get -> uint
 Kotlin.Ranges.UIntProgression.Iterator() -> Java.Util.IIterator!
 Kotlin.Ranges.UIntProgression.Last.get -> uint
@@ -1043,13 +1052,13 @@ Kotlin.Ranges.UIntProgression.UIntProgression(nint javaReference, Android.Runtim
 Kotlin.Ranges.UIntRange
 Kotlin.Ranges.UIntRange.CompanionStatic
 Kotlin.Ranges.UIntRange.CompanionStatic.EMPTY.get -> Kotlin.Ranges.UIntRange!
-Kotlin.Ranges.UIntRange.Contains(uint value) -> bool
+Kotlin.Ranges.UIntRange.Contains(uint _v_c_kotlin_UInt__value_0) -> bool
 Kotlin.Ranges.UIntRange.EndExclusive.get -> uint
 Kotlin.Ranges.UIntRange.EndInclusive.get -> uint
 Kotlin.Ranges.UIntRange.Start.get -> uint
 Kotlin.Ranges.ULongProgression
 Kotlin.Ranges.ULongProgression.CompanionStatic
-Kotlin.Ranges.ULongProgression.CompanionStatic.FromClosedRange_7ftBX0g(ulong rangeStart, ulong rangeEnd, long step) -> Kotlin.Ranges.ULongProgression!
+Kotlin.Ranges.ULongProgression.CompanionStatic.FromClosedRange_7ftBX0g(ulong _v_c_kotlin_ULong__rangeStart_0, ulong _v_c_kotlin_ULong__rangeEnd_0, long step) -> Kotlin.Ranges.ULongProgression!
 Kotlin.Ranges.ULongProgression.First.get -> ulong
 Kotlin.Ranges.ULongProgression.Iterator() -> Java.Util.IIterator!
 Kotlin.Ranges.ULongProgression.Last.get -> ulong
@@ -1058,7 +1067,7 @@ Kotlin.Ranges.ULongProgression.ULongProgression(nint javaReference, Android.Runt
 Kotlin.Ranges.ULongRange
 Kotlin.Ranges.ULongRange.CompanionStatic
 Kotlin.Ranges.ULongRange.CompanionStatic.EMPTY.get -> Kotlin.Ranges.ULongRange!
-Kotlin.Ranges.ULongRange.Contains(ulong value) -> bool
+Kotlin.Ranges.ULongRange.Contains(ulong _v_c_kotlin_ULong__value_0) -> bool
 Kotlin.Ranges.ULongRange.EndExclusive.get -> ulong
 Kotlin.Ranges.ULongRange.EndInclusive.get -> ulong
 Kotlin.Ranges.ULongRange.Start.get -> ulong
@@ -1424,9 +1433,9 @@ Kotlin.Time.Instant.CompanionStatic.ParseOrNull(string! input) -> Kotlin.Time.In
 Kotlin.Time.Instant.CompareTo(Java.Lang.Object! other) -> int
 Kotlin.Time.Instant.EpochSeconds.get -> long
 Kotlin.Time.Instant.Minus(Kotlin.Time.Instant! other) -> long
-Kotlin.Time.Instant.Minus(long duration) -> Kotlin.Time.Instant!
+Kotlin.Time.Instant.Minus(long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.Instant!
 Kotlin.Time.Instant.NanosecondsOfSecond.get -> int
-Kotlin.Time.Instant.Plus(long duration) -> Kotlin.Time.Instant!
+Kotlin.Time.Instant.Plus(long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.Instant!
 Kotlin.Time.Instant.ToEpochMilliseconds() -> long
 Kotlin.Time.InstantJvmKt
 Kotlin.Time.InstantKt
@@ -1436,7 +1445,7 @@ Kotlin.Time.LongSaturatedMathKt
 Kotlin.Time.MeasureTimeKt
 Kotlin.Time.MonoTimeSourceKt
 Kotlin.Time.TestTimeSource
-Kotlin.Time.TestTimeSource.PlusAssign(long duration) -> void
+Kotlin.Time.TestTimeSource.PlusAssign(long _v_c_kotlin_time_Duration__duration_0) -> void
 Kotlin.Time.TestTimeSource.TestTimeSource() -> void
 Kotlin.Time.TimeMarkDefaultImpls
 Kotlin.Time.TimeSourceMonotonic
@@ -1451,7 +1460,7 @@ Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Plus(long duration) -> long
 Kotlin.Time.TimedValue
 Kotlin.Time.TimedValue.Component1() -> Java.Lang.Object?
 Kotlin.Time.TimedValue.Component2() -> long
-Kotlin.Time.TimedValue.Copy(Java.Lang.Object? value, long duration) -> Kotlin.Time.TimedValue!
+Kotlin.Time.TimedValue.Copy(Java.Lang.Object? value, long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.TimedValue!
 Kotlin.Time.TimedValue.Duration.get -> long
 Kotlin.Time.TimedValue.Value.get -> Java.Lang.Object?
 Kotlin.Triple
@@ -1472,7 +1481,7 @@ Kotlin.TypeCastException.TypeCastException(string? message) -> void
 Kotlin.UByte
 Kotlin.UByte.CompareTo(Java.Lang.Object? p0) -> int
 Kotlin.UByteArray
-Kotlin.UByteArray.Add(Java.Lang.Object? element) -> bool
+Kotlin.UByteArray.Add(Java.Lang.Object? _v_c_kotlin_UByte__element_0) -> bool
 Kotlin.UByteArray.AddAll(System.Collections.ICollection? elements) -> bool
 Kotlin.UByteArray.Clear() -> void
 Kotlin.UByteArray.Contains(Java.Lang.Object? element) -> bool
@@ -1492,7 +1501,7 @@ Kotlin.UByteKt
 Kotlin.UInt
 Kotlin.UInt.CompareTo(Java.Lang.Object? p0) -> int
 Kotlin.UIntArray
-Kotlin.UIntArray.Add(Java.Lang.Object? element) -> bool
+Kotlin.UIntArray.Add(Java.Lang.Object? _v_c_kotlin_UInt__element_0) -> bool
 Kotlin.UIntArray.AddAll(System.Collections.ICollection? elements) -> bool
 Kotlin.UIntArray.Clear() -> void
 Kotlin.UIntArray.Contains(Java.Lang.Object? element) -> bool
@@ -1512,7 +1521,7 @@ Kotlin.UIntKt
 Kotlin.ULong
 Kotlin.ULong.CompareTo(Java.Lang.Object? p0) -> int
 Kotlin.ULongArray
-Kotlin.ULongArray.Add(Java.Lang.Object? element) -> bool
+Kotlin.ULongArray.Add(Java.Lang.Object? _v_c_kotlin_ULong__element_0) -> bool
 Kotlin.ULongArray.AddAll(System.Collections.ICollection? elements) -> bool
 Kotlin.ULongArray.Clear() -> void
 Kotlin.ULongArray.Contains(Java.Lang.Object? element) -> bool
@@ -1533,7 +1542,7 @@ Kotlin.UNumbersKt
 Kotlin.UShort
 Kotlin.UShort.CompareTo(Java.Lang.Object? p0) -> int
 Kotlin.UShortArray
-Kotlin.UShortArray.Add(Java.Lang.Object? element) -> bool
+Kotlin.UShortArray.Add(Java.Lang.Object? _v_c_kotlin_UShort__element_0) -> bool
 Kotlin.UShortArray.AddAll(System.Collections.ICollection? elements) -> bool
 Kotlin.UShortArray.Clear() -> void
 Kotlin.UShortArray.Contains(Java.Lang.Object? element) -> bool
@@ -1566,8 +1575,8 @@ Kotlin.Uuid.Uuid
 Kotlin.Uuid.Uuid.CompanionStatic
 Kotlin.Uuid.Uuid.CompanionStatic.FromByteArray(byte[]! byteArray) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.FromLongs(long mostSignificantBits, long leastSignificantBits) -> Kotlin.Uuid.Uuid!
-Kotlin.Uuid.Uuid.CompanionStatic.FromUByteArray_GBYM_sE(byte[]! ubyteArray) -> Kotlin.Uuid.Uuid!
-Kotlin.Uuid.Uuid.CompanionStatic.FromULongs_eb3DHEI(ulong mostSignificantBits, ulong leastSignificantBits) -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.FromUByteArray_GBYM_sE(byte[]! _v_c_kotlin_UByteArray__ubyteArray_0) -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.FromULongs_eb3DHEI(ulong _v_c_kotlin_ULong__mostSignificantBits_0, ulong _v_c_kotlin_ULong__leastSignificantBits_0) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.LEXICAL_ORDER.get -> Java.Util.IComparator!
 Kotlin.Uuid.Uuid.CompanionStatic.NIL.get -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.Parse(string! uuidString) -> Kotlin.Uuid.Uuid!
@@ -3975,14 +3984,14 @@ static Kotlin.Collections.UCollectionsKt.ToUByteArray(System.Collections.Generic
 static Kotlin.Collections.UCollectionsKt.ToUIntArray(System.Collections.Generic.ICollection<Kotlin.UInt!>! _this_toUIntArray) -> int[]!
 static Kotlin.Collections.UCollectionsKt.ToULongArray(System.Collections.Generic.ICollection<Kotlin.ULong!>! _this_toULongArray) -> long[]!
 static Kotlin.Collections.UCollectionsKt.ToUShortArray(System.Collections.Generic.ICollection<Kotlin.UShort!>! _this_toUShortArray) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.AsList(byte[]! _this_asList_u2dGBYM_sE) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.AsList(int[]! _this_asList_u2d_u2dajY_u2d9A) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.AsList(long[]! _this_asList_u2dQwZRm1k) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.AsList(short[]! _this_asList_u2drL5Bavg) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(byte[]! _this_binarySearch_u2dWpHrYlw, sbyte element, int fromIndex, int toIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(int[]! _this_binarySearch_u2d2fe2U9s, int element, int fromIndex, int toIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(long[]! _this_binarySearch_u2dK6DWlUc, long element, int fromIndex, int toIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(short[]! _this_binarySearch_u2dEtDCXyQ, short element, int fromIndex, int toIndex) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.AsList(byte[]! _v_c_kotlin_UByteArray___this_asList_0) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.AsList(int[]! _v_c_kotlin_UIntArray___this_asList_0) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.AsList(long[]! _v_c_kotlin_ULongArray___this_asList_0) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.AsList(short[]! _v_c_kotlin_UShortArray___this_asList_0) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(byte[]! _v_c_kotlin_UByteArray___this_binarySearch_0, sbyte _v_c_kotlin_UByte__element_0, int fromIndex, int toIndex) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(int[]! _v_c_kotlin_UIntArray___this_binarySearch_0, int _v_c_kotlin_UInt__element_0, int fromIndex, int toIndex) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(long[]! _v_c_kotlin_ULongArray___this_binarySearch_0, long _v_c_kotlin_ULong__element_0, int fromIndex, int toIndex) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.BinarySearch(short[]! _v_c_kotlin_UShortArray___this_binarySearch_0, short _v_c_kotlin_UShort__element_0, int fromIndex, int toIndex) -> int
 static Kotlin.Collections.Unsigned.UArraysKt.ContentEquals(byte[]? _this_contentEquals_u2dkV0jMPg, byte[]? other) -> bool
 static Kotlin.Collections.Unsigned.UArraysKt.ContentEquals(int[]? _this_contentEquals_u2dKJPZfPQ, int[]? other) -> bool
 static Kotlin.Collections.Unsigned.UArraysKt.ContentEquals(long[]? _this_contentEquals_u2dlec5QzE, long[]? other) -> bool
@@ -3995,182 +4004,182 @@ static Kotlin.Collections.Unsigned.UArraysKt.ContentToString(byte[]? _this_conte
 static Kotlin.Collections.Unsigned.UArraysKt.ContentToString(int[]? _this_contentToString_u2dXUkPCBk) -> string!
 static Kotlin.Collections.Unsigned.UArraysKt.ContentToString(long[]? _this_contentToString_u2duLth9ew) -> string!
 static Kotlin.Collections.Unsigned.UArraysKt.ContentToString(short[]? _this_contentToString_u2dd_u2d6D3K8) -> string!
-static Kotlin.Collections.Unsigned.UArraysKt.Drop(byte[]! _this_drop_u2dPpDY95g, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Drop(int[]! _this_drop_u2dqFRl0hI, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Drop(long[]! _this_drop_u2dr7IrZao, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Drop(short[]! _this_drop_u2dnggk6HY, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.DropLast(byte[]! _this_dropLast_u2dPpDY95g, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.DropLast(int[]! _this_dropLast_u2dqFRl0hI, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.DropLast(long[]! _this_dropLast_u2dr7IrZao, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.DropLast(short[]! _this_dropLast_u2dnggk6HY, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Fill(byte[]! _this_fill_u2dWpHrYlw, sbyte element, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Fill(int[]! _this_fill_u2d2fe2U9s, int element, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Fill(long[]! _this_fill_u2dK6DWlUc, long element, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Fill(short[]! _this_fill_u2dEtDCXyQ, short element, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(byte[]! _this_firstOrNull_u2dGBYM_sE) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(int[]! _this_firstOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(long[]! _this_firstOrNull_u2dQwZRm1k) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(short[]! _this_firstOrNull_u2drL5Bavg) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(byte[]! _this_indices) -> Kotlin.Ranges.IntRange!
-static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(int[]! _this_indices) -> Kotlin.Ranges.IntRange!
-static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(long[]! _this_indices) -> Kotlin.Ranges.IntRange!
-static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(short[]! _this_indices) -> Kotlin.Ranges.IntRange!
-static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(byte[]! _this_lastIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(int[]! _this_lastIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(long[]! _this_lastIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(short[]! _this_lastIndex) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(byte[]! _this_getOrNull_u2dPpDY95g, int index) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(int[]! _this_getOrNull_u2dqFRl0hI, int index) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(long[]! _this_getOrNull_u2dr7IrZao, int index) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(short[]! _this_getOrNull_u2dnggk6HY, int index) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(byte[]! _this_lastOrNull_u2dGBYM_sE) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(int[]! _this_lastOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(long[]! _this_lastOrNull_u2dQwZRm1k) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(short[]! _this_lastOrNull_u2drL5Bavg) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(byte[]! _this_maxOrNull_u2dGBYM_sE) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(int[]! _this_maxOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(long[]! _this_maxOrNull_u2dQwZRm1k) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(short[]! _this_maxOrNull_u2drL5Bavg) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(byte[]! _this_max_u2dGBYM_sE) -> sbyte
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(int[]! _this_max_u2d_u2dajY_u2d9A) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(long[]! _this_max_u2dQwZRm1k) -> long
-static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(short[]! _this_max_u2drL5Bavg) -> short
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(byte[]! _this_maxWithOrNull_u2dXMRcp5o, Java.Util.IComparator! comparator) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(int[]! _this_maxWithOrNull_u2dYmdZ_VM, Java.Util.IComparator! comparator) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(long[]! _this_maxWithOrNull_u2dzrEWJaI, Java.Util.IComparator! comparator) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(short[]! _this_maxWithOrNull_u2deOHTfZs, Java.Util.IComparator! comparator) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(byte[]! _this_maxWith_u2dXMRcp5o, Java.Util.IComparator! comparator) -> sbyte
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(int[]! _this_maxWith_u2dYmdZ_VM, Java.Util.IComparator! comparator) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(long[]! _this_maxWith_u2dzrEWJaI, Java.Util.IComparator! comparator) -> long
-static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(short[]! _this_maxWith_u2deOHTfZs, Java.Util.IComparator! comparator) -> short
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(byte[]! _this_minOrNull_u2dGBYM_sE) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(int[]! _this_minOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(long[]! _this_minOrNull_u2dQwZRm1k) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(short[]! _this_minOrNull_u2drL5Bavg) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(byte[]! _this_min_u2dGBYM_sE) -> sbyte
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(int[]! _this_min_u2d_u2dajY_u2d9A) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(long[]! _this_min_u2dQwZRm1k) -> long
-static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(short[]! _this_min_u2drL5Bavg) -> short
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(byte[]! _this_minWithOrNull_u2dXMRcp5o, Java.Util.IComparator! comparator) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(int[]! _this_minWithOrNull_u2dYmdZ_VM, Java.Util.IComparator! comparator) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(long[]! _this_minWithOrNull_u2dzrEWJaI, Java.Util.IComparator! comparator) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(short[]! _this_minWithOrNull_u2deOHTfZs, Java.Util.IComparator! comparator) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(byte[]! _this_minWith_u2dXMRcp5o, Java.Util.IComparator! comparator) -> sbyte
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(int[]! _this_minWith_u2dYmdZ_VM, Java.Util.IComparator! comparator) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(long[]! _this_minWith_u2dzrEWJaI, Java.Util.IComparator! comparator) -> long
-static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(short[]! _this_minWith_u2deOHTfZs, Java.Util.IComparator! comparator) -> short
-static Kotlin.Collections.Unsigned.UArraysKt.Plus(byte[]! _this_plus_u2dxo_DsdI, System.Collections.Generic.ICollection<Kotlin.UByte!>! elements) -> byte[]!
-static Kotlin.Collections.Unsigned.UArraysKt.Plus(int[]! _this_plus_u2dCFIt9YE, System.Collections.Generic.ICollection<Kotlin.UInt!>! elements) -> int[]!
-static Kotlin.Collections.Unsigned.UArraysKt.Plus(long[]! _this_plus_u2dkzHmqpY, System.Collections.Generic.ICollection<Kotlin.ULong!>! elements) -> long[]!
-static Kotlin.Collections.Unsigned.UArraysKt.Plus(short[]! _this_plus_u2dojwP5H8, System.Collections.Generic.ICollection<Kotlin.UShort!>! elements) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.Random(byte[]! _this_random_u2doSF2wD8, Kotlin.Random.Random! random) -> sbyte
-static Kotlin.Collections.Unsigned.UArraysKt.Random(int[]! _this_random_u2d2D5oskM, Kotlin.Random.Random! random) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.Random(long[]! _this_random_u2dJzugnMA, Kotlin.Random.Random! random) -> long
-static Kotlin.Collections.Unsigned.UArraysKt.Random(short[]! _this_random_u2ds5X_as8, Kotlin.Random.Random! random) -> short
-static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(byte[]! _this_randomOrNull_u2doSF2wD8, Kotlin.Random.Random! random) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(int[]! _this_randomOrNull_u2d2D5oskM, Kotlin.Random.Random! random) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(long[]! _this_randomOrNull_u2dJzugnMA, Kotlin.Random.Random! random) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(short[]! _this_randomOrNull_u2ds5X_as8, Kotlin.Random.Random! random) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.Reversed(byte[]! _this_reversed_u2dGBYM_sE) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Reversed(int[]! _this_reversed_u2d_u2dajY_u2d9A) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Reversed(long[]! _this_reversed_u2dQwZRm1k) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Reversed(short[]! _this_reversed_u2drL5Bavg) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(byte[]! _this_shuffle_u2dGBYM_sE) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(byte[]! _this_shuffle_u2doSF2wD8, Kotlin.Random.Random! random) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(int[]! _this_shuffle_u2d2D5oskM, Kotlin.Random.Random! random) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(int[]! _this_shuffle_u2d_u2dajY_u2d9A) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(long[]! _this_shuffle_u2dJzugnMA, Kotlin.Random.Random! random) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(long[]! _this_shuffle_u2dQwZRm1k) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(short[]! _this_shuffle_u2drL5Bavg) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(short[]! _this_shuffle_u2ds5X_as8, Kotlin.Random.Random! random) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(byte[]! _this_singleOrNull_u2dGBYM_sE) -> Kotlin.UByte?
-static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(int[]! _this_singleOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
-static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(long[]! _this_singleOrNull_u2dQwZRm1k) -> Kotlin.ULong?
-static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(short[]! _this_singleOrNull_u2drL5Bavg) -> Kotlin.UShort?
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(byte[]! _this_slice_u2dJQknh5Q, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(byte[]! _this_slice_u2dc0bezYM, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(int[]! _this_slice_u2dHwE9HBo, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(int[]! _this_slice_u2dtAntMlw, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(long[]! _this_slice_u2dF7u83W8, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(long[]! _this_slice_u2dZRhS8yI, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(short[]! _this_slice_u2dJGPC0_u2dM, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Slice(short[]! _this_slice_u2dQ6IL4kU, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(byte[]! _this_sliceArray_u2dc0bezYM, Kotlin.Ranges.IntRange! indices) -> byte[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(byte[]! _this_sliceArray_u2dxo_DsdI, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> byte[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(int[]! _this_sliceArray_u2dCFIt9YE, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> int[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(int[]! _this_sliceArray_u2dtAntMlw, Kotlin.Ranges.IntRange! indices) -> int[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(long[]! _this_sliceArray_u2dZRhS8yI, Kotlin.Ranges.IntRange! indices) -> long[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(long[]! _this_sliceArray_u2dkzHmqpY, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> long[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(short[]! _this_sliceArray_u2dQ6IL4kU, Kotlin.Ranges.IntRange! indices) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(short[]! _this_sliceArray_u2dojwP5H8, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(byte[]! _this_sort_u2d4UcCI2c, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(byte[]! _this_sort_u2dGBYM_sE) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(int[]! _this_sort_u2d_u2dajY_u2d9A) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(int[]! _this_sort_u2doBK06Vg, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(long[]! _this_sort_u2dQwZRm1k) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(long[]! _this_sort_u2d_u2dnroSd4, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(short[]! _this_sort_u2dAa5vz7o, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sort(short[]! _this_sort_u2drL5Bavg) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(byte[]! _this_sortDescending_u2d4UcCI2c, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(byte[]! _this_sortDescending_u2dGBYM_sE) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(int[]! _this_sortDescending_u2d_u2dajY_u2d9A) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(int[]! _this_sortDescending_u2doBK06Vg, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(long[]! _this_sortDescending_u2dQwZRm1k) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(long[]! _this_sortDescending_u2d_u2dnroSd4, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(short[]! _this_sortDescending_u2dAa5vz7o, int fromIndex, int toIndex) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(short[]! _this_sortDescending_u2drL5Bavg) -> void
-static Kotlin.Collections.Unsigned.UArraysKt.Sorted(byte[]! _this_sorted_u2dGBYM_sE) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Sorted(int[]! _this_sorted_u2d_u2dajY_u2d9A) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Sorted(long[]! _this_sorted_u2dQwZRm1k) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Sorted(short[]! _this_sorted_u2drL5Bavg) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(byte[]! _this_sortedArray_u2dGBYM_sE) -> byte[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(int[]! _this_sortedArray_u2d_u2dajY_u2d9A) -> int[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(long[]! _this_sortedArray_u2dQwZRm1k) -> long[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(short[]! _this_sortedArray_u2drL5Bavg) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(byte[]! _this_sortedArrayDescending_u2dGBYM_sE) -> byte[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(int[]! _this_sortedArrayDescending_u2d_u2dajY_u2d9A) -> int[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(long[]! _this_sortedArrayDescending_u2dQwZRm1k) -> long[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(short[]! _this_sortedArrayDescending_u2drL5Bavg) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(byte[]! _this_sortedDescending_u2dGBYM_sE) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(int[]! _this_sortedDescending_u2d_u2dajY_u2d9A) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(long[]! _this_sortedDescending_u2dQwZRm1k) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(short[]! _this_sortedDescending_u2drL5Bavg) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Drop(byte[]! _v_c_kotlin_UByteArray___this_drop_0, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Drop(int[]! _v_c_kotlin_UIntArray___this_drop_0, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Drop(long[]! _v_c_kotlin_ULongArray___this_drop_0, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Drop(short[]! _v_c_kotlin_UShortArray___this_drop_0, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.DropLast(byte[]! _v_c_kotlin_UByteArray___this_dropLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.DropLast(int[]! _v_c_kotlin_UIntArray___this_dropLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.DropLast(long[]! _v_c_kotlin_ULongArray___this_dropLast_0, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.DropLast(short[]! _v_c_kotlin_UShortArray___this_dropLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Fill(byte[]! _v_c_kotlin_UByteArray___this_fill_0, sbyte _v_c_kotlin_UByte__element_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Fill(int[]! _v_c_kotlin_UIntArray___this_fill_0, int _v_c_kotlin_UInt__element_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Fill(long[]! _v_c_kotlin_ULongArray___this_fill_0, long _v_c_kotlin_ULong__element_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Fill(short[]! _v_c_kotlin_UShortArray___this_fill_0, short _v_c_kotlin_UShort__element_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(byte[]! _v_c_kotlin_UByteArray___this_firstOrNull_0) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(int[]! _v_c_kotlin_UIntArray___this_firstOrNull_0) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(long[]! _v_c_kotlin_ULongArray___this_firstOrNull_0) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.FirstOrNull(short[]! _v_c_kotlin_UShortArray___this_firstOrNull_0) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(byte[]! _v_c_kotlin_UByteArray___this_indices_0) -> Kotlin.Ranges.IntRange!
+static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(int[]! _v_c_kotlin_UIntArray___this_indices_0) -> Kotlin.Ranges.IntRange!
+static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(long[]! _v_c_kotlin_ULongArray___this_indices_0) -> Kotlin.Ranges.IntRange!
+static Kotlin.Collections.Unsigned.UArraysKt.GetIndices(short[]! _v_c_kotlin_UShortArray___this_indices_0) -> Kotlin.Ranges.IntRange!
+static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(byte[]! _v_c_kotlin_UByteArray___this_lastIndex_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(int[]! _v_c_kotlin_UIntArray___this_lastIndex_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(long[]! _v_c_kotlin_ULongArray___this_lastIndex_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.GetLastIndex(short[]! _v_c_kotlin_UShortArray___this_lastIndex_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(byte[]! _v_c_kotlin_UByteArray___this_getOrNull_0, int index) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(int[]! _v_c_kotlin_UIntArray___this_getOrNull_0, int index) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(long[]! _v_c_kotlin_ULongArray___this_getOrNull_0, int index) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(short[]! _v_c_kotlin_UShortArray___this_getOrNull_0, int index) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(byte[]! _v_c_kotlin_UByteArray___this_lastOrNull_0) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(int[]! _v_c_kotlin_UIntArray___this_lastOrNull_0) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(long[]! _v_c_kotlin_ULongArray___this_lastOrNull_0) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(short[]! _v_c_kotlin_UShortArray___this_lastOrNull_0) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(byte[]! _v_c_kotlin_UByteArray___this_maxOrNull_0) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(int[]! _v_c_kotlin_UIntArray___this_maxOrNull_0) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(long[]! _v_c_kotlin_ULongArray___this_maxOrNull_0) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrNull(short[]! _v_c_kotlin_UShortArray___this_maxOrNull_0) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(byte[]! _v_c_kotlin_UByteArray___this_max_0) -> sbyte
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(int[]! _v_c_kotlin_UIntArray___this_max_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(long[]! _v_c_kotlin_ULongArray___this_max_0) -> long
+static Kotlin.Collections.Unsigned.UArraysKt.MaxOrThrow_U(short[]! _v_c_kotlin_UShortArray___this_max_0) -> short
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(byte[]! _v_c_kotlin_UByteArray___this_maxWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(int[]! _v_c_kotlin_UIntArray___this_maxWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(long[]! _v_c_kotlin_ULongArray___this_maxWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrNull(short[]! _v_c_kotlin_UShortArray___this_maxWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(byte[]! _v_c_kotlin_UByteArray___this_maxWith_0, Java.Util.IComparator! comparator) -> sbyte
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(int[]! _v_c_kotlin_UIntArray___this_maxWith_0, Java.Util.IComparator! comparator) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(long[]! _v_c_kotlin_ULongArray___this_maxWith_0, Java.Util.IComparator! comparator) -> long
+static Kotlin.Collections.Unsigned.UArraysKt.MaxWithOrThrow_U(short[]! _v_c_kotlin_UShortArray___this_maxWith_0, Java.Util.IComparator! comparator) -> short
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(byte[]! _v_c_kotlin_UByteArray___this_minOrNull_0) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(int[]! _v_c_kotlin_UIntArray___this_minOrNull_0) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(long[]! _v_c_kotlin_ULongArray___this_minOrNull_0) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrNull(short[]! _v_c_kotlin_UShortArray___this_minOrNull_0) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(byte[]! _v_c_kotlin_UByteArray___this_min_0) -> sbyte
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(int[]! _v_c_kotlin_UIntArray___this_min_0) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(long[]! _v_c_kotlin_ULongArray___this_min_0) -> long
+static Kotlin.Collections.Unsigned.UArraysKt.MinOrThrow_U(short[]! _v_c_kotlin_UShortArray___this_min_0) -> short
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(byte[]! _v_c_kotlin_UByteArray___this_minWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(int[]! _v_c_kotlin_UIntArray___this_minWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(long[]! _v_c_kotlin_ULongArray___this_minWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrNull(short[]! _v_c_kotlin_UShortArray___this_minWithOrNull_0, Java.Util.IComparator! comparator) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(byte[]! _v_c_kotlin_UByteArray___this_minWith_0, Java.Util.IComparator! comparator) -> sbyte
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(int[]! _v_c_kotlin_UIntArray___this_minWith_0, Java.Util.IComparator! comparator) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(long[]! _v_c_kotlin_ULongArray___this_minWith_0, Java.Util.IComparator! comparator) -> long
+static Kotlin.Collections.Unsigned.UArraysKt.MinWithOrThrow_U(short[]! _v_c_kotlin_UShortArray___this_minWith_0, Java.Util.IComparator! comparator) -> short
+static Kotlin.Collections.Unsigned.UArraysKt.Plus(byte[]! _v_c_kotlin_UByteArray___this_plus_0, System.Collections.Generic.ICollection<Kotlin.UByte!>! elements) -> byte[]!
+static Kotlin.Collections.Unsigned.UArraysKt.Plus(int[]! _v_c_kotlin_UIntArray___this_plus_0, System.Collections.Generic.ICollection<Kotlin.UInt!>! elements) -> int[]!
+static Kotlin.Collections.Unsigned.UArraysKt.Plus(long[]! _v_c_kotlin_ULongArray___this_plus_0, System.Collections.Generic.ICollection<Kotlin.ULong!>! elements) -> long[]!
+static Kotlin.Collections.Unsigned.UArraysKt.Plus(short[]! _v_c_kotlin_UShortArray___this_plus_0, System.Collections.Generic.ICollection<Kotlin.UShort!>! elements) -> short[]!
+static Kotlin.Collections.Unsigned.UArraysKt.Random(byte[]! _v_c_kotlin_UByteArray___this_random_0, Kotlin.Random.Random! random) -> sbyte
+static Kotlin.Collections.Unsigned.UArraysKt.Random(int[]! _v_c_kotlin_UIntArray___this_random_0, Kotlin.Random.Random! random) -> int
+static Kotlin.Collections.Unsigned.UArraysKt.Random(long[]! _v_c_kotlin_ULongArray___this_random_0, Kotlin.Random.Random! random) -> long
+static Kotlin.Collections.Unsigned.UArraysKt.Random(short[]! _v_c_kotlin_UShortArray___this_random_0, Kotlin.Random.Random! random) -> short
+static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(byte[]! _v_c_kotlin_UByteArray___this_randomOrNull_0, Kotlin.Random.Random! random) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(int[]! _v_c_kotlin_UIntArray___this_randomOrNull_0, Kotlin.Random.Random! random) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(long[]! _v_c_kotlin_ULongArray___this_randomOrNull_0, Kotlin.Random.Random! random) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.RandomOrNull(short[]! _v_c_kotlin_UShortArray___this_randomOrNull_0, Kotlin.Random.Random! random) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.Reversed(byte[]! _v_c_kotlin_UByteArray___this_reversed_0) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Reversed(int[]! _v_c_kotlin_UIntArray___this_reversed_0) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Reversed(long[]! _v_c_kotlin_ULongArray___this_reversed_0) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Reversed(short[]! _v_c_kotlin_UShortArray___this_reversed_0) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(byte[]! _v_c_kotlin_UByteArray___this_shuffle_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(byte[]! _v_c_kotlin_UByteArray___this_shuffle_0, Kotlin.Random.Random! random) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(int[]! _v_c_kotlin_UIntArray___this_shuffle_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(int[]! _v_c_kotlin_UIntArray___this_shuffle_0, Kotlin.Random.Random! random) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(long[]! _v_c_kotlin_ULongArray___this_shuffle_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(long[]! _v_c_kotlin_ULongArray___this_shuffle_0, Kotlin.Random.Random! random) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(short[]! _v_c_kotlin_UShortArray___this_shuffle_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Shuffle(short[]! _v_c_kotlin_UShortArray___this_shuffle_0, Kotlin.Random.Random! random) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(byte[]! _v_c_kotlin_UByteArray___this_singleOrNull_0) -> Kotlin.UByte?
+static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(int[]! _v_c_kotlin_UIntArray___this_singleOrNull_0) -> Kotlin.UInt?
+static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(long[]! _v_c_kotlin_ULongArray___this_singleOrNull_0) -> Kotlin.ULong?
+static Kotlin.Collections.Unsigned.UArraysKt.SingleOrNull(short[]! _v_c_kotlin_UShortArray___this_singleOrNull_0) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(byte[]! _v_c_kotlin_UByteArray___this_slice_0, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(byte[]! _v_c_kotlin_UByteArray___this_slice_0, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(int[]! _v_c_kotlin_UIntArray___this_slice_0, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(int[]! _v_c_kotlin_UIntArray___this_slice_0, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(long[]! _v_c_kotlin_ULongArray___this_slice_0, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(long[]! _v_c_kotlin_ULongArray___this_slice_0, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(short[]! _v_c_kotlin_UShortArray___this_slice_0, Java.Lang.IIterable! indices) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Slice(short[]! _v_c_kotlin_UShortArray___this_slice_0, Kotlin.Ranges.IntRange! indices) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(byte[]! _v_c_kotlin_UByteArray___this_sliceArray_0, Kotlin.Ranges.IntRange! indices) -> byte[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(byte[]! _v_c_kotlin_UByteArray___this_sliceArray_0, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> byte[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(int[]! _v_c_kotlin_UIntArray___this_sliceArray_0, Kotlin.Ranges.IntRange! indices) -> int[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(int[]! _v_c_kotlin_UIntArray___this_sliceArray_0, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> int[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(long[]! _v_c_kotlin_ULongArray___this_sliceArray_0, Kotlin.Ranges.IntRange! indices) -> long[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(long[]! _v_c_kotlin_ULongArray___this_sliceArray_0, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> long[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(short[]! _v_c_kotlin_UShortArray___this_sliceArray_0, Kotlin.Ranges.IntRange! indices) -> short[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SliceArray(short[]! _v_c_kotlin_UShortArray___this_sliceArray_0, System.Collections.Generic.ICollection<Java.Lang.Integer!>! indices) -> short[]!
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(byte[]! _v_c_kotlin_UByteArray___this_sort_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(byte[]! _v_c_kotlin_UByteArray___this_sort_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(int[]! _v_c_kotlin_UIntArray___this_sort_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(int[]! _v_c_kotlin_UIntArray___this_sort_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(long[]! _v_c_kotlin_ULongArray___this_sort_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(long[]! _v_c_kotlin_ULongArray___this_sort_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(short[]! _v_c_kotlin_UShortArray___this_sort_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sort(short[]! _v_c_kotlin_UShortArray___this_sort_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(byte[]! _v_c_kotlin_UByteArray___this_sortDescending_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(byte[]! _v_c_kotlin_UByteArray___this_sortDescending_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(int[]! _v_c_kotlin_UIntArray___this_sortDescending_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(int[]! _v_c_kotlin_UIntArray___this_sortDescending_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(long[]! _v_c_kotlin_ULongArray___this_sortDescending_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(long[]! _v_c_kotlin_ULongArray___this_sortDescending_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(short[]! _v_c_kotlin_UShortArray___this_sortDescending_0) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.SortDescending(short[]! _v_c_kotlin_UShortArray___this_sortDescending_0, int fromIndex, int toIndex) -> void
+static Kotlin.Collections.Unsigned.UArraysKt.Sorted(byte[]! _v_c_kotlin_UByteArray___this_sorted_0) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Sorted(int[]! _v_c_kotlin_UIntArray___this_sorted_0) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Sorted(long[]! _v_c_kotlin_ULongArray___this_sorted_0) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Sorted(short[]! _v_c_kotlin_UShortArray___this_sorted_0) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(byte[]! _v_c_kotlin_UByteArray___this_sortedArray_0) -> byte[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(int[]! _v_c_kotlin_UIntArray___this_sortedArray_0) -> int[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(long[]! _v_c_kotlin_ULongArray___this_sortedArray_0) -> long[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArray(short[]! _v_c_kotlin_UShortArray___this_sortedArray_0) -> short[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(byte[]! _v_c_kotlin_UByteArray___this_sortedArrayDescending_0) -> byte[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(int[]! _v_c_kotlin_UIntArray___this_sortedArrayDescending_0) -> int[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(long[]! _v_c_kotlin_ULongArray___this_sortedArrayDescending_0) -> long[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedArrayDescending(short[]! _v_c_kotlin_UShortArray___this_sortedArrayDescending_0) -> short[]!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(byte[]! _v_c_kotlin_UByteArray___this_sortedDescending_0) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(int[]! _v_c_kotlin_UIntArray___this_sortedDescending_0) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(long[]! _v_c_kotlin_ULongArray___this_sortedDescending_0) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.SortedDescending(short[]! _v_c_kotlin_UShortArray___this_sortedDescending_0) -> System.Collections.Generic.IList<Kotlin.UShort!>!
 static Kotlin.Collections.Unsigned.UArraysKt.SumOfUByte(Kotlin.UByte![]! _this_sum) -> int
 static Kotlin.Collections.Unsigned.UArraysKt.SumOfUInt(Kotlin.UInt![]! _this_sum) -> int
 static Kotlin.Collections.Unsigned.UArraysKt.SumOfULong(Kotlin.ULong![]! _this_sum) -> long
 static Kotlin.Collections.Unsigned.UArraysKt.SumOfUShort(Kotlin.UShort![]! _this_sum) -> int
-static Kotlin.Collections.Unsigned.UArraysKt.Take(byte[]! _this_take_u2dPpDY95g, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Take(int[]! _this_take_u2dqFRl0hI, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Take(long[]! _this_take_u2dr7IrZao, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Take(short[]! _this_take_u2dnggk6HY, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(byte[]! _this_takeLast_u2dPpDY95g, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
-static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(int[]! _this_takeLast_u2dqFRl0hI, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
-static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(long[]! _this_takeLast_u2dr7IrZao, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
-static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(short[]! _this_takeLast_u2dnggk6HY, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
-static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(byte[]! _this_toTypedArray_u2dGBYM_sE) -> Kotlin.UByte![]!
-static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(int[]! _this_toTypedArray_u2d_u2dajY_u2d9A) -> Kotlin.UInt![]!
-static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(long[]! _this_toTypedArray_u2dQwZRm1k) -> Kotlin.ULong![]!
-static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(short[]! _this_toTypedArray_u2drL5Bavg) -> Kotlin.UShort![]!
+static Kotlin.Collections.Unsigned.UArraysKt.Take(byte[]! _v_c_kotlin_UByteArray___this_take_0, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Take(int[]! _v_c_kotlin_UIntArray___this_take_0, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Take(long[]! _v_c_kotlin_ULongArray___this_take_0, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Take(short[]! _v_c_kotlin_UShortArray___this_take_0, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(byte[]! _v_c_kotlin_UByteArray___this_takeLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UByte!>!
+static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(int[]! _v_c_kotlin_UIntArray___this_takeLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UInt!>!
+static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(long[]! _v_c_kotlin_ULongArray___this_takeLast_0, int n) -> System.Collections.Generic.IList<Kotlin.ULong!>!
+static Kotlin.Collections.Unsigned.UArraysKt.TakeLast(short[]! _v_c_kotlin_UShortArray___this_takeLast_0, int n) -> System.Collections.Generic.IList<Kotlin.UShort!>!
+static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(byte[]! _v_c_kotlin_UByteArray___this_toTypedArray_0) -> Kotlin.UByte![]!
+static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(int[]! _v_c_kotlin_UIntArray___this_toTypedArray_0) -> Kotlin.UInt![]!
+static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(long[]! _v_c_kotlin_ULongArray___this_toTypedArray_0) -> Kotlin.ULong![]!
+static Kotlin.Collections.Unsigned.UArraysKt.ToTypedArray(short[]! _v_c_kotlin_UShortArray___this_toTypedArray_0) -> Kotlin.UShort![]!
 static Kotlin.Collections.Unsigned.UArraysKt.ToUByteArray(Kotlin.UByte![]! _this_toUByteArray) -> byte[]!
 static Kotlin.Collections.Unsigned.UArraysKt.ToUIntArray(Kotlin.UInt![]! _this_toUIntArray) -> int[]!
 static Kotlin.Collections.Unsigned.UArraysKt.ToULongArray(Kotlin.ULong![]! _this_toULongArray) -> long[]!
 static Kotlin.Collections.Unsigned.UArraysKt.ToUShortArray(Kotlin.UShort![]! _this_toUShortArray) -> short[]!
-static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(byte[]! _this_withIndex_u2dGBYM_sE) -> Java.Lang.IIterable!
-static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(int[]! _this_withIndex_u2d_u2dajY_u2d9A) -> Java.Lang.IIterable!
-static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(long[]! _this_withIndex_u2dQwZRm1k) -> Java.Lang.IIterable!
-static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(short[]! _this_withIndex_u2drL5Bavg) -> Java.Lang.IIterable!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _this_zip_u2dJQknh5Q, Java.Lang.IIterable! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _this_zip_u2dkdPth3s, byte[]! other) -> System.Collections.Generic.IList<Kotlin.Pair!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _this_zip_u2dnl983wc, Java.Lang.Object![]! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _this_zip_u2dC_u2dE_24M, Java.Lang.Object![]! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _this_zip_u2dHwE9HBo, Java.Lang.IIterable! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _this_zip_u2dctEhBpI, int[]! other) -> System.Collections.Generic.IList<Kotlin.Pair!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _this_zip_u2dF7u83W8, Java.Lang.IIterable! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _this_zip_u2df7H3mmw, Java.Lang.Object![]! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _this_zip_u2dus8wMrg, long[]! other) -> System.Collections.Generic.IList<Kotlin.Pair!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _this_zip_u2dJGPC0_u2dM, Java.Lang.IIterable! other) -> System.Collections.IList!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _this_zip_u2dmazbYpA, short[]! other) -> System.Collections.Generic.IList<Kotlin.Pair!>!
-static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _this_zip_u2duaTIQ5s, Java.Lang.Object![]! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(byte[]! _v_c_kotlin_UByteArray___this_withIndex_0) -> Java.Lang.IIterable!
+static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(int[]! _v_c_kotlin_UIntArray___this_withIndex_0) -> Java.Lang.IIterable!
+static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(long[]! _v_c_kotlin_ULongArray___this_withIndex_0) -> Java.Lang.IIterable!
+static Kotlin.Collections.Unsigned.UArraysKt.WithIndex(short[]! _v_c_kotlin_UShortArray___this_withIndex_0) -> Java.Lang.IIterable!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _v_c_kotlin_UByteArray___this_zip_0, Java.Lang.IIterable! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _v_c_kotlin_UByteArray___this_zip_0, Java.Lang.Object![]! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(byte[]! _v_c_kotlin_UByteArray___this_zip_0, byte[]! _v_c_kotlin_UByteArray__other_0) -> System.Collections.Generic.IList<Kotlin.Pair!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _v_c_kotlin_UIntArray___this_zip_0, Java.Lang.IIterable! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _v_c_kotlin_UIntArray___this_zip_0, Java.Lang.Object![]! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(int[]! _v_c_kotlin_UIntArray___this_zip_0, int[]! _v_c_kotlin_UIntArray__other_0) -> System.Collections.Generic.IList<Kotlin.Pair!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _v_c_kotlin_ULongArray___this_zip_0, Java.Lang.IIterable! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _v_c_kotlin_ULongArray___this_zip_0, Java.Lang.Object![]! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(long[]! _v_c_kotlin_ULongArray___this_zip_0, long[]! _v_c_kotlin_ULongArray__other_0) -> System.Collections.Generic.IList<Kotlin.Pair!>!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _v_c_kotlin_UShortArray___this_zip_0, Java.Lang.IIterable! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _v_c_kotlin_UShortArray___this_zip_0, Java.Lang.Object![]! other) -> System.Collections.IList!
+static Kotlin.Collections.Unsigned.UArraysKt.Zip(short[]! _v_c_kotlin_UShortArray___this_zip_0, short[]! _v_c_kotlin_UShortArray__other_0) -> System.Collections.Generic.IList<Kotlin.Pair!>!
 static Kotlin.Comparisons.ComparisonsKt.CompareBy(params Kotlin.Jvm.Functions.IFunction1![]! selectors) -> Java.Util.IComparator!
 static Kotlin.Comparisons.ComparisonsKt.CompareValues(Java.Lang.Object? a, Java.Lang.Object? b) -> int
 static Kotlin.Comparisons.ComparisonsKt.CompareValuesBy(Java.Lang.Object? a, Java.Lang.Object? b, params Kotlin.Jvm.Functions.IFunction1![]! selectors) -> int
@@ -4205,22 +4214,22 @@ static Kotlin.Comparisons.ComparisonsKt.ReverseOrder() -> Java.Util.IComparator!
 static Kotlin.Comparisons.ComparisonsKt.Reversed(Java.Util.IComparator! _this_reversed) -> Java.Util.IComparator!
 static Kotlin.Comparisons.ComparisonsKt.Then(Java.Util.IComparator! _this_then, Java.Util.IComparator! comparator) -> Java.Util.IComparator!
 static Kotlin.Comparisons.ComparisonsKt.ThenDescending(Java.Util.IComparator! _this_thenDescending, Java.Util.IComparator! comparator) -> Java.Util.IComparator!
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(int a, int b) -> int
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(int a, params int[]! other) -> int
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(long a, long b) -> long
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(long a, params long[]! other) -> long
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(sbyte a, params byte[]! other) -> sbyte
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(sbyte a, sbyte b) -> sbyte
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(short a, params short[]! other) -> short
-static Kotlin.Comparisons.UComparisonsKt.MaxOf(short a, short b) -> short
-static Kotlin.Comparisons.UComparisonsKt.MinOf(int a, int b) -> int
-static Kotlin.Comparisons.UComparisonsKt.MinOf(int a, params int[]! other) -> int
-static Kotlin.Comparisons.UComparisonsKt.MinOf(long a, long b) -> long
-static Kotlin.Comparisons.UComparisonsKt.MinOf(long a, params long[]! other) -> long
-static Kotlin.Comparisons.UComparisonsKt.MinOf(sbyte a, params byte[]! other) -> sbyte
-static Kotlin.Comparisons.UComparisonsKt.MinOf(sbyte a, sbyte b) -> sbyte
-static Kotlin.Comparisons.UComparisonsKt.MinOf(short a, params short[]! other) -> short
-static Kotlin.Comparisons.UComparisonsKt.MinOf(short a, short b) -> short
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(int _v_c_kotlin_UInt__a_0, int _v_c_kotlin_UInt__b_0) -> int
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(int _v_c_kotlin_UInt__a_0, params int[]! _v_c_kotlin_UIntArray__other_0) -> int
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(long _v_c_kotlin_ULong__a_0, long _v_c_kotlin_ULong__b_0) -> long
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(long _v_c_kotlin_ULong__a_0, params long[]! _v_c_kotlin_ULongArray__other_0) -> long
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(sbyte _v_c_kotlin_UByte__a_0, params byte[]! _v_c_kotlin_UByteArray__other_0) -> sbyte
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(sbyte _v_c_kotlin_UByte__a_0, sbyte _v_c_kotlin_UByte__b_0) -> sbyte
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(short _v_c_kotlin_UShort__a_0, params short[]! _v_c_kotlin_UShortArray__other_0) -> short
+static Kotlin.Comparisons.UComparisonsKt.MaxOf(short _v_c_kotlin_UShort__a_0, short _v_c_kotlin_UShort__b_0) -> short
+static Kotlin.Comparisons.UComparisonsKt.MinOf(int _v_c_kotlin_UInt__a_0, int _v_c_kotlin_UInt__b_0) -> int
+static Kotlin.Comparisons.UComparisonsKt.MinOf(int _v_c_kotlin_UInt__a_0, params int[]! _v_c_kotlin_UIntArray__other_0) -> int
+static Kotlin.Comparisons.UComparisonsKt.MinOf(long _v_c_kotlin_ULong__a_0, long _v_c_kotlin_ULong__b_0) -> long
+static Kotlin.Comparisons.UComparisonsKt.MinOf(long _v_c_kotlin_ULong__a_0, params long[]! _v_c_kotlin_ULongArray__other_0) -> long
+static Kotlin.Comparisons.UComparisonsKt.MinOf(sbyte _v_c_kotlin_UByte__a_0, params byte[]! _v_c_kotlin_UByteArray__other_0) -> sbyte
+static Kotlin.Comparisons.UComparisonsKt.MinOf(sbyte _v_c_kotlin_UByte__a_0, sbyte _v_c_kotlin_UByte__b_0) -> sbyte
+static Kotlin.Comparisons.UComparisonsKt.MinOf(short _v_c_kotlin_UShort__a_0, params short[]! _v_c_kotlin_UShortArray__other_0) -> short
+static Kotlin.Comparisons.UComparisonsKt.MinOf(short _v_c_kotlin_UShort__a_0, short _v_c_kotlin_UShort__b_0) -> short
 static Kotlin.Concurrent.Atomics.AtomicArraysKt.AsJavaAtomicArray(Java.Util.Concurrent.Atomic.AtomicIntegerArray! _this_asJavaAtomicArray) -> Java.Util.Concurrent.Atomic.AtomicIntegerArray!
 static Kotlin.Concurrent.Atomics.AtomicArraysKt.AsJavaAtomicArray(Java.Util.Concurrent.Atomic.AtomicLongArray! _this_asJavaAtomicArray) -> Java.Util.Concurrent.Atomic.AtomicLongArray!
 static Kotlin.Concurrent.Atomics.AtomicArraysKt.AsJavaAtomicArray(Java.Util.Concurrent.Atomic.AtomicReferenceArray! _this_asJavaAtomicArray) -> Java.Util.Concurrent.Atomic.AtomicReferenceArray!
@@ -4616,17 +4625,17 @@ static Kotlin.Random.RandomKt.NextInt(Kotlin.Random.Random! obj, Kotlin.Ranges.I
 static Kotlin.Random.RandomKt.NextLong(Kotlin.Random.Random! obj, Kotlin.Ranges.LongRange! range) -> long
 static Kotlin.Random.RandomKt.Random(int seed) -> Kotlin.Random.Random!
 static Kotlin.Random.RandomKt.Random(long seed) -> Kotlin.Random.Random!
-static Kotlin.Random.URandomKt.NextUBytes(Kotlin.Random.Random! obj, byte[]! array) -> byte[]!
-static Kotlin.Random.URandomKt.NextUBytes(Kotlin.Random.Random! obj, byte[]! array, int fromIndex, int toIndex) -> byte[]!
+static Kotlin.Random.URandomKt.NextUBytes(Kotlin.Random.Random! obj, byte[]! _v_c_kotlin_UByteArray__array_0) -> byte[]!
+static Kotlin.Random.URandomKt.NextUBytes(Kotlin.Random.Random! obj, byte[]! _v_c_kotlin_UByteArray__array_0, int fromIndex, int toIndex) -> byte[]!
 static Kotlin.Random.URandomKt.NextUBytes(Kotlin.Random.Random! obj, int size) -> byte[]!
 static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj) -> uint
 static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj, Kotlin.Ranges.UIntRange! range) -> uint
-static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj, uint from, uint until) -> uint
-static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj, uint until) -> uint
+static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj, uint _v_c_kotlin_UInt__from_0, uint _v_c_kotlin_UInt__until_0) -> uint
+static Kotlin.Random.URandomKt.NextUInt(Kotlin.Random.Random! obj, uint _v_c_kotlin_UInt__until_0) -> uint
 static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj) -> ulong
 static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj, Kotlin.Ranges.ULongRange! range) -> ulong
-static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj, ulong from, ulong until) -> ulong
-static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj, ulong until) -> ulong
+static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj, ulong _v_c_kotlin_ULong__from_0, ulong _v_c_kotlin_ULong__until_0) -> ulong
+static Kotlin.Random.URandomKt.NextULong(Kotlin.Random.Random! obj, ulong _v_c_kotlin_ULong__until_0) -> ulong
 static Kotlin.Ranges.CharProgression.Companion.get -> Kotlin.Ranges.CharProgression.CompanionStatic!
 static Kotlin.Ranges.CharRange.Companion.get -> Kotlin.Ranges.CharRange.CompanionStatic!
 static Kotlin.Ranges.ClosedFloatingPointRangeDefaultImpls.Contains(Kotlin.Ranges.IClosedFloatingPointRange! _this, Java.Lang.Object! value) -> bool
@@ -4774,30 +4783,30 @@ static Kotlin.Ranges.UIntProgression.Companion.get -> Kotlin.Ranges.UIntProgress
 static Kotlin.Ranges.UIntRange.Companion.get -> Kotlin.Ranges.UIntRange.CompanionStatic!
 static Kotlin.Ranges.ULongProgression.Companion.get -> Kotlin.Ranges.ULongProgression.CompanionStatic!
 static Kotlin.Ranges.ULongRange.Companion.get -> Kotlin.Ranges.ULongRange.CompanionStatic!
-static Kotlin.Ranges.URangesKt.CoerceAtLeast(int _this_coerceAtLeast_u2dJ1ME1BU, int minimumValue) -> int
-static Kotlin.Ranges.URangesKt.CoerceAtLeast(long _this_coerceAtLeast_u2deb3DHEI, long minimumValue) -> long
-static Kotlin.Ranges.URangesKt.CoerceAtLeast(sbyte _this_coerceAtLeast_u2dKr8caGY, sbyte minimumValue) -> sbyte
-static Kotlin.Ranges.URangesKt.CoerceAtLeast(short _this_coerceAtLeast_u2d5PvTz6A, short minimumValue) -> short
-static Kotlin.Ranges.URangesKt.CoerceAtMost(int _this_coerceAtMost_u2dJ1ME1BU, int maximumValue) -> int
-static Kotlin.Ranges.URangesKt.CoerceAtMost(long _this_coerceAtMost_u2deb3DHEI, long maximumValue) -> long
-static Kotlin.Ranges.URangesKt.CoerceAtMost(sbyte _this_coerceAtMost_u2dKr8caGY, sbyte maximumValue) -> sbyte
-static Kotlin.Ranges.URangesKt.CoerceAtMost(short _this_coerceAtMost_u2d5PvTz6A, short maximumValue) -> short
-static Kotlin.Ranges.URangesKt.CoerceIn(int _this_coerceIn_u2dWZ9TVnA, int minimumValue, int maximumValue) -> int
-static Kotlin.Ranges.URangesKt.CoerceIn(int _this_coerceIn_u2dwuiCnnA, Kotlin.Ranges.IClosedRange! range) -> int
-static Kotlin.Ranges.URangesKt.CoerceIn(long _this_coerceIn_u2dJPwROB0, Kotlin.Ranges.IClosedRange! range) -> long
-static Kotlin.Ranges.URangesKt.CoerceIn(long _this_coerceIn_u2dsambcqE, long minimumValue, long maximumValue) -> long
-static Kotlin.Ranges.URangesKt.CoerceIn(sbyte _this_coerceIn_u2db33U2AM, sbyte minimumValue, sbyte maximumValue) -> sbyte
-static Kotlin.Ranges.URangesKt.CoerceIn(short _this_coerceIn_u2dVKSA0NQ, short minimumValue, short maximumValue) -> short
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2d68kG9v0, sbyte value) -> bool
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2dZsK3CEQ, short value) -> bool
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2dfz5IDCE, long value) -> bool
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2dGab390E, int value) -> bool
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2dULb_u2dyJY, sbyte value) -> bool
-static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2duhHAxoY, short value) -> bool
-static Kotlin.Ranges.URangesKt.DownTo(int _this_downTo_u2dJ1ME1BU, int to) -> Kotlin.Ranges.UIntProgression!
-static Kotlin.Ranges.URangesKt.DownTo(long _this_downTo_u2deb3DHEI, long to) -> Kotlin.Ranges.ULongProgression!
-static Kotlin.Ranges.URangesKt.DownTo(sbyte _this_downTo_u2dKr8caGY, sbyte to) -> Kotlin.Ranges.UIntProgression!
-static Kotlin.Ranges.URangesKt.DownTo(short _this_downTo_u2d5PvTz6A, short to) -> Kotlin.Ranges.UIntProgression!
+static Kotlin.Ranges.URangesKt.CoerceAtLeast(int _v_c_kotlin_UInt___this_coerceAtLeast_0, int _v_c_kotlin_UInt__minimumValue_0) -> int
+static Kotlin.Ranges.URangesKt.CoerceAtLeast(long _v_c_kotlin_ULong___this_coerceAtLeast_0, long _v_c_kotlin_ULong__minimumValue_0) -> long
+static Kotlin.Ranges.URangesKt.CoerceAtLeast(sbyte _v_c_kotlin_UByte___this_coerceAtLeast_0, sbyte _v_c_kotlin_UByte__minimumValue_0) -> sbyte
+static Kotlin.Ranges.URangesKt.CoerceAtLeast(short _v_c_kotlin_UShort___this_coerceAtLeast_0, short _v_c_kotlin_UShort__minimumValue_0) -> short
+static Kotlin.Ranges.URangesKt.CoerceAtMost(int _v_c_kotlin_UInt___this_coerceAtMost_0, int _v_c_kotlin_UInt__maximumValue_0) -> int
+static Kotlin.Ranges.URangesKt.CoerceAtMost(long _v_c_kotlin_ULong___this_coerceAtMost_0, long _v_c_kotlin_ULong__maximumValue_0) -> long
+static Kotlin.Ranges.URangesKt.CoerceAtMost(sbyte _v_c_kotlin_UByte___this_coerceAtMost_0, sbyte _v_c_kotlin_UByte__maximumValue_0) -> sbyte
+static Kotlin.Ranges.URangesKt.CoerceAtMost(short _v_c_kotlin_UShort___this_coerceAtMost_0, short _v_c_kotlin_UShort__maximumValue_0) -> short
+static Kotlin.Ranges.URangesKt.CoerceIn(int _v_c_kotlin_UInt___this_coerceIn_0, Kotlin.Ranges.IClosedRange! range) -> int
+static Kotlin.Ranges.URangesKt.CoerceIn(int _v_c_kotlin_UInt___this_coerceIn_0, int _v_c_kotlin_UInt__minimumValue_0, int _v_c_kotlin_UInt__maximumValue_0) -> int
+static Kotlin.Ranges.URangesKt.CoerceIn(long _v_c_kotlin_ULong___this_coerceIn_0, Kotlin.Ranges.IClosedRange! range) -> long
+static Kotlin.Ranges.URangesKt.CoerceIn(long _v_c_kotlin_ULong___this_coerceIn_0, long _v_c_kotlin_ULong__minimumValue_0, long _v_c_kotlin_ULong__maximumValue_0) -> long
+static Kotlin.Ranges.URangesKt.CoerceIn(sbyte _v_c_kotlin_UByte___this_coerceIn_0, sbyte _v_c_kotlin_UByte__minimumValue_0, sbyte _v_c_kotlin_UByte__maximumValue_0) -> sbyte
+static Kotlin.Ranges.URangesKt.CoerceIn(short _v_c_kotlin_UShort___this_coerceIn_0, short _v_c_kotlin_UShort__minimumValue_0, short _v_c_kotlin_UShort__maximumValue_0) -> short
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2d68kG9v0, sbyte _v_c_kotlin_UByte__value_0) -> bool
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2dZsK3CEQ, short _v_c_kotlin_UShort__value_0) -> bool
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.UIntRange! _this_contains_u2dfz5IDCE, long _v_c_kotlin_ULong__value_0) -> bool
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2dGab390E, int _v_c_kotlin_UInt__value_0) -> bool
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2dULb_u2dyJY, sbyte _v_c_kotlin_UByte__value_0) -> bool
+static Kotlin.Ranges.URangesKt.Contains(Kotlin.Ranges.ULongRange! _this_contains_u2duhHAxoY, short _v_c_kotlin_UShort__value_0) -> bool
+static Kotlin.Ranges.URangesKt.DownTo(int _v_c_kotlin_UInt___this_downTo_0, int _v_c_kotlin_UInt__to_0) -> Kotlin.Ranges.UIntProgression!
+static Kotlin.Ranges.URangesKt.DownTo(long _v_c_kotlin_ULong___this_downTo_0, long _v_c_kotlin_ULong__to_0) -> Kotlin.Ranges.ULongProgression!
+static Kotlin.Ranges.URangesKt.DownTo(sbyte _v_c_kotlin_UByte___this_downTo_0, sbyte _v_c_kotlin_UByte__to_0) -> Kotlin.Ranges.UIntProgression!
+static Kotlin.Ranges.URangesKt.DownTo(short _v_c_kotlin_UShort___this_downTo_0, short _v_c_kotlin_UShort__to_0) -> Kotlin.Ranges.UIntProgression!
 static Kotlin.Ranges.URangesKt.First(Kotlin.Ranges.UIntProgression! _this_first) -> int
 static Kotlin.Ranges.URangesKt.First(Kotlin.Ranges.ULongProgression! _this_first) -> long
 static Kotlin.Ranges.URangesKt.FirstOrNull(Kotlin.Ranges.UIntProgression! _this_firstOrNull) -> Kotlin.UInt?
@@ -4814,13 +4823,14 @@ static Kotlin.Ranges.URangesKt.Reversed(Kotlin.Ranges.UIntProgression! _this_rev
 static Kotlin.Ranges.URangesKt.Reversed(Kotlin.Ranges.ULongProgression! _this_reversed) -> Kotlin.Ranges.ULongProgression!
 static Kotlin.Ranges.URangesKt.Step(Kotlin.Ranges.UIntProgression! _this_step, int step) -> Kotlin.Ranges.UIntProgression!
 static Kotlin.Ranges.URangesKt.Step(Kotlin.Ranges.ULongProgression! _this_step, long step) -> Kotlin.Ranges.ULongProgression!
-static Kotlin.Ranges.URangesKt.Until(int _this_until_u2dJ1ME1BU, int to) -> Kotlin.Ranges.UIntRange!
-static Kotlin.Ranges.URangesKt.Until(long _this_until_u2deb3DHEI, long to) -> Kotlin.Ranges.ULongRange!
-static Kotlin.Ranges.URangesKt.Until(sbyte _this_until_u2dKr8caGY, sbyte to) -> Kotlin.Ranges.UIntRange!
-static Kotlin.Ranges.URangesKt.Until(short _this_until_u2d5PvTz6A, short to) -> Kotlin.Ranges.UIntRange!
+static Kotlin.Ranges.URangesKt.Until(int _v_c_kotlin_UInt___this_until_0, int _v_c_kotlin_UInt__to_0) -> Kotlin.Ranges.UIntRange!
+static Kotlin.Ranges.URangesKt.Until(long _v_c_kotlin_ULong___this_until_0, long _v_c_kotlin_ULong__to_0) -> Kotlin.Ranges.ULongRange!
+static Kotlin.Ranges.URangesKt.Until(sbyte _v_c_kotlin_UByte___this_until_0, sbyte _v_c_kotlin_UByte__to_0) -> Kotlin.Ranges.UIntRange!
+static Kotlin.Ranges.URangesKt.Until(short _v_c_kotlin_UShort___this_until_0, short _v_c_kotlin_UShort__to_0) -> Kotlin.Ranges.UIntRange!
 static Kotlin.Reflect.KClasses.Cast(Kotlin.Reflect.IKClass! obj, Java.Lang.Object? value) -> Java.Lang.Object!
 static Kotlin.Reflect.KClasses.SafeCast(Kotlin.Reflect.IKClass! obj, Java.Lang.Object? value) -> Java.Lang.Object?
 static Kotlin.Reflect.KClassesImplKt.GetQualifiedOrSimpleName(Kotlin.Reflect.IKClass! obj) -> string?
+static Kotlin.Reflect.KParameterKind.Context.get -> Kotlin.Reflect.KParameterKind?
 static Kotlin.Reflect.KParameterKind.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Kotlin.Reflect.KParameterKind.ExtensionReceiver.get -> Kotlin.Reflect.KParameterKind?
 static Kotlin.Reflect.KParameterKind.Instance.get -> Kotlin.Reflect.KParameterKind?
@@ -5565,10 +5575,10 @@ static Kotlin.Text.StringsKt.ZipWithNext(Java.Lang.ICharSequence! _this_zipWithN
 static Kotlin.Text.StringsKt.ZipWithNext(string! _this_zipWithNext) -> System.Collections.Generic.IList<Kotlin.Pair!>!
 static Kotlin.Text.StringsKt.ZipWithNext(string! _this_zipWithNext, Kotlin.Jvm.Functions.IFunction2! transform) -> System.Collections.IList!
 static Kotlin.Text.Typography.Instance.get -> Kotlin.Text.Typography!
-static Kotlin.Text.UStringsKt.ToString(int obj, int radix) -> string!
-static Kotlin.Text.UStringsKt.ToString(long obj, int radix) -> string!
-static Kotlin.Text.UStringsKt.ToString(sbyte obj, int radix) -> string!
-static Kotlin.Text.UStringsKt.ToString(short obj, int radix) -> string!
+static Kotlin.Text.UStringsKt.ToString(int _v_c_kotlin_UInt___this_toString_0, int radix) -> string!
+static Kotlin.Text.UStringsKt.ToString(long _v_c_kotlin_ULong___this_toString_0, int radix) -> string!
+static Kotlin.Text.UStringsKt.ToString(sbyte _v_c_kotlin_UByte___this_toString_0, int radix) -> string!
+static Kotlin.Text.UStringsKt.ToString(short _v_c_kotlin_UShort___this_toString_0, int radix) -> string!
 static Kotlin.Text.UStringsKt.ToUByte(string! obj) -> byte
 static Kotlin.Text.UStringsKt.ToUByte(string! obj, int radix) -> byte
 static Kotlin.Text.UStringsKt.ToUByteOrNull(string! obj) -> Kotlin.UByte?
@@ -5590,18 +5600,18 @@ static Kotlin.Time.ClocksKt.FromTimeSource(Kotlin.Time.ITimeSource! obj, Kotlin.
 static Kotlin.Time.ComparableTimeMarkDefaultImpls.CompareTo(Kotlin.Time.IComparableTimeMark! _this, Kotlin.Time.IComparableTimeMark! other) -> int
 static Kotlin.Time.ComparableTimeMarkDefaultImpls.HasNotPassedNow(Kotlin.Time.IComparableTimeMark! _this) -> bool
 static Kotlin.Time.ComparableTimeMarkDefaultImpls.HasPassedNow(Kotlin.Time.IComparableTimeMark! _this) -> bool
-static Kotlin.Time.ComparableTimeMarkDefaultImpls.Minus_LRDsOJo(Kotlin.Time.IComparableTimeMark! _this, long duration) -> Kotlin.Time.IComparableTimeMark!
+static Kotlin.Time.ComparableTimeMarkDefaultImpls.Minus_LRDsOJo(Kotlin.Time.IComparableTimeMark! _this, long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.IComparableTimeMark!
 static Kotlin.Time.Duration.Companion.get -> Kotlin.Time.Duration.CompanionStatic!
-static Kotlin.Time.Duration.CompareTo(long arg0, long other) -> int
-static Kotlin.Time.Duration.Div(long arg0, double scale) -> long
-static Kotlin.Time.Duration.Div(long arg0, int scale) -> long
-static Kotlin.Time.Duration.Div(long arg0, long other) -> double
-static Kotlin.Time.Duration.GetAbsoluteValue(long arg0) -> long
-static Kotlin.Time.Duration.Minus(long arg0, long other) -> long
-static Kotlin.Time.Duration.Plus(long arg0, long other) -> long
-static Kotlin.Time.Duration.Times(long arg0, double scale) -> long
-static Kotlin.Time.Duration.Times(long arg0, int scale) -> long
-static Kotlin.Time.Duration.UnaryMinus(long arg0) -> long
+static Kotlin.Time.Duration.CompareTo(long _v_c_kotlin_time_Duration__this_0, long _v_c_kotlin_time_Duration__other_0) -> int
+static Kotlin.Time.Duration.Div(long _v_c_kotlin_time_Duration__this_0, double scale) -> long
+static Kotlin.Time.Duration.Div(long _v_c_kotlin_time_Duration__this_0, int scale) -> long
+static Kotlin.Time.Duration.Div(long _v_c_kotlin_time_Duration__this_0, long _v_c_kotlin_time_Duration__other_0) -> double
+static Kotlin.Time.Duration.GetAbsoluteValue(long _v_c_kotlin_time_Duration__this_0) -> long
+static Kotlin.Time.Duration.Minus(long _v_c_kotlin_time_Duration__this_0, long _v_c_kotlin_time_Duration__other_0) -> long
+static Kotlin.Time.Duration.Plus(long _v_c_kotlin_time_Duration__this_0, long _v_c_kotlin_time_Duration__other_0) -> long
+static Kotlin.Time.Duration.Times(long _v_c_kotlin_time_Duration__this_0, double scale) -> long
+static Kotlin.Time.Duration.Times(long _v_c_kotlin_time_Duration__this_0, int scale) -> long
+static Kotlin.Time.Duration.UnaryMinus(long _v_c_kotlin_time_Duration__this_0) -> long
 static Kotlin.Time.DurationJvmKt.DurationAssertionsEnabled.get -> bool
 static Kotlin.Time.DurationKt.ToDuration(double obj, Kotlin.Time.DurationUnit! unit) -> long
 static Kotlin.Time.DurationKt.ToDuration(int obj, Kotlin.Time.DurationUnit! unit) -> long
@@ -5635,29 +5645,29 @@ static Kotlin.Time.MeasureTimeKt.MeasureTimedValue(Kotlin.Time.ITimeSource! obj,
 static Kotlin.Time.MeasureTimeKt.MeasureTimedValue(Kotlin.Time.TimeSourceMonotonic! obj, Kotlin.Jvm.Functions.IFunction0! block) -> Kotlin.Time.TimedValue!
 static Kotlin.Time.TimeMarkDefaultImpls.HasNotPassedNow(Kotlin.Time.ITimeMark! _this) -> bool
 static Kotlin.Time.TimeMarkDefaultImpls.HasPassedNow(Kotlin.Time.ITimeMark! _this) -> bool
-static Kotlin.Time.TimeMarkDefaultImpls.Minus(Kotlin.Time.ITimeMark! _this, long duration) -> Kotlin.Time.ITimeMark!
-static Kotlin.Time.TimeMarkDefaultImpls.Plus(Kotlin.Time.ITimeMark! _this, long duration) -> Kotlin.Time.ITimeMark!
+static Kotlin.Time.TimeMarkDefaultImpls.Minus(Kotlin.Time.ITimeMark! _this, long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.ITimeMark!
+static Kotlin.Time.TimeMarkDefaultImpls.Plus(Kotlin.Time.ITimeMark! _this, long _v_c_kotlin_time_Duration__duration_0) -> Kotlin.Time.ITimeMark!
 static Kotlin.Time.TimeSourceMonotonic.Instance.get -> Kotlin.Time.TimeSourceMonotonic!
-static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.CompareTo_6eNON_k(long arg0, long other) -> int
-static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus(long arg0, long duration) -> long
-static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus_6eNON_k(long arg0, long other) -> long
-static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus_UwyO8pc(long arg0, Kotlin.Time.IComparableTimeMark! other) -> long
-static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Plus(long arg0, long duration) -> long
+static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.CompareTo_6eNON_k(long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__this_0, long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__other_0) -> int
+static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus(long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__this_0, long _v_c_kotlin_time_Duration__duration_0) -> long
+static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus_6eNON_k(long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__this_0, long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__other_0) -> long
+static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Minus_UwyO8pc(long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__this_0, Kotlin.Time.IComparableTimeMark! other) -> long
+static Kotlin.Time.TimeSourceMonotonic.ValueTimeMark.Plus(long _v_c_kotlin_time_TimeSource_Monotonic_ValueTimeMark__this_0, long _v_c_kotlin_time_Duration__duration_0) -> long
 static Kotlin.TuplesKt.To(Java.Lang.Object? obj, Java.Lang.Object? that) -> Kotlin.Pair!
 static Kotlin.TuplesKt.ToList(Kotlin.Pair! obj) -> System.Collections.IList!
 static Kotlin.TuplesKt.ToList(Kotlin.Triple! obj) -> System.Collections.IList!
-static Kotlin.UByteArray.Contains(byte[]? arg0, byte element) -> bool
-static Kotlin.UByteArray.Get(byte[]? arg0, int index) -> byte
-static Kotlin.UByteArray.Set(byte[]? arg0, int index, byte value) -> void
-static Kotlin.UIntArray.Contains(int[]? arg0, uint element) -> bool
-static Kotlin.UIntArray.Get(int[]? arg0, int index) -> uint
-static Kotlin.UIntArray.Set(int[]? arg0, int index, uint value) -> void
-static Kotlin.ULongArray.Contains(long[]? arg0, ulong element) -> bool
-static Kotlin.ULongArray.Get(long[]? arg0, int index) -> ulong
-static Kotlin.ULongArray.Set(long[]? arg0, int index, ulong value) -> void
-static Kotlin.UShortArray.Contains(short[]? arg0, ushort element) -> bool
-static Kotlin.UShortArray.Get(short[]? arg0, int index) -> ushort
-static Kotlin.UShortArray.Set(short[]? arg0, int index, ushort value) -> void
+static Kotlin.UByteArray.Contains(byte[]? _v_c_kotlin_UByteArray__this_0, byte _v_c_kotlin_UByte__element_0) -> bool
+static Kotlin.UByteArray.Get(byte[]? _v_c_kotlin_UByteArray__this_0, int index) -> byte
+static Kotlin.UByteArray.Set(byte[]? _v_c_kotlin_UByteArray__this_0, int index, byte _v_c_kotlin_UByte__value_0) -> void
+static Kotlin.UIntArray.Contains(int[]? _v_c_kotlin_UIntArray__this_0, uint _v_c_kotlin_UInt__element_0) -> bool
+static Kotlin.UIntArray.Get(int[]? _v_c_kotlin_UIntArray__this_0, int index) -> uint
+static Kotlin.UIntArray.Set(int[]? _v_c_kotlin_UIntArray__this_0, int index, uint _v_c_kotlin_UInt__value_0) -> void
+static Kotlin.ULongArray.Contains(long[]? _v_c_kotlin_ULongArray__this_0, ulong _v_c_kotlin_ULong__element_0) -> bool
+static Kotlin.ULongArray.Get(long[]? _v_c_kotlin_ULongArray__this_0, int index) -> ulong
+static Kotlin.ULongArray.Set(long[]? _v_c_kotlin_ULongArray__this_0, int index, ulong _v_c_kotlin_ULong__value_0) -> void
+static Kotlin.UShortArray.Contains(short[]? _v_c_kotlin_UShortArray__this_0, ushort _v_c_kotlin_UShort__element_0) -> bool
+static Kotlin.UShortArray.Get(short[]? _v_c_kotlin_UShortArray__this_0, int index) -> ushort
+static Kotlin.UShortArray.Set(short[]? _v_c_kotlin_UShortArray__this_0, int index, ushort _v_c_kotlin_UShort__value_0) -> void
 static Kotlin.Unit.Instance.get -> Kotlin.Unit!
 static Kotlin.Uuid.Uuid.Companion.get -> Kotlin.Uuid.Uuid.CompanionStatic!
 static Kotlin.Uuid.UuidKt.CheckHyphenAt(string! _this_checkHyphenAt, int index) -> void

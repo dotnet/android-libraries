@@ -5,6 +5,7 @@ AndroidX.Room.BaseRoomConnectionManager.BaseRoomConnectionManager(nint javaRefer
 AndroidX.Room.BaseRoomConnectionManager.Companion
 AndroidX.Room.BaseRoomConnectionManager.DriverWrapper
 AndroidX.Room.BaseRoomConnectionManager.DriverWrapper.DriverWrapper(AndroidX.Room.BaseRoomConnectionManager? __self, AndroidX.Sqlite.ISQLiteDriver! actual) -> void
+AndroidX.Room.BaseRoomConnectionManager.DriverWrapper.HasConnectionPool.get -> bool
 AndroidX.Room.BaseRoomConnectionManager.DriverWrapper.Open(string! fileName) -> AndroidX.Sqlite.ISQLiteConnection!
 AndroidX.Room.BaseRoomConnectionManager.GetMaxNumberOfReaders(AndroidX.Room.RoomDatabase.JournalMode! _this_getMaxNumberOfReaders) -> int
 AndroidX.Room.BaseRoomConnectionManager.GetMaxNumberOfWriters(AndroidX.Room.RoomDatabase.JournalMode! _this_getMaxNumberOfWriters) -> int
@@ -19,8 +20,10 @@ AndroidX.Room.Concurrent.ReentrantLockKt
 AndroidX.Room.Concurrent.ReentrantLock_jvmAndroidKt
 AndroidX.Room.Concurrent.Synchronized_jvmAndroidKt
 AndroidX.Room.Concurrent.ThreadLocal_jvmAndroidKt
+AndroidX.Room.Coroutines.ConnectionPoolImplKt
 AndroidX.Room.Coroutines.ConnectionPoolKt
 AndroidX.Room.Coroutines.FlowUtil
+AndroidX.Room.Coroutines.PassthroughConnectionPoolKt
 AndroidX.Room.Coroutines.RunBlockingUninterruptible_androidKt
 AndroidX.Room.CoroutinesRoom
 AndroidX.Room.CoroutinesRoom.Companion
@@ -84,25 +87,6 @@ AndroidX.Room.DatabaseConfiguration.TransactionExecutor.get -> Java.Util.Concurr
 AndroidX.Room.DatabaseConfiguration.TransactionExecutor.set -> void
 AndroidX.Room.DatabaseConfiguration.TypeConverters.get -> System.Collections.IList!
 AndroidX.Room.DatabaseConfiguration.TypeConverters.set -> void
-AndroidX.Room.Driver.SupportSQLiteConnection
-AndroidX.Room.Driver.SupportSQLiteConnection.Close() -> void
-AndroidX.Room.Driver.SupportSQLiteConnection.Db.get -> AndroidX.Sqlite.Db.ISupportSQLiteDatabase!
-AndroidX.Room.Driver.SupportSQLiteConnection.Prepare(string! sql) -> AndroidX.Sqlite.ISQLiteStatement!
-AndroidX.Room.Driver.SupportSQLiteConnection.SupportSQLiteConnection(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db) -> void
-AndroidX.Room.Driver.SupportSQLiteDriver
-AndroidX.Room.Driver.SupportSQLiteDriver.Open(string! fileName) -> AndroidX.Sqlite.ISQLiteConnection!
-AndroidX.Room.Driver.SupportSQLiteDriver.OpenHelper.get -> AndroidX.Sqlite.Db.ISupportSQLiteOpenHelper!
-AndroidX.Room.Driver.SupportSQLiteDriver.SupportSQLiteDriver(AndroidX.Sqlite.Db.ISupportSQLiteOpenHelper! openHelper) -> void
-AndroidX.Room.Driver.SupportSQLiteStatement
-AndroidX.Room.Driver.SupportSQLiteStatement.Closed.get -> bool
-AndroidX.Room.Driver.SupportSQLiteStatement.Closed.set -> void
-AndroidX.Room.Driver.SupportSQLiteStatement.Companion
-AndroidX.Room.Driver.SupportSQLiteStatement.Companion.Create(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db, string! sql) -> AndroidX.Room.Driver.SupportSQLiteStatement!
-AndroidX.Room.Driver.SupportSQLiteStatement.Db.get -> AndroidX.Sqlite.Db.ISupportSQLiteDatabase!
-AndroidX.Room.Driver.SupportSQLiteStatement.Sql.get -> string!
-AndroidX.Room.Driver.SupportSQLiteStatement.SupportSQLiteStatement(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Room.Driver.SupportSQLiteStatement.ThrowIfClosed() -> void
-AndroidX.Room.Driver.SupportSQLiteStatement_androidKt
 AndroidX.Room.EntityDeleteOrUpdateAdapter
 AndroidX.Room.EntityDeleteOrUpdateAdapter.EntityDeleteOrUpdateAdapter() -> void
 AndroidX.Room.EntityDeleteOrUpdateAdapter.EntityDeleteOrUpdateAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -269,11 +253,12 @@ AndroidX.Room.RoomDatabase.Callback.Callback() -> void
 AndroidX.Room.RoomDatabase.Callback.Callback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Room.RoomDatabase.Companion
 AndroidX.Room.RoomDatabase.CoroutineScope.get -> Xamarin.KotlinX.Coroutines.ICoroutineScope!
+AndroidX.Room.RoomDatabase.Driver.get -> AndroidX.Sqlite.ISQLiteDriver!
 AndroidX.Room.RoomDatabase.GetTypeConverter(Kotlin.Reflect.IKClass! klass) -> Java.Lang.Object!
 AndroidX.Room.RoomDatabase.IQueryCallback
 AndroidX.Room.RoomDatabase.IQueryCallback.OnQuery(string! sqlQuery, System.Collections.Generic.IList<Java.Lang.Object!>! bindArgs) -> void
+AndroidX.Room.RoomDatabase.InCompatibilityMode() -> bool
 AndroidX.Room.RoomDatabase.InternalInitInvalidationTracker(AndroidX.Sqlite.ISQLiteConnection! connection) -> void
-AndroidX.Room.RoomDatabase.IsOpenInternal.get -> bool
 AndroidX.Room.RoomDatabase.JournalMode
 AndroidX.Room.RoomDatabase.MCallbacks.get -> System.Collections.IList?
 AndroidX.Room.RoomDatabase.MCallbacks.set -> void
@@ -284,6 +269,7 @@ AndroidX.Room.RoomDatabase.MigrationContainer.AddMigration(AndroidX.Room.Migrati
 AndroidX.Room.RoomDatabase.MigrationContainer.Contains(int startVersion, int endVersion) -> bool
 AndroidX.Room.RoomDatabase.MigrationContainer.MigrationContainer() -> void
 AndroidX.Room.RoomDatabase.MigrationContainer.MigrationContainer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Room.RoomDatabase.Path.get -> string?
 AndroidX.Room.RoomDatabase.PerformClear(bool hasForeignKeys, params string![]! tableNames) -> void
 AndroidX.Room.RoomDatabase.PrepackagedDatabaseCallback
 AndroidX.Room.RoomDatabase.PrepackagedDatabaseCallback.PrepackagedDatabaseCallback() -> void
@@ -292,7 +278,8 @@ AndroidX.Room.RoomDatabase.Query(AndroidX.Sqlite.Db.ISupportSQLiteQuery! query) 
 AndroidX.Room.RoomDatabase.QueryContext.get -> Kotlin.Coroutines.ICoroutineContext!
 AndroidX.Room.RoomDatabase.RoomDatabase() -> void
 AndroidX.Room.RoomDatabase.RoomDatabase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Room.RoomDatabase.SuspendingTransactionId.get -> Java.Lang.ThreadLocal!
+AndroidX.Room.RoomDatabase.SuspendingTransactionContext.get -> Java.Lang.ThreadLocal!
+AndroidX.Room.RoomDatabase.UseConnection(bool isReadOnly, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Room.RoomDatabaseKt
 AndroidX.Room.RoomOpenDelegate
 AndroidX.Room.RoomOpenDelegate.IdentityHash.get -> string!
@@ -463,23 +450,6 @@ abstract AndroidX.Room.BaseRoomConnectionManager.Callbacks.get -> System.Collect
 abstract AndroidX.Room.BaseRoomConnectionManager.Configuration.get -> AndroidX.Room.DatabaseConfiguration!
 abstract AndroidX.Room.BaseRoomConnectionManager.OpenDelegate.get -> AndroidX.Room.RoomOpenDelegate!
 abstract AndroidX.Room.BaseRoomConnectionManager.UseConnection(bool isReadOnly, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.BindBlob(int index, byte[]! value) -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.BindDouble(int index, double value) -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.BindLong(int index, long value) -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.BindNull(int index) -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.BindText(int index, string! value) -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.ClearBindings() -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.Close() -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.ColumnCount.get -> int
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetBlob(int index) -> byte[]!
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetColumnName(int index) -> string!
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetColumnType(int index) -> int
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetDouble(int index) -> double
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetLong(int index) -> long
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.GetText(int index) -> string!
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.IsNull(int index) -> bool
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.Reset() -> void
-abstract AndroidX.Room.Driver.SupportSQLiteStatement.Step() -> bool
 abstract AndroidX.Room.EntityDeleteOrUpdateAdapter.Bind(AndroidX.Sqlite.ISQLiteStatement! statement, Java.Lang.Object? entity) -> void
 abstract AndroidX.Room.EntityDeleteOrUpdateAdapter.CreateQuery() -> string!
 abstract AndroidX.Room.EntityDeletionOrUpdateAdapter.Bind(AndroidX.Sqlite.Db.ISupportSQLiteStatement! statement, Java.Lang.Object? entity) -> void
@@ -528,21 +498,16 @@ override AndroidX.Room.Concurrent.ReentrantLockKt.JniPeerMembers.get -> Java.Int
 override AndroidX.Room.Concurrent.ReentrantLock_jvmAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.Concurrent.Synchronized_jvmAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.Concurrent.ThreadLocal_jvmAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Room.Coroutines.ConnectionPoolImplKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.Coroutines.ConnectionPoolKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.Coroutines.FlowUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Room.Coroutines.PassthroughConnectionPoolKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.Coroutines.RunBlockingUninterruptible_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.CoroutinesRoom.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.CoroutinesRoom.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.DatabaseConfiguration.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.DatabaseConfiguration.ThresholdClass.get -> nint
 override AndroidX.Room.DatabaseConfiguration.ThresholdType.get -> System.Type!
-override AndroidX.Room.Driver.SupportSQLiteConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Room.Driver.SupportSQLiteDriver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Room.Driver.SupportSQLiteStatement.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Room.Driver.SupportSQLiteStatement.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Room.Driver.SupportSQLiteStatement.ThresholdClass.get -> nint
-override AndroidX.Room.Driver.SupportSQLiteStatement.ThresholdType.get -> System.Type!
-override AndroidX.Room.Driver.SupportSQLiteStatement_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.EntityDeleteOrUpdateAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Room.EntityDeleteOrUpdateAdapter.ThresholdClass.get -> nint
 override AndroidX.Room.EntityDeleteOrUpdateAdapter.ThresholdType.get -> System.Type!
@@ -677,6 +642,7 @@ static AndroidX.Room.RoomDatabase.JournalMode.Truncate.get -> AndroidX.Room.Room
 static AndroidX.Room.RoomDatabase.JournalMode.ValueOf(string? value) -> AndroidX.Room.RoomDatabase.JournalMode?
 static AndroidX.Room.RoomDatabase.JournalMode.Values() -> AndroidX.Room.RoomDatabase.JournalMode![]?
 static AndroidX.Room.RoomDatabase.JournalMode.WriteAheadLogging.get -> AndroidX.Room.RoomDatabase.JournalMode?
+static AndroidX.Room.RoomDatabaseKt.CompatTransactionCoroutineExecute(AndroidX.Room.RoomDatabase! _this_compatTransactionCoroutineExecute, Kotlin.Jvm.Functions.IFunction1! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Room.RoomDatabaseKt.InvalidationTrackerFlow(AndroidX.Room.RoomDatabase! _this_invalidationTrackerFlow, string![]! tables, bool emitInitialState) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Room.RoomDatabaseKt.UseReaderConnection(AndroidX.Room.RoomDatabase! _this_useReaderConnection, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Room.RoomDatabaseKt.UseWriterConnection(AndroidX.Room.RoomDatabase! _this_useWriterConnection, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
