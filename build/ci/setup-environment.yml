@@ -79,17 +79,6 @@ steps:
     condition: eq(${{ parameters.installAndroidDependencies }}, true)
 
   - task: DotNetCoreCLI@2
-    displayName: Install android dependencies GoogleV2
-    inputs:
-      command: build
-      projects: build/scripts/provision-android/provision-android.csproj
-      arguments: >-
-        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
-        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-        -v:n -bl:output/install-android-dependencies-GoogleV2.binlog
-      retryCountOnTaskFailure: 3
-
-  - task: DotNetCoreCLI@2
     displayName: Install android dependencies Xamarin
     inputs:
       command: build
