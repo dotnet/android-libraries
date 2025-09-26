@@ -90,6 +90,21 @@ steps:
       retryCountOnTaskFailure: 3
 
   - pwsh: |
+      $sdkManager = Join-Path "${{ parameters.androidSdkRoot }}" "cmdline-tools" "latest" "bin" "sdkmanager"
+      if ($IsWindows) {
+        $sdkManager += ".bat"
+      }
+      
+      if (Test-Path $sdkManager) {
+        Write-Host "Accepting Android SDK licenses..."
+        Write-Host "y" | & $sdkManager --licenses --sdk_root="${{ parameters.androidSdkRoot }}"
+      } else {
+        Write-Host "SDK Manager not found at: $sdkManager"
+      }
+    displayName: Accept Android SDK licenses
+    condition: eq(${{ parameters.installAndroidDependencies }}, true)
+
+  - pwsh: |
       Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
