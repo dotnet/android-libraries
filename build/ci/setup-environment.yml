@@ -64,7 +64,7 @@ steps:
 
   - task: JavaToolInstaller@0
     displayName: Use Java 21 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
+    condition: eq( variables['Agent.OS'], 'Windows_NT' )
     inputs:
       versionSpec: '21'
       jdkArchitectureOption: 'x64'
