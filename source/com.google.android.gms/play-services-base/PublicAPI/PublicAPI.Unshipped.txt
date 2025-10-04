@@ -357,6 +357,8 @@ Android.Gms.Common.Api.Internal.Zacu
 Android.Gms.Common.Api.Internal.Zacu.Zab() -> void
 Android.Gms.Common.Api.Internal.Zacu.Zacu() -> void
 Android.Gms.Common.Api.Internal.Zai
+Android.Gms.Common.Api.Internal.Zai.Zac.get -> int
+Android.Gms.Common.Api.Internal.Zai.Zac.set -> void
 Android.Gms.Common.Api.Internal.Zai.Zai(int p0) -> void
 Android.Gms.Common.Api.Internal.Zai.Zai(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Common.Api.Internal.Zak
@@ -473,8 +475,10 @@ Android.Gms.Common.Apis.GoogleApi.Settings.Zaa.get -> Android.Gms.Common.Apis.In
 Android.Gms.Common.Apis.GoogleApi.Settings.Zaa.set -> void
 Android.Gms.Common.Apis.GoogleApi.Settings.Zab.get -> Android.OS.Looper!
 Android.Gms.Common.Apis.GoogleApi.Settings.Zab.set -> void
-Android.Gms.Common.Apis.GoogleApi.Zaa(Android.OS.Looper? p0, Android.Gms.Common.Api.Internal.Zabk? p1) -> Android.Gms.Common.Apis.Api.IClient?
+Android.Gms.Common.Apis.GoogleApi.Zaa.get -> Android.Gms.Common.Api.Internal.GoogleApiManager!
+Android.Gms.Common.Apis.GoogleApi.Zaa.set -> void
 Android.Gms.Common.Apis.GoogleApi.Zab() -> int
+Android.Gms.Common.Apis.GoogleApi.Zaf(Android.OS.Looper? p0, Android.Gms.Common.Api.Internal.Zabk? p1) -> Android.Gms.Common.Apis.Api.IClient?
 Android.Gms.Common.Apis.GoogleApiActivity
 Android.Gms.Common.Apis.GoogleApiActivity.GoogleApiActivity() -> void
 Android.Gms.Common.Apis.GoogleApiActivity.GoogleApiActivity(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -639,8 +643,9 @@ Android.Gms.Common.GoogleApiAvailability.GoogleApiAvailability(nint javaReferenc
 Android.Gms.Common.GoogleApiAvailability.MakeGooglePlayServicesAvailableAsync(Android.App.Activity! activity) -> System.Threading.Tasks.Task!
 Android.Gms.Common.GoogleApiAvailability.Zab(Android.App.Activity! p0, Android.Gms.Common.Apis.Internal.ILifecycleFragment! p1, int p2, int p3, Android.Content.IDialogInterfaceOnCancelListener? p4) -> bool
 Android.Gms.Common.GoogleApiAvailability.Zad(Android.Content.Context! p0, Android.Gms.Common.ConnectionResult! p1, int p2) -> bool
-Android.Gms.Common.GoogleApiAvailability.Zae(Android.App.Activity! p0, Android.Content.IDialogInterfaceOnCancelListener! p1) -> Android.App.Dialog!
-Android.Gms.Common.GoogleApiAvailability.Zaf(Android.Content.Context? p0, Android.Gms.Common.Api.Internal.Zabr? p1) -> Android.Gms.Common.Api.Internal.Zabs?
+Android.Gms.Common.GoogleApiAvailability.Zae(Android.Content.Context! p0, Android.Gms.Common.ConnectionResult! p1, bool p2) -> void
+Android.Gms.Common.GoogleApiAvailability.Zaf(Android.App.Activity! p0, Android.Content.IDialogInterfaceOnCancelListener! p1) -> Android.App.Dialog!
+Android.Gms.Common.GoogleApiAvailability.Zag(Android.Content.Context? p0, Android.Gms.Common.Api.Internal.Zabr? p1) -> Android.Gms.Common.Api.Internal.Zabs?
 Android.Gms.Common.GooglePlayServicesUtil
 Android.Gms.Common.Images.ImageManager
 Android.Gms.Common.Images.ImageManager.IOnImageLoadedListener
@@ -851,12 +856,13 @@ abstract Android.Gms.Common.Api.Internal.RegisterListenerMethod.RegisterListener
 abstract Android.Gms.Common.Api.Internal.TaskApiCall.DoExecute(Java.Lang.Object! p0, Android.Gms.Tasks.TaskCompletionSource! p1) -> void
 abstract Android.Gms.Common.Api.Internal.UnregisterListenerMethod.UnregisterListener(Java.Lang.Object! p0, Android.Gms.Tasks.TaskCompletionSource! p1) -> void
 abstract Android.Gms.Common.Api.Internal.Zabr.Zaa() -> void
+abstract Android.Gms.Common.Api.Internal.Zac.InvokeZac(Android.Gms.Common.Api.Internal.Zabk? p0) -> int
 abstract Android.Gms.Common.Api.Internal.Zac.Zaa(Android.Gms.Common.Api.Internal.Zabk? p0) -> Android.Gms.Common.Feature![]?
 abstract Android.Gms.Common.Api.Internal.Zac.Zab(Android.Gms.Common.Api.Internal.Zabk? p0) -> bool
-abstract Android.Gms.Common.Api.Internal.Zai.Zac(Android.Gms.Common.Apis.Statuses! p0) -> void
-abstract Android.Gms.Common.Api.Internal.Zai.Zad(Java.Lang.Exception! p0) -> void
-abstract Android.Gms.Common.Api.Internal.Zai.Zae(Android.Gms.Common.Api.Internal.Zaaa! p0, bool p1) -> void
-abstract Android.Gms.Common.Api.Internal.Zai.Zaf(Android.Gms.Common.Api.Internal.Zabk? p0) -> void
+abstract Android.Gms.Common.Api.Internal.Zai.Zad(Android.Gms.Common.Apis.Statuses! p0) -> void
+abstract Android.Gms.Common.Api.Internal.Zai.Zae(Java.Lang.Exception! p0) -> void
+abstract Android.Gms.Common.Api.Internal.Zai.Zaf(Android.Gms.Common.Api.Internal.Zaaa! p0, bool p1) -> void
+abstract Android.Gms.Common.Api.Internal.Zai.Zag(Android.Gms.Common.Api.Internal.Zabk? p0) -> void
 abstract Android.Gms.Common.Api.Internal.Zap.Zad(Android.Gms.Common.ConnectionResult? p0, int p1) -> void
 abstract Android.Gms.Common.Api.Internal.Zap.Zae() -> void
 abstract Android.Gms.Common.Apis.GoogleApiClient.BlockingConnect() -> Android.Gms.Common.ConnectionResult!
@@ -1455,7 +1461,7 @@ static Android.Gms.Common.ErrorDialogFragment.NewInstance(Android.App.Dialog! di
 static Android.Gms.Common.ErrorDialogFragment.NewInstance(Android.App.Dialog! dialog, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> Android.Gms.Common.ErrorDialogFragment!
 static Android.Gms.Common.GoogleApiAvailability.GooglePlayServicesVersionCode.get -> int
 static Android.Gms.Common.GoogleApiAvailability.Instance.get -> Android.Gms.Common.GoogleApiAvailability!
-static Android.Gms.Common.GoogleApiAvailability.Zai(Android.Gms.Common.Apis.IHasApiKey! p0, params Android.Gms.Common.Apis.IHasApiKey![]! p1) -> Android.Gms.Tasks.Task!
+static Android.Gms.Common.GoogleApiAvailability.Zaj(Android.Gms.Common.Apis.IHasApiKey! p0, params Android.Gms.Common.Apis.IHasApiKey![]! p1) -> Android.Gms.Tasks.Task!
 static Android.Gms.Common.GooglePlayServicesUtil.GetErrorDialog(int errorCode, Android.App.Activity! activity, int requestCode) -> Android.App.Dialog?
 static Android.Gms.Common.GooglePlayServicesUtil.GetErrorDialog(int errorCode, Android.App.Activity! activity, int requestCode, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> Android.App.Dialog?
 static Android.Gms.Common.GooglePlayServicesUtil.GetErrorPendingIntent(int errorCode, Android.Content.Context! context, int requestCode) -> Android.App.PendingIntent!
