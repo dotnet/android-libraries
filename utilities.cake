@@ -41,7 +41,21 @@ string file_spell_errors = "./output/spell-errors.txt";
 List<string> spell_errors = null;
 JArray binderator_json_array = null;
 
-List<(string, string, string, string)> mappings_artifact_nuget = new ();
+List<(string, string, string, string)>  mappings_artifact_nuget = new ();
+List
+    <
+        (
+            string group_id,
+            string artifact_id,
+            string artifact_id_fq,
+            string artifact_version,
+            string nuget_id,
+            string nuget_version,
+            string dependency_only
+        )
+    >
+                                        mappings_artifact_nuget_extended = new();
+
 Dictionary<string, string> Licenses = new ();
 
 // modifying default method for licenses
@@ -329,15 +343,27 @@ Task ("mappings-artifact-nuget")
                 string nuget_v  	= (string) jo["nugetVersion"];
 
                 mappings_artifact_nuget.Add
-                (
-                    (
-                        $"{group_id}:{artifact_id}",
-                        $"{artifact_v}",
-                        $"{nuget_id}",
-                        $"{nuget_v}"
-                    )
-                );
-            }
+                                        (
+                                            (
+                                                $"{group_id}:{artifact_id}",
+                                                $"{artifact_v}",
+                                                $"{nuget_id}",
+                                                $"{nuget_v}"
+                                            )
+                                        );
+                mappings_artifact_nuget_extended.Add
+                                                    (
+                                                        (
+                                                            group_id            :       $"{group_id}",
+                                                            artifact_id         :       $"{artifact_id}",
+                                                            artifact_id_fq      :       $"{group_id}:{artifact_id}",
+                                                            artifact_version    :       $"{artifact_v}",
+                                                            nuget_id            :       $"{nuget_id}",
+                                                            nuget_version       :       $"{nuget_v}",
+                                                            dependency_only     :       $"false"
+                                                        )
+                                                    );
+                                                }
 
             // dump for C# tuple initialization
             string dump = string.Join($",{Environment.NewLine}", mappings_artifact_nuget);
@@ -345,7 +371,7 @@ Task ("mappings-artifact-nuget")
             dump = dump.Replace(")","\")");
             dump = dump.Replace(", ","\", \"");
             EnsureDirectoryExists("./output/");
-			System.IO.File.WriteAllText($"./output/mappings-artifact-nuget.md", dump);
+            System.IO.File.WriteAllText($"./output/mappings-artifact-nuget.md", dump);
 
             return;
         }
@@ -412,13 +438,13 @@ Task ("list-artifacts")
             }
 
             EnsureDirectoryExists("./output/");
-			System.IO.File.WriteAllLines($"./output/artifact-list.md", lines1.ToArray());
-			System.IO.File.WriteAllLines($"./output/artifact-list-with-versions.md", lines2.ToArray());
-			System.IO.File.WriteAllLines($"./output/artifact-list-{DateTime.Now.ToString("yyyyMMdd")}.md", lines1.ToArray());
-			System.IO.File.WriteAllLines($"./output/artifact-list-with-versions-{DateTime.Now.ToString("yyyyMMdd")}.md", lines2.ToArray());
+            System.IO.File.WriteAllLines($"./output/artifact-list.md", lines1.ToArray());
+            System.IO.File.WriteAllLines($"./output/artifact-list-with-versions.md", lines2.ToArray());
+            System.IO.File.WriteAllLines($"./output/artifact-list-{DateTime.Now.ToString("yyyyMMdd")}.md", lines1.ToArray());
+            System.IO.File.WriteAllLines($"./output/artifact-list-with-versions-{DateTime.Now.ToString("yyyyMMdd")}.md", lines2.ToArray());
             EnsureDirectoryExists("./docs/");
-			System.IO.File.WriteAllLines($"./docs/artifact-list.md", lines1.ToArray());
-			System.IO.File.WriteAllLines($"./docs/artifact-list-with-versions.md", lines2.ToArray());
+            System.IO.File.WriteAllLines($"./docs/artifact-list.md", lines1.ToArray());
+            System.IO.File.WriteAllLines($"./docs/artifact-list-with-versions.md", lines2.ToArray());
         }
     );
 
@@ -776,7 +802,7 @@ Task ("spell-check")
                 "PerfMark",
                 "PerfMarkApi",
                 "ZXing",
-		        "JavaPoet",
+                "JavaPoet",
                 "LanguageId",
                 "AppSet",
                 "Ktx",
@@ -927,22 +953,22 @@ Task("binderate-diff")
     (
         () =>
         {
-			EnsureDirectoryExists("./output/");
+            EnsureDirectoryExists("./output/");
 
-			// "git diff -U999999 main:config.json config.json" > ./output/config.json.diff-from-main.txt"
-			string process = "git";
-			string process_args = "diff -U999999 main:config.json config.json";
-			IEnumerable<string> redirectedStandardOutput;
-			ProcessSettings process_settings = new ProcessSettings ()
-			{
+            // "git diff -U999999 main:config.json config.json" > ./output/config.json.diff-from-main.txt"
+            string process = "git";
+            string process_args = "diff -U999999 main:config.json config.json";
+            IEnumerable<string> redirectedStandardOutput;
+            ProcessSettings process_settings = new ProcessSettings ()
+            {
              Arguments = process_args,
              RedirectStandardOutput = true
-         	};
-			int exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
-			System.IO.File.WriteAllLines("./output/config.json.diff-from-main.txt", redirectedStandardOutput.ToArray());
-			Information("Exit code: {0}", exitCodeWithoutArguments);
-		}
-	);
+            };
+            int exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            System.IO.File.WriteAllLines("./output/config.json.diff-from-main.txt", redirectedStandardOutput.ToArray());
+            Information("Exit code: {0}", exitCodeWithoutArguments);
+        }
+    );
 
 void RunProcess(FilePath file, string args)
 {
@@ -1387,20 +1413,21 @@ Task("nuget-structure-analysis")
     );
 
 
-Task ("read-analysis-files")
-    .IsDependentOn ("mappings-artifact-nuget")
-    .IsDependentOn ("binderate-diff")
-    .IsDependentOn ("api-diff-markdown-info-pr")
-    .IsDependentOn ("namespace-check")
-    .IsDependentOn ("spell-check")
-    .IsDependentOn ("api-diff-analysis")
-    .IsDependentOn ("list-artifacts")
+Task("read-analysis-files")
+    .IsDependentOn("mappings-artifact-nuget")
+    .IsDependentOn("binderate-diff")
+    .IsDependentOn("api-diff-markdown-info-pr")
+    .IsDependentOn("namespace-check")
+    .IsDependentOn("spell-check")
+    .IsDependentOn("api-diff-analysis")
+    .IsDependentOn("list-artifacts")
     //.IsDependentOn ("nuget-structure-analysis")
-    .IsDependentOn ("generate-namespace-file")
-    .IsDependentOn ("generate-markdown-publish-log")
-    .IsDependentOn ("tools-executive-order")
-    .IsDependentOn ("generate-component-governance")
-    .IsDependentOn ("java-resolution-analysis")
+    .IsDependentOn("generate-namespace-file")
+    .IsDependentOn("generate-markdown-publish-log")
+    .IsDependentOn("tools-executive-order")
+    .IsDependentOn("generate-component-governance")
+    .IsDependentOn("java-resolution-analysis")
+    .IsDependentOn("harvest-api-xml")
     .Does
     (
         () =>
@@ -1425,16 +1452,16 @@ Task ("read-analysis-files")
                 files.Remove("./output/spell-errors.txt");
             }
 
-			string process = "code";
-			string process_args = $"-n {string.Join(" ", files)}";
-			IEnumerable<string> redirectedStandardOutput;
-			ProcessSettings process_settings = new ProcessSettings ()
-			{
+            string process = "code";
+            string process_args = $"-n {string.Join(" ", files)}";
+            IEnumerable<string> redirectedStandardOutput;
+            ProcessSettings process_settings = new ProcessSettings ()
+            {
              Arguments = process_args,
              RedirectStandardOutput = true
-         	};
-			int exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
-			Information("Exit code: {0}", exitCodeWithoutArguments);
+            };
+            int exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            Information("Exit code: {0}", exitCodeWithoutArguments);
         }
     );
 
@@ -1792,11 +1819,11 @@ Task("tools-executive-oreder-csv-and-markdown")
             sb_md.AppendLine("./buildtoolsinventory.csv");
             sb_md.AppendLine();
 
-			string process = null;
-			string process_args = null;
-			IEnumerable<string> redirectedStandardOutput = null;
-			int exitCodeWithoutArguments;
-			ProcessSettings process_settings = null;
+            string process = null;
+            string process_args = null;
+            IEnumerable<string> redirectedStandardOutput = null;
+            int exitCodeWithoutArguments;
+            ProcessSettings process_settings = null;
 
             /*
                 dotnet --info
@@ -1845,10 +1872,10 @@ Task("tools-executive-oreder-csv-and-markdown")
             /*
             mono --version
             */
-			process = "mono";
-			process_args = "--version";
+            process = "mono";
+            process_args = "--version";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
@@ -1880,10 +1907,10 @@ Task("tools-executive-oreder-csv-and-markdown")
             /*
             nuget
             */
-			process = "nuget";
-			process_args = "";
+            process = "nuget";
+            process_args = "";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
@@ -1922,14 +1949,14 @@ Task("tools-executive-oreder-csv-and-markdown")
             let's parse
                 dotnet tool list
             */
-			process = "dotnet";
-			process_args = "tool list";
+            process = "dotnet";
+            process_args = "tool list";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
-			exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
             foreach (string line in redirectedStandardOutput.ToList())
             {
                 if
@@ -1953,14 +1980,14 @@ Task("tools-executive-oreder-csv-and-markdown")
             /*
             gradle --version
             */
-			process = "gradle";
-			process_args = "--version";
+            process = "gradle";
+            process_args = "--version";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
-			exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
             foreach (string line in redirectedStandardOutput)
             {
                 string tool = null;
@@ -2000,14 +2027,14 @@ Task("tools-executive-oreder-csv-and-markdown")
             /*
             java --version
             */
-			process = "java";
-			process_args = "--version";
+            process = "java";
+            process_args = "--version";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
-			exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
             foreach (string line in redirectedStandardOutput)
             {
                 string tool = null;
@@ -2024,14 +2051,14 @@ Task("tools-executive-oreder-csv-and-markdown")
             /*
             javac --version
             */
-			process = "javac";
-			process_args = "--version";
+            process = "javac";
+            process_args = "--version";
             process_settings = new ProcessSettings ()
-			{
+            {
                 Arguments = process_args,
                 RedirectStandardOutput = true,
             };
-			exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
+            exitCodeWithoutArguments = StartProcess(process, process_settings, out redirectedStandardOutput);
             foreach (string line in redirectedStandardOutput)
             {
                 string tool = null;
@@ -2045,10 +2072,10 @@ Task("tools-executive-oreder-csv-and-markdown")
                 }
             }
 
-			System.IO.File.WriteAllText("./output/buildtoolsinventory.csv", sb.ToString());
-			System.IO.File.WriteAllText("./docs/buildtoolsinventory.csv", sb.ToString());
-			System.IO.File.WriteAllText("./output/buildtoolsinventory.md", sb_md.ToString());
-			System.IO.File.WriteAllText("./docs/buildtoolsinventory.md", sb_md.ToString());
+            System.IO.File.WriteAllText("./output/buildtoolsinventory.csv", sb.ToString());
+            System.IO.File.WriteAllText("./docs/buildtoolsinventory.csv", sb.ToString());
+            System.IO.File.WriteAllText("./output/buildtoolsinventory.md", sb_md.ToString());
+            System.IO.File.WriteAllText("./docs/buildtoolsinventory.md", sb_md.ToString());
 
             return;
         } catch (Exception ex) { 
@@ -2436,6 +2463,37 @@ Task("java-resolution-analysis")
         }
     );
 
+Task("harvest-api-xml")
+    .IsDependentOn("mappings-artifact-nuget")
+    .Does
+    (
+        () =>
+        {
+
+            string search_pattern = null;
+
+            foreach (var m in mappings_artifact_nuget_extended)
+            {
+                string folder_destination = $"output/bindings/{m.group_id}.{m.artifact_id}--{m.artifact_version}";
+                EnsureDirectoryExists(folder_destination);
+                string folder_source = $"generated/{m.group_id}.{m.artifact_id}";
+
+                System.IO.File.Copy
+                                (
+                                    $"{folder_source}/obj/build-log-data.sarif.json",
+                                    $"{folder_destination}/build-log-data.sarif.json",
+                                    true
+                                );
+
+                string[] apiXmlFiles = System.IO.Directory.GetFiles
+                                                            (
+                                                                $"{folder_source}/obj/",
+                                                                "api.xml",
+                                                                System.IO.SearchOption.AllDirectories
+                                                            );
+            }
+        }
+    );
 
 Task ("Default")
     .IsDependentOn ("read-analysis-files")
