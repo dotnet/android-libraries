@@ -3,7 +3,9 @@ AndroidX.Activity.ActivityViewModelLazyKt
 AndroidX.Activity.BackEventCompat
 AndroidX.Activity.BackEventCompat.BackEventCompat(Android.Window.BackEvent! backEvent) -> void
 AndroidX.Activity.BackEventCompat.BackEventCompat(float touchX, float touchY, float progress, int swipeEdge) -> void
+AndroidX.Activity.BackEventCompat.BackEventCompat(float touchX, float touchY, float progress, int swipeEdge, long frameTimeMillis) -> void
 AndroidX.Activity.BackEventCompat.Companion
+AndroidX.Activity.BackEventCompat.FrameTimeMillis.get -> long
 AndroidX.Activity.BackEventCompat.ISwipeEdge
 AndroidX.Activity.BackEventCompat.Progress.get -> float
 AndroidX.Activity.BackEventCompat.SwipeEdge.get -> int
@@ -175,6 +177,14 @@ AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.GetSyn
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ImageAndVideo
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ImageOnly
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder.AddSupportedHdrType(int hdrType) -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder!
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder.Build() -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities!
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder.Builder() -> void
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Companion
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Companion.IHdrType
+AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.SupportedHdrTypes.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.PickVisualMedia() -> void
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.PickVisualMedia(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.SingleMimeType
@@ -235,12 +245,14 @@ AndroidX.Activity.Result.PickVisualMediaRequest.Builder.Builder() -> void
 AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetAccentColor(long accentColor) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
 AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetDefaultTab(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab! defaultTab) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
 AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetMaxItems(int maxItems) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
+AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetMediaCapabilitiesForTranscoding(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities? mediaCapabilities) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
 AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetMediaType(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType! mediaType) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
 AndroidX.Activity.Result.PickVisualMediaRequest.Builder.SetOrderedSelection(bool isOrderedSelection) -> AndroidX.Activity.Result.PickVisualMediaRequest.Builder!
 AndroidX.Activity.Result.PickVisualMediaRequest.DefaultTab.get -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab!
 AndroidX.Activity.Result.PickVisualMediaRequest.IsCustomAccentColorApplied.get -> bool
 AndroidX.Activity.Result.PickVisualMediaRequest.IsOrderedSelection.get -> bool
 AndroidX.Activity.Result.PickVisualMediaRequest.MaxItems.get -> int
+AndroidX.Activity.Result.PickVisualMediaRequest.MediaCapabilitiesForTranscoding.get -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities?
 AndroidX.Activity.Result.PickVisualMediaRequest.MediaType.get -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType!
 AndroidX.Activity.Result.PickVisualMediaRequestKt
 AndroidX.Activity.SystemBarStyle
@@ -260,6 +272,7 @@ abstract AndroidX.Activity.Result.Contract.ActivityResultContract.CreateIntent(A
 abstract AndroidX.Activity.Result.Contract.ActivityResultContract.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object?
 abstract AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab.Value.get -> int
 const AndroidX.Activity.BackEventCompat.EdgeLeft = 0 -> int
+const AndroidX.Activity.BackEventCompat.EdgeNone = 2 -> int
 const AndroidX.Activity.BackEventCompat.EdgeRight = 1 -> int
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ActionSystemFallbackPickImages = "androidx.activity.result.contract.action.PICK_IMAGES" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ExtraSystemFallbackPickImagesAccentColor = "androidx.activity.result.contract.extra.PICK_IMAGES_ACCENT_COLOR" -> string!
@@ -268,6 +281,10 @@ const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ExtraSystemFallbackPickImagesMax = "androidx.activity.result.contract.extra.PICK_IMAGES_MAX" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.GmsActionPickImages = "com.google.android.gms.provider.action.PICK_IMAGES" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.GmsExtraPickImagesMax = "com.google.android.gms.provider.extra.PICK_IMAGES_MAX" -> string!
+const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.TypeDolbyVision = 3 -> int
+const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.TypeHdr10 = 1 -> int
+const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.TypeHdr10Plus = 2 -> int
+const AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.TypeHlg10 = 0 -> int
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.RequestMultiplePermissions.ActionRequestPermissions = "androidx.activity.result.contract.action.REQUEST_PERMISSIONS" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.RequestMultiplePermissions.ExtraPermissionGrantResults = "androidx.activity.result.contract.extra.PERMISSION_GRANT_RESULTS" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.RequestMultiplePermissions.ExtraPermissions = "androidx.activity.result.contract.extra.PERMISSIONS" -> string!
@@ -359,6 +376,9 @@ override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMed
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ImageAndVideo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ImageOnly.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.SingleMimeType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ThresholdClass.get -> nint
 override AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.ThresholdType.get -> System.Type!
@@ -439,6 +459,8 @@ static AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia
 static AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.VideoOnly.Instance.get -> AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.VideoOnly!
 static AndroidX.Activity.Result.IntentSenderRequest.Creator.get -> Android.OS.IParcelableCreator!
 static AndroidX.Activity.Result.PickVisualMediaRequestKt.PickVisualMediaRequest(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType! mediaType, int maxItems, bool isOrderedSelection, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab! defaultTab) -> AndroidX.Activity.Result.PickVisualMediaRequest!
+static AndroidX.Activity.Result.PickVisualMediaRequestKt.PickVisualMediaRequest(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities? mediaCapabilitiesForTranscoding, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType! mediaType, int maxItems, bool isOrderedSelection, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab! defaultTab) -> AndroidX.Activity.Result.PickVisualMediaRequest!
+static AndroidX.Activity.Result.PickVisualMediaRequestKt.PickVisualMediaRequest(AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.MediaCapabilities? mediaCapabilitiesForTranscoding, long accentColor, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType! mediaType, int maxItems, bool isOrderedSelection, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab! defaultTab) -> AndroidX.Activity.Result.PickVisualMediaRequest!
 static AndroidX.Activity.Result.PickVisualMediaRequestKt.PickVisualMediaRequest(long accentColor, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.IVisualMediaType! mediaType, int maxItems, bool isOrderedSelection, AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVisualMedia.DefaultTab! defaultTab) -> AndroidX.Activity.Result.PickVisualMediaRequest!
 static AndroidX.Activity.SystemBarStyle.Auto(int lightScrim, int darkScrim) -> AndroidX.Activity.SystemBarStyle!
 static AndroidX.Activity.SystemBarStyle.Auto(int lightScrim, int darkScrim, Kotlin.Jvm.Functions.IFunction1! detectDarkMode) -> AndroidX.Activity.SystemBarStyle!

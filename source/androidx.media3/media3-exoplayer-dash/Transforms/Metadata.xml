@@ -61,5 +61,12 @@
         AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory
     </attr>
 
+    <!-- Remove duplicate methods in DashDownloader.Factory -->
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='create' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setDurationUs' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setExecutor' and count(parameter)=1 and parameter[1][@type='java.util.concurrent.Executor']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setMaxMergedSegmentStartTimeDiffMs' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setStartPositionUs' and count(parameter)=1 and parameter[1][@type='long']]" />
+
 
 </metadata>
