@@ -5,6 +5,8 @@ Xamarin.Chromium.CroNet.EffectiveConnectionTypeAttribute.EffectiveConnectionType
 Xamarin.Chromium.CroNet.EffectiveConnectionTypeConsts
 Xamarin.Chromium.CroNet.IEffectiveConnectionType
 Xamarin.Chromium.CroNet.IRttThroughputValues
+Xamarin.Chromium.CroNet.Impl.BidirectionalStreamBuilderImpl
+Xamarin.Chromium.CroNet.Impl.BidirectionalStreamBuilderImpl.BidirectionalStreamBuilderImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl
 Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl.CallbackExceptionImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl.CallbackExceptionImpl(string? message, Java.Lang.Throwable? cause) -> void
@@ -16,8 +18,11 @@ Xamarin.Chromium.CroNet.Impl.CronetEngineBase.IRequestPriority
 Xamarin.Chromium.CroNet.Impl.CronetEngineBase.IStreamPriority
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.CronetEngineBuilderImpl(Android.Content.Context? context) -> void
+Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.CronetEngineBuilderImpl(Android.Content.Context? context, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? cronetSource) -> void
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.CronetEngineBuilderImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.IHttpCacheSetting
+Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.MLogger.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger?
+Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.MLogger.set -> void
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.MMockCertVerifier.get -> long
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.MMockCertVerifier.set -> void
 Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.Pkp
@@ -27,28 +32,15 @@ Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.QuicHint.QuicHint(nint java
 Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl
 Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl.CronetExceptionImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl.CronetExceptionImpl(string? message, Java.Lang.Throwable? cause) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.CronetEngineBuilderInfo(Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl? builder) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.CronetEngineBuilderInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetLogger() -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetLogger(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.CronetTrafficInfo(long requestHeaderSizeInBytes, long requestBodySizeInBytes, long responseHeaderSizeInBytes, long responseBodySizeInBytes, int responseStatusCode, Java.Time.Duration? headersLatency, Java.Time.Duration? totalLatency, string? negotiatedProtocol, bool wasConnectionMigrationAttempted, bool didConnectionMigrationSucceed) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.CronetTrafficInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.CronetVersion(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.CronetVersion(string? version) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory
-Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting
-Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.SwapLoggerForTesting(Xamarin.Chromium.CroNet.Impl.CronetLogger? testLogger) -> void
-Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.SwapLoggerForTesting(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Xamarin.Chromium.CroNet.Impl.CronetManifest
+Xamarin.Chromium.CroNet.Impl.CronetMetrics
+Xamarin.Chromium.CroNet.Impl.CronetMetrics.CronetMetrics(Java.Lang.Long? ttfbMs, Java.Lang.Long? totalTimeMs, Java.Lang.Long? sentByteCount, Java.Lang.Long? receivedByteCount) -> void
+Xamarin.Chromium.CroNet.Impl.CronetMetrics.CronetMetrics(long requestStartMs, long dnsStartMs, long dnsEndMs, long connectStartMs, long connectEndMs, long sslStartMs, long sslEndMs, long sendingStartMs, long sendingEndMs, long pushStartMs, long pushEndMs, long responseStartMs, long requestEndMs, bool socketReused, long sentByteCount, long receivedByteCount) -> void
 Xamarin.Chromium.CroNet.Impl.HttpCacheType
 Xamarin.Chromium.CroNet.Impl.HttpCacheTypeAttribute
 Xamarin.Chromium.CroNet.Impl.HttpCacheTypeAttribute.HttpCacheTypeAttribute() -> void
 Xamarin.Chromium.CroNet.Impl.HttpCacheTypeConsts
+Xamarin.Chromium.CroNet.Impl.HttpFlagsForImpl
+Xamarin.Chromium.CroNet.Impl.HttpFlagsForImpl.HttpFlagsForImpl() -> void
 Xamarin.Chromium.CroNet.Impl.IHttpCacheType
 Xamarin.Chromium.CroNet.Impl.ILoadState
 Xamarin.Chromium.CroNet.Impl.ImplVersion
@@ -75,12 +67,209 @@ Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.MErrorCode.get -> int
 Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.MErrorCode.set -> void
 Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.NetworkExceptionImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.NetworkExceptionImpl(string? message, int errorCode, int cronetInternalErrorCode) -> void
-Xamarin.Chromium.CroNet.Impl.NoOpLogger
-Xamarin.Chromium.CroNet.Impl.NoOpLogger.NoOpLogger() -> void
 Xamarin.Chromium.CroNet.Impl.Preconditions
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOptionsOrBuilder
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOptionsOrBuilder.GetProxies(int index) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOptionsOrBuilder.ProxiesCount.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOptionsOrBuilder.ProxiesList.get -> System.Collections.Generic.IList<Xamarin.Chromium.CroNet.Impl.Proto.Proxy!>?
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.HasHost.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.HasPort.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.HasScheme.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.Host.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.HostBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.Port.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder.Scheme.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.BrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.BypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.DisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.EnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.ExperimentalOptions.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.ExperimentalOptionsBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasBrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasBypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasDisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasEnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasExperimentalOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasHttp2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasHttpCacheMaxSize.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasHttpCacheMode.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasMockCertVerifier.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasNetworkThreadPriority.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasProxyOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasQuicDefaultUserAgentId.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasQuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasStoragePath.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HasUserAgent.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.Http2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HttpCacheMaxSize.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.HttpCacheMode.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.MockCertVerifier.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.NetworkThreadPriority.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.ProxyOptions.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.QuicDefaultUserAgentId.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.QuicDefaultUserAgentIdBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.QuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.StoragePath.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.StoragePathBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.UserAgent.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.IRequestContextConfigOptionsOrBuilder.UserAgentBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.ClearHost() -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.ClearPort() -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.ClearScheme() -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.HasHost.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.HasPort.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.HasScheme.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.Host.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.HostBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.Port.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.Scheme.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.SetHost(string? value) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.SetHostBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.SetPort(int value) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.SetScheme(Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme? value) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.HasHost.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.HasPort.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.HasScheme.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Host.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.HostBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Port.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Scheme.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.AddAllProxies(Java.Lang.IIterable? values) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.AddProxies(Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder? builderForValue) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.AddProxies(Xamarin.Chromium.CroNet.Impl.Proto.Proxy? value) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.AddProxies(int index, Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder? builderForValue) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.AddProxies(int index, Xamarin.Chromium.CroNet.Impl.Proto.Proxy? value) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.ClearProxies() -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.GetProxies(int index) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.ProxiesCount.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.ProxiesList.get -> System.Collections.Generic.IList<Xamarin.Chromium.CroNet.Impl.Proto.Proxy!>?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.RemoveProxies(int index) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.SetProxies(int index, Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder? builderForValue) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.SetProxies(int index, Xamarin.Chromium.CroNet.Impl.Proto.Proxy? value) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.GetProxies(int index) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.GetProxiesOrBuilder(int index) -> Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ProxiesCount.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ProxiesList.get -> System.Collections.Generic.IList<Xamarin.Chromium.CroNet.Impl.Proto.Proxy!>?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ProxiesOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Chromium.CroNet.Impl.Proto.IProxyOrBuilder!>?
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme
+Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.Number.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfig
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.BrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.BrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.BypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearBrotliEnabled() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearBypassPublicKeyPinningForLocalTrustAnchors() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearDisableCache() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearEnableNetworkQualityEstimator() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearExperimentalOptions() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearHttp2Enabled() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearHttpCacheMaxSize() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearHttpCacheMode() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearMockCertVerifier() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearNetworkThreadPriority() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearProxyOptions() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearQuicDefaultUserAgentId() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearQuicEnabled() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearStoragePath() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ClearUserAgent() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.DisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.EnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ExperimentalOptions.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ExperimentalOptionsBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasBrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasBypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasDisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasEnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasExperimentalOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasHttp2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasHttpCacheMaxSize.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasHttpCacheMode.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasMockCertVerifier.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasNetworkThreadPriority.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasProxyOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasQuicDefaultUserAgentId.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasQuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasStoragePath.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HasUserAgent.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.Http2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HttpCacheMaxSize.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.HttpCacheMode.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.MergeProxyOptions(Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.MockCertVerifier.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.NetworkThreadPriority.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.ProxyOptions.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.QuicDefaultUserAgentId.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.QuicDefaultUserAgentIdBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.QuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetBrotliEnabled(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetBypassPublicKeyPinningForLocalTrustAnchors(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetDisableCache(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetEnableNetworkQualityEstimator(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetExperimentalOptions(string? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetExperimentalOptionsBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetHttp2Enabled(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetHttpCacheMaxSize(long value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetHttpCacheMode(int value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetMockCertVerifier(long value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetNetworkThreadPriority(int value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetProxyOptions(Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder? builderForValue) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetProxyOptions(Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetQuicDefaultUserAgentId(string? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetQuicDefaultUserAgentIdBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetQuicEnabled(bool value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetStoragePath(string? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetStoragePathBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetUserAgent(string? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.SetUserAgentBytes(Xamarin.Protobuf.Lite.ByteString? value) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.StoragePath.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.StoragePathBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.UserAgent.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.UserAgentBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.BypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.DisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.EnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ExperimentalOptions.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ExperimentalOptionsBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasBrotliEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasBypassPublicKeyPinningForLocalTrustAnchors.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasDisableCache.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasEnableNetworkQualityEstimator.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasExperimentalOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasHttp2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasHttpCacheMaxSize.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasHttpCacheMode.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasMockCertVerifier.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasNetworkThreadPriority.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasProxyOptions.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasQuicDefaultUserAgentId.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasQuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasStoragePath.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HasUserAgent.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Http2Enabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HttpCacheMaxSize.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HttpCacheMode.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.MockCertVerifier.get -> long
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.NetworkThreadPriority.get -> int
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ProxyOptions.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.QuicDefaultUserAgentId.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.QuicDefaultUserAgentIdBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.QuicEnabled.get -> bool
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.StoragePath.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.StoragePathBytes.get -> Xamarin.Protobuf.Lite.ByteString?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.UserAgent.get -> string?
+Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.UserAgentBytes.get -> Xamarin.Protobuf.Lite.ByteString?
 Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl
 Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.QuicExceptionImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.QuicExceptionImpl(string? message, int errorCode, int netErrorCode, int quicDetailedErrorCode) -> void
+Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.QuicExceptionImpl(string? message, int errorCode, int netErrorCode, int quicDetailedErrorCode, int source) -> void
 Xamarin.Chromium.CroNet.Impl.RefCountDelegate
 Xamarin.Chromium.CroNet.Impl.RefCountDelegate.Decrement() -> void
 Xamarin.Chromium.CroNet.Impl.RefCountDelegate.Increment() -> void
@@ -89,12 +278,12 @@ Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl
 Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.IFinishedReason
 Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.RequestFinishedInfoImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.RequestFinishedInfoImpl(string? url, System.Collections.Generic.ICollection<Java.Lang.Object!>? annotations, Xamarin.Chromium.CroNet.RequestFinishedInfo.Metrics? metrics, int finishedReason, Xamarin.Chromium.CroNet.UrlResponseInfo? responseInfo, Xamarin.Chromium.CroNet.CronetException? exception) -> void
-Xamarin.Chromium.CroNet.Impl.UrlRequestBase
-Xamarin.Chromium.CroNet.Impl.UrlRequestBase.IStatusValues
-Xamarin.Chromium.CroNet.Impl.UrlRequestBase.UrlRequestBase() -> void
-Xamarin.Chromium.CroNet.Impl.UrlRequestBase.UrlRequestBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.UrlRequestBuilderImpl
 Xamarin.Chromium.CroNet.Impl.UrlRequestBuilderImpl.UrlRequestBuilderImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Chromium.CroNet.Impl.UrlRequestUtil
+Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.IStatusValues
+Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.UrlRequestUtil() -> void
+Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.UrlRequestUtil(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl
 Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.HeaderBlockImpl
 Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.SetReceivedByteCount(long currentReceivedByteCount) -> void
@@ -102,6 +291,8 @@ Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.UrlResponseInfoImpl(System.Coll
 Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.UrlResponseInfoImpl(System.Collections.Generic.IList<string!>? urlChain, int httpStatusCode, string? httpStatusText, System.Collections.Generic.IList<Java.Util.IMapEntry!>? allHeadersList, bool wasCached, string? negotiatedProtocol, string? proxyServer, long receivedByteCount) -> void
 Xamarin.Chromium.CroNet.Impl.UserAgent
 Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks
+Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.ApiVersion
+Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.ApiVersion.ApiVersion() -> void
 Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.BidirectionalStreamCallback
 Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.BidirectionalStreamCallback.BidirectionalStreamCallback(Xamarin.Chromium.CroNet.BidirectionalStream.Callback? callback) -> void
 Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.LibraryLoader
@@ -127,18 +318,13 @@ Xamarin.Chromium.CroNet.RttThroughputValuesConsts
 Xamarin.Chromium.CroNet.ThreadStatsUid
 Xamarin.Chromium.CroNet.ThreadStatsUid.ThreadStatsUid() -> void
 Xamarin.Chromium.CroNet.ThreadStatsUid.ThreadStatsUid(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-abstract Xamarin.Chromium.CroNet.Impl.CronetLogger.LogCronetEngineCreation(int p0, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo? p1, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion? p2, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? p3) -> void
-abstract Xamarin.Chromium.CroNet.Impl.CronetLogger.LogCronetTrafficInfo(int p0, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo? p1) -> void
 abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.Finish() -> void
-abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.GetErrorSettingRunnable(Xamarin.Chromium.CroNet.Impl.JavaUrlRequestUtils.ICheckedRunnable? p0) -> Java.Lang.IRunnable?
-abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.GetUploadErrorSettingRunnable(Xamarin.Chromium.CroNet.Impl.JavaUrlRequestUtils.ICheckedRunnable? p0) -> Java.Lang.IRunnable?
+abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.GetErrorSettingRunnable(Xamarin.Chromium.CroNet.Impl.JavaUrlRequestUtils.ICheckedRunnable? runnable) -> Java.Lang.IRunnable?
+abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.GetUploadErrorSettingRunnable(Xamarin.Chromium.CroNet.Impl.JavaUrlRequestUtils.ICheckedRunnable? runnable) -> Java.Lang.IRunnable?
 abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.InitializeRead() -> void
-abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.InitializeStart(long p0) -> void
-abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.ProcessSuccessfulRead(Java.Nio.ByteBuffer? p0) -> int
-abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.ProcessUploadError(Java.Lang.Throwable? p0) -> void
-abstract Xamarin.Chromium.CroNet.Impl.UrlRequestBase.AddHeader(string? p0, string? p1) -> void
-abstract Xamarin.Chromium.CroNet.Impl.UrlRequestBase.SetHttpMethod(string? p0) -> void
-abstract Xamarin.Chromium.CroNet.Impl.UrlRequestBase.SetUploadDataProvider(Xamarin.Chromium.CroNet.UploadDataProvider? p0, Java.Util.Concurrent.IExecutor? p1) -> void
+abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.InitializeStart(long totalBytes) -> void
+abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.ProcessSuccessfulRead(Java.Nio.ByteBuffer? buffer) -> int
+abstract Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.ProcessUploadError(Java.Lang.Throwable? error) -> void
 const Xamarin.Chromium.CroNet.EffectiveConnectionType.Type2g = 3 -> int
 const Xamarin.Chromium.CroNet.EffectiveConnectionType.Type3g = 4 -> int
 const Xamarin.Chromium.CroNet.EffectiveConnectionType.Type4g = 5 -> int
@@ -147,7 +333,7 @@ const Xamarin.Chromium.CroNet.EffectiveConnectionType.TypeOffline = 1 -> int
 const Xamarin.Chromium.CroNet.EffectiveConnectionType.TypeSlow2g = 2 -> int
 const Xamarin.Chromium.CroNet.EffectiveConnectionType.TypeUnknown = 0 -> int
 const Xamarin.Chromium.CroNet.Impl.CronetEngineBase.DefaultNetworkHandle = -1 -> long
-const Xamarin.Chromium.CroNet.Impl.CronetManifest.ReadHttpFlagsMetaDataKey = "android.net.http.EXPERIMENTAL_ReadHttpFlags" -> string!
+const Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.NetworkThreadPriority = 0 -> int
 const Xamarin.Chromium.CroNet.Impl.HttpCacheType.Disabled = 0 -> int
 const Xamarin.Chromium.CroNet.Impl.HttpCacheType.Disk = 1 -> int
 const Xamarin.Chromium.CroNet.Impl.HttpCacheType.Memory = 2 -> int
@@ -177,7 +363,32 @@ const Xamarin.Chromium.CroNet.Impl.LoadState.WaitingForCache = 4 -> int
 const Xamarin.Chromium.CroNet.Impl.LoadState.WaitingForDelegate = 3 -> int
 const Xamarin.Chromium.CroNet.Impl.LoadState.WaitingForResponse = 14 -> int
 const Xamarin.Chromium.CroNet.Impl.LoadState.WaitingForStalledSocketPool = 1 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.Proxy.HostFieldNumber = 2 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.Proxy.PortFieldNumber = 3 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.Proxy.SchemeFieldNumber = 1 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ProxiesFieldNumber = 1 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.DirectValue = 0 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.HttpValue = 1 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.HttpsValue = 2 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.BrotliEnabledFieldNumber = 6 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.BypassPublicKeyPinningForLocalTrustAnchorsFieldNumber = 13 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.DisableCacheFieldNumber = 7 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.EnableNetworkQualityEstimatorFieldNumber = 12 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ExperimentalOptionsFieldNumber = 10 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Http2EnabledFieldNumber = 5 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HttpCacheMaxSizeFieldNumber = 9 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.HttpCacheModeFieldNumber = 8 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.MockCertVerifierFieldNumber = 11 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.NetworkThreadPriorityFieldNumber = 14 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ProxyOptionsFieldNumber = 15 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.QuicDefaultUserAgentIdFieldNumber = 4 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.QuicEnabledFieldNumber = 3 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.StoragePathFieldNumber = 2 -> int
+const Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.UserAgentFieldNumber = 1 -> int
 const Xamarin.Chromium.CroNet.RttThroughputValues.InvalidRttThroughput = -1 -> int
+override Xamarin.Chromium.CroNet.Impl.BidirectionalStreamBuilderImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.BidirectionalStreamBuilderImpl.ThresholdClass.get -> nint
+override Xamarin.Chromium.CroNet.Impl.BidirectionalStreamBuilderImpl.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.CallbackExceptionImpl.ThresholdType.get -> System.Type!
@@ -202,29 +413,32 @@ override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SetExperimentalOpt
 override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SetLibraryLoader(Xamarin.Chromium.CroNet.CronetEngine.Builder.LibraryLoader? loader) -> Xamarin.Chromium.CroNet.ICronetEngineBuilder?
 override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SetStoragePath(string? value) -> Xamarin.Chromium.CroNet.ICronetEngineBuilder?
 override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SetUserAgent(string? userAgent) -> Xamarin.Chromium.CroNet.ICronetEngineBuilder?
+override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SupportedConfigOptions.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
 override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.CronetExceptionImpl.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.CronetLogger.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.CronetManifest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.ConnectEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.ConnectStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.DnsEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.DnsStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.PushEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.PushStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.ReceivedByteCount.get -> Java.Lang.Long?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.RequestEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.RequestStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.ResponseStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SendingEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SendingStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SentByteCount.get -> Java.Lang.Long?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SocketReused.get -> bool
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SslEnd.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.SslStart.get -> Java.Util.Date?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.TotalTimeMs.get -> Java.Lang.Long?
+override Xamarin.Chromium.CroNet.Impl.CronetMetrics.TtfbMs.get -> Java.Lang.Long?
+override Xamarin.Chromium.CroNet.Impl.HttpFlagsForImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.ImplVersion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.ImplVersion.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.ImplVersion.ThresholdType.get -> System.Type!
@@ -243,10 +457,15 @@ override Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.ImmediatelyRetryable(
 override Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.NetworkExceptionImpl.ThresholdType.get -> System.Type!
-override Xamarin.Chromium.CroNet.Impl.NoOpLogger.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.NoOpLogger.LogCronetEngineCreation(int cronetEngineId, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo? engineBuilderInfo, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion? version, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? source) -> void
-override Xamarin.Chromium.CroNet.Impl.NoOpLogger.LogCronetTrafficInfo(int cronetEngineId, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo? trafficInfo) -> void
 override Xamarin.Chromium.CroNet.Impl.Preconditions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.Proxy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.CronetInternalErrorCode.get -> int
 override Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.ErrorCode.get -> int
 override Xamarin.Chromium.CroNet.Impl.QuicExceptionImpl.ImmediatelyRetryable() -> bool
@@ -264,12 +483,12 @@ override Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.ResponseInfo.get -
 override Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Impl.RequestFinishedInfoImpl.Url.get -> string?
-override Xamarin.Chromium.CroNet.Impl.UrlRequestBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Chromium.CroNet.Impl.UrlRequestBase.ThresholdClass.get -> nint
-override Xamarin.Chromium.CroNet.Impl.UrlRequestBase.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Impl.UrlRequestBuilderImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.UrlRequestBuilderImpl.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Impl.UrlRequestBuilderImpl.ThresholdType.get -> System.Type!
+override Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.ThresholdClass.get -> nint
+override Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.AllHeaders.get -> System.Collections.Generic.IDictionary<string!, System.Collections.Generic.IList<string!>!>?
 override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.AllHeadersAsList.get -> System.Collections.Generic.IList<Java.Util.IMapEntry!>?
 override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.HeaderBlockImpl.AsList.get -> System.Collections.Generic.IList<Java.Util.IMapEntry!>?
@@ -285,6 +504,7 @@ override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.Url.get -> string?
 override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.UrlChain.get -> System.Collections.Generic.IList<string!>?
 override Xamarin.Chromium.CroNet.Impl.UrlResponseInfoImpl.WasCached() -> bool
 override Xamarin.Chromium.CroNet.Impl.UserAgent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.ApiVersion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.BidirectionalStreamCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.BidirectionalStreamCallback.OnFailed(Xamarin.Chromium.CroNet.BidirectionalStream? stream, Xamarin.Chromium.CroNet.UrlResponseInfo? info, Xamarin.Chromium.CroNet.CronetException? error) -> void
 override Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.BidirectionalStreamCallback.OnReadCompleted(Xamarin.Chromium.CroNet.BidirectionalStream? stream, Xamarin.Chromium.CroNet.UrlResponseInfo? info, Java.Nio.ByteBuffer? buffer, bool endOfStream) -> void
@@ -318,53 +538,79 @@ override Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.UrlRequestStatusListe
 override Xamarin.Chromium.CroNet.ThreadStatsUid.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Chromium.CroNet.ThreadStatsUid.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.ThreadStatsUid.ThresholdType.get -> System.Type!
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.CronetSourceFallback.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.CronetSourcePlatform.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.CronetSourcePlayServices.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.CronetSourceStaticallyLinked.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.CronetSourceUnspecified.get -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.ValueOf(string? name) -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource?
-static Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource.Values() -> Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource![]?
-static Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.CreateLogger(Android.Content.Context? ctx, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? source) -> Xamarin.Chromium.CroNet.Impl.CronetLogger?
-static Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.CreateNoOpLogger() -> Xamarin.Chromium.CroNet.Impl.CronetLogger?
-static Xamarin.Chromium.CroNet.Impl.CronetManifest.IsAppOptedInForTelemetry(Android.Content.Context? context, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? source) -> bool
-static Xamarin.Chromium.CroNet.Impl.CronetManifest.ShouldReadHttpFlags(Android.Content.Context? context) -> bool
+static Xamarin.Chromium.CroNet.Impl.HttpFlagsForImpl.GetHttpFlags(Android.Content.Context? context, Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetSource? source) -> Xamarin.Chromium.CroNet.HttpFlags.ResolvedFlags?
 static Xamarin.Chromium.CroNet.Impl.ImplVersion.ApiLevel.get -> int
 static Xamarin.Chromium.CroNet.Impl.ImplVersion.CronetVersion.get -> string?
 static Xamarin.Chromium.CroNet.Impl.ImplVersion.CronetVersionWithLastChange.get -> string?
 static Xamarin.Chromium.CroNet.Impl.ImplVersion.LastChange.get -> string?
+static Xamarin.Chromium.CroNet.Impl.JavaUrlRequestUtils.StateToString(int state) -> string?
 static Xamarin.Chromium.CroNet.Impl.Preconditions.CheckDirect(Java.Nio.ByteBuffer? buffer) -> void
 static Xamarin.Chromium.CroNet.Impl.Preconditions.CheckHasRemaining(Java.Nio.ByteBuffer? buffer) -> void
-static Xamarin.Chromium.CroNet.Impl.UrlRequestBase.ConvertLoadState(int loadState) -> int
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.DefaultInstance.get -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.NewBuilder() -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.NewBuilder(Xamarin.Chromium.CroNet.Impl.Proto.Proxy? prototype) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(byte[]? data) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.ParseFrom(byte[]? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.Proxy?
+static Xamarin.Chromium.CroNet.Impl.Proto.Proxy.Parser() -> Xamarin.Protobuf.Lite.IParser?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.DefaultInstance.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.NewBuilder() -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.NewBuilder(Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions? prototype) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(byte[]? data) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.ParseFrom(byte[]? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyOptions.Parser() -> Xamarin.Protobuf.Lite.IParser?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.Direct.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.ForNumber(int value) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.Http.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.Https.get -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.InternalGetValueMap() -> Xamarin.Protobuf.Lite.Internal.IEnumLiteMap?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.InternalGetVerifier() -> Xamarin.Protobuf.Lite.Internal.IEnumVerifier?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.ValueOf(int value) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.ValueOf(string? name) -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme?
+static Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme.Values() -> Xamarin.Chromium.CroNet.Impl.Proto.ProxyScheme![]?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfig.RegisterAllExtensions(Xamarin.Protobuf.Lite.ExtensionRegistryLite? registry) -> void
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.DefaultInstance.get -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.NewBuilder() -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.NewBuilder(Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions? prototype) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Builder?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(System.IO.Stream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(System.IO.Stream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Xamarin.Protobuf.Lite.ByteString? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(Xamarin.Protobuf.Lite.CodedInputStream? input, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(byte[]? data) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.ParseFrom(byte[]? data, Xamarin.Protobuf.Lite.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions?
+static Xamarin.Chromium.CroNet.Impl.Proto.RequestContextConfigOptions.Parser() -> Xamarin.Protobuf.Lite.IParser?
+static Xamarin.Chromium.CroNet.Impl.UrlRequestUtil.ConvertLoadState(int loadState) -> int
 static Xamarin.Chromium.CroNet.Impl.UserAgent.From(Android.Content.Context? context) -> string?
+static Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.ApiVersion.CronetVersion.get -> string?
+static Xamarin.Chromium.CroNet.Impl.VersionSafeCallbacks.ApiVersion.MaximumAvailableApiLevel.get -> int
 static Xamarin.Chromium.CroNet.ThreadStatsUid.Clear() -> void
 static Xamarin.Chromium.CroNet.ThreadStatsUid.Set(int uid) -> void
 virtual Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.AddPublicKeyPins(string? hostName, System.Collections.Generic.ICollection<byte[]!>? pinsSha256, bool includeSubdomains, Java.Util.Date? expirationDate) -> Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl?
 virtual Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.ExperimentalOptions() -> string?
 virtual Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl.SetMockCertVerifierForTesting(long mockCertVerifier) -> Xamarin.Chromium.CroNet.Impl.CronetEngineBuilderImpl?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.ExperimentalOptions.get -> string?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.HttpCacheMode.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.IsBrotliEnabled.get -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.IsHttp2Enabled.get -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.IsNetworkQualityEstimatorEnabled.get -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.IsPublicKeyPinningBypassForLocalTrustAnchorsEnabled.get -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.IsQuicEnabled.get -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.StoragePath.get -> string?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.ThreadPriority.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetEngineBuilderInfo.UserAgent.get -> string?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.DidConnectionMigrationSucceed() -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.HeadersLatency.get -> Java.Time.Duration?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.NegotiatedProtocol.get -> string?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.RequestBodySizeInBytes.get -> long
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.RequestHeaderSizeInBytes.get -> long
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.ResponseBodySizeInBytes.get -> long
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.ResponseHeaderSizeInBytes.get -> long
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.ResponseStatusCode.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.TotalLatency.get -> Java.Time.Duration?
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetTrafficInfo.WasConnectionMigrationAttempted() -> bool
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.BuildVersion.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.MajorVersion.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.MinorVersion.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLogger.CronetVersion.PatchVersion.get -> int
-virtual Xamarin.Chromium.CroNet.Impl.CronetLoggerFactory.SwapLoggerForTesting.Close() -> void
 virtual Xamarin.Chromium.CroNet.Impl.JavaUploadDataSinkBase.Start(bool firstTime) -> void
