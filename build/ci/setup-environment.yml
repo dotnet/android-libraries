@@ -44,31 +44,26 @@ steps:
       }
     displayName: Install .NET Workloads
 
-  - bash: |
-      if [[ -n "$JAVA_HOME_21_X64" && -d "$JAVA_HOME_21_X64" ]]; then
-          echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME_21_X64"
-      else
-          JDK_DIR="$(Agent.ToolsDirectory)/jdk-21"
-          TEMP_FILE="$(Agent.TempDirectory)/microsoft-jdk-21.tar.gz"
-          if [[ ! -d "$JDK_DIR" || ! -f "$JDK_DIR/bin/java" ]]; then
-              echo "Downloading Microsoft JDK 21 for macOS..."
-              mkdir -p "$JDK_DIR"
-              curl -L "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz" -o "$TEMP_FILE"
-              tar -xzf "$TEMP_FILE" -C "$JDK_DIR" --strip-components=4
-              rm "$TEMP_FILE"
-          fi
-          echo "##vso[task.setvariable variable=JAVA_HOME]$JDK_DIR"
-      fi
-    displayName: Use Java 21 SDK (Mac)
-    condition: eq( variables['Agent.OS'], 'Darwin' )
+  - pwsh: |
+      $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip"
+      if ($IsMacOS) {
+          $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz"
+      }
+      $fileName = [System.IO.Path]::GetFileName($url)
+      Invoke-WebRequest -Uri $url -OutFile $fileName
+      Write-Host "##vso[task.setvariable variable=JDK_21_FILE_PATH]$(Build.StagingDirectory)/$fileName"
+    displayName: Download Java 21 SDK
+    workingDirectory: $(Build.StagingDirectory)
 
   - task: JavaToolInstaller@0
-    displayName: Use Java 21 SDK (Windows)
-    condition: eq( variables['Agent.OS'], 'Windows_NT' )
+    displayName: Use Java 21 SDK
     inputs:
       versionSpec: '21'
       jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'PreInstalled'
+      jdkSourceOption: LocalDirectory
+      jdkFile: $(JDK_21_FILE_PATH)
+      jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
+      cleanDestinationDirectory: true
 
   - pwsh: |
       if (Test-Path "${{ parameters.androidSdkRoot }}") {
