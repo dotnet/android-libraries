@@ -44,26 +44,10 @@ steps:
       }
     displayName: Install .NET Workloads
 
-  - pwsh: |
-      $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip"
-      if ($IsMacOS) {
-          $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz"
-      }
-      $fileName = [System.IO.Path]::GetFileName($url)
-      Invoke-WebRequest -Uri $url -OutFile $fileName
-      Write-Host "##vso[task.setvariable variable=JDK_21_FILE_PATH]$(Build.StagingDirectory)/$fileName"
-    displayName: Download Java 21 SDK
-    workingDirectory: $(Build.StagingDirectory)
-
-  - task: JavaToolInstaller@0
-    displayName: Use Java 21 SDK
-    inputs:
-      versionSpec: '21'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: LocalDirectory
-      jdkFile: $(JDK_21_FILE_PATH)
+  - template: install-java.yml
+    parameters:
+      jdkVersion: '21.0.8'
       jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
-      cleanDestinationDirectory: true
 
   - pwsh: |
       if (Test-Path "${{ parameters.androidSdkRoot }}") {
@@ -105,24 +89,4 @@ steps:
       Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT and ANDROID_HOME to ${{ parameters.androidSdkRoot }}
 
-  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
-    - pwsh: |
-        $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip"
-        if ($IsMacOS) {
-            $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz"
-        }
-        $fileName = [System.IO.Path]::GetFileName($url)
-        Invoke-WebRequest -Uri $url -OutFile $fileName
-        Write-Host "##vso[task.setvariable variable=JDK_21_FILE_PATH]$(Build.StagingDirectory)/$fileName"
-      displayName: Download Java 21 SDK
-      workingDirectory: $(Build.StagingDirectory)
 
-    - task: JavaToolInstaller@0
-      displayName: Use Java 21 SDK
-      inputs:
-        versionSpec: '21'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: LocalDirectory
-        jdkFile: $(JDK_21_FILE_PATH)
-        jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
-        cleanDestinationDirectory: true

@@ -1,0 +1,87 @@
+parameters:
+  jdkVersion: '21.0.8'
+  jdkDestinationDirectory: $(Agent.ToolsDirectory)\jdk21
+
+steps:
+  - pwsh: |
+      $jdkVersion = "${{ parameters.jdkVersion }}"
+      $destinationDir = "${{ parameters.jdkDestinationDirectory }}"
+      
+      # Download JDK
+      $url = "https://aka.ms/download-jdk/microsoft-jdk-$jdkVersion-windows-x64.zip"
+      $fileName = "microsoft-jdk-$jdkVersion-windows-x64.zip"
+      if ($IsMacOS) {
+          $url = "https://aka.ms/download-jdk/microsoft-jdk-$jdkVersion-macos-x64.tar.gz"
+          $fileName = "microsoft-jdk-$jdkVersion-macos-x64.tar.gz"
+      }
+      
+      Write-Host "Downloading JDK from: $url"
+      Invoke-WebRequest -Uri $url -OutFile $fileName
+      
+      # Create destination directory
+      if (Test-Path $destinationDir) {
+          Write-Host "Cleaning existing directory: $destinationDir"
+          Remove-Item $destinationDir -Recurse -Force
+      }
+      New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+      
+      # Extract archive
+      Write-Host "Extracting JDK to: $destinationDir"
+      if ($IsWindows) {
+          Expand-Archive -Path $fileName -DestinationPath $destinationDir -Force
+          
+          # Find the JDK directory (should contain bin folder)
+          $jdkDir = Get-ChildItem -Path $destinationDir -Directory | Where-Object { Test-Path (Join-Path $_.FullName "bin") } | Select-Object -First 1
+          if ($jdkDir) {
+              $javaHome = $jdkDir.FullName
+          } else {
+              $javaHome = $destinationDir
+          }
+      } else {
+          # macOS: Extract tar.gz
+          tar -xzf $fileName -C $destinationDir
+          
+          # Find the JDK directory - Microsoft JDK on macOS has structure like jdk-21.0.8+9/Contents/Home
+          $jdkDir = Get-ChildItem -Path $destinationDir -Directory | Select-Object -First 1
+          if ($jdkDir) {
+              $contentsHome = Join-Path $jdkDir.FullName "Contents" "Home"
+              if (Test-Path $contentsHome) {
+                  $javaHome = $contentsHome
+              } else {
+                  $javaHome = $jdkDir.FullName
+              }
+          } else {
+              $javaHome = $destinationDir
+          }
+      }
+      
+      # Verify bin directory exists
+      $binPath = Join-Path $javaHome "bin"
+      if (-not (Test-Path $binPath)) {
+          Write-Host "##vso[task.logissue type=error]JDK bin directory not found at: $binPath"
+          exit 1
+      }
+      
+      Write-Host "JDK installed at: $javaHome"
+      Write-Host "Bin directory: $binPath"
+      
+      # Set environment variables
+      Write-Host "##vso[task.setvariable variable=JAVA_HOME]$javaHome"
+      Write-Host "##vso[task.setvariable variable=JAVA_HOME_21_X64]$javaHome"
+      Write-Host "##vso[task.prependpath]$binPath"
+      
+      # Verify installation
+      $javaExe = Join-Path $binPath "java"
+      if ($IsWindows) {
+          $javaExe += ".exe"
+      }
+      
+      if (Test-Path $javaExe) {
+          Write-Host "Java version:"
+          & $javaExe -version
+      } else {
+          Write-Host "##vso[task.logissue type=error]Java executable not found at: $javaExe"
+          exit 1
+      }
+    displayName: Install Java ${{ parameters.jdkVersion }} SDK
+    workingDirectory: $(Build.StagingDirectory)
