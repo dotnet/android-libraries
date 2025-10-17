@@ -69,6 +69,7 @@ steps:
       retryCountOnTaskFailure: 3
 
   - pwsh: |
+      $ErrorActionPreference = 'Stop'
       $sdkManager = Join-Path "${{ parameters.androidSdkRoot }}" "cmdline-tools" "latest" "bin" "sdkmanager"
       if ($IsWindows) {
         $sdkManager += ".bat"
