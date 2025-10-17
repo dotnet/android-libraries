@@ -4,14 +4,15 @@ parameters:
 
 steps:
   - pwsh: |
+      $ErrorActionPreference = 'Stop'
       $jdkVersion = "${{ parameters.jdkVersion }}"
       $destinationDir = "${{ parameters.jdkDestinationDirectory }}"
       
       # Download JDK
-      if ($IsMacOS) {
-          $url = "https://aka.ms/download-jdk/microsoft-jdk-$jdkVersion-macos-x64.tar.gz"
-      } else {
+      if ($IsWindows) {
           $url = "https://aka.ms/download-jdk/microsoft-jdk-$jdkVersion-windows-x64.zip"
+      } else {
+          $url = "https://aka.ms/download-jdk/microsoft-jdk-$jdkVersion-macos-x64.tar.gz"
       }
       
       $fileName = [System.IO.Path]::GetFileName($url)
@@ -31,10 +32,16 @@ steps:
           Expand-Archive -Path $fileName -DestinationPath $destinationDir -Force
       } else {
           & tar -xzf $fileName -C $destinationDir
+          if ($LASTEXITCODE -ne 0) {
+              throw "Failed to extract JDK archive"
+          }
       }
       
       # Find JAVA_HOME - look for directory with bin folder or Contents/Home
       $jdkDir = Get-ChildItem -Path $destinationDir -Directory | Select-Object -First 1
+      if (-not $jdkDir) {
+          throw "No directory found in extracted JDK archive at: $destinationDir"
+      }
       
       # Check for macOS structure (jdk-version/Contents/Home)
       $contentsHome = Join-Path $jdkDir.FullName "Contents" "Home"
@@ -53,30 +60,27 @@ steps:
       # Verify bin directory exists
       $binPath = Join-Path $javaHome "bin"
       if (-not (Test-Path $binPath)) {
-          Write-Host "##vso[task.logissue type=error]JDK bin directory not found at: $binPath"
-          exit 1
+          throw "JDK bin directory not found at: $binPath"
       }
       
       Write-Host "JDK installed at: $javaHome"
-      Write-Host "Bin directory: $binPath"
       
       # Set environment variables
       Write-Host "##vso[task.setvariable variable=JAVA_HOME]$javaHome"
       Write-Host "##vso[task.setvariable variable=JAVA_HOME_21_X64]$javaHome"
       Write-Host "##vso[task.prependpath]$binPath"
       
-      # Verify installation
-      $javaExe = Join-Path $binPath "java"
-      if ($IsWindows) {
-          $javaExe += ".exe"
+      # Verify installation by calling java directly with full path
+      $javaExe = if ($IsWindows) { Join-Path $binPath "java.exe" } else { Join-Path $binPath "java" }
+      
+      if (-not (Test-Path $javaExe)) {
+          throw "Java executable not found at: $javaExe"
       }
       
-      if (Test-Path $javaExe) {
-          Write-Host "Java version:"
-          & $javaExe -version
-      } else {
-          Write-Host "##vso[task.logissue type=error]Java executable not found at: $javaExe"
-          exit 1
+      Write-Host "Java version:"
+      & $javaExe -version
+      if ($LASTEXITCODE -ne 0) {
+          throw "Failed to execute java -version"
       }
     displayName: Install Java ${{ parameters.jdkVersion }} SDK
     workingDirectory: $(Build.StagingDirectory)
