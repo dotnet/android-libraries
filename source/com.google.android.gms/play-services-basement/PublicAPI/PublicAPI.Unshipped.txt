@@ -154,9 +154,11 @@ Android.Gms.Common.Config.GservicesValue.Get() -> Java.Lang.Object!
 Android.Gms.Common.Config.GservicesValue.GservicesValue(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Common.Config.GservicesValue.GservicesValue(string! p0, Java.Lang.Object! p1) -> void
 Android.Gms.Common.ConnectionResult
+Android.Gms.Common.ConnectionResult.ClientMethodKey.get -> Java.Lang.Integer?
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode) -> void
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent) -> void
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message) -> void
+Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message, Java.Lang.Integer? clientMethodKey) -> void
 Android.Gms.Common.ConnectionResult.ErrorCode.get -> int
 Android.Gms.Common.ConnectionResult.ErrorMessage.get -> string?
 Android.Gms.Common.ConnectionResult.HasResolution.get -> bool
@@ -165,8 +167,10 @@ Android.Gms.Common.ConnectionResult.Resolution.get -> Android.App.PendingIntent?
 Android.Gms.Common.ConnectionResult.StartResolutionForResult(Android.App.Activity! activity, int requestCode) -> void
 Android.Gms.Common.Feature
 Android.Gms.Common.Feature.Feature(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Common.Feature.Feature(string! name, int oldVersion, long version) -> void
 Android.Gms.Common.Feature.Feature(string! name, long version) -> void
-Android.Gms.Common.Feature.Feature(string! p0, int p1, long p2) -> void
+Android.Gms.Common.Feature.Feature(string! name, long version, bool isFullyRolledOut) -> void
+Android.Gms.Common.Feature.Feature(string! p0, int p1, long p2, bool p3) -> void
 Android.Gms.Common.FirstPartyScopes
 Android.Gms.Common.FirstPartyScopes.FirstPartyScopes(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Common.GmsSignatureVerifier
@@ -1181,6 +1185,7 @@ virtual Android.Gms.Common.BlockingServiceConnection.GetServiceWithTimeout(long 
 virtual Android.Gms.Common.BlockingServiceConnection.Service.get -> Android.OS.IBinder!
 virtual Android.Gms.Common.Config.GservicesValue.Override(Java.Lang.Object! value) -> void
 virtual Android.Gms.Common.Config.GservicesValue.ResetOverride() -> void
+virtual Android.Gms.Common.Feature.IsFullyRolledOut.get -> bool
 virtual Android.Gms.Common.Feature.Name.get -> string!
 virtual Android.Gms.Common.Feature.Version.get -> long
 virtual Android.Gms.Common.GoogleApiAvailabilityLight.CancelAvailabilityErrorNotifications(Android.Content.Context! context) -> void

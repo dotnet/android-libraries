@@ -860,6 +860,8 @@ Task ("spell-check")
                 "AICore",
                 "GenAI",
                 "JavaNetCookieJar",
+                "FeatureCombinationQuery",
+                "HttpEngine",
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);
