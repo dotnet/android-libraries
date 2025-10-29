@@ -10,13 +10,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Log disk space (after checkout)
+      uses: ./.github/workflows/log-disk-space
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.x'
 
+    - name: Log disk space (after .NET setup)
+      uses: ./.github/workflows/log-disk-space
+
     - name: Install Android workload
       run: dotnet workload install android
+
+    - name: Log disk space (after Android workload)
+      uses: ./.github/workflows/log-disk-space
 
     - name: Setup OpenJDK 21
       uses: actions/setup-java@v4
@@ -24,8 +33,14 @@ jobs:
         distribution: 'microsoft'
         java-version: '21'
 
+    - name: Log disk space (after Java setup)
+      uses: ./.github/workflows/log-disk-space
+
     - name: Restore dotnet tools
       run: dotnet tool restore
+
+    - name: Log disk space (after dotnet tools restore)
+      uses: ./.github/workflows/log-disk-space
 
     # Cache the externals directory based on config.json content
     # This caches the Maven artifacts downloaded by the binderator tool
@@ -37,9 +52,15 @@ jobs:
         path: ./externals
         key: externals-${{ hashFiles('config.json') }}
 
+    - name: Log disk space (after externals cache restore)
+      uses: ./.github/workflows/log-disk-space
+
     - name: Run dotnet cake
       run: dotnet cake
       continue-on-error: true
+
+    - name: Log disk space (after dotnet cake)
+      uses: ./.github/workflows/log-disk-space
 
     # Save the externals cache after dotnet cake runs
     # This ensures the cache reflects the original config.json state

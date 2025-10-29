@@ -1,0 +1,19 @@
+name: Log Disk Space
+description: Logs disk space usage on the runner
+runs:
+  using: composite
+  steps:
+  - name: Log disk space
+    shell: bash
+    run: |
+      echo "=== Disk Space Usage ==="
+      df -h
+      echo ""
+      echo "=== Disk Usage by Directory (/) ==="
+      du -h -d 1 / 2>/dev/null | sort -hr | head -20 || true
+      echo ""
+      echo "=== Disk Usage in Current Directory ==="
+      du -h -d 1 . 2>/dev/null | sort -hr | head -20 || true
+      echo ""
+      echo "=== Disk Usage Summary ==="
+      df -h / | tail -1 | awk '{print "Used: " $3 " / " $2 " (" $5 " full)"}'
