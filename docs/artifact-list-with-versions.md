@@ -627,7 +627,7 @@
 | 620|org.chromium.net:cronet-fallback                                      |141.7340.3          |Xamarin.Chromium.CroNet.Fallback                                      |141.7340.3          |
 | 621|org.chromium.net:cronet-shared                                        |141.7340.3          |Xamarin.Chromium.CroNet.Shared                                        |141.7340.3          |
 | 622|org.chromium.net:httpengine-native-provider                           |141.7340.3          |Xamarin.Chromium.CroNet.HttpEngine.Native.Provider                    |141.7340.3          |
-| 623|org.codehaus.mojo:animal-sniffer-annotations                          |1.26.0              |Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations                        |1.26.0              |
+| 623|org.codehaus.mojo:animal-sniffer-annotations                          |1.26                |Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations                        |1.26.0              |
 | 624|org.jetbrains:annotations                                             |26.0.2              |Xamarin.Jetbrains.Annotations                                         |26.0.2.3            |
 | 625|org.jetbrains.kotlin:kotlin-android-extensions-runtime                |2.2.10              |Xamarin.Kotlin.Android.Extensions.Runtime.Library                     |2.2.10              |
 | 626|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.2.21              |Xamarin.Kotlin.Parcelize.Runtime                                      |2.2.21              |
@@ -654,7 +654,7 @@
 | 647|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf                                |1.9.0.1             |
 | 648|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.9.0.1             |
 | 649|org.jspecify:jspecify                                                 |1.0.0               |Xamarin.JSpecify                                                      |1.0.0.4             |
-| 650|org.ow2.asm:asm                                                       |9.9.0               |Xamarin.OW2.ASM                                                       |9.9.0               |
+| 650|org.ow2.asm:asm                                                       |9.9                 |Xamarin.OW2.ASM                                                       |9.9.0               |
 | 651|org.reactivestreams:reactive-streams                                  |1.0.4               |Xamarin.Android.ReactiveStreams                                       |1.0.4.21            |
 | 652|org.tensorflow:tensorflow-android                                     |1.13.1              |Xamarin.TensorFlow.Android                                            |1.13.1.15           |
 | 653|org.tensorflow:tensorflow-lite                                        |2.16.1              |Xamarin.TensorFlow.Lite                                               |2.16.1.7            |
