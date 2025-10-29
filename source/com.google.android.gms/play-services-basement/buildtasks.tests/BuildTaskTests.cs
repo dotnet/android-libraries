@@ -97,9 +97,9 @@ namespace buildtasks.tests
 		[Test]
 		public void Test_Reruns_When_GoogleServicesJson_List_Changes()
 		{
-			// This test validates the fix for: https://github.com/dotnet/android-libraries/issues/XXXX
-			// When the list of GoogleServicesJson files changes (e.g., switching between environments),
-			// the target should rerun even if file timestamps haven't changed.
+			// This test validates the fix for the ProcessGoogleServicesJson target being incorrectly skipped
+			// when the GoogleServicesJson file list changes (e.g., switching between environments).
+			// The target should rerun even if file timestamps haven't changed.
 
 			var googleServicesJsonPath1 = Path.Combine(TempDir, "google-services-stage.json");
 			var googleServicesJsonPath2 = Path.Combine(TempDir, "google-services-test.json");
