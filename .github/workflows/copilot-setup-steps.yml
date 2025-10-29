@@ -13,6 +13,22 @@ jobs:
     - name: Log disk space (after checkout)
       uses: ./.github/workflows/log-disk-space
 
+    - name: Setup build directories on secondary disk
+      run: |
+        echo "Setting up build directories on /mnt (secondary disk with 66G+ free)"
+        mkdir -p /mnt/build-output
+        mkdir -p /mnt/externals
+        mkdir -p /mnt/generated
+        
+        # Create symlinks to use the secondary disk
+        ln -s /mnt/build-output ./output
+        ln -s /mnt/externals ./externals-link
+        ln -s /mnt/generated ./generated-link
+        
+        echo "Build directories configured:"
+        ls -la | grep -E "(output|externals|generated)"
+        df -h /mnt
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -54,6 +70,8 @@ jobs:
 
     - name: Log disk space (after externals cache restore)
       uses: ./.github/workflows/log-disk-space
+      with:
+        detailed: 'true'
 
     - name: Run dotnet cake
       run: dotnet cake
@@ -61,6 +79,8 @@ jobs:
 
     - name: Log disk space (after dotnet cake)
       uses: ./.github/workflows/log-disk-space
+      with:
+        detailed: 'true'
 
     # Save the externals cache after dotnet cake runs
     # This ensures the cache reflects the original config.json state
