@@ -4,18 +4,6 @@ using System.Threading.Tasks;
 
 namespace Android.BillingClient.Api
 {
-    public partial class BillingResult
-    {
-        internal BillingResult Clone()
-        {
-            return BillingResult.NewBuilder()
-                .SetResponseCode((int)ResponseCode)
-                .SetDebugMessage(DebugMessage)
-                .SetOnPurchasesUpdatedSubResponseCode(OnPurchasesUpdatedSubResponseCode)
-                .Build();
-        }
-    }
-
     public class ConsumeResult
     {
         public BillingResult BillingResult { get; set; }
@@ -208,10 +196,7 @@ namespace Android.BillingClient.Api
         public Action<BillingResult> AcknowledgePurchaseResponseHandler { get; set; }
 
         public void OnAcknowledgePurchaseResponse(BillingResult result)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            AcknowledgePurchaseResponseHandler?.Invoke(result.Clone());
-        }
+            => AcknowledgePurchaseResponseHandler?.Invoke(result);
     }
 
     internal class InternalBillingClientStateListener : Java.Lang.Object, IBillingClientStateListener
@@ -224,30 +209,21 @@ namespace Android.BillingClient.Api
             => BillingServiceDisconnectedHandler?.Invoke();
 
         public void OnBillingSetupFinished(BillingResult result)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            BillingSetupFinishedHandler?.Invoke(result.Clone());
-        }
+            => BillingSetupFinishedHandler?.Invoke(result);
     }
 
     internal class InternalConsumeResponseListener : Java.Lang.Object, IConsumeResponseListener
     {
         public Action<BillingResult, string> ConsumeResponseHandler { get; set; }
         public void OnConsumeResponse(BillingResult result, string str)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            ConsumeResponseHandler?.Invoke(result.Clone(), str);
-        }
+            => ConsumeResponseHandler?.Invoke(result, str);
     }
 
     internal class InternalPriceChangeConfirmationListener : Java.Lang.Object //, IPriceChangeConfirmationListener
     {
         public Action<BillingResult> PriceChangeConfirmationHandler { get; set; }
         public void OnPriceChangeConfirmationResult(BillingResult result)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            PriceChangeConfirmationHandler?.Invoke(result.Clone());
-        }
+            => PriceChangeConfirmationHandler?.Invoke(result);
     }
 
     internal class InternalPurchaseHistoryResponseListener : Java.Lang.Object, IPurchaseHistoryResponseListener
@@ -255,20 +231,14 @@ namespace Android.BillingClient.Api
         public Action<BillingResult, IList<PurchaseHistoryRecord>> PurchaseHistoryResponseHandler { get; set; }
 
         public void OnPurchaseHistoryResponse(BillingResult result, IList<PurchaseHistoryRecord> history)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            PurchaseHistoryResponseHandler?.Invoke(result.Clone(), history);
-        }
+            => PurchaseHistoryResponseHandler?.Invoke(result, history);
     }
 
     internal class InternalPurchasesUpdatedListener : Java.Lang.Object, IPurchasesUpdatedListener
     {
         public Action<BillingResult, IList<Purchase>> PurchasesUpdatedHandler { get; set; }
         public void OnPurchasesUpdated(BillingResult result, IList<Purchase> purchases)
-        {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            PurchasesUpdatedHandler?.Invoke(result.Clone(), purchases);
-        }
+            => PurchasesUpdatedHandler?.Invoke(result, purchases);
     }
 
     [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
@@ -286,8 +256,7 @@ namespace Android.BillingClient.Api
 
         public void OnProductDetailsResponse(BillingResult result, QueryProductDetailsResult queryResult)
         {
-            // Create a copy of the BillingResult to ensure it stays alive after the callback
-            ProductDetailsResponseHandler?.Invoke(result.Clone(), queryResult?.ProductDetailsList);
+            ProductDetailsResponseHandler?.Invoke(result, queryResult?.ProductDetailsList);
         }
     }
 
