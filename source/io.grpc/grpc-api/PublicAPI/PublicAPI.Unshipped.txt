@@ -268,6 +268,7 @@ Xamarin.Grpc.IMetricInstrument.Unit.get -> string?
 Xamarin.Grpc.IMetricRecorder
 Xamarin.Grpc.IMetricRecorder.AddDoubleCounter(Xamarin.Grpc.DoubleCounterMetricInstrument? metricInstrument, double value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricRecorder.AddLongCounter(Xamarin.Grpc.LongCounterMetricInstrument? metricInstrument, long value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
+Xamarin.Grpc.IMetricRecorder.AddLongUpDownCounter(Xamarin.Grpc.LongUpDownCounterMetricInstrument? metricInstrument, long value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricRecorder.RecordDoubleHistogram(Xamarin.Grpc.DoubleHistogramMetricInstrument? metricInstrument, double value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricRecorder.RecordLongHistogram(Xamarin.Grpc.LongHistogramMetricInstrument? metricInstrument, long value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricRecorder.RegisterBatchCallback(Xamarin.Grpc.IMetricRecorderBatchCallback? callback, params Xamarin.Grpc.ICallbackMetricInstrument![]? metricInstruments) -> Xamarin.Grpc.IMetricRecorderRegistration?
@@ -280,6 +281,7 @@ Xamarin.Grpc.IMetricRecorderRegistration.Close() -> void
 Xamarin.Grpc.IMetricSink
 Xamarin.Grpc.IMetricSink.AddDoubleCounter(Xamarin.Grpc.DoubleCounterMetricInstrument? metricInstrument, double value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricSink.AddLongCounter(Xamarin.Grpc.LongCounterMetricInstrument? metricInstrument, long value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
+Xamarin.Grpc.IMetricSink.AddLongUpDownCounter(Xamarin.Grpc.LongUpDownCounterMetricInstrument? metricInstrument, long value, System.Collections.Generic.IList<string!>? requiredLabelValues, System.Collections.Generic.IList<string!>? optionalLabelValues) -> void
 Xamarin.Grpc.IMetricSink.EnabledMetrics.get -> System.Collections.Generic.IDictionary<string!, Java.Lang.Boolean!>?
 Xamarin.Grpc.IMetricSink.MeasuresSize.get -> int
 Xamarin.Grpc.IMetricSink.OptionalLabels.get -> System.Collections.Generic.ICollection<string!>?
@@ -401,6 +403,17 @@ Xamarin.Grpc.LongHistogramMetricInstrument.Name.get -> string?
 Xamarin.Grpc.LongHistogramMetricInstrument.OptionalLabelKeys.get -> System.Collections.IList?
 Xamarin.Grpc.LongHistogramMetricInstrument.RequiredLabelKeys.get -> System.Collections.IList?
 Xamarin.Grpc.LongHistogramMetricInstrument.Unit.get -> string?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.Description.get -> string?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.GetOptionalLabelKeys() -> System.Collections.Generic.IList<string!>?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.GetRequiredLabelKeys() -> System.Collections.Generic.IList<string!>?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.Index.get -> int
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.IsEnableByDefault.get -> bool
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.LongUpDownCounterMetricInstrument(int index, string? name, string? description, string? unit, System.Collections.Generic.IList<string!>? requiredLabelKeys, System.Collections.Generic.IList<string!>? optionalLabelKeys, bool enableByDefault) -> void
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.Name.get -> string?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.OptionalLabelKeys.get -> System.Collections.IList?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.RequiredLabelKeys.get -> System.Collections.IList?
+Xamarin.Grpc.LongUpDownCounterMetricInstrument.Unit.get -> string?
 Xamarin.Grpc.ManagedChannel
 Xamarin.Grpc.ManagedChannel.ManagedChannel() -> void
 Xamarin.Grpc.ManagedChannel.ManagedChannel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -492,6 +505,7 @@ Xamarin.Grpc.MetricInstrumentRegistry.RegisterDoubleHistogram(string? name, stri
 Xamarin.Grpc.MetricInstrumentRegistry.RegisterLongCounter(string? name, string? description, string? unit, System.Collections.Generic.IList<string!>? requiredLabelKeys, System.Collections.Generic.IList<string!>? optionalLabelKeys, bool enableByDefault) -> Xamarin.Grpc.LongCounterMetricInstrument?
 Xamarin.Grpc.MetricInstrumentRegistry.RegisterLongGauge(string? name, string? description, string? unit, System.Collections.Generic.IList<string!>? requiredLabelKeys, System.Collections.Generic.IList<string!>? optionalLabelKeys, bool enableByDefault) -> Xamarin.Grpc.LongGaugeMetricInstrument?
 Xamarin.Grpc.MetricInstrumentRegistry.RegisterLongHistogram(string? name, string? description, string? unit, System.Collections.Generic.IList<Java.Lang.Long!>? bucketBoundaries, System.Collections.Generic.IList<string!>? requiredLabelKeys, System.Collections.Generic.IList<string!>? optionalLabelKeys, bool enableByDefault) -> Xamarin.Grpc.LongHistogramMetricInstrument?
+Xamarin.Grpc.MetricInstrumentRegistry.RegisterLongUpDownCounter(string? name, string? description, string? unit, System.Collections.Generic.IList<string!>? requiredLabelKeys, System.Collections.Generic.IList<string!>? optionalLabelKeys, bool enableByDefault) -> Xamarin.Grpc.LongUpDownCounterMetricInstrument?
 Xamarin.Grpc.NameResolver
 Xamarin.Grpc.NameResolver.AddressesEventArgs
 Xamarin.Grpc.NameResolver.AddressesEventArgs.AddressesEventArgs(System.Collections.Generic.IList<Xamarin.Grpc.EquivalentAddressGroup!>? p0, Xamarin.Grpc.Attributes? p1) -> void
@@ -1044,6 +1058,8 @@ override Xamarin.Grpc.LongGaugeMetricInstrument.JniPeerMembers.get -> Java.Inter
 override Xamarin.Grpc.LongGaugeMetricInstrument.ToString() -> string?
 override Xamarin.Grpc.LongHistogramMetricInstrument.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.LongHistogramMetricInstrument.ToString() -> string?
+override Xamarin.Grpc.LongUpDownCounterMetricInstrument.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.LongUpDownCounterMetricInstrument.ToString() -> string?
 override Xamarin.Grpc.ManagedChannel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.ManagedChannel.ThresholdClass.get -> nint
 override Xamarin.Grpc.ManagedChannel.ThresholdType.get -> System.Type!
@@ -1210,6 +1226,7 @@ static Xamarin.Grpc.Deadline.SystemTicker.get -> Xamarin.Grpc.Deadline.Ticker?
 static Xamarin.Grpc.DecompressorRegistry.DefaultInstance.get -> Xamarin.Grpc.DecompressorRegistry?
 static Xamarin.Grpc.DecompressorRegistry.EmptyInstance() -> Xamarin.Grpc.DecompressorRegistry?
 static Xamarin.Grpc.EquivalentAddressGroup.AttrAuthorityOverride.get -> Xamarin.Grpc.Attributes.Key?
+static Xamarin.Grpc.EquivalentAddressGroup.AttrLocalityName.get -> Xamarin.Grpc.Attributes.Key?
 static Xamarin.Grpc.ForwardingChannelBuilder2.ForAddress(string? name, int port) -> Xamarin.Grpc.ManagedChannelBuilder?
 static Xamarin.Grpc.ForwardingChannelBuilder2.ForTarget(string? target) -> Xamarin.Grpc.ManagedChannelBuilder?
 static Xamarin.Grpc.ForwardingServerBuilder.ForPort(int port) -> Xamarin.Grpc.ServerBuilder?
