@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <!-- Include the proto JAR files directly into this binding -->
+    <InputJar Include="..\..\externals\androidx.health.connect\connect-client-proto.jar" />
+    <InputJar Include="..\..\externals\androidx.health.connect\connect-client-external-protobuf.jar" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Remove the PackageReference to the proto package since we're embedding it -->
+    <PackageReference Remove="Xamarin.AndroidX.Health.Connect.Client.Proto" />
+  </ItemGroup>
+</Project>
