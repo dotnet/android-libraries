@@ -1,4 +1,4 @@
 ﻿<metadata>
-  <!-- Remove problematic method that references EncoderBase.EncoderCallback which doesn't exist -->
-  <remove-node path="/api/package[@name='androidx.heifwriter']/class[@name='AvifEncoder.Builder']/method[@name='setCallback' and count(parameter)=1 and parameter[1][@type='androidx.heifwriter.EncoderBase.EncoderCallback']]" />
+  <!-- Remove method with non-existent callback type -->
+  <remove-node path="/api/package[@name='androidx.heifwriter']/class[@name='AvifEncoder.Builder']/method[@name='setCallback']" />
 </metadata>
