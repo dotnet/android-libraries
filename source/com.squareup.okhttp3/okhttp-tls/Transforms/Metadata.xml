@@ -1,0 +1,11 @@
+<metadata>
+  <!-- Remove problematic methods with wrong return types in InsecureAndroidTrustManager -->
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureAndroidTrustManager']/method[@name='checkClientTrusted' and count(parameter)=2 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String']]" />
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureAndroidTrustManager']/method[@name='checkServerTrusted' and count(parameter)=2 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String']]" />
+  
+  <!-- Remove problematic methods in InsecureExtendedTrustManager -->
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureExtendedTrustManager']/method[@name='checkClientTrusted' and count(parameter)=2 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String']]" />
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureExtendedTrustManager']/method[@name='checkClientTrusted' and count(parameter)=3 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.net.Socket']]" />
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureExtendedTrustManager']/method[@name='checkClientTrusted' and count(parameter)=3 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='javax.net.ssl.SSLEngine']]" />
+  <remove-node path="/api/package[@name='okhttp3.tls.internal.der']/class[@name='InsecureExtendedTrustManager']/method[@name='checkServerTrusted' and count(parameter)=2 and parameter[1][@type='java.security.cert.X509Certificate[]'] and parameter[2][@type='java.lang.String']]" />
+</metadata>
