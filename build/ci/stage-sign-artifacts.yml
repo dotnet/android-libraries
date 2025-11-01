@@ -10,8 +10,11 @@ stages:
   
   - template: sign-artifacts/jobs/v4.yml@yaml-templates
     parameters:
-      timeoutInMinutes: 120
+      timeoutInMinutes: 180
       artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
-      signType: $(signType)
+      ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+        signType: Real
+      ${{ else }}:
+        signType: Test

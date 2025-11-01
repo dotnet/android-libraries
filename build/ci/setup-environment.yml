@@ -1,7 +1,7 @@
 parameters:
   installAndroidDependencies: false
   androidSdkRoot: $(Agent.TempDirectory)/android-sdk
-  javaSdkRoot: $(Agent.ToolsDirectory)\jdk21
+  javaSdkRoot: $(Agent.ToolsDirectory)/jdk21
 
 steps:
   # before the build starts, make sure the tooling is as expected. Clear the cache on shared agents
@@ -44,42 +44,18 @@ steps:
       }
     displayName: Install .NET Workloads
 
-  - bash: |
-      if [[ -n "$JAVA_HOME_21_X64" && -d "$JAVA_HOME_21_X64" ]]; then
-          echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME_21_X64"
-      else
-          JDK_DIR="$(Agent.ToolsDirectory)/jdk-21"
-          TEMP_FILE="$(Agent.TempDirectory)/microsoft-jdk-21.tar.gz"
-          if [[ ! -d "$JDK_DIR" || ! -f "$JDK_DIR/bin/java" ]]; then
-              echo "Downloading Microsoft JDK 21 for macOS..."
-              mkdir -p "$JDK_DIR"
-              curl -L "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz" -o "$TEMP_FILE"
-              tar -xzf "$TEMP_FILE" -C "$JDK_DIR" --strip-components=4
-              rm "$TEMP_FILE"
-          fi
-          echo "##vso[task.setvariable variable=JAVA_HOME]$JDK_DIR"
-      fi
-    displayName: Use Java 21 SDK (Mac)
-    condition: eq( variables['Agent.OS'], 'Darwin' )
+  - template: install-java.yml
+    parameters:
+      jdkVersion: '21.0.8'
+      jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
 
-  - task: JavaToolInstaller@0
-    displayName: Use Java 21 SDK (Windows)
-    condition: and(eq( variables['Agent.OS'], 'Windows_NT' ), ne(${{ parameters.installAndroidDependencies }}, true))
-    inputs:
-      versionSpec: '21'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'PreInstalled'
-
-  - task: DotNetCoreCLI@2
-    displayName: Install android dependencies GoogleV2
-    inputs:
-      command: build
-      projects: build/scripts/provision-android/provision-android.csproj
-      arguments: >-
-        -t:InstallAndroidDependencies -p:AcceptAndroidSdkLicenses=true -p:AndroidManifestType=GoogleV2
-        -p:AndroidSdkDirectory=${{ parameters.androidSdkRoot }}
-        -v:n -bl:output/install-android-dependencies-GoogleV2.binlog
-      retryCountOnTaskFailure: 3
+  - pwsh: |
+      if (Test-Path "${{ parameters.androidSdkRoot }}") {
+        Remove-Item "${{ parameters.androidSdkRoot }}" -Recurse -Force
+      }
+      New-Item -ItemType Directory -Path "${{ parameters.androidSdkRoot }}" -Force
+    displayName: Clean and create Android SDK directory
+    condition: eq(${{ parameters.installAndroidDependencies }}, true)
 
   - task: DotNetCoreCLI@2
     displayName: Install android dependencies Xamarin
@@ -93,29 +69,40 @@ steps:
       retryCountOnTaskFailure: 3
 
   - pwsh: |
+      $ErrorActionPreference = 'Stop'
+      $sdkManager = Join-Path "${{ parameters.androidSdkRoot }}" "cmdline-tools" "latest" "bin" "sdkmanager"
+      if ($IsWindows) {
+        $sdkManager += ".bat"
+      }
+      
+      if (Test-Path $sdkManager) {
+        Write-Host "Accepting Android SDK licenses..."
+        Write-Host "y" | & $sdkManager --licenses --sdk_root="${{ parameters.androidSdkRoot }}"
+      } else {
+        Write-Host "SDK Manager not found at: $sdkManager"
+      }
+    displayName: Accept Android SDK licenses
+    condition: eq(${{ parameters.installAndroidDependencies }}, true)
+
+  - pwsh: |
       Write-Host "##vso[task.setvariable variable=AndroidSdkDirectory]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_SDK_ROOT]${{ parameters.androidSdkRoot }}"
       Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT and ANDROID_HOME to ${{ parameters.androidSdkRoot }}
 
-  - ${{ if eq(parameters.installAndroidDependencies, true) }}:
-    - pwsh: |
-        $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip"
-        if ($IsMacOS) {
-            $url = "https://aka.ms/download-jdk/microsoft-jdk-21.0.8-macos-x64.tar.gz"
-        }
-        $fileName = [System.IO.Path]::GetFileName($url)
-        Invoke-WebRequest -Uri $url -OutFile $fileName
-        Write-Host "##vso[task.setvariable variable=JDK_21_FILE_PATH]$(Build.StagingDirectory)/$fileName"
-      displayName: Download Java 21 SDK
-      workingDirectory: $(Build.StagingDirectory)
+  - pwsh: |
+      # Remove problematic package.xml files that cause JAXB parsing issues with Java 21 on Windows
+      $androidSdkRoot = if ($env:ANDROID_SDK_ROOT) { $env:ANDROID_SDK_ROOT } else { $env:ANDROID_HOME }
+      if ($androidSdkRoot -and (Test-Path $androidSdkRoot)) {
+        Write-Host "Removing package.xml files from: $androidSdkRoot"
+        $files = Get-ChildItem -Path $androidSdkRoot -Filter "package.xml" -Recurse -ErrorAction SilentlyContinue
+        $files | Remove-Item -Force -ErrorAction SilentlyContinue
+        Write-Host "Removed $($files.Count) package.xml files"
+      } else {
+        Write-Host "Android SDK not found, skipping cleanup"
+      }
+    displayName: Clean Android SDK package.xml files
+    condition: eq(variables['Agent.OS'], 'Windows_NT')
+    continueOnError: true
 
-    - task: JavaToolInstaller@0
-      displayName: Use Java 21 SDK
-      inputs:
-        versionSpec: '21'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: LocalDirectory
-        jdkFile: $(JDK_21_FILE_PATH)
-        jdkDestinationDirectory: ${{ parameters.javaSdkRoot }}
-        cleanDestinationDirectory: true
+

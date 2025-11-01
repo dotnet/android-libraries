@@ -96,8 +96,10 @@ AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.B
 AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.Builder(AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes! original) -> void
 AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.SetColor(int color) -> AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder!
 AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.SetDragRange(AndroidX.Window.Embedding.DividerAttributes.DragRange! dragRange) -> AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder!
+AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.SetDraggingToFullscreenAllowed(bool allowed) -> AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder!
 AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder.SetWidthDp(int widthDp) -> AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.Builder!
 AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.DragRange.get -> AndroidX.Window.Embedding.DividerAttributes.DragRange!
+AndroidX.Window.Embedding.DividerAttributes.DraggableDividerAttributes.IsDraggingToFullscreenAllowed.get -> bool
 AndroidX.Window.Embedding.DividerAttributes.FixedDividerAttributes
 AndroidX.Window.Embedding.DividerAttributes.FixedDividerAttributes.Builder
 AndroidX.Window.Embedding.DividerAttributes.FixedDividerAttributes.Builder.Build() -> AndroidX.Window.Embedding.DividerAttributes.FixedDividerAttributes!
@@ -118,10 +120,18 @@ AndroidX.Window.Embedding.EmbeddingAnimationBackground.Companion.CreateColorBack
 AndroidX.Window.Embedding.EmbeddingAnimationBackground.EmbeddingAnimationBackground(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Window.Embedding.EmbeddingAnimationParams
 AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationBackground.get -> AndroidX.Window.Embedding.EmbeddingAnimationBackground!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec
+AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec.Companion
 AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder
 AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.Build() -> AndroidX.Window.Embedding.EmbeddingAnimationParams!
 AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.Builder() -> void
 AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.SetAnimationBackground(AndroidX.Window.Embedding.EmbeddingAnimationBackground! background) -> AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.SetChangeAnimation(AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec! spec) -> AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.SetCloseAnimation(AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec! spec) -> AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.SetOpenAnimation(AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec! spec) -> AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.ChangeAnimation.get -> AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.CloseAnimation.get -> AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec!
+AndroidX.Window.Embedding.EmbeddingAnimationParams.OpenAnimation.get -> AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec!
 AndroidX.Window.Embedding.EmbeddingAspectRatio
 AndroidX.Window.Embedding.EmbeddingAspectRatio.Companion
 AndroidX.Window.Embedding.EmbeddingAspectRatio.Companion.Ratio(float ratio) -> AndroidX.Window.Embedding.EmbeddingAspectRatio!
@@ -148,10 +158,12 @@ AndroidX.Window.Embedding.EmbeddingConfiguration
 AndroidX.Window.Embedding.EmbeddingConfiguration.Builder
 AndroidX.Window.Embedding.EmbeddingConfiguration.Builder.Build() -> AndroidX.Window.Embedding.EmbeddingConfiguration!
 AndroidX.Window.Embedding.EmbeddingConfiguration.Builder.Builder() -> void
+AndroidX.Window.Embedding.EmbeddingConfiguration.Builder.SetAutoSaveEmbeddingState(bool saveState) -> AndroidX.Window.Embedding.EmbeddingConfiguration.Builder!
 AndroidX.Window.Embedding.EmbeddingConfiguration.Builder.SetDimAreaBehavior(AndroidX.Window.Embedding.EmbeddingConfiguration.DimAreaBehavior! area) -> AndroidX.Window.Embedding.EmbeddingConfiguration.Builder!
 AndroidX.Window.Embedding.EmbeddingConfiguration.DimAreaBehavior
 AndroidX.Window.Embedding.EmbeddingConfiguration.DimAreaBehavior.Companion
 AndroidX.Window.Embedding.EmbeddingConfiguration.GetDimAreaBehavior() -> AndroidX.Window.Embedding.EmbeddingConfiguration.DimAreaBehavior!
+AndroidX.Window.Embedding.EmbeddingConfiguration.IsAutoSaveEmbeddingState.get -> bool
 AndroidX.Window.Embedding.EmbeddingRule
 AndroidX.Window.Embedding.EmbeddingRule.EmbeddingRule(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Window.Embedding.EmbeddingRule.Tag.get -> string?
@@ -366,6 +378,7 @@ AndroidX.Window.Layout.IFoldingFeature.Orientation.get -> AndroidX.Window.Layout
 AndroidX.Window.Layout.IFoldingFeature.State.get -> AndroidX.Window.Layout.FoldingFeatureState!
 AndroidX.Window.Layout.IWindowInfoTracker
 AndroidX.Window.Layout.IWindowInfoTracker.Companion.get -> AndroidX.Window.Layout.WindowInfoTrackerCompanion!
+AndroidX.Window.Layout.IWindowInfoTracker.GetCurrentWindowLayoutInfo(Android.Content.Context! context) -> AndroidX.Window.Layout.WindowLayoutInfo!
 AndroidX.Window.Layout.IWindowInfoTracker.GetOrCreate(Android.Content.Context! context) -> AndroidX.Window.Layout.IWindowInfoTracker!
 AndroidX.Window.Layout.IWindowInfoTracker.OverrideDecorator(AndroidX.Window.Layout.IWindowInfoTrackerDecorator! overridingDecorator) -> void
 AndroidX.Window.Layout.IWindowInfoTracker.Reset() -> void
@@ -478,6 +491,8 @@ override AndroidX.Window.Embedding.EmbeddingAnimationBackground.Companion.JniPee
 override AndroidX.Window.Embedding.EmbeddingAnimationBackground.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Window.Embedding.EmbeddingAnimationBackground.ThresholdClass.get -> nint
 override AndroidX.Window.Embedding.EmbeddingAnimationBackground.ThresholdType.get -> System.Type!
+override AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Window.Embedding.EmbeddingAnimationParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Window.Embedding.EmbeddingAnimationParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Window.Embedding.EmbeddingAspectRatio.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -571,6 +586,8 @@ static AndroidX.Window.Embedding.DividerAttributes.DragRange.DragRangeSystemDefa
 static AndroidX.Window.Embedding.DividerAttributes.NoDivider.get -> AndroidX.Window.Embedding.DividerAttributes!
 static AndroidX.Window.Embedding.EmbeddingAnimationBackground.CreateColorBackground(int color) -> AndroidX.Window.Embedding.EmbeddingAnimationBackground.ColorBackground!
 static AndroidX.Window.Embedding.EmbeddingAnimationBackground.Default.get -> AndroidX.Window.Embedding.EmbeddingAnimationBackground!
+static AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec.Default.get -> AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec!
+static AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec.JumpCut.get -> AndroidX.Window.Embedding.EmbeddingAnimationParams.AnimationSpec!
 static AndroidX.Window.Embedding.EmbeddingAspectRatio.AlwaysAllow.get -> AndroidX.Window.Embedding.EmbeddingAspectRatio!
 static AndroidX.Window.Embedding.EmbeddingAspectRatio.AlwaysDisallow.get -> AndroidX.Window.Embedding.EmbeddingAspectRatio!
 static AndroidX.Window.Embedding.EmbeddingAspectRatio.Ratio(float ratio) -> AndroidX.Window.Embedding.EmbeddingAspectRatio!

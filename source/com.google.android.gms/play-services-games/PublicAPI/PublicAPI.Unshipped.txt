@@ -184,36 +184,13 @@ Android.Gms.Games.GameEntity.PrimaryCategory.get -> string!
 Android.Gms.Games.GameEntity.SecondaryCategory.get -> string!
 Android.Gms.Games.GameEntity.ThemeColor.get -> string!
 Android.Gms.Games.GameEntity.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
-Android.Gms.Games.GameRef
-Android.Gms.Games.GameRef.AchievementTotalCount.get -> int
-Android.Gms.Games.GameRef.ApplicationId.get -> string!
-Android.Gms.Games.GameRef.AreSnapshotsEnabled() -> bool
-Android.Gms.Games.GameRef.DescribeContents() -> int
-Android.Gms.Games.GameRef.Description.get -> string!
-Android.Gms.Games.GameRef.DeveloperName.get -> string!
-Android.Gms.Games.GameRef.DisplayName.get -> string!
-Android.Gms.Games.GameRef.FeaturedImageUri.get -> Android.Net.Uri!
-Android.Gms.Games.GameRef.FeaturedImageUrl.get -> string!
-Android.Gms.Games.GameRef.GameRef(Android.Gms.Common.Data.DataHolder! p0, int p1) -> void
-Android.Gms.Games.GameRef.GetDescription(Android.Database.CharArrayBuffer! p0) -> void
-Android.Gms.Games.GameRef.GetDeveloperName(Android.Database.CharArrayBuffer! p0) -> void
-Android.Gms.Games.GameRef.GetDisplayName(Android.Database.CharArrayBuffer! p0) -> void
-Android.Gms.Games.GameRef.HasGamepadSupport.get -> bool
-Android.Gms.Games.GameRef.HiResImageUri.get -> Android.Net.Uri!
-Android.Gms.Games.GameRef.HiResImageUrl.get -> string!
-Android.Gms.Games.GameRef.IconImageUri.get -> Android.Net.Uri!
-Android.Gms.Games.GameRef.IconImageUrl.get -> string!
-Android.Gms.Games.GameRef.LeaderboardCount.get -> int
-Android.Gms.Games.GameRef.PrimaryCategory.get -> string!
-Android.Gms.Games.GameRef.SecondaryCategory.get -> string!
-Android.Gms.Games.GameRef.ThemeColor.get -> string!
-Android.Gms.Games.GameRef.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Gms.Games.GamesActivityResultCodes
 Android.Gms.Games.GamesCallbackStatusCodes
 Android.Gms.Games.GamesClass
 Android.Gms.Games.GamesClass.GamesOptions
 Android.Gms.Games.GamesClass.GamesOptions.Builder
 Android.Gms.Games.GamesClass.GamesOptions.Builder.Build() -> Android.Gms.Games.GamesClass.GamesOptions!
+Android.Gms.Games.GamesClass.GamesOptions.Builder.SetIsGmsCoreUiInitiatedRequest(bool isGmsCoreUiInitiatedRequest) -> Android.Gms.Games.GamesClass.GamesOptions.Builder!
 Android.Gms.Games.GamesClass.GamesOptions.Builder.SetSdkVariant(int variant) -> Android.Gms.Games.GamesClass.GamesOptions.Builder!
 Android.Gms.Games.GamesClass.GamesOptions.Builder.SetShowConnectingPopup(bool showConnectingPopup) -> Android.Gms.Games.GamesClass.GamesOptions.Builder!
 Android.Gms.Games.GamesClass.GamesOptions.Builder.SetShowConnectingPopup(bool showConnectingPopup, int gravity) -> Android.Gms.Games.GamesClass.GamesOptions.Builder!
@@ -359,6 +336,7 @@ Android.Gms.Games.ISnapshotsClient.DiscardAndClose(Android.Gms.Games.Snapshot.IS
 Android.Gms.Games.ISnapshotsClient.GetMaxCoverImageSize() -> Android.Gms.Tasks.Task!
 Android.Gms.Games.ISnapshotsClient.GetMaxDataSize() -> Android.Gms.Tasks.Task!
 Android.Gms.Games.ISnapshotsClient.GetSelectSnapshotIntent(string! title, bool allowAddButton, bool allowDelete, int maxSnapshots) -> Android.Gms.Tasks.Task!
+Android.Gms.Games.ISnapshotsClient.GetSnapshotFromBundle(Android.OS.Bundle! extras) -> Android.Gms.Games.Snapshot.ISnapshotMetadata?
 Android.Gms.Games.ISnapshotsClient.Load(bool forceReload) -> Android.Gms.Tasks.Task!
 Android.Gms.Games.ISnapshotsClient.Open(Android.Gms.Games.Snapshot.ISnapshotMetadata! metadata) -> Android.Gms.Tasks.Task!
 Android.Gms.Games.ISnapshotsClient.Open(Android.Gms.Games.Snapshot.ISnapshotMetadata! metadata, int conflictPolicy) -> Android.Gms.Tasks.Task!
@@ -690,7 +668,7 @@ Android.Gms.Games.Snapshot.SnapshotContentsEntity.IsClosed.get -> bool
 Android.Gms.Games.Snapshot.SnapshotContentsEntity.ModifyBytes(int p0, byte[]! p1, int p2, int p3) -> bool
 Android.Gms.Games.Snapshot.SnapshotContentsEntity.ParcelFileDescriptor.get -> Android.OS.ParcelFileDescriptor!
 Android.Gms.Games.Snapshot.SnapshotContentsEntity.ReadFully() -> byte[]!
-Android.Gms.Games.Snapshot.SnapshotContentsEntity.SnapshotContentsEntity(Android.Gms.Drive.Contents! p0) -> void
+Android.Gms.Games.Snapshot.SnapshotContentsEntity.SnapshotContentsEntity(Google.Android.Gms.Drive.Contents! p0) -> void
 Android.Gms.Games.Snapshot.SnapshotContentsEntity.WriteBytes(byte[]! p0) -> bool
 Android.Gms.Games.Snapshot.SnapshotContentsEntity.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Gms.Games.Snapshot.SnapshotEntity
@@ -705,6 +683,7 @@ Android.Gms.Games.Snapshot.SnapshotMetadata
 Android.Gms.Games.Snapshot.SnapshotMetadataBuffer
 Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.GetEnumerator() -> System.Collections.Generic.IEnumerator<Android.Gms.Games.Snapshot.ISnapshotMetadata!>!
 Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.SnapshotMetadataBuffer(Android.Gms.Common.Data.DataHolder! p0) -> void
+Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.SnapshotMetadataBuffer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Games.Snapshot.SnapshotMetadataChange
 Android.Gms.Games.Snapshot.SnapshotMetadataChangeBuilder
 Android.Gms.Games.Snapshot.SnapshotMetadataChangeBuilder.Build() -> Android.Gms.Games.Snapshot.ISnapshotMetadataChange!
@@ -875,6 +854,18 @@ Android.Gms.Games.Video.VideosCaptureOverlayStateEventArgs.VideosCaptureOverlayS
 Android.Gms.Games.Video.VideosConsts
 Android.Gms.Games.VideosClient
 Android.Gms.Games.VideosClientConsts
+Google.Android.Gms.Drive.Contents
+Google.Android.Gms.Drive.Contents.Contents(Android.OS.ParcelFileDescriptor! p0, int p1, int p2, Google.Android.Gms.Drive.DriveId! p3, bool p4, string? p5) -> void
+Google.Android.Gms.Drive.Contents.Contents(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Drive.DriveId
+Google.Android.Gms.Drive.DriveId.DriveId(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Drive.DriveId.DriveId(string? p0, long p1, long p2, int p3) -> void
+Google.Android.Gms.Games.Gamessignin.AuthResponse
+Google.Android.Gms.Games.Gamessignin.AuthResponse.AuthCode.get -> string!
+Google.Android.Gms.Games.Gamessignin.AuthResponse.AuthResponse(string! authCode, System.Collections.Generic.IList<Google.Android.Gms.Games.Gamessignin.AuthScope!>! grantedScopes) -> void
+Google.Android.Gms.Games.Gamessignin.AuthResponse.GrantedScopes.get -> System.Collections.Generic.IList<Google.Android.Gms.Games.Gamessignin.AuthScope!>!
+Google.Android.Gms.Games.Gamessignin.AuthScope
+Google.Android.Gms.Games.Gamessignin.AuthScope.Value.get -> string!
 abstract Android.Gms.Games.Internal.GamesDowngradeableSafeParcel.DescribeContents() -> int
 abstract Android.Gms.Games.Internal.GamesDowngradeableSafeParcel.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 const Android.Gms.Games.Achievement.Achievement.StateHidden = 2 -> int
@@ -1085,7 +1076,6 @@ override Android.Gms.Games.FriendsResolutionRequiredException.JniPeerMembers.get
 override Android.Gms.Games.GameBuffer.Get(int position) -> Java.Lang.Object!
 override Android.Gms.Games.GameBuffer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.GameEntity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Games.GameRef.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.GamesActivityResultCodes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.GamesCallbackStatusCodes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.GamesClass.GamesOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1135,6 +1125,8 @@ override Android.Gms.Games.Snapshot.SnapshotContentsEntity.JniPeerMembers.get ->
 override Android.Gms.Games.Snapshot.SnapshotEntity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.Get(int position) -> Java.Lang.Object!
 override Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.ThresholdClass.get -> nint
+override Android.Gms.Games.Snapshot.SnapshotMetadataBuffer.ThresholdType.get -> System.Type!
 override Android.Gms.Games.Snapshot.SnapshotMetadataChangeBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.Snapshot.SnapshotMetadataChangeEntity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.Snapshot.SnapshotMetadataEntity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1152,20 +1144,27 @@ override Android.Gms.Games.Video.VideoCapabilities.JniPeerMembers.get -> Java.In
 override Android.Gms.Games.Video.VideoConfiguration.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.Video.VideoConfiguration.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Games.Video.VideoConfiguration.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
+override Google.Android.Gms.Drive.Contents.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Drive.Contents.ThresholdClass.get -> nint
+override Google.Android.Gms.Drive.Contents.ThresholdType.get -> System.Type!
+override Google.Android.Gms.Drive.DriveId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Drive.DriveId.ThresholdClass.get -> nint
+override Google.Android.Gms.Drive.DriveId.ThresholdType.get -> System.Type!
+override Google.Android.Gms.Games.Gamessignin.AuthResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Games.Gamessignin.AuthScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Android.Gms.Games.Achievement.AchievementRef.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Games.Achievement.AchievementRef.GetHashCode() -> int
 override sealed Android.Gms.Games.Achievement.AchievementRef.ToString() -> string!
 override sealed Android.Gms.Games.Event.EventRef.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Games.Event.EventRef.GetHashCode() -> int
 override sealed Android.Gms.Games.Event.EventRef.ToString() -> string!
-override sealed Android.Gms.Games.GameRef.Equals(Java.Lang.Object? p0) -> bool
-override sealed Android.Gms.Games.GameRef.GetHashCode() -> int
-override sealed Android.Gms.Games.GameRef.ToString() -> string!
 override sealed Android.Gms.Games.GamesClass.GamesOptions.Equals(Java.Lang.Object? object) -> bool
 override sealed Android.Gms.Games.GamesClass.GamesOptions.GetHashCode() -> int
 override sealed Android.Gms.Games.Internal.Player.ProfileSettingsEntity.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Games.Internal.Player.ProfileSettingsEntity.GetHashCode() -> int
 override sealed Android.Gms.Games.Internal.Player.ProfileSettingsEntity.ToString() -> string!
+override sealed Android.Gms.Games.Internal.Zze.Equals(Java.Lang.Object? p0) -> bool
+override sealed Android.Gms.Games.Internal.Zze.GetHashCode() -> int
 override sealed Android.Gms.Games.LeaderBoard.LeaderboardEntity.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Games.LeaderBoard.LeaderboardEntity.GetHashCode() -> int
 override sealed Android.Gms.Games.LeaderBoard.LeaderboardEntity.ToString() -> string!
@@ -1187,6 +1186,11 @@ override sealed Android.Gms.Games.Snapshot.SnapshotMetadataRef.ToString() -> str
 override sealed Android.Gms.Games.Stats.PlayerStatsEntity.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Games.Stats.PlayerStatsEntity.GetHashCode() -> int
 override sealed Android.Gms.Games.Stats.PlayerStatsEntity.ToString() -> string!
+override sealed Google.Android.Gms.Drive.Contents.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Drive.DriveId.Equals(Java.Lang.Object? obj) -> bool
+override sealed Google.Android.Gms.Drive.DriveId.GetHashCode() -> int
+override sealed Google.Android.Gms.Drive.DriveId.ToString() -> string!
+override sealed Google.Android.Gms.Drive.DriveId.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
 static Android.Gms.Games.Achievement.AchievementEntity.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.Event.EventEntity.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.GameEntity.Creator.get -> Android.OS.IParcelableCreator!
@@ -1256,14 +1260,23 @@ static Android.Gms.Games.Snapshot.SnapshotMetadataChange.EmptyChange.get -> Andr
 static Android.Gms.Games.Snapshot.SnapshotMetadataChangeEntity.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.Snapshot.SnapshotMetadataChangeEntity.InterfaceConsts.EmptyChange.get -> Android.Gms.Games.Snapshot.ISnapshotMetadataChange!
 static Android.Gms.Games.Snapshot.SnapshotMetadataEntity.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Games.SnapshotsClient.GetSnapshotFromBundle(Android.OS.Bundle! extras) -> Android.Gms.Games.Snapshot.ISnapshotMetadata?
 static Android.Gms.Games.Stats.PlayerStatsEntity.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.Video.VideoCapabilities.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.Video.VideoConfiguration.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Games.Video.VideoConfiguration.IsValidCaptureMode(int captureMode, bool allowUnknown) -> bool
 static Android.Gms.Games.Video.VideoConfiguration.IsValidQualityLevel(int qualityLevel, bool allowUnknown) -> bool
+static Google.Android.Gms.Drive.Contents.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Drive.DriveId.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Games.Gamessignin.AuthScope.Email.get -> Google.Android.Gms.Games.Gamessignin.AuthScope!
+static Google.Android.Gms.Games.Gamessignin.AuthScope.OpenId.get -> Google.Android.Gms.Games.Gamessignin.AuthScope!
+static Google.Android.Gms.Games.Gamessignin.AuthScope.Profile.get -> Google.Android.Gms.Games.Gamessignin.AuthScope!
+static Google.Android.Gms.Games.Gamessignin.AuthScope.ValueOf(string! name) -> Google.Android.Gms.Games.Gamessignin.AuthScope!
+static Google.Android.Gms.Games.Gamessignin.AuthScope.Values() -> Google.Android.Gms.Games.Gamessignin.AuthScope![]!
 virtual Android.Gms.Games.AnnotatedData.Get() -> Java.Lang.Object?
 virtual Android.Gms.Games.AnnotatedData.IsStale.get -> bool
 virtual Android.Gms.Games.LeaderboardsClientLeaderboardScores.Leaderboard.get -> Android.Gms.Games.LeaderBoard.ILeaderboard?
 virtual Android.Gms.Games.LeaderboardsClientLeaderboardScores.Release() -> void
 virtual Android.Gms.Games.LeaderboardsClientLeaderboardScores.Scores.get -> Android.Gms.Games.LeaderBoard.LeaderboardScoreBuffer!
 virtual Android.Gms.Games.Stats.PlayerStatsEntity.Freeze() -> Java.Lang.Object?
+virtual Google.Android.Gms.Drive.Contents.ParcelFileDescriptor.get -> Android.OS.ParcelFileDescriptor!

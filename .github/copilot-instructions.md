@@ -33,7 +33,7 @@ The repository uses a **config-driven approach** where all bindings are defined 
 ### Prerequisites
 - a recent .NET SDK
 - Cake .NET Tool: `dotnet tool install -g cake.tool`
-- Microsoft OpenJDK 11 (JDK-17 not supported)
+- Microsoft OpenJDK 21
 - Android SDK and `$ANDROID_SDK_ROOT` environment variable
 - Optional: `api-tools` for API diffs: `dotnet tool install -g api-tools`
 

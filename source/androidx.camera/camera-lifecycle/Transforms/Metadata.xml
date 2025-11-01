@@ -2,4 +2,18 @@
   <remove-node path="/api/package[@name='androidx.camera.core']/class/implements[@name='androidx.camera.core.ThreadConfig']" />
   <remove-node path="/api/package[@name='androidx.camera.core']/class/implements[@name='androidx.camera.core.UseCaseConfig.Builder']" />
   <remove-node path="/api/package[@name='androidx.camera.core']/class/implements[@name='androidx.camera.core.TargetConfig.Builder']" />
+
+  <!--
+  <attr
+      path="/api/package[@name='androidx.camera.lifecycle']/interface[@name='LifecycleCameraProvider']"
+      name="skipInvokerMethods"
+      >
+      androidx/camera/lifecycle/LifecycleCameraProvider.getAvailableCameraInfos.()Ljava/util/List;
+  </attr>
+  -->
+  <remove-node
+      path="/api/package[@name='androidx.camera.lifecycle']/interface[@name='LifecycleCameraProvider']/implements"
+      />
+
+
 </metadata>
