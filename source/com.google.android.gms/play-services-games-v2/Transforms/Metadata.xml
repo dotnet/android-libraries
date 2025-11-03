@@ -216,4 +216,667 @@
         Java.Lang.Object
     </attr>
 
+    <!-- Add Snapshot APIs for Play Games Services V2 -->
+    
+    <!-- Add Snapshot interface -->
+    <add-node path="/api/package[@name='com.google.android.gms.games.snapshot']">
+        <interface
+            abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="Snapshot"
+            static="false"
+            visibility="public"
+        >
+            <implements name="com.google.android.gms.common.data.Freezable" name-generic="com.google.android.gms.common.data.Freezable&lt;com.google.android.gms.games.snapshot.Snapshot&gt;">
+                <typeParameter type="com.google.android.gms.games.snapshot.Snapshot" />
+            </implements>
+            <implements name="android.os.Parcelable" />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getMetadata"
+                native="false"
+                return="com.google.android.gms.games.snapshot.SnapshotMetadata"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getSnapshotContents"
+                native="false"
+                return="com.google.android.gms.games.snapshot.SnapshotContents"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+        </interface>
+    </add-node>
+
+    <!-- Add SnapshotMetadata interface -->
+    <add-node path="/api/package[@name='com.google.android.gms.games.snapshot']">
+        <interface
+            abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="SnapshotMetadata"
+            static="false"
+            visibility="public"
+        >
+            <implements name="com.google.android.gms.common.data.Freezable" name-generic="com.google.android.gms.common.data.Freezable&lt;com.google.android.gms.games.snapshot.SnapshotMetadata&gt;">
+                <typeParameter type="com.google.android.gms.games.snapshot.SnapshotMetadata" />
+            </implements>
+            <implements name="android.os.Parcelable" />
+            <field name="PLAYED_TIME_UNKNOWN" type="long" static="true" final="true" visibility="public" value="-1" />
+            <field name="PROGRESS_VALUE_UNKNOWN" type="long" static="true" final="true" visibility="public" value="-1" />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getGame"
+                native="false"
+                return="com.google.android.gms.games.Game"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getOwner"
+                native="false"
+                return="com.google.android.gms.games.Player"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getSnapshotId"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getCoverImageUri"
+                native="false"
+                return="android.net.Uri"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getCoverImageUrl"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getCoverImageAspectRatio"
+                native="false"
+                return="float"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getUniqueName"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getDescription"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getDescription"
+                native="false"
+                return="void"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="buffer" type="android.database.CharArrayBuffer" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getLastModifiedTimestamp"
+                native="false"
+                return="long"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getPlayedTime"
+                native="false"
+                return="long"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="hasChangePending"
+                native="false"
+                return="boolean"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getProgressValue"
+                native="false"
+                return="long"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getDeviceName"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+        </interface>
+    </add-node>
+
+    <!-- Add SnapshotContents interface -->
+    <add-node path="/api/package[@name='com.google.android.gms.games.snapshot']">
+        <interface
+            abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="SnapshotContents"
+            static="false"
+            visibility="public"
+        >
+            <implements name="android.os.Parcelable" />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getParcelFileDescriptor"
+                native="false"
+                return="android.os.ParcelFileDescriptor"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="isClosed"
+                native="false"
+                return="boolean"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="readFully"
+                native="false"
+                return="byte[]"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="writeBytes"
+                native="false"
+                return="boolean"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="data" type="byte[]" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="modifyBytes"
+                native="false"
+                return="boolean"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="offset" type="int" />
+                <parameter name="data" type="byte[]" />
+                <parameter name="dataOffset" type="int" />
+                <parameter name="dataLength" type="int" />
+            </method>
+        </interface>
+    </add-node>
+
+    <!-- Add SnapshotsClient interface -->
+    <add-node path="/api/package[@name='com.google.android.gms.games']">
+        <interface
+            abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="SnapshotsClient"
+            static="false"
+            visibility="public"
+        >
+            <field name="EXTRA_SNAPSHOT_METADATA" type="java.lang.String" static="true" final="true" visibility="public" value="&quot;com.google.android.gms.games.SNAPSHOT_METADATA&quot;" />
+            <field name="EXTRA_SNAPSHOT_NEW" type="java.lang.String" static="true" final="true" visibility="public" value="&quot;com.google.android.gms.games.SNAPSHOT_NEW&quot;" />
+            <field name="DISPLAY_LIMIT_NONE" type="int" static="true" final="true" visibility="public" value="-1" />
+            <field name="RESOLUTION_POLICY_MANUAL" type="int" static="true" final="true" visibility="public" value="-1" />
+            <field name="RESOLUTION_POLICY_LONGEST_PLAYTIME" type="int" static="true" final="true" visibility="public" value="1" />
+            <field name="RESOLUTION_POLICY_LAST_KNOWN_GOOD" type="int" static="true" final="true" visibility="public" value="2" />
+            <field name="RESOLUTION_POLICY_MOST_RECENTLY_MODIFIED" type="int" static="true" final="true" visibility="public" value="3" />
+            <field name="RESOLUTION_POLICY_HIGHEST_PROGRESS" type="int" static="true" final="true" visibility="public" value="4" />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getMaxDataSize"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;java.lang.Integer&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getMaxCoverImageSize"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;java.lang.Integer&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="getSelectSnapshotIntent"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;android.content.Intent&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="title" type="java.lang.String" />
+                <parameter name="allowAddButton" type="boolean" />
+                <parameter name="allowDelete" type="boolean" />
+                <parameter name="maxSnapshots" type="int" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="load"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.AnnotatedData&lt;com.google.android.gms.games.snapshot.SnapshotMetadataBuffer&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="forceReload" type="boolean" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="open"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="fileName" type="java.lang.String" />
+                <parameter name="createIfNotFound" type="boolean" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="open"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="fileName" type="java.lang.String" />
+                <parameter name="createIfNotFound" type="boolean" />
+                <parameter name="conflictPolicy" type="int" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="open"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="metadata" type="com.google.android.gms.games.snapshot.SnapshotMetadata" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="open"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="metadata" type="com.google.android.gms.games.snapshot.SnapshotMetadata" />
+                <parameter name="conflictPolicy" type="int" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="commitAndClose"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.snapshot.SnapshotMetadata&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="snapshot" type="com.google.android.gms.games.snapshot.Snapshot" />
+                <parameter name="metadataChange" type="com.google.android.gms.games.snapshot.SnapshotMetadataChange" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="discardAndClose"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;java.lang.Void&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="snapshot" type="com.google.android.gms.games.snapshot.Snapshot" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="delete"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;java.lang.String&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="metadata" type="com.google.android.gms.games.snapshot.SnapshotMetadata" />
+            </method>
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getSnapshotFromBundle"
+                native="false"
+                return="com.google.android.gms.games.snapshot.SnapshotMetadata"
+                static="true"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="bundle" type="android.os.Bundle" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="resolveConflict"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="conflictId" type="java.lang.String" />
+                <parameter name="snapshot" type="com.google.android.gms.games.snapshot.Snapshot" />
+            </method>
+            <method
+                abstract="true"
+                deprecated="not deprecated"
+                final="false"
+                name="resolveConflict"
+                native="false"
+                return="com.google.android.gms.tasks.Task"
+                return-generic="com.google.android.gms.tasks.Task&lt;com.google.android.gms.games.SnapshotsClient$DataOrConflict&lt;com.google.android.gms.games.snapshot.Snapshot&gt;&gt;"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="conflictId" type="java.lang.String" />
+                <parameter name="snapshotId" type="java.lang.String" />
+                <parameter name="metadataChange" type="com.google.android.gms.games.snapshot.SnapshotMetadataChange" />
+                <parameter name="snapshotContents" type="com.google.android.gms.games.snapshot.SnapshotContents" />
+            </method>
+        </interface>
+    </add-node>
+
+    <!-- Add DataOrConflict nested class -->
+    <add-node path="/api/package[@name='com.google.android.gms.games']/interface[@name='SnapshotsClient']">
+        <class
+            abstract="false"
+            deprecated="not deprecated"
+            final="true"
+            name="SnapshotsClient.DataOrConflict"
+            static="false"
+            visibility="public"
+        >
+            <typeParameters>
+                <typeParameter name="T" />
+            </typeParameters>
+            <constructor
+                deprecated="not deprecated"
+                final="false"
+                name="SnapshotsClient.DataOrConflict"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="data" type="java.lang.Object" />
+                <parameter name="conflict" type="com.google.android.gms.games.SnapshotsClient.SnapshotConflict" />
+            </constructor>
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="isConflict"
+                native="false"
+                return="boolean"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getData"
+                native="false"
+                return="T"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getConflict"
+                native="false"
+                return="com.google.android.gms.games.SnapshotsClient.SnapshotConflict"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+        </class>
+    </add-node>
+
+    <!-- Add SnapshotConflict nested class -->
+    <add-node path="/api/package[@name='com.google.android.gms.games']/interface[@name='SnapshotsClient']">
+        <class
+            abstract="false"
+            deprecated="not deprecated"
+            final="true"
+            name="SnapshotsClient.SnapshotConflict"
+            static="false"
+            visibility="public"
+        >
+            <constructor
+                deprecated="not deprecated"
+                final="false"
+                name="SnapshotsClient.SnapshotConflict"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            >
+                <parameter name="snapshot" type="com.google.android.gms.games.snapshot.Snapshot" />
+                <parameter name="conflictId" type="java.lang.String" />
+                <parameter name="conflictingSnapshot" type="com.google.android.gms.games.snapshot.Snapshot" />
+                <parameter name="resolutionSnapshotContents" type="com.google.android.gms.games.snapshot.SnapshotContents" />
+            </constructor>
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getSnapshot"
+                native="false"
+                return="com.google.android.gms.games.snapshot.Snapshot"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getConflictingSnapshot"
+                native="false"
+                return="com.google.android.gms.games.snapshot.Snapshot"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getConflictId"
+                native="false"
+                return="java.lang.String"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+            <method
+                abstract="false"
+                deprecated="not deprecated"
+                final="false"
+                name="getResolutionSnapshotContents"
+                native="false"
+                return="com.google.android.gms.games.snapshot.SnapshotContents"
+                static="false"
+                synchronized="false"
+                visibility="public"
+            />
+        </class>
+    </add-node>
+
+    <!-- Add getSnapshotsClient method to PlayGames class -->
+    <add-node path="/api/package[@name='com.google.android.gms.games']/class[@name='PlayGames']">
+        <method
+            abstract="false"
+            deprecated="not deprecated"
+            final="false"
+            name="getSnapshotsClient"
+            native="false"
+            return="com.google.android.gms.games.SnapshotsClient"
+            static="true"
+            synchronized="false"
+            visibility="public"
+        >
+            <parameter name="activity" type="android.app.Activity" />
+        </method>
+    </add-node>
+
 </metadata>
