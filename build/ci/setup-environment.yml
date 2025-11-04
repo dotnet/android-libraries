@@ -90,4 +90,19 @@ steps:
       Write-Host "##vso[task.setvariable variable=ANDROID_HOME]${{ parameters.androidSdkRoot }}"
     displayName: Set ANDROID_SDK_ROOT and ANDROID_HOME to ${{ parameters.androidSdkRoot }}
 
+  - pwsh: |
+      # Remove problematic package.xml files that cause JAXB parsing issues with Java 21 on Windows
+      $androidSdkRoot = if ($env:ANDROID_SDK_ROOT) { $env:ANDROID_SDK_ROOT } else { $env:ANDROID_HOME }
+      if ($androidSdkRoot -and (Test-Path $androidSdkRoot)) {
+        Write-Host "Removing package.xml files from: $androidSdkRoot"
+        $files = Get-ChildItem -Path $androidSdkRoot -Filter "package.xml" -Recurse -ErrorAction SilentlyContinue
+        $files | Remove-Item -Force -ErrorAction SilentlyContinue
+        Write-Host "Removed $($files.Count) package.xml files"
+      } else {
+        Write-Host "Android SDK not found, skipping cleanup"
+      }
+    displayName: Clean Android SDK package.xml files
+    condition: eq(variables['Agent.OS'], 'Windows_NT')
+    continueOnError: true
+
 
