@@ -216,42 +216,4 @@
         Java.Lang.Object
     </attr>
 
-    <!-- Add Snapshot APIs for Play Games Services V2 -->
-    <!--  Make Snapshot-related interfaces/classes visible -->
-    
-    <!-- Make Snapshot interface public -->
-    <attr path="/api/package[@name='com.google.android.gms.games.snapshot']/interface[@name='Snapshot']" name="visibility">public</attr>
-    
-    <!-- Make SnapshotMetadata interface public -->
-    <attr path="/api/package[@name='com.google.android.gms.games.snapshot']/interface[@name='SnapshotMetadata']" name="visibility">public</attr>
-    
-    <!-- Make SnapshotContents interface public -->
-    <attr path="/api/package[@name='com.google.android.gms.games.snapshot']/interface[@name='SnapshotContents']" name="visibility">public</attr>
-    
-    <!-- Make SnapshotsClient interface public -->
-    <attr path="/api/package[@name='com.google.android.gms.games']/interface[@name='SnapshotsClient']" name="visibility">public</attr>
-    
-    <!-- Make DataOrConflict nested class public -->
-    <attr path="/api/package[@name='com.google.android.gms.games']/interface[@name='SnapshotsClient']/class[@name='SnapshotsClient.DataOrConflict']" name="visibility">public</attr>
-    
-    <!-- Make SnapshotConflict nested class public -->
-    <attr path="/api/package[@name='com.google.android.gms.games']/interface[@name='SnapshotsClient']/class[@name='SnapshotsClient.SnapshotConflict']" name="visibility">public</attr>
-    
-    <!-- Add getSnapshotsClient method to PlayGames class -->
-    <add-node path="/api/package[@name='com.google.android.gms.games']/class[@name='PlayGames']">
-        <method
-            abstract="false"
-            deprecated="not deprecated"
-            final="false"
-            name="getSnapshotsClient"
-            native="false"
-            return="com.google.android.gms.games.SnapshotsClient"
-            static="true"
-            synchronized="false"
-            visibility="public"
-        >
-            <parameter name="activity" type="android.app.Activity" />
-        </method>
-    </add-node>
-
 </metadata>
