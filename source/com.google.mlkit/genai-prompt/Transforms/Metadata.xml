@@ -17,8 +17,12 @@
   <!-- Remove the nested FinishReason interface to avoid conflict with the FinishReason property -->
   <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='Candidate.FinishReason']" />
 
-  <!-- Remove Kotlin data class synthetic methods from CountTokensResponse -->
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/class[@name='CountTokensResponse']/method[@name='component1']" />
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/class[@name='CountTokensResponse']/method[@name='copy']" />
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package/class/method[@name='component1']" />
+  <remove-node path="/api/package/class/method[@name='copy']" />
+
+  <!-- Remove obfuscated internal methods -->
+  <remove-node path="/api/package/interface/method[starts-with(@name,'zz')]" />
+  <remove-node path="/api/package/class/method[starts-with(@name,'zz')]" />
 
 </metadata>

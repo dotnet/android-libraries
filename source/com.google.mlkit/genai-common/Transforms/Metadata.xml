@@ -7,4 +7,23 @@
   <!-- Remove unused internal classes -->
   <remove-node path="/api/package[@name='com.google.mlkit.genai.common.internal']" />
 
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadFailed']/method[@name='component1']" />
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadFailed']/method[@name='copy']" />
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadProgress']/method[@name='component1']" />
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadProgress']/method[@name='copy']" />
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadStarted']/method[@name='component1']" />
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadStarted']/method[@name='copy']" />
+
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package/class/method[@name='component1']" />
+  <remove-node path="/api/package/class/method[@name='copy']" />
+
+  <!-- Remove obfuscated internal methods -->
+  <remove-node path="/api/package/interface/method[starts-with(@name,'zz')]" />
+  <remove-node path="/api/package/class/method[starts-with(@name,'zz')]" />
+
+  <!-- Rename getE to a proper property name -->
+  <attr path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadFailed']/method[@name='getE']" name="managedName">GetException</attr>
+
 </metadata>
