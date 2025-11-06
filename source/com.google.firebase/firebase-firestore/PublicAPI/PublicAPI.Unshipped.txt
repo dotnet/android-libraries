@@ -1201,9 +1201,6 @@ Firebase.Firestore.Util.AsyncQueue.AsyncQueue(nint javaReference, Android.Runtim
 Firebase.Firestore.Util.AsyncQueue.DelayedTask
 Firebase.Firestore.Util.AsyncQueue.DelayedTask.DelayedTask(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Firestore.Util.AsyncQueue.TimerId
-Firebase.Firestore.Util.BackgroundQueue
-Firebase.Firestore.Util.BackgroundQueue.BackgroundQueue() -> void
-Firebase.Firestore.Util.BackgroundQueue.BackgroundQueue(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Firestore.Util.ByteBufferInputStream
 Firebase.Firestore.Util.ByteBufferInputStream.ByteBufferInputStream(Java.Nio.ByteBuffer? buf) -> void
 Firebase.Firestore.Util.ByteBufferInputStream.ByteBufferInputStream(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -4696,7 +4693,7 @@ const Firebase.Firestore.BuildConfig.Debug = false -> bool
 const Firebase.Firestore.BuildConfig.LibraryPackageName = "com.google.firebase.firestore" -> string!
 const Firebase.Firestore.BuildConfig.TargetBackend = "emulator" -> string!
 const Firebase.Firestore.BuildConfig.TargetDatabaseId = "(default)" -> string!
-const Firebase.Firestore.BuildConfig.VersionName = "26.0.1" -> string!
+const Firebase.Firestore.BuildConfig.VersionName = "26.0.2" -> string!
 const Firebase.Firestore.Bundle.BundleReader.BufferCapacity = 1024 -> int
 const Firebase.Firestore.Core.ListenSequence.Invalid = -1 -> long
 const Firebase.Firestore.Core.Target.NoLimit = -1 -> long
@@ -5656,9 +5653,6 @@ override Firebase.Firestore.Util.AsyncQueue.JniPeerMembers.get -> Java.Interop.J
 override Firebase.Firestore.Util.AsyncQueue.ThresholdClass.get -> nint
 override Firebase.Firestore.Util.AsyncQueue.ThresholdType.get -> System.Type!
 override Firebase.Firestore.Util.AsyncQueue.TimerId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Firestore.Util.BackgroundQueue.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Firebase.Firestore.Util.BackgroundQueue.ThresholdClass.get -> nint
-override Firebase.Firestore.Util.BackgroundQueue.ThresholdType.get -> System.Type!
 override Firebase.Firestore.Util.ByteBufferInputStream.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Firestore.Util.ByteBufferInputStream.Read() -> int
 override Firebase.Firestore.Util.ByteBufferInputStream.ThresholdClass.get -> nint
@@ -8771,8 +8765,6 @@ virtual Firebase.Firestore.Util.AsyncQueue.RunSync(Java.Lang.IRunnable? task) ->
 virtual Firebase.Firestore.Util.AsyncQueue.Shutdown() -> void
 virtual Firebase.Firestore.Util.AsyncQueue.SkipDelaysForTimerId(Firebase.Firestore.Util.AsyncQueue.TimerId? timerId) -> void
 virtual Firebase.Firestore.Util.AsyncQueue.VerifyIsCurrentThread() -> void
-virtual Firebase.Firestore.Util.BackgroundQueue.Drain() -> void
-virtual Firebase.Firestore.Util.BackgroundQueue.Execute(Java.Lang.IRunnable? task) -> void
 virtual Firebase.Firestore.Util.ExponentialBackoff.BackoffAndRun(Java.Lang.IRunnable? task) -> void
 virtual Firebase.Firestore.Util.ExponentialBackoff.Cancel() -> void
 virtual Firebase.Firestore.Util.ExponentialBackoff.Reset() -> void
