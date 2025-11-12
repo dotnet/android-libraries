@@ -70,6 +70,15 @@ Android.BillingClient.Api.BillingFlowParams.Builder.Builder(nint javaReference, 
 Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams
 Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder
 Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.GetSubscriptionProductReplacementParams() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams?
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.IReplacementMode
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementModeConsts
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.SubscriptionProductReplacementParams() -> void
+Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.SubscriptionProductReplacementParams(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Zza() -> Android.BillingClient.Api.ProductDetails!
 Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Zzb() -> string?
 Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams
@@ -227,6 +236,7 @@ Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.FormattedPr
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.FullPriceMicros.get -> Java.Lang.Long?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.GetDiscountDisplayInfo() -> Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.DiscountDisplayInfo?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.GetLimitedQuantityInfo() -> Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.LimitedQuantityInfo?
+Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.GetPreorderDetails() -> Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PreorderDetails?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.GetRentalDetails() -> Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.RentalDetails?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.GetValidTimeWindow() -> Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.ValidTimeWindow?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.LimitedQuantityInfo
@@ -235,6 +245,9 @@ Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.LimitedQuan
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.OfferId.get -> string?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.OfferTags.get -> System.Collections.Generic.IList<string!>?
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.OfferToken.get -> string?
+Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PreorderDetails
+Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PreorderDetails.PreorderPresaleEndTimeMillis.get -> long
+Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PreorderDetails.PreorderReleaseTimeMillis.get -> long
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PriceAmountMicros.get -> long
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PriceCurrencyCode.get -> string!
 Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PurchaseOptionId.get -> string?
@@ -267,7 +280,6 @@ Android.BillingClient.Api.ProductDetails.SubscriptionOfferDetails.OfferToken.get
 Android.BillingClient.Api.ProductDetails.SubscriptionOfferDetails.PricingPhases.get -> Android.BillingClient.Api.ProductDetails.PricingPhases!
 Android.BillingClient.Api.ProductDetails.Title.get -> string!
 Android.BillingClient.Api.ProductDetails.Zza() -> string!
-Android.BillingClient.Api.ProductDetails.Zzc() -> string?
 Android.BillingClient.Api.ProductDetailsResponseEventArgs
 Android.BillingClient.Api.ProductDetailsResponseEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
 Android.BillingClient.Api.ProductDetailsResponseEventArgs.P1.get -> Android.BillingClient.Api.QueryProductDetailsResult!
@@ -334,6 +346,7 @@ Android.BillingClient.Api.QueryPurchaseHistoryResult.Result.set -> void
 Android.BillingClient.Api.QueryPurchasesParams
 Android.BillingClient.Api.QueryPurchasesParams.Builder
 Android.BillingClient.Api.QueryPurchasesParams.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.BillingClient.Api.QueryPurchasesParams.IncludeSuspendedSubscriptions.get -> bool
 Android.BillingClient.Api.QueryPurchasesParams.Zza() -> string!
 Android.BillingClient.Api.QueryPurchasesResult
 Android.BillingClient.Api.QueryPurchasesResult.Purchases.get -> System.Collections.Generic.IList<Android.BillingClient.Api.Purchase!>!
@@ -401,6 +414,7 @@ const Android.BillingClient.Api.BillingClient.FeatureType.AlternativeBillingOnly
 const Android.BillingClient.Api.BillingClient.FeatureType.BillingConfig = "ggg" -> string!
 const Android.BillingClient.Api.BillingClient.FeatureType.ExternalOffer = "kkk" -> string!
 const Android.BillingClient.Api.BillingClient.FeatureType.InAppMessaging = "bbb" -> string!
+const Android.BillingClient.Api.BillingClient.FeatureType.IncludeSuspendedSubscriptions = "nnn" -> string!
 const Android.BillingClient.Api.BillingClient.FeatureType.PriceChangeConfirmation = "priceChangeConfirmation" -> string!
 const Android.BillingClient.Api.BillingClient.FeatureType.ProductDetails = "fff" -> string!
 const Android.BillingClient.Api.BillingClient.FeatureType.Subscriptions = "subscriptions" -> string!
@@ -412,6 +426,13 @@ const Android.BillingClient.Api.BillingClient.ProductType.Inapp = "inapp" -> str
 const Android.BillingClient.Api.BillingClient.ProductType.Subs = "subs" -> string!
 const Android.BillingClient.Api.BillingClient.SkuType.Inapp = "inapp" -> string!
 const Android.BillingClient.Api.BillingClient.SkuType.Subs = "subs" -> string!
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.ChargeFullPrice = 4 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.ChargeProratedPrice = 2 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.Deferred = 5 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.KeepExisting = 6 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.UnknownReplacementMode = 0 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.WithTimeProration = 1 -> int
+const Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementMode.WithoutProration = 3 -> int
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.ChargeFullPrice = 5 -> int
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.ChargeProratedPrice = 2 -> int
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.Deferred = 6 -> int
@@ -430,7 +451,7 @@ const Android.BillingClient.Api.UnfetchedProduct.StatusCode.NoEligibleOffer = 4 
 const Android.BillingClient.Api.UnfetchedProduct.StatusCode.ProductNotFound = 3 -> int
 const Android.BillingClient.Api.UnfetchedProduct.StatusCode.Unknown = 0 -> int
 const Android.BillingClient.BuildConfig.ApplicationId = "com.android.billingclient" -> string!
-const Android.BillingClient.BuildConfig.VersionName = "8.0.0" -> string!
+const Android.BillingClient.BuildConfig.VersionName = "8.1.0" -> string!
 override Android.BillingClient.Api.AccountIdentifiers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.AcknowledgePurchaseParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.AcknowledgePurchaseParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -448,6 +469,12 @@ override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builde
 override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.ThresholdClass.get -> nint
 override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.ThresholdType.get -> System.Type!
 override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.ThresholdClass.get -> nint
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.ThresholdType.get -> System.Type!
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ThresholdClass.get -> nint
+override Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ThresholdType.get -> System.Type!
 override Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.ThresholdClass.get -> nint
 override Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.ThresholdType.get -> System.Type!
@@ -476,6 +503,7 @@ override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.Di
 override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.DiscountDisplayInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.LimitedQuantityInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.PreorderDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.RentalDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ProductDetails.OneTimePurchaseOfferDetails.ValidTimeWindow.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ProductDetails.PricingPhase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -536,6 +564,7 @@ static Android.BillingClient.Api.AcknowledgePurchaseParams.NewBuilder() -> Andro
 static Android.BillingClient.Api.BillingClient.NewBuilder(Android.Content.Context! context) -> Android.BillingClient.Api.BillingClient.Builder!
 static Android.BillingClient.Api.BillingFlowParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.Builder!
 static Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder!
+static Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder!
 static Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder!
 static Android.BillingClient.Api.BillingResult.NewBuilder() -> Android.BillingClient.Api.BillingResult.Builder!
 static Android.BillingClient.Api.ConsumeParams.NewBuilder() -> Android.BillingClient.Api.ConsumeParams.Builder!
@@ -559,6 +588,12 @@ virtual Android.BillingClient.Api.BillingFlowParams.Builder.SetSubscriptionUpdat
 virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.Build() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams!
 virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.SetOfferToken(string! offerToken) -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder!
 virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.SetProductDetails(Android.BillingClient.Api.ProductDetails! productDetails) -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder.SetSubscriptionProductReplacementParams(Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams! replacementParams) -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.Build() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.SetOldProductId(string! oldProductId) -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder.SetReplacementMode(int replacementMode) -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.OldProductId.get -> string!
+virtual Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.ReplacementModeValue.get -> int
 virtual Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.Build() -> Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams!
 virtual Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.SetOldPurchaseToken(string! purchaseToken) -> Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder!
 virtual Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder.SetOriginalExternalTransactionId(string! externalTransactionId) -> Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder!
@@ -576,6 +611,7 @@ virtual Android.BillingClient.Api.Purchase.DeveloperPayload.get -> string!
 virtual Android.BillingClient.Api.Purchase.GetPendingPurchaseUpdate() -> Android.BillingClient.Api.Purchase.PendingPurchaseUpdate?
 virtual Android.BillingClient.Api.Purchase.IsAcknowledged.get -> bool
 virtual Android.BillingClient.Api.Purchase.IsAutoRenewing.get -> bool
+virtual Android.BillingClient.Api.Purchase.IsSuspended.get -> bool
 virtual Android.BillingClient.Api.Purchase.OrderId.get -> string?
 virtual Android.BillingClient.Api.Purchase.OriginalJson.get -> string!
 virtual Android.BillingClient.Api.Purchase.PackageName.get -> string!
@@ -602,6 +638,7 @@ virtual Android.BillingClient.Api.QueryProductDetailsParams.Product.Builder.SetP
 virtual Android.BillingClient.Api.QueryPurchaseHistoryParams.Builder.Build() -> Android.BillingClient.Api.QueryPurchaseHistoryParams!
 virtual Android.BillingClient.Api.QueryPurchaseHistoryParams.Builder.SetProductType(string! productType) -> Android.BillingClient.Api.QueryPurchaseHistoryParams.Builder!
 virtual Android.BillingClient.Api.QueryPurchasesParams.Builder.Build() -> Android.BillingClient.Api.QueryPurchasesParams!
+virtual Android.BillingClient.Api.QueryPurchasesParams.Builder.IncludeSuspendedSubscriptions(bool includeSuspendedSubscriptions) -> Android.BillingClient.Api.QueryPurchasesParams.Builder!
 virtual Android.BillingClient.Api.QueryPurchasesParams.Builder.SetProductType(string! productType) -> Android.BillingClient.Api.QueryPurchasesParams.Builder!
 virtual Android.BillingClient.Api.SkuDetails.Description.get -> string!
 virtual Android.BillingClient.Api.SkuDetails.FreeTrialPeriod.get -> string!
