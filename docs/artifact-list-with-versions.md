@@ -468,7 +468,7 @@
 | 461|com.google.assistant.appactions:suggestions                           |1.0.0               |Xamarin.Google.Assistant.AppActions.Suggestions                       |1.0.0.20            |
 | 462|com.google.assistant.appactions:widgets                               |0.0.1               |Xamarin.Google.Assistant.AppActions.Widgets                           |0.0.1.21            |
 | 463|com.google.auto.value:auto-value                                      |1.8.1               |Xamarin.Google.AutoValue                                              |1.8.1.1             |
-| 464|com.google.auto.value:auto-value-annotations                          |1.11.0              |Xamarin.Google.AutoValue.Annotations                                  |1.11.0.8            |
+| 464|com.google.auto.value:auto-value-annotations                          |1.11.1              |Xamarin.Google.AutoValue.Annotations                                  |1.11.1              |
 | 465|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.21            |
 | 466|com.google.code.gson:gson                                             |2.13.2              |GoogleGson                                                            |2.13.2              |
 | 467|com.google.crypto.tink:tink-android                                   |1.19.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.19.0              |
@@ -581,7 +581,7 @@
 | 574|com.google.mlkit:vision-internal-vkp                                  |18.2.3              |Xamarin.Google.MLKit.Vision.Internal.Vkp                              |118.2.3.5           |
 | 575|com.google.protobuf:protobuf-javalite                                 |4.33.0              |Xamarin.Protobuf.JavaLite                                             |4.33.0              |
 | 576|com.google.protobuf:protobuf-lite                                     |3.0.1               |Xamarin.Protobuf.Lite                                                 |3.0.1.21            |
-| 577|com.google.zxing:core                                                 |3.5.3               |Xamarin.Google.ZXing.Core                                             |3.5.3.9             |
+| 577|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4               |
 | 578|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.17           |
 | 579|com.squareup.okhttp3:logging-interceptor                              |5.3.0               |Square.OkHttp3.LoggingInterceptor                                     |5.3.0               |
 | 580|com.squareup.okhttp3:okhttp                                           |5.3.0               |Square.OkHttp3                                                        |5.3.0               |
