@@ -1,97 +1,142 @@
 ﻿#nullable enable
-AndroidX.Heifwriter.EglRectBlt
-AndroidX.Heifwriter.EglRectBlt.EglRectBlt(AndroidX.Heifwriter.Texture2dProgram? program, int texWidth, int texHeight) -> void
-AndroidX.Heifwriter.EglRectBlt.EglRectBlt(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Heifwriter.EglWindowSurface
-AndroidX.Heifwriter.EglWindowSurface.EglWindowSurface(Android.Views.Surface? surface) -> void
-AndroidX.Heifwriter.EglWindowSurface.EglWindowSurface(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Heifwriter.HeifEncoder
-AndroidX.Heifwriter.HeifEncoder.AddBitmap(Android.Graphics.Bitmap! bitmap) -> void
-AndroidX.Heifwriter.HeifEncoder.AddYuvBuffer(int format, byte[]! data) -> void
-AndroidX.Heifwriter.HeifEncoder.Callback
-AndroidX.Heifwriter.HeifEncoder.Callback.Callback() -> void
-AndroidX.Heifwriter.HeifEncoder.Callback.Callback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Heifwriter.HeifEncoder.Close() -> void
-AndroidX.Heifwriter.HeifEncoder.HeifEncoder(int width, int height, bool useGrid, int quality, int inputMode, Android.OS.Handler? handler, AndroidX.Heifwriter.HeifEncoder.Callback! cb) -> void
-AndroidX.Heifwriter.HeifEncoder.IInputMode
-AndroidX.Heifwriter.HeifEncoder.InputSurface.get -> Android.Views.Surface!
-AndroidX.Heifwriter.HeifEncoder.OnFrameAvailable(Android.Graphics.SurfaceTexture? surfaceTexture) -> void
-AndroidX.Heifwriter.HeifEncoder.SetEndOfInputStreamTimestamp(long timestampNs) -> void
-AndroidX.Heifwriter.HeifEncoder.Start() -> void
-AndroidX.Heifwriter.HeifEncoder.StopAsync() -> void
+AndroidX.Heifwriter.AvifEncoder
+AndroidX.Heifwriter.AvifEncoder.AvifEncoder(int width, int height, bool useGrid, int quality, int inputMode, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
+AndroidX.Heifwriter.AvifWriter
+AndroidX.Heifwriter.AvifWriter.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
+AndroidX.Heifwriter.AvifWriter.AddExifData(int imageIndex, byte[]? exifData, int offset, int length) -> void
+AndroidX.Heifwriter.AvifWriter.AddYuvBuffer(int format, byte[]? data) -> void
+AndroidX.Heifwriter.AvifWriter.Builder
+AndroidX.Heifwriter.AvifWriter.Builder.Build() -> AndroidX.Heifwriter.AvifWriter?
+AndroidX.Heifwriter.AvifWriter.Builder.Builder(Java.IO.FileDescriptor? fd, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.AvifWriter.Builder.Builder(string? path, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.AvifWriter.Builder.SetGridEnabled(bool gridEnabled) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetHandler(Android.OS.Handler? handler) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetHighBitDepthEnabled(bool highBitDepthEnabled) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetMaxImages(int maxImages) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetPrimaryIndex(int primaryIndex) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetQuality(int quality) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.Builder.SetRotation(int rotation) -> AndroidX.Heifwriter.AvifWriter.Builder?
+AndroidX.Heifwriter.AvifWriter.IInputMode
+AndroidX.Heifwriter.AvifWriter.InputSurface.get -> Android.Views.Surface?
+AndroidX.Heifwriter.AvifWriter.SetInputEndOfStreamTimestamp(long timestampNs) -> void
+AndroidX.Heifwriter.AvifWriter.Start() -> void
+AndroidX.Heifwriter.AvifWriter.Stop(long timeoutMs) -> void
+AndroidX.Heifwriter.EncoderBase
+AndroidX.Heifwriter.EncoderBase.Callback
+AndroidX.Heifwriter.EncoderBase.Callback.Callback() -> void
+AndroidX.Heifwriter.EncoderBase.Callback.Callback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Heifwriter.EncoderBase.EncoderBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Heifwriter.EncoderBase.EncoderBase(string? mimeType, int width, int height, bool useGrid, int quality, int inputMode, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
+AndroidX.Heifwriter.EncoderBase.IInputMode
+AndroidX.Heifwriter.EncoderBase.MCallback.get -> AndroidX.Heifwriter.EncoderBase.Callback?
+AndroidX.Heifwriter.EncoderBase.MCallback.set -> void
+AndroidX.Heifwriter.EncoderBase.MGridCols.get -> int
+AndroidX.Heifwriter.EncoderBase.MGridCols.set -> void
+AndroidX.Heifwriter.EncoderBase.MGridHeight.get -> int
+AndroidX.Heifwriter.EncoderBase.MGridHeight.set -> void
+AndroidX.Heifwriter.EncoderBase.MGridRows.get -> int
+AndroidX.Heifwriter.EncoderBase.MGridRows.set -> void
+AndroidX.Heifwriter.EncoderBase.MGridWidth.get -> int
+AndroidX.Heifwriter.EncoderBase.MGridWidth.set -> void
+AndroidX.Heifwriter.EncoderBase.MHeight.get -> int
+AndroidX.Heifwriter.EncoderBase.MHeight.set -> void
 AndroidX.Heifwriter.HeifWriter
-AndroidX.Heifwriter.HeifWriter.AddBitmap(Android.Graphics.Bitmap! bitmap) -> void
-AndroidX.Heifwriter.HeifWriter.AddExifData(int imageIndex, byte[]! exifData, int offset, int length) -> void
-AndroidX.Heifwriter.HeifWriter.AddYuvBuffer(int format, byte[]! data) -> void
+AndroidX.Heifwriter.HeifWriter.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
+AndroidX.Heifwriter.HeifWriter.AddExifData(int imageIndex, byte[]? exifData, int offset, int length) -> void
+AndroidX.Heifwriter.HeifWriter.AddYuvBuffer(int format, byte[]? data) -> void
 AndroidX.Heifwriter.HeifWriter.Builder
 AndroidX.Heifwriter.HeifWriter.Builder.Build() -> AndroidX.Heifwriter.HeifWriter?
-AndroidX.Heifwriter.HeifWriter.Builder.Builder(Java.IO.FileDescriptor! fd, int width, int height, int inputMode) -> void
-AndroidX.Heifwriter.HeifWriter.Builder.Builder(string! path, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.HeifWriter.Builder.Builder(Java.IO.FileDescriptor? fd, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.HeifWriter.Builder.Builder(string? path, int width, int height, int inputMode) -> void
 AndroidX.Heifwriter.HeifWriter.Builder.SetGridEnabled(bool gridEnabled) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetHandler(Android.OS.Handler? handler) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetMaxImages(int maxImages) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetPrimaryIndex(int primaryIndex) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetQuality(int quality) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetRotation(int rotation) -> AndroidX.Heifwriter.HeifWriter.Builder?
-AndroidX.Heifwriter.HeifWriter.Close() -> void
 AndroidX.Heifwriter.HeifWriter.IInputMode
-AndroidX.Heifwriter.HeifWriter.InputSurface.get -> Android.Views.Surface!
+AndroidX.Heifwriter.HeifWriter.InputSurface.get -> Android.Views.Surface?
 AndroidX.Heifwriter.HeifWriter.SetInputEndOfStreamTimestamp(long timestampNs) -> void
 AndroidX.Heifwriter.HeifWriter.Start() -> void
 AndroidX.Heifwriter.HeifWriter.Stop(long timeoutMs) -> void
-AndroidX.Heifwriter.Texture2dProgram
-AndroidX.Heifwriter.Texture2dProgram.IProgramType
-AndroidX.Heifwriter.Texture2dProgram.Texture2dProgram(int programType) -> void
-AndroidX.Heifwriter.Texture2dProgram.Texture2dProgram(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-abstract AndroidX.Heifwriter.HeifEncoder.Callback.OnComplete(AndroidX.Heifwriter.HeifEncoder! p0) -> void
-abstract AndroidX.Heifwriter.HeifEncoder.Callback.OnDrainOutputBuffer(AndroidX.Heifwriter.HeifEncoder! p0, Java.Nio.ByteBuffer! p1) -> void
-abstract AndroidX.Heifwriter.HeifEncoder.Callback.OnError(AndroidX.Heifwriter.HeifEncoder! p0, Android.Media.MediaCodec.CodecException! p1) -> void
-abstract AndroidX.Heifwriter.HeifEncoder.Callback.OnOutputFormatChanged(AndroidX.Heifwriter.HeifEncoder! p0, Android.Media.MediaFormat! p1) -> void
-const AndroidX.Heifwriter.HeifEncoder.InputModeBitmap = 2 -> int
-const AndroidX.Heifwriter.HeifEncoder.InputModeBuffer = 0 -> int
-const AndroidX.Heifwriter.HeifEncoder.InputModeSurface = 1 -> int
+AndroidX.Heifwriter.WriterBase
+AndroidX.Heifwriter.WriterBase.IInputMode
+AndroidX.Heifwriter.WriterBase.MEncoder.get -> AndroidX.Heifwriter.EncoderBase?
+AndroidX.Heifwriter.WriterBase.MEncoder.set -> void
+AndroidX.Heifwriter.WriterBase.MHandler.get -> Android.OS.Handler?
+AndroidX.Heifwriter.WriterBase.MHandler.set -> void
+AndroidX.Heifwriter.WriterBase.MHandlerThread.get -> Android.OS.HandlerThread?
+AndroidX.Heifwriter.WriterBase.MHandlerThread.set -> void
+AndroidX.Heifwriter.WriterBase.MHighBitDepthEnabled.get -> bool
+AndroidX.Heifwriter.WriterBase.MHighBitDepthEnabled.set -> void
+AndroidX.Heifwriter.WriterBase.MInputMode.get -> int
+AndroidX.Heifwriter.WriterBase.MInputMode.set -> void
+AndroidX.Heifwriter.WriterBase.MMaxImages.get -> int
+AndroidX.Heifwriter.WriterBase.MMaxImages.set -> void
+AndroidX.Heifwriter.WriterBase.MMuxer.get -> Android.Media.MediaMuxer?
+AndroidX.Heifwriter.WriterBase.MMuxer.set -> void
+AndroidX.Heifwriter.WriterBase.MNumTiles.get -> int
+AndroidX.Heifwriter.WriterBase.MNumTiles.set -> void
+AndroidX.Heifwriter.WriterBase.MPrimaryIndex.get -> int
+AndroidX.Heifwriter.WriterBase.MPrimaryIndex.set -> void
+AndroidX.Heifwriter.WriterBase.MRotation.get -> int
+AndroidX.Heifwriter.WriterBase.MRotation.set -> void
+AndroidX.Heifwriter.WriterBase.WriterBase(int rotation, int inputMode, int maxImages, int primaryIndex, bool gridEnabled, int quality, Android.OS.Handler? handler, bool highBitDepthEnabled) -> void
+AndroidX.Heifwriter.WriterBase.WriterBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Heifwriter.WriterBase.WriterCallback
+AndroidX.Heifwriter.WriterBase.WriterCallback.WriterCallback(AndroidX.Heifwriter.WriterBase? __self) -> void
+AndroidX.Heifwriter.WriterBase.WriterCallback.WriterCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+abstract AndroidX.Heifwriter.EncoderBase.Callback.OnComplete(AndroidX.Heifwriter.EncoderBase? p0) -> void
+abstract AndroidX.Heifwriter.EncoderBase.Callback.OnDrainOutputBuffer(AndroidX.Heifwriter.EncoderBase? p0, Java.Nio.ByteBuffer? p1) -> void
+abstract AndroidX.Heifwriter.EncoderBase.Callback.OnError(AndroidX.Heifwriter.EncoderBase? p0, Android.Media.MediaCodec.CodecException? p1) -> void
+abstract AndroidX.Heifwriter.EncoderBase.Callback.OnOutputFormatChanged(AndroidX.Heifwriter.EncoderBase? p0, Android.Media.MediaFormat? p1) -> void
+const AndroidX.Heifwriter.AvifWriter.InputModeBitmap = 2 -> int
+const AndroidX.Heifwriter.AvifWriter.InputModeBuffer = 0 -> int
+const AndroidX.Heifwriter.AvifWriter.InputModeSurface = 1 -> int
+const AndroidX.Heifwriter.EncoderBase.InputModeBitmap = 2 -> int
+const AndroidX.Heifwriter.EncoderBase.InputModeBuffer = 0 -> int
+const AndroidX.Heifwriter.EncoderBase.InputModeSurface = 1 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeBitmap = 2 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeBuffer = 0 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeSurface = 1 -> int
-const AndroidX.Heifwriter.Texture2dProgram.Texture2d = 0 -> int
-const AndroidX.Heifwriter.Texture2dProgram.TextureExt = 1 -> int
-override AndroidX.Heifwriter.EglRectBlt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Heifwriter.EglRectBlt.ThresholdClass.get -> nint
-override AndroidX.Heifwriter.EglRectBlt.ThresholdType.get -> System.Type!
-override AndroidX.Heifwriter.EglWindowSurface.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Heifwriter.EglWindowSurface.ThresholdClass.get -> nint
-override AndroidX.Heifwriter.EglWindowSurface.ThresholdType.get -> System.Type!
-override AndroidX.Heifwriter.HeifEncoder.Callback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Heifwriter.HeifEncoder.Callback.ThresholdClass.get -> nint
-override AndroidX.Heifwriter.HeifEncoder.Callback.ThresholdType.get -> System.Type!
-override AndroidX.Heifwriter.HeifEncoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+const AndroidX.Heifwriter.WriterBase.InputModeBitmap = 2 -> int
+const AndroidX.Heifwriter.WriterBase.InputModeBuffer = 0 -> int
+const AndroidX.Heifwriter.WriterBase.InputModeSurface = 1 -> int
+override AndroidX.Heifwriter.AvifEncoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.AvifWriter.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.AvifWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.EncoderBase.Callback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.EncoderBase.Callback.ThresholdClass.get -> nint
+override AndroidX.Heifwriter.EncoderBase.Callback.ThresholdType.get -> System.Type!
+override AndroidX.Heifwriter.EncoderBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.EncoderBase.ThresholdClass.get -> nint
+override AndroidX.Heifwriter.EncoderBase.ThresholdType.get -> System.Type!
 override AndroidX.Heifwriter.HeifWriter.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Heifwriter.HeifWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Heifwriter.Texture2dProgram.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Heifwriter.Texture2dProgram.ThresholdClass.get -> nint
-override AndroidX.Heifwriter.Texture2dProgram.ThresholdType.get -> System.Type!
-static AndroidX.Heifwriter.EglRectBlt.CreateFloatBuffer(float[]? coords) -> Java.Nio.FloatBuffer?
-static AndroidX.Heifwriter.Texture2dProgram.CheckGlError(string? op) -> void
-static AndroidX.Heifwriter.Texture2dProgram.CheckLocation(int location, string? label) -> void
-static AndroidX.Heifwriter.Texture2dProgram.CreateProgram(string? vertexSource, string? fragmentSource) -> int
-static AndroidX.Heifwriter.Texture2dProgram.IdentityMatrix.get -> System.Collections.Generic.IList<float>?
-static AndroidX.Heifwriter.Texture2dProgram.LoadShader(int shaderType, string? source) -> int
-static AndroidX.Heifwriter.Texture2dProgram.VFlipMatrix.get -> System.Collections.Generic.IList<float>?
-virtual AndroidX.Heifwriter.EglRectBlt.CopyRect(int textureId, float[]? texMatrix, Android.Graphics.Rect? texRect) -> void
-virtual AndroidX.Heifwriter.EglRectBlt.CreateTextureObject() -> int
-virtual AndroidX.Heifwriter.EglRectBlt.LoadTexture(int texId, Android.Graphics.Bitmap? bitmap) -> void
-virtual AndroidX.Heifwriter.EglRectBlt.Release(bool doEglCleanup) -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.Height.get -> int
-virtual AndroidX.Heifwriter.EglWindowSurface.MakeCurrent() -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.MakeUnCurrent() -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.Release() -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.SetPresentationTime(long nsecs) -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.Surface.get -> Android.Views.Surface?
-virtual AndroidX.Heifwriter.EglWindowSurface.SwapBuffers() -> bool
-virtual AndroidX.Heifwriter.EglWindowSurface.UpdateSize(int width, int height) -> void
-virtual AndroidX.Heifwriter.EglWindowSurface.Width.get -> int
-virtual AndroidX.Heifwriter.Texture2dProgram.CreateTextureObject() -> int
-virtual AndroidX.Heifwriter.Texture2dProgram.Draw(float[]? mvpMatrix, Java.Nio.FloatBuffer? vertexBuffer, int firstVertex, int vertexCount, int coordsPerVertex, int vertexStride, float[]? texMatrix, Java.Nio.FloatBuffer? texBuffer, int textureId, int texStride) -> void
-virtual AndroidX.Heifwriter.Texture2dProgram.LoadTexture(int texId, Android.Graphics.Bitmap? bitmap) -> void
-virtual AndroidX.Heifwriter.Texture2dProgram.ProgramType.get -> int
-virtual AndroidX.Heifwriter.Texture2dProgram.Release() -> void
+override AndroidX.Heifwriter.WriterBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.WriterBase.ThresholdClass.get -> nint
+override AndroidX.Heifwriter.WriterBase.ThresholdType.get -> System.Type!
+override AndroidX.Heifwriter.WriterBase.WriterCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.WriterBase.WriterCallback.OnComplete(AndroidX.Heifwriter.EncoderBase? encoder) -> void
+override AndroidX.Heifwriter.WriterBase.WriterCallback.OnDrainOutputBuffer(AndroidX.Heifwriter.EncoderBase? encoder, Java.Nio.ByteBuffer? byteBuffer) -> void
+override AndroidX.Heifwriter.WriterBase.WriterCallback.OnError(AndroidX.Heifwriter.EncoderBase? encoder, Android.Media.MediaCodec.CodecException? e) -> void
+override AndroidX.Heifwriter.WriterBase.WriterCallback.OnOutputFormatChanged(AndroidX.Heifwriter.EncoderBase? encoder, Android.Media.MediaFormat? format) -> void
+override AndroidX.Heifwriter.WriterBase.WriterCallback.ThresholdClass.get -> nint
+override AndroidX.Heifwriter.WriterBase.WriterCallback.ThresholdType.get -> System.Type!
+virtual AndroidX.Heifwriter.EncoderBase.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
+virtual AndroidX.Heifwriter.EncoderBase.AddYuvBuffer(int format, byte[]? data) -> void
+virtual AndroidX.Heifwriter.EncoderBase.Close() -> void
+virtual AndroidX.Heifwriter.EncoderBase.FinishSettingUpEncoder(bool useBitDepth10) -> void
+virtual AndroidX.Heifwriter.EncoderBase.InputSurface.get -> Android.Views.Surface?
+virtual AndroidX.Heifwriter.EncoderBase.OnFrameAvailable(Android.Graphics.SurfaceTexture? surfaceTexture) -> void
+virtual AndroidX.Heifwriter.EncoderBase.SetEndOfInputStreamTimestamp(long timestampNs) -> void
+virtual AndroidX.Heifwriter.EncoderBase.Start() -> void
+virtual AndroidX.Heifwriter.EncoderBase.StopAsync() -> void
+virtual AndroidX.Heifwriter.WriterBase.Close() -> void
+virtual AndroidX.Heifwriter.WriterBase.Handler.get -> Android.OS.Handler?
+virtual AndroidX.Heifwriter.WriterBase.IsGridEnabled.get -> bool
+virtual AndroidX.Heifwriter.WriterBase.IsHighBitDepthEnabled.get -> bool
+virtual AndroidX.Heifwriter.WriterBase.MaxImages.get -> int
+virtual AndroidX.Heifwriter.WriterBase.PrimaryIndex.get -> int
+virtual AndroidX.Heifwriter.WriterBase.Quality.get -> int
+virtual AndroidX.Heifwriter.WriterBase.Rotation.get -> int

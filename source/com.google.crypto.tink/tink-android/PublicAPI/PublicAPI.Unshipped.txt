@@ -248,6 +248,9 @@ Xamarin.Google.Crypto.Tink.DAead.Internal.AesSivProtoSerialization
 Xamarin.Google.Crypto.Tink.DAead.Internal.LegacyFullDeterministicAead
 Xamarin.Google.Crypto.Tink.DAead.Internal.LegacyFullDeterministicAead.LegacyFullDeterministicAead(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.DAead.PredefinedDeterministicAeadParameters
+Xamarin.Google.Crypto.Tink.DAead.Subtle.IDeterministicAeads
+Xamarin.Google.Crypto.Tink.DAead.Subtle.IDeterministicAeads.DecryptDeterministicallyWithAssociatedDatas(byte[]? ciphertext, params byte[]![]? associatedDatas) -> byte[]?
+Xamarin.Google.Crypto.Tink.DAead.Subtle.IDeterministicAeads.EncryptDeterministicallyWithAssociatedDatas(byte[]? plaintext, params byte[]![]? associatedDatas) -> byte[]?
 Xamarin.Google.Crypto.Tink.Hybrid.EciesAeadHkdfPrivateKeyManager
 Xamarin.Google.Crypto.Tink.Hybrid.EciesParameters
 Xamarin.Google.Crypto.Tink.Hybrid.EciesParameters.Builder
@@ -487,6 +490,8 @@ Xamarin.Google.Crypto.Tink.Internal.EnumTypeProtoConverter.Builder.Build() -> Xa
 Xamarin.Google.Crypto.Tink.Internal.EnumTypeProtoConverter.FromProtoEnum(Java.Lang.Object? protoEnum) -> Java.Lang.Object?
 Xamarin.Google.Crypto.Tink.Internal.EnumTypeProtoConverter.ToProtoEnum(Java.Lang.Object? objectEnum) -> Java.Lang.Object?
 Xamarin.Google.Crypto.Tink.Internal.Field25519
+Xamarin.Google.Crypto.Tink.Internal.IKeyCreator
+Xamarin.Google.Crypto.Tink.Internal.IKeyCreator.CreateKey(Java.Lang.Object? parameters, Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Key?
 Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterface
 Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterface.GetAt(int i) -> Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterfaceEntry?
 Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterface.Primary.get -> Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterfaceEntry?
@@ -563,10 +568,8 @@ Xamarin.Google.Crypto.Tink.Internal.MonitoringAnnotations.IsEmpty.get -> bool
 Xamarin.Google.Crypto.Tink.Internal.MonitoringAnnotations.ToMap() -> System.Collections.Generic.IDictionary<string!, string!>?
 Xamarin.Google.Crypto.Tink.Internal.MonitoringUtil
 Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry
-Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.Add(Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.IKeyCreator? creator, Java.Lang.Class? parametersClass) -> void
+Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.Add(Xamarin.Google.Crypto.Tink.Internal.IKeyCreator? creator, Java.Lang.Class? parametersClass) -> void
 Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.CreateKey(Xamarin.Google.Crypto.Tink.Parameters? parameters, Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Key?
-Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.IKeyCreator
-Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.IKeyCreator.CreateKey(Java.Lang.Object? parameters, Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Key?
 Xamarin.Google.Crypto.Tink.Internal.MutableKeyCreationRegistry.MutableKeyCreationRegistry() -> void
 Xamarin.Google.Crypto.Tink.Internal.MutableKeyDerivationRegistry
 Xamarin.Google.Crypto.Tink.Internal.MutableKeyDerivationRegistry.Add(Xamarin.Google.Crypto.Tink.Internal.MutableKeyDerivationRegistry.IInsecureKeyCreator? creator, Java.Lang.Class? parametersClass) -> void
@@ -693,6 +696,7 @@ Xamarin.Google.Crypto.Tink.Jwt.IJwtPublicKeyVerifyInternal.VerifyAndDecodeWithKi
 Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Algorithm
+Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Algorithm.EcParameterSpec.get -> Java.Security.Spec.ECParameterSpec?
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Algorithm.StandardName.get -> string?
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Builder
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Builder.Build() -> Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters?
@@ -1013,6 +1017,9 @@ Xamarin.Google.Crypto.Tink.Mac.IChunkedMacVerification.Update(Java.Nio.ByteBuffe
 Xamarin.Google.Crypto.Tink.Mac.IChunkedMacVerification.VerifyMac() -> void
 Xamarin.Google.Crypto.Tink.Mac.Internal.AesCmacProtoSerialization
 Xamarin.Google.Crypto.Tink.Mac.Internal.AesUtil
+Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacConscrypt
+Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacConscrypt.CreateComputation() -> Xamarin.Google.Crypto.Tink.Mac.IChunkedMacComputation?
+Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacConscrypt.CreateVerification(byte[]? tag) -> Xamarin.Google.Crypto.Tink.Mac.IChunkedMacVerification?
 Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacImpl
 Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacImpl.ChunkedAesCmacImpl(Xamarin.Google.Crypto.Tink.Mac.AesCmacKey? key) -> void
 Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacImpl.CreateComputation() -> Xamarin.Google.Crypto.Tink.Mac.IChunkedMacComputation?
@@ -1096,6 +1103,8 @@ Xamarin.Google.Crypto.Tink.Prf.Internal.HkdfPrfProtoSerialization
 Xamarin.Google.Crypto.Tink.Prf.Internal.HmacPrfProtoSerialization
 Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf
 Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf.LegacyFullPrf(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmac
+Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmac.Compute(byte[]? data, int outputLength) -> byte[]?
 Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmacConscrypt
 Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmacConscrypt.Compute(byte[]? data, int outputLength) -> byte[]?
 Xamarin.Google.Crypto.Tink.Prf.PredefinedPrfParameters
@@ -3350,6 +3359,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.AddOptions(Xamarin.Google
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.AddOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.AddOptions(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.AddOptions(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearEdition() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearMethods() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearMixins() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearName() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
@@ -3357,6 +3367,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearOptions() -> Xamarin
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearSourceContext() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearSyntax() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.GetMethods(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.GetMixins(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Mixin?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.GetOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option?
@@ -3373,6 +3385,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.OptionsList.get -> System
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.RemoveMethods(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.RemoveMixins(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.RemoveOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SetEdition(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SetEditionBytes(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SetMethods(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SetMethods(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SetMixins(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Mixin.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder?
@@ -3392,6 +3406,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.Syntax.get -> Xamarin.Goo
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.SyntaxValue.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.Version.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Builder.VersionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.GetMethods(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.GetMethodsOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.GetMixins(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Mixin?
@@ -3540,6 +3556,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Buil
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.ClearOptions() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.ClearReservedName() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.ClearReservedRange() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.ClearVisibility() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.EnumTypeCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.EnumTypeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.ExtensionCount.get -> int
@@ -3559,6 +3576,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Buil
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.GetReservedRange(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.MergeOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.MessageOptions? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -3597,6 +3615,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Buil
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.SetReservedName(int index, string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.SetReservedRange(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.SetReservedRange(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.SetVisibility(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.EnumTypeCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.EnumTypeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.EnumTypeOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder!>?
@@ -3649,6 +3669,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.GetR
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.GetReservedRangeOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.IReservedRangeOrBuilder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.IExtensionRangeOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.IExtensionRangeOrBuilder.End.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.IExtensionRangeOrBuilder.HasEnd.get -> bool
@@ -3689,6 +3710,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Rese
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRangeCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRangeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRangeOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.IReservedRangeOrBuilder!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto
@@ -3711,12 +3733,14 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ClearReservedName() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ClearReservedRange() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ClearValue() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ClearVisibility() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.GetReservedName(int index) -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.GetReservedNameBytes(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.GetReservedRange(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.GetValue(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.MergeOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -3736,8 +3760,10 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.SetReservedRange(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.SetValue(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.SetValue(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.SetVisibility(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ValueCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.ValueList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Builder.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange.Builder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange.Builder.ClearEnd() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange.Builder?
@@ -3760,6 +3786,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.GetValueOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumValueDescriptorProtoOrBuilder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.IEnumReservedRangeOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.IEnumReservedRangeOrBuilder.End.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.IEnumReservedRangeOrBuilder.HasEnd.get -> bool
@@ -3776,6 +3803,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ValueCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ValueList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ValueOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumValueDescriptorProtoOrBuilder!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions.AllowAlias.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions.Builder
@@ -3998,16 +4026,22 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOption
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearDefaultSymbolVisibility() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearEnforceNamingStyle() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearEnumType() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearFieldPresence() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearJsonFormat() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearMessageEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearRepeatedFieldEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.ClearUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.DefaultSymbolVisibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.EnforceNamingStyle.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.GetEnumType() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.GetFieldPresence() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.GetJsonFormat() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.GetMessageEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.MessageEncoding?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasDefaultSymbolVisibility.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasEnforceNamingStyle.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasEnumType.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasFieldPresence.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasJsonFormat.get -> bool
@@ -4015,6 +4049,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.H
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasRepeatedFieldEncoding.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.HasUtf8Validation.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.RepeatedFieldEncoding.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetDefaultSymbolVisibility(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetEnforceNamingStyle(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetEnumType(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetFieldPresence(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetJsonFormat(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
@@ -4022,22 +4058,29 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.S
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetRepeatedFieldEncoding(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.SetUtf8Validation(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.Utf8Validation.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.DefaultSymbolVisibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence.Number.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetEnforceNamingStyle() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetEnumType() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetFieldPresence() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetJsonFormat() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetMessageEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.MessageEncoding?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetRepeatedFieldEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.GetUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasDefaultSymbolVisibility.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasEnforceNamingStyle.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasEnumType.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasFieldPresence.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasJsonFormat.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasMessageEncoding.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasRepeatedFieldEncoding.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.HasUtf8Validation.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.IVisibilityFeatureOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.MessageEncoding
@@ -4046,6 +4089,10 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedF
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.Number.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.Builder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.Builder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.Builder.AddAllDefaults(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.Builder?
@@ -4389,6 +4436,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllEnumType(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllExtension(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllMessageType(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllOptionDependency(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllPublicDependency(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllService(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddAllWeakDependency(Java.Lang.IIterable? values) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
@@ -4406,6 +4454,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddMessageType(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddMessageType(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddMessageType(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddOptionDependency(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddOptionDependencyBytes(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddPublicDependency(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddService(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ServiceDescriptorProto.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.AddService(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ServiceDescriptorProto? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
@@ -4418,6 +4468,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearExtension() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearMessageType() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearName() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearOptionDependency() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearOptions() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearPackage() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.ClearPublicDependency() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
@@ -4437,6 +4488,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetEnumType(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetExtension(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FieldDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetMessageType(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetOptionDependency(int index) -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetOptionDependencyBytes(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetPublicDependency(int index) -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetService(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ServiceDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.GetWeakDependency(int index) -> int
@@ -4452,6 +4505,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.MessageTypeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.OptionDependencyCount.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.OptionDependencyList.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.Options.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.Package.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.PackageBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -4473,6 +4528,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetMessageType(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetName(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetNameBytes(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetOptionDependency(int index, string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder.SetPackage(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Builder?
@@ -4507,6 +4563,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetExtensionOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFieldDescriptorProtoOrBuilder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetMessageType(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetMessageTypeOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetOptionDependency(int index) -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetOptionDependencyBytes(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetPublicDependency(int index) -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetService(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ServiceDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.GetServiceOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IServiceDescriptorProtoOrBuilder?
@@ -4522,6 +4580,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.MessageTypeOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.OptionDependencyCount.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.OptionDependencyList.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Options.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.Package.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.PackageBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -4820,6 +4880,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBu
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.GetReservedRange(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.NestedTypeCount.get -> int
@@ -4831,6 +4892,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBu
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.ReservedNameList.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.ReservedRangeCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.ReservedRangeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IDescriptorProtoOrBuilder.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.GetReservedName(int index) -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.GetReservedNameBytes(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -4838,6 +4900,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProto
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.GetValue(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.HasName.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.HasOptions.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.HasVisibility.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.Options.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions?
@@ -4847,6 +4910,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProto
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.ReservedRangeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.EnumReservedRange!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.ValueCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.ValueList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumValueDescriptorProto!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumDescriptorProtoOrBuilder.Visibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumOptionsOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumOptionsOrBuilder.AllowAlias.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IEnumOptionsOrBuilder.Deprecated.get -> bool
@@ -4899,12 +4963,16 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetDefaultsO
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetDefaultsOrBuilder.MaximumEdition.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetDefaultsOrBuilder.MinimumEdition.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.DefaultSymbolVisibility.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetEnforceNamingStyle() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetEnumType() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetFieldPresence() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetJsonFormat() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JsonFormat?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetMessageEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.MessageEncoding?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetRepeatedFieldEncoding() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.GetUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.HasDefaultSymbolVisibility.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.HasEnforceNamingStyle.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.HasEnumType.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.HasFieldPresence.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFeatureSetOrBuilder.HasJsonFormat.get -> bool
@@ -4984,6 +5052,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProto
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetEnumType(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetExtension(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FieldDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetMessageType(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetOptionDependency(int index) -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetOptionDependencyBytes(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetPublicDependency(int index) -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetService(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ServiceDescriptorProto?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.GetWeakDependency(int index) -> int
@@ -4997,6 +5067,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProto
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.MessageTypeList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.OptionDependencyCount.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.OptionDependencyList.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.Options.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.Package.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.IFileDescriptorProtoOrBuilder.PackageBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -5515,6 +5587,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Locat
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.LocationCount.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.LocationList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.LocationOrBuilderList.get -> System.Collections.Generic.IList<Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.ILocationOrBuilder!>?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.AggregateValue.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.AggregateValueBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -5775,6 +5849,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.Builder.ClearValue() -> Xa
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.Builder.SetValue(float value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.Builder.Value.get -> float
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.Value.get -> float
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedAttribute
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedAttribute.GeneratedAttribute() -> void
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.Builder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.Builder.Build() -> Java.Lang.Object?
@@ -5831,6 +5907,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IAnyOrBuilder.TypeUrl.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IAnyOrBuilder.TypeUrlBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IAnyOrBuilder.Value.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder.GetMethods(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder.GetMixins(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Mixin?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IApiOrBuilder.GetOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option?
@@ -5889,6 +5967,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IFieldMaskOrBuilder.PathsCount.get ->
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IFieldMaskOrBuilder.PathsList.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IFloatValueOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IFloatValueOrBuilder.Value.get -> float
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IGenerated
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IInt32ValueOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IInt32ValueOrBuilder.Value.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IInt64ValueOrBuilder
@@ -5941,6 +6020,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMessageLiteOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMessageLiteOrBuilder.DefaultInstanceForType.get -> Java.Lang.Object?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMessageLiteOrBuilder.IsInitialized.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder.GetOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMethodOrBuilder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -6106,23 +6187,52 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.InvalidProtocolBufferException.Invali
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.GetUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.HasLargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.HasLegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.HasNestInFileClass.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.HasUseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.HasUtf8Validation.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.LargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.LegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.NestInFileClass.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.IJavaFeaturesOrBuilder.UseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.ClearLargeEnum() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.ClearLegacyClosedEnum() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.ClearNestInFileClass() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.ClearUseOldOuterClassnameDefault() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.ClearUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.GetUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.HasLargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.HasLegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.HasNestInFileClass.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.HasUseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.HasUtf8Validation.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.LargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.LegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.NestInFileClass.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.SetLargeEnum(bool value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.SetLegacyClosedEnum(bool value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.SetNestInFileClass(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.SetUseOldOuterClassnameDefault(bool value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.SetUtf8Validation(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.UseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.GetUtf8Validation() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.HasLargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.HasLegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.HasNestInFileClass.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.HasUseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.HasUtf8Validation.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.INestInFileClassFeatureOrBuilder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.LargeEnum.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.LegacyClosedEnum.get -> bool
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClass.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Builder
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.Number.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.UseOldOuterClassnameDefault.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.Number.get -> int
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaType
@@ -6180,6 +6290,7 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.AddOptions(Xamarin.Goo
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.AddOptions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.AddOptions(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.AddOptions(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearEdition() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearName() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearOptions() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearRequestStreaming() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
@@ -6187,6 +6298,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearRequestTypeUrl() 
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearResponseStreaming() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearResponseTypeUrl() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ClearSyntax() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.GetOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.Name.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.NameBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
@@ -6199,6 +6312,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.RequestTypeUrlBytes.ge
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ResponseStreaming.get -> bool
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ResponseTypeUrl.get -> string?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.ResponseTypeUrlBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetEdition(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetEditionBytes(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetName(string? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetNameBytes(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetOptions(int index, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
@@ -6213,6 +6328,8 @@ Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetSyntax(Xamarin.Goog
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SetSyntaxValue(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.Syntax.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Syntax?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Builder.SyntaxValue.get -> int
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Edition.get -> string?
+Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.EditionBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.GetOptions(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.GetOptionsOrBuilder(int index) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IOptionOrBuilder?
 Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.Name.get -> string?
@@ -6531,6 +6648,17 @@ Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssSignConscrypt.Sign(byte[]
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt.Verify(byte[]? signature, byte[]? data) -> void
 Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil
+Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters
+Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.GetMlDsaInstance() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
+Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.GetVariant() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant?
+Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance
+Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.MlDsaPrivateKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.MlDsaPublicKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters
 Xamarin.Google.Crypto.Tink.Signature.PublicKeySignConfig
 Xamarin.Google.Crypto.Tink.Signature.PublicKeySignFactory
@@ -6708,7 +6836,9 @@ Xamarin.Google.Crypto.Tink.Subtle.AesGcmJce.Encrypt(byte[]? plaintext, byte[]? a
 Xamarin.Google.Crypto.Tink.Subtle.AesSiv
 Xamarin.Google.Crypto.Tink.Subtle.AesSiv.AesSiv(byte[]? key) -> void
 Xamarin.Google.Crypto.Tink.Subtle.AesSiv.DecryptDeterministically(byte[]? ciphertext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Subtle.AesSiv.DecryptDeterministicallyWithAssociatedDatas(byte[]? ciphertext, params byte[]![]? associatedDatas) -> byte[]?
 Xamarin.Google.Crypto.Tink.Subtle.AesSiv.EncryptDeterministically(byte[]? plaintext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Subtle.AesSiv.EncryptDeterministicallyWithAssociatedDatas(byte[]? plaintext, params byte[]![]? associatedDatas) -> byte[]?
 Xamarin.Google.Crypto.Tink.Subtle.Base64
 Xamarin.Google.Crypto.Tink.Subtle.Bytes
 Xamarin.Google.Crypto.Tink.Subtle.ChaCha20Poly1305
@@ -7189,6 +7319,7 @@ const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemP384HkdfSha384Value = 3 -> i
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemP521HkdfSha512Value = 4 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemX25519HkdfSha256Value = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.KemUnknownValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.XWingValue = 5 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.ParamsFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeParams.AeadFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeParams.KdfFieldNumber = 2 -> int
@@ -7368,6 +7499,7 @@ const Xamarin.Google.Crypto.Tink.Proto.XChaCha20Poly1305Key.VersionFieldNumber =
 const Xamarin.Google.Crypto.Tink.Proto.XChaCha20Poly1305KeyFormat.VersionFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Any.TypeUrlFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Any.ValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.EditionFieldNumber = 8 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.MethodsFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.MixinsFieldNumber = 6 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Api.NameFieldNumber = 1 -> int
@@ -7394,6 +7526,7 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProt
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange.EndFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRange.StartFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.ReservedRangeFieldNumber = 9 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.DescriptorProto.VisibilityFieldNumber = 11 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition.Edition1TestOnlyValue = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition.Edition2023Value = 1000 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.Edition.Edition2024Value = 1001 -> int
@@ -7413,6 +7546,7 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptor
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ReservedNameFieldNumber = 5 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ReservedRangeFieldNumber = 4 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.ValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumDescriptorProto.VisibilityFieldNumber = 6 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions.AllowAliasFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions.DeprecatedFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.EnumOptions.DeprecatedLegacyJsonFieldConflictsFieldNumber = 6 -> int
@@ -7437,6 +7571,11 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRange
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.DeclarationValue = 0 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.UnverifiedValue = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.DefaultSymbolVisibilityFieldNumber = 8 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.EnforceNamingStyleUnknownValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.Style2024Value = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.StyleLegacyValue = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyleFieldNumber = 7 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.ClosedValue = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.EnumTypeUnknownValue = 0 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.OpenValue = 1 -> int
@@ -7462,6 +7601,11 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.Utf8ValidationUnknownValue = 0 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.VerifyValue = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8ValidationFieldNumber = 4 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.DefaultSymbolVisibilityUnknownValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ExportAllValue = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ExportTopLevelValue = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.LocalAllValue = 3 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.StrictValue = 4 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.DefaultsFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.EditionFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.FixedFeaturesFieldNumber = 5 -> int
@@ -7545,6 +7689,7 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptor
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.ExtensionFieldNumber = 7 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.MessageTypeFieldNumber = 4 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.NameFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.OptionDependencyFieldNumber = 15 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.OptionsFieldNumber = 8 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.PackageFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.PublicDependencyFieldNumber = 10 -> int
@@ -7622,6 +7767,9 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location.SpanFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location.TrailingCommentsFieldNumber = 4 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.LocationFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityExportValue = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityLocalValue = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityUnsetValue = 0 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.AggregateValueFieldNumber = 8 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.DoubleValueFieldNumber = 6 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.IdentifierValueFieldNumber = 3 -> int
@@ -7647,13 +7795,21 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FieldMask.PathsFieldNumber = 1 
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.FloatValue.ValueFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Int32Value.ValueFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Int64Value.ValueFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.LargeEnumFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.LegacyClosedEnumFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.LegacyValue = 3 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.NestInFileClassUnknownValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.NoValue = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.YesValue = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFieldNumber = 5 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.UseOldOuterClassnameDefaultFieldNumber = 4 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.DefaultValue = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.Utf8ValidationUnknownValue = 0 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.VerifyValue = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8ValidationFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFieldNumber = 1001 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ListValue.ValuesFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.EditionFieldNumber = 8 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.NameFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.OptionsFieldNumber = 6 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Method.RequestStreamingFieldNumber = 3 -> int
@@ -7667,12 +7823,12 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.NullValue.NullValueValue = 0 ->
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option.NameFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Option.ValueFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Major = 4 -> int
-const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Minor = 28 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Minor = 32 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssMajor = 4 -> int
-const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssMinor = 28 -> int
-const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssPatch = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssMinor = 32 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssPatch = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.OssSuffix = "" -> string!
-const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Patch = 2 -> int
+const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Patch = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.RuntimeVersion.Suffix = "" -> string!
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.SourceContext.FileNameFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.StringValue.ValueFieldNumber = 1 -> int
@@ -7714,7 +7870,7 @@ const Xamarin.Google.Crypto.Tink.Subtle.Base64.UrlSafe = 8 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Sign.SecretKeyLen = 32 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Verify.PublicKeyLen = 32 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Verify.SignatureLen = 64 -> int
-const Xamarin.Google.Crypto.Tink.Version.TinkVersion = "1.18.0" -> string!
+const Xamarin.Google.Crypto.Tink.Version.TinkVersion = "1.19.0" -> string!
 override Xamarin.Google.Crypto.Tink.Aead.AeadConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Aead.AeadFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Aead.AeadKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8244,6 +8400,7 @@ override Xamarin.Google.Crypto.Tink.Mac.HmacParameters.JniPeerMembers.get -> Jav
 override Xamarin.Google.Crypto.Tink.Mac.HmacParameters.Variant.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Mac.Internal.AesCmacProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Mac.Internal.AesUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedHmacImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Mac.Internal.HmacProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8301,6 +8458,7 @@ override Xamarin.Google.Crypto.Tink.Prf.Internal.HmacPrfProtoSerialization.JniPe
 override Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf.ThresholdClass.get -> nint
 override Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmac.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmacConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Prf.PredefinedPrfParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Prf.PrfConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8843,6 +9001,7 @@ override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRa
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.FieldPresence.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8850,6 +9009,11 @@ override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.MessageEncoding.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.RepeatedFieldEncoding.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8884,8 +9048,6 @@ override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescrip
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorProto.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorSet.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorSet.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorSet.NewBuilderForType() -> Java.Lang.Object?
-override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileDescriptorSet.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FileOptions.OptimizeMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8926,8 +9088,7 @@ override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeI
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location.NewBuilderForType() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Location.ToBuilder() -> Java.Lang.Object?
-override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.NewBuilderForType() -> Java.Lang.Object?
-override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9048,6 +9209,11 @@ override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.InvalidProtocolBufferExcepti
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.InvalidProtocolBufferException.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NewBuilderForType() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9202,6 +9368,25 @@ override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssProtoSerializati
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssSignConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.HasIdRequirement.get -> bool
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.EqualsKey(Xamarin.Google.Crypto.Tink.Key? o) -> bool
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.PublicKey.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey?
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.EqualsKey(Xamarin.Google.Crypto.Tink.Key? o) -> bool
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.IdRequirementOrNull.get -> Java.Lang.Integer?
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.OutputPrefix.get -> Xamarin.Google.Crypto.Tink.Util.Bytes?
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Parameters.get -> Xamarin.Google.Crypto.Tink.Signature.SignatureParameters?
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.PublicKeySignConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.PublicKeySignFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9714,6 +9899,7 @@ static Xamarin.Google.Crypto.Tink.Hybrid.Internal.X25519Conscrypt.Create() -> Xa
 static Xamarin.Google.Crypto.Tink.Hybrid.PredefinedHybridParameters.EciesP256HkdfHmacSha256Aes128CtrHmacSha256.get -> Xamarin.Google.Crypto.Tink.Hybrid.EciesParameters?
 static Xamarin.Google.Crypto.Tink.Hybrid.PredefinedHybridParameters.EciesP256HkdfHmacSha256Aes128Gcm.get -> Xamarin.Google.Crypto.Tink.Hybrid.EciesParameters?
 static Xamarin.Google.Crypto.Tink.Hybrid.PredefinedHybridParameters.EciesP256HkdfHmacSha256Aes128GcmCompressedWithoutPrefix.get -> Xamarin.Google.Crypto.Tink.Hybrid.EciesParameters?
+static Xamarin.Google.Crypto.Tink.Hybrid.Subtle.RsaKemHybridDecrypt.Create(Java.Security.IPrivateKey? recipientPrivateKey, string? hkdfHmacAlgo, byte[]? hkdfSalt, Xamarin.Google.Crypto.Tink.Aead.Subtle.IAeadFactory? aeadFactory) -> Xamarin.Google.Crypto.Tink.Hybrid.Subtle.RsaKemHybridDecrypt?
 static Xamarin.Google.Crypto.Tink.InsecureSecretKeyAccess.Get() -> Xamarin.Google.Crypto.Tink.SecretKeyAccess?
 static Xamarin.Google.Crypto.Tink.Integration.Android.AndroidKeystore.DeleteKey(string? alias) -> void
 static Xamarin.Google.Crypto.Tink.Integration.Android.AndroidKeystore.GenerateNewAes256GcmKey(string? alias) -> void
@@ -9944,6 +10130,8 @@ static Xamarin.Google.Crypto.Tink.Mac.Internal.AesCmacProtoSerialization.Registe
 static Xamarin.Google.Crypto.Tink.Mac.Internal.AesCmacProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.Mac.Internal.AesUtil.CmacPad(byte[]? x) -> byte[]?
 static Xamarin.Google.Crypto.Tink.Mac.Internal.AesUtil.Dbl(byte[]? value) -> byte[]?
+static Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacConscrypt.Create(Xamarin.Google.Crypto.Tink.Mac.AesCmacKey? key, Java.Security.Provider? conscrypt) -> Xamarin.Google.Crypto.Tink.Mac.IChunkedMac?
+static Xamarin.Google.Crypto.Tink.Mac.Internal.ChunkedAesCmacImpl.Create(Xamarin.Google.Crypto.Tink.Mac.AesCmacKey? key) -> Xamarin.Google.Crypto.Tink.Mac.IChunkedMac?
 static Xamarin.Google.Crypto.Tink.Mac.Internal.HmacProtoSerialization.Register() -> void
 static Xamarin.Google.Crypto.Tink.Mac.Internal.HmacProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.Mac.Internal.LegacyFullMac.Create(Xamarin.Google.Crypto.Tink.Internal.LegacyProtoKey? key) -> Xamarin.Google.Crypto.Tink.IMac?
@@ -10013,6 +10201,8 @@ static Xamarin.Google.Crypto.Tink.Prf.Internal.HkdfPrfProtoSerialization.Registe
 static Xamarin.Google.Crypto.Tink.Prf.Internal.HmacPrfProtoSerialization.Register() -> void
 static Xamarin.Google.Crypto.Tink.Prf.Internal.HmacPrfProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.Prf.Internal.LegacyFullPrf.Create(Xamarin.Google.Crypto.Tink.Internal.LegacyProtoKey? key) -> Xamarin.Google.Crypto.Tink.Prf.IPrf?
+static Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmac.Create(Xamarin.Google.Crypto.Tink.Prf.AesCmacPrfKey? key) -> Xamarin.Google.Crypto.Tink.Prf.IPrf?
+static Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmac.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
 static Xamarin.Google.Crypto.Tink.Prf.Internal.PrfAesCmacConscrypt.Create(Xamarin.Google.Crypto.Tink.Prf.AesCmacPrfKey? key) -> Xamarin.Google.Crypto.Tink.Prf.IPrf?
 static Xamarin.Google.Crypto.Tink.Prf.PredefinedPrfParameters.AesCmacPrf.get -> Xamarin.Google.Crypto.Tink.Prf.AesCmacPrfParameters?
 static Xamarin.Google.Crypto.Tink.Prf.PredefinedPrfParameters.HkdfSha256.get -> Xamarin.Google.Crypto.Tink.Prf.HkdfPrfParameters?
@@ -10927,6 +11117,7 @@ static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.Unrecognized.get -> Xamarin.Goog
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.Values() -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem![]?
+static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.XWing.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.Builder?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat? prototype) -> Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.Builder?
@@ -12133,6 +12324,15 @@ static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRang
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.ExtensionRangeOptions.VerificationState![]?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.EnforceNamingStyleUnknown.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.Style2024.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.StyleLegacy.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnforceNamingStyle![]?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.Closed.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.EnumTypeUnknown.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.EnumType?
@@ -12203,6 +12403,33 @@ static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Ut
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation![]?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation.Verify.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.Utf8Validation?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.DefaultSymbolVisibilityUnknown.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ExportAll.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ExportTopLevel.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.LocalAll.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.Strict.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.DefaultSymbolVisibility![]?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.NewBuilder() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.Builder?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.NewBuilder(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature? prototype) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.Builder?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSet.VisibilityFeature.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.NewBuilder() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.FeatureSetDefaults.FeatureSetEditionDefault.Builder?
@@ -12627,6 +12854,15 @@ static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInf
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SourceCodeInfo.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility![]?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityExport.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityLocal.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility.VisibilityUnset.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.SymbolVisibility?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.NamePart.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.NamePart?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.NamePart.NewBuilder() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder?
@@ -12846,7 +13082,6 @@ static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.EmptyFloa
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.EmptyIntList() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IIntList?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.EmptyLongList() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.ILongList?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.EmptyProtobufList() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IProtobufList?
-static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.InvokeIsInitialized(Java.Lang.Object? message, bool shouldMemoize) -> bool
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke.BuildMessageInfo.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke.GetDefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke.GetMemoizedIsInitialized.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke?
@@ -12941,6 +13176,32 @@ static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.ToByteArray(string? v
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.ToStringUtf8(byte[]? bytes) -> string?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.Java.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.GeneratedExtension?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.Legacy.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.NestInFileClassUnknown.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.No.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.Values() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass![]?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.Yes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NewBuilder() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Builder?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NewBuilder(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature? prototype) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Builder?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature?
+static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NewBuilder() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.NewBuilder(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures? prototype) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.Builder?
 static Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.JavaFeaturesProto.JavaFeatures?
@@ -13335,6 +13596,13 @@ static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToCurveType(Xamarin
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToEcdsaEncoding(Xamarin.Google.Crypto.Tink.Proto.EcdsaSignatureEncoding? encoding) -> Xamarin.Google.Crypto.Tink.Subtle.EllipticCurves.EcdsaEncoding?
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToHashType(Xamarin.Google.Crypto.Tink.Proto.HashType? hash) -> Xamarin.Google.Crypto.Tink.Subtle.Enums.HashType?
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToUnsignedIntByteString(Java.Math.BigInteger? i) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Create(Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance? mlDsaInstance, Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant? variant) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.MlDsa65.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.MlDsa87.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant.NoPrefix.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant.Tink.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.CreateWithoutVerification(Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey? mlDsaPublicKey, Xamarin.Google.Crypto.Tink.Util.SecretBytes? privateSeed) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.InvokeBuilder() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.ED25519WithRawOutput.get -> Xamarin.Google.Crypto.Tink.Signature.Ed25519Parameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.EcdsaP256.get -> Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.EcdsaP256IeeeP1363.get -> Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters?
@@ -13479,7 +13747,7 @@ static Xamarin.Google.Crypto.Tink.Subtle.AesEaxJce.Fips.get -> Xamarin.Google.Cr
 static Xamarin.Google.Crypto.Tink.Subtle.AesGcmHkdfStreaming.Create(Xamarin.Google.Crypto.Tink.StreamingAead.AesGcmHkdfStreamingKey? key) -> Xamarin.Google.Crypto.Tink.IStreamingAead?
 static Xamarin.Google.Crypto.Tink.Subtle.AesGcmJce.Create(Xamarin.Google.Crypto.Tink.Aead.AesGcmKey? key) -> Xamarin.Google.Crypto.Tink.IAead?
 static Xamarin.Google.Crypto.Tink.Subtle.AesGcmJce.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
-static Xamarin.Google.Crypto.Tink.Subtle.AesSiv.Create(Xamarin.Google.Crypto.Tink.DAead.AesSivKey? key) -> Xamarin.Google.Crypto.Tink.IDeterministicAead?
+static Xamarin.Google.Crypto.Tink.Subtle.AesSiv.Create(Xamarin.Google.Crypto.Tink.DAead.AesSivKey? key) -> Xamarin.Google.Crypto.Tink.DAead.Subtle.IDeterministicAeads?
 static Xamarin.Google.Crypto.Tink.Subtle.AesSiv.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
 static Xamarin.Google.Crypto.Tink.Subtle.Base64.Decode(byte[]? input, int flags) -> byte[]?
 static Xamarin.Google.Crypto.Tink.Subtle.Base64.Decode(byte[]? input, int offset, int len, int flags) -> byte[]?
@@ -13595,7 +13863,6 @@ static Xamarin.Google.Crypto.Tink.Subtle.PemKeyType.Values() -> Xamarin.Google.C
 static Xamarin.Google.Crypto.Tink.Subtle.Prf.HkdfStreamingPrf.Create(Xamarin.Google.Crypto.Tink.Prf.HkdfPrfKey? key) -> Xamarin.Google.Crypto.Tink.Subtle.Prf.IStreamingPrf?
 static Xamarin.Google.Crypto.Tink.Subtle.Prf.PrfImpl.Wrap(Xamarin.Google.Crypto.Tink.Subtle.Prf.IStreamingPrf? prfStreamer) -> Xamarin.Google.Crypto.Tink.Subtle.Prf.PrfImpl?
 static Xamarin.Google.Crypto.Tink.Subtle.PrfAesCmac.Create(Xamarin.Google.Crypto.Tink.Prf.AesCmacPrfKey? key) -> Xamarin.Google.Crypto.Tink.Prf.IPrf?
-static Xamarin.Google.Crypto.Tink.Subtle.PrfAesCmac.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
 static Xamarin.Google.Crypto.Tink.Subtle.PrfHmacJce.Create(Xamarin.Google.Crypto.Tink.Prf.HmacPrfKey? key) -> Xamarin.Google.Crypto.Tink.Prf.IPrf?
 static Xamarin.Google.Crypto.Tink.Subtle.PrfHmacJce.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
 static Xamarin.Google.Crypto.Tink.Subtle.PrfMac.Create(Xamarin.Google.Crypto.Tink.Mac.AesCmacKey? key) -> Xamarin.Google.Crypto.Tink.IMac?
@@ -13836,6 +14103,7 @@ virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteOutput.Write(sbyte value)
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString.CopyTo(byte[]? target, int offset) -> void
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString.Iterator() -> Java.Util.IIterator?
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream.CheckRecursionLimit() -> void
+virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream.CheckValidEndTag() -> void
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream.SkipMessage() -> void
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream.SkipMessage(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedOutputStream? output) -> void
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedOutputStream.UseDeterministicSerialization() -> void
@@ -13844,8 +14112,6 @@ virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite.Unmodif
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.Builder.BuildPartial() -> Java.Lang.Object?
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.Builder.CopyOnWriteInternal() -> void
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.Builder.MergeFrom(Java.Lang.Object? message) -> Java.Lang.Object?
-virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.DynamicMethod(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke? method) -> Java.Lang.Object?
-virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.DynamicMethod(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.MethodToInvoke? method, Java.Lang.Object? arg0) -> Java.Lang.Object?
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.ExtendableBuilder.Build() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMessageLite?
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.ExtendableBuilder.BuildPartial() -> Java.Lang.Object?
 virtual Xamarin.Google.Crypto.Tink.Shaded.Protobuf.GeneratedMessageLite.ExtendableBuilder.Clear() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IMessageLiteBuilder?
@@ -13931,6 +14197,12 @@ virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.Build() -> X
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters? parameters) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetPublicPoint(Java.Security.Spec.ECPoint? publicPoint) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.PrivateSeed.get -> Xamarin.Google.Crypto.Tink.Util.SecretBytes?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.Build() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters? parameters) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.SetSerializedPublicKey(Xamarin.Google.Crypto.Tink.Util.Bytes? serializedPublicKey) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.SerializedPublicKey.get -> Xamarin.Google.Crypto.Tink.Util.Bytes?
 virtual Xamarin.Google.Crypto.Tink.Signature.PublicKeySignWrapper.InputPrimitiveClass.get -> Java.Lang.Class?
 virtual Xamarin.Google.Crypto.Tink.Signature.PublicKeySignWrapper.PrimitiveClass.get -> Java.Lang.Class?
 virtual Xamarin.Google.Crypto.Tink.Signature.PublicKeySignWrapper.Wrap(Xamarin.Google.Crypto.Tink.Internal.IKeysetHandleInterface? keysetHandle, Xamarin.Google.Crypto.Tink.Internal.MonitoringAnnotations? annotations, Xamarin.Google.Crypto.Tink.Internal.IPrimitiveWrapperPrimitiveFactory? factory) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
