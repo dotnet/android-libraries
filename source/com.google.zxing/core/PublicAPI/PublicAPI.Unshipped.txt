@@ -477,6 +477,9 @@ Google.ZXing.Dimension.Height.get -> int
 Google.ZXing.Dimension.Width.get -> int
 Google.ZXing.EncodeHintType
 Google.ZXing.FormatException
+Google.ZXing.GrayscaleLuminanceSource
+Google.ZXing.GrayscaleLuminanceSource.GrayscaleLuminanceSource(int width, int height, byte[]? pixels) -> void
+Google.ZXing.GrayscaleLuminanceSource.GrayscaleLuminanceSource(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.ZXing.IReader
 Google.ZXing.IReader.Decode(Google.ZXing.BinaryBitmap? p0) -> Google.ZXing.Result?
 Google.ZXing.IReader.Decode(Google.ZXing.BinaryBitmap? p0, System.Collections.Generic.IDictionary<Google.ZXing.DecodeHintType!, object!>? p1) -> Google.ZXing.Result?
@@ -1076,6 +1079,11 @@ override Google.ZXing.DecodeHintType.JniPeerMembers.get -> Java.Interop.JniPeerM
 override Google.ZXing.Dimension.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.ZXing.EncodeHintType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.ZXing.FormatException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.ZXing.GrayscaleLuminanceSource.GetMatrix() -> byte[]?
+override Google.ZXing.GrayscaleLuminanceSource.GetRow(int y, byte[]? row) -> byte[]?
+override Google.ZXing.GrayscaleLuminanceSource.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.ZXing.GrayscaleLuminanceSource.ThresholdClass.get -> nint
+override Google.ZXing.GrayscaleLuminanceSource.ThresholdType.get -> System.Type!
 override Google.ZXing.InvertedLuminanceSource.GetMatrix() -> byte[]?
 override Google.ZXing.InvertedLuminanceSource.GetRow(int y, byte[]? row) -> byte[]?
 override Google.ZXing.InvertedLuminanceSource.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1269,8 +1277,6 @@ override Google.ZXing.QRCode.QRCodeReader.JniPeerMembers.get -> Java.Interop.Jni
 override Google.ZXing.QRCode.QRCodeReader.ThresholdClass.get -> nint
 override Google.ZXing.QRCode.QRCodeReader.ThresholdType.get -> System.Type!
 override Google.ZXing.QRCode.QRCodeWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Google.ZXing.RGBLuminanceSource.GetMatrix() -> byte[]?
-override Google.ZXing.RGBLuminanceSource.GetRow(int y, byte[]? row) -> byte[]?
 override Google.ZXing.RGBLuminanceSource.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.ZXing.ReaderException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.ZXing.ReaderException.ThresholdClass.get -> nint
@@ -1536,6 +1542,7 @@ static Google.ZXing.QRCode.Encoder.Encoder.ChooseMode(string? content) -> Google
 static Google.ZXing.QRCode.Encoder.Encoder.Encode(string? content, Google.ZXing.QRCode.Decoder.ErrorCorrectionLevel? ecLevel) -> Google.ZXing.QRCode.Encoder.QRCode?
 static Google.ZXing.QRCode.Encoder.Encoder.Encode(string? content, Google.ZXing.QRCode.Decoder.ErrorCorrectionLevel? ecLevel, System.Collections.Generic.IDictionary<Google.ZXing.EncodeHintType!, object!>? hints) -> Google.ZXing.QRCode.Encoder.QRCode?
 static Google.ZXing.QRCode.Encoder.QRCode.IsValidMaskPattern(int maskPattern) -> bool
+static Google.ZXing.QRCode.QRCodeWriter.RenderResult(Google.ZXing.QRCode.Encoder.QRCode? code, int width, int height, int quietZone) -> Google.ZXing.Common.BitMatrix?
 static Google.ZXing.ReaderException.IsStackTrace.get -> bool
 static Google.ZXing.ReaderException.IsStackTrace.set -> void
 static Google.ZXing.ReaderException.NoTrace.get -> System.Collections.Generic.IList<Java.Lang.StackTraceElement!>?

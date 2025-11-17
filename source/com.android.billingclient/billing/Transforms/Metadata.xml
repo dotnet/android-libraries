@@ -15,4 +15,10 @@
   
   <!-- Fix duplicate StatusCode conflict in UnfetchedProduct -->
   <attr path="/api/package[@name='com.android.billingclient.api']/class[@name='UnfetchedProduct']/method[@name='getStatusCode']" name="managedName">GetStatusCodeValue</attr>
+  
+  <!-- Fix duplicate ReplacementMode in ProductDetailsParams.SubscriptionProductReplacementParams -->
+  <remove-node path="/api/package[@name='com.android.billingclient.api']/class[@name='BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams']/class[@name='ReplacementMode']" />
+  
+  <!-- Rename getReplacementMode property to avoid conflict with nested ReplacementMode class -->
+  <attr path="/api/package[@name='com.android.billingclient.api']/class[@name='BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams']/method[@name='getReplacementMode']" name="managedName">GetReplacementModeValue</attr>
 </metadata>
