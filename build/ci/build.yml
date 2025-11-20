@@ -70,6 +70,20 @@ jobs:
         }
       displayName: Copy SignList.xml to output
 
+    # Exclude packages that fail signing from output
+    - pwsh: |
+        $packagePath = "${{ parameters.artifactsPath }}\Xamarin.GooglePlayServices.Ads.*.nupkg"
+        $packages = Get-Item $packagePath -ErrorAction SilentlyContinue
+        if ($packages) {
+          foreach ($pkg in $packages) {
+            Write-Host "Removing $($pkg.Name) from output to exclude from signing"
+            Remove-Item $pkg.FullName -Force
+          }
+        } else {
+          Write-Host "Package Xamarin.GooglePlayServices.Ads not found in output, nothing to remove."
+        }
+      displayName: Exclude packages from signing
+
     - ${{ if ne(parameters.use1ESTemplate, true) }}:
       - task: PublishPipelineArtifact@1
         displayName: Upload logs
