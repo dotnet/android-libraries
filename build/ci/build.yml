@@ -72,7 +72,8 @@ jobs:
 
     # Exclude packages that fail signing from output
     - pwsh: |
-        $packagePath = "${{ parameters.artifactsPath }}\Xamarin.GooglePlayServices.Ads.*.nupkg"
+        $excludedPackage = "Xamarin.GooglePlayServices.Ads"
+        $packagePath = "${{ parameters.artifactsPath }}/$excludedPackage.*.nupkg"
         $packages = Get-Item $packagePath -ErrorAction SilentlyContinue
         if ($packages) {
           foreach ($pkg in $packages) {
@@ -80,7 +81,7 @@ jobs:
             Remove-Item $pkg.FullName -Force
           }
         } else {
-          Write-Host "Package Xamarin.GooglePlayServices.Ads not found in output, nothing to remove."
+          Write-Host "Package $excludedPackage not found in output, nothing to remove."
         }
       displayName: Exclude packages from signing
 
