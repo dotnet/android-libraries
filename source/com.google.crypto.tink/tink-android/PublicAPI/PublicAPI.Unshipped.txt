@@ -114,9 +114,9 @@ Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.InsecureNonceChaC
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.InsecureNonceChaCha20(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(Java.Nio.ByteBuffer? ciphertext, byte[]? nonce, byte[]? associatedData) -> byte[]?
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> void
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.InsecureNonceChaCha20Poly1305(byte[]? key) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305Jce
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305Jce.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
@@ -128,9 +128,9 @@ Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.InsecureNonceXCh
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.InsecureNonceXChaCha20(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(Java.Nio.ByteBuffer? ciphertext, byte[]? nonce, byte[]? associatedData) -> byte[]?
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> void
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.InsecureNonceXChaCha20Poly1305(byte[]? key) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead
 Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.LegacyFullAead(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -13954,15 +13954,15 @@ virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetIdRequirement(Ja
 virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetKeyBytes(Xamarin.Google.Crypto.Tink.Util.SecretBytes? keyBytes) -> Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Aead.AesGcmSivParameters? parameters) -> Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.CreateInitialState(int[]? nonce, int counter) -> int[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? nonce, Java.Nio.ByteBuffer? ciphertext) -> byte[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? nonce, byte[]? ciphertext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? ciphertext, Java.Nio.ByteBuffer? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? p0, byte[]? p1) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext) -> void
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(byte[]? nonce, byte[]? plaintext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(byte[]? p0, byte[]? p1) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.NonceSizeInBytes() -> int
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? nonce, Java.Nio.ByteBuffer? ciphertext) -> byte[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? nonce, byte[]? ciphertext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? ciphertext, Java.Nio.ByteBuffer? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? p0, byte[]? p1) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext) -> void
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(byte[]? nonce, byte[]? plaintext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(byte[]? p0, byte[]? p1) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.Decrypt(byte[]? ciphertext, byte[]? associatedData) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.Encrypt(byte[]? plaintext, byte[]? associatedData) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.LegacyKmsEnvelopeAeadParameters.Builder.Build() -> Xamarin.Google.Crypto.Tink.Aead.LegacyKmsEnvelopeAeadParameters?
