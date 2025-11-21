@@ -42,7 +42,6 @@ stages:
         displayName: Publish filtered artifacts
   
   - template: sign-artifacts/jobs/v4.yml@yaml-templates
-    dependsOn: exclude_packages
     parameters:
       timeoutInMinutes: 180
       artifactName: output-windows-filtered
