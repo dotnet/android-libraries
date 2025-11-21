@@ -8,43 +8,10 @@ stages:
   
   jobs:
   
-  # Pre-signing job to exclude packages that fail signing
-  - job: exclude_packages
-    displayName: Exclude packages from signing
-    pool:
-      name: AzurePipelines-EO
-      image: 1ESPT-Windows2022
-      os: windows
-    steps:
-      - download: current
-        artifact: output-windows
-        displayName: Download build artifacts
-      
-      - pwsh: |
-          $excludedPackage = "Xamarin.GooglePlayServices.Ads"
-          # Use specific pattern to match only the base package, not sub-packages like Ads.Api, Ads.Base, etc.
-          $artifactsPath = "$(Pipeline.Workspace)/output-windows"
-          $packagePattern = "$artifactsPath/$excludedPackage.[0-9]*.nupkg"
-          Write-Host "Looking for packages matching: $packagePattern"
-          $packages = Get-Item $packagePattern -ErrorAction SilentlyContinue
-          if ($packages) {
-            foreach ($pkg in $packages) {
-              Write-Host "Removing $($pkg.Name) to exclude from signing"
-              Remove-Item $pkg.FullName -Force
-            }
-          } else {
-            Write-Host "Package $excludedPackage not found in artifacts, nothing to remove."
-          }
-        displayName: Remove packages that fail signing
-      
-      - publish: $(Pipeline.Workspace)/output-windows
-        artifact: output-windows-filtered
-        displayName: Publish filtered artifacts
-  
   - template: sign-artifacts/jobs/v4.yml@yaml-templates
     parameters:
       timeoutInMinutes: 180
-      artifactName: output-windows-filtered
+      artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
       ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
