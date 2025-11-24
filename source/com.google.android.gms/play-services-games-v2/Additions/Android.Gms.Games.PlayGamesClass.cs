@@ -7,7 +7,7 @@ namespace Android.Gms.Games
 {
     public sealed partial class PlayGames
     {
-        // Matches: getSnapshotsClient(Activity) -> SnapshotsClient
+        //Matches: getSnapshotsClient(Activity) -> SnapshotsClient
         [Register("getSnapshotsClient", "(Landroid/app/Activity;)Lcom/google/android/gms/games/SnapshotsClient;", "")]
         public static unsafe global::Android.Gms.Games.SnapshotsClient GetSnapshotsClient(global::Android.App.Activity activity)
         {
