@@ -416,7 +416,7 @@ const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultMaxMessageSize = 4194304 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortPlaintext = 80 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortSsl = 443 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.HttpMethod = "POST" -> string!
-const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.76.0" -> string!
+const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.77.0" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.KeepaliveTimeNanosDisabled = 9223372036854775807 -> long
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageAcceptEncoding = "grpc-accept-encoding" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageEncoding = "grpc-encoding" -> string!
@@ -555,6 +555,7 @@ override sealed Xamarin.Grpc.Core.Internal.DelayedClientCall.Start(Xamarin.Grpc.
 override sealed Xamarin.Grpc.Core.Internal.PickSubchannelArgsImpl.ToString() -> string?
 static Xamarin.Grpc.Core.Internal.CertificateUtils.CreateTrustManager(System.IO.Stream? rootCerts) -> Javax.Net.Ssl.ITrustManager![]?
 static Xamarin.Grpc.Core.Internal.CertificateUtils.CreateTrustManager(byte[]? rootCerts) -> Javax.Net.Ssl.ITrustManager![]?
+static Xamarin.Grpc.Core.Internal.CertificateUtils.GetX509ExtendedTrustManager(System.Collections.Generic.IList<Javax.Net.Ssl.ITrustManager!>? trustManagers) -> Javax.Net.Ssl.IX509TrustManager?
 static Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress.Dropped.get -> Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress?
 static Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress.Miscarried.get -> Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress?
 static Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress.Processed.get -> Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress?
@@ -584,7 +585,7 @@ static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultProxyDetector.get -> Xamarin.G
 static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultServerKeepaliveTimeNanos.get -> long
 static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultServerKeepaliveTimeoutNanos.get -> long
 static Xamarin.Grpc.Core.Internal.GrpcUtil.Exhaust(System.IO.Stream? in) -> void
-static Xamarin.Grpc.Core.Internal.GrpcUtil.GetClientStreamTracers(Xamarin.Grpc.CallOptions? callOptions, Xamarin.Grpc.Metadata? headers, int previousAttempts, bool isTransparentRetry) -> Xamarin.Grpc.ClientStreamTracer![]?
+static Xamarin.Grpc.Core.Internal.GrpcUtil.GetClientStreamTracers(Xamarin.Grpc.CallOptions? callOptions, Xamarin.Grpc.Metadata? headers, int previousAttempts, bool isTransparentRetry, bool isHedging) -> Xamarin.Grpc.ClientStreamTracer![]?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.GetFlag(string? envVarName, bool enableByDefault) -> bool
 static Xamarin.Grpc.Core.Internal.GrpcUtil.GetGrpcBuildVersion() -> Xamarin.Grpc.Core.Internal.GrpcUtil.GrpcBuildVersion?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.GetGrpcUserAgent(string? transportName, string? applicationUserAgent) -> string?
@@ -615,6 +616,8 @@ static Xamarin.Grpc.Core.Internal.GrpcUtil.NoopProxyDetector.get -> Xamarin.Grpc
 static Xamarin.Grpc.Core.Internal.GrpcUtil.ReplaceInappropriateControlPlaneStatus(Xamarin.Grpc.Status? status) -> Xamarin.Grpc.Status?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.SharedChannelExecutor.get -> Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.ShouldBeCountedForInUse(Xamarin.Grpc.CallOptions? callOptions) -> bool
+static Xamarin.Grpc.Core.Internal.GrpcUtil.StatusToPrettyString(Xamarin.Grpc.Status? status) -> string?
+static Xamarin.Grpc.Core.Internal.GrpcUtil.StatusWithDetails(Xamarin.Grpc.Status.Code? code, string? description, Xamarin.Grpc.Status? causeStatus) -> Xamarin.Grpc.Status?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.TeHeader.get -> Xamarin.Grpc.Metadata.Key?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.TimeoutKey.get -> Xamarin.Grpc.Metadata.Key?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.TimerService.get -> Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource?
