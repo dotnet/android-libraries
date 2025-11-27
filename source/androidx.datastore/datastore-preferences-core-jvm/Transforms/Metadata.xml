@@ -2,6 +2,14 @@
     <remove-node
         path="/api/package[@name='androidx.datastore.preferences.protobuf']/class[@name='Internal']"
         />
+    
+    <!-- Rename JVM variant namespace to avoid CS0433 conflict with Android variant -->
+    <attr
+        path="/api/package[@name='androidx.datastore.preferences.core']"
+        name="managedName"
+        >
+        AndroidX.DataStore.Preferences.Core.Jvm
+    </attr>
 
     <attr
         path="/api/package[@name='androidx.datastore.preferences.protobuf']/interface/method"
