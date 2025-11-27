@@ -15,10 +15,11 @@ Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityDialo
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityDialogRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.ExceptionDetails
+Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.ExceptionDetails.A() -> Xamarin.Google.Android.Play.Core.Integrity.IntegrityServiceException?
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.ExceptionDetails.ExceptionDetails(Xamarin.Google.Android.Play.Core.Integrity.IntegrityServiceException? exception) -> void
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.IntegrityResponse(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.TokenResponse
-Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.TokenResponse.C() -> Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenResponse?
+Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.TokenResponse.A() -> Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenResponse?
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.IntegrityResponse.TokenResponse.TokenResponse(Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenResponse? token) -> void
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityManagerFactory
 Xamarin.Google.Android.Play.Core.Integrity.IntegrityManagerFactory.IntegrityManagerFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -38,6 +39,7 @@ Xamarin.Google.Android.Play.Core.Integrity.Model.IIntegrityDialogTypeCode
 Xamarin.Google.Android.Play.Core.Integrity.Model.IIntegrityErrorCode
 Xamarin.Google.Android.Play.Core.Integrity.Model.IStandardIntegrityErrorCode
 Xamarin.Google.Android.Play.Core.Integrity.Model.IStandardIntegrityVerdictOptOut
+Xamarin.Google.Android.Play.Core.Integrity.Model.IStandardIntegrityWebViewRequestMode
 Xamarin.Google.Android.Play.Core.Integrity.Model.IntegrityDialogResponseCode
 Xamarin.Google.Android.Play.Core.Integrity.Model.IntegrityDialogResponseCodeAttribute
 Xamarin.Google.Android.Play.Core.Integrity.Model.IntegrityDialogResponseCodeAttribute.IntegrityDialogResponseCodeAttribute() -> void
@@ -58,6 +60,10 @@ Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityVerdictOptOut
 Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityVerdictOptOutAttribute
 Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityVerdictOptOutAttribute.StandardIntegrityVerdictOptOutAttribute() -> void
 Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityVerdictOptOutConsts
+Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestMode
+Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestModeAttribute
+Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestModeAttribute.StandardIntegrityWebViewRequestModeAttribute() -> void
+Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestModeConsts
 Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityException
 Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityException.StandardIntegrityException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest
@@ -103,9 +109,11 @@ abstract Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenRequest.CloudP
 abstract Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenRequest.Nonce() -> string?
 abstract Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenResponse.ShowDialog(Android.App.Activity? p0, int p1) -> Android.Gms.Tasks.Task?
 abstract Xamarin.Google.Android.Play.Core.Integrity.IntegrityTokenResponse.Token() -> string?
+abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.A() -> int
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.B() -> long
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.Builder.Build() -> Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest?
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.Builder.SetCloudProjectNumber(long p0) -> Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.Builder?
+abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.Builder.SetWebViewRequestMode(int p0) -> Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerPrepareIntegrityTokenRequest.Builder?
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerStandardIntegrityDialogRequest.Activity() -> Android.App.Activity?
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerStandardIntegrityDialogRequest.Builder.Build() -> Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerStandardIntegrityDialogRequest?
 abstract Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerStandardIntegrityDialogRequest.Builder.SetActivity(Android.App.Activity? p0) -> Xamarin.Google.Android.Play.Core.Integrity.StandardIntegrityManagerStandardIntegrityDialogRequest.Builder?
@@ -166,6 +174,9 @@ const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityErrorCod
 const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityErrorCode.RequestHashTooLong = -17 -> int
 const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityErrorCode.TooManyRequests = -8 -> int
 const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityVerdictOptOut.AppAccessRisk = 1 -> int
+const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestMode.Unspecified = 0 -> int
+const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestMode.WithAppBinding = 1 -> int
+const Xamarin.Google.Android.Play.Core.Integrity.Model.StandardIntegrityWebViewRequestMode.WithoutAppBinding = 2 -> int
 override Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.Builder.ThresholdClass.get -> nint
 override Xamarin.Google.Android.Play.Core.Integrity.IntegrityDialogRequest.Builder.ThresholdType.get -> System.Type!

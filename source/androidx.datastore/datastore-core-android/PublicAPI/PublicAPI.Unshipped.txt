@@ -12,15 +12,26 @@ AndroidX.DataStore.Core.DataStoreFactory.Create(AndroidX.DataStore.Core.IStorage
 AndroidX.DataStore.Core.DataStoreFactory.Create(AndroidX.DataStore.Core.IStorage! storage, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler) -> AndroidX.DataStore.Core.IDataStore!
 AndroidX.DataStore.Core.DataStoreFactory.Create(AndroidX.DataStore.Core.IStorage! storage, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler, System.Collections.IList! migrations) -> AndroidX.DataStore.Core.IDataStore!
 AndroidX.DataStore.Core.DataStoreFactory.Create(AndroidX.DataStore.Core.IStorage! storage, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler, System.Collections.IList! migrations, Xamarin.KotlinX.Coroutines.ICoroutineScope! scope) -> AndroidX.DataStore.Core.IDataStore!
+AndroidX.DataStore.Core.DataStoreFactory.CreateInDeviceProtectedStorage(Android.Content.Context! context, string! fileName, AndroidX.DataStore.Core.ISerializer! serializer) -> AndroidX.DataStore.Core.IDataStore!
+AndroidX.DataStore.Core.DataStoreFactory.CreateInDeviceProtectedStorage(Android.Content.Context! context, string! fileName, AndroidX.DataStore.Core.ISerializer! serializer, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler) -> AndroidX.DataStore.Core.IDataStore!
+AndroidX.DataStore.Core.DataStoreFactory.CreateInDeviceProtectedStorage(Android.Content.Context! context, string! fileName, AndroidX.DataStore.Core.ISerializer! serializer, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler, System.Collections.IList! migrations) -> AndroidX.DataStore.Core.IDataStore!
+AndroidX.DataStore.Core.DataStoreFactory.CreateInDeviceProtectedStorage(Android.Content.Context! context, string! fileName, AndroidX.DataStore.Core.ISerializer! serializer, AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler? corruptionHandler, System.Collections.IList! migrations, Xamarin.KotlinX.Coroutines.ICoroutineScope! scope) -> AndroidX.DataStore.Core.IDataStore!
+AndroidX.DataStore.Core.DeviceProtectedDataStoreFile
+AndroidX.DataStore.Core.DirectBootExceptionUtilKt
 AndroidX.DataStore.Core.FileMoves_androidKt
 AndroidX.DataStore.Core.FileStorage
 AndroidX.DataStore.Core.FileStorage.CreateConnection() -> AndroidX.DataStore.Core.IStorageConnection!
 AndroidX.DataStore.Core.FileStorage.FileStorage(AndroidX.DataStore.Core.ISerializer! serializer, Kotlin.Jvm.Functions.IFunction1! coordinatorProducer, Kotlin.Jvm.Functions.IFunction0! produceFile) -> void
+AndroidX.DataStore.Core.FileStorageKt
 AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler
 AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler.HandleCorruption(AndroidX.DataStore.Core.CorruptionException! ex, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler.ReplaceFileCorruptionHandler(Kotlin.Jvm.Functions.IFunction1! produceNewData) -> void
 AndroidX.DataStore.Core.ICloseable
 AndroidX.DataStore.Core.ICloseable.Close() -> void
+AndroidX.DataStore.Core.ICorruptionHandler
+AndroidX.DataStore.Core.ICorruptionHandler.HandleCorruption(AndroidX.DataStore.Core.CorruptionException! ex, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+AndroidX.DataStore.Core.ICurrentDataProviderStore
+AndroidX.DataStore.Core.ICurrentDataProviderStore.CurrentData(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 AndroidX.DataStore.Core.IDataMigration
 AndroidX.DataStore.Core.IDataMigration.CleanUp(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 AndroidX.DataStore.Core.IDataMigration.Migrate(Java.Lang.Object? currentData, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
@@ -63,12 +74,16 @@ AndroidX.DataStore.Core.MultiProcessDataStoreFactory.Create(AndroidX.DataStore.C
 AndroidX.DataStore.Core.MulticastFileObserver_androidKt
 AndroidX.DataStore.Core.MutexUtilsKt
 AndroidX.DataStore.Core.StorageConnectionKt
+AndroidX.DataStore.Core.Util.DirectBootUtil_androidKt
 override AndroidX.DataStore.Core.Actual_jvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.CloseableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.CorruptionException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.DataStoreFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Core.DeviceProtectedDataStoreFile.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Core.DirectBootExceptionUtilKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.FileMoves_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.FileStorage.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Core.FileStorageKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.Handlers.ReplaceFileCorruptionHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.InterProcessCoordinatorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.InterProcessCoordinator_jvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -77,8 +92,11 @@ override AndroidX.DataStore.Core.MultiProcessDataStoreFactory.JniPeerMembers.get
 override AndroidX.DataStore.Core.MulticastFileObserver_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.MutexUtilsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Core.StorageConnectionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Core.Util.DirectBootUtil_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.DataStore.Core.CloseableKt.Use(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.DataStore.Core.DataStoreFactory.Instance.get -> AndroidX.DataStore.Core.DataStoreFactory!
+static AndroidX.DataStore.Core.DeviceProtectedDataStoreFile.InvokeDeviceProtectedDataStoreFile(Android.Content.Context! obj, string! fileName) -> Java.IO.File!
+static AndroidX.DataStore.Core.DirectBootExceptionUtilKt.WrapExceptionIfDueToDirectBoot(string? parentDirPath, Java.Lang.Exception! exception) -> Java.Lang.Exception!
 static AndroidX.DataStore.Core.InterProcessCoordinatorKt.CreateSingleProcessCoordinator(string! filePath) -> AndroidX.DataStore.Core.IInterProcessCoordinator!
 static AndroidX.DataStore.Core.InterProcessCoordinator_jvmKt.CreateSingleProcessCoordinator(Java.IO.File! file) -> AndroidX.DataStore.Core.IInterProcessCoordinator!
 static AndroidX.DataStore.Core.MultiProcessCoordinatorKt.CreateMultiProcessCoordinator(Kotlin.Coroutines.ICoroutineContext! context, Java.IO.File! file) -> AndroidX.DataStore.Core.IInterProcessCoordinator!
