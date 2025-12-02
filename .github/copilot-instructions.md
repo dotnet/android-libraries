@@ -134,6 +134,29 @@ For comprehensive guidance on troubleshooting binding issues, see: https://githu
 </add-node>
 ```
 
+### Changing Package/Namespace Names
+
+To change the C# namespace for a Java package (e.g., fixing casing issues), use `Metadata.xml` with the `managedName` attribute. **Do NOT use `rootNamespace` metadata in config.json** - it does not work for namespace changes.
+
+Create `source/{groupId}/{artifactId}/Transforms/Metadata.xml`:
+
+```xml
+<metadata>
+    <!-- Fix namespace casing: androidx.navigationevent -> AndroidX.NavigationEvent -->
+    <attr 
+        path="/api/package[@name='androidx.navigationevent']" 
+        name="managedName"
+        >
+        AndroidX.NavigationEvent
+    </attr>
+</metadata>
+```
+
+This approach:
+1. Uses the binding generator's transform system
+2. Properly renames the managed namespace during code generation
+3. Is applied at build time when the bindings are generated
+
 ## Target Frameworks
 
 ### Current Support
