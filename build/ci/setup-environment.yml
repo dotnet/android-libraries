@@ -16,7 +16,6 @@ steps:
     displayName: 'Use dotnet $(dotnetVersion)'
     inputs:
       version: $(dotnetVersion)
-      includePreviewVersions: true
     condition: ne('$(dotnetVersion)', '')
 
   - task: UseDotNet@2
@@ -24,7 +23,6 @@ steps:
     inputs:
       version: $(dotnetNextVersion)
       performMultiLevelLookup: true
-      includePreviewVersions: true
     condition: ne('$(dotnetNextVersion)', '')
 
   - script: dotnet --info
