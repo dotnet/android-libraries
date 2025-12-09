@@ -1,29 +1,16 @@
 ﻿<metadata>
-    <!--
-        running on clean build, this will fail with:
-
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Shape.CornerSizeKt.cs(82,78): error CS0111: Type 'CornerSizeKt' already defines a member called 'CornerSize' with the same parameter types [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Add(Object?)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Add(int, Object?)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.AddAll(int, ICollection)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.AddAll(ICollection)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.ContainsAll(ICollection)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0738: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Get(int)'. 'LazyLayoutPinnedItemList.Get(int)' cannot implement 'IList.Get(int)' because it does not have the matching return type of 'Object'. [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0738: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Remove(int)'. 'LazyLayoutPinnedItemList.Remove(int)' cannot implement 'IList.Remove(int)' because it does not have the matching return type of 'Object'. [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.RemoveAll(ICollection)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.RetainAll(ICollection)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Set(int, Object?)' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0535: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.Size()' [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-        ./generated/androidx.compose.foundation.foundation-android/obj/Release/net6.0-android/generated/src/AndroidX.Compose.Foundation.Lazy.Layout.LazyLayoutPinnedItemList.cs(10,83): error CS0738: 'LazyLayoutPinnedItemList' does not implement interface member 'IList.SubList(int, int)'. 'LazyLayoutPinnedItemList.SubList(int, int)' cannot implement 'IList.SubList(int, int)' because it does not have the matching return type of 'IList'. [./generated/androidx.compose.foundation.foundation-android/androidx.compose.foundation.foundation-android.csproj::TargetFramework=net6.0-android]
-
-        afterwards running:
-
-        dotnet build ./generated/androidx.compose.foundation.foundation-layout-android/androidx.compose.foundation.foundation-layout-android.csproj
-
-        is green?!??!!?!
-    -->
-
-    <remove-node path="/api/package" />
-
+    <attr
+        path="/api/package[@name='androidx.compose.foundation.layout']/class[@name='PaddingValues.Absolute']/method[@name='calculateBottomPadding-D9Ej5fM' and count(parameter)=0]"
+        name="managedName"
+        >
+        CalculateBottomPadding
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.compose.foundation.layout']/class[@name='PaddingValues.Absolute']/method[@name='calculateTopPadding-D9Ej5fM' and count(parameter)=0]"
+        name="managedName"
+        >
+        CalculateTopPadding
+    </attr>
+s
 
 </metadata>
