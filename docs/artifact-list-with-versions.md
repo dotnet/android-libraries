@@ -330,7 +330,7 @@
 | 323|androidx.work:work-rxjava2                                            |2.11.0              |Xamarin.AndroidX.Work.RxJava2                                         |2.11.0              |
 | 324|androidx.work:work-rxjava3                                            |2.11.0              |Xamarin.AndroidX.Work.RxJava3                                         |2.11.0              |
 | 325|aopalliance:aopalliance                                               |1.0                 |Xamarin.AopAlliance                                                   |1.0.0.9             |
-| 326|com.android.billingclient:billing                                     |8.2.0               |Xamarin.Android.Google.BillingClient                                  |8.2.0               |
+| 326|com.android.billingclient:billing                                     |8.2.1               |Xamarin.Android.Google.BillingClient                                  |8.2.1               |
 | 327|com.android.installreferrer:installreferrer                           |2.2                 |Xamarin.Google.Android.InstallReferrer                                |2.2.0.5             |
 | 328|com.android.volley:volley                                             |1.2.1               |Xamarin.Android.Volley                                                |1.2.1.18            |
 | 329|com.android.volley:volley-cronet                                      |1.2.1               |Xamarin.Android.Volley.CroNet                                         |1.2.1.18            |
@@ -646,12 +646,12 @@
 | 639|org.codehaus.mojo:animal-sniffer-annotations                          |1.26                |Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations                        |1.26.0              |
 | 640|org.jetbrains:annotations                                             |26.0.2              |Xamarin.Jetbrains.Annotations                                         |26.0.2.3            |
 | 641|org.jetbrains.kotlin:kotlin-android-extensions-runtime                |2.2.10              |Xamarin.Kotlin.Android.Extensions.Runtime.Library                     |2.2.10              |
-| 642|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.2.21              |Xamarin.Kotlin.Parcelize.Runtime                                      |2.2.21              |
-| 643|org.jetbrains.kotlin:kotlin-reflect                                   |2.2.21              |Xamarin.Kotlin.Reflect                                                |2.2.21              |
-| 644|org.jetbrains.kotlin:kotlin-stdlib                                    |2.2.21              |Xamarin.Kotlin.StdLib                                                 |2.2.21              |
+| 642|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.3.0               |Xamarin.Kotlin.Parcelize.Runtime                                      |2.3.0               |
+| 643|org.jetbrains.kotlin:kotlin-reflect                                   |2.3.0               |Xamarin.Kotlin.Reflect                                                |2.3.0               |
+| 644|org.jetbrains.kotlin:kotlin-stdlib                                    |2.3.0               |Xamarin.Kotlin.StdLib                                                 |2.3.0               |
 | 645|org.jetbrains.kotlin:kotlin-stdlib-common                             |2.0.21              |Xamarin.Kotlin.StdLib.Common                                          |2.0.21.5            |
-| 646|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.2.21              |Xamarin.Kotlin.StdLib.Jdk7                                            |2.2.21              |
-| 647|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.2.21              |Xamarin.Kotlin.StdLib.Jdk8                                            |2.2.21              |
+| 646|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.3.0               |Xamarin.Kotlin.StdLib.Jdk7                                            |2.3.0               |
+| 647|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.3.0               |Xamarin.Kotlin.StdLib.Jdk8                                            |2.3.0               |
 | 648|org.jetbrains.kotlinx:atomicfu                                        |0.29.0              |Xamarin.KotlinX.AtomicFU                                              |0.29.0.1            |
 | 649|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.29.0              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.29.0.1            |
 | 650|org.jetbrains.kotlinx:kotlinx-coroutines-android                      |1.10.2              |Xamarin.KotlinX.Coroutines.Android                                    |1.10.2.1            |
@@ -670,7 +670,7 @@
 | 663|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf                                |1.9.0.1             |
 | 664|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.9.0.1             |
 | 665|org.jspecify:jspecify                                                 |1.0.0               |Xamarin.JSpecify                                                      |1.0.0.4             |
-| 666|org.ow2.asm:asm                                                       |9.9                 |Xamarin.OW2.ASM                                                       |9.9.0               |
+| 666|org.ow2.asm:asm                                                       |9.9.1               |Xamarin.OW2.ASM                                                       |9.9.1               |
 | 667|org.reactivestreams:reactive-streams                                  |1.0.4               |Xamarin.Android.ReactiveStreams                                       |1.0.4.21            |
 | 668|org.tensorflow:tensorflow-android                                     |1.13.1              |Xamarin.TensorFlow.Android                                            |1.13.1.15           |
 | 669|org.tensorflow:tensorflow-lite                                        |2.16.1              |Xamarin.TensorFlow.Lite                                               |2.16.1.7            |

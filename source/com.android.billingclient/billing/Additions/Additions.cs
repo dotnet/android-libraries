@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Android.BillingClient.Api
+namespace Xamarin.Android.Billingclient.Api
 {
     public class ConsumeResult
     {
@@ -87,7 +87,7 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            Consume(consumeParams, listener);
+            ConsumeAsync(consumeParams, listener);
 
             return tcs.Task;
         }
@@ -134,7 +134,7 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            QueryProductDetails(productDetailsParams, listener);
+            QueryProductDetailsAsync(productDetailsParams, listener);
 
             return tcs.Task;
         }
@@ -152,7 +152,7 @@ namespace Android.BillingClient.Api
                 })
             };
 
-            QueryPurchases(purchasesParams, listener);
+            QueryPurchasesAsync(purchasesParams, listener);
 
             return tcs.Task;
         }
