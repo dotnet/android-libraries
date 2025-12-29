@@ -1881,6 +1881,7 @@ Google.Android.Material.Slider.ITickVisibilityMode
 Google.Android.Material.Slider.LabelFormatter
 Google.Android.Material.Slider.LabelFormatterConsts
 Google.Android.Material.Slider.RangeSlider
+Google.Android.Material.Slider.RangeSlider.Change -> System.EventHandler<Google.Android.Material.Slider.BaseOnChangeEventArgs!>!
 Google.Android.Material.Slider.RangeSlider.IOnChangeListener
 Google.Android.Material.Slider.RangeSlider.IOnChangeListener.OnValueChange(Google.Android.Material.Slider.RangeSlider! p0, float p1, bool p2) -> void
 Google.Android.Material.Slider.RangeSlider.IOnSliderTouchListener
@@ -1890,7 +1891,10 @@ Google.Android.Material.Slider.RangeSlider.RangeSlider(Android.Content.Context! 
 Google.Android.Material.Slider.RangeSlider.RangeSlider(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
 Google.Android.Material.Slider.RangeSlider.RangeSlider(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 Google.Android.Material.Slider.RangeSlider.RangeSlider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Material.Slider.RangeSlider.StartTrackingTouch -> System.EventHandler<Google.Android.Material.Slider.StartTrackingTouchEventArgs!>!
+Google.Android.Material.Slider.RangeSlider.StopTrackingTouch -> System.EventHandler<Google.Android.Material.Slider.StopTrackingTouchEventArgs!>!
 Google.Android.Material.Slider.Slider
+Google.Android.Material.Slider.Slider.Change -> System.EventHandler<Google.Android.Material.Slider.BaseOnChangeEventArgs!>!
 Google.Android.Material.Slider.Slider.IOnChangeListener
 Google.Android.Material.Slider.Slider.IOnChangeListener.OnValueChange(Google.Android.Material.Slider.Slider! p0, float p1, bool p2) -> void
 Google.Android.Material.Slider.Slider.IOnSliderTouchListener
@@ -1901,6 +1905,8 @@ Google.Android.Material.Slider.Slider.Slider(Android.Content.Context! context) -
 Google.Android.Material.Slider.Slider.Slider(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
 Google.Android.Material.Slider.Slider.Slider(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 Google.Android.Material.Slider.Slider.Slider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Material.Slider.Slider.StartTrackingTouch -> System.EventHandler<Google.Android.Material.Slider.StartTrackingTouchEventArgs!>!
+Google.Android.Material.Slider.Slider.StopTrackingTouch -> System.EventHandler<Google.Android.Material.Slider.StopTrackingTouchEventArgs!>!
 Google.Android.Material.Slider.SliderOrientation
 Google.Android.Material.Slider.SliderOrientationConsts
 Google.Android.Material.Slider.StartTrackingTouchEventArgs
@@ -6430,6 +6436,8 @@ virtual Google.Android.Material.SideSheet.SideSheetDialog.DismissWithSheetAnimat
 virtual Google.Android.Material.SideSheet.SideSheetDialog.DismissWithSheetAnimationEnabled.set -> void
 virtual Google.Android.Material.SideSheet.SideSheetDialog.SetSheetEdge(int p0) -> void
 virtual Google.Android.Material.Slider.RangeSlider.ActiveThumbIndex.get -> int
+virtual Google.Android.Material.Slider.RangeSlider.AddOnChangeListener(Google.Android.Material.Slider.IBaseOnChangeListener! listener) -> void
+virtual Google.Android.Material.Slider.RangeSlider.AddOnSliderTouchListener(Google.Android.Material.Slider.IBaseOnSliderTouchListener! listener) -> void
 virtual Google.Android.Material.Slider.RangeSlider.Centered.get -> bool
 virtual Google.Android.Material.Slider.RangeSlider.Centered.set -> void
 virtual Google.Android.Material.Slider.RangeSlider.ClearOnChangeListeners() -> void
@@ -6449,6 +6457,8 @@ virtual Google.Android.Material.Slider.RangeSlider.MinSeparation.get -> float
 virtual Google.Android.Material.Slider.RangeSlider.MinSeparation.set -> void
 virtual Google.Android.Material.Slider.RangeSlider.OnSaveInstanceState() -> Android.OS.IParcelable!
 virtual Google.Android.Material.Slider.RangeSlider.PickActiveThumb() -> bool
+virtual Google.Android.Material.Slider.RangeSlider.RemoveOnChangeListener(Google.Android.Material.Slider.IBaseOnChangeListener! listener) -> void
+virtual Google.Android.Material.Slider.RangeSlider.RemoveOnSliderTouchListener(Google.Android.Material.Slider.IBaseOnSliderTouchListener! listener) -> void
 virtual Google.Android.Material.Slider.RangeSlider.ScheduleTooltipTimeout() -> void
 virtual Google.Android.Material.Slider.RangeSlider.SetActiveThumbIndex(int index) -> void
 virtual Google.Android.Material.Slider.RangeSlider.SetCustomThumbDrawable(Android.Graphics.Drawables.Drawable! drawable) -> void
@@ -6541,6 +6551,8 @@ virtual Google.Android.Material.Slider.RangeSlider.ValueTo.set -> void
 virtual Google.Android.Material.Slider.RangeSlider.Values.get -> System.Collections.Generic.IList<Java.Lang.Float!>!
 virtual Google.Android.Material.Slider.RangeSlider.Values.set -> void
 virtual Google.Android.Material.Slider.Slider.ActiveThumbIndex.get -> int
+virtual Google.Android.Material.Slider.Slider.AddOnChangeListener(Google.Android.Material.Slider.IBaseOnChangeListener! listener) -> void
+virtual Google.Android.Material.Slider.Slider.AddOnSliderTouchListener(Google.Android.Material.Slider.IBaseOnSliderTouchListener! listener) -> void
 virtual Google.Android.Material.Slider.Slider.Centered.get -> bool
 virtual Google.Android.Material.Slider.Slider.Centered.set -> void
 virtual Google.Android.Material.Slider.Slider.ClearOnChangeListeners() -> void
@@ -6558,6 +6570,8 @@ virtual Google.Android.Material.Slider.Slider.LabelBehavior.get -> int
 virtual Google.Android.Material.Slider.Slider.LabelBehavior.set -> void
 virtual Google.Android.Material.Slider.Slider.MinSeparation.get -> float
 virtual Google.Android.Material.Slider.Slider.PickActiveThumb() -> bool
+virtual Google.Android.Material.Slider.Slider.RemoveOnChangeListener(Google.Android.Material.Slider.IBaseOnChangeListener! listener) -> void
+virtual Google.Android.Material.Slider.Slider.RemoveOnSliderTouchListener(Google.Android.Material.Slider.IBaseOnSliderTouchListener! listener) -> void
 virtual Google.Android.Material.Slider.Slider.ScheduleTooltipTimeout() -> void
 virtual Google.Android.Material.Slider.Slider.SetActiveThumbIndex(int index) -> void
 virtual Google.Android.Material.Slider.Slider.SetCustomThumbDrawable(Android.Graphics.Drawables.Drawable! drawable) -> void

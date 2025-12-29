@@ -319,4 +319,32 @@
       com.google.android.material.appbar.AppBarLayout
     </attr>
 
+    <!-- Fix BaseSlider addOnChangeListener and removeOnChangeListener methods -->
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnChangeListener
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnChangeListener
+    </attr>
+    
+    <!-- Fix BaseSlider addOnSliderTouchListener and removeOnSliderTouchListener methods -->
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnSliderTouchListener
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnSliderTouchListener
+    </attr>
+
 </metadata>
