@@ -1,4 +1,11 @@
 ﻿#nullable enable
+AndroidX.WebKit.BackForwardCacheSettings
+AndroidX.WebKit.BackForwardCacheSettings.BackForwardCacheSettings(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.BackForwardCacheSettings.Builder
+AndroidX.WebKit.BackForwardCacheSettings.Builder.Build() -> AndroidX.WebKit.BackForwardCacheSettings?
+AndroidX.WebKit.BackForwardCacheSettings.Builder.Builder() -> void
+AndroidX.WebKit.BackForwardCacheSettings.Builder.SetMaxPagesInCache(int maxPagesInCache) -> AndroidX.WebKit.BackForwardCacheSettings.Builder?
+AndroidX.WebKit.BackForwardCacheSettings.Builder.SetTimeoutSeconds(long timeoutInSeconds) -> AndroidX.WebKit.BackForwardCacheSettings.Builder?
 AndroidX.WebKit.ChromiumLibBoundary.IDropDataContentProviderBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IDropDataContentProviderBoundaryInterface.Cache(byte[]? p0, string? p1, string? p2) -> Android.Net.Uri?
 AndroidX.WebKit.ChromiumLibBoundary.IDropDataContentProviderBoundaryInterface.Call(string? p0, string? p1, Android.OS.Bundle? p2) -> Android.OS.Bundle?
@@ -21,19 +28,33 @@ AndroidX.WebKit.ChromiumLibBoundary.INoVarySearchDataBoundaryInterface.Considere
 AndroidX.WebKit.ChromiumLibBoundary.INoVarySearchDataBoundaryInterface.IgnoreDifferencesInParameters.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.INoVarySearchDataBoundaryInterface.IgnoredQueryParameters.get -> System.Collections.Generic.IList<string!>?
 AndroidX.WebKit.ChromiumLibBoundary.INoVarySearchDataBoundaryInterface.VaryOnKeyOrder.get -> bool
+AndroidX.WebKit.ChromiumLibBoundary.IOriginMatchedHeaderBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IOriginMatchedHeaderBoundaryInterface.Name.get -> string?
+AndroidX.WebKit.ChromiumLibBoundary.IOriginMatchedHeaderBoundaryInterface.Rules.get -> System.Collections.Generic.ICollection<string!>?
+AndroidX.WebKit.ChromiumLibBoundary.IOriginMatchedHeaderBoundaryInterface.Value.get -> string?
 AndroidX.WebKit.ChromiumLibBoundary.IPrefetchOperationCallbackBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IPrefetchOperationCallbackBoundaryInterface.OnFailure(int p0, string? p1, int p2) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IPrefetchOperationCallbackBoundaryInterface.OnSuccess() -> void
 AndroidX.WebKit.ChromiumLibBoundary.IPrefetchOperationCallbackBoundaryInterfacePrefetchExceptionTypeBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.AddOriginMatchedHeader(string? p0, string? p1, System.Collections.Generic.ICollection<string!>? p2) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.AddQuicHints(System.Collections.Generic.ICollection<string!>? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.ClearAllOriginMatchedHeaders() -> void
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.ClearOriginMatchedHeader(string? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.ClearOriginMatchedHeader(string? p0, string? p1) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.ClearPrefetch(string? p0, Java.Util.Concurrent.IExecutor? p1, Java.Lang.Reflect.IInvocationHandler? p2) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.CookieManager.get -> Android.Webkit.CookieManager?
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.GeoLocationPermissions.get -> Android.Webkit.GeolocationPermissions?
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.GetOriginMatchedHeaders(string? p0, string? p1) -> System.Collections.Generic.IList<Java.Lang.Reflect.IInvocationHandler!>?
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.HasOriginMatchedHeader(string? p0) -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.Name.get -> string?
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.Preconnect(string? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.PrefetchUrl(string? p0, Android.OS.CancellationSignal? p1, Java.Util.Concurrent.IExecutor? p2, Java.Lang.Reflect.IInvocationHandler? p3) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.PrefetchUrl(string? p0, Android.OS.CancellationSignal? p1, Java.Util.Concurrent.IExecutor? p2, Java.Lang.Reflect.IInvocationHandler? p3, Java.Lang.Reflect.IInvocationHandler? p4) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.ServiceWorkerController.get -> Android.Webkit.ServiceWorkerController?
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.SetOriginMatchedHeader(string? p0, string? p1, System.Collections.Generic.ICollection<string!>? p2) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.SetSpeculativeLoadingConfig(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.WarmUpRendererProcess() -> void
 AndroidX.WebKit.ChromiumLibBoundary.IProfileBoundaryInterface.WebStorage.get -> Android.Webkit.WebStorage?
 AndroidX.WebKit.ChromiumLibBoundary.IProfileStoreBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IProfileStoreBoundaryInterface.AllProfileNames.get -> System.Collections.Generic.IList<string!>?
@@ -66,8 +87,6 @@ AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.C
 AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.CacheMode.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.IncludeCookiesOnIntercept.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.IncludeCookiesOnIntercept.set -> void
-AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.RequestedWithHeaderOriginAllowList.get -> System.Collections.Generic.ICollection<string!>?
-AndroidX.WebKit.ChromiumLibBoundary.IServiceWorkerWebSettingsBoundaryInterface.RequestedWithHeaderOriginAllowList.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.ISpeculativeLoadingConfigBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.ISpeculativeLoadingConfigBoundaryInterface.MaxPrefetches.get -> int
 AndroidX.WebKit.ChromiumLibBoundary.ISpeculativeLoadingConfigBoundaryInterface.MaxPrerenders.get -> int
@@ -79,6 +98,8 @@ AndroidX.WebKit.ChromiumLibBoundary.ISpeculativeLoadingParametersBoundaryInterfa
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.InitSafeBrowsing(Android.Content.Context? p0, Android.Webkit.IValueCallback? p1) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.IsMultiProcessEnabled.get -> bool
+AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.RendererLibraryPrefetchMode.get -> int
+AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.RendererLibraryPrefetchMode.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.SafeBrowsingPrivacyPolicyUrl.get -> Android.Net.Uri?
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.SetDefaultTrafficStatsTag(int p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IStaticsBoundaryInterface.SetDefaultTrafficStatsUid(int p0) -> void
@@ -121,6 +142,8 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.AttributionBeh
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.AttributionBehavior.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.BackForwardCacheEnabled.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.BackForwardCacheEnabled.set -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.BackForwardCacheSettings.get -> Java.Lang.Reflect.IInvocationHandler?
+AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.BackForwardCacheSettings.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.DisabledActionModeMenuItems.get -> int
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.DisabledActionModeMenuItems.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.EnterpriseAuthenticationAppLinkPolicyEnabled.get -> bool
@@ -137,10 +160,9 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.OffscreenPreRa
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.OffscreenPreRaster.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.PaymentRequestEnabled.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.PaymentRequestEnabled.set -> void
-AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.RequestedWithHeaderOriginAllowList.get -> System.Collections.Generic.ICollection<string!>?
-AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.RequestedWithHeaderOriginAllowList.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SafeBrowsingEnabled.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SafeBrowsingEnabled.set -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SetHyperlinkContextMenuItems(int p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SetUserAgentMetadataFromMap(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SetWebViewMediaIntegrityApiStatus(int p0, System.Collections.Generic.IDictionary<string!, Java.Lang.Integer!>? p1) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.SpeculativeLoadingStatus.get -> int
@@ -154,12 +176,16 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.WillSuppressEr
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterface.WillSuppressErrorPage.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceAttributionBehavior
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceForceDarkBehavior
+AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceHyperlinkContextMenuItems
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceSpeculativeLoadingStatus
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceWebViewMediaIntegrityApiStatus
 AndroidX.WebKit.ChromiumLibBoundary.IWebSettingsBoundaryInterfaceWebauthnSupport
 AndroidX.WebKit.ChromiumLibBoundary.IWebStorageBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IWebStorageBoundaryInterface.DeleteBrowsingData(Java.Util.Concurrent.IExecutor? p0, Java.Lang.IRunnable? p1) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebStorageBoundaryInterface.DeleteBrowsingDataForSite(string? p0, Java.Util.Concurrent.IExecutor? p1, Java.Lang.IRunnable? p2) -> string?
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewBackForwardCacheSettingsBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewBackForwardCacheSettingsBoundaryInterface.MaxPagesInCache.get -> int
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewBackForwardCacheSettingsBoundaryInterface.TimeoutInSeconds.get -> int
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface.Build(Android.Content.Context? p0, Java.Util.Functions.IConsumer? p1) -> Android.Webkit.WebView?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterfaceBaseline
@@ -193,10 +219,20 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationClientBoundaryInterface.On
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationClientBoundaryInterface.OnPageDOMContentLoadedEventFired(Java.Lang.Reflect.IInvocationHandler? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationClientBoundaryInterface.OnPageDeleted(Java.Lang.Reflect.IInvocationHandler? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationClientBoundaryInterface.OnPageLoadEventFired(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnFirstContentfulPaint(Java.Lang.Reflect.IInvocationHandler? p0, long p1) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnNavigationCompleted(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnNavigationRedirected(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnNavigationStarted(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnPageDOMContentLoadedEventFired(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnPageDeleted(Java.Lang.Reflect.IInvocationHandler? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationListenerBoundaryInterface.OnPageLoadEventFired(Java.Lang.Reflect.IInvocationHandler? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewPageBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewPageBoundaryInterface.IsPrerendering.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.AddDocumentStartJavaScript(string? p0, string![]? p1) -> Java.Lang.Reflect.IInvocationHandler?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.AddWebMessageListener(string? p0, string![]? p1, Java.Lang.Reflect.IInvocationHandler? p2) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.AddWebViewNavigationListener(Java.Util.Concurrent.IExecutor? p0, Java.Lang.Reflect.IInvocationHandler? p1) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.AudioMuted.get -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.AudioMuted.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.CreateWebMessageChannel() -> Java.Lang.Reflect.IInvocationHandler![]?
@@ -206,6 +242,7 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.PrerenderU
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.PrerenderUrl(string? p0, Android.OS.CancellationSignal? p1, Java.Util.Concurrent.IExecutor? p2, Java.Lang.Reflect.IInvocationHandler? p3, Android.Webkit.IValueCallback? p4, Android.Webkit.IValueCallback? p5) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.Profile.get -> Java.Lang.Reflect.IInvocationHandler?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.RemoveWebMessageListener(string? p0) -> void
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.RemoveWebViewNavigationListener(Java.Lang.Reflect.IInvocationHandler? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.SaveState(Android.OS.Bundle? p0, int p1, bool p2) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.SetProfile(string? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface.WebChromeClient.get -> Android.Webkit.WebChromeClient?
@@ -236,8 +273,10 @@ AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpCallbackBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpCallbackBoundaryInterface.OnSuccess(Java.Lang.Reflect.IInvocationHandler? p0) -> void
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpConfigBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpConfigBoundaryInterface.BackgroundExecutor.get -> Java.Util.Concurrent.IExecutor?
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpConfigBoundaryInterface.ProfileNamesToLoad.get -> System.Collections.Generic.ICollection<string!>?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpConfigBoundaryInterface.ShouldRunUiThreadStartUpTasks() -> bool
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpResultBoundaryInterface
+AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpResultBoundaryInterface.AsyncStartUpLocations.get -> System.Collections.Generic.IList<Java.Lang.Throwable!>?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpResultBoundaryInterface.BlockingStartUpLocations.get -> System.Collections.Generic.IList<Java.Lang.Throwable!>?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpResultBoundaryInterface.MaxTimePerTaskInUiThreadMillis.get -> Java.Lang.Long?
 AndroidX.WebKit.ChromiumLibBoundary.IWebViewStartUpResultBoundaryInterface.TotalTimeInUiThreadMillis.get -> Java.Lang.Long?
@@ -269,6 +308,8 @@ AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceAttributionBehav
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceAttributionBehaviorConsts
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceForceDarkBehavior
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceForceDarkBehaviorConsts
+AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItems
+AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItemsConsts
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceSpeculativeLoadingStatus
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceSpeculativeLoadingStatusConsts
 AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceWebViewMediaIntegrityApiStatus
@@ -280,6 +321,10 @@ AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceBaselineConst
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.Baseline.get -> int
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.Baseline.set -> void
+AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.ProfileName.get -> string?
+AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.ProfileName.set -> void
+AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.RestrictJavascriptInterface.get -> bool
+AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.RestrictJavascriptInterface.set -> void
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.WebViewBuilderBoundaryInterfaceConfig() -> void
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.WebViewBuilderBoundaryInterfaceConfig(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfigField
@@ -288,10 +333,15 @@ AndroidX.WebKit.ChromiumLibBoundary.WebViewProviderFactoryBoundaryInterface
 AndroidX.WebKit.ChromiumLibBoundary.WebViewProviderFactoryBoundaryInterfaceConsts
 AndroidX.WebKit.CookieManagerCompat
 AndroidX.WebKit.CookieManagerCompat.CookieManagerCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.CustomHeader
+AndroidX.WebKit.CustomHeader.CustomHeader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.CustomHeader.CustomHeader(string? name, string? value, System.Collections.Generic.ICollection<string!>? originRules) -> void
 AndroidX.WebKit.DropDataContentProvider
 AndroidX.WebKit.DropDataContentProvider.DropDataContentProvider() -> void
-AndroidX.WebKit.IBlockingStartUpLocation
-AndroidX.WebKit.IBlockingStartUpLocation.StackInformation.get -> string!
+AndroidX.WebKit.FirstContentfulPaintEventArgs
+AndroidX.WebKit.FirstContentfulPaintEventArgs.FirstContentfulPaintEventArgs(AndroidX.WebKit.IPage? page, long loadTimeUs) -> void
+AndroidX.WebKit.FirstContentfulPaintEventArgs.LoadTimeUs.get -> long
+AndroidX.WebKit.FirstContentfulPaintEventArgs.Page.get -> AndroidX.WebKit.IPage?
 AndroidX.WebKit.INavigation
 AndroidX.WebKit.INavigation.DidCommit() -> bool
 AndroidX.WebKit.INavigation.DidCommitErrorPage() -> bool
@@ -303,25 +353,53 @@ AndroidX.WebKit.INavigation.IsRestore.get -> bool
 AndroidX.WebKit.INavigation.IsSameDocument.get -> bool
 AndroidX.WebKit.INavigation.Page.get -> AndroidX.WebKit.IPage?
 AndroidX.WebKit.INavigation.StatusCode.get -> int
+AndroidX.WebKit.INavigation.Url.get -> string?
 AndroidX.WebKit.INavigation.WasInitiatedByPage() -> bool
+AndroidX.WebKit.INavigationListener
+AndroidX.WebKit.INavigationListener.OnFirstContentfulPaint(AndroidX.WebKit.IPage? page, long loadTimeUs) -> void
+AndroidX.WebKit.INavigationListener.OnNavigationCompleted(AndroidX.WebKit.INavigation? navigation) -> void
+AndroidX.WebKit.INavigationListener.OnNavigationRedirected(AndroidX.WebKit.INavigation? navigation) -> void
+AndroidX.WebKit.INavigationListener.OnNavigationStarted(AndroidX.WebKit.INavigation? navigation) -> void
+AndroidX.WebKit.INavigationListener.OnPageDeleted(AndroidX.WebKit.IPage? page) -> void
+AndroidX.WebKit.INavigationListener.OnPageDomContentLoadedEvent(AndroidX.WebKit.IPage? page) -> void
+AndroidX.WebKit.INavigationListener.OnPageLoadEvent(AndroidX.WebKit.IPage? page) -> void
 AndroidX.WebKit.IOutcomeReceiverCompat
-AndroidX.WebKit.IOutcomeReceiverCompat.OnError(Java.Lang.Object! error) -> void
+AndroidX.WebKit.IOutcomeReceiverCompat.OnError(Java.Lang.Object? error) -> void
 AndroidX.WebKit.IOutcomeReceiverCompat.OnResult(Java.Lang.Object? p0) -> void
 AndroidX.WebKit.IPage
 AndroidX.WebKit.IPrerenderOperationCallback
 AndroidX.WebKit.IPrerenderOperationCallback.OnError(AndroidX.WebKit.PrerenderException? p0) -> void
 AndroidX.WebKit.IPrerenderOperationCallback.OnPrerenderActivated() -> void
 AndroidX.WebKit.IProfile
+AndroidX.WebKit.IProfile.AddCustomHeader(AndroidX.WebKit.CustomHeader? header) -> void
+AndroidX.WebKit.IProfile.AddQuicHints(System.Collections.Generic.ICollection<string!>? urls) -> void
+AndroidX.WebKit.IProfile.ClearAllCustomHeaders() -> void
+AndroidX.WebKit.IProfile.ClearAllOriginMatchedHeaders() -> void
+AndroidX.WebKit.IProfile.ClearCustomHeader(string? headerName) -> void
+AndroidX.WebKit.IProfile.ClearCustomHeader(string? headerName, string? headerValue) -> void
+AndroidX.WebKit.IProfile.ClearOriginMatchedHeader(string? p0) -> void
 AndroidX.WebKit.IProfile.ClearPrefetchAsync(string? p0, Java.Util.Concurrent.IExecutor? p1, AndroidX.WebKit.IOutcomeReceiverCompat? p2) -> void
 AndroidX.WebKit.IProfile.CookieManager.get -> Android.Webkit.CookieManager?
+AndroidX.WebKit.IProfile.CustomHeaders.get -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
 AndroidX.WebKit.IProfile.GeolocationPermissions.get -> Android.Webkit.GeolocationPermissions?
+AndroidX.WebKit.IProfile.GetCustomHeaders(string? name) -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
+AndroidX.WebKit.IProfile.GetCustomHeaders(string? name, string? value) -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
+AndroidX.WebKit.IProfile.HasCustomHeader(string? headerName) -> bool
+AndroidX.WebKit.IProfile.HasOriginMatchedHeader(string? p0) -> bool
 AndroidX.WebKit.IProfile.Name.get -> string?
+AndroidX.WebKit.IProfile.Preconnect(string? url) -> void
 AndroidX.WebKit.IProfile.PrefetchUrlAsync(string? p0, Android.OS.CancellationSignal? p1, Java.Util.Concurrent.IExecutor? p2, AndroidX.WebKit.IOutcomeReceiverCompat? p3) -> void
 AndroidX.WebKit.IProfile.PrefetchUrlAsync(string? p0, Android.OS.CancellationSignal? p1, Java.Util.Concurrent.IExecutor? p2, AndroidX.WebKit.SpeculativeLoadingParameters? p3, AndroidX.WebKit.IOutcomeReceiverCompat? p4) -> void
 AndroidX.WebKit.IProfile.ServiceWorkerController.get -> Android.Webkit.ServiceWorkerController?
+AndroidX.WebKit.IProfile.SetOriginMatchedHeader(string? p0, string? p1, System.Collections.Generic.ICollection<string!>? p2) -> void
 AndroidX.WebKit.IProfile.SetSpeculativeLoadingConfig(AndroidX.WebKit.SpeculativeLoadingConfig? p0) -> void
+AndroidX.WebKit.IProfile.WarmUpRendererProcess() -> void
 AndroidX.WebKit.IProfile.WebStorage.get -> Android.Webkit.WebStorage?
+AndroidX.WebKit.IProfileExperimentalAddQuicHints
+AndroidX.WebKit.IProfileExperimentalOriginMatchedHeader
+AndroidX.WebKit.IProfileExperimentalPreconnect
 AndroidX.WebKit.IProfileExperimentalUrlPrefetch
+AndroidX.WebKit.IProfileExperimentalWarmUpRendererProcess
 AndroidX.WebKit.IProfileStore
 AndroidX.WebKit.IProfileStore.AllProfileNames.get -> System.Collections.Generic.IList<string!>?
 AndroidX.WebKit.IProfileStore.DeleteProfile(string? p0) -> bool
@@ -330,6 +408,8 @@ AndroidX.WebKit.IProfileStore.GetProfile(string? p0) -> AndroidX.WebKit.IProfile
 AndroidX.WebKit.IProfileStore.Instance.get -> AndroidX.WebKit.IProfileStore?
 AndroidX.WebKit.IScriptHandler
 AndroidX.WebKit.IScriptHandler.Remove() -> void
+AndroidX.WebKit.IStartUpLocation
+AndroidX.WebKit.IStartUpLocation.StackInformation.get -> string?
 AndroidX.WebKit.IWebNavigationClient
 AndroidX.WebKit.IWebNavigationClient.OnFirstContentfulPaint(AndroidX.WebKit.IPage? p0) -> void
 AndroidX.WebKit.IWebNavigationClient.OnNavigationCompleted(AndroidX.WebKit.INavigation? p0) -> void
@@ -340,9 +420,10 @@ AndroidX.WebKit.IWebNavigationClient.OnPageDomContentLoadedEventFired(AndroidX.W
 AndroidX.WebKit.IWebNavigationClient.OnPageLoadEventFired(AndroidX.WebKit.IPage? p0) -> void
 AndroidX.WebKit.IWebNavigationClientExperimentalNavigationCallback
 AndroidX.WebKit.IWebViewStartUpResult
-AndroidX.WebKit.IWebViewStartUpResult.BlockingStartUpLocations.get -> System.Collections.Generic.IList<AndroidX.WebKit.IBlockingStartUpLocation!>?
 AndroidX.WebKit.IWebViewStartUpResult.MaxTimePerTaskInUiThreadMillis.get -> Java.Lang.Long?
+AndroidX.WebKit.IWebViewStartUpResult.NonUiThreadBlockingStartUpLocations.get -> System.Collections.Generic.IList<AndroidX.WebKit.IStartUpLocation!>?
 AndroidX.WebKit.IWebViewStartUpResult.TotalTimeInUiThreadMillis.get -> Java.Lang.Long?
+AndroidX.WebKit.IWebViewStartUpResult.UiThreadBlockingStartUpLocations.get -> System.Collections.Generic.IList<AndroidX.WebKit.IStartUpLocation!>?
 AndroidX.WebKit.Internal.ApiFeature
 AndroidX.WebKit.Internal.ApiFeature.ApiFeature(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.ApiFeature.M
@@ -361,8 +442,6 @@ AndroidX.WebKit.Internal.ApiFeature.Q
 AndroidX.WebKit.Internal.ApiFeature.Q.Q(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.ApiFeature.T
 AndroidX.WebKit.Internal.ApiFeature.T.T(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.WebKit.Internal.ApiHelperForM
-AndroidX.WebKit.Internal.ApiHelperForM.ApiHelperForM(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.ApiHelperForN
 AndroidX.WebKit.Internal.ApiHelperForN.ApiHelperForN(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.ApiHelperForO
@@ -378,6 +457,9 @@ AndroidX.WebKit.Internal.ApiHelperForTiramisu.ApiHelperForTiramisu(nint javaRefe
 AndroidX.WebKit.Internal.AssetHelper
 AndroidX.WebKit.Internal.AssetHelper.AssetHelper(Android.Content.Context? context) -> void
 AndroidX.WebKit.Internal.AssetHelper.AssetHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl
+AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.BackForwardCacheSettingsImpl(AndroidX.WebKit.BackForwardCacheSettings? settings) -> void
+AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.BackForwardCacheSettingsImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.CookieManagerAdapter
 AndroidX.WebKit.Internal.CookieManagerAdapter.CookieManagerAdapter(AndroidX.WebKit.ChromiumLibBoundary.IWebViewCookieManagerBoundaryInterface? boundaryInterface) -> void
 AndroidX.WebKit.Internal.CookieManagerAdapter.CookieManagerAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -405,17 +487,17 @@ AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.IncompatibleApkWe
 AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl
 AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.JavaScriptReplyProxyImpl(AndroidX.WebKit.ChromiumLibBoundary.IJsReplyProxyBoundaryInterface? boundaryInterface) -> void
 AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.JavaScriptReplyProxyImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.WebKit.Internal.NavigationAdapter
-AndroidX.WebKit.Internal.NavigationAdapter.NavigationAdapter(AndroidX.WebKit.ChromiumLibBoundary.IWebViewNavigationBoundaryInterface? impl) -> void
-AndroidX.WebKit.Internal.NavigationAdapter.NavigationAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.Internal.NavigationImpl
+AndroidX.WebKit.Internal.NavigationImpl.NavigationImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.Internal.NavigationListenerAdapter
+AndroidX.WebKit.Internal.NavigationListenerAdapter.NavigationListenerAdapter(AndroidX.WebKit.INavigationListener? impl) -> void
+AndroidX.WebKit.Internal.NavigationListenerAdapter.NavigationListenerAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter
 AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.NoVarySearchHeaderAdapter(AndroidX.WebKit.NoVarySearchHeader? impl) -> void
 AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.NoVarySearchHeaderAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.PageImpl
-AndroidX.WebKit.Internal.PageImpl.PageImpl(AndroidX.WebKit.ChromiumLibBoundary.IWebViewPageBoundaryInterface? impl) -> void
 AndroidX.WebKit.Internal.PageImpl.PageImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.PrefetchOperationCallbackAdapter
-AndroidX.WebKit.Internal.PrefetchOperationCallbackAdapter.PrefetchOperationCallbackAdapter() -> void
 AndroidX.WebKit.Internal.PrefetchOperationCallbackAdapter.PrefetchOperationCallbackAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.ProfileImpl
 AndroidX.WebKit.Internal.ProfileImpl.InterfaceConsts
@@ -459,7 +541,6 @@ AndroidX.WebKit.Internal.TracingControllerImpl
 AndroidX.WebKit.Internal.TracingControllerImpl.TracingControllerImpl() -> void
 AndroidX.WebKit.Internal.TracingControllerImpl.TracingControllerImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.UserAgentMetadataInternal
-AndroidX.WebKit.Internal.UserAgentMetadataInternal.UserAgentMetadataInternal() -> void
 AndroidX.WebKit.Internal.UserAgentMetadataInternal.UserAgentMetadataInternal(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.VisualStateCallbackAdapter
 AndroidX.WebKit.Internal.VisualStateCallbackAdapter.VisualStateCallbackAdapter(AndroidX.WebKit.WebViewCompat.IVisualStateCallback? visualStateCallback) -> void
@@ -524,10 +605,10 @@ AndroidX.WebKit.Internal.WebViewRenderProcessImpl.WebViewRenderProcessImpl(Andro
 AndroidX.WebKit.Internal.WebViewRenderProcessImpl.WebViewRenderProcessImpl(AndroidX.WebKit.ChromiumLibBoundary.IWebViewRendererBoundaryInterface? boundaryInterface) -> void
 AndroidX.WebKit.Internal.WebViewRenderProcessImpl.WebViewRenderProcessImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter
-AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter.WebViewStartUpCallbackAdapter(AndroidX.WebKit.WebViewCompat.IWebViewStartUpCallback! webViewStartUpCallback) -> void
+AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter.WebViewStartUpCallbackAdapter(AndroidX.WebKit.WebViewCompat.IWebViewStartUpCallback? webViewStartUpCallback) -> void
 AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter.WebViewStartUpCallbackAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter
-AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.WebViewStartUpConfigAdapter(AndroidX.WebKit.WebViewStartUpConfig! webViewStartUpConfig) -> void
+AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.WebViewStartUpConfigAdapter(AndroidX.WebKit.WebViewStartUpConfig? webViewStartUpConfig) -> void
 AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.WebViewStartUpConfigAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Internal.WebkitToCompatConverter
 AndroidX.WebKit.Internal.WebkitToCompatConverter.WebkitToCompatConverter(AndroidX.WebKit.ChromiumLibBoundary.IWebkitToCompatConverterBoundaryInterface? impl) -> void
@@ -535,6 +616,15 @@ AndroidX.WebKit.Internal.WebkitToCompatConverter.WebkitToCompatConverter(nint ja
 AndroidX.WebKit.JavaScriptReplyProxy
 AndroidX.WebKit.JavaScriptReplyProxy.JavaScriptReplyProxy() -> void
 AndroidX.WebKit.JavaScriptReplyProxy.JavaScriptReplyProxy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.NavigationCompletedEventArgs
+AndroidX.WebKit.NavigationCompletedEventArgs.Navigation.get -> AndroidX.WebKit.INavigation?
+AndroidX.WebKit.NavigationCompletedEventArgs.NavigationCompletedEventArgs(AndroidX.WebKit.INavigation? navigation) -> void
+AndroidX.WebKit.NavigationRedirectedEventArgs
+AndroidX.WebKit.NavigationRedirectedEventArgs.Navigation.get -> AndroidX.WebKit.INavigation?
+AndroidX.WebKit.NavigationRedirectedEventArgs.NavigationRedirectedEventArgs(AndroidX.WebKit.INavigation? navigation) -> void
+AndroidX.WebKit.NavigationStartedEventArgs
+AndroidX.WebKit.NavigationStartedEventArgs.Navigation.get -> AndroidX.WebKit.INavigation?
+AndroidX.WebKit.NavigationStartedEventArgs.NavigationStartedEventArgs(AndroidX.WebKit.INavigation? navigation) -> void
 AndroidX.WebKit.NoVarySearchHeader
 AndroidX.WebKit.NoVarySearchHeader.ConsideredQueryParameters.get -> System.Collections.IList?
 AndroidX.WebKit.NoVarySearchHeader.ConsideredQueryParameters.set -> void
@@ -545,10 +635,15 @@ AndroidX.WebKit.NoVarySearchHeader.IgnoredQueryParameters.set -> void
 AndroidX.WebKit.NoVarySearchHeader.NoVarySearchHeader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.NoVarySearchHeader.VaryOnKeyOrder.get -> bool
 AndroidX.WebKit.NoVarySearchHeader.VaryOnKeyOrder.set -> void
-AndroidX.WebKit.Policy
-AndroidX.WebKit.Policy.Builder
-AndroidX.WebKit.Policy.Builder.Build() -> AndroidX.WebKit.Policy?
-AndroidX.WebKit.Policy.Builder.Builder() -> void
+AndroidX.WebKit.PageDeletedEventArgs
+AndroidX.WebKit.PageDeletedEventArgs.Page.get -> AndroidX.WebKit.IPage?
+AndroidX.WebKit.PageDeletedEventArgs.PageDeletedEventArgs(AndroidX.WebKit.IPage? page) -> void
+AndroidX.WebKit.PageDomContentLoadedEventEventArgs
+AndroidX.WebKit.PageDomContentLoadedEventEventArgs.Page.get -> AndroidX.WebKit.IPage?
+AndroidX.WebKit.PageDomContentLoadedEventEventArgs.PageDomContentLoadedEventEventArgs(AndroidX.WebKit.IPage? page) -> void
+AndroidX.WebKit.PageLoadEventEventArgs
+AndroidX.WebKit.PageLoadEventEventArgs.Page.get -> AndroidX.WebKit.IPage?
+AndroidX.WebKit.PageLoadEventEventArgs.PageLoadEventEventArgs(AndroidX.WebKit.IPage? page) -> void
 AndroidX.WebKit.PrefetchException
 AndroidX.WebKit.PrefetchException.PrefetchException() -> void
 AndroidX.WebKit.PrefetchException.PrefetchException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -563,8 +658,9 @@ AndroidX.WebKit.PrefetchNetworkException.PrefetchNetworkException(string? error)
 AndroidX.WebKit.PrefetchNetworkException.PrefetchNetworkException(string? error, int httpResponseStatusCode) -> void
 AndroidX.WebKit.PrerenderException
 AndroidX.WebKit.PrerenderException.PrerenderException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.WebKit.PrerenderException.PrerenderException(string! error, Java.Lang.Throwable? cause) -> void
+AndroidX.WebKit.PrerenderException.PrerenderException(string? error, Java.Lang.Throwable? cause) -> void
 AndroidX.WebKit.ProcessGlobalConfig
+AndroidX.WebKit.ProcessGlobalConfig.IUiThreadStartupMode
 AndroidX.WebKit.ProcessGlobalConfig.ProcessGlobalConfig() -> void
 AndroidX.WebKit.ProcessGlobalConfig.ProcessGlobalConfig(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.Profile
@@ -595,6 +691,11 @@ AndroidX.WebKit.ProxyConfig.ProxyRules.get -> System.Collections.Generic.IList<A
 AndroidX.WebKit.ProxyController
 AndroidX.WebKit.ProxyController.ProxyController() -> void
 AndroidX.WebKit.ProxyController.ProxyController(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.RestrictionAllowlist
+AndroidX.WebKit.RestrictionAllowlist.Builder
+AndroidX.WebKit.RestrictionAllowlist.Builder.AddJavaScriptInterface(Java.Lang.Object? object, string? name) -> AndroidX.WebKit.RestrictionAllowlist.Builder?
+AndroidX.WebKit.RestrictionAllowlist.Builder.Build() -> AndroidX.WebKit.RestrictionAllowlist?
+AndroidX.WebKit.RestrictionAllowlist.Builder.Builder(System.Collections.Generic.ICollection<string!>? originPatterns) -> void
 AndroidX.WebKit.SafeBrowsingResponseCompat
 AndroidX.WebKit.SafeBrowsingResponseCompat.SafeBrowsingResponseCompat() -> void
 AndroidX.WebKit.SafeBrowsingResponseCompat.SafeBrowsingResponseCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -661,13 +762,16 @@ AndroidX.WebKit.UserAgentMetadata.Builder.Builder(AndroidX.WebKit.UserAgentMetad
 AndroidX.WebKit.UserAgentMetadata.Builder.SetArchitecture(string? architecture) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetBitness(int bitness) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetBrandVersionList(System.Collections.Generic.IList<AndroidX.WebKit.UserAgentMetadata.BrandVersion!>? brandVersions) -> AndroidX.WebKit.UserAgentMetadata.Builder?
+AndroidX.WebKit.UserAgentMetadata.Builder.SetFormFactors(System.Collections.Generic.IList<string!>? formFactors) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetFullVersion(string? fullVersion) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetMobile(bool mobile) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetModel(string? model) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetPlatform(string? platform) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetPlatformVersion(string? platformVersion) -> AndroidX.WebKit.UserAgentMetadata.Builder?
 AndroidX.WebKit.UserAgentMetadata.Builder.SetWow64(bool wow64) -> AndroidX.WebKit.UserAgentMetadata.Builder?
+AndroidX.WebKit.UserAgentMetadata.FormFactors.get -> System.Collections.Generic.IList<string!>?
 AndroidX.WebKit.UserAgentMetadata.FullVersion.get -> string?
+AndroidX.WebKit.UserAgentMetadata.IFormFactors
 AndroidX.WebKit.UserAgentMetadata.IsMobile.get -> bool
 AndroidX.WebKit.UserAgentMetadata.IsWow64.get -> bool
 AndroidX.WebKit.UserAgentMetadata.Model.get -> string?
@@ -693,11 +797,18 @@ AndroidX.WebKit.WebResourceErrorCompat.WebResourceErrorCompat() -> void
 AndroidX.WebKit.WebResourceErrorCompat.WebResourceErrorCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.WebResourceRequestCompat
 AndroidX.WebKit.WebResourceRequestCompat.WebResourceRequestCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.WebResourceResponseCompat
+AndroidX.WebKit.WebResourceResponseCompat.WebResourceResponseCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.WebKit.WebResourceResponseCompat.WebResourceResponseCompat(string? mimeType, string? encoding, System.IO.Stream? data) -> void
+AndroidX.WebKit.WebResourceResponseCompat.WebResourceResponseCompat(string? mimeType, string? encoding, int statusCode, string? reasonPhrase, System.Collections.Generic.IDictionary<string!, string!>? responseHeaders, System.IO.Stream? data) -> void
 AndroidX.WebKit.WebSettingsCompat
-AndroidX.WebKit.WebSettingsCompat.IExperimentalBackForwardCache
+AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItems
+AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItemsConsts
+AndroidX.WebKit.WebSettingsCompat.IExperimentalBackForwardCacheSettings
 AndroidX.WebKit.WebSettingsCompat.IExperimentalSpeculativeLoading
 AndroidX.WebKit.WebSettingsCompat.IForceDark
 AndroidX.WebKit.WebSettingsCompat.IForceDarkStrategy
+AndroidX.WebKit.WebSettingsCompat.IHyperlinkContextMenuItems
 AndroidX.WebKit.WebSettingsCompat.IMenuItemFlags
 AndroidX.WebKit.WebSettingsCompat.WebSettingsCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.WebStorageCompat
@@ -721,10 +832,13 @@ AndroidX.WebKit.WebViewAssetLoader.ResourcesPathHandler.Handle(string? path) -> 
 AndroidX.WebKit.WebViewAssetLoader.ResourcesPathHandler.ResourcesPathHandler(Android.Content.Context? context) -> void
 AndroidX.WebKit.WebViewAssetLoader.ShouldInterceptRequest(Android.Net.Uri? url) -> Android.Webkit.WebResourceResponse?
 AndroidX.WebKit.WebViewBuilder
+AndroidX.WebKit.WebViewBuilder.AddAllowlist(AndroidX.WebKit.RestrictionAllowlist? allowList) -> AndroidX.WebKit.WebViewBuilder?
 AndroidX.WebKit.WebViewBuilder.Build(Android.Content.Context? context) -> Android.Webkit.WebView?
 AndroidX.WebKit.WebViewBuilder.IExperimental
-AndroidX.WebKit.WebViewBuilder.SetPolicy(AndroidX.WebKit.Policy? policy) -> AndroidX.WebKit.WebViewBuilder?
-AndroidX.WebKit.WebViewBuilder.WebViewBuilder() -> void
+AndroidX.WebKit.WebViewBuilder.IPreset
+AndroidX.WebKit.WebViewBuilder.RestrictJavaScriptInterfaces() -> AndroidX.WebKit.WebViewBuilder?
+AndroidX.WebKit.WebViewBuilder.SetProfile(string? profileName) -> AndroidX.WebKit.WebViewBuilder?
+AndroidX.WebKit.WebViewBuilder.WebViewBuilder(int preset) -> void
 AndroidX.WebKit.WebViewBuilderException
 AndroidX.WebKit.WebViewBuilderException.WebViewBuilderException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.WebViewClientCompat
@@ -736,9 +850,7 @@ AndroidX.WebKit.WebViewClientCompat.WebViewClientCompat() -> void
 AndroidX.WebKit.WebViewClientCompat.WebViewClientCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.WebKit.WebViewCompat
 AndroidX.WebKit.WebViewCompat.IExperimentalAsyncStartUp
-AndroidX.WebKit.WebViewCompat.IExperimentalCacheProvider
 AndroidX.WebKit.WebViewCompat.IExperimentalSaveState
-AndroidX.WebKit.WebViewCompat.IExperimentalUrlPrerender
 AndroidX.WebKit.WebViewCompat.IVisualStateCallback
 AndroidX.WebKit.WebViewCompat.IVisualStateCallback.OnComplete(long p0) -> void
 AndroidX.WebKit.WebViewCompat.IWebMessageListener
@@ -776,7 +888,9 @@ AndroidX.WebKit.WebViewStartUpConfig.BackgroundExecutor.get -> Java.Util.Concurr
 AndroidX.WebKit.WebViewStartUpConfig.Builder
 AndroidX.WebKit.WebViewStartUpConfig.Builder.Build() -> AndroidX.WebKit.WebViewStartUpConfig?
 AndroidX.WebKit.WebViewStartUpConfig.Builder.Builder(Java.Util.Concurrent.IExecutor? executor) -> void
+AndroidX.WebKit.WebViewStartUpConfig.Builder.SetProfilesToLoadDuringStartup(System.Collections.Generic.ICollection<string!>? profiles) -> AndroidX.WebKit.WebViewStartUpConfig.Builder?
 AndroidX.WebKit.WebViewStartUpConfig.Builder.SetShouldRunUiThreadStartUpTasks(bool shouldRunUiThreadStartUpTasks) -> AndroidX.WebKit.WebViewStartUpConfig.Builder?
+AndroidX.WebKit.WebViewStartUpConfig.ProfilesToLoadDuringStartup.get -> System.Collections.Generic.ICollection<string!>?
 AndroidX.WebKit.WebViewStartUpConfig.ShouldRunUiThreadStartUpTasks() -> bool
 abstract AndroidX.WebKit.Internal.ApiFeature.IsSupportedByFramework.get -> bool
 abstract AndroidX.WebKit.Internal.StartupApiFeature.IsSupportedByFramework.get -> bool
@@ -798,6 +912,8 @@ abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.BlockNetworkLoads.get ->
 abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.BlockNetworkLoads.set -> void
 abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.CacheMode.get -> int
 abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.CacheMode.set -> void
+abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.IncludeCookiesOnShouldInterceptRequestEnabled.get -> bool
+abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.IncludeCookiesOnShouldInterceptRequestEnabled.set -> void
 abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.RequestedWithHeaderOriginAllowList.get -> System.Collections.Generic.ICollection<string!>?
 abstract AndroidX.WebKit.ServiceWorkerWebSettingsCompat.RequestedWithHeaderOriginAllowList.set -> void
 abstract AndroidX.WebKit.TracingController.IsTracing.get -> bool
@@ -821,17 +937,30 @@ const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.CacheDire
 const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.ConfigurePartitionedCookies = "CONFIGURE_PARTITIONED_COOKIES" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.DataDirectoryBasePath = "DATA_DIRECTORY_BASE_PATH" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.DataDirectorySuffix = "DATA_DIRECTORY_SUFFIX" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupMode = "UI_THREAD_STARTUP_MODE" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeAsyncLongTasks = 1 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeAsyncPlusMultiProcess = 4 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeAsyncShortTasks = 2 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeAsyncVeryShortTasks = 3 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeDefault = -1 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.UiThreadStartupModeSync = 0 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.AddQuicHintsV1 = "ADD_QUIC_HINTS_V1" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.AlgorithmicDarkening = "ALGORITHMIC_DARKENING" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.AsyncWebviewStartup = "ASYNC_WEBVIEW_STARTUP" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.AsyncWebviewStartupAsyncStartupLocations = "ASYNC_WEBVIEW_STARTUP_ASYNC_STARTUP_LOCATIONS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.AttributionBehavior = "ATTRIBUTION_BEHAVIOR" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.BackForwardCache = "BACK_FORWARD_CACHE" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.BackForwardCacheSettings = "BACK_FORWARD_CACHE_SETTINGS" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.BackForwardCacheSettingsV2 = "BACK_FORWARD_CACHE_SETTINGS_V2" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.CookieIntercept = "COOKIE_INTERCEPT" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.CreateWebMessageChannel = "CREATE_WEB_MESSAGE_CHANNEL" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.CustomRequestHeaders = "CUSTOM_REQUEST_HEADERS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.DefaultTrafficstatsTagging = "DEFAULT_TRAFFICSTATS_TAGGING" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.DevSuffix = ":dev" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.DisabledActionModeMenuItems = "DISABLED_ACTION_MODE_MENU_ITEMS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.DocumentStartScript = "DOCUMENT_START_SCRIPT:1" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.EnterpriseAuthenticationAppLinkPolicy = "ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ExtraHeaderForOrigins = "EXTRA_HEADER_FOR_ORIGINS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ForceDark = "FORCE_DARK" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ForceDarkBehavior = "FORCE_DARK_BEHAVIOR" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.GetCookieInfo = "GET_COOKIE_INFO" -> string!
@@ -839,20 +968,25 @@ const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.GetVariationsHeader = "G
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.GetWebChromeClient = "GET_WEB_CHROME_CLIENT" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.GetWebViewClient = "GET_WEB_VIEW_CLIENT" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.GetWebViewRenderer = "GET_WEB_VIEW_RENDERER" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.HyperlinkContextMenuItems = "HYPERLINK_CONTEXT_MENU_ITEMS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ImageDragDrop = "IMAGE_DRAG_DROP" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.MultiProcessQuery = "MULTI_PROCESS_QUERY" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.MultiProfile = "MULTI_PROFILE" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.MuteAudio = "MUTE_AUDIO" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.OffScreenPreraster = "OFF_SCREEN_PRERASTER" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.OnNavigationCompletedNonCommitted = "ON_NAVIGATION_COMPLETED_NON_COMMITTED" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PageIsPrerendering = "PAGE_IS_PRERENDERING" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PaymentRequest = "PAYMENT_REQUEST" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PostWebMessage = "POST_WEB_MESSAGE" -> string!
-const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PrefetchWithUrl = "PREFETCH_URL_V4" -> string!
-const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PrerenderWithUrl = "PRERENDER_URL_V2" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.Preconnect = "PRECONNECT" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PrefetchWithUrl = "PREFETCH_URL_V5" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.PrerenderWithUrl = "PRERENDER_URL_V3" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ProviderWeaklyRefWebview = "PROVIDER_WEAKLY_REF_WEBVIEW" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ProxyOverride = "PROXY_OVERRIDE:3" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ProxyOverrideReverseBypass = "PROXY_OVERRIDE_REVERSE_BYPASS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ReceiveHttpError = "RECEIVE_HTTP_ERROR" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.ReceiveWebResourceError = "RECEIVE_WEB_RESOURCE_ERROR" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.RendererLibraryPrefetchMode = "RENDERER_LIBRARY_PREFETCH_MODE" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.RequestedWithHeaderAllowList = "REQUESTED_WITH_HEADER_ALLOW_LIST" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.RequestedWithHeaderControl = "REQUESTED_WITH_HEADER_CONTROL" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.RestrictSensitiveWebContent = "RESTRICT_SENSITIVE_WEB_CONTENT" -> string!
@@ -879,6 +1013,7 @@ const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.SuppressErrorPage = "SUP
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.TracingControllerBasicUsage = "TRACING_CONTROLLER_BASIC_USAGE" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.UserAgentMetadata = "USER_AGENT_METADATA" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.VisualStateCallback = "VISUAL_STATE_CALLBACK" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WarmUpRendererProcess = "WARM_UP_RENDERER_PROCESS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebAuthentication = "WEB_AUTHENTICATION" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebMessageArrayBuffer = "WEB_MESSAGE_ARRAY_BUFFER" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebMessageCallbackOnMessage = "WEB_MESSAGE_CALLBACK_ON_MESSAGE" -> string!
@@ -892,9 +1027,10 @@ const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebResourceErrorGetDescr
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebResourceRequestIsRedirect = "WEB_RESOURCE_REQUEST_IS_REDIRECT" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebStorageDeleteBrowsingData = "WEB_STORAGE_DELETE_BROWSING_DATA" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebViewNavigationClientBasicUsage = "WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebViewNavigationListenerV1 = "WEB_VIEW_NAVIGATION_LISTENER_V1" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebViewRendererClientBasicUsage = "WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebViewRendererTerminate = "WEB_VIEW_RENDERER_TERMINATE" -> string!
-const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebviewBuilder = "WEBVIEW_BUILDER" -> string!
+const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebviewBuilder = "WEBVIEW_BUILDER_V1" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.Util.Features.WebviewMediaIntegrityApiStatus = "WEBVIEW_INTEGRITY_API_STATUS" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.WebMessagePayloadBoundaryInterfaceWebMessagePayloadType.TypeArrayBuffer = 1 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebMessagePayloadBoundaryInterfaceWebMessagePayloadType.TypeString = 0 -> int
@@ -905,6 +1041,10 @@ const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceAttributio
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceForceDarkBehavior.ForceDarkOnly = 0 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceForceDarkBehavior.MediaQueryOnly = 1 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceForceDarkBehavior.PreferMediaQueryOverForceDark = 2 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItems.CopyLinkAddress = 1 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItems.CopyLinkText = 2 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItems.Disabled = 0 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceHyperlinkContextMenuItems.OpenLink = 4 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceSpeculativeLoadingStatus.Disabled = 0 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceSpeculativeLoadingStatus.PrerenderEnabled = 1 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceWebViewMediaIntegrityApiStatus.Disabled = 0 -> int
@@ -916,6 +1056,8 @@ const AndroidX.WebKit.ChromiumLibBoundary.WebSettingsBoundaryInterfaceWebauthnSu
 const AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceBaseline.Default = 0 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfigField.Baseline = 0 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfigField.JavascriptInterface = 1 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfigField.ProfileName = 3 -> int
+const AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfigField.RestrictJavascriptInterface = 2 -> int
 const AndroidX.WebKit.ChromiumLibBoundary.WebViewProviderFactoryBoundaryInterface.MultiCookieHeaderName = "\0Set-Cookie-Multivalue\0" -> string!
 const AndroidX.WebKit.ChromiumLibBoundary.WebViewProviderFactoryBoundaryInterface.MultiCookieValueSeparator = "\0" -> string!
 const AndroidX.WebKit.Internal.AssetHelper.DefaultMimeType = "text/plain" -> string!
@@ -924,7 +1066,17 @@ const AndroidX.WebKit.Internal.StartupApiFeature.MetadataHolderServiceName = "or
 const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureConfigurePartitionedCookies = "STARTUP_FEATURE_CONFIGURE_PARTITIONED_COOKIES" -> string!
 const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureSetDataDirectorySuffix = "STARTUP_FEATURE_SET_DATA_DIRECTORY_SUFFIX" -> string!
 const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureSetDirectoryBasePath = "STARTUP_FEATURE_SET_DIRECTORY_BASE_PATH" -> string!
+const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureSetProfilesToLoad = "STARTUP_FEATURE_SET_PROFILES_TO_LOAD" -> string!
+const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureSetUiThreadStartupMode = "STARTUP_FEATURE_SET_UI_THREAD_STARTUP_MODE" -> string!
+const AndroidX.WebKit.Internal.StartupFeatures.StartupFeatureSetUiThreadStartupModeV2 = "STARTUP_FEATURE_SET_UI_THREAD_STARTUP_MODE_V2" -> string!
 const AndroidX.WebKit.PrefetchNetworkException.NoHttpResponseStatusCode = 0 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeAsync = 3 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeAsyncLongTasks = 3 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeAsyncShortTasks = 3 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeAsyncVeryShortTasks = 3 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeAsyncWithoutMultiProcessStartup = 4 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeDefault = -1 -> int
+const AndroidX.WebKit.ProcessGlobalConfig.UiThreadStartupModeSync = 0 -> int
 const AndroidX.WebKit.Profile.DefaultProfileName = "Default" -> string!
 const AndroidX.WebKit.ProxyConfig.MatchAllSchemes = "*" -> string!
 const AndroidX.WebKit.ProxyConfig.MatchHttp = "http" -> string!
@@ -940,6 +1092,13 @@ const AndroidX.WebKit.TracingConfig.CategoriesWebDeveloper = 4 -> int
 const AndroidX.WebKit.TracingConfig.RecordContinuously = 1 -> int
 const AndroidX.WebKit.TracingConfig.RecordUntilFull = 0 -> int
 const AndroidX.WebKit.UserAgentMetadata.BitnessDefault = 0 -> int
+const AndroidX.WebKit.UserAgentMetadata.FormFactorAutomotive = "Automotive" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorDesktop = "Desktop" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorEink = "EInk" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorMobile = "Mobile" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorTablet = "Tablet" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorWatch = "Watch" -> string!
+const AndroidX.WebKit.UserAgentMetadata.FormFactorXr = "XR" -> string!
 const AndroidX.WebKit.WebMessageCompat.TypeArrayBuffer = 1 -> int
 const AndroidX.WebKit.WebMessageCompat.TypeString = 0 -> int
 const AndroidX.WebKit.WebSettingsCompat.AttributionBehaviorAppSourceAndAppTrigger = 3 -> int
@@ -952,17 +1111,25 @@ const AndroidX.WebKit.WebSettingsCompat.DarkStrategyWebThemeDarkeningOnly = 1 ->
 const AndroidX.WebKit.WebSettingsCompat.ForceDarkAuto = 1 -> int
 const AndroidX.WebKit.WebSettingsCompat.ForceDarkOff = 0 -> int
 const AndroidX.WebKit.WebSettingsCompat.ForceDarkOn = 2 -> int
+const AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItems.CopyLinkAddress = 1 -> int
+const AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItems.CopyLinkText = 2 -> int
+const AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItems.Disabled = 0 -> int
+const AndroidX.WebKit.WebSettingsCompat.HyperlinkContextMenuItems.OpenLink = 4 -> int
 const AndroidX.WebKit.WebSettingsCompat.SpeculativeLoadingDisabled = 0 -> int
 const AndroidX.WebKit.WebSettingsCompat.SpeculativeLoadingPrerenderEnabled = 1 -> int
 const AndroidX.WebKit.WebSettingsCompat.WebAuthenticationSupportForApp = 1 -> int
 const AndroidX.WebKit.WebSettingsCompat.WebAuthenticationSupportForBrowser = 2 -> int
 const AndroidX.WebKit.WebSettingsCompat.WebAuthenticationSupportNone = 0 -> int
 const AndroidX.WebKit.WebViewAssetLoader.DefaultDomain = "appassets.androidplatform.net" -> string!
+const AndroidX.WebKit.WebViewBuilder.PresetLegacy = 0 -> int
+const AndroidX.WebKit.WebViewFeature.AddQuicHintsV1 = "ADD_QUIC_HINTS" -> string!
 const AndroidX.WebKit.WebViewFeature.AlgorithmicDarkening = "ALGORITHMIC_DARKENING" -> string!
 const AndroidX.WebKit.WebViewFeature.AttributionRegistrationBehavior = "ATTRIBUTION_REGISTRATION_BEHAVIOR" -> string!
 const AndroidX.WebKit.WebViewFeature.BackForwardCache = "BACK_FORWARD_CACHE" -> string!
-const AndroidX.WebKit.WebViewFeature.CacheProvider = "CACHE_PROVIDER" -> string!
+const AndroidX.WebKit.WebViewFeature.BackForwardCacheSettings = "BACK_FORWARD_CACHE_SETTINGS" -> string!
+const AndroidX.WebKit.WebViewFeature.CookieIntercept = "COOKIE_INTERCEPT" -> string!
 const AndroidX.WebKit.WebViewFeature.CreateWebMessageChannel = "CREATE_WEB_MESSAGE_CHANNEL" -> string!
+const AndroidX.WebKit.WebViewFeature.CustomRequestHeaders = "CUSTOM_REQUEST_HEADERS" -> string!
 const AndroidX.WebKit.WebViewFeature.DefaultTrafficstatsTagging = "DEFAULT_TRAFFICSTATS_TAGGING" -> string!
 const AndroidX.WebKit.WebViewFeature.DeleteBrowsingData = "DELETE_BROWSING_DATA" -> string!
 const AndroidX.WebKit.WebViewFeature.DisabledActionModeMenuItems = "DISABLED_ACTION_MODE_MENU_ITEMS" -> string!
@@ -975,15 +1142,20 @@ const AndroidX.WebKit.WebViewFeature.GetVariationsHeader = "GET_VARIATIONS_HEADE
 const AndroidX.WebKit.WebViewFeature.GetWebChromeClient = "GET_WEB_CHROME_CLIENT" -> string!
 const AndroidX.WebKit.WebViewFeature.GetWebViewClient = "GET_WEB_VIEW_CLIENT" -> string!
 const AndroidX.WebKit.WebViewFeature.GetWebViewRenderer = "GET_WEB_VIEW_RENDERER" -> string!
+const AndroidX.WebKit.WebViewFeature.HyperlinkContextMenuItems = "HYPERLINK_CONTEXT_MENU_ITEMS" -> string!
 const AndroidX.WebKit.WebViewFeature.MultiProcess = "MULTI_PROCESS" -> string!
 const AndroidX.WebKit.WebViewFeature.MultiProfile = "MULTI_PROFILE" -> string!
 const AndroidX.WebKit.WebViewFeature.MuteAudio = "MUTE_AUDIO" -> string!
 const AndroidX.WebKit.WebViewFeature.NavigationCallbackBasic = "WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE" -> string!
+const AndroidX.WebKit.WebViewFeature.NavigationListenerV1 = "NAVIGATION_LISTENER_V1" -> string!
 const AndroidX.WebKit.WebViewFeature.OffScreenPreraster = "OFF_SCREEN_PRERASTER" -> string!
+const AndroidX.WebKit.WebViewFeature.OriginMatchedHeaders = "ORIGIN_MATCHED_HEADERS" -> string!
 const AndroidX.WebKit.WebViewFeature.PaymentRequest = "PAYMENT_REQUEST" -> string!
 const AndroidX.WebKit.WebViewFeature.PostWebMessage = "POST_WEB_MESSAGE" -> string!
+const AndroidX.WebKit.WebViewFeature.Preconnect = "PRECONNECT" -> string!
 const AndroidX.WebKit.WebViewFeature.PrerenderWithUrl = "PRERENDER_URL_V2" -> string!
-const AndroidX.WebKit.WebViewFeature.ProfileUrlPrefetch = "PREFETCH_URL_V4" -> string!
+const AndroidX.WebKit.WebViewFeature.ProfileUrlPrefetch = "PREFETCH_URL_V5" -> string!
+const AndroidX.WebKit.WebViewFeature.ProviderWeaklyRefWebview = "PROVIDER_WEAKLY_REF_WEBVIEW" -> string!
 const AndroidX.WebKit.WebViewFeature.ProxyOverride = "PROXY_OVERRIDE" -> string!
 const AndroidX.WebKit.WebViewFeature.ProxyOverrideReverseBypass = "PROXY_OVERRIDE_REVERSE_BYPASS" -> string!
 const AndroidX.WebKit.WebViewFeature.ReceiveHttpError = "RECEIVE_HTTP_ERROR" -> string!
@@ -1011,9 +1183,14 @@ const AndroidX.WebKit.WebViewFeature.StartSafeBrowsing = "START_SAFE_BROWSING" -
 const AndroidX.WebKit.WebViewFeature.StartupFeatureConfigurePartitionedCookies = "STARTUP_FEATURE_CONFIGURE_PARTITIONED_COOKIES" -> string!
 const AndroidX.WebKit.WebViewFeature.StartupFeatureSetDataDirectorySuffix = "STARTUP_FEATURE_SET_DATA_DIRECTORY_SUFFIX" -> string!
 const AndroidX.WebKit.WebViewFeature.StartupFeatureSetDirectoryBasePaths = "STARTUP_FEATURE_SET_DIRECTORY_BASE_PATHS" -> string!
+const AndroidX.WebKit.WebViewFeature.StartupFeatureSetProfilesToLoad = "STARTUP_FEATURE_SET_PROFILES_TO_LOAD" -> string!
+const AndroidX.WebKit.WebViewFeature.StartupFeatureSetUiThreadStartupMode = "STARTUP_FEATURE_SET_UI_THREAD_STARTUP_MODE" -> string!
+const AndroidX.WebKit.WebViewFeature.StartupFeatureSetUiThreadStartupModeV2 = "STARTUP_FEATURE_SET_UI_THREAD_STARTUP_MODE_V2" -> string!
 const AndroidX.WebKit.WebViewFeature.TracingControllerBasicUsage = "TRACING_CONTROLLER_BASIC_USAGE" -> string!
 const AndroidX.WebKit.WebViewFeature.UserAgentMetadata = "USER_AGENT_METADATA" -> string!
+const AndroidX.WebKit.WebViewFeature.UserAgentMetadataFormFactors = "USER_AGENT_METADATA_FORM_FACTORS" -> string!
 const AndroidX.WebKit.WebViewFeature.VisualStateCallback = "VISUAL_STATE_CALLBACK" -> string!
+const AndroidX.WebKit.WebViewFeature.WarmUpRendererProcess = "WARM_UP_RENDERER_PROCESS" -> string!
 const AndroidX.WebKit.WebViewFeature.WebAuthentication = "WEB_AUTHENTICATION" -> string!
 const AndroidX.WebKit.WebViewFeature.WebMessageArrayBuffer = "WEB_MESSAGE_ARRAY_BUFFER" -> string!
 const AndroidX.WebKit.WebViewFeature.WebMessageCallbackOnMessage = "WEB_MESSAGE_CALLBACK_ON_MESSAGE" -> string!
@@ -1026,11 +1203,15 @@ const AndroidX.WebKit.WebViewFeature.WebResourceErrorGetDescription = "WEB_RESOU
 const AndroidX.WebKit.WebViewFeature.WebResourceRequestIsRedirect = "WEB_RESOURCE_REQUEST_IS_REDIRECT" -> string!
 const AndroidX.WebKit.WebViewFeature.WebViewRendererClientBasicUsage = "WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE" -> string!
 const AndroidX.WebKit.WebViewFeature.WebViewRendererTerminate = "WEB_VIEW_RENDERER_TERMINATE" -> string!
-const AndroidX.WebKit.WebViewFeature.WebviewBuilder = "WEBVIEW_BUILDER" -> string!
+const AndroidX.WebKit.WebViewFeature.WebviewBuilderExperimentalV1 = "WEBVIEW_BUILDER_EXPERIMENTAL_V1" -> string!
 const AndroidX.WebKit.WebViewFeature.WebviewMediaIntegrityApiStatus = "WEBVIEW_MEDIA_INTEGRITY_API_STATUS" -> string!
 const AndroidX.WebKit.WebViewMediaIntegrityApiStatusConfig.WebviewMediaIntegrityApiDisabled = 0 -> int
 const AndroidX.WebKit.WebViewMediaIntegrityApiStatusConfig.WebviewMediaIntegrityApiEnabled = 2 -> int
 const AndroidX.WebKit.WebViewMediaIntegrityApiStatusConfig.WebviewMediaIntegrityApiEnabledWithoutAppIdentity = 1 -> int
+override AndroidX.WebKit.BackForwardCacheSettings.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.BackForwardCacheSettings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.BackForwardCacheSettings.ThresholdClass.get -> nint
+override AndroidX.WebKit.BackForwardCacheSettings.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.ChromiumLibBoundary.ProcessGlobalConfigConstants.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.ThresholdClass.get -> nint
@@ -1044,6 +1225,9 @@ override AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConf
 override AndroidX.WebKit.CookieManagerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.CookieManagerCompat.ThresholdClass.get -> nint
 override AndroidX.WebKit.CookieManagerCompat.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.CustomHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.CustomHeader.ThresholdClass.get -> nint
+override AndroidX.WebKit.CustomHeader.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.DropDataContentProvider.Delete(Android.Net.Uri? uri, string? selection, string![]? selectionArgs) -> int
 override AndroidX.WebKit.DropDataContentProvider.GetType(Android.Net.Uri? uri) -> string?
 override AndroidX.WebKit.DropDataContentProvider.Insert(Android.Net.Uri? uri, Android.Content.ContentValues? contentValues) -> Android.Net.Uri?
@@ -1086,9 +1270,6 @@ override AndroidX.WebKit.Internal.ApiFeature.T.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.ApiFeature.T.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.Internal.ApiFeature.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.ApiFeature.ThresholdType.get -> System.Type!
-override AndroidX.WebKit.Internal.ApiHelperForM.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.WebKit.Internal.ApiHelperForM.ThresholdClass.get -> nint
-override AndroidX.WebKit.Internal.ApiHelperForM.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.Internal.ApiHelperForN.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.Internal.ApiHelperForN.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.ApiHelperForN.ThresholdType.get -> System.Type!
@@ -1110,6 +1291,9 @@ override AndroidX.WebKit.Internal.ApiHelperForTiramisu.ThresholdType.get -> Syst
 override AndroidX.WebKit.Internal.AssetHelper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.Internal.AssetHelper.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.AssetHelper.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.ThresholdClass.get -> nint
+override AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.Internal.CookieManagerAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.Internal.CookieManagerAdapter.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.CookieManagerAdapter.ThresholdType.get -> System.Type!
@@ -1124,9 +1308,12 @@ override AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.PostMessage(byte[]? a
 override AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.PostMessage(string? message) -> void
 override AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.ThresholdType.get -> System.Type!
-override AndroidX.WebKit.Internal.NavigationAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.WebKit.Internal.NavigationAdapter.ThresholdClass.get -> nint
-override AndroidX.WebKit.Internal.NavigationAdapter.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.Internal.NavigationImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.Internal.NavigationImpl.ThresholdClass.get -> nint
+override AndroidX.WebKit.Internal.NavigationImpl.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.Internal.NavigationListenerAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.Internal.NavigationListenerAdapter.ThresholdClass.get -> nint
+override AndroidX.WebKit.Internal.NavigationListenerAdapter.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.ThresholdClass.get -> nint
 override AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.ThresholdType.get -> System.Type!
@@ -1172,6 +1359,8 @@ override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.BlockNetworkLoads
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.BlockNetworkLoads.set -> void
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.CacheMode.get -> int
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.CacheMode.set -> void
+override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.IncludeCookiesOnShouldInterceptRequestEnabled.get -> bool
+override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.IncludeCookiesOnShouldInterceptRequestEnabled.set -> void
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.RequestedWithHeaderOriginAllowList.get -> System.Collections.Generic.ICollection<string!>?
 override AndroidX.WebKit.Internal.ServiceWorkerWebSettingsImpl.RequestedWithHeaderOriginAllowList.set -> void
@@ -1289,8 +1478,6 @@ override AndroidX.WebKit.JavaScriptReplyProxy.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.NoVarySearchHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.NoVarySearchHeader.ThresholdClass.get -> nint
 override AndroidX.WebKit.NoVarySearchHeader.ThresholdType.get -> System.Type!
-override AndroidX.WebKit.Policy.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.WebKit.Policy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.PrefetchException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.PrefetchException.ThresholdClass.get -> nint
 override AndroidX.WebKit.PrefetchException.ThresholdType.get -> System.Type!
@@ -1309,6 +1496,8 @@ override AndroidX.WebKit.ProxyConfig.ProxyRule.JniPeerMembers.get -> Java.Intero
 override AndroidX.WebKit.ProxyController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.ProxyController.ThresholdClass.get -> nint
 override AndroidX.WebKit.ProxyController.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.RestrictionAllowlist.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.RestrictionAllowlist.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.SafeBrowsingResponseCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.SafeBrowsingResponseCompat.ThresholdClass.get -> nint
 override AndroidX.WebKit.SafeBrowsingResponseCompat.ThresholdType.get -> System.Type!
@@ -1356,6 +1545,9 @@ override AndroidX.WebKit.WebResourceErrorCompat.ThresholdType.get -> System.Type
 override AndroidX.WebKit.WebResourceRequestCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.WebResourceRequestCompat.ThresholdClass.get -> nint
 override AndroidX.WebKit.WebResourceRequestCompat.ThresholdType.get -> System.Type!
+override AndroidX.WebKit.WebResourceResponseCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.WebKit.WebResourceResponseCompat.ThresholdClass.get -> nint
+override AndroidX.WebKit.WebResourceResponseCompat.ThresholdType.get -> System.Type!
 override AndroidX.WebKit.WebSettingsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.WebKit.WebSettingsCompat.ThresholdClass.get -> nint
 override AndroidX.WebKit.WebSettingsCompat.ThresholdType.get -> System.Type!
@@ -1400,23 +1592,10 @@ static AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.
 static AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.DupeMethod(Java.Lang.Reflect.Method? method, Java.Lang.ClassLoader? delegateLoader) -> Java.Lang.Reflect.Method?
 static AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.GetDelegateFromInvocationHandler(Java.Lang.Reflect.IInvocationHandler? invocationHandler) -> Java.Lang.Object?
 static AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.InstanceOfInOwnClassLoader(Java.Lang.Object? obj, string? className) -> bool
+static AndroidX.WebKit.ChromiumLibBoundary.Util.BoundaryInterfaceReflectionUtil.SetMethodCache(Android.Util.LruCache? methodCache, Java.Util.Functions.IConsumer? getResultLogger) -> void
 static AndroidX.WebKit.CookieManagerCompat.GetCookieInfo(Android.Webkit.CookieManager? cookieManager, string? url) -> System.Collections.Generic.IList<string!>?
 static AndroidX.WebKit.Internal.ApiFeature.Values() -> System.Collections.Generic.ICollection<AndroidX.WebKit.Internal.ApiFeature!>?
 static AndroidX.WebKit.Internal.ApiFeature.WebViewApkFeaturesForTesting.get -> System.Collections.Generic.ICollection<string!>?
-static AndroidX.WebKit.Internal.ApiHelperForM.Close(Android.Webkit.WebMessagePort? webMessagePort) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.CreateWebMessage(AndroidX.WebKit.WebMessageCompat? message) -> Android.Webkit.WebMessage?
-static AndroidX.WebKit.Internal.ApiHelperForM.CreateWebMessageChannel(Android.Webkit.WebView? webView) -> Android.Webkit.WebMessagePort![]?
-static AndroidX.WebKit.Internal.ApiHelperForM.CreateWebMessageCompat(Android.Webkit.WebMessage? webMessage) -> AndroidX.WebKit.WebMessageCompat?
-static AndroidX.WebKit.Internal.ApiHelperForM.GetDescription(Android.Webkit.WebResourceError? webResourceError) -> string?
-static AndroidX.WebKit.Internal.ApiHelperForM.GetDescriptionFormatted(Android.Webkit.WebResourceError? webResourceError) -> Java.Lang.ICharSequence?
-static AndroidX.WebKit.Internal.ApiHelperForM.GetErrorCode(Android.Webkit.WebResourceError? webResourceError) -> int
-static AndroidX.WebKit.Internal.ApiHelperForM.GetOffscreenPreRaster(Android.Webkit.WebSettings? webSettings) -> bool
-static AndroidX.WebKit.Internal.ApiHelperForM.PostMessage(Android.Webkit.WebMessagePort? webMessagePort, Android.Webkit.WebMessage? webMessage) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.PostVisualStateCallback(Android.Webkit.WebView? webView, long requestId, AndroidX.WebKit.WebViewCompat.IVisualStateCallback? callback) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.PostWebMessage(Android.Webkit.WebView? webView, Android.Webkit.WebMessage? message, Android.Net.Uri? targetOrigin) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.SetOffscreenPreRaster(Android.Webkit.WebSettings? webSettings, bool b) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.SetWebMessageCallback(Android.Webkit.WebMessagePort? frameworksImpl, AndroidX.WebKit.WebMessagePortCompat.WebMessageCallbackCompat? callback) -> void
-static AndroidX.WebKit.Internal.ApiHelperForM.SetWebMessageCallback(Android.Webkit.WebMessagePort? frameworksImpl, AndroidX.WebKit.WebMessagePortCompat.WebMessageCallbackCompat? callback, Android.OS.Handler? handler) -> void
 static AndroidX.WebKit.Internal.ApiHelperForN.GetAllowContentAccess(Android.Webkit.ServiceWorkerWebSettings? serviceWorkerWebSettings) -> bool
 static AndroidX.WebKit.Internal.ApiHelperForN.GetAllowFileAccess(Android.Webkit.ServiceWorkerWebSettings? serviceWorkerWebSettings) -> bool
 static AndroidX.WebKit.Internal.ApiHelperForN.GetBlockNetworkLoads(Android.Webkit.ServiceWorkerWebSettings? serviceWorkerWebSettings) -> bool
@@ -1465,6 +1644,8 @@ static AndroidX.WebKit.Internal.AssetHelper.GetDataDir(Android.Content.Context? 
 static AndroidX.WebKit.Internal.AssetHelper.GuessMimeType(string? filePath) -> string?
 static AndroidX.WebKit.Internal.AssetHelper.OpenFile(Java.IO.File? file) -> System.IO.Stream?
 static AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl.ForInvocationHandler(Java.Lang.Reflect.IInvocationHandler? invocationHandler) -> AndroidX.WebKit.Internal.JavaScriptReplyProxyImpl?
+static AndroidX.WebKit.Internal.NavigationImpl.ForInvocationHandler(Java.Lang.Reflect.IInvocationHandler? invocationHandler) -> AndroidX.WebKit.INavigation?
+static AndroidX.WebKit.Internal.PageImpl.ForInvocationHandler(Java.Lang.Reflect.IInvocationHandler? invocationHandler) -> AndroidX.WebKit.IPage?
 static AndroidX.WebKit.Internal.PrefetchOperationCallbackAdapter.BuildInvocationHandler(AndroidX.WebKit.IOutcomeReceiverCompat? callback) -> Java.Lang.Reflect.IInvocationHandler?
 static AndroidX.WebKit.Internal.ProfileStoreImpl.Instance.get -> AndroidX.WebKit.IProfileStore?
 static AndroidX.WebKit.Internal.ProxyControllerImpl.ProxyRulesToStringArray(System.Collections.Generic.IList<AndroidX.WebKit.ProxyConfig.ProxyRule!>? proxyRuleList) -> string![]![]?
@@ -1476,12 +1657,16 @@ static AndroidX.WebKit.Internal.WebMessagePortImpl.CompatToFrameworkMessage(Andr
 static AndroidX.WebKit.Internal.WebMessagePortImpl.CompatToPorts(AndroidX.WebKit.WebMessagePortCompat![]? compatPorts) -> Android.Webkit.WebMessagePort![]?
 static AndroidX.WebKit.Internal.WebMessagePortImpl.FrameworkMessageToCompat(Android.Webkit.WebMessage? message) -> AndroidX.WebKit.WebMessageCompat?
 static AndroidX.WebKit.Internal.WebMessagePortImpl.PortsToCompat(Android.Webkit.WebMessagePort![]? ports) -> AndroidX.WebKit.WebMessagePortCompat![]?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.AddQuicHintsV1.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.AlgorithmicDarkening.get -> AndroidX.WebKit.Internal.ApiFeature.T?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.AsyncWebviewStartup.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.AsyncWebviewStartupAsyncStartupLocations.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.AttributionRegistrationBehavior.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.BackForwardCache.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
-static AndroidX.WebKit.Internal.WebViewFeatureInternal.CacheProvider.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.BackForwardCacheSettings.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.CookieIntercept.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.CreateWebMessageChannel.get -> AndroidX.WebKit.Internal.ApiFeature.M?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.CustomRequestHeaders.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.DefaultTrafficstatsTagging.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.DeleteBrowsingData.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.DisabledActionModeMenuItems.get -> AndroidX.WebKit.Internal.ApiFeature.N?
@@ -1494,6 +1679,7 @@ static AndroidX.WebKit.Internal.WebViewFeatureInternal.GetVariationsHeader.get -
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.GetWebChromeClient.get -> AndroidX.WebKit.Internal.ApiFeature.O?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.GetWebViewClient.get -> AndroidX.WebKit.Internal.ApiFeature.O?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.GetWebViewRenderer.get -> AndroidX.WebKit.Internal.ApiFeature.Q?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.HyperlinkContextMenuItems.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.IsStartupFeatureSupported(string? publicFeatureValue, Android.Content.Context? context) -> bool
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.IsStartupFeatureSupported(string? publicFeatureValue, System.Collections.Generic.ICollection<AndroidX.WebKit.Internal.StartupApiFeature!>? internalFeatures, Android.Content.Context? context) -> bool
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.IsSupported(string? publicFeatureValue) -> bool
@@ -1502,11 +1688,15 @@ static AndroidX.WebKit.Internal.WebViewFeatureInternal.MultiProcess.get -> Andro
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.MultiProfile.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.MuteAudio.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.NavigationCallbackBasic.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.NavigationListenerV1.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.OffScreenPreraster.get -> AndroidX.WebKit.Internal.ApiFeature.M?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.OriginMatchedHeaders.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.PaymentRequest.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.PostWebMessage.get -> AndroidX.WebKit.Internal.ApiFeature.M?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.Preconnect.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.PrerenderWithUrl.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.ProfileUrlPrefetch.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.ProviderWeaklyRefWebview.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.ProxyOverride.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.ProxyOverrideReverseBypass.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.ReceiveHttpError.get -> AndroidX.WebKit.Internal.ApiFeature.M?
@@ -1536,10 +1726,15 @@ static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartSafeBrowsing.get -> 
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureConfigurePartitionedCookies.get -> AndroidX.WebKit.Internal.StartupApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureSetDataDirectorySuffix.get -> AndroidX.WebKit.Internal.StartupApiFeature.P?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureSetDirectoryBasePath.get -> AndroidX.WebKit.Internal.StartupApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureSetProfilesToLoad.get -> AndroidX.WebKit.Internal.StartupApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureSetUiThreadStartupMode.get -> AndroidX.WebKit.Internal.StartupApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.StartupFeatureSetUiThreadStartupModeV2.get -> AndroidX.WebKit.Internal.StartupApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.TracingControllerBasicUsage.get -> AndroidX.WebKit.Internal.ApiFeature.P?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.UnsupportedOperationException.get -> Java.Lang.UnsupportedOperationException?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.UserAgentMetadata.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.UserAgentMetadataFormFactors.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.VisualStateCallback.get -> AndroidX.WebKit.Internal.ApiFeature.M?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.WarmUpRendererProcess.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebAuthentication.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebMessageArrayBuffer.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebMessageCallbackOnMessage.get -> AndroidX.WebKit.Internal.ApiFeature.M?
@@ -1552,7 +1747,7 @@ static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebResourceErrorGetDescri
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebResourceRequestIsRedirect.get -> AndroidX.WebKit.Internal.ApiFeature.N?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebViewRendererClientBasicUsage.get -> AndroidX.WebKit.Internal.ApiFeature.Q?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebViewRendererTerminate.get -> AndroidX.WebKit.Internal.ApiFeature.Q?
-static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebviewBuilder.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
+static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebviewBuilderV1.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewFeatureInternal.WebviewMediaIntegrityApiStatus.get -> AndroidX.WebKit.Internal.ApiFeature.NoFramework?
 static AndroidX.WebKit.Internal.WebViewGlueCommunicator.CompatConverter.get -> AndroidX.WebKit.Internal.WebkitToCompatConverter?
 static AndroidX.WebKit.Internal.WebViewGlueCommunicator.Factory.get -> AndroidX.WebKit.Internal.IWebViewProviderFactory?
@@ -1570,8 +1765,11 @@ static AndroidX.WebKit.TracingController.Instance.get -> AndroidX.WebKit.Tracing
 static AndroidX.WebKit.URLUtilCompat.GetFilenameFromContentDisposition(string? contentDisposition) -> string?
 static AndroidX.WebKit.URLUtilCompat.GuessFileName(string? url, string? contentDisposition, string? mimeType) -> string?
 static AndroidX.WebKit.WebResourceRequestCompat.IsRedirect(Android.Webkit.IWebResourceRequest? request) -> bool
+static AndroidX.WebKit.WebResourceResponseCompat.ToWebResourceResponseCompat(Android.Webkit.WebResourceResponse? response) -> AndroidX.WebKit.WebResourceResponseCompat?
+static AndroidX.WebKit.WebSettingsCompat.AreCookiesIncludedInShouldInterceptRequest(Android.Webkit.WebSettings? settings) -> bool
 static AndroidX.WebKit.WebSettingsCompat.GetAttributionRegistrationBehavior(Android.Webkit.WebSettings? settings) -> int
 static AndroidX.WebKit.WebSettingsCompat.GetBackForwardCacheEnabled(Android.Webkit.WebSettings? settings) -> bool
+static AndroidX.WebKit.WebSettingsCompat.GetBackForwardCacheSettings(Android.Webkit.WebSettings? settings) -> AndroidX.WebKit.BackForwardCacheSettings?
 static AndroidX.WebKit.WebSettingsCompat.GetDisabledActionModeMenuItems(Android.Webkit.WebSettings? settings) -> int
 static AndroidX.WebKit.WebSettingsCompat.GetEnterpriseAuthenticationAppLinkPolicyEnabled(Android.Webkit.WebSettings? settings) -> bool
 static AndroidX.WebKit.WebSettingsCompat.GetForceDark(Android.Webkit.WebSettings? settings) -> int
@@ -1589,11 +1787,14 @@ static AndroidX.WebKit.WebSettingsCompat.IsAlgorithmicDarkeningAllowed(Android.W
 static AndroidX.WebKit.WebSettingsCompat.SetAlgorithmicDarkeningAllowed(Android.Webkit.WebSettings? settings, bool allow) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetAttributionRegistrationBehavior(Android.Webkit.WebSettings? settings, int behavior) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetBackForwardCacheEnabled(Android.Webkit.WebSettings? settings, bool backForwardCacheEnabled) -> void
+static AndroidX.WebKit.WebSettingsCompat.SetBackForwardCacheSettings(Android.Webkit.WebSettings? settings, AndroidX.WebKit.BackForwardCacheSettings? backForwardCacheSettings) -> void
+static AndroidX.WebKit.WebSettingsCompat.SetCookiesIncludedInShouldInterceptRequest(Android.Webkit.WebSettings? settings, bool enabled) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetDisabledActionModeMenuItems(Android.Webkit.WebSettings? settings, int menuItems) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetEnterpriseAuthenticationAppLinkPolicyEnabled(Android.Webkit.WebSettings? settings, bool enabled) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetForceDark(Android.Webkit.WebSettings? settings, int forceDarkMode) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetForceDarkStrategy(Android.Webkit.WebSettings? settings, int forceDarkBehavior) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetHasEnrolledInstrumentEnabled(Android.Webkit.WebSettings? settings, bool enabled) -> void
+static AndroidX.WebKit.WebSettingsCompat.SetHyperlinkContextMenuItems(Android.Webkit.WebSettings? settings, int hyperlinkMenuItems) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetOffscreenPreRaster(Android.Webkit.WebSettings? settings, bool enabled) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetPaymentRequestEnabled(Android.Webkit.WebSettings? settings, bool enabled) -> void
 static AndroidX.WebKit.WebSettingsCompat.SetRequestedWithHeaderOriginAllowList(Android.Webkit.WebSettings? settings, System.Collections.Generic.ICollection<string!>? allowList) -> void
@@ -1607,6 +1808,8 @@ static AndroidX.WebKit.WebStorageCompat.DeleteBrowsingData(Android.Webkit.WebSto
 static AndroidX.WebKit.WebStorageCompat.DeleteBrowsingDataForSite(Android.Webkit.WebStorage? instance, string? site, Java.Lang.IRunnable? doneCallback) -> string?
 static AndroidX.WebKit.WebStorageCompat.DeleteBrowsingDataForSite(Android.Webkit.WebStorage? instance, string? site, Java.Util.Concurrent.IExecutor? executor, Java.Lang.IRunnable? doneCallback) -> string?
 static AndroidX.WebKit.WebViewCompat.AddDocumentStartJavaScript(Android.Webkit.WebView? webview, string? script, System.Collections.Generic.ICollection<string!>? allowedOriginRules) -> AndroidX.WebKit.IScriptHandler?
+static AndroidX.WebKit.WebViewCompat.AddNavigationListener(Android.Webkit.WebView? webView, AndroidX.WebKit.INavigationListener? listener) -> void
+static AndroidX.WebKit.WebViewCompat.AddNavigationListener(Android.Webkit.WebView? webView, Java.Util.Concurrent.IExecutor? executor, AndroidX.WebKit.INavigationListener? listener) -> void
 static AndroidX.WebKit.WebViewCompat.AddWebMessageListener(Android.Webkit.WebView? webView, string? jsObjectName, System.Collections.Generic.ICollection<string!>? allowedOriginRules, AndroidX.WebKit.WebViewCompat.IWebMessageListener? listener) -> void
 static AndroidX.WebKit.WebViewCompat.CreateWebMessageChannel(Android.Webkit.WebView? webview) -> AndroidX.WebKit.WebMessagePortCompat![]?
 static AndroidX.WebKit.WebViewCompat.CurrentLoadedWebViewPackage.get -> Android.Content.PM.PackageInfo?
@@ -1623,6 +1826,7 @@ static AndroidX.WebKit.WebViewCompat.PostVisualStateCallback(Android.Webkit.WebV
 static AndroidX.WebKit.WebViewCompat.PostWebMessage(Android.Webkit.WebView? webview, AndroidX.WebKit.WebMessageCompat? message, Android.Net.Uri? targetOrigin) -> void
 static AndroidX.WebKit.WebViewCompat.PrerenderUrlAsync(Android.Webkit.WebView? webView, string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.IPrerenderOperationCallback? callback) -> void
 static AndroidX.WebKit.WebViewCompat.PrerenderUrlAsync(Android.Webkit.WebView? webView, string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.SpeculativeLoadingParameters? params, AndroidX.WebKit.IPrerenderOperationCallback? callback) -> void
+static AndroidX.WebKit.WebViewCompat.RemoveNavigationListener(Android.Webkit.WebView? webView, AndroidX.WebKit.INavigationListener? listener) -> void
 static AndroidX.WebKit.WebViewCompat.RemoveWebMessageListener(Android.Webkit.WebView? webview, string? jsObjectName) -> void
 static AndroidX.WebKit.WebViewCompat.SafeBrowsingPrivacyPolicyUrl.get -> Android.Net.Uri?
 static AndroidX.WebKit.WebViewCompat.SaveState(Android.Webkit.WebView? webView, Android.OS.Bundle? outState, int maxSizeBytes, bool includeForwardState) -> void
@@ -1631,7 +1835,6 @@ static AndroidX.WebKit.WebViewCompat.SetDefaultTrafficStatsTag(int tag) -> void
 static AndroidX.WebKit.WebViewCompat.SetProfile(Android.Webkit.WebView? webView, string? profileName) -> void
 static AndroidX.WebKit.WebViewCompat.SetSafeBrowsingAllowlist(System.Collections.Generic.ICollection<string!>? hosts, Android.Webkit.IValueCallback? callback) -> void
 static AndroidX.WebKit.WebViewCompat.SetSafeBrowsingWhitelist(System.Collections.Generic.IList<string!>? hosts, Android.Webkit.IValueCallback? callback) -> void
-static AndroidX.WebKit.WebViewCompat.SetShouldCacheProvider(bool shouldCacheProvider) -> void
 static AndroidX.WebKit.WebViewCompat.SetWebNavigationClient(Android.Webkit.WebView? webView, AndroidX.WebKit.IWebNavigationClient? client) -> void
 static AndroidX.WebKit.WebViewCompat.SetWebViewRenderProcessClient(Android.Webkit.WebView? webview, AndroidX.WebKit.WebViewRenderProcessClient? webViewRenderProcessClient) -> void
 static AndroidX.WebKit.WebViewCompat.SetWebViewRenderProcessClient(Android.Webkit.WebView? webview, Java.Util.Concurrent.IExecutor? executor, AndroidX.WebKit.WebViewRenderProcessClient? webViewRenderProcessClient) -> void
@@ -1640,14 +1843,22 @@ static AndroidX.WebKit.WebViewCompat.StartUpWebView(Android.Content.Context? con
 static AndroidX.WebKit.WebViewCompat.VariationsHeader.get -> string?
 static AndroidX.WebKit.WebViewFeature.IsFeatureSupported(string? feature) -> bool
 static AndroidX.WebKit.WebViewFeature.IsStartupFeatureSupported(Android.Content.Context? context, string? startupFeature) -> bool
+virtual AndroidX.WebKit.BackForwardCacheSettings.MaxPagesInCache.get -> int
+virtual AndroidX.WebKit.BackForwardCacheSettings.TimeoutSeconds.get -> long
 virtual AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.Accept(Java.Lang.Object? chromiumConfig) -> void
 virtual AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.Accept(Java.Util.Functions.IBiConsumer? chromiumConfig) -> void
-virtual AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.AddJavascriptInterface(Java.Lang.Object? object, string? name, System.Collections.Generic.IList<string!>? sitePatterns) -> void
+virtual AndroidX.WebKit.ChromiumLibBoundary.WebViewBuilderBoundaryInterfaceConfig.AddJavascriptInterface(Java.Lang.Object? object, string? name, System.Collections.Generic.IList<string!>? originPatterns) -> void
+virtual AndroidX.WebKit.CustomHeader.Name.get -> string?
+virtual AndroidX.WebKit.CustomHeader.Rules.get -> System.Collections.Generic.ICollection<string!>?
+virtual AndroidX.WebKit.CustomHeader.Value.get -> string?
 virtual AndroidX.WebKit.Internal.ApiFeature.IsSupported.get -> bool
 virtual AndroidX.WebKit.Internal.ApiFeature.IsSupportedByWebView.get -> bool
 virtual AndroidX.WebKit.Internal.ApiFeature.PublicFeatureName.get -> string?
 virtual AndroidX.WebKit.Internal.AssetHelper.OpenAsset(string? path) -> System.IO.Stream?
 virtual AndroidX.WebKit.Internal.AssetHelper.OpenResource(string? path) -> System.IO.Stream?
+virtual AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.GetOrCreatePeer(Java.Util.Concurrent.ICallable? creationCallable) -> Java.Lang.Object?
+virtual AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.MaxPagesInCache.get -> int
+virtual AndroidX.WebKit.Internal.BackForwardCacheSettingsImpl.TimeoutInSeconds.get -> int
 virtual AndroidX.WebKit.Internal.CookieManagerAdapter.GetCookieInfo(string? url) -> System.Collections.Generic.IList<string!>?
 virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.CreateWebView(Android.Webkit.WebView? webview) -> AndroidX.WebKit.ChromiumLibBoundary.IWebViewProviderBoundaryInterface?
 virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.DropDataProvider.get -> AndroidX.WebKit.ChromiumLibBoundary.IDropDataContentProviderBoundaryInterface?
@@ -1660,29 +1871,53 @@ virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.Statics.g
 virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.TracingController.get -> AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface?
 virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.WebViewBuilder.get -> AndroidX.WebKit.ChromiumLibBoundary.IWebViewBuilderBoundaryInterface?
 virtual AndroidX.WebKit.Internal.IncompatibleApkWebViewProviderFactory.WebkitToCompatConverter.get -> AndroidX.WebKit.ChromiumLibBoundary.IWebkitToCompatConverterBoundaryInterface?
-virtual AndroidX.WebKit.Internal.NavigationAdapter.DidCommit() -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.DidCommitErrorPage() -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsBack.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsForward.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsHistory.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsReload.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsRestore.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.IsSameDocument.get -> bool
-virtual AndroidX.WebKit.Internal.NavigationAdapter.Page.get -> AndroidX.WebKit.IPage?
-virtual AndroidX.WebKit.Internal.NavigationAdapter.StatusCode.get -> int
-virtual AndroidX.WebKit.Internal.NavigationAdapter.WasInitiatedByPage() -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.DidCommit() -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.DidCommitErrorPage() -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsBack.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsForward.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsHistory.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsReload.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsRestore.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.IsSameDocument.get -> bool
+virtual AndroidX.WebKit.Internal.NavigationImpl.Page.get -> AndroidX.WebKit.IPage?
+virtual AndroidX.WebKit.Internal.NavigationImpl.StatusCode.get -> int
+virtual AndroidX.WebKit.Internal.NavigationImpl.Url.get -> string?
+virtual AndroidX.WebKit.Internal.NavigationImpl.WasInitiatedByPage() -> bool
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.GetSupportedFeatures() -> string![]?
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnFirstContentfulPaint(Java.Lang.Reflect.IInvocationHandler? page, long loadTimeUs) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnNavigationCompleted(Java.Lang.Reflect.IInvocationHandler? navigation) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnNavigationRedirected(Java.Lang.Reflect.IInvocationHandler? navigation) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnNavigationStarted(Java.Lang.Reflect.IInvocationHandler? navigation) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnPageDOMContentLoadedEventFired(Java.Lang.Reflect.IInvocationHandler? page) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnPageDeleted(Java.Lang.Reflect.IInvocationHandler? page) -> void
+virtual AndroidX.WebKit.Internal.NavigationListenerAdapter.OnPageLoadEventFired(Java.Lang.Reflect.IInvocationHandler? page) -> void
 virtual AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.ConsideredQueryParameters.get -> System.Collections.Generic.IList<string!>?
 virtual AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.IgnoreDifferencesInParameters.get -> bool
 virtual AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.IgnoredQueryParameters.get -> System.Collections.Generic.IList<string!>?
 virtual AndroidX.WebKit.Internal.NoVarySearchHeaderAdapter.VaryOnKeyOrder.get -> bool
+virtual AndroidX.WebKit.Internal.ProfileImpl.AddCustomHeader(AndroidX.WebKit.CustomHeader? header) -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.AddQuicHints(System.Collections.Generic.ICollection<string!>? urls) -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.ClearAllCustomHeaders() -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.ClearAllOriginMatchedHeaders() -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.ClearCustomHeader(string? headerName) -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.ClearCustomHeader(string? headerName, string? headerValue) -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.ClearOriginMatchedHeader(string? headerName) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.ClearPrefetchAsync(string? url, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.IOutcomeReceiverCompat? callback) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.CookieManager.get -> Android.Webkit.CookieManager?
+virtual AndroidX.WebKit.Internal.ProfileImpl.CustomHeaders.get -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
 virtual AndroidX.WebKit.Internal.ProfileImpl.GeolocationPermissions.get -> Android.Webkit.GeolocationPermissions?
+virtual AndroidX.WebKit.Internal.ProfileImpl.GetCustomHeaders(string? name) -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
+virtual AndroidX.WebKit.Internal.ProfileImpl.GetCustomHeaders(string? name, string? value) -> System.Collections.Generic.ICollection<AndroidX.WebKit.CustomHeader!>?
+virtual AndroidX.WebKit.Internal.ProfileImpl.HasCustomHeader(string? headerName) -> bool
+virtual AndroidX.WebKit.Internal.ProfileImpl.HasOriginMatchedHeader(string? headerName) -> bool
 virtual AndroidX.WebKit.Internal.ProfileImpl.Name.get -> string?
+virtual AndroidX.WebKit.Internal.ProfileImpl.Preconnect(string? url) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.PrefetchUrlAsync(string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.IOutcomeReceiverCompat? callback) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.PrefetchUrlAsync(string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.SpeculativeLoadingParameters? params, AndroidX.WebKit.IOutcomeReceiverCompat? callback) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.ServiceWorkerController.get -> Android.Webkit.ServiceWorkerController?
+virtual AndroidX.WebKit.Internal.ProfileImpl.SetOriginMatchedHeader(string? headerName, string? headerValue, System.Collections.Generic.ICollection<string!>? originRules) -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.SetSpeculativeLoadingConfig(AndroidX.WebKit.SpeculativeLoadingConfig? speculativeLoadingConfig) -> void
+virtual AndroidX.WebKit.Internal.ProfileImpl.WarmUpRendererProcess() -> void
 virtual AndroidX.WebKit.Internal.ProfileImpl.WebStorage.get -> Android.Webkit.WebStorage?
 virtual AndroidX.WebKit.Internal.ProfileStoreImpl.AllProfileNames.get -> System.Collections.Generic.IList<string!>?
 virtual AndroidX.WebKit.Internal.ProfileStoreImpl.DeleteProfile(string? name) -> bool
@@ -1729,6 +1964,10 @@ virtual AndroidX.WebKit.Internal.WebSettingsAdapter.AttributionRegistrationBehav
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.AttributionRegistrationBehavior.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.BackForwardCacheEnabled.get -> bool
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.BackForwardCacheEnabled.set -> void
+virtual AndroidX.WebKit.Internal.WebSettingsAdapter.BackForwardCacheSettings.get -> AndroidX.WebKit.BackForwardCacheSettings?
+virtual AndroidX.WebKit.Internal.WebSettingsAdapter.BackForwardCacheSettings.set -> void
+virtual AndroidX.WebKit.Internal.WebSettingsAdapter.CookieAccessForShouldInterceptRequestEnabled.get -> bool
+virtual AndroidX.WebKit.Internal.WebSettingsAdapter.CookieAccessForShouldInterceptRequestEnabled.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.DisabledActionModeMenuItems.get -> int
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.DisabledActionModeMenuItems.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.EnterpriseAuthenticationAppLinkPolicyEnabled.get -> bool
@@ -1743,10 +1982,9 @@ virtual AndroidX.WebKit.Internal.WebSettingsAdapter.OffscreenPreRaster.get -> bo
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.OffscreenPreRaster.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.PaymentRequestEnabled.get -> bool
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.PaymentRequestEnabled.set -> void
-virtual AndroidX.WebKit.Internal.WebSettingsAdapter.RequestedWithHeaderOriginAllowList.get -> System.Collections.Generic.ICollection<string!>?
-virtual AndroidX.WebKit.Internal.WebSettingsAdapter.RequestedWithHeaderOriginAllowList.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.SafeBrowsingEnabled.get -> bool
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.SafeBrowsingEnabled.set -> void
+virtual AndroidX.WebKit.Internal.WebSettingsAdapter.SetHyperlinkContextMenuItems(int hyperlinkMenuItems) -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.SpeculativeLoadingStatus.get -> int
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.SpeculativeLoadingStatus.set -> void
 virtual AndroidX.WebKit.Internal.WebSettingsAdapter.UserAgentMetadata.get -> AndroidX.WebKit.UserAgentMetadata?
@@ -1758,6 +1996,7 @@ virtual AndroidX.WebKit.Internal.WebSettingsAdapter.WebViewMediaIntegrityApiStat
 virtual AndroidX.WebKit.Internal.WebStorageAdapter.DeleteBrowsingData(Java.Util.Concurrent.IExecutor? callbackExecutor, Java.Lang.IRunnable? doneCallback) -> void
 virtual AndroidX.WebKit.Internal.WebStorageAdapter.DeleteBrowsingDataForSite(string? domainOrUrl, Java.Util.Concurrent.IExecutor? callbackExecutor, Java.Lang.IRunnable? doneCallback) -> string?
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.AddDocumentStartJavaScript(string? script, string![]? allowedOriginRules) -> AndroidX.WebKit.Internal.ScriptHandlerImpl?
+virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.AddNavigationListener(Java.Util.Concurrent.IExecutor? executor, AndroidX.WebKit.INavigationListener? listener) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.AddWebMessageListener(string? jsObjectName, string![]? allowedOriginRules, AndroidX.WebKit.WebViewCompat.IWebMessageListener? listener) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.AudioMuted.get -> bool
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.AudioMuted.set -> void
@@ -1767,10 +2006,11 @@ virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.PostWebMessage(AndroidX.
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.PrerenderUrlAsync(string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.IPrerenderOperationCallback? callback) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.PrerenderUrlAsync(string? url, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? callbackExecutor, AndroidX.WebKit.SpeculativeLoadingParameters? params, AndroidX.WebKit.IPrerenderOperationCallback? callback) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.Profile.get -> AndroidX.WebKit.IProfile?
+virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.RemoveNavigationListener(AndroidX.WebKit.INavigationListener? listener) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.RemoveWebMessageListener(string? jsObjectName) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.SaveState(Android.OS.Bundle? outState, int maxSizeBytes, bool includeForwardState) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.SetProfileWithName(string? profileName) -> void
-virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.SetWebViewRenderProcessClient(Java.Util.Concurrent.IExecutor? executor, AndroidX.WebKit.WebViewRenderProcessClient? webViewRenderProcessClient) -> void
+virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.SetWebViewRenderProcessClient(Java.Util.Concurrent.IExecutor? executor, AndroidX.WebKit.WebViewRenderProcessClient? client) -> void
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.WebChromeClient.get -> Android.Webkit.WebChromeClient?
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.WebNavigationClient.get -> AndroidX.WebKit.IWebNavigationClient?
 virtual AndroidX.WebKit.Internal.WebViewProviderAdapter.WebNavigationClient.set -> void
@@ -1790,8 +2030,9 @@ virtual AndroidX.WebKit.Internal.WebViewProviderFactoryAdapter.WebViewBuilder.ge
 virtual AndroidX.WebKit.Internal.WebViewProviderFactoryAdapter.WebkitToCompatConverter.get -> AndroidX.WebKit.ChromiumLibBoundary.IWebkitToCompatConverterBoundaryInterface?
 virtual AndroidX.WebKit.Internal.WebViewRenderProcessClientAdapter.WebViewRenderProcessClient.get -> AndroidX.WebKit.WebViewRenderProcessClient?
 virtual AndroidX.WebKit.Internal.WebViewRenderProcessClientFrameworkAdapter.FrameworkRenderProcessClient.get -> AndroidX.WebKit.WebViewRenderProcessClient?
-virtual AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter.OnSuccess(Java.Lang.Reflect.IInvocationHandler! resultInvocationHandler) -> void
-virtual AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.BackgroundExecutor.get -> Java.Util.Concurrent.IExecutor!
+virtual AndroidX.WebKit.Internal.WebViewStartUpCallbackAdapter.OnSuccess(Java.Lang.Reflect.IInvocationHandler? resultInvocationHandler) -> void
+virtual AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.BackgroundExecutor.get -> Java.Util.Concurrent.IExecutor?
+virtual AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.ProfileNamesToLoad.get -> System.Collections.Generic.ICollection<string!>?
 virtual AndroidX.WebKit.Internal.WebViewStartUpConfigAdapter.ShouldRunUiThreadStartUpTasks() -> bool
 virtual AndroidX.WebKit.Internal.WebkitToCompatConverter.ConvertCookieManager(Android.Webkit.CookieManager? cookieManager) -> AndroidX.WebKit.Internal.CookieManagerAdapter?
 virtual AndroidX.WebKit.Internal.WebkitToCompatConverter.ConvertSafeBrowsingResponse(Android.Webkit.SafeBrowsingResponse? safeBrowsingResponse) -> Java.Lang.Reflect.IInvocationHandler?
@@ -1808,6 +2049,8 @@ virtual AndroidX.WebKit.Internal.WebkitToCompatConverter.ConvertWebStorage(Andro
 virtual AndroidX.WebKit.ProcessGlobalConfig.SetDataDirectorySuffix(Android.Content.Context? context, string? suffix) -> AndroidX.WebKit.ProcessGlobalConfig?
 virtual AndroidX.WebKit.ProcessGlobalConfig.SetDirectoryBasePaths(Android.Content.Context? context, Java.IO.File? dataDirectoryBasePath, Java.IO.File? cacheDirectoryBasePath) -> AndroidX.WebKit.ProcessGlobalConfig?
 virtual AndroidX.WebKit.ProcessGlobalConfig.SetPartitionedCookiesEnabled(Android.Content.Context? context, bool isEnabled) -> AndroidX.WebKit.ProcessGlobalConfig?
+virtual AndroidX.WebKit.ProcessGlobalConfig.SetUiThreadStartupMode(Android.Content.Context? context, int startupMode) -> AndroidX.WebKit.ProcessGlobalConfig?
+virtual AndroidX.WebKit.ProcessGlobalConfig.SetUiThreadStartupModeV2(Android.Content.Context? context, int startupMode) -> AndroidX.WebKit.ProcessGlobalConfig?
 virtual AndroidX.WebKit.SpeculativeLoadingConfig.MaxPrefetches.get -> int
 virtual AndroidX.WebKit.SpeculativeLoadingConfig.MaxPrerenders.get -> int
 virtual AndroidX.WebKit.SpeculativeLoadingConfig.PrefetchTtlSeconds.get -> int
@@ -1824,6 +2067,20 @@ virtual AndroidX.WebKit.WebMessageCompat.GetArrayBuffer() -> byte[]?
 virtual AndroidX.WebKit.WebMessageCompat.GetPorts() -> AndroidX.WebKit.WebMessagePortCompat![]?
 virtual AndroidX.WebKit.WebMessageCompat.Type.get -> int
 virtual AndroidX.WebKit.WebMessagePortCompat.WebMessageCallbackCompat.OnMessage(AndroidX.WebKit.WebMessagePortCompat? port, AndroidX.WebKit.WebMessageCompat? message) -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.Cookies.get -> System.Collections.Generic.IList<string!>?
+virtual AndroidX.WebKit.WebResourceResponseCompat.Cookies.set -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.Data.get -> System.IO.Stream?
+virtual AndroidX.WebKit.WebResourceResponseCompat.Data.set -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.Encoding.get -> string?
+virtual AndroidX.WebKit.WebResourceResponseCompat.Encoding.set -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.MimeType.get -> string?
+virtual AndroidX.WebKit.WebResourceResponseCompat.MimeType.set -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.ReasonPhrase.get -> string?
+virtual AndroidX.WebKit.WebResourceResponseCompat.ResponseHeaders.get -> System.Collections.Generic.IDictionary<string!, string!>?
+virtual AndroidX.WebKit.WebResourceResponseCompat.ResponseHeaders.set -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.SetStatusCodeAndReasonPhrase(int statusCode, string? reasonPhrase) -> void
+virtual AndroidX.WebKit.WebResourceResponseCompat.StatusCode.get -> int
+virtual AndroidX.WebKit.WebResourceResponseCompat.ToWebResourceResponse() -> Android.Webkit.WebResourceResponse?
 virtual AndroidX.WebKit.WebViewClientCompat.OnReceivedError(Android.Webkit.WebView? view, Android.Webkit.IWebResourceRequest? request, AndroidX.WebKit.WebResourceErrorCompat? error) -> void
 virtual AndroidX.WebKit.WebViewClientCompat.OnSafeBrowsingHit(Android.Webkit.WebView? view, Android.Webkit.IWebResourceRequest? request, int threatType, AndroidX.WebKit.SafeBrowsingResponseCompat? callback) -> void
 virtual AndroidX.WebKit.WebViewClientCompat.OnWebAuthnIntent(Android.Webkit.WebView? view, Android.App.PendingIntent? intent, Java.Lang.Reflect.IInvocationHandler? callback) -> bool
