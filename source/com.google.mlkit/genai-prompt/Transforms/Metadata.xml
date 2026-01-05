@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+  <!-- fix companions -->
+  <attr path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion']" name="managedName">CompanionStatic</attr>
+  <remove-node path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion' and count(method)=0 and count(field)=0]" />
+  <attr path="/api/package/class[substring(@name,string-length(@name)-7)='.Default']" name="managedName">DefaultStatic</attr>
+  <remove-node path="/api/package/class[substring(@name,string-length(@name)-7)='.Default' and count(method)=0 and count(field)=0]" />
+
+  <!-- remove all companions for now -->
+  <remove-node path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion']" />
+
+  <!-- remove unused Kotlin helpers -->
+  <remove-node path="/api/package/class[@name='GenerationConfigKt']" />
+  <remove-node path="/api/package/class[@name='GenerateContentRequestKt']" />
+
+  <!-- Remove the nested FinishReason interface to avoid conflict with the FinishReason property -->
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='Candidate.FinishReason']" />
+
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package/class/method[@name='component1']" />
+  <remove-node path="/api/package/class/method[@name='copy']" />
+
+  <!-- Remove obfuscated internal methods -->
+  <remove-node path="/api/package/interface/method[starts-with(@name,'zz')]" />
+  <remove-node path="/api/package/class/method[starts-with(@name,'zz')]" />
+
+</metadata>

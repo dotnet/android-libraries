@@ -862,6 +862,12 @@ Task ("spell-check")
                 "JavaNetCookieJar",
                 "FeatureCombinationQuery",
                 "HttpEngine",
+		        "ConnectClient",
+		        "ConnectClientExternalProtobuf",
+		        "ConnectClientProto",
+		        "NavigationEvent",
+		        "AirBnB",
+		        "DocumentScanner",                
            };
 
             var dictionary_custom = WeCantSpell.Hunspell.WordList.CreateFromWords(words);

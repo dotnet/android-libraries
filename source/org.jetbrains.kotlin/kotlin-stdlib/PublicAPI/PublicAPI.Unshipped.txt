@@ -380,7 +380,7 @@ Kotlin.IMetadata.Mv() -> int[]?
 Kotlin.IMetadata.Pn() -> string?
 Kotlin.IMetadata.Xi() -> int
 Kotlin.IMetadata.Xs() -> string?
-Kotlin.IMustUseReturnValue
+Kotlin.IMustUseReturnValues
 Kotlin.IO.AccessDeniedException
 Kotlin.IO.AccessDeniedException.AccessDeniedException(Java.IO.File! file, Java.IO.File? other, string? reason) -> void
 Kotlin.IO.ByteStreamsKt
@@ -489,6 +489,12 @@ Kotlin.JS.IExperimentalJsExport
 Kotlin.JS.IExperimentalJsFileName
 Kotlin.JS.IExperimentalJsReflectionCreateInstance
 Kotlin.JS.IExperimentalJsStatic
+Kotlin.JS.IJsImplicitExport
+Kotlin.JS.IJsImplicitExport.CouldBeConvertedToExplicitExport() -> bool
+Kotlin.JS.JsImplicitExportAttribute
+Kotlin.JS.JsImplicitExportAttribute.CouldBeConvertedToExplicitExport.get -> bool
+Kotlin.JS.JsImplicitExportAttribute.CouldBeConvertedToExplicitExport.set -> void
+Kotlin.JS.JsImplicitExportAttribute.JsImplicitExportAttribute() -> void
 Kotlin.Jdk7.AutoCloseableKt
 Kotlin.Jvm.Functions.IFunction0
 Kotlin.Jvm.Functions.IFunction0.Invoke() -> Java.Lang.Object?
@@ -569,8 +575,8 @@ Kotlin.Jvm.IVolatile
 Kotlin.Jvm.ImplicitlyActualizedByJvmDeclarationAttribute
 Kotlin.Jvm.ImplicitlyActualizedByJvmDeclarationAttribute.ImplicitlyActualizedByJvmDeclarationAttribute() -> void
 Kotlin.Jvm.Internal.AdaptedFunctionReference
-Kotlin.Jvm.Internal.AdaptedFunctionReference.AdaptedFunctionReference(int arity, Java.Lang.Class? owner, string? name, string? signature, int flags) -> void
-Kotlin.Jvm.Internal.AdaptedFunctionReference.AdaptedFunctionReference(int arity, Java.Lang.Object? receiver, Java.Lang.Class? owner, string? name, string? signature, int flags) -> void
+Kotlin.Jvm.Internal.AdaptedFunctionReference.AdaptedFunctionReference(int arity, Java.Lang.Class? owner, string? name, string? signature, int flagsWithIsTopLevel) -> void
+Kotlin.Jvm.Internal.AdaptedFunctionReference.AdaptedFunctionReference(int arity, Java.Lang.Object? receiver, Java.Lang.Class? owner, string? name, string? signature, int flagsWithIsTopLevel) -> void
 Kotlin.Jvm.Internal.AdaptedFunctionReference.AdaptedFunctionReference(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Kotlin.Jvm.Internal.AdaptedFunctionReference.Receiver.get -> Java.Lang.Object?
 Kotlin.Jvm.Internal.AdaptedFunctionReference.Receiver.set -> void
@@ -639,7 +645,7 @@ Kotlin.Jvm.Internal.FunInterfaceConstructorReference.FunInterfaceConstructorRefe
 Kotlin.Jvm.Internal.FunctionReference
 Kotlin.Jvm.Internal.FunctionReference.FunctionReference(int arity) -> void
 Kotlin.Jvm.Internal.FunctionReference.FunctionReference(int arity, Java.Lang.Object? receiver) -> void
-Kotlin.Jvm.Internal.FunctionReference.FunctionReference(int arity, Java.Lang.Object? receiver, Java.Lang.Class? owner, string? name, string? signature, int flags) -> void
+Kotlin.Jvm.Internal.FunctionReference.FunctionReference(int arity, Java.Lang.Object? receiver, Java.Lang.Class? owner, string? name, string? signature, int flagsWithIsTopLevel) -> void
 Kotlin.Jvm.Internal.FunctionReference.FunctionReference(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Kotlin.Jvm.Internal.IClassBasedDeclarationContainer
 Kotlin.Jvm.Internal.IClassBasedDeclarationContainer.JClass.get -> Java.Lang.Class!
@@ -922,8 +928,8 @@ Kotlin.MetadataAttribute.Xi.set -> void
 Kotlin.MetadataAttribute.Xs.get -> string?
 Kotlin.MetadataAttribute.Xs.set -> void
 Kotlin.MetadataDefaultImpls
-Kotlin.MustUseReturnValueAttribute
-Kotlin.MustUseReturnValueAttribute.MustUseReturnValueAttribute() -> void
+Kotlin.MustUseReturnValuesAttribute
+Kotlin.MustUseReturnValuesAttribute.MustUseReturnValuesAttribute() -> void
 Kotlin.NoWhenBranchMatchedException
 Kotlin.NoWhenBranchMatchedException.NoWhenBranchMatchedException() -> void
 Kotlin.NoWhenBranchMatchedException.NoWhenBranchMatchedException(Java.Lang.Throwable? cause) -> void
@@ -1394,6 +1400,7 @@ Kotlin.Time.Duration.CompareTo(Java.Lang.Object? p0) -> int
 Kotlin.Time.Duration.CompareTo(long other) -> int
 Kotlin.Time.DurationJvmKt
 Kotlin.Time.DurationKt
+Kotlin.Time.DurationKt.WhenMappings
 Kotlin.Time.DurationUnit
 Kotlin.Time.DurationUnitKt
 Kotlin.Time.ExperimentalTimeAttribute
@@ -1577,11 +1584,17 @@ Kotlin.Uuid.Uuid.CompanionStatic.FromByteArray(byte[]! byteArray) -> Kotlin.Uuid
 Kotlin.Uuid.Uuid.CompanionStatic.FromLongs(long mostSignificantBits, long leastSignificantBits) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.FromUByteArray_GBYM_sE(byte[]! _v_c_kotlin_UByteArray__ubyteArray_0) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.FromULongs_eb3DHEI(ulong _v_c_kotlin_ULong__mostSignificantBits_0, ulong _v_c_kotlin_ULong__leastSignificantBits_0) -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.GenerateV4() -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.GenerateV7() -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.GenerateV7NonMonotonicAt(Kotlin.Time.Instant! timestamp) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.LEXICAL_ORDER.get -> Java.Util.IComparator!
 Kotlin.Uuid.Uuid.CompanionStatic.NIL.get -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.Parse(string! uuidString) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.ParseHex(string! hexString) -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompanionStatic.ParseHexDash(string! hexDashString) -> Kotlin.Uuid.Uuid!
+Kotlin.Uuid.Uuid.CompanionStatic.ParseHexDashOrNull(string! hexDashString) -> Kotlin.Uuid.Uuid?
+Kotlin.Uuid.Uuid.CompanionStatic.ParseHexOrNull(string! hexString) -> Kotlin.Uuid.Uuid?
+Kotlin.Uuid.Uuid.CompanionStatic.ParseOrNull(string! uuidString) -> Kotlin.Uuid.Uuid?
 Kotlin.Uuid.Uuid.CompanionStatic.Random() -> Kotlin.Uuid.Uuid!
 Kotlin.Uuid.Uuid.CompareTo(Java.Lang.Object! other) -> int
 Kotlin.Uuid.Uuid.LeastSignificantBits.get -> long
@@ -1686,6 +1699,7 @@ const Kotlin.Text.Typography.RightSingleQuote = '’' -> char
 const Kotlin.Text.Typography.Section = '§' -> char
 const Kotlin.Text.Typography.Times = '×' -> char
 const Kotlin.Text.Typography.Tm = '™' -> char
+const Kotlin.Time.Duration.InvalidRawValue = 9223372036854759646 -> long
 const Kotlin.UByte.MaxValue = -1 -> sbyte
 const Kotlin.UByte.MinValue = 0 -> sbyte
 const Kotlin.UByte.SizeBits = 8 -> int
@@ -2199,6 +2213,7 @@ override Kotlin.Time.Duration.CompanionStatic.JniPeerMembers.get -> Java.Interop
 override Kotlin.Time.Duration.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Time.DurationJvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Time.DurationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Kotlin.Time.DurationKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Time.DurationUnit.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Time.DurationUnitKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Time.Instant.CompanionStatic.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -4312,7 +4327,6 @@ static Kotlin.ExceptionsKt.StackTraceToString(Java.Lang.Throwable! _this_stackTr
 static Kotlin.IO.ByteStreamsKt.CopyTo(System.IO.Stream! obj, System.IO.Stream! out, int bufferSize) -> long
 static Kotlin.IO.ByteStreamsKt.Iterator(Java.IO.BufferedInputStream! obj) -> Kotlin.Collections.ByteIterator!
 static Kotlin.IO.ByteStreamsKt.ReadBytes(System.IO.Stream! obj) -> byte[]!
-static Kotlin.IO.ByteStreamsKt.ReadBytes(System.IO.Stream! obj, int estimatedSize) -> byte[]!
 static Kotlin.IO.ConsoleKt.ReadLine() -> string?
 static Kotlin.IO.ConsoleKt.Readln() -> string!
 static Kotlin.IO.ConsoleKt.ReadlnOrNull() -> string?
@@ -5463,6 +5477,7 @@ static Kotlin.Text.StringsKt.SingleOrNull(Java.Lang.ICharSequence! _this_singleO
 static Kotlin.Text.StringsKt.SingleOrNull(Java.Lang.ICharSequence! _this_singleOrNull, Kotlin.Jvm.Functions.IFunction1! predicate) -> Java.Lang.Character?
 static Kotlin.Text.StringsKt.SingleOrNull(string! _this_singleOrNull) -> Java.Lang.Character?
 static Kotlin.Text.StringsKt.SingleOrNull(string! _this_singleOrNull, Kotlin.Jvm.Functions.IFunction1! predicate) -> Java.Lang.Character?
+static Kotlin.Text.StringsKt.SkipWhile(string! _this_skipWhile, int startIndex, Kotlin.Jvm.Functions.IFunction1! predicate) -> int
 static Kotlin.Text.StringsKt.Slice(string! _this_slice, Java.Lang.IIterable! indices) -> string!
 static Kotlin.Text.StringsKt.Slice(string! _this_slice, Kotlin.Ranges.IntRange! indices) -> string!
 static Kotlin.Text.StringsKt.SliceFormatted(Java.Lang.ICharSequence! _this_slice, Java.Lang.IIterable! indices) -> Java.Lang.ICharSequence!
@@ -5629,8 +5644,7 @@ static Kotlin.Time.DurationUnit.Values() -> Kotlin.Time.DurationUnit![]?
 static Kotlin.Time.DurationUnitKt.ConvertDurationUnit(double value, Kotlin.Time.DurationUnit! sourceUnit, Kotlin.Time.DurationUnit! targetUnit) -> double
 static Kotlin.Time.DurationUnitKt.ConvertDurationUnit(long value, Kotlin.Time.DurationUnit! sourceUnit, Kotlin.Time.DurationUnit! targetUnit) -> long
 static Kotlin.Time.DurationUnitKt.ConvertDurationUnitOverflow(long value, Kotlin.Time.DurationUnit! sourceUnit, Kotlin.Time.DurationUnit! targetUnit) -> long
-static Kotlin.Time.DurationUnitKt.DurationUnitByIsoChar(char isoChar, bool isTimeComponent) -> Kotlin.Time.DurationUnit!
-static Kotlin.Time.DurationUnitKt.DurationUnitByShortName(string! shortName) -> Kotlin.Time.DurationUnit!
+static Kotlin.Time.DurationUnitKt.ConvertDurationUnitToMilliseconds(long value, Kotlin.Time.DurationUnit! unit) -> long
 static Kotlin.Time.DurationUnitKt.ShortName(Kotlin.Time.DurationUnit! _this_shortName) -> string!
 static Kotlin.Time.DurationUnitKt.ToDurationUnit(Java.Util.Concurrent.TimeUnit! _this_toDurationUnit) -> Kotlin.Time.DurationUnit!
 static Kotlin.Time.DurationUnitKt.ToTimeUnit(Kotlin.Time.DurationUnit! _this_toTimeUnit) -> Java.Util.Concurrent.TimeUnit!
@@ -5670,7 +5684,6 @@ static Kotlin.UShortArray.Get(short[]? _v_c_kotlin_UShortArray__this_0, int inde
 static Kotlin.UShortArray.Set(short[]? _v_c_kotlin_UShortArray__this_0, int index, ushort _v_c_kotlin_UShort__value_0) -> void
 static Kotlin.Unit.Instance.get -> Kotlin.Unit!
 static Kotlin.Uuid.Uuid.Companion.get -> Kotlin.Uuid.Uuid.CompanionStatic!
-static Kotlin.Uuid.UuidKt.CheckHyphenAt(string! _this_checkHyphenAt, int index) -> void
 static Kotlin.Uuid.UuidKt.FormatBytesInto(long _this_formatBytesInto, byte[]! dst, int dstOffset, int startIndex, int endIndex) -> void
 static Kotlin.Uuid.UuidKt.FormatBytesIntoCommonImpl(long _this_formatBytesIntoCommonImpl, byte[]! dst, int dstOffset, int startIndex, int endIndex) -> void
 static Kotlin.Uuid.UuidKt.GetLongAt(byte[]! _this_getLongAt, int index) -> long
@@ -5680,17 +5693,26 @@ static Kotlin.Uuid.UuidKt.GetUuid(Java.Nio.ByteBuffer! _this_getUuid, int index)
 static Kotlin.Uuid.UuidKt.PutUuid(Java.Nio.ByteBuffer! _this_putUuid, Kotlin.Uuid.Uuid! uuid) -> Java.Nio.ByteBuffer!
 static Kotlin.Uuid.UuidKt.PutUuid(Java.Nio.ByteBuffer! _this_putUuid, int index, Kotlin.Uuid.Uuid! uuid) -> Java.Nio.ByteBuffer!
 static Kotlin.Uuid.UuidKt.ReverseBytes(long _this_reverseBytes) -> long
+static Kotlin.Uuid.UuidKt.SecureRandomBytes(byte[]! destination) -> void
 static Kotlin.Uuid.UuidKt.SecureRandomUuid() -> Kotlin.Uuid.Uuid!
 static Kotlin.Uuid.UuidKt.SerializedUuid(Kotlin.Uuid.Uuid! uuid) -> Java.Lang.Object!
 static Kotlin.Uuid.UuidKt.SetLongAt(byte[]! _this_setLongAt, int index, long value) -> void
 static Kotlin.Uuid.UuidKt.SetLongAtCommonImpl(byte[]! _this_setLongAtCommonImpl, int index, long value) -> void
 static Kotlin.Uuid.UuidKt.ToJavaUuid(Kotlin.Uuid.Uuid! _this_toJavaUuid) -> Java.Util.UUID!
 static Kotlin.Uuid.UuidKt.ToKotlinUuid(Java.Util.UUID! _this_toKotlinUuid) -> Kotlin.Uuid.Uuid!
+static Kotlin.Uuid.UuidKt.UuidCheckHyphenAt(string! _this_uuidCheckHyphenAt, int index, Kotlin.Jvm.Functions.IFunction3! onError) -> void
 static Kotlin.Uuid.UuidKt.UuidFromRandomBytes(byte[]! randomBytes) -> Kotlin.Uuid.Uuid!
 static Kotlin.Uuid.UuidKt.UuidParseHex(string! hexString) -> Kotlin.Uuid.Uuid!
 static Kotlin.Uuid.UuidKt.UuidParseHexCommonImpl(string! hexString) -> Kotlin.Uuid.Uuid!
+static Kotlin.Uuid.UuidKt.UuidParseHexCommonImpl(string! hexString, Kotlin.Jvm.Functions.IFunction3! onError) -> Kotlin.Uuid.Uuid!
 static Kotlin.Uuid.UuidKt.UuidParseHexDash(string! hexDashString) -> Kotlin.Uuid.Uuid!
 static Kotlin.Uuid.UuidKt.UuidParseHexDashCommonImpl(string! hexDashString) -> Kotlin.Uuid.Uuid!
+static Kotlin.Uuid.UuidKt.UuidParseHexDashCommonImpl(string! hexDashString, Kotlin.Jvm.Functions.IFunction3! onError) -> Kotlin.Uuid.Uuid!
+static Kotlin.Uuid.UuidKt.UuidParseHexDashOrNull(string! hexDashString) -> Kotlin.Uuid.Uuid?
+static Kotlin.Uuid.UuidKt.UuidParseHexDashOrNullCommonImpl(string! hexDashString) -> Kotlin.Uuid.Uuid?
+static Kotlin.Uuid.UuidKt.UuidParseHexOrNull(string! hexString) -> Kotlin.Uuid.Uuid?
+static Kotlin.Uuid.UuidKt.UuidParseHexOrNullCommonImpl(string! hexString) -> Kotlin.Uuid.Uuid?
+static Kotlin.Uuid.UuidKt.UuidThrowUnexpectedCharacterException(string! inputString, string! errorDescription, int errorIndex) -> Java.Lang.Void!
 virtual Kotlin.Collections.AbstractCollection.Add(Java.Lang.Object? element) -> bool
 virtual Kotlin.Collections.AbstractCollection.AddAll(System.Collections.ICollection? elements) -> bool
 virtual Kotlin.Collections.AbstractCollection.Clear() -> void

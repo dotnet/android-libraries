@@ -2,9 +2,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using Android.App;
 
-[assembly: AssemblyMetadata ("BUILD_COMMIT",      "{BUILD_COMMIT}")]
-[assembly: AssemblyMetadata ("BUILD_NUMBER",    "{BUILD_NUMBER}")]
-[assembly: AssemblyMetadata ("BUILD_TIMESTAMP", "{BUILD_TIMESTAMP}")]
+[assembly: AssemblyMetadata ("BUILD_COMMIT",      "DEV")]
+[assembly: AssemblyMetadata ("BUILD_NUMBER",    "DEBUG")]
+[assembly: AssemblyMetadata ("BUILD_TIMESTAMP", "12/08/2025 09:14:56")]
 
 #if !NETCOREAPP
 [assembly: Android.LinkerSafe]

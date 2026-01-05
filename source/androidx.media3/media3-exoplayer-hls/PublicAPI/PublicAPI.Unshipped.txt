@@ -26,6 +26,18 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdCompletedEventArgs.AdG
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdCompletedEventArgs.AdIndexInAdGroup.get -> int
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdCompletedEventArgs.AdsId.get -> Java.Lang.Object?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdCompletedEventArgs.MediaItem.get -> AndroidX.Media3.Common.MediaItem?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs.AdGroupIndex.get -> int
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs.AdIndexInAdGroup.get -> int
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs.AdSkippedEventArgs(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs.AdsId.get -> Java.Lang.Object?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdSkippedEventArgs.MediaItem.get -> AndroidX.Media3.Common.MediaItem?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs.AdGroupIndex.get -> int
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs.AdIndexInAdGroup.get -> int
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs.AdStartedEventArgs(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs.AdsId.get -> Java.Lang.Object?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdStartedEventArgs.MediaItem.get -> AndroidX.Media3.Common.MediaItem?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AddAdResumptionState(AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdsResumptionState? adsResumptionState) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AddAdResumptionState(Java.Lang.Object? adsId, AndroidX.Media3.Common.AdPlaybackState? adPlaybackState) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AddListener(AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener? listener) -> void
@@ -50,6 +62,8 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.Asset.Uri.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.Assets.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.Assets.set -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.SkipInfo.get -> AndroidX.Media3.Common.AdPlaybackState.SkipInfo?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.SkipInfo.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.StringAttributes.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.StringAttributes.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs
@@ -86,6 +100,8 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.HlsInterstitialsAdsLoade
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.HlsInterstitialsAdsLoader(AndroidX.Media3.DataSource.IDataSourceFactory? dataSourceFactory) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdCompleted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdSkipped(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdStarted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadCompleted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList? assetList) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadFailed(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, Java.IO.IOException? ioException, bool cancelled) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadStarted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
@@ -95,6 +111,7 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnPrepareCompl
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnPrepareError(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, Java.IO.IOException? exception) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnStart(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, AndroidX.Media3.Common.IAdViewProvider? adViewProvider) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnStop(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, AndroidX.Media3.Common.AdPlaybackState? adPlaybackState) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IsReleased.get -> bool
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.MetadataEventArgs
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.MetadataEventArgs.AdGroupIndex.get -> int
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.MetadataEventArgs.AdIndexInAdGroup.get -> int
@@ -120,6 +137,12 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.RemoveAdResumptionState(
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.RemoveListener(AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener? listener) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetPlayer(AndroidX.Media3.Common.IPlayer? player) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetSupportedContentTypes(params int[]? contentTypes) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetWithAvailableAdGroup(int adGroupIndex) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetWithAvailableAdMediaItem(int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.Common.MediaItem? mediaItem) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetWithSkippedAd(int adGroupIndex, int adIndexInAdGroup) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SetWithSkippedAdGroup(int adGroupIndex) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SkipCurrentAd() -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.SkipCurrentAdGroup() -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.Start(AndroidX.Media3.ExoPlayer.Source.Ads.AdsMediaSource? adsMediaSource, AndroidX.Media3.DataSource.DataSpec? adTagDataSpec, Java.Lang.Object? adsId, AndroidX.Media3.Common.IAdViewProvider? adViewProvider, AndroidX.Media3.ExoPlayer.Source.Ads.IAdsLoaderEventListener? eventListener) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StartEventArgs
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StartEventArgs.AdViewProvider.get -> AndroidX.Media3.Common.IAdViewProvider?
@@ -230,8 +253,6 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistParserFactory.DefaultHl
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.AddListener(AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerPlaylistEventListener? listener) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.DeactivatePlaylistForPlayback(Android.Net.Uri? url) -> void
-AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.DefaultHlsPlaylistTracker(AndroidX.Media3.ExoPlayer.Hls.IHlsDataSourceFactory? dataSourceFactory, AndroidX.Media3.ExoPlayer.Upstream.ILoadErrorHandlingPolicy? loadErrorHandlingPolicy, AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory? playlistParserFactory, AndroidX.Media3.ExoPlayer.Upstream.CmcdConfiguration? cmcdConfiguration) -> void
-AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.DefaultHlsPlaylistTracker(AndroidX.Media3.ExoPlayer.Hls.IHlsDataSourceFactory? dataSourceFactory, AndroidX.Media3.ExoPlayer.Upstream.ILoadErrorHandlingPolicy? loadErrorHandlingPolicy, AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory? playlistParserFactory, AndroidX.Media3.ExoPlayer.Upstream.CmcdConfiguration? cmcdConfiguration, double playlistStuckTargetDurationCoefficient) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.ExcludeMediaPlaylist(Android.Net.Uri? playlistUrl, long exclusionDurationMs) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.GetPlaylistSnapshot(Android.Net.Uri? url, bool isForPlayback) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.InitialStartTimeUs.get -> long
@@ -300,6 +321,9 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.Set
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetPlayoutLimitUs(long playoutLimitUs) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetRestrictions(System.Collections.Generic.IList<string!>? restrictions) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetResumeOffsetUs(long resumeOffsetUs) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetSkipControlDurationUs(long skipControlDurationUs) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetSkipControlLabelId(string? skipControlLabelId) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetSkipControlOffsetUs(long skipControlOffsetUs) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetSnapTypes(System.Collections.Generic.IList<string!>? snapTypes) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetStartDateUnixUs(long startDateUnixUs) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder.SetTimelineOccupies(string? timelineOccupies) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Builder?
@@ -323,7 +347,7 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.ITimelineOc
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.ITimelineStyleType
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Id.get -> string?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Id.set -> void
-AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Interstitial(string? id, Android.Net.Uri? assetUri, Android.Net.Uri? assetListUri, long startDateUnixUs, long endDateUnixUs, long durationUs, long plannedDurationUs, System.Collections.Generic.IList<string!>? cue, bool endOnNext, long resumeOffsetUs, long playoutLimitUs, System.Collections.Generic.IList<string!>? snapTypes, System.Collections.Generic.IList<string!>? restrictions, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.ClientDefinedAttribute!>? clientDefinedAttributes, bool contentMayVary, string? timelineOccupies, string? timelineStyle) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Interstitial(string? id, Android.Net.Uri? assetUri, Android.Net.Uri? assetListUri, long startDateUnixUs, long endDateUnixUs, long durationUs, long plannedDurationUs, System.Collections.Generic.IList<string!>? cue, bool endOnNext, long resumeOffsetUs, long playoutLimitUs, System.Collections.Generic.IList<string!>? snapTypes, System.Collections.Generic.IList<string!>? restrictions, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.ClientDefinedAttribute!>? clientDefinedAttributes, bool contentMayVary, string? timelineOccupies, string? timelineStyle, long skipControlOffsetUs, long skipControlDurationUs, string? skipControlLabelId) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.PlannedDurationUs.get -> long
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.PlannedDurationUs.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.PlayoutLimitUs.get -> long
@@ -332,6 +356,12 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Restriction
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.Restrictions.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.ResumeOffsetUs.get -> long
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.ResumeOffsetUs.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlDurationUs.get -> long
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlDurationUs.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlLabelId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlLabelId.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlOffsetUs.get -> long
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SkipControlOffsetUs.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SnapTypes.get -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.SnapTypes.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.Interstitial.StartDateUnixUs.get -> long
@@ -520,7 +550,6 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.RemoveListener(Androi
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.Start(Android.Net.Uri? p0, AndroidX.Media3.ExoPlayer.Source.MediaSourceEventListenerEventDispatcher? p1, AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerPrimaryPlaylistListener? p2) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.Stop() -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerFactory
-AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerFactory.CreateTracker(AndroidX.Media3.ExoPlayer.Hls.IHlsDataSourceFactory? p0, AndroidX.Media3.ExoPlayer.Upstream.ILoadErrorHandlingPolicy? p1, AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory? p2, AndroidX.Media3.ExoPlayer.Upstream.CmcdConfiguration? p3) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerPlaylistEventListener
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerPlaylistEventListener.OnPlaylistChanged() -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTrackerPlaylistEventListener.OnPlaylistError(Android.Net.Uri? p0, AndroidX.Media3.ExoPlayer.Upstream.LoadErrorHandlingPolicyLoadErrorInfo? p1, bool p2) -> bool

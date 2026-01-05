@@ -37,14 +37,21 @@ Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder.Builder() -> void
 Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.Ads.InteractiveMedia.PAL.NonceRequest.NonceRequest() -> void
 Google.Ads.InteractiveMedia.PAL.NonceRequest.NonceRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder.AllowStorage(Java.Lang.Boolean! p0) -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
+Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings
+Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.TcfConsentSettings(Android.Content.ISharedPreferences! sharedPreferences) -> void
+Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.TcfConsentSettings(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder.Build() -> Google.Ads.InteractiveMedia.PAL.ConsentSettings!
 abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder.DirectedForChildOrUnknownAge(Java.Lang.Boolean! p0) -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
 abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder.EnableCookiesFor3pServerSideAdInsertion(Java.Lang.Boolean? p0) -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
+abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder.ForceLimitedAds(bool p0) -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
+abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.DirectedForChildOrUnknownAge() -> Java.Lang.Boolean!
+abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.ForceLimitedAds() -> bool
 abstract Google.Ads.InteractiveMedia.PAL.ConsentSettings.ToBuilder() -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
 abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder.Build() -> Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings!
 abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder.DisableFirstPartyIdentifiers(bool p0) -> Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder!
 abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder.DisableLimitedAdsStorage(bool p0) -> Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder!
+abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.DisableFirstPartyIdentifiers() -> bool
+abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.DisableLimitedAdsStorage() -> bool
 abstract Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.ToBuilder() -> Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder!
 abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder.Build() -> Google.Ads.InteractiveMedia.PAL.NonceRequest!
 abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder.ContinuousPlayback(Java.Lang.Boolean? p0) -> Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder!
@@ -80,8 +87,8 @@ abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.VideoPlayerHeight() -> Jav
 abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.VideoPlayerWidth() -> Java.Lang.Integer?
 abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.WillAdAutoPlay() -> Java.Lang.Boolean?
 abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.WillAdPlayMuted() -> Java.Lang.Boolean?
-abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Zza() -> Google.Ads.InteractiveMedia.PAL.IPlatformSignalCollector?
-abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Zzb() -> Java.Lang.Integer?
+abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Zza() -> Java.Lang.Integer?
+abstract Google.Ads.InteractiveMedia.PAL.NonceRequest.Zzb() -> Google.Ads.InteractiveMedia.PAL.IPlatformSignalCollector?
 const Google.Ads.InteractiveMedia.PAL.NonceLoaderException.ErrorCodes.EmptyNonce = 101 -> int
 const Google.Ads.InteractiveMedia.PAL.NonceLoaderException.ErrorCodes.EncryptionFailed = 204 -> int
 const Google.Ads.InteractiveMedia.PAL.NonceLoaderException.ErrorCodes.FailedToLoadKeyset = 203 -> int
@@ -111,8 +118,13 @@ override Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder.ThresholdType.get 
 override Google.Ads.InteractiveMedia.PAL.NonceRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Ads.InteractiveMedia.PAL.NonceRequest.ThresholdClass.get -> nint
 override Google.Ads.InteractiveMedia.PAL.NonceRequest.ThresholdType.get -> System.Type!
+override Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.ThresholdClass.get -> nint
+override Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.ThresholdType.get -> System.Type!
 static Google.Ads.InteractiveMedia.PAL.ConsentSettings.InvokeBuilder() -> Google.Ads.InteractiveMedia.PAL.ConsentSettings.Builder!
 static Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.InvokeBuilder() -> Google.Ads.InteractiveMedia.PAL.GoogleAdManagerSettings.Builder!
 static Google.Ads.InteractiveMedia.PAL.NonceLoader.Zza.get -> int
-static Google.Ads.InteractiveMedia.PAL.NonceLoaderException.Zzb(int p0) -> Google.Ads.InteractiveMedia.PAL.NonceLoaderException!
+static Google.Ads.InteractiveMedia.PAL.NonceLoaderException.Zza(int p0) -> Google.Ads.InteractiveMedia.PAL.NonceLoaderException!
 static Google.Ads.InteractiveMedia.PAL.NonceRequest.InvokeBuilder() -> Google.Ads.InteractiveMedia.PAL.NonceRequest.Builder!
+virtual Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.GdprApplies() -> bool
+virtual Google.Ads.InteractiveMedia.Pal.Utils.Tcf.TcfConsentSettings.IsStorageAllowed.get -> bool

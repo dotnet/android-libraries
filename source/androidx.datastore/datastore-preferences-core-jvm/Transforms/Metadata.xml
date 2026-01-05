@@ -2,6 +2,14 @@
     <remove-node
         path="/api/package[@name='androidx.datastore.preferences.protobuf']/class[@name='Internal']"
         />
+    
+    <!-- Rename JVM variant namespace to avoid CS0433 conflict with Android variant -->
+    <attr
+        path="/api/package[@name='androidx.datastore.preferences.core']"
+        name="managedName"
+        >
+        AndroidX.DataStore.Preferences.Core.Jvm
+    </attr>
 
     <attr
         path="/api/package[@name='androidx.datastore.preferences.protobuf']/interface/method"
@@ -56,6 +64,12 @@
         Java.Lang.Object
     </attr>
     <attr
+        path="/api/package[@name='androidx.datastore.preferences.core']/class[@name='PreferencesFileSerializer']/method[@name='getDefaultValue' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
         path="/api/package[@name='androidx.datastore.preferences.protobuf']/class[@name='GeneratedMessageLite.Builder']/method[@name='getDefaultInstanceForType' and count(parameter)=0]"
         name="managedReturn"
         >
@@ -63,6 +77,12 @@
     </attr>
     <attr
         path="/api/package[@name='androidx.datastore.preferences.core']/class[@name='PreferencesSerializer']/method[@name='writeTo' and count(parameter)=3 and parameter[1][@type='androidx.datastore.preferences.core.Preferences'] and parameter[2][@type='okio.BufferedSink'] and parameter[3][@type='kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt;']]/parameter[1]"
+        name="managedType"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.datastore.preferences.core']/class[@name='PreferencesFileSerializer']/method[@name='writeTo' and count(parameter)=3 and parameter[1][@type='androidx.datastore.preferences.core.Preferences'] and parameter[2][@type='java.io.OutputStream'] and parameter[3][@type='kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt;']]/parameter[1]"
         name="managedType"
         >
         Java.Lang.Object

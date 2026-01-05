@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+  <!-- Remove the nested ErrorCode interface to avoid conflict with the ErrorCode property -->
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common']/interface[@name='GenAiException.ErrorCode']" />
+  
+  <!-- Remove unused internal classes -->
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.common.internal']" />
+
+  <!-- Remove Kotlin data class synthetic methods -->
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package/class/method[@name='component1']" />
+  <remove-node path="/api/package/class/method[@name='copy']" />
+
+  <!-- Remove obfuscated internal methods -->
+  <remove-node path="/api/package/interface/method[starts-with(@name,'zz')]" />
+  <remove-node path="/api/package/class/method[starts-with(@name,'zz')]" />
+
+  <!-- Rename getE to a proper property name -->
+  <attr path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='DownloadStatus.DownloadFailed']/method[@name='getE']" name="managedName">GetException</attr>
+
+  <!-- Rename GenAiException to GenAIException for proper AI casing -->
+  <attr path="/api/package[@name='com.google.mlkit.genai.common']/class[@name='GenAiException']" name="managedName">GenAIException</attr>
+
+</metadata>

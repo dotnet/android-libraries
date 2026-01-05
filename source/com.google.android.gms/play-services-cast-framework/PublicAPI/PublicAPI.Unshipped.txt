@@ -305,6 +305,19 @@ Android.Gms.Cast.Framework.SessionTransferCallback.ITransferFailedReason
 Android.Gms.Cast.Framework.SessionTransferCallback.ITransferType
 Android.Gms.Cast.Framework.SessionTransferCallback.SessionTransferCallback() -> void
 Android.Gms.Cast.Framework.SessionTransferCallback.SessionTransferCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult
+Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.DeviceSuggestionResult(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.DeviceSuggestionResult(string! routeId, string! deviceName, int confidence) -> void
+Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.IConfidence
+Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestions
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsCallback
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsCallback.OnDeviceSuggestionExpired(Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult! p0) -> void
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsCallback.OnDeviceSuggestionReceived(Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult! p0) -> void
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient.ClearClientData() -> Android.Gms.Tasks.Task!
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient.RegisterCallback(Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsCallback! p0) -> Android.Gms.Tasks.Task!
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient.RequestDeviceSuggestions() -> Android.Gms.Tasks.Task!
+Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient.UnregisterCallback(Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsCallback! p0) -> Android.Gms.Tasks.Task!
 abstract Android.Gms.Cast.Framework.Media.NotificationActionsProvider.GetCompactViewActionIndices() -> int[]!
 abstract Android.Gms.Cast.Framework.Media.NotificationActionsProvider.NotificationActions.get -> System.Collections.Generic.IList<Android.Gms.Cast.Framework.Media.NotificationAction!>!
 abstract Android.Gms.Cast.Framework.Session.End(bool p0) -> void
@@ -351,6 +364,9 @@ const Android.Gms.Cast.Framework.SessionTransferCallback.TransferFailedReasonSto
 const Android.Gms.Cast.Framework.SessionTransferCallback.TransferFailedReasonTransferTimeout = 101 -> int
 const Android.Gms.Cast.Framework.SessionTransferCallback.TransferTypeFromRemoteToLocal = 1 -> int
 const Android.Gms.Cast.Framework.SessionTransferCallback.TransferTypeUnknown = 0 -> int
+const Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.ConfidenceHigh = 3 -> int
+const Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.ConfidenceLow = 1 -> int
+const Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.ConfidenceMid = 2 -> int
 override Android.Gms.Cast.Framework.CastButtonFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Cast.Framework.CastContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Cast.Framework.CastContext.ThresholdClass.get -> nint
@@ -468,6 +484,11 @@ override Android.Gms.Cast.Framework.SessionProvider.ThresholdType.get -> System.
 override Android.Gms.Cast.Framework.SessionTransferCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Cast.Framework.SessionTransferCallback.ThresholdClass.get -> nint
 override Android.Gms.Cast.Framework.SessionTransferCallback.ThresholdType.get -> System.Type!
+override Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.ThresholdClass.get -> nint
+override Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.ThresholdType.get -> System.Type!
+override Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Android.Gms.Cast.Framework.CastOptions.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 static Android.Gms.Cast.Framework.CastButtonFactory.SetUpMediaRouteButton(Android.Content.Context! context, Android.Views.IMenu! menu, int menuResourceId) -> Android.Views.IMenuItem!
 static Android.Gms.Cast.Framework.CastButtonFactory.SetUpMediaRouteButton(Android.Content.Context! context, AndroidX.MediaRouter.App.MediaRouteButton! button) -> void
@@ -488,6 +509,9 @@ static Android.Gms.Cast.Framework.Media.NotificationAction.Creator.get -> Androi
 static Android.Gms.Cast.Framework.Media.NotificationOptions.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Cast.Framework.Media.TracksChooserDialogFragment.NewInstance() -> Android.Gms.Cast.Framework.Media.TracksChooserDialogFragment!
 static Android.Gms.Cast.Framework.Media.TracksChooserDialogFragment.NewInstance(Android.Gms.Cast.MediaInfo! mediaInfo, long[]! activeTrackIds) -> Android.Gms.Cast.Framework.Media.TracksChooserDialogFragment!
+static Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestions.GetClient(Android.App.Activity! activity) -> Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient!
+static Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestions.GetClient(Android.Content.Context! context) -> Google.Android.Gms.Cast.Framework.Devicesuggestions.IDeviceSuggestionsClient!
 virtual Android.Gms.Cast.Framework.CastContext.AddAppVisibilityListener(Android.Gms.Cast.Framework.IAppVisibilityListener! listener) -> void
 virtual Android.Gms.Cast.Framework.CastContext.AddCastStateListener(Android.Gms.Cast.Framework.ICastStateListener! listener) -> void
 virtual Android.Gms.Cast.Framework.CastContext.AddSessionTransferCallback(Android.Gms.Cast.Framework.SessionTransferCallback! callback) -> void
@@ -783,3 +807,6 @@ virtual Android.Gms.Cast.Framework.SessionManager.StartSession(Android.Content.I
 virtual Android.Gms.Cast.Framework.SessionTransferCallback.OnTransferFailed(int p0, int p1) -> void
 virtual Android.Gms.Cast.Framework.SessionTransferCallback.OnTransferred(int p0, Android.Gms.Cast.SessionState! p1) -> void
 virtual Android.Gms.Cast.Framework.SessionTransferCallback.OnTransferring(int p0) -> void
+virtual Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.Confidence.get -> int
+virtual Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.DeviceName.get -> string!
+virtual Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestionResult.RouteId.get -> string!

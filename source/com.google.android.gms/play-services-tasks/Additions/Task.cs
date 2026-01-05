@@ -49,18 +49,15 @@ namespace Android.Gms.Extensions
         }
     }
 
-    [Android.Runtime.Preserve]
     class AwaitableTaskCompleteListener<[DynamicallyAccessedMembers (DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] TResult> : Java.Lang.Object, IOnCompleteListener where TResult : class, IJavaObject
     {
         System.Threading.Tasks.TaskCompletionSource<TResult> taskCompletionSource;
 
-        [Android.Runtime.Preserve]
         public AwaitableTaskCompleteListener ()
         {
             taskCompletionSource = new System.Threading.Tasks.TaskCompletionSource<TResult> ();
         }
 
-        [Android.Runtime.Preserve]
         public void OnComplete (Task task)
         {
             if (task.IsSuccessful) {
@@ -70,13 +67,11 @@ namespace Android.Gms.Extensions
             }
         }
 
-        [Android.Runtime.Preserve]
         public System.Threading.Tasks.Task<TResult> AwaitAsync ()
         {
             return taskCompletionSource.Task;
         }
 
-        [Android.Runtime.Preserve]
         public TaskAwaiter<TResult> GetAwaiter ()
         {
             return taskCompletionSource.Task.GetAwaiter ();
@@ -86,19 +81,15 @@ namespace Android.Gms.Extensions
 
 namespace Android.Gms.Tasks
 {
-    [Android.Runtime.Preserve]
     public partial class Task
     {
-        [Android.Runtime.Preserve]
         public virtual Java.Lang.Object Result {
             get { return RawResult; }
         }
     }
 
-    [Android.Runtime.Preserve]
     public partial class TaskCompletionSource
     {
-        [Android.Runtime.Preserve]
         public virtual Task Task { get { return GetTask (); } }
     }
 }

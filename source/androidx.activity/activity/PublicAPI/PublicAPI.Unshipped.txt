@@ -1,7 +1,9 @@
 ﻿#nullable enable
+AndroidX.Activity.ActivityFlags
 AndroidX.Activity.ActivityViewModelLazyKt
 AndroidX.Activity.BackEventCompat
 AndroidX.Activity.BackEventCompat.BackEventCompat(Android.Window.BackEvent! backEvent) -> void
+AndroidX.Activity.BackEventCompat.BackEventCompat(AndroidX.NavigationEvent.NavigationEvent! navigationEvent) -> void
 AndroidX.Activity.BackEventCompat.BackEventCompat(float touchX, float touchY, float progress, int swipeEdge) -> void
 AndroidX.Activity.BackEventCompat.BackEventCompat(float touchX, float touchY, float progress, int swipeEdge, long frameTimeMillis) -> void
 AndroidX.Activity.BackEventCompat.Companion
@@ -10,6 +12,7 @@ AndroidX.Activity.BackEventCompat.ISwipeEdge
 AndroidX.Activity.BackEventCompat.Progress.get -> float
 AndroidX.Activity.BackEventCompat.SwipeEdge.get -> int
 AndroidX.Activity.BackEventCompat.ToBackEvent() -> Android.Window.BackEvent!
+AndroidX.Activity.BackEventCompat.ToNavigationEvent() -> AndroidX.NavigationEvent.NavigationEvent!
 AndroidX.Activity.BackEventCompat.TouchX.get -> float
 AndroidX.Activity.BackEventCompat.TouchY.get -> float
 AndroidX.Activity.ComponentActivity
@@ -66,6 +69,8 @@ AndroidX.Activity.ContextAware.IContextAware.RemoveOnContextAvailableListener(An
 AndroidX.Activity.ContextAware.IOnContextAvailableListener
 AndroidX.Activity.ContextAware.IOnContextAvailableListener.OnContextAvailable(Android.Content.Context! context) -> void
 AndroidX.Activity.EdgeToEdge
+AndroidX.Activity.ExperimentalActivityApiAttribute
+AndroidX.Activity.ExperimentalActivityApiAttribute.ExperimentalActivityApiAttribute() -> void
 AndroidX.Activity.FullyDrawnReporter
 AndroidX.Activity.FullyDrawnReporter.AddOnReportDrawnListener(Kotlin.Jvm.Functions.IFunction0! callback) -> void
 AndroidX.Activity.FullyDrawnReporter.AddReporter() -> void
@@ -75,6 +80,7 @@ AndroidX.Activity.FullyDrawnReporter.IsFullyDrawnReported.get -> bool
 AndroidX.Activity.FullyDrawnReporter.RemoveOnReportDrawnListener(Kotlin.Jvm.Functions.IFunction0! callback) -> void
 AndroidX.Activity.FullyDrawnReporter.RemoveReporter() -> void
 AndroidX.Activity.FullyDrawnReporterKt
+AndroidX.Activity.IExperimentalActivityApi
 AndroidX.Activity.IFullyDrawnReporterOwner
 AndroidX.Activity.IFullyDrawnReporterOwner.FullyDrawnReporter.get -> AndroidX.Activity.FullyDrawnReporter!
 AndroidX.Activity.IOnBackPressedDispatcherOwner
@@ -292,6 +298,7 @@ const AndroidX.Activity.Result.Contract.ActivityResultContracts.StartActivityFor
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.StartIntentSenderForResult.ActionIntentSenderRequest = "androidx.activity.result.contract.action.INTENT_SENDER_REQUEST" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.StartIntentSenderForResult.ExtraIntentSenderRequest = "androidx.activity.result.contract.extra.INTENT_SENDER_REQUEST" -> string!
 const AndroidX.Activity.Result.Contract.ActivityResultContracts.StartIntentSenderForResult.ExtraSendIntentException = "androidx.activity.result.contract.extra.SEND_INTENT_EXCEPTION" -> string!
+override AndroidX.Activity.ActivityFlags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.ActivityViewModelLazyKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.BackEventCompat.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.BackEventCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -433,6 +440,9 @@ override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.PickVi
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.TakePicture.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object!
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.TakePicturePreview.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object?
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.TakeVideo.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object?
+static AndroidX.Activity.ActivityFlags.Instance.get -> AndroidX.Activity.ActivityFlags!
+static AndroidX.Activity.ActivityFlags.IsOnBackPressedLifecycleOrderMaintained.get -> bool
+static AndroidX.Activity.ActivityFlags.IsOnBackPressedLifecycleOrderMaintained.set -> void
 static AndroidX.Activity.ContextAware.ContextAwareKt.WithContextAvailable(AndroidX.Activity.ContextAware.IContextAware! obj, Kotlin.Jvm.Functions.IFunction1! onContextAvailable, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Activity.EdgeToEdge.DefaultDarkScrim.get -> int
 static AndroidX.Activity.EdgeToEdge.DefaultLightScrim.get -> int
@@ -479,6 +489,7 @@ virtual AndroidX.Activity.ComponentActivity.FullyDrawnReporter.get -> AndroidX.A
 virtual AndroidX.Activity.ComponentActivity.InitializeViewTreeOwners() -> void
 virtual AndroidX.Activity.ComponentActivity.InvalidateMenu() -> void
 virtual AndroidX.Activity.ComponentActivity.LastCustomNonConfigurationInstance.get -> Java.Lang.Object?
+virtual AndroidX.Activity.ComponentActivity.NavigationEventDispatcher.get -> AndroidX.NavigationEvent.NavigationEventDispatcher!
 virtual AndroidX.Activity.ComponentActivity.OnRetainCustomNonConfigurationInstance() -> Java.Lang.Object?
 virtual AndroidX.Activity.ComponentActivity.PeekAvailableContext() -> Android.Content.Context?
 virtual AndroidX.Activity.ComponentActivity.RemoveMenuProvider(AndroidX.Core.View.IMenuProvider! provider) -> void
@@ -486,6 +497,7 @@ virtual AndroidX.Activity.ComponentActivity.ViewModelStore.get -> AndroidX.Lifec
 virtual AndroidX.Activity.ComponentDialog.GetOnBackPressedDispatcher() -> AndroidX.Activity.OnBackPressedDispatcher!
 virtual AndroidX.Activity.ComponentDialog.InitializeViewTreeOwners() -> void
 virtual AndroidX.Activity.ComponentDialog.Lifecycle.get -> AndroidX.Lifecycle.Lifecycle!
+virtual AndroidX.Activity.ComponentDialog.NavigationEventDispatcher.get -> AndroidX.NavigationEvent.NavigationEventDispatcher!
 virtual AndroidX.Activity.ComponentDialog.SavedStateRegistry.get -> AndroidX.SavedState.SavedStateRegistry!
 virtual AndroidX.Activity.OnBackPressedCallback.HandleOnBackCancelled() -> void
 virtual AndroidX.Activity.OnBackPressedCallback.HandleOnBackProgressed(AndroidX.Activity.BackEventCompat! backEvent) -> void

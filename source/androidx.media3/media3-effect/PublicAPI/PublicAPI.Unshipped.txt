@@ -130,6 +130,14 @@ AndroidX.Media3.Effect.DrawableOverlay.DrawableOverlay(nint javaReference, Andro
 AndroidX.Media3.Effect.ErrorEventArgs
 AndroidX.Media3.Effect.ErrorEventArgs.ErrorEventArgs(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
 AndroidX.Media3.Effect.ErrorEventArgs.P0.get -> AndroidX.Media3.Common.VideoFrameProcessingException?
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.ApplyEffectsAsync(Android.Graphics.Bitmap? inputBitmap) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder.Build() -> AndroidX.Media3.Effect.ExperimentalBitmapProcessor?
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder.Builder(Android.Content.Context? context) -> void
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder.SetGlObjectsProvider(AndroidX.Media3.Common.IGlObjectsProvider? glObjectsProvider) -> AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder?
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.ReleaseAsync() -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Effect.ExperimentalBitmapProcessor.SetEffectsAsync(System.Collections.Generic.IList<AndroidX.Media3.Common.IEffect!>? effects) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Effect.FrameCache
 AndroidX.Media3.Effect.FrameCache.Capacity.get -> int
 AndroidX.Media3.Effect.FrameCache.Capacity.set -> void
@@ -151,12 +159,27 @@ AndroidX.Media3.Effect.GaussianFunction.Value(float samplePosition) -> float
 AndroidX.Media3.Effect.GlShaderProgramErrorEventArgs
 AndroidX.Media3.Effect.GlShaderProgramErrorEventArgs.GlShaderProgramErrorEventArgs(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
 AndroidX.Media3.Effect.GlShaderProgramErrorEventArgs.P0.get -> AndroidX.Media3.Common.VideoFrameProcessingException?
-AndroidX.Media3.Effect.GlTextureProducerEventArgs
-AndroidX.Media3.Effect.GlTextureProducerEventArgs.GlTextureProducerEventArgs(AndroidX.Media3.Effect.IGlTextureProducer? p0, AndroidX.Media3.Common.GlTextureInfo? p1, long p2, long p3) -> void
-AndroidX.Media3.Effect.GlTextureProducerEventArgs.P0.get -> AndroidX.Media3.Effect.IGlTextureProducer?
-AndroidX.Media3.Effect.GlTextureProducerEventArgs.P1.get -> AndroidX.Media3.Common.GlTextureInfo?
-AndroidX.Media3.Effect.GlTextureProducerEventArgs.P2.get -> long
-AndroidX.Media3.Effect.GlTextureProducerEventArgs.P3.get -> long
+AndroidX.Media3.Effect.GlTextureFrame
+AndroidX.Media3.Effect.GlTextureFrame.Builder
+AndroidX.Media3.Effect.GlTextureFrame.Builder.Build() -> AndroidX.Media3.Effect.GlTextureFrame?
+AndroidX.Media3.Effect.GlTextureFrame.Builder.Builder(AndroidX.Media3.Common.GlTextureInfo? glTextureInfo, Java.Util.Concurrent.IExecutor? releaseTextureExecutor, AndroidX.Media3.Common.Util.IConsumer? releaseTextureCallback) -> void
+AndroidX.Media3.Effect.GlTextureFrame.Builder.SetFormat(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Effect.GlTextureFrame.Builder?
+AndroidX.Media3.Effect.GlTextureFrame.Builder.SetMetadata(AndroidX.Media3.Effect.IFrameMetadata? metadata) -> AndroidX.Media3.Effect.GlTextureFrame.Builder?
+AndroidX.Media3.Effect.GlTextureFrame.Builder.SetPresentationTimeUs(long presentationTimeUs) -> AndroidX.Media3.Effect.GlTextureFrame.Builder?
+AndroidX.Media3.Effect.GlTextureFrame.Builder.SetReleaseTimeNs(long releaseTimeNs) -> AndroidX.Media3.Effect.GlTextureFrame.Builder?
+AndroidX.Media3.Effect.GlTextureFrame.Format.get -> AndroidX.Media3.Common.Format?
+AndroidX.Media3.Effect.GlTextureFrame.Format.set -> void
+AndroidX.Media3.Effect.GlTextureFrame.GlTextureFrame(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Effect.GlTextureFrame.GlTextureInfo.get -> AndroidX.Media3.Common.GlTextureInfo?
+AndroidX.Media3.Effect.GlTextureFrame.GlTextureInfo.set -> void
+AndroidX.Media3.Effect.GlTextureFrame.PresentationTimeUs.get -> long
+AndroidX.Media3.Effect.GlTextureFrame.PresentationTimeUs.set -> void
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTextureCallback.get -> AndroidX.Media3.Common.Util.IConsumer?
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTextureCallback.set -> void
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTextureExecutor.get -> Java.Util.Concurrent.IExecutor?
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTextureExecutor.set -> void
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTimeNs.get -> long
+AndroidX.Media3.Effect.GlTextureFrame.ReleaseTimeNs.set -> void
 AndroidX.Media3.Effect.HslAdjustment
 AndroidX.Media3.Effect.HslAdjustment.Builder
 AndroidX.Media3.Effect.HslAdjustment.Builder.AdjustHue(float hueAdjustmentDegrees) -> AndroidX.Media3.Effect.HslAdjustment.Builder?
@@ -184,6 +207,10 @@ AndroidX.Media3.Effect.IConvolutionFunction1D.Width() -> float
 AndroidX.Media3.Effect.IConvolutionFunction1DProvider
 AndroidX.Media3.Effect.IConvolutionFunction1DProvider.Configure(AndroidX.Media3.Common.Util.Size? p0) -> AndroidX.Media3.Common.Util.Size?
 AndroidX.Media3.Effect.IConvolutionFunction1DProvider.GetConvolution(long p0) -> AndroidX.Media3.Effect.IConvolutionFunction1D?
+AndroidX.Media3.Effect.IFrame
+AndroidX.Media3.Effect.IFrame.Metadata.get -> AndroidX.Media3.Effect.IFrameMetadata?
+AndroidX.Media3.Effect.IFrame.Release() -> void
+AndroidX.Media3.Effect.IFrameMetadata
 AndroidX.Media3.Effect.IGlEffect
 AndroidX.Media3.Effect.IGlEffect.IsNoOp(int inputWidth, int inputHeight) -> bool
 AndroidX.Media3.Effect.IGlEffect.ToGlShaderProgram(Android.Content.Context? p0, bool p1) -> AndroidX.Media3.Effect.IGlShaderProgram?
@@ -212,9 +239,20 @@ AndroidX.Media3.Effect.IGlShaderProgramOutputListener.OnOutputFrameAvailable(And
 AndroidX.Media3.Effect.IGlTextureProducer
 AndroidX.Media3.Effect.IGlTextureProducer.ReleaseOutputTexture(long p0) -> void
 AndroidX.Media3.Effect.IGlTextureProducerListener
+AndroidX.Media3.Effect.IGlTextureProducerListener.Flush() -> void
 AndroidX.Media3.Effect.IGlTextureProducerListener.OnTextureRendered(AndroidX.Media3.Effect.IGlTextureProducer? p0, AndroidX.Media3.Common.GlTextureInfo? p1, long p2, long p3) -> void
 AndroidX.Media3.Effect.IMatrixTransformation
 AndroidX.Media3.Effect.IMatrixTransformation.GetMatrix(long p0) -> Android.Graphics.Matrix?
+AndroidX.Media3.Effect.IPacketConsumer
+AndroidX.Media3.Effect.IPacketConsumer.QueuePacket(AndroidX.Media3.Effect.IPacketConsumerPacket! packet, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+AndroidX.Media3.Effect.IPacketConsumer.Release(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+AndroidX.Media3.Effect.IPacketConsumer.TryQueuePacket(AndroidX.Media3.Effect.IPacketConsumerPacket! packet) -> bool
+AndroidX.Media3.Effect.IPacketConsumerFactory
+AndroidX.Media3.Effect.IPacketConsumerFactory.Create() -> AndroidX.Media3.Effect.IPacketConsumer!
+AndroidX.Media3.Effect.IPacketConsumerPacket
+AndroidX.Media3.Effect.IPacketConsumerPacket.Companion.get -> AndroidX.Media3.Effect.PacketConsumerPacketCompanion!
+AndroidX.Media3.Effect.IPacketConsumerPacket.Of(Java.Lang.Object? payload) -> AndroidX.Media3.Effect.IPacketConsumerPacket!
+AndroidX.Media3.Effect.IPacketConsumerPacket.Payload.get -> Java.Lang.Object?
 AndroidX.Media3.Effect.IRgbMatrix
 AndroidX.Media3.Effect.IRgbMatrix.GetMatrix(long p0, bool p1) -> float[]?
 AndroidX.Media3.Effect.IVideoCompositor
@@ -232,6 +270,18 @@ AndroidX.Media3.Effect.InputFrameProcessedEventArgs.InputTexture.get -> AndroidX
 AndroidX.Media3.Effect.LanczosResample
 AndroidX.Media3.Effect.LanczosResample.IsNoOp(int inputWidth, int inputHeight) -> bool
 AndroidX.Media3.Effect.LanczosResample.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
+AndroidX.Media3.Effect.LottieOverlay
+AndroidX.Media3.Effect.LottieOverlay.Builder
+AndroidX.Media3.Effect.LottieOverlay.Builder.Build() -> AndroidX.Media3.Effect.LottieOverlay?
+AndroidX.Media3.Effect.LottieOverlay.Builder.Builder(AndroidX.Media3.Effect.LottieOverlay.ILottieProvider? lottieProvider) -> void
+AndroidX.Media3.Effect.LottieOverlay.Builder.SetLottieDrawable(Xamarin.AirBnB.Lottie.LottieDrawable? lottieDrawable) -> AndroidX.Media3.Effect.LottieOverlay.Builder?
+AndroidX.Media3.Effect.LottieOverlay.Builder.SetOverlaySettings(AndroidX.Media3.Effect.StaticOverlaySettings? overlaySettings) -> AndroidX.Media3.Effect.LottieOverlay.Builder?
+AndroidX.Media3.Effect.LottieOverlay.Builder.SetSpeed(float speed) -> AndroidX.Media3.Effect.LottieOverlay.Builder?
+AndroidX.Media3.Effect.LottieOverlay.ILottieProvider
+AndroidX.Media3.Effect.LottieOverlay.ILottieProvider.FontMap.get -> System.Collections.Generic.IDictionary<string!, Android.Graphics.Typeface!>?
+AndroidX.Media3.Effect.LottieOverlay.ILottieProvider.ImageAssetDelegate.get -> Xamarin.AirBnB.Lottie.IImageAssetDelegate?
+AndroidX.Media3.Effect.LottieOverlay.ILottieProvider.LottieComposition.get -> Xamarin.AirBnB.Lottie.LottieComposition?
+AndroidX.Media3.Effect.LottieOverlay.ILottieProvider.Release() -> void
 AndroidX.Media3.Effect.MultipleInputVideoGraph
 AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory
 AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.Create(Android.Content.Context? context, AndroidX.Media3.Common.ColorInfo? outputColorInfo, AndroidX.Media3.Common.IDebugViewProvider? debugViewProvider, AndroidX.Media3.Common.IVideoGraphListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, long initialTimestampOffsetUs, bool renderFramesAutomatically) -> AndroidX.Media3.Common.IVideoGraph?
@@ -264,6 +314,9 @@ AndroidX.Media3.Effect.OutputFrameAvailableEventArgs.PresentationTimeUs.get -> l
 AndroidX.Media3.Effect.OverlayEffect
 AndroidX.Media3.Effect.OverlayEffect.OverlayEffect(System.Collections.Generic.IList<AndroidX.Media3.Effect.TextureOverlay!>? textureOverlays) -> void
 AndroidX.Media3.Effect.OverlayEffect.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
+AndroidX.Media3.Effect.PacketConsumerPacketCompanion
+AndroidX.Media3.Effect.PacketConsumerPacketCompanion.Of(Java.Lang.Object? payload) -> AndroidX.Media3.Effect.IPacketConsumerPacket!
+AndroidX.Media3.Effect.PacketConsumerUtil
 AndroidX.Media3.Effect.PassthroughShaderProgram
 AndroidX.Media3.Effect.PassthroughShaderProgram.CurrentOutputStreamEnded -> System.EventHandler!
 AndroidX.Media3.Effect.PassthroughShaderProgram.FlushEvent -> System.EventHandler!
@@ -277,6 +330,7 @@ AndroidX.Media3.Effect.PassthroughShaderProgram.ReadyToAcceptInputFrame -> Syste
 AndroidX.Media3.Effect.Presentation
 AndroidX.Media3.Effect.Presentation.Configure(int inputWidth, int inputHeight) -> AndroidX.Media3.Common.Util.Size?
 AndroidX.Media3.Effect.Presentation.CopyWithTextureMinFilter(int textureMinFilter) -> AndroidX.Media3.Effect.Presentation?
+AndroidX.Media3.Effect.Presentation.CopyWithUnsetSideRoundedTo(int divisor) -> AndroidX.Media3.Effect.Presentation?
 AndroidX.Media3.Effect.Presentation.GetMatrix(long presentationTimeUs) -> Android.Graphics.Matrix?
 AndroidX.Media3.Effect.Presentation.GlTextureMinFilter.get -> int
 AndroidX.Media3.Effect.Presentation.ILayout
@@ -382,6 +436,12 @@ AndroidX.Media3.Effect.TexturePool.IsUsingTexture(AndroidX.Media3.Common.GlTextu
 AndroidX.Media3.Effect.TexturePool.MostRecentlyUsedTexture.get -> AndroidX.Media3.Common.GlTextureInfo?
 AndroidX.Media3.Effect.TexturePool.TexturePool(bool useHighPrecisionColorComponents, int capacity) -> void
 AndroidX.Media3.Effect.TexturePool.UseTexture() -> AndroidX.Media3.Common.GlTextureInfo?
+AndroidX.Media3.Effect.TextureRenderedEventArgs
+AndroidX.Media3.Effect.TextureRenderedEventArgs.P0.get -> AndroidX.Media3.Effect.IGlTextureProducer?
+AndroidX.Media3.Effect.TextureRenderedEventArgs.P1.get -> AndroidX.Media3.Common.GlTextureInfo?
+AndroidX.Media3.Effect.TextureRenderedEventArgs.P2.get -> long
+AndroidX.Media3.Effect.TextureRenderedEventArgs.P3.get -> long
+AndroidX.Media3.Effect.TextureRenderedEventArgs.TextureRenderedEventArgs(AndroidX.Media3.Effect.IGlTextureProducer? p0, AndroidX.Media3.Common.GlTextureInfo? p1, long p2, long p3) -> void
 AndroidX.Media3.Effect.TimestampAdjustment
 AndroidX.Media3.Effect.TimestampAdjustment.GetDurationAfterEffectApplied(long durationUs) -> long
 AndroidX.Media3.Effect.TimestampAdjustment.ITimestampMap
@@ -425,6 +485,7 @@ const AndroidX.Media3.Effect.DebugTraceUtil.ComponentAudioEncoder = "AudioEncode
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentAudioGraph = "AudioGraph" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentAudioMixer = "AudioMixer" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentBitmapTextureManager = "BitmapTextureManager" -> string!
+const AndroidX.Media3.Effect.DebugTraceUtil.ComponentCompositionPlayer = "CompositionPlayer" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentCompositor = "Compositor" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentExternalTextureManager = "ExternalTextureManager" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.ComponentMuxer = "Muxer" -> string!
@@ -447,7 +508,11 @@ const AndroidX.Media3.Effect.DebugTraceUtil.EventQueueTexture = "QueueTexture" -
 const AndroidX.Media3.Effect.DebugTraceUtil.EventReceiveEndOfAllInput = "ReceiveEndOfAllInput" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventReceiveEos = "ReceiveEOS" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventRegisterNewInputStream = "RegisterNewInputStream" -> string!
+const AndroidX.Media3.Effect.DebugTraceUtil.EventRelease = "Release" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventRenderedToOutputSurface = "RenderedToOutputSurface" -> string!
+const AndroidX.Media3.Effect.DebugTraceUtil.EventSeekTo = "SeekTo" -> string!
+const AndroidX.Media3.Effect.DebugTraceUtil.EventSetComposition = "SetComposition" -> string!
+const AndroidX.Media3.Effect.DebugTraceUtil.EventSetVideoOutput = "SetVideoOutput" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventSignalEnded = "SignalEnded" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventSignalEos = "SignalEOS" -> string!
 const AndroidX.Media3.Effect.DebugTraceUtil.EventStart = "Start" -> string!
@@ -494,6 +559,8 @@ override AndroidX.Media3.Effect.DrawableOverlay.GetBitmap(long presentationTimeU
 override AndroidX.Media3.Effect.DrawableOverlay.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.DrawableOverlay.ThresholdClass.get -> nint
 override AndroidX.Media3.Effect.DrawableOverlay.ThresholdType.get -> System.Type!
+override AndroidX.Media3.Effect.ExperimentalBitmapProcessor.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.ExperimentalBitmapProcessor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.FrameCache.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.FrameDropEffect.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.GaussianBlur.GetConvolution(long presentationTimeUs) -> AndroidX.Media3.Effect.IConvolutionFunction1D?
@@ -501,12 +568,21 @@ override AndroidX.Media3.Effect.GaussianBlur.JniPeerMembers.get -> Java.Interop.
 override AndroidX.Media3.Effect.GaussianBlurWithFrameOverlaid.GetConvolution(long presentationTimeUs) -> AndroidX.Media3.Effect.IConvolutionFunction1D?
 override AndroidX.Media3.Effect.GaussianBlurWithFrameOverlaid.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.GaussianFunction.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.GlTextureFrame.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.GlTextureFrame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.GlTextureFrame.ThresholdClass.get -> nint
+override AndroidX.Media3.Effect.GlTextureFrame.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Effect.HslAdjustment.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.HslAdjustment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.LanczosResample.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.LottieOverlay.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.LottieOverlay.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.LottieOverlay.OnDraw(Android.Graphics.Canvas? canvas, long presentationTimeUs) -> void
 override AndroidX.Media3.Effect.MultipleInputVideoGraph.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.MultipleInputVideoGraph.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.OverlayEffect.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.PacketConsumerPacketCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Effect.PacketConsumerUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.PassthroughShaderProgram.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Effect.PassthroughShaderProgram.ThresholdClass.get -> nint
 override AndroidX.Media3.Effect.PassthroughShaderProgram.ThresholdType.get -> System.Type!
@@ -552,6 +628,7 @@ static AndroidX.Media3.Effect.DebugTraceUtil.EnableTracing.set -> void
 static AndroidX.Media3.Effect.DebugTraceUtil.GenerateTraceSummary() -> string?
 static AndroidX.Media3.Effect.DebugTraceUtil.LogCodecEvent(bool isDecoder, bool isVideo, string? eventName, long presentationTimeUs, string? extraFormat, params Java.Lang.Object![]? extraArgs) -> void
 static AndroidX.Media3.Effect.DebugTraceUtil.LogEvent(string? component, string? e, long presentationTimeUs) -> void
+static AndroidX.Media3.Effect.DebugTraceUtil.LogEvent(string? component, string? e, long presentationTimeUs, Org.Json.JSONObject? jsonObject) -> void
 static AndroidX.Media3.Effect.DebugTraceUtil.LogEvent(string? component, string? e, long presentationTimeUs, string? extraFormat, params Java.Lang.Object![]? extraArgs) -> void
 static AndroidX.Media3.Effect.DebugTraceUtil.Reset() -> void
 static AndroidX.Media3.Effect.DrawableOverlay.CreateStaticDrawableOverlay(Android.Graphics.Drawables.Drawable? drawable, AndroidX.Media3.Effect.StaticOverlaySettings? overlaySettings) -> AndroidX.Media3.Effect.DrawableOverlay?
@@ -559,6 +636,8 @@ static AndroidX.Media3.Effect.FrameDropEffect.CreateDefaultFrameDropEffect(float
 static AndroidX.Media3.Effect.FrameDropEffect.CreateSimpleFrameDropEffect(float expectedFrameRate, float targetFrameRate) -> AndroidX.Media3.Effect.FrameDropEffect?
 static AndroidX.Media3.Effect.LanczosResample.ScaleToFit(int width, int height) -> AndroidX.Media3.Effect.LanczosResample?
 static AndroidX.Media3.Effect.LanczosResample.ScaleToFitWithFlexibleOrientation(int firstDimension, int secondDimension) -> AndroidX.Media3.Effect.LanczosResample?
+static AndroidX.Media3.Effect.PacketConsumerUtil.Instance.get -> AndroidX.Media3.Effect.PacketConsumerUtil!
+static AndroidX.Media3.Effect.PacketConsumerUtil.Release(AndroidX.Media3.Effect.IPacketConsumer! consumer, Java.Util.Concurrent.IExecutor! executor) -> Google.Common.Util.Concurrent.IListenableFuture!
 static AndroidX.Media3.Effect.Presentation.CreateForAspectRatio(float aspectRatio, int layout) -> AndroidX.Media3.Effect.Presentation?
 static AndroidX.Media3.Effect.Presentation.CreateForHeight(int height) -> AndroidX.Media3.Effect.Presentation?
 static AndroidX.Media3.Effect.Presentation.CreateForShortSide(int shortSide) -> AndroidX.Media3.Effect.Presentation?
@@ -581,6 +660,8 @@ virtual AndroidX.Media3.Effect.BaseGlShaderProgram.SignalEndOfCurrentInputStream
 virtual AndroidX.Media3.Effect.ByteBufferGlEffect.Image.CopyToBitmap() -> Android.Graphics.Bitmap?
 virtual AndroidX.Media3.Effect.ByteBufferGlEffect.ToGlShaderProgram(Android.Content.Context? context, bool useHdr) -> AndroidX.Media3.Effect.IGlShaderProgram?
 virtual AndroidX.Media3.Effect.CanvasOverlay.SetCanvasSize(int width, int height) -> void
+virtual AndroidX.Media3.Effect.GlTextureFrame.Metadata.get -> AndroidX.Media3.Effect.IFrameMetadata?
+virtual AndroidX.Media3.Effect.GlTextureFrame.Release() -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.Flush() -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.QueueInputFrame(AndroidX.Media3.Common.IGlObjectsProvider? glObjectsProvider, AndroidX.Media3.Common.GlTextureInfo? inputTexture, long presentationTimeUs) -> void
 virtual AndroidX.Media3.Effect.PassthroughShaderProgram.Release() -> void

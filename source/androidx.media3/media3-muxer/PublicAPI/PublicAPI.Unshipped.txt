@@ -13,11 +13,21 @@ AndroidX.Media3.Muxer.BufferInfo.PresentationTimeUs.get -> long
 AndroidX.Media3.Muxer.BufferInfo.PresentationTimeUs.set -> void
 AndroidX.Media3.Muxer.BufferInfo.Size.get -> int
 AndroidX.Media3.Muxer.BufferInfo.Size.set -> void
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Close() -> void
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.FileOutputStreamSeekableMuxerOutput(System.IO.Stream? fileOutputStream) -> void
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.IsOpen.get -> bool
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Position.get -> long
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Position.set -> void
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Size.get -> long
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Truncate(long size) -> void
+AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.Write(Java.Nio.ByteBuffer? src) -> int
 AndroidX.Media3.Muxer.FragmentedMp4Muxer
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.Build() -> AndroidX.Media3.Muxer.FragmentedMp4Muxer?
+AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.Builder(Java.Nio.Channels.IWritableByteChannel? outputChannel) -> void
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.Builder(System.IO.Stream? outputStream) -> void
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.SetFragmentDurationMs(long fragmentDurationMs) -> AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder?
 AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.SetSampleCopyingEnabled(bool enabled) -> AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder?
@@ -39,12 +49,31 @@ AndroidX.Media3.Muxer.IMuxerFactory
 AndroidX.Media3.Muxer.IMuxerFactory.Create(string? p0) -> AndroidX.Media3.Muxer.IMuxer?
 AndroidX.Media3.Muxer.IMuxerFactory.GetSupportedSampleMimeTypes(int p0) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Muxer.IMuxerFactory.SupportsWritingNegativeTimestampsInEditList() -> bool
+AndroidX.Media3.Muxer.ISeekableMuxerOutput
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Of(System.IO.Stream? fileOutputStream) -> AndroidX.Media3.Muxer.ISeekableMuxerOutput?
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Of(string? filePath) -> AndroidX.Media3.Muxer.ISeekableMuxerOutput?
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Position.get -> long
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Position.set -> void
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Size.get -> long
+AndroidX.Media3.Muxer.ISeekableMuxerOutput.Truncate(long p0) -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat
+AndroidX.Media3.Muxer.MediaMuxerCompat.AddTrack(Android.Media.MediaFormat? format) -> int
+AndroidX.Media3.Muxer.MediaMuxerCompat.IOutputFormat
+AndroidX.Media3.Muxer.MediaMuxerCompat.MediaMuxerCompat(Java.IO.FileDescriptor? fileDescriptor, int outputFormat) -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.MediaMuxerCompat(string? filePath, int outputFormat) -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.Release() -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.SetLocation(float latitude, float longitude) -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.SetOrientationHint(int degrees) -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.Start() -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.Stop() -> void
+AndroidX.Media3.Muxer.MediaMuxerCompat.WriteSampleData(int trackIndex, Java.Nio.ByteBuffer? byteBuffer, Android.Media.MediaCodec.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Muxer.Mp4Muxer
 AndroidX.Media3.Muxer.Mp4Muxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
 AndroidX.Media3.Muxer.Mp4Muxer.AddTrack(int sortKey, AndroidX.Media3.Common.Format? format) -> int
 AndroidX.Media3.Muxer.Mp4Muxer.Builder
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.Build() -> AndroidX.Media3.Muxer.Mp4Muxer?
+AndroidX.Media3.Muxer.Mp4Muxer.Builder.Builder(AndroidX.Media3.Muxer.ISeekableMuxerOutput? seekableMuxerOutput) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.Builder(System.IO.Stream? outputStream) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.ExperimentalSetFreeSpaceAfterFileTypeBox(int bytes) -> AndroidX.Media3.Muxer.Mp4Muxer.Builder?
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.SetAnnexBToAvccConverter(AndroidX.Media3.Muxer.IAnnexBToAvccConverter? annexBToAvccConverter) -> AndroidX.Media3.Muxer.Mp4Muxer.Builder?
@@ -58,18 +87,24 @@ AndroidX.Media3.Muxer.Mp4Muxer.Close() -> void
 AndroidX.Media3.Muxer.Mp4Muxer.IFileFormat
 AndroidX.Media3.Muxer.Mp4Muxer.ILastSampleDurationBehavior
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters
-AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.CacheFileProvider.get -> AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ICacheFileProvider?
-AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.CacheFileProvider.set -> void
-AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ICacheFileProvider
-AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ICacheFileProvider.CacheFilePath.get -> string?
-AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.Mp4AtFileParameters(bool shouldInterleaveSamples, AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ICacheFileProvider? cacheFileProvider) -> void
+AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.Mp4AtFileParameters(bool shouldInterleaveSamples) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ShouldInterleaveSamples.get -> bool
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ShouldInterleaveSamples.set -> void
 AndroidX.Media3.Muxer.Mp4Muxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, AndroidX.Media3.Muxer.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Muxer.MuxerException
 AndroidX.Media3.Muxer.MuxerException.MuxerException(string? message, Java.Lang.Throwable? cause) -> void
 AndroidX.Media3.Muxer.MuxerUtil
+AndroidX.Media3.Muxer.WebmMuxer
+AndroidX.Media3.Muxer.WebmMuxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
+AndroidX.Media3.Muxer.WebmMuxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
+AndroidX.Media3.Muxer.WebmMuxer.Builder
+AndroidX.Media3.Muxer.WebmMuxer.Builder.Build() -> AndroidX.Media3.Muxer.WebmMuxer?
+AndroidX.Media3.Muxer.WebmMuxer.Builder.Builder(AndroidX.Media3.Muxer.ISeekableMuxerOutput? seekableMuxerOutput) -> void
+AndroidX.Media3.Muxer.WebmMuxer.Builder.SetSampleCopyEnabled(bool enabled) -> AndroidX.Media3.Muxer.WebmMuxer.Builder?
+AndroidX.Media3.Muxer.WebmMuxer.Close() -> void
+AndroidX.Media3.Muxer.WebmMuxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, AndroidX.Media3.Muxer.BufferInfo? bufferInfo) -> void
 const AndroidX.Media3.Muxer.FragmentedMp4Muxer.DefaultFragmentDurationMs = 2000 -> long
+const AndroidX.Media3.Muxer.MediaMuxerCompat.OutputFormatMp4 = 0 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.FileFormatDefault = 0 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.FileFormatMp4WithAuxiliaryTracksExtension = 1 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.LastSampleDurationBehaviorSetFromEndOfStreamBufferOrDuplicatePrevious = 1 -> int
@@ -77,16 +112,21 @@ const AndroidX.Media3.Muxer.Mp4Muxer.LastSampleDurationBehaviorSetToZero = 0 -> 
 const AndroidX.Media3.Muxer.MuxerUtil.UnsignedIntMaxValue = 4294967295 -> long
 override AndroidX.Media3.Muxer.AacMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.BufferInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Muxer.FileOutputStreamSeekableMuxerOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.FragmentedMp4Muxer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.FragmentedMp4Muxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Muxer.MediaMuxerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.Mp4Muxer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.Mp4Muxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.MuxerException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.MuxerUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Muxer.WebmMuxer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Muxer.WebmMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Media3.Muxer.FragmentedMp4Muxer.SupportedAudioSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Muxer.FragmentedMp4Muxer.SupportedVideoSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Muxer.Mp4Muxer.SupportedAudioSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
 static AndroidX.Media3.Muxer.Mp4Muxer.SupportedVideoSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Muxer.MuxerUtil.CreateMotionPhotoFromJpegImageAndBmffVideo(System.IO.Stream? imageInputStream, long imagePresentationTimestampUs, System.IO.Stream? videoInputStream, string? videoContainerMimeType, Java.Nio.Channels.IWritableByteChannel? outputChannel) -> void
 static AndroidX.Media3.Muxer.MuxerUtil.GetMuxerBufferInfoFromMediaCodecBufferInfo(Android.Media.MediaCodec.BufferInfo? mediaCodecBufferInfo) -> AndroidX.Media3.Muxer.BufferInfo?
 static AndroidX.Media3.Muxer.MuxerUtil.IsMetadataSupported(AndroidX.Media3.Common.Metadata.IEntry? metadata) -> bool

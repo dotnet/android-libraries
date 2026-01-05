@@ -1,0 +1,27 @@
+<metadata>
+  <!-- Fix duplicate interface definition -->
+  <remove-node path="/api/package[@name='androidx.health.platform.client.impl.sdkservice']/interface[@name='IHealthDataSdkService']" />
+  
+  <!-- Fix accessibility issue - hide the constructor that uses IServiceGetter -->
+  <attr path="/api/package[@name='androidx.health.platform.client.impl.ipc']/class[@name='Client']/constructor[@name='Client' and count(parameter)=4 and parameter[3][@type='androidx.health.platform.client.impl.ipc.Client.ServiceGetter&lt;S&gt;']]" name="visibility">protected</attr>
+  
+  <!-- Rename strongly-typed contract methods to avoid collision with Object-based override -->
+  <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='HealthPermissionsRequestContract']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.Set&lt;java.lang.String&gt;']]" name="managedName">CreateIntentImpl</attr>
+  <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='HealthPermissionsRequestContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]" name="managedName">ParseResultImpl</attr>
+  <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" name="managedName">CreateIntentImpl</attr>
+  <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]" name="managedName">ParseResultImpl</attr>
+  
+  <!-- Fix Units classes IComparable implementation by removing the Comparable interface -->
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='BloodGlucose']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Energy']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Length']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Mass']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Percentage']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Power']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Pressure']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Temperature']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='TemperatureDelta']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Velocity']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Volume']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='androidx.health.connect.client.records']/class[@name='FhirVersion']/implements[@name='java.lang.Comparable']" />
+</metadata>
