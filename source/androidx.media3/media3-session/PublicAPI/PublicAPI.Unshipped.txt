@@ -3,6 +3,7 @@ AndroidX.Media3.Session.CacheBitmapLoader
 AndroidX.Media3.Session.CacheBitmapLoader.CacheBitmapLoader(AndroidX.Media3.Common.Util.IBitmapLoader? bitmapLoader) -> void
 AndroidX.Media3.Session.CacheBitmapLoader.DecodeBitmap(byte[]? data) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.CacheBitmapLoader.LoadBitmap(Android.Net.Uri? uri) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.CacheBitmapLoader.LoadBitmapFromMetadata(AndroidX.Media3.Common.MediaMetadata? metadata) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.CacheBitmapLoader.SupportsMimeType(string? mimeType) -> bool
 AndroidX.Media3.Session.CommandButton
 AndroidX.Media3.Session.CommandButton.Builder
@@ -17,8 +18,11 @@ AndroidX.Media3.Session.CommandButton.Builder.SetExtras(Android.OS.Bundle? extra
 AndroidX.Media3.Session.CommandButton.Builder.SetIconResId(int resId) -> AndroidX.Media3.Session.CommandButton.Builder?
 AndroidX.Media3.Session.CommandButton.Builder.SetIconUri(Android.Net.Uri? uri) -> AndroidX.Media3.Session.CommandButton.Builder?
 AndroidX.Media3.Session.CommandButton.Builder.SetPlayerCommand(int playerCommand) -> AndroidX.Media3.Session.CommandButton.Builder?
+AndroidX.Media3.Session.CommandButton.Builder.SetPlayerCommand(int playerCommand, Java.Lang.Object? parameter) -> AndroidX.Media3.Session.CommandButton.Builder?
 AndroidX.Media3.Session.CommandButton.Builder.SetSessionCommand(AndroidX.Media3.Session.SessionCommand? sessionCommand) -> AndroidX.Media3.Session.CommandButton.Builder?
+AndroidX.Media3.Session.CommandButton.Builder.SetSessionCommand(AndroidX.Media3.Session.SessionCommand? sessionCommand, Java.Lang.Object? parameter) -> AndroidX.Media3.Session.CommandButton.Builder?
 AndroidX.Media3.Session.CommandButton.Builder.SetSlots(params int[]? slots) -> AndroidX.Media3.Session.CommandButton.Builder?
+AndroidX.Media3.Session.CommandButton.CanExecuteAction() -> bool
 AndroidX.Media3.Session.CommandButton.DisplayConstraints
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.Build() -> AndroidX.Media3.Session.CommandButton.DisplayConstraints?
@@ -30,6 +34,7 @@ AndroidX.Media3.Session.CommandButton.DisplayConstraints.Builder.SetMaxButtonsFo
 AndroidX.Media3.Session.CommandButton.DisplayConstraints.Resolve(System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? mediaButtonPreferences, AndroidX.Media3.Common.IPlayer? player) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.Session.CommandButton.DisplayName.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Session.CommandButton.DisplayName.set -> void
+AndroidX.Media3.Session.CommandButton.ExecuteAction(AndroidX.Media3.Session.MediaController? controller) -> void
 AndroidX.Media3.Session.CommandButton.Extras.get -> Android.OS.Bundle?
 AndroidX.Media3.Session.CommandButton.Extras.set -> void
 AndroidX.Media3.Session.CommandButton.IIcon
@@ -42,6 +47,8 @@ AndroidX.Media3.Session.CommandButton.IconUri.get -> Android.Net.Uri?
 AndroidX.Media3.Session.CommandButton.IconUri.set -> void
 AndroidX.Media3.Session.CommandButton.IsEnabled.get -> bool
 AndroidX.Media3.Session.CommandButton.IsEnabled.set -> void
+AndroidX.Media3.Session.CommandButton.Parameter.get -> Java.Lang.Object?
+AndroidX.Media3.Session.CommandButton.Parameter.set -> void
 AndroidX.Media3.Session.CommandButton.PlayerCommand.get -> int
 AndroidX.Media3.Session.CommandButton.PlayerCommand.set -> void
 AndroidX.Media3.Session.CommandButton.SessionCommand.get -> AndroidX.Media3.Session.SessionCommand?
@@ -72,6 +79,7 @@ AndroidX.Media3.Session.IMediaController.OnAvailableCommandsChangedFromSession(i
 AndroidX.Media3.Session.IMediaController.OnChildrenChanged(int p0, string? p1, int p2, Android.OS.Bundle? p3) -> void
 AndroidX.Media3.Session.IMediaController.OnConnected(int p0, Android.OS.Bundle? p1) -> void
 AndroidX.Media3.Session.IMediaController.OnCustomCommand(int p0, Android.OS.Bundle? p1, Android.OS.Bundle? p2) -> void
+AndroidX.Media3.Session.IMediaController.OnCustomCommandProgressUpdate(int p0, Android.OS.Bundle? p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
 AndroidX.Media3.Session.IMediaController.OnDisconnected(int p0) -> void
 AndroidX.Media3.Session.IMediaController.OnError(int p0, Android.OS.Bundle? p1) -> void
 AndroidX.Media3.Session.IMediaController.OnExtrasChanged(int p0, Android.OS.Bundle? p1) -> void
@@ -85,6 +93,7 @@ AndroidX.Media3.Session.IMediaController.OnSessionActivityChanged(int p0, Androi
 AndroidX.Media3.Session.IMediaController.OnSessionResult(int p0, Android.OS.Bundle? p1) -> void
 AndroidX.Media3.Session.IMediaController.OnSetCustomLayout(int p0, System.Collections.Generic.IList<Android.OS.Bundle!>? p1) -> void
 AndroidX.Media3.Session.IMediaController.OnSetMediaButtonPreferences(int p0, System.Collections.Generic.IList<Android.OS.Bundle!>? p1) -> void
+AndroidX.Media3.Session.IMediaController.OnSurfaceSizeChanged(int p0, int p1, int p2) -> void
 AndroidX.Media3.Session.IMediaSession
 AndroidX.Media3.Session.IMediaSession.AddMediaItem(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2) -> void
 AndroidX.Media3.Session.IMediaSession.AddMediaItemWithIndex(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, Android.OS.Bundle? p3) -> void
@@ -103,8 +112,11 @@ AndroidX.Media3.Session.IMediaSession.IncreaseDeviceVolume(AndroidX.Media3.Sessi
 AndroidX.Media3.Session.IMediaSession.IncreaseDeviceVolumeWithFlags(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2) -> void
 AndroidX.Media3.Session.IMediaSession.MoveMediaItem(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3) -> void
 AndroidX.Media3.Session.IMediaSession.MoveMediaItems(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3, int p4) -> void
+AndroidX.Media3.Session.IMediaSession.Mute(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 AndroidX.Media3.Session.IMediaSession.OnControllerResult(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2) -> void
 AndroidX.Media3.Session.IMediaSession.OnCustomCommand(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
+AndroidX.Media3.Session.IMediaSession.OnCustomCommandWithProgressUpdate(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3, bool p4) -> void
+AndroidX.Media3.Session.IMediaSession.OnSurfaceSizeChanged(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3) -> void
 AndroidX.Media3.Session.IMediaSession.Pause(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 AndroidX.Media3.Session.IMediaSession.Play(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 AndroidX.Media3.Session.IMediaSession.Prepare(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
@@ -145,84 +157,28 @@ AndroidX.Media3.Session.IMediaSession.SetRepeatMode(AndroidX.Media3.Session.IMed
 AndroidX.Media3.Session.IMediaSession.SetShuffleModeEnabled(AndroidX.Media3.Session.IMediaController? p0, int p1, bool p2) -> void
 AndroidX.Media3.Session.IMediaSession.SetTrackSelectionParameters(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2) -> void
 AndroidX.Media3.Session.IMediaSession.SetVideoSurface(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.Views.Surface? p2) -> void
+AndroidX.Media3.Session.IMediaSession.SetVideoSurfaceWithSize(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.Views.Surface? p2, int p3, int p4) -> void
 AndroidX.Media3.Session.IMediaSession.SetVolume(AndroidX.Media3.Session.IMediaController? p0, int p1, float p2) -> void
 AndroidX.Media3.Session.IMediaSession.Stop(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 AndroidX.Media3.Session.IMediaSession.Subscribe(AndroidX.Media3.Session.IMediaController? p0, int p1, string? p2, Android.OS.Bundle? p3) -> void
+AndroidX.Media3.Session.IMediaSession.Unmute(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 AndroidX.Media3.Session.IMediaSession.Unsubscribe(AndroidX.Media3.Session.IMediaController? p0, int p1, string? p2) -> void
 AndroidX.Media3.Session.IMediaSessionService
 AndroidX.Media3.Session.IMediaSessionService.Connect(AndroidX.Media3.Session.IMediaController? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat.AudioAttributesCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.Builder() -> void
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.Builder(AndroidX.Media3.Session.Legacy.AudioAttributesCompat? aa) -> void
-AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnCaptioningEnabledChanged(bool p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnEvent(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnExtrasChanged(Android.OS.Bundle? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnMetadataChanged(AndroidX.Media3.Session.Legacy.MediaMetadataCompat? p0) -> void
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnPlaybackStateChanged(AndroidX.Media3.Session.Legacy.PlaybackStateCompat? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnQueueChanged(System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaSessionCompat.QueueItem!>? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnQueueTitleChanged(Java.Lang.ICharSequence? p0) -> void
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnRepeatModeChanged(int p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnSessionDestroyed() -> void
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnSessionReady() -> void
 AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnShuffleModeChanged(int p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnShuffleModeChangedRemoved(bool p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallback.OnVolumeInfoChanged(AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaControllerCallbackExtensions
 AndroidX.Media3.Session.Legacy.IMediaSession
-AndroidX.Media3.Session.Legacy.IMediaSession.AddQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.AddQueueItemAt(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0, int p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.AdjustVolume(int p0, int p1, string? p2) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.CaptioningEnabled.get -> bool
-AndroidX.Media3.Session.Legacy.IMediaSession.CaptioningEnabled.set -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Extras.get -> Android.OS.Bundle?
-AndroidX.Media3.Session.Legacy.IMediaSession.FastForward() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Flags.get -> long
-AndroidX.Media3.Session.Legacy.IMediaSession.IsTransportControlEnabled.get -> bool
-AndroidX.Media3.Session.Legacy.IMediaSession.LaunchPendingIntent.get -> Android.App.PendingIntent?
-AndroidX.Media3.Session.Legacy.IMediaSession.Metadata.get -> AndroidX.Media3.Session.Legacy.MediaMetadataCompat?
-AndroidX.Media3.Session.Legacy.IMediaSession.Next() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PackageName.get -> string?
-AndroidX.Media3.Session.Legacy.IMediaSession.Pause() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Play() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PlayFromMediaId(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PlayFromSearch(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PlayFromUri(Android.Net.Uri? p0, Android.OS.Bundle? p1) -> void
+AndroidX.Media3.Session.Legacy.IMediaSession.IsCaptioningEnabled.get -> bool
 AndroidX.Media3.Session.Legacy.IMediaSession.PlaybackState.get -> AndroidX.Media3.Session.Legacy.PlaybackStateCompat?
-AndroidX.Media3.Session.Legacy.IMediaSession.Prepare() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PrepareFromMediaId(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PrepareFromSearch(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.PrepareFromUri(Android.Net.Uri? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Previous() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Queue.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaSessionCompat.QueueItem!>?
-AndroidX.Media3.Session.Legacy.IMediaSession.QueueTitleFormatted.get -> Java.Lang.ICharSequence?
-AndroidX.Media3.Session.Legacy.IMediaSession.Rate(AndroidX.Media3.Session.Legacy.RatingCompat? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.RateWithExtras(AndroidX.Media3.Session.Legacy.RatingCompat? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.RatingType.get -> int
 AndroidX.Media3.Session.Legacy.IMediaSession.RegisterCallbackListener(AndroidX.Media3.Session.Legacy.IMediaControllerCallback? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.RemoveQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.RemoveQueueItemAt(int p0) -> void
 AndroidX.Media3.Session.Legacy.IMediaSession.RepeatMode.get -> int
-AndroidX.Media3.Session.Legacy.IMediaSession.RepeatMode.set -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Rewind() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.SeekTo(long p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.SendCustomAction(string? p0, Android.OS.Bundle? p1) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.SendMediaButton(Android.Views.KeyEvent? p0) -> bool
 AndroidX.Media3.Session.Legacy.IMediaSession.SessionInfo.get -> Android.OS.Bundle?
-AndroidX.Media3.Session.Legacy.IMediaSession.SetPlaybackSpeed(float p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.SetVolumeTo(int p0, int p1, string? p2) -> void
 AndroidX.Media3.Session.Legacy.IMediaSession.ShuffleMode.get -> int
-AndroidX.Media3.Session.Legacy.IMediaSession.ShuffleMode.set -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.ShuffleModeEnabledRemoved.get -> bool
-AndroidX.Media3.Session.Legacy.IMediaSession.ShuffleModeEnabledRemoved.set -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.SkipToQueueItem(long p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Stop() -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.Tag.get -> string?
 AndroidX.Media3.Session.Legacy.IMediaSession.UnregisterCallbackListener(AndroidX.Media3.Session.Legacy.IMediaControllerCallback? p0) -> void
-AndroidX.Media3.Session.Legacy.IMediaSession.VolumeAttributes.get -> AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo?
 AndroidX.Media3.Session.Legacy.LegacyParcelableUtil
 AndroidX.Media3.Session.Legacy.MediaBrowserCompat
 AndroidX.Media3.Session.Legacy.MediaBrowserCompat.Connect() -> void
@@ -283,7 +239,6 @@ AndroidX.Media3.Session.Legacy.MediaConstants
 AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub
 AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.MediaControllerCallbackStub() -> void
 AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.MediaControllerCallbackStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnQueueTitleChanged(string? p0) -> void
 AndroidX.Media3.Session.Legacy.MediaControllerCompat
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.AddQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? description) -> void
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.AddQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? description, int index) -> void
@@ -305,12 +260,12 @@ AndroidX.Media3.Session.Legacy.MediaControllerCompat.MediaControllerCompat(Andro
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.Metadata.get -> AndroidX.Media3.Session.Legacy.MediaMetadataCompat?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PackageName.get -> string?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo
-AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.AudioAttributes.get -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat?
-AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.AudioStream.get -> int
+AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.AudioAttributes.get -> AndroidX.Media3.Common.AudioAttributes?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.CurrentVolume.get -> int
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.MaxVolume.get -> int
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.PlaybackType.get -> int
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.VolumeControl.get -> int
+AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackInfo.VolumeControlId.get -> string?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.PlaybackState.get -> AndroidX.Media3.Session.Legacy.PlaybackStateCompat?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.Queue.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaSessionCompat.QueueItem!>?
 AndroidX.Media3.Session.Legacy.MediaControllerCompat.QueueTitle.get -> string?
@@ -348,11 +303,13 @@ AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.DescribeContents() -> int
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.Description.get -> string?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.DescriptionFormatted.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.Extras.get -> Android.OS.Bundle?
+AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.GetIconBitmapData() -> byte[]?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.IconBitmap.get -> Android.Graphics.Bitmap?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.IconUri.get -> Android.Net.Uri?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.MediaDescription.get -> Android.Media.MediaDescription?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.MediaId.get -> string?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.MediaUri.get -> Android.Net.Uri?
+AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.PreserveIconBitmapData(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? previousInstance) -> void
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.Subtitle.get -> string?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.SubtitleFormatted.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Session.Legacy.MediaDescriptionCompat.Title.get -> string?
@@ -371,13 +328,15 @@ AndroidX.Media3.Session.Legacy.MediaMetadataCompat.Builder.PutText(string? key, 
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.Bundle.get -> Android.OS.Bundle?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.ContainsKey(string? key) -> bool
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.DescribeContents() -> int
-AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetBitmap(string? key) -> Android.Graphics.Bitmap?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetLong(string? key) -> long
+AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetMostRelevantArtworkBitmapData() -> byte[]?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetRating(string? key) -> AndroidX.Media3.Session.Legacy.RatingCompat?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetString(string? key) -> string?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetText(string? key) -> string?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.GetTextFormatted(string? key) -> Java.Lang.ICharSequence?
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.MediaMetadata.get -> Android.Media.MediaMetadata?
+AndroidX.Media3.Session.Legacy.MediaMetadataCompat.MostRelevantArtworkUri.get -> Android.Net.Uri?
+AndroidX.Media3.Session.Legacy.MediaMetadataCompat.PreserveArtworkBitmapData(AndroidX.Media3.Session.Legacy.MediaMetadataCompat? previousInstance) -> void
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.Size() -> int
 AndroidX.Media3.Session.Legacy.MediaMetadataCompat.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void
 AndroidX.Media3.Session.Legacy.MediaSessionCompat
@@ -416,20 +375,6 @@ AndroidX.Media3.Session.Legacy.MediaSessionManager.RemoteUserInfo.Uid.get -> int
 AndroidX.Media3.Session.Legacy.MediaSessionStub
 AndroidX.Media3.Session.Legacy.MediaSessionStub.MediaSessionStub() -> void
 AndroidX.Media3.Session.Legacy.MediaSessionStub.MediaSessionStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Session.Legacy.MediaSessionStub.QueueTitle.get -> string?
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.AudioStream.get -> int
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.AudioStream.set -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ControlType.get -> int
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ControlType.set -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.CurrentVolume.get -> int
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.CurrentVolume.set -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.MaxVolume.get -> int
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.MaxVolume.set -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ParcelableVolumeInfo(Android.OS.Parcel? from) -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ParcelableVolumeInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.VolumeType.get -> int
-AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.VolumeType.set -> void
 AndroidX.Media3.Session.Legacy.PlaybackStateCompat
 AndroidX.Media3.Session.Legacy.PlaybackStateCompat.Actions.get -> long
 AndroidX.Media3.Session.Legacy.PlaybackStateCompat.ActiveQueueItemId.get -> long
@@ -551,6 +496,7 @@ AndroidX.Media3.Session.MediaController.AddMediaItems(System.Collections.Generic
 AndroidX.Media3.Session.MediaController.AddMediaItems(int index, System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? mediaItems) -> void
 AndroidX.Media3.Session.MediaController.ApplicationLooper.get -> Android.OS.Looper?
 AndroidX.Media3.Session.MediaController.AudioAttributes.get -> AndroidX.Media3.Common.AudioAttributes?
+AndroidX.Media3.Session.MediaController.AudioSessionId.get -> int
 AndroidX.Media3.Session.MediaController.AvailableCommands.get -> AndroidX.Media3.Common.PlayerCommands?
 AndroidX.Media3.Session.MediaController.AvailableSessionCommands.get -> AndroidX.Media3.Session.SessionCommands?
 AndroidX.Media3.Session.MediaController.AvailableSessionCommandsChangedEventArgs
@@ -629,6 +575,8 @@ AndroidX.Media3.Session.MediaController.IListener.OnExtrasChanged(AndroidX.Media
 AndroidX.Media3.Session.MediaController.IListener.OnMediaButtonPreferencesChanged(AndroidX.Media3.Session.MediaController? controller, System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? mediaButtonPreferences) -> void
 AndroidX.Media3.Session.MediaController.IListener.OnSessionActivityChanged(AndroidX.Media3.Session.MediaController? controller, Android.App.PendingIntent? sessionActivity) -> void
 AndroidX.Media3.Session.MediaController.IListener.OnSetCustomLayout(AndroidX.Media3.Session.MediaController? controller, System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? layout) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaController.IProgressListener
+AndroidX.Media3.Session.MediaController.IProgressListener.OnProgress(AndroidX.Media3.Session.MediaController? p0, AndroidX.Media3.Session.SessionCommand? p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
 AndroidX.Media3.Session.MediaController.IncreaseDeviceVolume() -> void
 AndroidX.Media3.Session.MediaController.IncreaseDeviceVolume(int flags) -> void
 AndroidX.Media3.Session.MediaController.IsCommandAvailable(int command) -> bool
@@ -655,6 +603,7 @@ AndroidX.Media3.Session.MediaController.MediaItemCount.get -> int
 AndroidX.Media3.Session.MediaController.MediaMetadata.get -> AndroidX.Media3.Common.MediaMetadata?
 AndroidX.Media3.Session.MediaController.MoveMediaItem(int currentIndex, int newIndex) -> void
 AndroidX.Media3.Session.MediaController.MoveMediaItems(int fromIndex, int toIndex, int newIndex) -> void
+AndroidX.Media3.Session.MediaController.Mute() -> void
 AndroidX.Media3.Session.MediaController.NextMediaItemIndex.get -> int
 AndroidX.Media3.Session.MediaController.NextWindowIndex.get -> int
 AndroidX.Media3.Session.MediaController.OnCustomCommandHandler
@@ -673,6 +622,12 @@ AndroidX.Media3.Session.MediaController.PlaylistMetadata.set -> void
 AndroidX.Media3.Session.MediaController.Prepare() -> void
 AndroidX.Media3.Session.MediaController.PreviousMediaItemIndex.get -> int
 AndroidX.Media3.Session.MediaController.PreviousWindowIndex.get -> int
+AndroidX.Media3.Session.MediaController.ProgressEventArgs
+AndroidX.Media3.Session.MediaController.ProgressEventArgs.P0.get -> AndroidX.Media3.Session.MediaController?
+AndroidX.Media3.Session.MediaController.ProgressEventArgs.P1.get -> AndroidX.Media3.Session.SessionCommand?
+AndroidX.Media3.Session.MediaController.ProgressEventArgs.P2.get -> Android.OS.Bundle?
+AndroidX.Media3.Session.MediaController.ProgressEventArgs.P3.get -> Android.OS.Bundle?
+AndroidX.Media3.Session.MediaController.ProgressEventArgs.ProgressEventArgs(AndroidX.Media3.Session.MediaController? p0, AndroidX.Media3.Session.SessionCommand? p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
 AndroidX.Media3.Session.MediaController.Release() -> void
 AndroidX.Media3.Session.MediaController.RemoveListener(AndroidX.Media3.Common.IPlayerListener? listener) -> void
 AndroidX.Media3.Session.MediaController.RemoveMediaItem(int index) -> void
@@ -694,7 +649,9 @@ AndroidX.Media3.Session.MediaController.SeekToNextMediaItem() -> void
 AndroidX.Media3.Session.MediaController.SeekToPrevious() -> void
 AndroidX.Media3.Session.MediaController.SeekToPreviousMediaItem() -> void
 AndroidX.Media3.Session.MediaController.SendCustomCommand(AndroidX.Media3.Session.SessionCommand? command, Android.OS.Bundle? args) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaController.SendCustomCommand(AndroidX.Media3.Session.SessionCommand? command, Android.OS.Bundle? args, AndroidX.Media3.Session.MediaController.IProgressListener? progressListener) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaController.SendCustomCommand(AndroidX.Media3.Session.SessionCommand? command, AndroidX.Media3.Common.MediaItem? mediaItem, Android.OS.Bundle? args) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaController.SendCustomCommand(AndroidX.Media3.Session.SessionCommand? command, AndroidX.Media3.Common.MediaItem? mediaItem, Android.OS.Bundle? args, AndroidX.Media3.Session.MediaController.IProgressListener? progressListener) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaController.SessionActivity.get -> Android.App.PendingIntent?
 AndroidX.Media3.Session.MediaController.SessionActivityChangedEventArgs
 AndroidX.Media3.Session.MediaController.SessionActivityChangedEventArgs.Controller.get -> AndroidX.Media3.Session.MediaController?
@@ -724,6 +681,7 @@ AndroidX.Media3.Session.MediaController.SurfaceSize.get -> AndroidX.Media3.Commo
 AndroidX.Media3.Session.MediaController.TotalBufferedDuration.get -> long
 AndroidX.Media3.Session.MediaController.TrackSelectionParameters.get -> AndroidX.Media3.Common.TrackSelectionParameters?
 AndroidX.Media3.Session.MediaController.TrackSelectionParameters.set -> void
+AndroidX.Media3.Session.MediaController.Unmute() -> void
 AndroidX.Media3.Session.MediaController.VideoSize.get -> AndroidX.Media3.Common.VideoSize?
 AndroidX.Media3.Session.MediaController.Volume.get -> float
 AndroidX.Media3.Session.MediaController.Volume.set -> void
@@ -830,6 +788,7 @@ AndroidX.Media3.Session.MediaSession.Builder.SetCommandButtonsForMediaItems(Syst
 AndroidX.Media3.Session.MediaSession.Builder.SetCommandButtonsForMediaItems(System.Collections.IList? p0) -> Java.Lang.Object?
 AndroidX.Media3.Session.MediaSession.Builder.SetCustomLayout(System.Collections.Generic.IList<AndroidX.Media3.Session.CommandButton!>? customLayout) -> AndroidX.Media3.Session.MediaSession.Builder?
 AndroidX.Media3.Session.MediaSession.Builder.SetCustomLayout(System.Collections.IList? p0) -> Java.Lang.Object?
+AndroidX.Media3.Session.MediaSession.Builder.SetExperimentalSetUseLegacySurfaceHandling(bool useLegacySurfaceHandling) -> AndroidX.Media3.Session.MediaSession.Builder?
 AndroidX.Media3.Session.MediaSession.Builder.SetExtras(Android.OS.Bundle? tokenExtras) -> AndroidX.Media3.Session.MediaSession.Builder?
 AndroidX.Media3.Session.MediaSession.Builder.SetExtrasWithBundle(Android.OS.Bundle? p0) -> Java.Lang.Object?
 AndroidX.Media3.Session.MediaSession.Builder.SetId(string? id) -> AndroidX.Media3.Session.MediaSession.Builder?
@@ -846,6 +805,7 @@ AndroidX.Media3.Session.MediaSession.Builder.SetShowPlayButtonIfPlaybackIsSuppre
 AndroidX.Media3.Session.MediaSession.Builder.SetShowPlayButtonIfPlaybackIsSuppressedBuilder(bool showPlayButtonIfPlaybackIsSuppressed) -> AndroidX.Media3.Session.MediaSession.Builder?
 AndroidX.Media3.Session.MediaSession.BuilderBase
 AndroidX.Media3.Session.MediaSession.BuilderBase.BuilderBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Session.MediaSession.BuilderBase.EnsureBitmapLoaderIsSizeLimited() -> void
 AndroidX.Media3.Session.MediaSession.ConnectedControllers.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.MediaSession.ControllerInfo!>?
 AndroidX.Media3.Session.MediaSession.ConnectionResult
 AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder
@@ -870,6 +830,7 @@ AndroidX.Media3.Session.MediaSession.ControllerInfo
 AndroidX.Media3.Session.MediaSession.ControllerInfo.ConnectionHints.get -> Android.OS.Bundle?
 AndroidX.Media3.Session.MediaSession.ControllerInfo.ControllerVersion.get -> int
 AndroidX.Media3.Session.MediaSession.ControllerInfo.InterfaceVersion.get -> int
+AndroidX.Media3.Session.MediaSession.ControllerInfo.IsPackageNameVerified.get -> bool
 AndroidX.Media3.Session.MediaSession.ControllerInfo.IsTrusted.get -> bool
 AndroidX.Media3.Session.MediaSession.ControllerInfo.MaxCommandsForMediaItems.get -> int
 AndroidX.Media3.Session.MediaSession.ControllerInfo.PackageName.get -> string?
@@ -878,15 +839,19 @@ AndroidX.Media3.Session.MediaSession.ICallback
 AndroidX.Media3.Session.MediaSession.ICallback.OnAddMediaItems(AndroidX.Media3.Session.MediaSession? mediaSession, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? mediaItems) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaSession.ICallback.OnConnect(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller) -> AndroidX.Media3.Session.MediaSession.ConnectionResult?
 AndroidX.Media3.Session.MediaSession.ICallback.OnCustomCommand(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, AndroidX.Media3.Session.SessionCommand? customCommand, Android.OS.Bundle? args) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaSession.ICallback.OnCustomCommand(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, AndroidX.Media3.Session.SessionCommand? customCommand, Android.OS.Bundle? args, AndroidX.Media3.Session.MediaSession.IProgressReporter? progressReporter) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaSession.ICallback.OnDisconnected(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller) -> void
 AndroidX.Media3.Session.MediaSession.ICallback.OnMediaButtonEvent(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo, Android.Content.Intent? intent) -> bool
 AndroidX.Media3.Session.MediaSession.ICallback.OnPlaybackResumption(AndroidX.Media3.Session.MediaSession? mediaSession, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaSession.ICallback.OnPlaybackResumption(AndroidX.Media3.Session.MediaSession? mediaSession, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, bool isForPlayback) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaSession.ICallback.OnPlayerCommandRequest(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, int playerCommand) -> int
 AndroidX.Media3.Session.MediaSession.ICallback.OnPlayerInteractionFinished(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo, AndroidX.Media3.Common.PlayerCommands? playerCommands) -> void
 AndroidX.Media3.Session.MediaSession.ICallback.OnPostConnect(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller) -> void
 AndroidX.Media3.Session.MediaSession.ICallback.OnSetMediaItems(AndroidX.Media3.Session.MediaSession? mediaSession, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? mediaItems, int startIndex, long startPositionMs) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaSession.ICallback.OnSetRating(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, AndroidX.Media3.Common.Rating? rating) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Session.MediaSession.ICallback.OnSetRating(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Session.MediaSession.ControllerInfo? controller, string? mediaId, AndroidX.Media3.Common.Rating? rating) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.MediaSession.IProgressReporter
+AndroidX.Media3.Session.MediaSession.IProgressReporter.SendProgressUpdate(Android.OS.Bundle? p0) -> void
 AndroidX.Media3.Session.MediaSession.Id.get -> string?
 AndroidX.Media3.Session.MediaSession.IsAutoCompanionController(AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo) -> bool
 AndroidX.Media3.Session.MediaSession.IsAutomotiveController(AndroidX.Media3.Session.MediaSession.ControllerInfo? controllerInfo) -> bool
@@ -931,15 +896,18 @@ AndroidX.Media3.Session.MediaSessionService.ClearListener() -> void
 AndroidX.Media3.Session.MediaSessionService.IListener
 AndroidX.Media3.Session.MediaSessionService.IListener.OnForegroundServiceStartNotAllowedException() -> void
 AndroidX.Media3.Session.MediaSessionService.IShowNotificationForIdlePlayerMode
+AndroidX.Media3.Session.MediaSessionService.IsPlaybackOngoing.get -> bool
 AndroidX.Media3.Session.MediaSessionService.IsSessionAdded(AndroidX.Media3.Session.MediaSession? session) -> bool
 AndroidX.Media3.Session.MediaSessionService.MediaSessionService() -> void
 AndroidX.Media3.Session.MediaSessionService.MediaSessionService(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Session.MediaSessionService.PauseAllPlayersAndStopSelf() -> void
 AndroidX.Media3.Session.MediaSessionService.RemoveSession(AndroidX.Media3.Session.MediaSession? session) -> void
 AndroidX.Media3.Session.MediaSessionService.Sessions.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.MediaSession!>?
 AndroidX.Media3.Session.MediaSessionService.SetForegroundServiceTimeoutMs(long foregroundServiceTimeoutMs) -> void
 AndroidX.Media3.Session.MediaSessionService.SetListener(AndroidX.Media3.Session.MediaSessionService.IListener? listener) -> void
 AndroidX.Media3.Session.MediaSessionService.SetMediaNotificationProvider(AndroidX.Media3.Session.MediaNotification.IProvider? mediaNotificationProvider) -> void
 AndroidX.Media3.Session.MediaSessionService.SetShowNotificationForIdlePlayer(int showNotificationForIdlePlayerMode) -> void
+AndroidX.Media3.Session.MediaSessionService.TriggerNotificationUpdate() -> void
 AndroidX.Media3.Session.MediaSessionServiceDefault
 AndroidX.Media3.Session.MediaSessionServiceDefault.InterfaceConsts
 AndroidX.Media3.Session.MediaSessionServiceDefault.MediaSessionServiceDefault() -> void
@@ -1036,21 +1004,19 @@ AndroidX.Media3.Session.SimpleBitmapLoader.LoadBitmap(Android.Net.Uri? uri) -> G
 AndroidX.Media3.Session.SimpleBitmapLoader.SimpleBitmapLoader() -> void
 AndroidX.Media3.Session.SimpleBitmapLoader.SimpleBitmapLoader(Java.Util.Concurrent.IExecutorService? executorService) -> void
 AndroidX.Media3.Session.SimpleBitmapLoader.SupportsMimeType(string? mimeType) -> bool
+AndroidX.Media3.Session.SizeLimitedBitmapLoader
+AndroidX.Media3.Session.SizeLimitedBitmapLoader.DecodeBitmap(byte[]? data) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.SizeLimitedBitmapLoader.LoadBitmap(Android.Net.Uri? uri) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.SizeLimitedBitmapLoader.LoadBitmapFromMetadata(AndroidX.Media3.Common.MediaMetadata? metadata) -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Media3.Session.SizeLimitedBitmapLoader.SizeLimitedBitmapLoader(AndroidX.Media3.Common.Util.IBitmapLoader? bitmapLoader, int maxBitmapSize, bool makeShared) -> void
+AndroidX.Media3.Session.SizeLimitedBitmapLoader.SupportsMimeType(string? mimeType) -> bool
 abstract AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.OnGetRoot(string? p0, int p1, Android.OS.Bundle? p2) -> AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.BrowserRoot?
 abstract AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.OnLoadChildren(string? p0, AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.Result? p1) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnCaptioningEnabledChanged(bool p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnEvent(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnExtrasChanged(Android.OS.Bundle? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnMetadataChanged(AndroidX.Media3.Session.Legacy.MediaMetadataCompat? p0) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnPlaybackStateChanged(AndroidX.Media3.Session.Legacy.PlaybackStateCompat? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnQueueChanged(System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaSessionCompat.QueueItem!>? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnQueueTitleChanged(Java.Lang.ICharSequence? p0) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnRepeatModeChanged(int p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnSessionDestroyed() -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnSessionReady() -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnShuffleModeChanged(int p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnShuffleModeChangedRemoved(bool p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaControllerCallbackStub.OnVolumeInfoChanged(AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo? p0) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.FastForward() -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.Pause() -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.Play() -> void
@@ -1073,62 +1039,20 @@ abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.SkipToPrevious() -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.SkipToQueueItem(long p0) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaControllerCompat.TransportControls.Stop() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.AddQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.AddQueueItemAt(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0, int p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.AdjustVolume(int p0, int p1, string? p2) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.CaptioningEnabled.get -> bool
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.CaptioningEnabled.set -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Extras.get -> Android.OS.Bundle?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.FastForward() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Flags.get -> long
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.IsTransportControlEnabled.get -> bool
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.LaunchPendingIntent.get -> Android.App.PendingIntent?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Metadata.get -> AndroidX.Media3.Session.Legacy.MediaMetadataCompat?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Next() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PackageName.get -> string?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Pause() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Play() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PlayFromMediaId(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PlayFromSearch(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PlayFromUri(Android.Net.Uri? p0, Android.OS.Bundle? p1) -> void
+abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.IsCaptioningEnabled.get -> bool
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PlaybackState.get -> AndroidX.Media3.Session.Legacy.PlaybackStateCompat?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Prepare() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PrepareFromMediaId(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PrepareFromSearch(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.PrepareFromUri(Android.Net.Uri? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Previous() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Queue.get -> System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaSessionCompat.QueueItem!>?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.QueueTitleFormatted.get -> Java.Lang.ICharSequence?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Rate(AndroidX.Media3.Session.Legacy.RatingCompat? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RateWithExtras(AndroidX.Media3.Session.Legacy.RatingCompat? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RatingType.get -> int
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RegisterCallbackListener(AndroidX.Media3.Session.Legacy.IMediaControllerCallback? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RemoveQueueItem(AndroidX.Media3.Session.Legacy.MediaDescriptionCompat? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RemoveQueueItemAt(int p0) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RepeatMode.get -> int
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.RepeatMode.set -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Rewind() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SeekTo(long p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SendCustomAction(string? p0, Android.OS.Bundle? p1) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SendMediaButton(Android.Views.KeyEvent? p0) -> bool
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SessionInfo.get -> Android.OS.Bundle?
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SetPlaybackSpeed(float p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SetVolumeTo(int p0, int p1, string? p2) -> void
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.ShuffleMode.get -> int
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.ShuffleMode.set -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.ShuffleModeEnabledRemoved.get -> bool
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.ShuffleModeEnabledRemoved.set -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.SkipToQueueItem(long p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Stop() -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.Tag.get -> string?
 abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.UnregisterCallbackListener(AndroidX.Media3.Session.Legacy.IMediaControllerCallback? p0) -> void
-abstract AndroidX.Media3.Session.Legacy.MediaSessionStub.VolumeAttributes.get -> AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo?
 abstract AndroidX.Media3.Session.Legacy.VolumeProviderCompat.Callback.OnVolumeChanged(AndroidX.Media3.Session.Legacy.VolumeProviderCompat? p0) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnAvailableCommandsChangedFromPlayer(int p0, Android.OS.Bundle? p1) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnAvailableCommandsChangedFromSession(int p0, Android.OS.Bundle? p1, Android.OS.Bundle? p2) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnChildrenChanged(int p0, string? p1, int p2, Android.OS.Bundle? p3) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnConnected(int p0, Android.OS.Bundle? p1) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnCustomCommand(int p0, Android.OS.Bundle? p1, Android.OS.Bundle? p2) -> void
+abstract AndroidX.Media3.Session.MediaControllerStub.OnCustomCommandProgressUpdate(int p0, Android.OS.Bundle? p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnDisconnected(int p0) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnError(int p0, Android.OS.Bundle? p1) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnExtrasChanged(int p0, Android.OS.Bundle? p1) -> void
@@ -1142,6 +1066,7 @@ abstract AndroidX.Media3.Session.MediaControllerStub.OnSessionActivityChanged(in
 abstract AndroidX.Media3.Session.MediaControllerStub.OnSessionResult(int p0, Android.OS.Bundle? p1) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnSetCustomLayout(int p0, System.Collections.Generic.IList<Android.OS.Bundle!>? p1) -> void
 abstract AndroidX.Media3.Session.MediaControllerStub.OnSetMediaButtonPreferences(int p0, System.Collections.Generic.IList<Android.OS.Bundle!>? p1) -> void
+abstract AndroidX.Media3.Session.MediaControllerStub.OnSurfaceSizeChanged(int p0, int p1, int p2) -> void
 abstract AndroidX.Media3.Session.MediaLibraryService.OnGetSessionFromMediaLibraryService(AndroidX.Media3.Session.MediaSession.ControllerInfo? p0) -> AndroidX.Media3.Session.MediaLibraryService.MediaLibrarySession?
 abstract AndroidX.Media3.Session.MediaSessionService.OnGetSession(AndroidX.Media3.Session.MediaSession.ControllerInfo? p0) -> AndroidX.Media3.Session.MediaSession?
 abstract AndroidX.Media3.Session.MediaSessionServiceStub.Connect(AndroidX.Media3.Session.IMediaController? p0, Android.OS.Bundle? p1) -> void
@@ -1162,8 +1087,11 @@ abstract AndroidX.Media3.Session.MediaSessionStub.IncreaseDeviceVolume(AndroidX.
 abstract AndroidX.Media3.Session.MediaSessionStub.IncreaseDeviceVolumeWithFlags(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.MoveMediaItem(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.MoveMediaItems(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3, int p4) -> void
+abstract AndroidX.Media3.Session.MediaSessionStub.Mute(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.OnControllerResult(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.OnCustomCommand(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3) -> void
+abstract AndroidX.Media3.Session.MediaSessionStub.OnCustomCommandWithProgressUpdate(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2, Android.OS.Bundle? p3, bool p4) -> void
+abstract AndroidX.Media3.Session.MediaSessionStub.OnSurfaceSizeChanged(AndroidX.Media3.Session.IMediaController? p0, int p1, int p2, int p3) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Pause(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Play(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Prepare(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
@@ -1204,9 +1132,11 @@ abstract AndroidX.Media3.Session.MediaSessionStub.SetRepeatMode(AndroidX.Media3.
 abstract AndroidX.Media3.Session.MediaSessionStub.SetShuffleModeEnabled(AndroidX.Media3.Session.IMediaController? p0, int p1, bool p2) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.SetTrackSelectionParameters(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.OS.Bundle? p2) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.SetVideoSurface(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.Views.Surface? p2) -> void
+abstract AndroidX.Media3.Session.MediaSessionStub.SetVideoSurfaceWithSize(AndroidX.Media3.Session.IMediaController? p0, int p1, Android.Views.Surface? p2, int p3, int p4) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.SetVolume(AndroidX.Media3.Session.IMediaController? p0, int p1, float p2) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Stop(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Subscribe(AndroidX.Media3.Session.IMediaController? p0, int p1, string? p2, Android.OS.Bundle? p3) -> void
+abstract AndroidX.Media3.Session.MediaSessionStub.Unmute(AndroidX.Media3.Session.IMediaController? p0, int p1) -> void
 abstract AndroidX.Media3.Session.MediaSessionStub.Unsubscribe(AndroidX.Media3.Session.IMediaController? p0, int p1, string? p2) -> void
 const AndroidX.Media3.Session.CommandButton.IconAlbum = 57369 -> int
 const AndroidX.Media3.Session.CommandButton.IconArtist = 57370 -> int
@@ -1292,31 +1222,9 @@ const AndroidX.Media3.Session.DefaultMediaNotificationProvider.CommandKeyCompact
 const AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultChannelId = "default_channel_id" -> string!
 const AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultNotificationId = 1001 -> int
 const AndroidX.Media3.Session.DefaultMediaNotificationProvider.GroupKey = "media3_group_key" -> string!
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentTypeMovie = 3 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentTypeMusic = 2 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentTypeSonification = 4 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentTypeSpeech = 1 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentTypeUnknown = 0 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.FlagAudibilityEnforced = 1 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageAlarm = 4 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageAssistanceAccessibility = 11 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageAssistanceNavigationGuidance = 12 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageAssistanceSonification = 13 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageAssistant = 16 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageGame = 14 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageMedia = 1 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotification = 5 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotificationCommunicationDelayed = 9 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotificationCommunicationInstant = 8 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotificationCommunicationRequest = 7 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotificationEvent = 10 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageNotificationRingtone = 6 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageUnknown = 0 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageVirtualSource = 15 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageVoiceCommunication = 2 -> int
-const AndroidX.Media3.Session.Legacy.AudioAttributesCompat.UsageVoiceCommunicationSignalling = 3 -> int
 const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.CustomActionDownload = "android.support.v4.media.action.DOWNLOAD" -> string!
 const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.CustomActionRemoveDownloadedFile = "android.support.v4.media.action.REMOVE_DOWNLOADED_FILE" -> string!
+const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ExtraDownloadProgress = "android.media.browse.extra.DOWNLOAD_PROGRESS" -> string!
 const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ExtraPage = "android.media.browse.extra.PAGE" -> string!
 const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ExtraPageSize = "android.media.browse.extra.PAGE_SIZE" -> string!
 const AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem.FlagBrowsable = 1 -> int
@@ -1569,6 +1477,7 @@ const AndroidX.Media3.Session.LibraryResult.ResultErrorSessionSkipLimitReached =
 const AndroidX.Media3.Session.LibraryResult.ResultErrorUnknown = -1 -> int
 const AndroidX.Media3.Session.LibraryResult.ResultInfoSkipped = 1 -> int
 const AndroidX.Media3.Session.LibraryResult.ResultSuccess = 0 -> int
+const AndroidX.Media3.Session.MediaConstants.CustomCommandDownload = "android.support.v4.media.action.DOWNLOAD" -> string!
 const AndroidX.Media3.Session.MediaConstants.ErrorCodeAuthenticationExpiredCompat = 3 -> int
 const AndroidX.Media3.Session.MediaConstants.ExtraKeyMediaId = "androidx.media.utils.extras.KEY_CUSTOM_BROWSER_ACTION_MEDIA_ITEM_ID" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtraKeyRootChildrenBrowsableOnly = "androidx.media3.session.LibraryParams.Extras.KEY_ROOT_CHILDREN_BROWSABLE_ONLY" -> string!
@@ -1581,6 +1490,7 @@ const AndroidX.Media3.Session.MediaConstants.ExtrasKeyContentStyleBrowsable = "a
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyContentStyleGroupTitle = "android.media.browse.CONTENT_STYLE_GROUP_TITLE_HINT" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyContentStylePlayable = "android.media.browse.CONTENT_STYLE_PLAYABLE_HINT" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyContentStyleSingleItem = "android.media.browse.CONTENT_STYLE_SINGLE_ITEM_HINT" -> string!
+const AndroidX.Media3.Session.MediaConstants.ExtrasKeyDownloadProgress = "android.media.browse.extra.DOWNLOAD_PROGRESS" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyDownloadStatus = "android.media.extra.DOWNLOAD_STATUS" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyErrorResolutionActionIntentCompat = "android.media.extras.ERROR_RESOLUTION_ACTION_INTENT" -> string!
 const AndroidX.Media3.Session.MediaConstants.ExtrasKeyErrorResolutionActionLabelCompat = "android.media.extras.ERROR_RESOLUTION_ACTION_LABEL" -> string!
@@ -1685,12 +1595,6 @@ override AndroidX.Media3.Session.DefaultMediaNotificationProvider.Builder.JniPee
 override AndroidX.Media3.Session.DefaultMediaNotificationProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.DefaultMediaNotificationProvider.ThresholdClass.get -> nint
 override AndroidX.Media3.Session.DefaultMediaNotificationProvider.ThresholdType.get -> System.Type!
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.ThresholdClass.get -> nint
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.ThresholdType.get -> System.Type!
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ThresholdClass.get -> nint
-override AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Session.Legacy.LegacyParcelableUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ConnectionCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ConnectionCallback.ThresholdClass.get -> nint
@@ -1758,9 +1662,6 @@ override AndroidX.Media3.Session.Legacy.MediaSessionManager.RemoteUserInfo.JniPe
 override AndroidX.Media3.Session.Legacy.MediaSessionStub.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.Legacy.MediaSessionStub.ThresholdClass.get -> nint
 override AndroidX.Media3.Session.Legacy.MediaSessionStub.ThresholdType.get -> System.Type!
-override AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ThresholdClass.get -> nint
-override AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Session.Legacy.PlaybackStateCompat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.Legacy.PlaybackStateCompat.CustomAction.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.Legacy.PlaybackStateCompat.CustomAction.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1852,13 +1753,12 @@ override AndroidX.Media3.Session.SessionError.JniPeerMembers.get -> Java.Interop
 override AndroidX.Media3.Session.SessionResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.SessionToken.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Session.SimpleBitmapLoader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Session.SizeLimitedBitmapLoader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Media3.Session.CommandButton.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Session.CommandButton?
 static AndroidX.Media3.Session.CommandButton.FromBundle(Android.OS.Bundle? bundle, int sessionInterfaceVersion) -> AndroidX.Media3.Session.CommandButton?
 static AndroidX.Media3.Session.CommandButton.GetDefaultSlot(int playerCommand, int icon) -> int
 static AndroidX.Media3.Session.CommandButton.GetIconResIdForIconConstant(int icon) -> int
 static AndroidX.Media3.Session.DefaultMediaNotificationProvider.DefaultChannelNameResourceId.get -> int
-static AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Wrap(Java.Lang.Object? aa) -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat?
-static AndroidX.Media3.Session.Legacy.IMediaControllerCallbackExtensions.OnQueueTitleChanged(this AndroidX.Media3.Session.Legacy.IMediaControllerCallback! self, string? p0) -> void
 static AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem.FromMediaItem(Android.Media.Browse.MediaBrowser.MediaItem? item) -> AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem?
 static AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem.FromMediaItemList(System.Collections.Generic.IList<Android.Media.Browse.MediaBrowser.MediaItem!>? itemList) -> System.Collections.Generic.IList<AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem!>?
@@ -1885,7 +1785,6 @@ static AndroidX.Media3.Session.Legacy.MediaSessionManager.GetSessionManager(Andr
 static AndroidX.Media3.Session.Legacy.MediaSessionStub.AsInterface(Android.OS.IBinder? obj) -> AndroidX.Media3.Session.Legacy.IMediaSession?
 static AndroidX.Media3.Session.Legacy.MediaSessionStub.DefaultImpl.get -> AndroidX.Media3.Session.Legacy.IMediaSession?
 static AndroidX.Media3.Session.Legacy.MediaSessionStub.SetDefaultImpl(AndroidX.Media3.Session.Legacy.IMediaSession? impl) -> bool
-static AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Media3.Session.Legacy.PlaybackStateCompat.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Media3.Session.Legacy.PlaybackStateCompat.CustomAction.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Media3.Session.Legacy.PlaybackStateCompat.CustomAction.FromCustomAction(Java.Lang.Object? customActionObj) -> AndroidX.Media3.Session.Legacy.PlaybackStateCompat.CustomAction?
@@ -1919,7 +1818,8 @@ static AndroidX.Media3.Session.MediaSession.ConnectionResult.DefaultPlayerComman
 static AndroidX.Media3.Session.MediaSession.ConnectionResult.DefaultSessionAndLibraryCommands.get -> AndroidX.Media3.Session.SessionCommands?
 static AndroidX.Media3.Session.MediaSession.ConnectionResult.DefaultSessionCommands.get -> AndroidX.Media3.Session.SessionCommands?
 static AndroidX.Media3.Session.MediaSession.ConnectionResult.Reject() -> AndroidX.Media3.Session.MediaSession.ConnectionResult?
-static AndroidX.Media3.Session.MediaSession.ControllerInfo.CreateTestOnlyControllerInfo(string? packageName, int pid, int uid, int libraryVersion, int interfaceVersion, bool trusted, Android.OS.Bundle? connectionHints) -> AndroidX.Media3.Session.MediaSession.ControllerInfo?
+static AndroidX.Media3.Session.MediaSession.ControllerInfo.CreateTestOnlyControllerInfo(string? packageName, int pid, int uid, int libraryVersion, int interfaceVersion, bool trusted, Android.OS.Bundle? connectionHints, bool isPackageNameVerified) -> AndroidX.Media3.Session.MediaSession.ControllerInfo?
+static AndroidX.Media3.Session.MediaSession.GetBitmapDimensionLimit(Android.Content.Context? context) -> int
 static AndroidX.Media3.Session.MediaSessionServiceStub.AsInterface(Android.OS.IBinder? obj) -> AndroidX.Media3.Session.IMediaSessionService?
 static AndroidX.Media3.Session.MediaSessionStub.AsInterface(Android.OS.IBinder? obj) -> AndroidX.Media3.Session.IMediaSession?
 static AndroidX.Media3.Session.MediaStyleNotificationHelper.MediaStyle.GetSessionToken(Android.App.Notification? notification) -> AndroidX.Media3.Session.SessionToken?
@@ -1939,20 +1839,11 @@ virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.AddNotification
 virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetMediaButtons(AndroidX.Media3.Session.MediaSession? session, AndroidX.Media3.Common.PlayerCommands? playerCommands, Google.Common.Collect.ImmutableList? mediaButtonPreferences, bool showPauseButton) -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetNotificationContentTextFormatted(AndroidX.Media3.Common.MediaMetadata? metadata) -> Java.Lang.ICharSequence?
 virtual AndroidX.Media3.Session.DefaultMediaNotificationProvider.GetNotificationContentTitleFormatted(AndroidX.Media3.Common.MediaMetadata? metadata) -> Java.Lang.ICharSequence?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.Build() -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.SetContentType(int contentType) -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.SetFlags(int flags) -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.SetLegacyStreamType(int streamType) -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder.SetUsage(int usage) -> AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Builder?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.ContentType.get -> int
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Flags.get -> int
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.LegacyStreamType.get -> int
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Unwrap() -> Java.Lang.Object?
-virtual AndroidX.Media3.Session.Legacy.AudioAttributesCompat.Usage.get -> int
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ConnectionCallback.OnConnected() -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ConnectionCallback.OnConnectionFailed() -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ConnectionCallback.OnConnectionSuspended() -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.CustomActionCallback.OnError(string? action, Android.OS.Bundle? extras, Android.OS.Bundle? data) -> void
+virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.CustomActionCallback.OnProgressUpdate(string? action, Android.OS.Bundle? extras, Android.OS.Bundle? data) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.CustomActionCallback.OnResult(string? action, Android.OS.Bundle? extras, Android.OS.Bundle? resultData) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ItemCallback.OnError(string? itemId) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserCompat.ItemCallback.OnItemLoaded(AndroidX.Media3.Session.Legacy.MediaBrowserCompat.MediaItem? item) -> void
@@ -1982,6 +1873,7 @@ virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.OnSubscribe(str
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.OnUnsubscribe(string? id) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.Result.Detach() -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.Result.SendError(Android.OS.Bundle? extras) -> void
+virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.Result.SendProgressUpdate(Android.OS.Bundle? extras) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.SessionToken.get -> AndroidX.Media3.Session.Legacy.MediaSessionCompat.Token?
 virtual AndroidX.Media3.Session.Legacy.MediaBrowserServiceCompat.SessionToken.set -> void
 virtual AndroidX.Media3.Session.Legacy.MediaButtonReceiver.OnForegroundServiceStartNotAllowedException(Android.App.ForegroundServiceStartNotAllowedException? e) -> void
@@ -2052,12 +1944,11 @@ virtual AndroidX.Media3.Session.Legacy.MediaSessionCompat.SetSessionActivity(And
 virtual AndroidX.Media3.Session.Legacy.MediaSessionCompat.SetShuffleMode(int shuffleMode) -> void
 virtual AndroidX.Media3.Session.Legacy.MediaSessionStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Media3.Session.Legacy.MediaSessionStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
-virtual AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.DescribeContents() -> int
-virtual AndroidX.Media3.Session.Legacy.ParcelableVolumeInfo.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void
 virtual AndroidX.Media3.Session.Legacy.VolumeProviderCompat.OnAdjustVolume(int direction) -> void
 virtual AndroidX.Media3.Session.Legacy.VolumeProviderCompat.OnSetVolumeTo(int volume) -> void
 virtual AndroidX.Media3.Session.Legacy.VolumeProviderCompat.SetCallback(AndroidX.Media3.Session.Legacy.VolumeProviderCompat.Callback? callback) -> void
 virtual AndroidX.Media3.Session.Legacy.VolumeProviderCompat.VolumeProvider.get -> Java.Lang.Object?
+virtual AndroidX.Media3.Session.MediaButtonReceiver.OnForegroundServiceStartNotAllowedException(Android.Content.Context? context, Android.Content.Intent? intent, Android.App.ForegroundServiceStartNotAllowedException? e) -> void
 virtual AndroidX.Media3.Session.MediaButtonReceiver.OnForegroundServiceStartNotAllowedException(Android.Content.Intent? intent, Android.App.ForegroundServiceStartNotAllowedException? e) -> void
 virtual AndroidX.Media3.Session.MediaButtonReceiver.ShouldStartForegroundService(Android.Content.Context? context, Android.Content.Intent? intent) -> bool
 virtual AndroidX.Media3.Session.MediaController.OnCustomCommandHandler.Invoke(AndroidX.Media3.Session.MediaController? controller, AndroidX.Media3.Session.SessionCommand? command, Android.OS.Bundle? args) -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -2068,6 +1959,7 @@ virtual AndroidX.Media3.Session.MediaControllerDefault.OnAvailableCommandsChange
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnChildrenChanged(int seq, string? parentId, int itemCount, Android.OS.Bundle? libraryParams) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnConnected(int seq, Android.OS.Bundle? connectionResult) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnCustomCommand(int seq, Android.OS.Bundle? command, Android.OS.Bundle? args) -> void
+virtual AndroidX.Media3.Session.MediaControllerDefault.OnCustomCommandProgressUpdate(int seq, Android.OS.Bundle? command, Android.OS.Bundle? args, Android.OS.Bundle? progressData) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnDisconnected(int seq) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnError(int seq, Android.OS.Bundle? sessionError) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnExtrasChanged(int seq, Android.OS.Bundle? extras) -> void
@@ -2081,6 +1973,7 @@ virtual AndroidX.Media3.Session.MediaControllerDefault.OnSessionActivityChanged(
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnSessionResult(int seq, Android.OS.Bundle? sessionResult) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnSetCustomLayout(int seq, System.Collections.Generic.IList<Android.OS.Bundle!>? commandButtonList) -> void
 virtual AndroidX.Media3.Session.MediaControllerDefault.OnSetMediaButtonPreferences(int seq, System.Collections.Generic.IList<Android.OS.Bundle!>? commandButtonList) -> void
+virtual AndroidX.Media3.Session.MediaControllerDefault.OnSurfaceSizeChanged(int seq, int width, int height) -> void
 virtual AndroidX.Media3.Session.MediaControllerStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Media3.Session.MediaControllerStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual AndroidX.Media3.Session.MediaSession.ConnectionResult.AcceptedResultBuilder.Build() -> AndroidX.Media3.Session.MediaSession.ConnectionResult?
@@ -2112,8 +2005,11 @@ virtual AndroidX.Media3.Session.MediaSessionDefault.IncreaseDeviceVolume(Android
 virtual AndroidX.Media3.Session.MediaSessionDefault.IncreaseDeviceVolumeWithFlags(AndroidX.Media3.Session.IMediaController? caller, int seq, int flags) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.MoveMediaItem(AndroidX.Media3.Session.IMediaController? caller, int seq, int currentIndex, int newIndex) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.MoveMediaItems(AndroidX.Media3.Session.IMediaController? caller, int seq, int fromIndex, int toIndex, int newIndex) -> void
+virtual AndroidX.Media3.Session.MediaSessionDefault.Mute(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.OnControllerResult(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.OS.Bundle? controllerResult) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.OnCustomCommand(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.OS.Bundle? sessionCommand, Android.OS.Bundle? args) -> void
+virtual AndroidX.Media3.Session.MediaSessionDefault.OnCustomCommandWithProgressUpdate(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.OS.Bundle? sessionCommand, Android.OS.Bundle? args, bool progressUpdateRequested) -> void
+virtual AndroidX.Media3.Session.MediaSessionDefault.OnSurfaceSizeChanged(AndroidX.Media3.Session.IMediaController? caller, int seq, int width, int height) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Pause(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Play(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Prepare(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
@@ -2154,14 +2050,14 @@ virtual AndroidX.Media3.Session.MediaSessionDefault.SetRepeatMode(AndroidX.Media
 virtual AndroidX.Media3.Session.MediaSessionDefault.SetShuffleModeEnabled(AndroidX.Media3.Session.IMediaController? caller, int seq, bool shuffleModeEnabled) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.SetTrackSelectionParameters(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.OS.Bundle? trackSelectionParametersBundle) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.SetVideoSurface(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.Views.Surface? surface) -> void
+virtual AndroidX.Media3.Session.MediaSessionDefault.SetVideoSurfaceWithSize(AndroidX.Media3.Session.IMediaController? caller, int seq, Android.Views.Surface? surface, int width, int height) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.SetVolume(AndroidX.Media3.Session.IMediaController? caller, int seq, float volume) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Stop(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Subscribe(AndroidX.Media3.Session.IMediaController? caller, int seq, string? parentId, Android.OS.Bundle? libraryParams) -> void
+virtual AndroidX.Media3.Session.MediaSessionDefault.Unmute(AndroidX.Media3.Session.IMediaController? caller, int seq) -> void
 virtual AndroidX.Media3.Session.MediaSessionDefault.Unsubscribe(AndroidX.Media3.Session.IMediaController? caller, int seq, string? parentId) -> void
-virtual AndroidX.Media3.Session.MediaSessionService.IsPlaybackOngoing.get -> bool
 virtual AndroidX.Media3.Session.MediaSessionService.OnUpdateNotification(AndroidX.Media3.Session.MediaSession? session) -> void
 virtual AndroidX.Media3.Session.MediaSessionService.OnUpdateNotification(AndroidX.Media3.Session.MediaSession? session, bool startInForegroundRequired) -> void
-virtual AndroidX.Media3.Session.MediaSessionService.PauseAllPlayersAndStopSelf() -> void
 virtual AndroidX.Media3.Session.MediaSessionServiceDefault.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Media3.Session.MediaSessionServiceDefault.Connect(AndroidX.Media3.Session.IMediaController? caller, Android.OS.Bundle? connectionRequest) -> void
 virtual AndroidX.Media3.Session.MediaSessionServiceStub.AsBinder() -> Android.OS.IBinder?

@@ -263,7 +263,15 @@ AndroidX.Media3.DataSource.ContentDataSource.ContentDataSourceException.ContentD
 AndroidX.Media3.DataSource.DataSchemeDataSource
 AndroidX.Media3.DataSource.DataSchemeDataSource.DataSchemeDataSource() -> void
 AndroidX.Media3.DataSource.DataSourceBitmapLoader
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.Build() -> AndroidX.Media3.DataSource.DataSourceBitmapLoader?
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.Builder(Android.Content.Context? context) -> void
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.SetBitmapFactoryOptions(Android.Graphics.BitmapFactory.Options? options) -> AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder?
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.SetDataSourceFactory(AndroidX.Media3.DataSource.IDataSourceFactory? dataSourceFactory) -> AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder?
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.SetMakeShared(bool makeShared) -> AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder?
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.SetMaximumOutputDimension(int maximumOutputDimension) -> AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder?
 AndroidX.Media3.DataSource.DataSourceBitmapLoader.DataSourceBitmapLoader(Android.Content.Context? context) -> void
+AndroidX.Media3.DataSource.DataSourceBitmapLoader.DataSourceBitmapLoader(Android.Content.Context? context, int maximumOutputDimension) -> void
 AndroidX.Media3.DataSource.DataSourceBitmapLoader.DecodeBitmap(byte[]? data) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.DataSource.DataSourceBitmapLoader.LoadBitmap(Android.Net.Uri? uri) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.DataSource.DataSourceBitmapLoader.SupportsMimeType(string? mimeType) -> bool
@@ -674,6 +682,7 @@ override AndroidX.Media3.DataSource.DataSchemeDataSource.JniPeerMembers.get -> J
 override AndroidX.Media3.DataSource.DataSchemeDataSource.Open(AndroidX.Media3.DataSource.DataSpec? dataSpec) -> long
 override AndroidX.Media3.DataSource.DataSchemeDataSource.Read(byte[]? buffer, int offset, int length) -> int
 override AndroidX.Media3.DataSource.DataSchemeDataSource.Uri.get -> Android.Net.Uri?
+override AndroidX.Media3.DataSource.DataSourceBitmapLoader.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.DataSource.DataSourceBitmapLoader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.DataSource.DataSourceException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.DataSource.DataSourceException.ThresholdClass.get -> nint
@@ -755,6 +764,7 @@ override AndroidX.Media3.DataSource.UdpDataSource.Read(byte[]? buffer, int offse
 override AndroidX.Media3.DataSource.UdpDataSource.UdpDataSourceException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.DataSource.UdpDataSource.Uri.get -> Android.Net.Uri?
 static AndroidX.Media3.DataSource.BitmapUtil.Decode(byte[]? data, int length, Android.Graphics.BitmapFactory.Options? options, int maximumOutputDimension) -> Android.Graphics.Bitmap?
+static AndroidX.Media3.DataSource.BitmapUtil.MakeShared(Android.Graphics.Bitmap? bitmap) -> Android.Graphics.Bitmap?
 static AndroidX.Media3.DataSource.Cache.ContentMetadataMutations.SetContentLength(AndroidX.Media3.DataSource.Cache.ContentMetadataMutations? mutations, long length) -> AndroidX.Media3.DataSource.Cache.ContentMetadataMutations?
 static AndroidX.Media3.DataSource.Cache.ContentMetadataMutations.SetRedirectedUri(AndroidX.Media3.DataSource.Cache.ContentMetadataMutations? mutations, Android.Net.Uri? uri) -> AndroidX.Media3.DataSource.Cache.ContentMetadataMutations?
 static AndroidX.Media3.DataSource.Cache.DefaultContentMetadata.Empty.get -> AndroidX.Media3.DataSource.Cache.DefaultContentMetadata?

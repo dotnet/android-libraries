@@ -114,9 +114,9 @@ Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.InsecureNonceChaC
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.InsecureNonceChaCha20(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(Java.Nio.ByteBuffer? ciphertext, byte[]? nonce, byte[]? associatedData) -> byte[]?
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> void
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.Encrypt(byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305.InsecureNonceChaCha20Poly1305(byte[]? key) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305Jce
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20Poly1305Jce.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
@@ -128,9 +128,9 @@ Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.InsecureNonceXCh
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.InsecureNonceXChaCha20(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(Java.Nio.ByteBuffer? ciphertext, byte[]? nonce, byte[]? associatedData) -> byte[]?
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Decrypt(byte[]? nonce, byte[]? ciphertext, byte[]? associatedData) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> void
-Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(byte[]? p0, byte[]? p1, byte[]? p2) -> byte[]?
+Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.Encrypt(byte[]? nonce, byte[]? plaintext, byte[]? associatedData) -> byte[]?
 Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20Poly1305.InsecureNonceXChaCha20Poly1305(byte[]? key) -> void
 Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead
 Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.LegacyFullAead(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -415,6 +415,7 @@ Xamarin.Google.Crypto.Tink.IKmsClient.DoesSupport(string? keyUri) -> bool
 Xamarin.Google.Crypto.Tink.IKmsClient.GetAead(string? keyUri) -> Xamarin.Google.Crypto.Tink.IAead?
 Xamarin.Google.Crypto.Tink.IKmsClient.WithCredentials(string? credentialPath) -> Xamarin.Google.Crypto.Tink.IKmsClient?
 Xamarin.Google.Crypto.Tink.IKmsClient.WithDefaultCredentials() -> Xamarin.Google.Crypto.Tink.IKmsClient?
+Xamarin.Google.Crypto.Tink.ILowLevelCryptoCaller
 Xamarin.Google.Crypto.Tink.IMac
 Xamarin.Google.Crypto.Tink.IMac.ComputeMac(byte[]? data) -> byte[]?
 Xamarin.Google.Crypto.Tink.IMac.VerifyMac(byte[]? mac, byte[]? data) -> void
@@ -633,6 +634,7 @@ Xamarin.Google.Crypto.Tink.Internal.PrimitiveFactory.PrimitiveFactory(Java.Lang.
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveFactory.PrimitiveFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder
+Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder.AllowReparsingLegacyKeys() -> Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder?
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder.Build() -> Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry?
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder.RegisterPrimitiveConstructor(Xamarin.Google.Crypto.Tink.Internal.PrimitiveConstructor? primitiveConstructor) -> Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder?
 Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder.RegisterPrimitiveWrapper(Xamarin.Google.Crypto.Tink.Internal.IPrimitiveWrapper? wrapper) -> Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder?
@@ -693,6 +695,11 @@ Xamarin.Google.Crypto.Tink.Jwt.IJwtPublicKeyVerify
 Xamarin.Google.Crypto.Tink.Jwt.IJwtPublicKeyVerify.VerifyAndDecode(string? compact, Xamarin.Google.Crypto.Tink.Jwt.JwtValidator? validator) -> Xamarin.Google.Crypto.Tink.Jwt.VerifiedJwt?
 Xamarin.Google.Crypto.Tink.Jwt.IJwtPublicKeyVerifyInternal
 Xamarin.Google.Crypto.Tink.Jwt.IJwtPublicKeyVerifyInternal.VerifyAndDecodeWithKid(string? compact, Xamarin.Google.Crypto.Tink.Jwt.JwtValidator? validator, Java.Util.Optional? kid) -> Xamarin.Google.Crypto.Tink.Jwt.VerifiedJwt?
+Xamarin.Google.Crypto.Tink.Jwt.Internal.JsonUtil
+Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtEcdsaProtoSerialization
+Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames
+Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPkcs1ProtoSerialization
+Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPssProtoSerialization
 Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Algorithm
@@ -706,8 +713,6 @@ Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.GetAlgorithm() -> Xamarin.Goog
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.GetKidStrategy() -> Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.KidStrategy?
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.KidStrategy
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPrivateKey
-Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPrivateKey.PrivateKeyValue.get -> Xamarin.Google.Crypto.Tink.Util.SecretBigInteger?
-Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPrivateKey.PrivateKeyValue.set -> void
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPrivateKey.PrivateValue.get -> Xamarin.Google.Crypto.Tink.Util.SecretBigInteger?
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPublicKey
 Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaPublicKey.Builder
@@ -890,6 +895,7 @@ Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.NewK
 Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.NewKeyData(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? serializedKeyFormat) -> Xamarin.Google.Crypto.Tink.Proto.KeyData?
 Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.PrimitiveClass.get -> Java.Lang.Class?
 Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.Version.get -> int
+Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDerivationKeyProtoSerialization
 Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDeriver
 Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDeriver.DeriveKey(byte[]? salt) -> Xamarin.Google.Crypto.Tink.Key?
 Xamarin.Google.Crypto.Tink.KeyDerivation.KeyDerivationConfig
@@ -969,6 +975,8 @@ Xamarin.Google.Crypto.Tink.KeysetManager.Rotate(Xamarin.Google.Crypto.Tink.Proto
 Xamarin.Google.Crypto.Tink.KeysetManager.SetPrimary(int keyId) -> Xamarin.Google.Crypto.Tink.KeysetManager?
 Xamarin.Google.Crypto.Tink.KmsClients
 Xamarin.Google.Crypto.Tink.LegacyKeysetSerialization
+Xamarin.Google.Crypto.Tink.LowLevelCryptoCallerAttribute
+Xamarin.Google.Crypto.Tink.LowLevelCryptoCallerAttribute.LowLevelCryptoCallerAttribute() -> void
 Xamarin.Google.Crypto.Tink.Mac.AesCmacKey
 Xamarin.Google.Crypto.Tink.Mac.AesCmacKey.AesKey.get -> Xamarin.Google.Crypto.Tink.Util.SecretBytes?
 Xamarin.Google.Crypto.Tink.Mac.AesCmacKey.Builder
@@ -2313,6 +2321,23 @@ Xamarin.Google.Crypto.Tink.Proto.IKmsEnvelopeAeadKeyOrBuilder
 Xamarin.Google.Crypto.Tink.Proto.IKmsEnvelopeAeadKeyOrBuilder.HasParams.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.IKmsEnvelopeAeadKeyOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat?
 Xamarin.Google.Crypto.Tink.Proto.IKmsEnvelopeAeadKeyOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaKeyFormatOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaKeyFormatOrBuilder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaKeyFormatOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaKeyFormatOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaParamsOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaParamsOrBuilder.MlDsaInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaParamsOrBuilder.MlDsaInstanceValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPrivateKeyOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPrivateKeyOrBuilder.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPrivateKeyOrBuilder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPrivateKeyOrBuilder.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPrivateKeyOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPublicKeyOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPublicKeyOrBuilder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPublicKeyOrBuilder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPublicKeyOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.IMlDsaPublicKeyOrBuilder.Version.get -> int
 Xamarin.Google.Crypto.Tink.Proto.IPrfBasedDeriverKeyFormatOrBuilder
 Xamarin.Google.Crypto.Tink.Proto.IPrfBasedDeriverKeyFormatOrBuilder.HasParams.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.IPrfBasedDeriverKeyFormatOrBuilder.HasPrfKeyTemplate.get -> bool
@@ -2384,6 +2409,26 @@ Xamarin.Google.Crypto.Tink.Proto.IRsaSsaPssPublicKeyOrBuilder.GetN() -> Xamarin.
 Xamarin.Google.Crypto.Tink.Proto.IRsaSsaPssPublicKeyOrBuilder.HasParams.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.IRsaSsaPssPublicKeyOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssParams?
 Xamarin.Google.Crypto.Tink.Proto.IRsaSsaPssPublicKeyOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaKeyFormatOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaKeyFormatOrBuilder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaKeyFormatOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaKeyFormatOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder.HashType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder.HashTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder.KeySize.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder.SigType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaParamsOrBuilder.SigTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPrivateKeyOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPrivateKeyOrBuilder.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPrivateKeyOrBuilder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPrivateKeyOrBuilder.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPrivateKeyOrBuilder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPublicKeyOrBuilder
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPublicKeyOrBuilder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPublicKeyOrBuilder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPublicKeyOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.ISlhDsaPublicKeyOrBuilder.Version.get -> int
 Xamarin.Google.Crypto.Tink.Proto.IXAesGcmKeyFormatOrBuilder
 Xamarin.Google.Crypto.Tink.Proto.IXAesGcmKeyFormatOrBuilder.HasParams.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.IXAesGcmKeyFormatOrBuilder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.XAesGcmParams?
@@ -2987,6 +3032,68 @@ Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.DekTemplate.get -> Xam
 Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.HasDekTemplate.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.KekUri.get -> string?
 Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.KekUriBytes.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.MlDsa
+Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance
+Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.Number.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.ClearParams() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.MergeParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.ClearMlDsaInstance() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.MlDsaInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.MlDsaInstanceValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.SetMlDsaInstance(Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.SetMlDsaInstanceValue(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.MlDsaInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.MlDsaInstanceValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.ClearKeyValue() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.ClearPublicKey() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.MergePublicKey(Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.SetKeyValue(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.SetPublicKey(Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.SetPublicKey(Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.ClearKeyValue() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.ClearParams() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.MergeParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.SetKeyValue(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Params.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Version.get -> int
 Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType
 Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.Number.get -> int
 Xamarin.Google.Crypto.Tink.Proto.PrfBasedDeriver
@@ -3253,6 +3360,81 @@ Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.GetN() -> Xamarin.Google.Cry
 Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.HasParams.get -> bool
 Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.Params.get -> Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssParams?
 Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsa
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Number.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.ClearParams() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.MergeParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.ClearHashType() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.ClearKeySize() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.ClearSigType() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.HashType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.HashTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.KeySize.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SetHashType(Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SetHashTypeValue(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SetKeySize(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SetSigType(Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SetSigTypeValue(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SigType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.SigTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.HashType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.HashTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.KeySize.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.SigType.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.SigTypeValue.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.ClearKeyValue() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.ClearPublicKey() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.MergePublicKey(Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.SetKeyValue(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.SetPublicKey(Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.SetPublicKey(Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.HasPublicKey.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.PublicKey.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.ClearKeyValue() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.ClearParams() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.ClearVersion() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.MergeParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.SetKeyValue(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder? builderForValue) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.SetParams(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams? value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.SetVersion(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.HasParams.get -> bool
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.KeyValue.get -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Params.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Version.get -> int
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType
+Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.Number.get -> int
 Xamarin.Google.Crypto.Tink.Proto.Tink
 Xamarin.Google.Crypto.Tink.Proto.XAesGcm
 Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey
@@ -6637,6 +6819,13 @@ Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullSign
 Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullSign.Sign(byte[]? data) -> byte[]?
 Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullVerify
 Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullVerify.Verify(byte[]? signature, byte[]? data) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaProtoSerialization
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.Sign(byte[]? data) -> byte[]?
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.RawKeySpec
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.RawKeySpec.RawKeySpec(byte[]? encoded) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.Verify(byte[]? signature, byte[]? data) -> void
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1ProtoSerialization
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1SignJce
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1SignJce.Sign(byte[]? data) -> byte[]?
@@ -6648,6 +6837,15 @@ Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssSignConscrypt.Sign(byte[]
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt
 Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt.Verify(byte[]? signature, byte[]? data) -> void
 Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaProtoSerialization
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.SlhDsaSignConscrypt(byte[]? outputPrefix, Java.Security.IPrivateKey? privateKey, string? algorithm, int signatureLength, Java.Security.Provider? provider) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.SlhDsaSignConscrypt(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.RawKeySpec
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.RawKeySpec.RawKeySpec(byte[]? encoded) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.SlhDsaVerifyConscrypt(byte[]? outputPrefix, Java.Security.IPublicKey? publicKey, string? algorithm, int signatureLength, Java.Security.Provider? provider) -> void
+Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.SlhDsaVerifyConscrypt(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters
 Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.GetMlDsaInstance() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
 Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.GetVariant() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant?
@@ -6745,6 +6943,17 @@ Xamarin.Google.Crypto.Tink.Signature.SignaturePrivateKey.SignaturePrivateKey(nin
 Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey
 Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey.SignaturePublicKey() -> void
 Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey.SignaturePublicKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SlhDsaParameters(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.SlhDsaPrivateKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.SlhDsaPublicKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey
 Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey.InitialKeyMaterial.get -> Xamarin.Google.Crypto.Tink.Util.SecretBytes?
 Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKeyManager
@@ -7169,6 +7378,17 @@ const Xamarin.Google.Crypto.Tink.Internal.Field25519.LimbCnt = 10 -> int
 const Xamarin.Google.Crypto.Tink.Internal.OutputPrefixUtil.LegacyStartByte = 0 -> sbyte
 const Xamarin.Google.Crypto.Tink.Internal.OutputPrefixUtil.NonEmptyPrefixSize = 5 -> int
 const Xamarin.Google.Crypto.Tink.Internal.OutputPrefixUtil.TinkStartByte = 1 -> sbyte
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimAudience = "aud" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimExpiration = "exp" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimIssuedAt = "iat" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimIssuer = "iss" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimJwtId = "jti" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimNotBefore = "nbf" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.ClaimSubject = "sub" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.HeaderAlgorithm = "alg" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.HeaderCritical = "crit" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.HeaderKeyId = "kid" -> string!
+const Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.HeaderType = "typ" -> string!
 const Xamarin.Google.Crypto.Tink.Mac.Internal.AesUtil.BlockSize = 16 -> int
 const Xamarin.Google.Crypto.Tink.Proto.AesCmacKey.KeyValueFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.AesCmacKey.ParamsFieldNumber = 3 -> int
@@ -7319,6 +7539,8 @@ const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemP384HkdfSha384Value = 3 -> i
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemP521HkdfSha512Value = 4 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.DhkemX25519HkdfSha256Value = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.KemUnknownValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.MlKem1024Value = 7 -> int
+const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.MlKem768Value = 6 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKem.XWingValue = 5 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeKeyFormat.ParamsFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.HpkeParams.AeadFieldNumber = 3 -> int
@@ -7440,6 +7662,18 @@ const Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKey.ParamsFieldNumber = 2 
 const Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKey.VersionFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.DekTemplateFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.KekUriFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsa65Value = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsa87Value = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsaUnknownInstanceValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParamsFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.MlDsaInstanceFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.KeyValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.PublicKeyFieldNumber = 3 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.KeyValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParamsFieldNumber = 3 -> int
+const Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.VersionFieldNumber = 1 -> int
 const Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.CrunchyValue = 4 -> int
 const Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.LegacyValue = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.RawValue = 3 -> int
@@ -7488,6 +7722,23 @@ const Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.EFieldNumber = 4 -> in
 const Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.NFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.ParamsFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Sha2Value = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.ShakeValue = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.SlhDsaHashTypeUnspecifiedValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParamsFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.HashTypeFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.KeySizeFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.SigTypeFieldNumber = 3 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.KeyValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.PublicKeyFieldNumber = 3 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.KeyValueFieldNumber = 2 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParamsFieldNumber = 3 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.VersionFieldNumber = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.FastSigningValue = 1 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.SlhDsaSignatureTypeUnspecifiedValue = 0 -> int
+const Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.SmallSignatureValue = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey.KeyValueFieldNumber = 3 -> int
 const Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey.ParamsFieldNumber = 2 -> int
 const Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey.VersionFieldNumber = 1 -> int
@@ -7861,6 +8112,7 @@ const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.WireFormat.WiretypeStartGroup =
 const Xamarin.Google.Crypto.Tink.Shaded.Protobuf.WireFormat.WiretypeVarint = 0 -> int
 const Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519SignJce.SecretKeyLen = 32 -> int
 const Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519SignJce.SignatureLen = 64 -> int
+const Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SlhDsa128PrivateKeySizeBytes = 64 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Base64.Crlf = 4 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Base64.Default = 0 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Base64.NoClose = 16 -> int
@@ -7870,7 +8122,7 @@ const Xamarin.Google.Crypto.Tink.Subtle.Base64.UrlSafe = 8 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Sign.SecretKeyLen = 32 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Verify.PublicKeyLen = 32 -> int
 const Xamarin.Google.Crypto.Tink.Subtle.Ed25519Verify.SignatureLen = 64 -> int
-const Xamarin.Google.Crypto.Tink.Version.TinkVersion = "1.19.0" -> string!
+const Xamarin.Google.Crypto.Tink.Version.TinkVersion = "1.20.0" -> string!
 override Xamarin.Google.Crypto.Tink.Aead.AeadConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Aead.AeadFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Aead.AeadKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8225,6 +8477,11 @@ override Xamarin.Google.Crypto.Tink.Internal.TinkBugException.JniPeerMembers.get
 override Xamarin.Google.Crypto.Tink.Internal.Util.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.JsonKeysetReader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.JsonKeysetWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Jwt.Internal.JsonUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtEcdsaProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPkcs1ProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPssProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.Algorithm.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Jwt.JwtEcdsaParameters.AllowKidAbsent() -> bool
@@ -8335,6 +8592,7 @@ override Xamarin.Google.Crypto.Tink.Key.ThresholdClass.get -> nint
 override Xamarin.Google.Crypto.Tink.Key.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.KeysetDeriverWrapper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDerivationKeyProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDeriver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.KeyDerivation.KeyDerivationConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.KeyDerivation.KeyDerivationKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8834,6 +9092,24 @@ override Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.Builder.JniPe
 override Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.NewBuilderForType() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsa.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ToBuilder() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.PrfBasedDeriver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.PrfBasedDeriverKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -8886,6 +9162,25 @@ override Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.Builder.JniPeerMemb
 override Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.NewBuilderForType() -> Java.Lang.Object?
 override Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsa.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.NewBuilderForType() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ToBuilder() -> Java.Lang.Object?
+override Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.Tink.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.XAesGcm.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9361,6 +9656,11 @@ override Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519SignJce.JniPeerMem
 override Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519VerifyJce.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullSign.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullVerify.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.RawKeySpec.Format.get -> string?
+override Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.RawKeySpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1ProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1SignJce.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1VerifyConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9368,6 +9668,15 @@ override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssProtoSerializati
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssSignConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPssVerifyConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaProtoSerialization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.RawKeySpec.Format.get -> string?
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.RawKeySpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.HasIdRequirement.get -> bool
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9384,7 +9693,7 @@ override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.EqualsKey(Xamarin.G
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.IdRequirementOrNull.get -> Java.Lang.Integer?
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.OutputPrefix.get -> Xamarin.Google.Crypto.Tink.Util.Bytes?
-override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Parameters.get -> Xamarin.Google.Crypto.Tink.Signature.SignatureParameters?
+override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Parameters.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters?
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.ThresholdClass.get -> nint
 override Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -9454,6 +9763,28 @@ override Xamarin.Google.Crypto.Tink.Signature.SignaturePrivateKey.ThresholdType.
 override Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey.ThresholdClass.get -> nint
 override Xamarin.Google.Crypto.Tink.Signature.SignaturePublicKey.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HasIdRequirement.get -> bool
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.EqualsKey(Xamarin.Google.Crypto.Tink.Key? o) -> bool
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.PublicKey.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey?
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.ThresholdType.get -> System.Type!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.EqualsKey(Xamarin.Google.Crypto.Tink.Key? o) -> bool
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.IdRequirementOrNull.get -> Java.Lang.Integer?
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.OutputPrefix.get -> Xamarin.Google.Crypto.Tink.Util.Bytes?
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Parameters.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters?
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.ThresholdClass.get -> nint
+override Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.ThresholdType.get -> System.Type!
 override Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey.EqualsKey(Xamarin.Google.Crypto.Tink.Key? o) -> bool
 override Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey.Parameters.get -> Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters?
@@ -9996,6 +10327,17 @@ static Xamarin.Google.Crypto.Tink.JsonKeysetWriter.WithFile(Java.IO.File? file) 
 static Xamarin.Google.Crypto.Tink.JsonKeysetWriter.WithOutputStream(System.IO.Stream? stream) -> Xamarin.Google.Crypto.Tink.IKeysetWriter?
 static Xamarin.Google.Crypto.Tink.JsonKeysetWriter.WithPath(Java.Nio.FileNio.IPath? path) -> Xamarin.Google.Crypto.Tink.IKeysetWriter?
 static Xamarin.Google.Crypto.Tink.JsonKeysetWriter.WithPath(string? path) -> Xamarin.Google.Crypto.Tink.IKeysetWriter?
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JsonUtil.IsValidString(string? s) -> bool
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JsonUtil.ParseJson(string? jsonString) -> GoogleGson.JsonObject?
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JsonUtil.ParseJsonArray(string? jsonString) -> GoogleGson.JsonArray?
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtEcdsaProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtEcdsaProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.IsRegisteredName(string? name) -> bool
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtNames.Validate(string? name) -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPkcs1ProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPkcs1ProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPssProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.Jwt.Internal.JwtRsaSsaPssProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter.FromKeysetHandle(Xamarin.Google.Crypto.Tink.KeysetHandle? handle, Xamarin.Google.Crypto.Tink.Tinkkey.KeyAccess? keyAccess) -> string?
 static Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter.FromPublicKeysetHandle(Xamarin.Google.Crypto.Tink.KeysetHandle? handle) -> string?
 static Xamarin.Google.Crypto.Tink.Jwt.JwkSetConverter.ToKeysetHandle(string? jwkSet, Xamarin.Google.Crypto.Tink.Tinkkey.KeyAccess? keyAccess) -> Xamarin.Google.Crypto.Tink.KeysetHandle?
@@ -10057,8 +10399,12 @@ static Xamarin.Google.Crypto.Tink.Jwt.JwtSignatureConfig.Register() -> void
 static Xamarin.Google.Crypto.Tink.Jwt.JwtValidator.NewBuilder() -> Xamarin.Google.Crypto.Tink.Jwt.JwtValidator.Builder?
 static Xamarin.Google.Crypto.Tink.Jwt.RawJwt.NewBuilder() -> Xamarin.Google.Crypto.Tink.Jwt.RawJwt.Builder?
 static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.KeysetDeriverWrapper.Register() -> void
+static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.KeysetDeriverWrapper.RegisterToInternalPrimitiveRegistry(Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry.Builder? primitiveRegistryBuilder) -> void
 static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedDeriverKeyManager.Register(bool newKeyAllowed) -> void
+static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDerivationKeyProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDerivationKeyProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDeriver.Create(Xamarin.Google.Crypto.Tink.KeyDerivation.PrfBasedKeyDerivationKey? key) -> Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.IKeyDeriver?
+static Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.PrfBasedKeyDeriver.CreateWithPrfPrimitiveRegistry(Xamarin.Google.Crypto.Tink.Internal.PrimitiveRegistry? primitiveRegistry, Xamarin.Google.Crypto.Tink.KeyDerivation.PrfBasedKeyDerivationKey? key) -> Xamarin.Google.Crypto.Tink.KeyDerivation.Internal.IKeyDeriver?
 static Xamarin.Google.Crypto.Tink.KeyDerivation.KeyDerivationConfig.Register() -> void
 static Xamarin.Google.Crypto.Tink.KeyDerivation.KeysetDeriverWrapper.Register() -> void
 static Xamarin.Google.Crypto.Tink.KeyDerivation.PrfBasedKeyDerivationKey.Create(Xamarin.Google.Crypto.Tink.KeyDerivation.PrfBasedKeyDerivationParameters? parameters, Xamarin.Google.Crypto.Tink.Prf.PrfKey? prfKey, Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.KeyDerivation.PrfBasedKeyDerivationKey?
@@ -11113,6 +11459,8 @@ static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.ForNumber(int value) -> Xamarin.
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.KemUnknown.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
+static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.MlKem1024.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
+static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.MlKem768.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.Unrecognized.get -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
 static Xamarin.Google.Crypto.Tink.Proto.HpkeKem.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Proto.HpkeKem?
@@ -11671,6 +12019,81 @@ static Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.ParseFrom(Xamar
 static Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat?
 static Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat?
 static Xamarin.Google.Crypto.Tink.Proto.KmsEnvelopeAeadKeyFormat.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsa.RegisterAllExtensions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? registry) -> void
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsa65.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsa87.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.MlDsaUnknownInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.Unrecognized.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance.Values() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaInstance![]?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat? prototype) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaKeyFormat.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.MlDsaParams? prototype) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaParams.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey? prototype) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPrivateKey.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey? prototype) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.MlDsaPublicKey.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
 static Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.Crunchy.get -> Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType?
 static Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType?
 static Xamarin.Google.Crypto.Tink.Proto.OutputPrefixType.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
@@ -11879,6 +12302,91 @@ static Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.ParseFrom(Xamarin.Goo
 static Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey?
 static Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey?
 static Xamarin.Google.Crypto.Tink.Proto.RsaSsaPssPublicKey.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsa.RegisterAllExtensions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? registry) -> void
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Sha2.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Shake.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.SlhDsaHashTypeUnspecified.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Unrecognized.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType.Values() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaHashType![]?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat? prototype) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaKeyFormat.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams? prototype) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaParams.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey? prototype) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPrivateKey.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.NewBuilder() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.NewBuilder(Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey? prototype) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Builder?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseDelimitedFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseDelimitedFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Java.Nio.ByteBuffer? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Java.Nio.ByteBuffer? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(System.IO.Stream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(System.IO.Stream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.CodedInputStream? input, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(byte[]? data) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.ParseFrom(byte[]? data, Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? extensionRegistry) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaPublicKey.Parser() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.IParser?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.FastSigning.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.ForNumber(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.InternalGetValueMap() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumLiteMap?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.InternalGetVerifier() -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.Internal.IEnumVerifier?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.SlhDsaSignatureTypeUnspecified.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.SmallSignature.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.Unrecognized.get -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.ValueOf(int value) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.ValueOf(string? name) -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType?
+static Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType.Values() -> Xamarin.Google.Crypto.Tink.Proto.SlhDsaSignatureType![]?
 static Xamarin.Google.Crypto.Tink.Proto.Tink.RegisterAllExtensions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? registry) -> void
 static Xamarin.Google.Crypto.Tink.Proto.XAesGcm.RegisterAllExtensions(Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ExtensionRegistryLite? registry) -> void
 static Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey.DefaultInstance.get -> Xamarin.Google.Crypto.Tink.Proto.XAesGcmKey?
@@ -13575,6 +14083,16 @@ static Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519VerifyJce.Fips.get -
 static Xamarin.Google.Crypto.Tink.Signature.Internal.Ed25519VerifyJce.IsSupported.get -> bool
 static Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullSign.Create(Xamarin.Google.Crypto.Tink.Internal.LegacyProtoKey? key) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
 static Xamarin.Google.Crypto.Tink.Signature.Internal.LegacyFullVerify.Create(Xamarin.Google.Crypto.Tink.Internal.LegacyProtoKey? key) -> Xamarin.Google.Crypto.Tink.IPublicKeyVerify?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.Create(Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey? mlDsaPrivateKey) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.CreateWithProvider(Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey? mlDsaPrivateKey, Java.Security.Provider? provider) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaSignConscrypt.IsSupported.get -> bool
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.Create(Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey? mlDsaPublicKey) -> Xamarin.Google.Crypto.Tink.IPublicKeyVerify?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.CreateWithProvider(Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey? mlDsaPublicKey, Java.Security.Provider? provider) -> Xamarin.Google.Crypto.Tink.IPublicKeyVerify?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.MlDsaVerifyConscrypt.IsSupported.get -> bool
 static Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1ProtoSerialization.Register() -> void
 static Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1ProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
 static Xamarin.Google.Crypto.Tink.Signature.Internal.RsaSsaPkcs1SignJce.Create(Xamarin.Google.Crypto.Tink.Signature.RsaSsaPkcs1PrivateKey? key) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
@@ -13596,6 +14114,16 @@ static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToCurveType(Xamarin
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToEcdsaEncoding(Xamarin.Google.Crypto.Tink.Proto.EcdsaSignatureEncoding? encoding) -> Xamarin.Google.Crypto.Tink.Subtle.EllipticCurves.EcdsaEncoding?
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToHashType(Xamarin.Google.Crypto.Tink.Proto.HashType? hash) -> Xamarin.Google.Crypto.Tink.Subtle.Enums.HashType?
 static Xamarin.Google.Crypto.Tink.Signature.Internal.SigUtil.ToUnsignedIntByteString(Java.Math.BigInteger? i) -> Xamarin.Google.Crypto.Tink.Shaded.Protobuf.ByteString?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaProtoSerialization.Register() -> void
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaProtoSerialization.Register(Xamarin.Google.Crypto.Tink.Internal.MutableSerializationRegistry? registry) -> void
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.Create(Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey? slhDsaPrivateKey) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.CreateWithProvider(Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey? slhDsaPrivateKey, Java.Security.Provider? provider) -> Xamarin.Google.Crypto.Tink.IPublicKeySign?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.IsSupported.get -> bool
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.Create(Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey? slhDsaPublicKey) -> Xamarin.Google.Crypto.Tink.IPublicKeyVerify?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.CreateWithProvider(Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey? slhDsaPublicKey, Java.Security.Provider? provider) -> Xamarin.Google.Crypto.Tink.IPublicKeyVerify?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.Fips.get -> Xamarin.Google.Crypto.Tink.Configs.Internal.TinkFipsUtil.AlgorithmFipsCompatibility?
+static Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.IsSupported.get -> bool
 static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Create(Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance? mlDsaInstance, Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.Variant? variant) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters?
 static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.MlDsa65.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
 static Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance.MlDsa87.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters.MlDsaInstance?
@@ -13612,6 +14140,7 @@ static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.EcdsaP
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.EcdsaP521.get -> Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.EcdsaP521IeeeP1363.get -> Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.Ed25519.get -> Xamarin.Google.Crypto.Tink.Signature.Ed25519Parameters?
+static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.MlDsa65.get -> Xamarin.Google.Crypto.Tink.Signature.MlDsaParameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.RsaSsaPkcs13072Sha256F4.get -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPkcs1Parameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.RsaSsaPkcs13072Sha256F4WithoutPrefix.get -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPkcs1Parameters?
 static Xamarin.Google.Crypto.Tink.Signature.PredefinedSignatureParameters.RsaSsaPkcs14096Sha512F4.get -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPkcs1Parameters?
@@ -13687,6 +14216,15 @@ static Xamarin.Google.Crypto.Tink.Signature.SignatureKeyTemplates.RsaSsaPkcs1409
 static Xamarin.Google.Crypto.Tink.Signature.SignatureKeyTemplates.RsaSsaPss3072Sha256Sha25632F4.get -> Xamarin.Google.Crypto.Tink.Proto.KeyTemplate?
 static Xamarin.Google.Crypto.Tink.Signature.SignatureKeyTemplates.RsaSsaPss4096Sha512Sha51264F4.get -> Xamarin.Google.Crypto.Tink.Proto.KeyTemplate?
 static Xamarin.Google.Crypto.Tink.Signature.SignaturePemKeysetReader.NewBuilder() -> Xamarin.Google.Crypto.Tink.Signature.SignaturePemKeysetReader.Builder?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.CreateSlhDsaWithSha2And128S(Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant? variant) -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType.Sha2.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType.Shake.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType.FastSigning.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType.SmallSignature.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant.NoPrefix.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant.Tink.get -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.CreateWithoutVerification(Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey? slhDsaPublicKey, Xamarin.Google.Crypto.Tink.Util.SecretBytes? privateKeyBytes) -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey?
+static Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.InvokeBuilder() -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder?
 static Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey.Create(Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters? parameters, Xamarin.Google.Crypto.Tink.Util.SecretBytes? initialKeymaterial) -> Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKey?
 static Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKeyManager.Aes128CtrHmacSha2561MBTemplate() -> Xamarin.Google.Crypto.Tink.KeyTemplate?
 static Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingKeyManager.Aes128CtrHmacSha2564KBTemplate() -> Xamarin.Google.Crypto.Tink.KeyTemplate?
@@ -13954,15 +14492,15 @@ virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetIdRequirement(Ja
 virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetKeyBytes(Xamarin.Google.Crypto.Tink.Util.SecretBytes? keyBytes) -> Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Aead.AesGcmSivParameters? parameters) -> Xamarin.Google.Crypto.Tink.Aead.AesGcmSivKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.CreateInitialState(int[]? nonce, int counter) -> int[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? ciphertext, Java.Nio.ByteBuffer? p1) -> byte[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? p0, byte[]? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? nonce, Java.Nio.ByteBuffer? ciphertext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Decrypt(byte[]? nonce, byte[]? ciphertext) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext) -> void
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(byte[]? p0, byte[]? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.Encrypt(byte[]? nonce, byte[]? plaintext) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceChaCha20.NonceSizeInBytes() -> int
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? ciphertext, Java.Nio.ByteBuffer? p1) -> byte[]?
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? p0, byte[]? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? nonce, Java.Nio.ByteBuffer? ciphertext) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Decrypt(byte[]? nonce, byte[]? ciphertext) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(Java.Nio.ByteBuffer? output, byte[]? nonce, byte[]? plaintext) -> void
-virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(byte[]? p0, byte[]? p1) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Aead.Internal.InsecureNonceXChaCha20.Encrypt(byte[]? nonce, byte[]? plaintext) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.Decrypt(byte[]? ciphertext, byte[]? associatedData) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.Internal.LegacyFullAead.Encrypt(byte[]? plaintext, byte[]? associatedData) -> byte[]?
 virtual Xamarin.Google.Crypto.Tink.Aead.LegacyKmsEnvelopeAeadParameters.Builder.Build() -> Xamarin.Google.Crypto.Tink.Aead.LegacyKmsEnvelopeAeadParameters?
@@ -14197,6 +14735,8 @@ virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.Build() -> X
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Signature.EcdsaParameters? parameters) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder.SetPublicPoint(Java.Security.Spec.ECPoint? publicPoint) -> Xamarin.Google.Crypto.Tink.Signature.EcdsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaSignConscrypt.Sign(byte[]? data) -> byte[]?
+virtual Xamarin.Google.Crypto.Tink.Signature.Internal.SlhDsaVerifyConscrypt.Verify(byte[]? signature, byte[]? data) -> void
 virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPrivateKey.PrivateSeed.get -> Xamarin.Google.Crypto.Tink.Util.SecretBytes?
 virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.Build() -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey?
 virtual Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.MlDsaPublicKey.Builder?
@@ -14229,6 +14769,16 @@ virtual Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder.Build() 
 virtual Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder.SetModulus(Java.Math.BigInteger? modulus) -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder?
 virtual Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssParameters? parameters) -> Xamarin.Google.Crypto.Tink.Signature.RsaSsaPssPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.GetHashType() -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.HashType?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.GetSignatureType() -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.SignatureType?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.GetVariant() -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.Variant?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters.PrivateKeySize.get -> int
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPrivateKey.PrivateKeyBytes.get -> Xamarin.Google.Crypto.Tink.Util.SecretBytes?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.Build() -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.SetIdRequirement(Java.Lang.Integer? idRequirement) -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.SetParameters(Xamarin.Google.Crypto.Tink.Signature.SlhDsaParameters? parameters) -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder.SetSerializedPublicKey(Xamarin.Google.Crypto.Tink.Util.Bytes? serializedPublicKey) -> Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.Builder?
+virtual Xamarin.Google.Crypto.Tink.Signature.SlhDsaPublicKey.SerializedPublicKey.get -> Xamarin.Google.Crypto.Tink.Util.Bytes?
 virtual Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters.CiphertextSegmentSizeBytes.get -> int
 virtual Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters.DerivedKeySizeBytes.get -> int
 virtual Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters.HkdfHashType.get -> Xamarin.Google.Crypto.Tink.StreamingAead.AesCtrHmacStreamingParameters.HashType?

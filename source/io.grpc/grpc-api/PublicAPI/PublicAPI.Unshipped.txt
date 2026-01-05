@@ -230,10 +230,12 @@ Xamarin.Grpc.HandlerRegistry.LookupMethod(string? methodName) -> Xamarin.Grpc.Se
 Xamarin.Grpc.HttpConnectProxiedSocketAddress
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.Build() -> Xamarin.Grpc.HttpConnectProxiedSocketAddress?
+Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.SetHeaders(System.Collections.Generic.IDictionary<string!, string!>? headers) -> Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.SetPassword(string? password) -> Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.SetProxyAddress(Java.Net.SocketAddress? proxyAddress) -> Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.SetTargetAddress(Java.Net.InetSocketAddress? targetAddress) -> Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder.SetUsername(string? username) -> Xamarin.Grpc.HttpConnectProxiedSocketAddress.Builder?
+Xamarin.Grpc.HttpConnectProxiedSocketAddress.Headers.get -> System.Collections.Generic.IDictionary<string!, string!>?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.Password.get -> string?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.ProxyAddress.get -> Java.Net.SocketAddress?
 Xamarin.Grpc.HttpConnectProxiedSocketAddress.TargetAddress.get -> Java.Net.InetSocketAddress?
@@ -740,6 +742,36 @@ Xamarin.Grpc.TlsServerCredentials.Incomprehensible(System.Collections.Generic.IC
 Xamarin.Grpc.TlsServerCredentials.KeyManagers.get -> System.Collections.Generic.IList<Javax.Net.Ssl.IKeyManager!>?
 Xamarin.Grpc.TlsServerCredentials.PrivateKeyPassword.get -> string?
 Xamarin.Grpc.TlsServerCredentials.TrustManagers.get -> System.Collections.Generic.IList<Javax.Net.Ssl.ITrustManager!>?
+Xamarin.Grpc.Uri
+Xamarin.Grpc.Uri.Authority.get -> string?
+Xamarin.Grpc.Uri.Builder
+Xamarin.Grpc.Uri.Builder.Build() -> Xamarin.Grpc.Uri?
+Xamarin.Grpc.Uri.Builder.SetFragment(string? fragment) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetHost(Java.Net.InetAddress? addr) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetHost(string? regName) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetPath(string? path) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetPort(int port) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetQuery(string? query) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetRawPath(string? path) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetScheme(string? scheme) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetUserInfo(string? userInfo) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Fragment.get -> string?
+Xamarin.Grpc.Uri.Host.get -> string?
+Xamarin.Grpc.Uri.IsAbsolute.get -> bool
+Xamarin.Grpc.Uri.Path.get -> string?
+Xamarin.Grpc.Uri.PathSegments.get -> System.Collections.Generic.IList<string!>?
+Xamarin.Grpc.Uri.Port.get -> int
+Xamarin.Grpc.Uri.Query.get -> string?
+Xamarin.Grpc.Uri.RawAuthority.get -> string?
+Xamarin.Grpc.Uri.RawFragment.get -> string?
+Xamarin.Grpc.Uri.RawHost.get -> string?
+Xamarin.Grpc.Uri.RawPath.get -> string?
+Xamarin.Grpc.Uri.RawPort.get -> string?
+Xamarin.Grpc.Uri.RawQuery.get -> string?
+Xamarin.Grpc.Uri.RawUserInfo.get -> string?
+Xamarin.Grpc.Uri.Scheme.get -> string?
+Xamarin.Grpc.Uri.ToBuilder() -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.UserInfo.get -> string?
 abstract Xamarin.Grpc.BinaryLog.Close() -> void
 abstract Xamarin.Grpc.BinaryLog.WrapChannel(Xamarin.Grpc.Channel? p0) -> Xamarin.Grpc.Channel?
 abstract Xamarin.Grpc.BinaryLog.WrapMethodDefinition(Xamarin.Grpc.ServerMethodDefinition? p0) -> Xamarin.Grpc.ServerMethodDefinition?
@@ -1172,6 +1204,8 @@ override Xamarin.Grpc.TlsServerCredentials.Builder.JniPeerMembers.get -> Java.In
 override Xamarin.Grpc.TlsServerCredentials.ClientAuth.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.TlsServerCredentials.Feature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.TlsServerCredentials.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.Uri.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.Uri.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Xamarin.Grpc.ClientInterceptors.CheckedForwardingClientCall.Delegate() -> Xamarin.Grpc.ClientCall?
 override sealed Xamarin.Grpc.ClientInterceptors.CheckedForwardingClientCall.Start(Xamarin.Grpc.ClientCall.Listener? responseListener, Xamarin.Grpc.Metadata? headers) -> void
 override sealed Xamarin.Grpc.LoadBalancerProvider.Equals(Java.Lang.Object? other) -> bool
@@ -1377,6 +1411,11 @@ static Xamarin.Grpc.TlsServerCredentials.Feature.Mtls.get -> Xamarin.Grpc.TlsSer
 static Xamarin.Grpc.TlsServerCredentials.Feature.ValueOf(string? name) -> Xamarin.Grpc.TlsServerCredentials.Feature?
 static Xamarin.Grpc.TlsServerCredentials.Feature.Values() -> Xamarin.Grpc.TlsServerCredentials.Feature![]?
 static Xamarin.Grpc.TlsServerCredentials.NewBuilder() -> Xamarin.Grpc.TlsServerCredentials.Builder?
+static Xamarin.Grpc.Uri.Create(string? s) -> Xamarin.Grpc.Uri?
+static Xamarin.Grpc.Uri.NewBuilder() -> Xamarin.Grpc.Uri.Builder?
+static Xamarin.Grpc.Uri.Parse(string? s) -> Xamarin.Grpc.Uri?
+static Xamarin.Grpc.Uri.PercentDecode(Java.Lang.ICharSequence? s) -> Java.Nio.ByteBuffer?
+static Xamarin.Grpc.Uri.PercentDecode(string? s) -> Java.Nio.ByteBuffer?
 virtual Xamarin.Grpc.CallCredentials.RequestInfo.CallOptions.get -> Xamarin.Grpc.CallOptions?
 virtual Xamarin.Grpc.CallCredentials.ThisUsesUnstableApi() -> void
 virtual Xamarin.Grpc.ClientCall.Attributes.get -> Xamarin.Grpc.Attributes?

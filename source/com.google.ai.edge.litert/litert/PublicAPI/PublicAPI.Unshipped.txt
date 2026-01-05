@@ -14,9 +14,6 @@ Google.AI.Edge.LiteRT.CompiledModel.Companion
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Android.Content.Res.AssetManager! assetManager, string! assetName) -> Google.AI.Edge.LiteRT.CompiledModel!
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Android.Content.Res.AssetManager! assetManager, string! assetName, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Android.Content.Res.AssetManager! assetManager, string! assetName, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
-Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Google.AI.Edge.LiteRT.Model! model) -> Google.AI.Edge.LiteRT.CompiledModel!
-Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Google.AI.Edge.LiteRT.Model! model, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
-Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(Google.AI.Edge.LiteRT.Model! model, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(string! filePath) -> Google.AI.Edge.LiteRT.CompiledModel!
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(string! filePath, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
 Google.AI.Edge.LiteRT.CompiledModel.Companion.Create(string! filePath, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
@@ -30,36 +27,60 @@ Google.AI.Edge.LiteRT.CompiledModel.CpuOptions.CpuOptions(Java.Lang.Integer? num
 Google.AI.Edge.LiteRT.CompiledModel.CpuOptions.NumThreads.get -> Java.Lang.Integer?
 Google.AI.Edge.LiteRT.CompiledModel.CpuOptions.XnnPackFlags.get -> Java.Lang.Integer?
 Google.AI.Edge.LiteRT.CompiledModel.CpuOptions.XnnPackWeightCachePath.get -> string?
-Google.AI.Edge.LiteRT.CompiledModel.CreateInputBuffer(string! inputName, string? signature) -> Google.AI.Edge.LiteRT.TensorBuffer!
+Google.AI.Edge.LiteRT.CompiledModel.CreateInputBuffer(string! inputName, string! signature) -> Google.AI.Edge.LiteRT.TensorBuffer!
 Google.AI.Edge.LiteRT.CompiledModel.CreateInputBuffers() -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
 Google.AI.Edge.LiteRT.CompiledModel.CreateInputBuffers(int signatureIndex) -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
 Google.AI.Edge.LiteRT.CompiledModel.CreateInputBuffers(string! signature) -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
-Google.AI.Edge.LiteRT.CompiledModel.CreateOutputBuffer(string! outputName, string? signature) -> Google.AI.Edge.LiteRT.TensorBuffer!
+Google.AI.Edge.LiteRT.CompiledModel.CreateOutputBuffer(string! outputName, string! signature) -> Google.AI.Edge.LiteRT.TensorBuffer!
 Google.AI.Edge.LiteRT.CompiledModel.CreateOutputBuffers() -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
 Google.AI.Edge.LiteRT.CompiledModel.CreateOutputBuffers(int signatureIndex) -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
 Google.AI.Edge.LiteRT.CompiledModel.CreateOutputBuffers(string! signature) -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
-Google.AI.Edge.LiteRT.CompiledModel.GetInputBufferRequirements(string! inputName, string? signature) -> Google.AI.Edge.LiteRT.TensorBufferRequirements!
-Google.AI.Edge.LiteRT.CompiledModel.GetOutputBufferRequirements(string! outputName, string? signature) -> Google.AI.Edge.LiteRT.TensorBufferRequirements!
+Google.AI.Edge.LiteRT.CompiledModel.GetInputBufferRequirements(string! inputName, string! signature) -> Google.AI.Edge.LiteRT.TensorBufferRequirements!
+Google.AI.Edge.LiteRT.CompiledModel.GetInputTensorType(string! inputName, string! signature) -> Google.AI.Edge.LiteRT.TensorType!
+Google.AI.Edge.LiteRT.CompiledModel.GetOutputBufferRequirements(string! outputName, string! signature) -> Google.AI.Edge.LiteRT.TensorBufferRequirements!
+Google.AI.Edge.LiteRT.CompiledModel.GetOutputTensorType(string! outputName, string! signature) -> Google.AI.Edge.LiteRT.TensorType!
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.AllowSrcQuantizedFcConvOps.get -> Java.Lang.Boolean?
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BenchmarkMode.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Value.get -> int
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Value.get -> int
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component1() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component10() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component11() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component12() -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component13() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component14() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component15() -> Java.Lang.Integer?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component2() -> Java.Lang.Boolean?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component3() -> Java.Lang.Boolean?
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component4() -> Java.Lang.Boolean?
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component5() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision?
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component6() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component4() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component5() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component6() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component7() -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component8() -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Component9() -> Java.Lang.Boolean?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.ConstantTensorSharing.get -> Java.Lang.Boolean?
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Copy(Java.Lang.Boolean? constantTensorSharing, Java.Lang.Boolean? infiniteFloatCapping, Java.Lang.Boolean? benchmarkMode, Java.Lang.Boolean? allowSrcQuantizedFcConvOps, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision? precision, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType? bufferStorageType) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions!
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Copy(Java.Lang.Boolean? constantTensorSharing, Java.Lang.Boolean? infiniteFloatCapping, Java.Lang.Boolean? allowSrcQuantizedFcConvOps, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision? precision, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType? bufferStorageType, Java.Lang.Boolean? preferTextureWeights, string? serializationDir, string? modelCacheKey, Java.Lang.Boolean? serializeProgramCache, Java.Lang.Boolean? serializeExternalTensors, Java.Lang.Boolean? externalTensorsMode, string? externalTensorPattern, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend? backend, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority? priority, Java.Lang.Integer? numStepsOfCommandBufferPreparations) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions!
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.ExternalTensorPattern.get -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.ExternalTensorsMode.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GetBackend() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GetBufferStorageType() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GetPrecision() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GetPriority() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GpuOptions() -> void
-Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GpuOptions(Java.Lang.Boolean? constantTensorSharing, Java.Lang.Boolean? infiniteFloatCapping, Java.Lang.Boolean? benchmarkMode, Java.Lang.Boolean? allowSrcQuantizedFcConvOps, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision? precision, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType? bufferStorageType) -> void
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.GpuOptions(Java.Lang.Boolean? constantTensorSharing, Java.Lang.Boolean? infiniteFloatCapping, Java.Lang.Boolean? allowSrcQuantizedFcConvOps, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision? precision, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType? bufferStorageType, Java.Lang.Boolean? preferTextureWeights, string? serializationDir, string? modelCacheKey, Java.Lang.Boolean? serializeProgramCache, Java.Lang.Boolean? serializeExternalTensors, Java.Lang.Boolean? externalTensorsMode, string? externalTensorPattern, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend? backend, Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority? priority, Java.Lang.Integer? numStepsOfCommandBufferPreparations) -> void
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.InfiniteFloatCapping.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.ModelCacheKey.get -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.NumStepsOfCommandBufferPreparations.get -> Java.Lang.Integer?
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision
 Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.PreferTextureWeights.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.SerializationDir.get -> string?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.SerializeExternalTensors.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.SerializeProgramCache.get -> Java.Lang.Boolean?
 Google.AI.Edge.LiteRT.CompiledModel.Options
 Google.AI.Edge.LiteRT.CompiledModel.Options.Companion
 Google.AI.Edge.LiteRT.CompiledModel.Options.Companion.CPU.get -> Google.AI.Edge.LiteRT.CompiledModel.Options!
@@ -69,7 +90,49 @@ Google.AI.Edge.LiteRT.CompiledModel.Options.GpuOptions.get -> Google.AI.Edge.Lit
 Google.AI.Edge.LiteRT.CompiledModel.Options.GpuOptions.set -> void
 Google.AI.Edge.LiteRT.CompiledModel.Options.Options(System.Collections.Generic.ICollection<Google.AI.Edge.LiteRT.Accelerator!>! accelerators) -> void
 Google.AI.Edge.LiteRT.CompiledModel.Options.Options(params Google.AI.Edge.LiteRT.Accelerator![]! accelerators) -> void
-Google.AI.Edge.LiteRT.CompiledModel.Run(System.Collections.Generic.IDictionary<string!, Google.AI.Edge.LiteRT.TensorBuffer!>! inputs, System.Collections.Generic.IDictionary<string!, Google.AI.Edge.LiteRT.TensorBuffer!>! outputs, string? signature) -> void
+Google.AI.Edge.LiteRT.CompiledModel.Options.QualcommOptions.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions?
+Google.AI.Edge.LiteRT.CompiledModel.Options.QualcommOptions.set -> void
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component1() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component10() -> string?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component11() -> string?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component12() -> Java.Lang.Integer?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component13() -> Java.Lang.Integer?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component14() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component2() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component3() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component4() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component5() -> System.Collections.Generic.IList<Java.Lang.Integer!>?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component6() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component7() -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component8() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Component9() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Copy(Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel? logLevel, Java.Lang.Boolean? useHtpPreference, Java.Lang.Boolean? useQint16AsQuint16, Java.Lang.Boolean? enableWeightSharing, System.Collections.Generic.IList<Java.Lang.Integer!>? dumpTensorIds, Java.Lang.Boolean? useConvHmx, Java.Lang.Boolean? useFoldRelu, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode? htpPerformanceMode, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling? profiling, string? irJsonDir, string? dlcDir, Java.Lang.Integer? vtcmSize, Java.Lang.Integer? numHvxThreads, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel? optimizationLevel) -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions!
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.DlcDir.get -> string?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.DumpTensorIds.get -> System.Collections.Generic.IList<Java.Lang.Integer!>?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.EnableWeightSharing.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.GetHtpPerformanceMode() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.GetLogLevel() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.GetOptimizationLevel() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.GetProfiling() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.IrJsonDir.get -> string?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.NumHvxThreads.get -> Java.Lang.Integer?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Value.get -> int
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.QualcommOptions() -> void
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.QualcommOptions(Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel? logLevel, Java.Lang.Boolean? useHtpPreference, Java.Lang.Boolean? useQint16AsQuint16, Java.Lang.Boolean? enableWeightSharing, System.Collections.Generic.IList<Java.Lang.Integer!>? dumpTensorIds, Java.Lang.Boolean? useConvHmx, Java.Lang.Boolean? useFoldRelu, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode? htpPerformanceMode, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling? profiling, string? irJsonDir, string? dlcDir, Java.Lang.Integer? vtcmSize, Java.Lang.Integer? numHvxThreads, Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel? optimizationLevel) -> void
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.UseConvHmx.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.UseFoldRelu.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.UseHtpPreference.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.UseQint16AsQuint16.get -> Java.Lang.Boolean?
+Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.VtcmSize.get -> Java.Lang.Integer?
+Google.AI.Edge.LiteRT.CompiledModel.Run(System.Collections.Generic.IDictionary<string!, Google.AI.Edge.LiteRT.TensorBuffer!>! inputs, System.Collections.Generic.IDictionary<string!, Google.AI.Edge.LiteRT.TensorBuffer!>! outputs, string! signature) -> void
 Google.AI.Edge.LiteRT.CompiledModel.Run(System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>! inputs) -> System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>!
 Google.AI.Edge.LiteRT.CompiledModel.Run(System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>! inputs, System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>! outputs) -> void
 Google.AI.Edge.LiteRT.CompiledModel.Run(System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>! inputs, System.Collections.Generic.IList<Google.AI.Edge.LiteRT.TensorBuffer!>! outputs, int signatureIndex) -> void
@@ -120,12 +183,6 @@ Google.AI.Edge.LiteRT.JniHandle.JniHandle(nint javaReference, Android.Runtime.Jn
 Google.AI.Edge.LiteRT.LiteRtException
 Google.AI.Edge.LiteRT.LiteRtException.LiteRtException(Google.AI.Edge.LiteRT.Status! status, string! message) -> void
 Google.AI.Edge.LiteRT.LiteRtException.LiteRtException(int code, string! message) -> void
-Google.AI.Edge.LiteRT.Model
-Google.AI.Edge.LiteRT.Model.Companion
-Google.AI.Edge.LiteRT.Model.Companion.Load(Android.Content.Res.AssetManager! assetManager, string! assetName) -> Google.AI.Edge.LiteRT.Model!
-Google.AI.Edge.LiteRT.Model.Companion.Load(string! filePath) -> Google.AI.Edge.LiteRT.Model!
-Google.AI.Edge.LiteRT.Model.GetInputTensorType(string! inputName, string? signature) -> Google.AI.Edge.LiteRT.TensorType!
-Google.AI.Edge.LiteRT.Model.GetOutputTensorType(string! outputName, string? signature) -> Google.AI.Edge.LiteRT.TensorType!
 Google.AI.Edge.LiteRT.ModelProvider
 Google.AI.Edge.LiteRT.ModelProviderCompanion
 Google.AI.Edge.LiteRT.ModelProviderCompanion.StaticModel(Google.AI.Edge.LiteRT.ModelProviderType! type, string! path, params Google.AI.Edge.LiteRT.Accelerator![]! accelerators) -> Google.AI.Edge.LiteRT.IModelProvider!
@@ -194,18 +251,121 @@ Google.AI.Edge.LiteRT.TensorType.Layout.Rank.get -> int
 Google.AI.Edge.LiteRT.TensorType.Layout.Strides.get -> System.Collections.Generic.IList<Java.Lang.Integer!>!
 Google.AI.Edge.LiteRT.TensorType.TensorType(Google.AI.Edge.LiteRT.TensorType.ElementType! elementType) -> void
 Google.AI.Edge.LiteRT.TensorType.TensorType(Google.AI.Edge.LiteRT.TensorType.ElementType! elementType, Google.AI.Edge.LiteRT.TensorType.Layout? layout) -> void
+Xamarin.TensorFlow.Lite.Annotations.IUsedByReflection
+Xamarin.TensorFlow.Lite.Annotations.IUsedByReflection.Value() -> string?
+Xamarin.TensorFlow.Lite.Annotations.UsedByReflectionAttribute
+Xamarin.TensorFlow.Lite.Annotations.UsedByReflectionAttribute.UsedByReflectionAttribute() -> void
+Xamarin.TensorFlow.Lite.Annotations.UsedByReflectionAttribute.Value.get -> string?
+Xamarin.TensorFlow.Lite.Annotations.UsedByReflectionAttribute.Value.set -> void
+Xamarin.TensorFlow.Lite.DataType
+Xamarin.TensorFlow.Lite.DataType.ByteSize() -> int
+Xamarin.TensorFlow.Lite.IInterpreterApi
+Xamarin.TensorFlow.Lite.IInterpreterApi.AllocateTensors() -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.Close() -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.Create(Java.IO.File? modelFile, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+Xamarin.TensorFlow.Lite.IInterpreterApi.Create(Java.Nio.ByteBuffer? byteBuffer, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetInputIndex(string? opName) -> int
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetInputTensor(int inputIndex) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetInputTensorFromSignature(string? inputName, string? signatureKey) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetOutputIndex(string? opName) -> int
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetOutputTensor(int outputIndex) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetOutputTensorFromSignature(string? outputName, string? signatureKey) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetSignatureInputs(string? signatureKey) -> string![]?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetSignatureKeys() -> string![]?
+Xamarin.TensorFlow.Lite.IInterpreterApi.GetSignatureOutputs(string? signatureKey) -> string![]?
+Xamarin.TensorFlow.Lite.IInterpreterApi.InputTensorCount.get -> int
+Xamarin.TensorFlow.Lite.IInterpreterApi.LastNativeInferenceDurationNanoseconds.get -> Java.Lang.Long?
+Xamarin.TensorFlow.Lite.IInterpreterApi.OutputTensorCount.get -> int
+Xamarin.TensorFlow.Lite.IInterpreterApi.ResizeInput(int idx, int[]? dims) -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.ResizeInput(int idx, int[]? dims, bool strict) -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.Run(Java.Lang.Object? input, Java.Lang.Object? output) -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.RunForMultipleInputsOutputs(Java.Lang.Object![]? inputs, System.Collections.Generic.IDictionary<Java.Lang.Integer!, Java.Lang.Object!>? outputs) -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.RunSignature(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? inputs, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? outputs) -> void
+Xamarin.TensorFlow.Lite.IInterpreterApi.RunSignature(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? inputs, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? outputs, string? signatureKey) -> void
+Xamarin.TensorFlow.Lite.IInterpreterFactoryApi
+Xamarin.TensorFlow.Lite.IInterpreterFactoryApi.Create(Java.IO.File? modelFile, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+Xamarin.TensorFlow.Lite.IInterpreterFactoryApi.Create(Java.Nio.ByteBuffer? byteBuffer, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+Xamarin.TensorFlow.Lite.IInterpreterFactoryApi.RuntimeVersion() -> string?
+Xamarin.TensorFlow.Lite.IInterpreterFactoryApi.SchemaVersion() -> string?
+Xamarin.TensorFlow.Lite.ITensor
+Xamarin.TensorFlow.Lite.ITensor.AsReadOnlyBuffer() -> Java.Nio.ByteBuffer?
+Xamarin.TensorFlow.Lite.ITensor.DataType() -> Xamarin.TensorFlow.Lite.DataType?
+Xamarin.TensorFlow.Lite.ITensor.Index() -> int
+Xamarin.TensorFlow.Lite.ITensor.Name() -> string?
+Xamarin.TensorFlow.Lite.ITensor.NumBytes() -> int
+Xamarin.TensorFlow.Lite.ITensor.NumDimensions() -> int
+Xamarin.TensorFlow.Lite.ITensor.NumElements() -> int
+Xamarin.TensorFlow.Lite.ITensor.QuantizationParams() -> Xamarin.TensorFlow.Lite.TensorQuantizationParams?
+Xamarin.TensorFlow.Lite.ITensor.Shape() -> int[]?
+Xamarin.TensorFlow.Lite.ITensor.ShapeSignature() -> int[]?
+Xamarin.TensorFlow.Lite.Interpreter
+Xamarin.TensorFlow.Lite.Interpreter.AllocateTensors() -> void
+Xamarin.TensorFlow.Lite.Interpreter.Close() -> void
+Xamarin.TensorFlow.Lite.Interpreter.GetInputIndex(string? opName) -> int
+Xamarin.TensorFlow.Lite.Interpreter.GetInputTensor(int inputIndex) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.Interpreter.GetInputTensorFromSignature(string? inputName, string? signatureKey) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.Interpreter.GetOutputIndex(string? opName) -> int
+Xamarin.TensorFlow.Lite.Interpreter.GetOutputTensor(int outputIndex) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.Interpreter.GetOutputTensorFromSignature(string? outputName, string? signatureKey) -> Xamarin.TensorFlow.Lite.ITensor?
+Xamarin.TensorFlow.Lite.Interpreter.GetSignatureInputs(string? signatureKey) -> string![]?
+Xamarin.TensorFlow.Lite.Interpreter.GetSignatureKeys() -> string![]?
+Xamarin.TensorFlow.Lite.Interpreter.GetSignatureOutputs(string? signatureKey) -> string![]?
+Xamarin.TensorFlow.Lite.Interpreter.InputTensorCount.get -> int
+Xamarin.TensorFlow.Lite.Interpreter.Interpreter(Java.IO.File? modelFile) -> void
+Xamarin.TensorFlow.Lite.Interpreter.Interpreter(Java.IO.File? modelFile, Xamarin.TensorFlow.Lite.Interpreter.Options? options) -> void
+Xamarin.TensorFlow.Lite.Interpreter.Interpreter(Java.Nio.ByteBuffer? byteBuffer) -> void
+Xamarin.TensorFlow.Lite.Interpreter.Interpreter(Java.Nio.ByteBuffer? byteBuffer, Xamarin.TensorFlow.Lite.Interpreter.Options? options) -> void
+Xamarin.TensorFlow.Lite.Interpreter.LastNativeInferenceDurationNanoseconds.get -> Java.Lang.Long?
+Xamarin.TensorFlow.Lite.Interpreter.Options
+Xamarin.TensorFlow.Lite.Interpreter.Options.Options() -> void
+Xamarin.TensorFlow.Lite.Interpreter.Options.Options(Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> void
+Xamarin.TensorFlow.Lite.Interpreter.Options.Options(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.TensorFlow.Lite.Interpreter.OutputTensorCount.get -> int
+Xamarin.TensorFlow.Lite.Interpreter.ResetVariableTensors() -> void
+Xamarin.TensorFlow.Lite.Interpreter.ResizeInput(int idx, int[]? dims) -> void
+Xamarin.TensorFlow.Lite.Interpreter.ResizeInput(int idx, int[]? dims, bool strict) -> void
+Xamarin.TensorFlow.Lite.Interpreter.Run(Java.Lang.Object? input, Java.Lang.Object? output) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunForMultipleInputsOutputs(Java.Lang.Object![]? inputs, System.Collections.Generic.IDictionary<Java.Lang.Integer!, Java.Lang.Object!>? outputs) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunForMultipleInputsOutputs(Java.Lang.Object![]? inputs, System.Collections.IDictionary? outputs) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunSignature(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? inputs, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? outputs) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunSignature(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? inputs, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? outputs, string? signatureKey) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunSignature(System.Collections.IDictionary? inputs, System.Collections.IDictionary? outputs) -> void
+Xamarin.TensorFlow.Lite.Interpreter.RunSignature(System.Collections.IDictionary? inputs, System.Collections.IDictionary? outputs, string? signatureKey) -> void
+Xamarin.TensorFlow.Lite.Interpreter.SetCancelled(bool cancelled) -> void
+Xamarin.TensorFlow.Lite.InterpreterApi
+Xamarin.TensorFlow.Lite.InterpreterApiConsts
+Xamarin.TensorFlow.Lite.InterpreterApiOptions
+Xamarin.TensorFlow.Lite.InterpreterApiOptions.InterpreterApiOptions() -> void
+Xamarin.TensorFlow.Lite.InterpreterApiOptions.InterpreterApiOptions(Xamarin.TensorFlow.Lite.InterpreterApiOptions? other) -> void
+Xamarin.TensorFlow.Lite.InterpreterApiOptions.InterpreterApiOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime
+Xamarin.TensorFlow.Lite.InterpreterFactory
+Xamarin.TensorFlow.Lite.InterpreterFactory.InterpreterFactory() -> void
+Xamarin.TensorFlow.Lite.InterpreterFactory.InterpreterFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.TensorFlow.Lite.RuntimeFlavor
+Xamarin.TensorFlow.Lite.TensorFlowLite
+Xamarin.TensorFlow.Lite.TensorQuantizationParams
+Xamarin.TensorFlow.Lite.TensorQuantizationParams.TensorQuantizationParams(float scale, int zeroPoint) -> void
+Xamarin.TensorFlow.Lite.TensorQuantizationParams.TensorQuantizationParams(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 abstract Google.AI.Edge.LiteRT.JniHandle.Destroy() -> void
 override Google.AI.Edge.LiteRT.Accelerator.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.Accelerator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.BuiltinNpuAcceleratorProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.CpuOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.Options.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.CompiledModel.Options.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.Deployment.AiPackModelProvider.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.Deployment.AiPackModelProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.Environment.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -215,8 +375,6 @@ override Google.AI.Edge.LiteRT.JniHandle.JniPeerMembers.get -> Java.Interop.JniP
 override Google.AI.Edge.LiteRT.JniHandle.ThresholdClass.get -> nint
 override Google.AI.Edge.LiteRT.JniHandle.ThresholdType.get -> System.Type!
 override Google.AI.Edge.LiteRT.LiteRtException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Google.AI.Edge.LiteRT.Model.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Google.AI.Edge.LiteRT.Model.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.ModelProviderCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.ModelProviderType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.ModelSelector.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -232,6 +390,23 @@ override Google.AI.Edge.LiteRT.TensorBufferType.JniPeerMembers.get -> Java.Inter
 override Google.AI.Edge.LiteRT.TensorType.ElementType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.TensorType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.AI.Edge.LiteRT.TensorType.Layout.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.DataType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.Interpreter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.Interpreter.Options.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.Interpreter.Options.ThresholdClass.get -> nint
+override Xamarin.TensorFlow.Lite.Interpreter.Options.ThresholdType.get -> System.Type!
+override Xamarin.TensorFlow.Lite.InterpreterApiOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.InterpreterApiOptions.ThresholdClass.get -> nint
+override Xamarin.TensorFlow.Lite.InterpreterApiOptions.ThresholdType.get -> System.Type!
+override Xamarin.TensorFlow.Lite.InterpreterFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.InterpreterFactory.ThresholdClass.get -> nint
+override Xamarin.TensorFlow.Lite.InterpreterFactory.ThresholdType.get -> System.Type!
+override Xamarin.TensorFlow.Lite.RuntimeFlavor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.TensorFlowLite.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.TensorQuantizationParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.TensorFlow.Lite.TensorQuantizationParams.ThresholdClass.get -> nint
+override Xamarin.TensorFlow.Lite.TensorQuantizationParams.ThresholdType.get -> System.Type!
 static Google.AI.Edge.LiteRT.Accelerator.Cpu.get -> Google.AI.Edge.LiteRT.Accelerator?
 static Google.AI.Edge.LiteRT.Accelerator.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Google.AI.Edge.LiteRT.Accelerator.Gpu.get -> Google.AI.Edge.LiteRT.Accelerator?
@@ -242,14 +417,17 @@ static Google.AI.Edge.LiteRT.Accelerator.Values() -> Google.AI.Edge.LiteRT.Accel
 static Google.AI.Edge.LiteRT.CompiledModel.Create(Android.Content.Res.AssetManager! assetManager, string! assetName) -> Google.AI.Edge.LiteRT.CompiledModel!
 static Google.AI.Edge.LiteRT.CompiledModel.Create(Android.Content.Res.AssetManager! assetManager, string! assetName, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
 static Google.AI.Edge.LiteRT.CompiledModel.Create(Android.Content.Res.AssetManager! assetManager, string! assetName, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
-static Google.AI.Edge.LiteRT.CompiledModel.Create(Google.AI.Edge.LiteRT.Model! model) -> Google.AI.Edge.LiteRT.CompiledModel!
-static Google.AI.Edge.LiteRT.CompiledModel.Create(Google.AI.Edge.LiteRT.Model! model, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
-static Google.AI.Edge.LiteRT.CompiledModel.Create(Google.AI.Edge.LiteRT.Model! model, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
 static Google.AI.Edge.LiteRT.CompiledModel.Create(string! filePath) -> Google.AI.Edge.LiteRT.CompiledModel!
 static Google.AI.Edge.LiteRT.CompiledModel.Create(string! filePath, Google.AI.Edge.LiteRT.CompiledModel.Options! options) -> Google.AI.Edge.LiteRT.CompiledModel!
 static Google.AI.Edge.LiteRT.CompiledModel.Create(string! filePath, Google.AI.Edge.LiteRT.CompiledModel.Options! options, Google.AI.Edge.LiteRT.Environment? optionalEnv) -> Google.AI.Edge.LiteRT.CompiledModel!
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Automatic.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Opencl.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Values() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend![]?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend.Webgpu.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Backend?
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Buffer.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
-static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Defautl.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Default.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.Texture2d.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.BufferStorageType?
@@ -260,7 +438,50 @@ static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.Fp16.get -> Goog
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.Fp32.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision?
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision?
 static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision.Values() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Precision![]?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Default.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.High.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Low.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Normal.get -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority?
+static Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority.Values() -> Google.AI.Edge.LiteRT.CompiledModel.GpuOptions.Priority![]?
 static Google.AI.Edge.LiteRT.CompiledModel.Options.CPU.get -> Google.AI.Edge.LiteRT.CompiledModel.Options!
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Balanced.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Burst.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Default.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.ExtremePowerSaver.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.HighPerformance.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.HighPowerSaver.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.LowBalanced.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.LowPowerSaver.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.PowerSaver.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.SustainedHighPerformance.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode.Values() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.HtpPerformanceMode![]?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Debug.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Error.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Info.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Off.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Values() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel![]?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Verbose.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel.Warn.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.LogLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.HtpOptimizeForInference.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.HtpOptimizeForInferenceO3.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.HtpOptimizeForPrepare.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel.Values() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.OptimizationLevel![]?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Basic.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Detailed.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Linting.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Off.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Optrace.get -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.ValueOf(string? value) -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling?
+static Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling.Values() -> Google.AI.Edge.LiteRT.CompiledModel.QualcommOptions.Profiling![]?
 static Google.AI.Edge.LiteRT.Deployment.AiPackModelProvider.InterfaceConsts.Companion.get -> Google.AI.Edge.LiteRT.ModelProviderCompanion!
 static Google.AI.Edge.LiteRT.Environment.Create() -> Google.AI.Edge.LiteRT.Environment!
 static Google.AI.Edge.LiteRT.Environment.Create(Google.AI.Edge.LiteRT.INpuAcceleratorProvider! npuAcceleratorProvider) -> Google.AI.Edge.LiteRT.Environment!
@@ -271,8 +492,6 @@ static Google.AI.Edge.LiteRT.Environment.Option.DispatchLibraryDir.get -> Google
 static Google.AI.Edge.LiteRT.Environment.Option.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Google.AI.Edge.LiteRT.Environment.Option.ValueOf(string? value) -> Google.AI.Edge.LiteRT.Environment.Option?
 static Google.AI.Edge.LiteRT.Environment.Option.Values() -> Google.AI.Edge.LiteRT.Environment.Option![]?
-static Google.AI.Edge.LiteRT.Model.Load(Android.Content.Res.AssetManager! assetManager, string! assetName) -> Google.AI.Edge.LiteRT.Model!
-static Google.AI.Edge.LiteRT.Model.Load(string! filePath) -> Google.AI.Edge.LiteRT.Model!
 static Google.AI.Edge.LiteRT.ModelProvider.Companion.get -> Google.AI.Edge.LiteRT.ModelProviderCompanion!
 static Google.AI.Edge.LiteRT.ModelProvider.StaticModel(Google.AI.Edge.LiteRT.ModelProviderType! type, string! path, params Google.AI.Edge.LiteRT.Accelerator![]! accelerators) -> Google.AI.Edge.LiteRT.IModelProvider!
 static Google.AI.Edge.LiteRT.ModelProviderType.Asset.get -> Google.AI.Edge.LiteRT.ModelProviderType?
@@ -283,6 +502,7 @@ static Google.AI.Edge.LiteRT.ModelProviderType.Values() -> Google.AI.Edge.LiteRT
 static Google.AI.Edge.LiteRT.NpuCompatibilityChecker.Companion.get -> Google.AI.Edge.LiteRT.NpuCompatibilityCheckerCompanion!
 static Google.AI.Edge.LiteRT.Status.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Google.AI.Edge.LiteRT.Status.ErrorAlreadyExists.get -> Google.AI.Edge.LiteRT.Status?
+static Google.AI.Edge.LiteRT.Status.ErrorCancelled.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorCompilation.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorDynamicLoading.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorFileIO.get -> Google.AI.Edge.LiteRT.Status?
@@ -294,6 +514,7 @@ static Google.AI.Edge.LiteRT.Status.ErrorInvalidGraphInvariant.get -> Google.AI.
 static Google.AI.Edge.LiteRT.Status.ErrorInvalidIrType.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorInvalidLegalization.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorInvalidToolConfig.get -> Google.AI.Edge.LiteRT.Status?
+static Google.AI.Edge.LiteRT.Status.ErrorInvalidTransformation.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorMemoryAllocationFailure.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorMissingInputTensor.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ErrorNotFound.get -> Google.AI.Edge.LiteRT.Status?
@@ -305,6 +526,7 @@ static Google.AI.Edge.LiteRT.Status.ErrorUnsupported.get -> Google.AI.Edge.LiteR
 static Google.AI.Edge.LiteRT.Status.ErrorWrongVersion.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.LegalizeNoMatch.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.Ok.get -> Google.AI.Edge.LiteRT.Status?
+static Google.AI.Edge.LiteRT.Status.PatternNoMatch.get -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.ValueOf(string? value) -> Google.AI.Edge.LiteRT.Status?
 static Google.AI.Edge.LiteRT.Status.Values() -> Google.AI.Edge.LiteRT.Status![]?
 static Google.AI.Edge.LiteRT.TensorBufferType.Ahwb.get -> Google.AI.Edge.LiteRT.TensorBufferType?
@@ -347,3 +569,42 @@ static Google.AI.Edge.LiteRT.TensorType.ElementType.Int64.get -> Google.AI.Edge.
 static Google.AI.Edge.LiteRT.TensorType.ElementType.Int8.get -> Google.AI.Edge.LiteRT.TensorType.ElementType?
 static Google.AI.Edge.LiteRT.TensorType.ElementType.ValueOf(string? value) -> Google.AI.Edge.LiteRT.TensorType.ElementType?
 static Google.AI.Edge.LiteRT.TensorType.ElementType.Values() -> Google.AI.Edge.LiteRT.TensorType.ElementType![]?
+static Xamarin.TensorFlow.Lite.DataType.Bool.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Float32.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Int16.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Int32.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Int64.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Int8.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.String.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Uint8.get -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.ValueOf(string? name) -> Xamarin.TensorFlow.Lite.DataType?
+static Xamarin.TensorFlow.Lite.DataType.Values() -> Xamarin.TensorFlow.Lite.DataType![]?
+static Xamarin.TensorFlow.Lite.InterpreterApi.Create(Java.IO.File? modelFile, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+static Xamarin.TensorFlow.Lite.InterpreterApi.Create(Java.Nio.ByteBuffer? byteBuffer, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+static Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.FromApplicationOnly.get -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime?
+static Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.FromSystemOnly.get -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime?
+static Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.PreferSystemOverApplication.get -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime?
+static Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.ValueOf(string? name) -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime?
+static Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime.Values() -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime![]?
+static Xamarin.TensorFlow.Lite.RuntimeFlavor.Application.get -> Xamarin.TensorFlow.Lite.RuntimeFlavor?
+static Xamarin.TensorFlow.Lite.RuntimeFlavor.System.get -> Xamarin.TensorFlow.Lite.RuntimeFlavor?
+static Xamarin.TensorFlow.Lite.RuntimeFlavor.ValueOf(string? name) -> Xamarin.TensorFlow.Lite.RuntimeFlavor?
+static Xamarin.TensorFlow.Lite.RuntimeFlavor.Values() -> Xamarin.TensorFlow.Lite.RuntimeFlavor![]?
+static Xamarin.TensorFlow.Lite.TensorFlowLite.Init() -> void
+static Xamarin.TensorFlow.Lite.TensorFlowLite.RuntimeVersion() -> string?
+static Xamarin.TensorFlow.Lite.TensorFlowLite.RuntimeVersion(Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime? runtime) -> string?
+static Xamarin.TensorFlow.Lite.TensorFlowLite.SchemaVersion() -> string?
+static Xamarin.TensorFlow.Lite.TensorFlowLite.SchemaVersion(Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime? runtime) -> string?
+static Xamarin.TensorFlow.Lite.TensorFlowLite.Version() -> string?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.IsCancellable.get -> bool
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.NumThreads.get -> int
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.Runtime.get -> Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.SetCancellable(bool allow) -> Xamarin.TensorFlow.Lite.InterpreterApiOptions?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.SetNumThreads(int numThreads) -> Xamarin.TensorFlow.Lite.InterpreterApiOptions?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.SetRuntime(Xamarin.TensorFlow.Lite.InterpreterApiOptions.TfLiteRuntime? runtime) -> Xamarin.TensorFlow.Lite.InterpreterApiOptions?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.SetUseXNNPACK(bool useXNNPACK) -> Xamarin.TensorFlow.Lite.InterpreterApiOptions?
+virtual Xamarin.TensorFlow.Lite.InterpreterApiOptions.UseXNNPACK.get -> bool
+virtual Xamarin.TensorFlow.Lite.InterpreterFactory.Create(Java.IO.File? modelFile, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+virtual Xamarin.TensorFlow.Lite.InterpreterFactory.Create(Java.Nio.ByteBuffer? byteBuffer, Xamarin.TensorFlow.Lite.InterpreterApiOptions? options) -> Xamarin.TensorFlow.Lite.IInterpreterApi?
+virtual Xamarin.TensorFlow.Lite.TensorQuantizationParams.Scale.get -> float
+virtual Xamarin.TensorFlow.Lite.TensorQuantizationParams.ZeroPoint.get -> int
