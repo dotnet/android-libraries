@@ -457,7 +457,7 @@
 | 450|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.GoogleAndroid.Libraries.Places.Compat                         |2.6.0.15            |
 | 451|com.google.android.material:compose-theme-adapter                     |1.1.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter                 |1.1.18.20           |
 | 452|com.google.android.material:compose-theme-adapter-3                   |1.0.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter3                |1.0.18.19           |
-| 453|com.google.android.material:material                                  |1.13.0              |Xamarin.Google.Android.Material                                       |1.13.0              |
+| 453|com.google.android.material:material                                  |1.13.0              |Xamarin.Google.Android.Material                                       |1.13.0.1            |
 | 454|com.google.android.odml:image                                         |1.0.0-beta1         |Xamarin.Google.Android.ODML.Image                                     |1.0.0.17-beta1      |
 | 455|com.google.android.play:age-signals                                   |0.0.1               |Xamarin.Google.Android.Play.Age.Signals                               |0.0.1               |
 | 456|com.google.android.play:ai-delivery                                   |0.1.1-alpha01       |Xamarin.Google.Android.Play.AI.Delivery                               |0.1.1-alpha01       |
