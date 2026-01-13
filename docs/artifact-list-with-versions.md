@@ -384,8 +384,8 @@
 | 377|com.google.android.gms:play-services-auth-base                        |18.3.1              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.1             |
 | 378|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.7           |
 | 379|com.google.android.gms:play-services-awareness                        |19.1.0              |Xamarin.GooglePlayServices.Awareness                                  |119.1.0.8           |
-| 380|com.google.android.gms:play-services-base                             |18.9.0              |Xamarin.GooglePlayServices.Base                                       |118.9.0.1           |
-| 381|com.google.android.gms:play-services-basement                         |18.9.0              |Xamarin.GooglePlayServices.Basement                                   |118.9.0.1           |
+| 380|com.google.android.gms:play-services-base                             |18.10.0             |Xamarin.GooglePlayServices.Base                                       |118.10.0            |
+| 381|com.google.android.gms:play-services-basement                         |18.10.0             |Xamarin.GooglePlayServices.Basement                                   |118.10.0            |
 | 382|com.google.android.gms:play-services-cast                             |22.2.0              |Xamarin.GooglePlayServices.Cast                                       |122.2.0.1           |
 | 383|com.google.android.gms:play-services-cast-framework                   |22.2.0              |Xamarin.GooglePlayServices.Cast.Framework                             |122.2.0.1           |
 | 384|com.google.android.gms:play-services-cast-tv                          |21.1.1              |Xamarin.GooglePlayServices.Cast.TV                                    |121.1.1.6           |
@@ -444,7 +444,7 @@
 | 437|com.google.android.gms:play-services-tagmanager                       |18.3.0              |Xamarin.GooglePlayServices.TagManager                                 |118.3.0.4           |
 | 438|com.google.android.gms:play-services-tagmanager-api                   |18.3.0              |Xamarin.GooglePlayServices.TagManager.Api                             |118.3.0.4           |
 | 439|com.google.android.gms:play-services-tagmanager-v4-impl               |18.1.1              |Xamarin.GooglePlayServices.TagManager.V4.Impl                         |118.1.1.6           |
-| 440|com.google.android.gms:play-services-tasks                            |18.4.0              |Xamarin.GooglePlayServices.Tasks                                      |118.4.0.2           |
+| 440|com.google.android.gms:play-services-tasks                            |18.4.1              |Xamarin.GooglePlayServices.Tasks                                      |118.4.1             |
 | 441|com.google.android.gms:play-services-tflite-gpu                       |16.4.0              |Xamarin.GooglePlayServices.TfLite.Gpu                                 |116.4.0.5           |
 | 442|com.google.android.gms:play-services-tflite-impl                      |16.4.0              |Xamarin.GooglePlayServices.TfLite.Impl                                |116.4.0.5           |
 | 443|com.google.android.gms:play-services-tflite-java                      |16.4.0              |Xamarin.GooglePlayServices.TfLite.Java                                |116.4.0.5           |
@@ -593,7 +593,7 @@
 | 586|com.google.mlkit:vision-common                                        |17.3.0              |Xamarin.Google.MLKit.Vision.Common                                    |117.3.0.17          |
 | 587|com.google.mlkit:vision-interfaces                                    |16.3.0              |Xamarin.Google.MLKit.Vision.Interfaces                                |116.3.0.11          |
 | 588|com.google.mlkit:vision-internal-vkp                                  |18.2.3              |Xamarin.Google.MLKit.Vision.Internal.Vkp                              |118.2.3.6           |
-| 589|com.google.protobuf:protobuf-javalite                                 |4.33.3              |Xamarin.Protobuf.JavaLite                                             |4.33.3              |
+| 589|com.google.protobuf:protobuf-javalite                                 |4.33.4              |Xamarin.Protobuf.JavaLite                                             |4.33.4              |
 | 590|com.google.protobuf:protobuf-lite                                     |3.0.1               |Xamarin.Protobuf.Lite                                                 |3.0.1.22            |
 | 591|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4.1             |
 | 592|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.18           |
