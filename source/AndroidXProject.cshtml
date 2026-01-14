@@ -32,6 +32,11 @@
 }
   </PropertyGroup>
 
+  <PropertyGroup>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>moderate</NuGetAuditLevel>
+  </PropertyGroup>
+      
   <!-- NuGet package properties -->
   <PropertyGroup>
     <PackageId>@(Model.NuGetPackageId)</PackageId>
@@ -159,5 +164,12 @@
   </ItemGroup>
 
   @{ await IncludeAsync("source/_PackageLevelCustomizations.cshtml", Model); }
+
+  <ItemGroup>
+    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>
