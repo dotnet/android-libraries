@@ -54,5 +54,10 @@
 		path="/api/package[@name='com.google.android.gms.auth.api.signin.internal']/class[starts-with(@name,'zb')]"
 		/>
 
+	<!-- Fix duplicate 'Prompt' property in AuthorizationRequest - CS0102 -->
+	<remove-node
+		path="/api/package[@name='com.google.android.gms.auth.api.identity']/class[@name='AuthorizationRequest']/method[@name='getPrompt' and count(parameter)=0]"
+		/>
+
 </metadata>
 

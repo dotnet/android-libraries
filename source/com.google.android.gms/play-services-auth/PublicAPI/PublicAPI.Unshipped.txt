@@ -11,18 +11,24 @@ Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.RequestOfflineAccess(
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.RequestOfflineAccess(string! serverClientId, bool forceCodeForRefreshToken) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.SetAccount(Android.Accounts.Account! account) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.SetOptOutIncludingGrantedScopes(bool optOutIncludingGrantedScopes) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
+Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.SetPrompt(int prompt) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.SetRequestedScopes(System.Collections.Generic.IList<Android.Gms.Common.Apis.Scope!>! requestedScopes) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.Zba(string! p0) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder.Zbb(string! p0) -> Android.Gms.Auth.Api.Identity.AuthorizationRequest.Builder!
+Android.Gms.Auth.Api.Identity.AuthorizationRequest.IPrompt
+Android.Gms.Auth.Api.Identity.AuthorizationRequest.Prompt
+Android.Gms.Auth.Api.Identity.AuthorizationRequest.PromptConsts
 Android.Gms.Auth.Api.Identity.AuthorizationRequest.ResourceParameter
 Android.Gms.Auth.Api.Identity.AuthorizationResult
 Android.Gms.Auth.Api.Identity.AuthorizationResult.AccessToken.get -> string?
 Android.Gms.Auth.Api.Identity.AuthorizationResult.AuthorizationResult(string? serverAuthCode, string? accessToken, string? idToken, System.Collections.Generic.IList<string!>! grantedScopes, Android.Gms.Auth.Api.SignIn.GoogleSignInAccount? googleSignInAccount, Android.App.PendingIntent? pendingIntent) -> void
+Android.Gms.Auth.Api.Identity.AuthorizationResult.AuthorizationResult(string? serverAuthCode, string? accessToken, string? idToken, System.Collections.Generic.IList<string!>! grantedScopes, Android.Gms.Auth.Api.SignIn.GoogleSignInAccount? googleSignInAccount, Android.App.PendingIntent? pendingIntent, Android.OS.Bundle? tokenResponseParams) -> void
 Android.Gms.Auth.Api.Identity.AuthorizationResult.GrantedScopes.get -> System.Collections.Generic.IList<string!>!
 Android.Gms.Auth.Api.Identity.AuthorizationResult.HasResolution.get -> bool
 Android.Gms.Auth.Api.Identity.AuthorizationResult.PendingIntent.get -> Android.App.PendingIntent?
 Android.Gms.Auth.Api.Identity.AuthorizationResult.ServerAuthCode.get -> string?
 Android.Gms.Auth.Api.Identity.AuthorizationResult.ToGoogleSignInAccount() -> Android.Gms.Auth.Api.SignIn.GoogleSignInAccount?
+Android.Gms.Auth.Api.Identity.AuthorizationResult.TokenResponseParams.get -> Android.OS.Bundle?
 Android.Gms.Auth.Api.Identity.BeginSignInRequest
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.Builder
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.BeginSignInRequest!
@@ -44,13 +50,11 @@ Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Bui
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.AssociateLinkedAccounts(string! linkedServiceId, System.Collections.Generic.IList<string!>? idTokenDepositionScopes) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.Build() -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.Builder() -> void
-Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetClaims(System.Collections.Generic.IList<Android.Gms.Auth.Api.Identity.Claim!>? claims) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetFilterByAuthorizedAccounts(bool filterByAuthorizedAccounts) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetNonce(string? nonce) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetRequestVerifiedPhoneNumber(bool requestVerifiedPhoneNumber) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetServerClientId(string! serverClientId) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder.SetSupported(bool supported) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Builder!
-Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.Claims.get -> System.Collections.Generic.IList<Android.Gms.Auth.Api.Identity.Claim!>?
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.FilterByAuthorizedAccounts() -> bool
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.IdTokenDepositionScopes.get -> System.Collections.Generic.IList<string!>?
 Android.Gms.Auth.Api.Identity.BeginSignInRequest.GoogleIdTokenRequestOptions.IsSupported.get -> bool
@@ -87,20 +91,13 @@ Android.Gms.Auth.Api.Identity.BeginSignInRequest.PreferImmediatelyAvailableCrede
 Android.Gms.Auth.Api.Identity.BeginSignInResult
 Android.Gms.Auth.Api.Identity.BeginSignInResult.BeginSignInResult(Android.App.PendingIntent! p0) -> void
 Android.Gms.Auth.Api.Identity.BeginSignInResult.PendingIntent.get -> Android.App.PendingIntent!
-Android.Gms.Auth.Api.Identity.Claim
-Android.Gms.Auth.Api.Identity.Claim.Builder
-Android.Gms.Auth.Api.Identity.Claim.Builder.Builder() -> void
-Android.Gms.Auth.Api.Identity.Claim.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Android.Gms.Auth.Api.Identity.Claim.Claim(string! name, bool essential) -> void
-Android.Gms.Auth.Api.Identity.Claim.IsEssential.get -> bool
-Android.Gms.Auth.Api.Identity.Claim.Name.get -> string!
 Android.Gms.Auth.Api.Identity.ClearTokenRequest
 Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder
-Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Builder() -> void
-Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.ClearTokenRequest!
+Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.SetToken(string! token) -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
+Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Zba(string? p0) -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
 Android.Gms.Auth.Api.Identity.ClearTokenRequest.ClearTokenRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Android.Gms.Auth.Api.Identity.ClearTokenRequest.Zba() -> string?
-Android.Gms.Auth.Api.Identity.ClearTokenRequest.Zbb() -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
+Android.Gms.Auth.Api.Identity.ClearTokenRequest.Zba() -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetPhoneNumberHintIntentRequest
 Android.Gms.Auth.Api.Identity.GetPhoneNumberHintIntentRequest.Builder
 Android.Gms.Auth.Api.Identity.GetPhoneNumberHintIntentRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.GetPhoneNumberHintIntentRequest!
@@ -110,12 +107,12 @@ Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.Builder() -> void
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.FilterByHostedDomain(string? hostedDomainFilter) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
-Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.SetClaims(System.Collections.Generic.IList<Android.Gms.Auth.Api.Identity.Claim!>? claims) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.SetNonce(string? nonce) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.SetRequestVerifiedPhoneNumber(bool requestsVerifiedPhoneNumber) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.SetServerClientId(string! serverClientId) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.Zba(string? p0) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.Zbb(int p0) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
+Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder.Zbc(System.Collections.IList? p0) -> Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Builder!
 Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.GetSignInIntentRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Auth.Api.Identity.IAuthorizationClient
 Android.Gms.Auth.Api.Identity.IAuthorizationClient.Authorize(Android.Gms.Auth.Api.Identity.AuthorizationRequest! p0) -> Android.Gms.Tasks.Task!
@@ -136,11 +133,12 @@ Android.Gms.Auth.Api.Identity.ISignInClient.SignOut() -> Android.Gms.Tasks.Task!
 Android.Gms.Auth.Api.Identity.Identity
 Android.Gms.Auth.Api.Identity.RevokeAccessRequest
 Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder
-Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Builder() -> void
-Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest!
+Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.SetAccount(Android.Accounts.Account! account) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
+Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.SetScopes(System.Collections.Generic.IList<Android.Gms.Common.Apis.Scope!>! scopes) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
+Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Zba(string? p0) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
 Android.Gms.Auth.Api.Identity.RevokeAccessRequest.RevokeAccessRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Zba() -> string?
-Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Zbb() -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
+Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Zba() -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
 Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest
 Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest.Builder
 Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest!
@@ -182,47 +180,30 @@ Android.Gms.Auth.Api.Identity.SignInPassword.SignInPassword(string! id, string! 
 Android.Gms.Auth.Api.Identity.Zba
 Android.Gms.Auth.Api.Identity.Zba.Zba(string? p0) -> void
 Android.Gms.Auth.Api.Identity.Zbb
-Android.Gms.Auth.Api.Identity.Zbb.Zbb() -> void
 Android.Gms.Auth.Api.Identity.Zbc
-Android.Gms.Auth.Api.Identity.Zbc.Zbc() -> void
+Android.Gms.Auth.Api.Identity.Zbd
+Android.Gms.Auth.Api.Identity.Zbe
+Android.Gms.Auth.Api.Identity.Zbf
+Android.Gms.Auth.Api.Identity.Zbf.Zbf(string! p0, bool p1) -> void
 Android.Gms.Auth.Api.Identity.Zbg
-Android.Gms.Auth.Api.Identity.Zbg.Zbg() -> void
 Android.Gms.Auth.Api.Identity.Zbh
-Android.Gms.Auth.Api.Identity.Zbh.Zbh() -> void
 Android.Gms.Auth.Api.Identity.Zbi
 Android.Gms.Auth.Api.Identity.Zbi.Zbi() -> void
 Android.Gms.Auth.Api.Identity.Zbj
-Android.Gms.Auth.Api.Identity.Zbj.Zbj() -> void
 Android.Gms.Auth.Api.Identity.Zbk
-Android.Gms.Auth.Api.Identity.Zbk.Zbk() -> void
 Android.Gms.Auth.Api.Identity.Zbl
-Android.Gms.Auth.Api.Identity.Zbl.Zbl() -> void
 Android.Gms.Auth.Api.Identity.Zbm
-Android.Gms.Auth.Api.Identity.Zbm.Zbm() -> void
 Android.Gms.Auth.Api.Identity.Zbn
-Android.Gms.Auth.Api.Identity.Zbn.Zbn() -> void
 Android.Gms.Auth.Api.Identity.Zbo
-Android.Gms.Auth.Api.Identity.Zbo.Zbo() -> void
 Android.Gms.Auth.Api.Identity.Zbp
-Android.Gms.Auth.Api.Identity.Zbp.Zbp() -> void
 Android.Gms.Auth.Api.Identity.Zbq
-Android.Gms.Auth.Api.Identity.Zbq.Zbq() -> void
 Android.Gms.Auth.Api.Identity.Zbr
-Android.Gms.Auth.Api.Identity.Zbr.Zbr() -> void
 Android.Gms.Auth.Api.Identity.Zbs
-Android.Gms.Auth.Api.Identity.Zbs.Zbs() -> void
 Android.Gms.Auth.Api.Identity.Zbt
-Android.Gms.Auth.Api.Identity.Zbt.Zbt() -> void
 Android.Gms.Auth.Api.Identity.Zbu
-Android.Gms.Auth.Api.Identity.Zbu.Zbu() -> void
 Android.Gms.Auth.Api.Identity.Zbv
 Android.Gms.Auth.Api.Identity.Zbv.Zbv() -> void
 Android.Gms.Auth.Api.Identity.Zbw
-Android.Gms.Auth.Api.Identity.Zbw.Zbw() -> void
-Android.Gms.Auth.Api.Identity.Zbx
-Android.Gms.Auth.Api.Identity.Zbx.Zbx() -> void
-Android.Gms.Auth.Api.Identity.Zby
-Android.Gms.Auth.Api.Identity.Zby.Zby() -> void
 Android.Gms.Auth.Api.SignIn.GoogleSignIn
 Android.Gms.Auth.Api.SignIn.GoogleSignInApi
 Android.Gms.Auth.Api.SignIn.GoogleSignInApiConsts
@@ -261,7 +242,6 @@ Android.Gms.Auth.Api.SignIn.SignInAccount
 Android.Gms.Auth.Api.SignIn.SignInAccount.SignInAccount(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Auth.Api.SignIn.SignInAccount.Zba() -> Android.Gms.Auth.Api.SignIn.GoogleSignInAccount?
 Android.Gms.Auth.Api.SignIn.Zbb
-Android.Gms.Auth.Api.SignIn.Zbb.Zbb() -> void
 Android.Gms.Auth.Api.Zbc
 Android.Gms.Auth.Api.Zbc.Zba(string? p0) -> Android.Gms.Auth.Api.Zbc?
 Android.Gms.Auth.Api.Zbc.Zbc() -> void
@@ -269,16 +249,9 @@ Android.Gms.Auth.Api.Zbc.Zbc(Android.Gms.Auth.Api.Zbd? p0) -> void
 Android.Gms.Auth.Api.Zbd
 Android.Gms.Auth.Api.Zbd.Zba() -> Android.OS.Bundle?
 Android.Gms.Auth.Api.Zbd.Zbd(Android.Gms.Auth.Api.Zbc? p0) -> void
-abstract Android.Gms.Auth.Api.Identity.Claim.Builder.Build() -> Android.Gms.Auth.Api.Identity.Claim!
-abstract Android.Gms.Auth.Api.Identity.Claim.Builder.SetEssential(bool p0) -> Android.Gms.Auth.Api.Identity.Claim.Builder!
-abstract Android.Gms.Auth.Api.Identity.Claim.Builder.SetName(string! p0) -> Android.Gms.Auth.Api.Identity.Claim.Builder!
-abstract Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.ClearTokenRequest!
-abstract Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.SetToken(string! p0) -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
-abstract Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.Zba(string? p0) -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
-abstract Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Build() -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest!
-abstract Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.SetAccount(Android.Accounts.Account! p0) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
-abstract Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.SetScopes(System.Collections.Generic.IList<Android.Gms.Common.Apis.Scope!>! p0) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
-abstract Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.Zba(string? p0) -> Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder!
+const Android.Gms.Auth.Api.Identity.AuthorizationRequest.Prompt.Consent = 1 -> int
+const Android.Gms.Auth.Api.Identity.AuthorizationRequest.Prompt.NotSet = 0 -> int
+const Android.Gms.Auth.Api.Identity.AuthorizationRequest.Prompt.SelectAccount = 2 -> int
 const Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest.ExtraToken = "extra_token" -> string!
 const Android.Gms.Auth.Api.Identity.SaveAccountLinkingTokenRequest.TokenTypeAuthCode = "auth_code" -> string!
 const Android.Gms.Auth.Api.SignIn.GoogleSignInApi.ExtraSignInAccount = "signInAccount" -> string!
@@ -311,14 +284,7 @@ override Android.Gms.Auth.Api.Identity.BeginSignInRequest.PasswordRequestOptions
 override Android.Gms.Auth.Api.Identity.BeginSignInRequest.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Auth.Api.Identity.BeginSignInResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.BeginSignInResult.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
-override Android.Gms.Auth.Api.Identity.Claim.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.Claim.Builder.ThresholdClass.get -> nint
-override Android.Gms.Auth.Api.Identity.Claim.Builder.ThresholdType.get -> System.Type!
-override Android.Gms.Auth.Api.Identity.Claim.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.Claim.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.ThresholdClass.get -> nint
-override Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder.ThresholdType.get -> System.Type!
 override Android.Gms.Auth.Api.Identity.ClearTokenRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.ClearTokenRequest.ThresholdClass.get -> nint
 override Android.Gms.Auth.Api.Identity.ClearTokenRequest.ThresholdType.get -> System.Type!
@@ -335,8 +301,6 @@ override Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.ThresholdType.get 
 override Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Auth.Api.Identity.Identity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.ThresholdClass.get -> nint
-override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.Builder.ThresholdType.get -> System.Type!
 override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.ThresholdClass.get -> nint
 override Android.Gms.Auth.Api.Identity.RevokeAccessRequest.ThresholdType.get -> System.Type!
@@ -368,6 +332,9 @@ override Android.Gms.Auth.Api.Identity.SignInPassword.WriteToParcel(Android.OS.P
 override Android.Gms.Auth.Api.Identity.Zba.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbb.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbc.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Identity.Zbd.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Identity.Zbe.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Auth.Api.Identity.Zbf.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbg.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbh.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbi.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -385,8 +352,6 @@ override Android.Gms.Auth.Api.Identity.Zbt.JniPeerMembers.get -> Java.Interop.Jn
 override Android.Gms.Auth.Api.Identity.Zbu.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbv.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.Identity.Zbw.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.Zbx.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Android.Gms.Auth.Api.Identity.Zby.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.SignIn.GoogleSignIn.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.SignIn.GoogleSignInClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Auth.Api.SignIn.GoogleSignInClient.ThresholdClass.get -> nint
@@ -409,10 +374,13 @@ override Android.Gms.Auth.Api.Zbc.JniPeerMembers.get -> Java.Interop.JniPeerMemb
 override Android.Gms.Auth.Api.Zbd.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Android.Gms.Auth.Api.Identity.Zba.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Auth.Api.Identity.Zba.GetHashCode() -> int
-override sealed Android.Gms.Auth.Api.Identity.Zbk.Equals(Java.Lang.Object? p0) -> bool
-override sealed Android.Gms.Auth.Api.Identity.Zbk.GetHashCode() -> int
-override sealed Android.Gms.Auth.Api.Identity.Zbx.Equals(Java.Lang.Object? p0) -> bool
-override sealed Android.Gms.Auth.Api.Identity.Zbx.GetHashCode() -> int
+override sealed Android.Gms.Auth.Api.Identity.Zbf.Equals(Java.Lang.Object? p0) -> bool
+override sealed Android.Gms.Auth.Api.Identity.Zbf.GetHashCode() -> int
+override sealed Android.Gms.Auth.Api.Identity.Zbf.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Android.Gms.Auth.Api.Identity.Zbi.Equals(Java.Lang.Object? p0) -> bool
+override sealed Android.Gms.Auth.Api.Identity.Zbi.GetHashCode() -> int
+override sealed Android.Gms.Auth.Api.Identity.Zbv.Equals(Java.Lang.Object? p0) -> bool
+override sealed Android.Gms.Auth.Api.Identity.Zbv.GetHashCode() -> int
 override sealed Android.Gms.Auth.Api.SignIn.Internal.SignInConfiguration.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Auth.Api.SignIn.Internal.SignInConfiguration.GetHashCode() -> int
 override sealed Android.Gms.Auth.Api.SignIn.Internal.SignInConfiguration.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
@@ -453,8 +421,6 @@ static Android.Gms.Auth.Api.Identity.BeginSignInRequest.PasswordRequestOptions.C
 static Android.Gms.Auth.Api.Identity.BeginSignInRequest.PasswordRequestOptions.InvokeBuilder() -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.PasswordRequestOptions.Builder!
 static Android.Gms.Auth.Api.Identity.BeginSignInRequest.Zba(Android.Gms.Auth.Api.Identity.BeginSignInRequest! p0) -> Android.Gms.Auth.Api.Identity.BeginSignInRequest.Builder!
 static Android.Gms.Auth.Api.Identity.BeginSignInResult.Creator.get -> Android.OS.IParcelableCreator!
-static Android.Gms.Auth.Api.Identity.Claim.Creator.get -> Android.OS.IParcelableCreator!
-static Android.Gms.Auth.Api.Identity.Claim.InvokeBuilder() -> Android.Gms.Auth.Api.Identity.Claim.Builder!
 static Android.Gms.Auth.Api.Identity.ClearTokenRequest.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Auth.Api.Identity.ClearTokenRequest.InvokeBuilder() -> Android.Gms.Auth.Api.Identity.ClearTokenRequest.Builder!
 static Android.Gms.Auth.Api.Identity.GetPhoneNumberHintIntentRequest.Creator.get -> Android.OS.IParcelableCreator!
@@ -480,6 +446,7 @@ static Android.Gms.Auth.Api.Identity.SavePasswordRequest.Zba(Android.Gms.Auth.Ap
 static Android.Gms.Auth.Api.Identity.SavePasswordResult.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Auth.Api.Identity.SignInCredential.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Auth.Api.Identity.SignInPassword.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Auth.Api.Identity.Zbf.Creator.get -> Android.OS.IParcelableCreator?
 static Android.Gms.Auth.Api.SignIn.GoogleSignIn.GetAccountForExtension(Android.Content.Context! context, Android.Gms.Auth.Api.SignIn.IGoogleSignInOptionsExtension! extension) -> Android.Gms.Auth.Api.SignIn.GoogleSignInAccount!
 static Android.Gms.Auth.Api.SignIn.GoogleSignIn.GetAccountForScopes(Android.Content.Context! context, Android.Gms.Common.Apis.Scope! scope, params Android.Gms.Common.Apis.Scope![]! scopes) -> Android.Gms.Auth.Api.SignIn.GoogleSignInAccount!
 static Android.Gms.Auth.Api.SignIn.GoogleSignIn.GetClient(Android.App.Activity! activity, Android.Gms.Auth.Api.SignIn.GoogleSignInOptions! options) -> Android.Gms.Auth.Api.SignIn.GoogleSignInClient!
@@ -506,7 +473,6 @@ virtual Android.Gms.Auth.Api.Identity.AuthorizationRequest.RequestedScopes.get -
 virtual Android.Gms.Auth.Api.Identity.AuthorizationRequest.ResourceParameters.get -> Android.OS.Bundle?
 virtual Android.Gms.Auth.Api.Identity.AuthorizationRequest.ServerClientId.get -> string?
 virtual Android.Gms.Auth.Api.Identity.ClearTokenRequest.Token.get -> string!
-virtual Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Claims.get -> System.Collections.Generic.IList<Android.Gms.Auth.Api.Identity.Claim!>?
 virtual Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.HostedDomainFilter.get -> string?
 virtual Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.Nonce.get -> string?
 virtual Android.Gms.Auth.Api.Identity.GetSignInIntentRequest.RequestVerifiedPhoneNumber() -> bool

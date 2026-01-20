@@ -154,10 +154,15 @@ Xamarin.Chromium.CroNet.Proxy
 Xamarin.Chromium.CroNet.Proxy.Callback
 Xamarin.Chromium.CroNet.Proxy.Callback.Callback() -> void
 Xamarin.Chromium.CroNet.Proxy.Callback.Callback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Chromium.CroNet.Proxy.Callback.Request
+Xamarin.Chromium.CroNet.Proxy.Callback.Request.Request() -> void
+Xamarin.Chromium.CroNet.Proxy.Callback.Request.Request(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Chromium.CroNet.Proxy.Executor.get -> Java.Util.Concurrent.IExecutor!
 Xamarin.Chromium.CroNet.Proxy.GetCallback() -> Xamarin.Chromium.CroNet.Proxy.Callback!
 Xamarin.Chromium.CroNet.Proxy.Host.get -> string!
 Xamarin.Chromium.CroNet.Proxy.IScheme
 Xamarin.Chromium.CroNet.Proxy.Port.get -> int
+Xamarin.Chromium.CroNet.Proxy.Proxy(int scheme, string! host, int port, Java.Util.Concurrent.IExecutor! executor, Xamarin.Chromium.CroNet.Proxy.Callback! callback) -> void
 Xamarin.Chromium.CroNet.Proxy.Proxy(int scheme, string! host, int port, Xamarin.Chromium.CroNet.Proxy.Callback! callback) -> void
 Xamarin.Chromium.CroNet.Proxy.Scheme.get -> int
 Xamarin.Chromium.CroNet.ProxyOptions
@@ -282,8 +287,9 @@ abstract Xamarin.Chromium.CroNet.NetworkException.ErrorCode.get -> int
 abstract Xamarin.Chromium.CroNet.NetworkException.ImmediatelyRetryable() -> bool
 abstract Xamarin.Chromium.CroNet.NetworkQualityRttListener.OnRttObservation(int rttMs, long whenMs, int source) -> void
 abstract Xamarin.Chromium.CroNet.NetworkQualityThroughputListener.OnThroughputObservation(int throughputKbps, long whenMs, int source) -> void
-abstract Xamarin.Chromium.CroNet.Proxy.Callback.OnBeforeTunnelRequest() -> System.Collections.Generic.IList<Java.Util.IMapEntry!>?
 abstract Xamarin.Chromium.CroNet.Proxy.Callback.OnTunnelHeadersReceived(System.Collections.Generic.IList<Java.Util.IMapEntry!>! responseHeaders, int statusCode) -> bool
+abstract Xamarin.Chromium.CroNet.Proxy.Callback.Request.Close() -> void
+abstract Xamarin.Chromium.CroNet.Proxy.Callback.Request.Proceed(System.Collections.Generic.IList<Java.Util.IMapEntry!>! extraHeaders) -> void
 abstract Xamarin.Chromium.CroNet.QuicException.QuicDetailedErrorCode.get -> int
 abstract Xamarin.Chromium.CroNet.RequestFinishedInfo.Annotations.get -> System.Collections.Generic.ICollection<Java.Lang.Object!>?
 abstract Xamarin.Chromium.CroNet.RequestFinishedInfo.Exception.get -> Xamarin.Chromium.CroNet.CronetException?
@@ -533,6 +539,9 @@ override Xamarin.Chromium.CroNet.NetworkQualityThroughputListener.JniPeerMembers
 override Xamarin.Chromium.CroNet.NetworkQualityThroughputListener.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.NetworkQualityThroughputListener.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Proxy.Callback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Proxy.Callback.Request.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Chromium.CroNet.Proxy.Callback.Request.ThresholdClass.get -> nint
+override Xamarin.Chromium.CroNet.Proxy.Callback.Request.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Proxy.Callback.ThresholdClass.get -> nint
 override Xamarin.Chromium.CroNet.Proxy.Callback.ThresholdType.get -> System.Type!
 override Xamarin.Chromium.CroNet.Proxy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -705,6 +714,8 @@ virtual Xamarin.Chromium.CroNet.ICronetEngineBuilder.SetThreadPriority(int prior
 virtual Xamarin.Chromium.CroNet.ICronetEngineBuilder.SupportedConfigOptions.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
 virtual Xamarin.Chromium.CroNet.NetworkQualityRttListener.Executor.get -> Java.Util.Concurrent.IExecutor?
 virtual Xamarin.Chromium.CroNet.NetworkQualityThroughputListener.Executor.get -> Java.Util.Concurrent.IExecutor?
+virtual Xamarin.Chromium.CroNet.Proxy.Callback.OnBeforeTunnelRequest() -> System.Collections.Generic.IList<Java.Util.IMapEntry!>?
+virtual Xamarin.Chromium.CroNet.Proxy.Callback.OnBeforeTunnelRequest(Xamarin.Chromium.CroNet.Proxy.Callback.Request! request) -> void
 virtual Xamarin.Chromium.CroNet.QuicException.ConnectionCloseSource.get -> int
 virtual Xamarin.Chromium.CroNet.QuicOptions.Builder.AddAllowedQuicHost(string? quicHost) -> Xamarin.Chromium.CroNet.QuicOptions.Builder?
 virtual Xamarin.Chromium.CroNet.QuicOptions.Builder.AddClientConnectionOption(string? clientConnectionOption) -> Xamarin.Chromium.CroNet.QuicOptions.Builder?
