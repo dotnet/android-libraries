@@ -352,7 +352,7 @@
 | 345|com.google.accompanist:accompanist-placeholder-material               |0.36.0              |Xamarin.Google.Accompanist.Placeholder.Material                       |0.36.0.7            |
 | 346|com.google.accompanist:accompanist-swiperefresh                       |0.36.0              |Xamarin.Google.Accompanist.SwipeRefresh                               |0.36.0.7            |
 | 347|com.google.accompanist:accompanist-systemuicontroller                 |0.36.0              |Xamarin.Google.Accompanist.SystemUIController                         |0.36.0.7            |
-| 348|com.google.ads.interactivemedia.v3:interactivemedia                   |3.38.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.38.0.1            |
+| 348|com.google.ads.interactivemedia.v3:interactivemedia                   |3.39.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.39.0              |
 | 349|com.google.ai.edge.aicore:aicore                                      |0.0.1-exp02         |Xamarin.Google.AI.Edge.AICore                                         |0.0.1.1-exp02       |
 | 350|com.google.ai.edge.litert:litert                                      |2.1.0               |Xamarin.Google.AI.Edge.LiteRT                                         |2.1.0.1             |
 | 351|com.google.ai.edge.litert:litert-api                                  |1.4.1               |Xamarin.Google.AI.Edge.LiteRT.API                                     |1.4.1.1             |
@@ -370,7 +370,7 @@
 | 363|com.google.android.gms:play-services-ads                              |24.9.0              |Xamarin.GooglePlayServices.Ads                                        |124.9.0.1           |
 | 364|com.google.android.gms:play-services-ads-api                          |24.9.0              |Xamarin.GooglePlayServices.Ads.Api                                    |124.9.0.1           |
 | 365|com.google.android.gms:play-services-ads-base                         |24.1.0              |Xamarin.GooglePlayServices.Ads.Base                                   |124.1.0.2           |
-| 366|com.google.android.gms:play-services-ads-identifier                   |18.2.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.2.0.5           |
+| 366|com.google.android.gms:play-services-ads-identifier                   |18.3.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.3.0             |
 | 367|com.google.android.gms:play-services-ads-lite                         |24.0.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.0.0.4           |
 | 368|com.google.android.gms:play-services-afs-native                       |19.1.0              |Xamarin.GooglePlayServices.AFS.Native                                 |119.1.0.8           |
 | 369|com.google.android.gms:play-services-analytics                        |18.1.1              |Xamarin.GooglePlayServices.Analytics                                  |118.1.1.6           |
@@ -486,7 +486,7 @@
 | 479|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.22            |
 | 480|com.google.code.gson:gson                                             |2.13.2              |GoogleGson                                                            |2.13.2.1            |
 | 481|com.google.crypto.tink:tink-android                                   |1.20.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.20.0.1            |
-| 482|com.google.dagger:dagger                                              |2.58                |Xamarin.Google.Dagger                                                 |2.58.0              |
+| 482|com.google.dagger:dagger                                              |2.59.0              |Xamarin.Google.Dagger                                                 |2.59.0              |
 | 483|com.google.errorprone:error_prone_annotations                         |2.46.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.46.0              |
 | 484|com.google.errorprone:error_prone_type_annotations                    |2.46.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.46.0              |
 | 485|com.google.firebase:firebase-abt                                      |23.0.1              |Xamarin.Firebase.Abt                                                  |123.0.1.1           |
@@ -654,8 +654,8 @@
 | 647|org.jetbrains.kotlin:kotlin-stdlib-common                             |2.0.21              |Xamarin.Kotlin.StdLib.Common                                          |2.0.21.6            |
 | 648|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.3.0               |Xamarin.Kotlin.StdLib.Jdk7                                            |2.3.0.1             |
 | 649|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.3.0               |Xamarin.Kotlin.StdLib.Jdk8                                            |2.3.0.1             |
-| 650|org.jetbrains.kotlinx:atomicfu                                        |0.29.0              |Xamarin.KotlinX.AtomicFU                                              |0.29.0.2            |
-| 651|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.29.0              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.29.0.2            |
+| 650|org.jetbrains.kotlinx:atomicfu                                        |0.31.0              |Xamarin.KotlinX.AtomicFU                                              |0.31.0              |
+| 651|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.31.0              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.31.0              |
 | 652|org.jetbrains.kotlinx:kotlinx-coroutines-android                      |1.10.2              |Xamarin.KotlinX.Coroutines.Android                                    |1.10.2.2            |
 | 653|org.jetbrains.kotlinx:kotlinx-coroutines-core                         |1.10.2              |Xamarin.KotlinX.Coroutines.Core                                       |1.10.2.2            |
 | 654|org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm                     |1.10.2              |Xamarin.KotlinX.Coroutines.Core.Jvm                                   |1.10.2.2            |
@@ -665,12 +665,12 @@
 | 658|org.jetbrains.kotlinx:kotlinx-coroutines-reactive                     |1.10.2              |Xamarin.KotlinX.Coroutines.Reactive                                   |1.10.2.2            |
 | 659|org.jetbrains.kotlinx:kotlinx-coroutines-rx2                          |1.10.2              |Xamarin.KotlinX.Coroutines.Rx2                                        |1.10.2.2            |
 | 660|org.jetbrains.kotlinx:kotlinx-coroutines-rx3                          |1.10.2              |Xamarin.KotlinX.Coroutines.Rx3                                        |1.10.2.2            |
-| 661|org.jetbrains.kotlinx:kotlinx-serialization-core                      |1.9.0               |Xamarin.KotlinX.Serialization.Core                                    |1.9.0.2             |
-| 662|org.jetbrains.kotlinx:kotlinx-serialization-core-jvm                  |1.9.0               |Xamarin.KotlinX.Serialization.Core.Jvm                                |1.9.0.2             |
-| 663|org.jetbrains.kotlinx:kotlinx-serialization-json                      |1.9.0               |Xamarin.KotlinX.Serialization.Json                                    |1.9.0.2             |
-| 664|org.jetbrains.kotlinx:kotlinx-serialization-json-jvm                  |1.9.0               |Xamarin.KotlinX.Serialization.Json.Jvm                                |1.9.0.2             |
-| 665|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf                                |1.9.0.2             |
-| 666|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.9.0               |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.9.0.2             |
+| 661|org.jetbrains.kotlinx:kotlinx-serialization-core                      |1.10.0              |Xamarin.KotlinX.Serialization.Core                                    |1.10.0              |
+| 662|org.jetbrains.kotlinx:kotlinx-serialization-core-jvm                  |1.10.0              |Xamarin.KotlinX.Serialization.Core.Jvm                                |1.10.0              |
+| 663|org.jetbrains.kotlinx:kotlinx-serialization-json                      |1.10.0              |Xamarin.KotlinX.Serialization.Json                                    |1.10.0              |
+| 664|org.jetbrains.kotlinx:kotlinx-serialization-json-jvm                  |1.10.0              |Xamarin.KotlinX.Serialization.Json.Jvm                                |1.10.0              |
+| 665|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.10.0              |Xamarin.KotlinX.Serialization.Protobuf                                |1.10.0              |
+| 666|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.10.0              |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.10.0              |
 | 667|org.jspecify:jspecify                                                 |1.0.0               |Xamarin.JSpecify                                                      |1.0.0.5             |
 | 668|org.ow2.asm:asm                                                       |9.9.1               |Xamarin.OW2.ASM                                                       |9.9.1.1             |
 | 669|org.reactivestreams:reactive-streams                                  |1.0.4               |Xamarin.Android.ReactiveStreams                                       |1.0.4.22            |
