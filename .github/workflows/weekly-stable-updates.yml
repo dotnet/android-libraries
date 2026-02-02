@@ -30,13 +30,19 @@ jobs:
           \`\`\`
           dotnet cake -t:update-config
           dotnet cake utilities.cake -t=generate-component-governance
-          dotnet cake utilities.cake -t=generate-namespace-file
           dotnet cake utilities.cake -t=list-artifacts
           \`\`\`
 
           Commit the changes.
 
           Build the repo and commit any changes to \`PublicApi.*.txt\` files.
+
+          After the build completes, run:
+          \`\`\`
+          dotnet cake utilities.cake -t=generate-namespace-file
+          \`\`\`
+
+          Commit the updated \`published-namespaces.txt\` file.
 
           Lastly, run:
           \`\`\`
