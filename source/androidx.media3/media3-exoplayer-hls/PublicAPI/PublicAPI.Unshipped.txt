@@ -64,15 +64,14 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.Assets.get -> 
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.Assets.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.SkipInfo.get -> AndroidX.Media3.Common.AdPlaybackState.SkipInfo?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.SkipInfo.set -> void
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.StringAttributes.get -> Google.Common.Collect.ImmutableList?
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.StringAttributes.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AdGroupIndex.get -> int
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AdIndexInAdGroup.get -> int
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AdsId.get -> Java.Lang.Object?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AssetList.get -> AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList?
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AssetListLoadCompletedEventArgs(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList? assetList) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.AssetListLoadCompletedEventArgs(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList? assetList, Org.Json.JSONObject? rawAssetListJson) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.MediaItem.get -> AndroidX.Media3.Common.MediaItem?
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadCompletedEventArgs.RawAssetListJson.get -> Org.Json.JSONObject?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadFailedEventArgs
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadFailedEventArgs.AdGroupIndex.get -> int
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetListLoadFailedEventArgs.AdIndexInAdGroup.get -> int
@@ -102,7 +101,7 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdCompleted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdSkipped(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAdStarted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadCompleted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList? assetList) -> void
+AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadCompleted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList? assetList, Org.Json.JSONObject? rawAssetListJson) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadFailed(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup, Java.IO.IOException? ioException, bool cancelled) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnAssetListLoadStarted(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, int adGroupIndex, int adIndexInAdGroup) -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.IListener.OnContentTimelineChanged(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, AndroidX.Media3.Common.Timeline? hlsContentTimeline) -> void
@@ -155,11 +154,6 @@ AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StopEventArgs.AdPlayback
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StopEventArgs.AdsId.get -> Java.Lang.Object?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StopEventArgs.MediaItem.get -> AndroidX.Media3.Common.MediaItem?
 AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StopEventArgs.StopEventArgs(AndroidX.Media3.Common.MediaItem? mediaItem, Java.Lang.Object? adsId, AndroidX.Media3.Common.AdPlaybackState? adPlaybackState) -> void
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute.Name.get -> string?
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute.Name.set -> void
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute.Value.get -> string?
-AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute.Value.set -> void
 AndroidX.Media3.ExoPlayer.Hls.HlsManifest
 AndroidX.Media3.ExoPlayer.Hls.HlsManifest.MediaPlaylist.get -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist?
 AndroidX.Media3.ExoPlayer.Hls.HlsManifest.MediaPlaylist.set -> void
@@ -609,7 +603,6 @@ override AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdsResumptionSt
 override AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.Asset.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AssetList.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.StringAttribute.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.HlsManifest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.HlsMediaSource.CreatePeriod(AndroidX.Media3.ExoPlayer.Source.MediaSourceMediaPeriodId? id, AndroidX.Media3.ExoPlayer.Upstream.IAllocator? allocator, long startPositionUs) -> AndroidX.Media3.ExoPlayer.Source.IMediaPeriod?
 override AndroidX.Media3.ExoPlayer.Hls.HlsMediaSource.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
