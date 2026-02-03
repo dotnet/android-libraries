@@ -244,12 +244,14 @@ AndroidX.Work.Impl.Constraints.NetworkState.Component1() -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.Component2() -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.Component3() -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.Component4() -> bool
-AndroidX.Work.Impl.Constraints.NetworkState.Copy(bool isConnected, bool isValidated, bool isMetered, bool isNotRoaming) -> AndroidX.Work.Impl.Constraints.NetworkState!
+AndroidX.Work.Impl.Constraints.NetworkState.Component5() -> bool
+AndroidX.Work.Impl.Constraints.NetworkState.Copy(bool isConnected, bool isValidated, bool isMetered, bool isNotRoaming, bool isBlocked) -> AndroidX.Work.Impl.Constraints.NetworkState!
+AndroidX.Work.Impl.Constraints.NetworkState.IsBlocked.get -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.IsConnected.get -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.IsMetered.get -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.IsNotRoaming.get -> bool
 AndroidX.Work.Impl.Constraints.NetworkState.IsValidated.get -> bool
-AndroidX.Work.Impl.Constraints.NetworkState.NetworkState(bool isConnected, bool isValidated, bool isMetered, bool isNotRoaming) -> void
+AndroidX.Work.Impl.Constraints.NetworkState.NetworkState(bool isConnected, bool isValidated, bool isMetered, bool isNotRoaming, bool isBlocked) -> void
 AndroidX.Work.Impl.Constraints.Trackers.BatteryChargingTracker
 AndroidX.Work.Impl.Constraints.Trackers.BatteryChargingTracker.BatteryChargingTracker(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor) -> void
 AndroidX.Work.Impl.Constraints.Trackers.BatteryChargingTrackerKt
@@ -1563,8 +1565,6 @@ static AndroidX.Work.Impl.Background.SystemJob.JobSchedulerExtKt.GetWmJobSchedul
 static AndroidX.Work.Impl.Background.SystemJob.SystemJobInfoConverterExtKt.SetRequiredNetworkRequest(Android.App.Job.JobInfo.Builder! builder, Android.Net.NetworkRequest? networkRequest) -> void
 static AndroidX.Work.Impl.Background.SystemJob.SystemJobScheduler.CancelAllInAllNamespaces(Android.Content.Context? context) -> void
 static AndroidX.Work.Impl.Constraints.ConstraintsState.ConstraintsMet.Instance.get -> AndroidX.Work.Impl.Constraints.ConstraintsState.ConstraintsMet!
-static AndroidX.Work.Impl.Constraints.Trackers.NetworkStateTrackerKt.GetActiveNetworkState(Android.Net.ConnectivityManager! obj) -> AndroidX.Work.Impl.Constraints.NetworkState!
-static AndroidX.Work.Impl.Constraints.Trackers.NetworkStateTrackerKt.GetActiveNetworkState(Android.Net.NetworkCapabilities! obj) -> AndroidX.Work.Impl.Constraints.NetworkState!
 static AndroidX.Work.Impl.Constraints.Trackers.NetworkStateTrackerKt.IsActiveNetworkValidated(Android.Net.ConnectivityManager! obj) -> bool
 static AndroidX.Work.Impl.Constraints.Trackers.NetworkStateTrackerKt.NetworkStateTracker(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor) -> AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker!
 static AndroidX.Work.Impl.Constraints.WorkConstraintsTrackerKt.Listen(AndroidX.Work.Impl.Constraints.WorkConstraintsTracker! obj, AndroidX.Work.Impl.Model.WorkSpec! spec, Xamarin.KotlinX.Coroutines.CoroutineDispatcher! dispatcher, AndroidX.Work.Impl.Constraints.IOnConstraintsStateChangedListener! listener) -> Xamarin.KotlinX.Coroutines.IJob!
