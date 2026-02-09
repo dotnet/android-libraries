@@ -210,6 +210,8 @@ Android.Gms.Maps.GoogleMap.Snapshot(Android.Gms.Maps.GoogleMap.ISnapshotReadyCal
 Android.Gms.Maps.GoogleMap.StopAnimation() -> void
 Android.Gms.Maps.GoogleMap.TrafficEnabled.get -> bool
 Android.Gms.Maps.GoogleMap.TrafficEnabled.set -> void
+Android.Gms.Maps.GoogleMap.TransitEnabled.get -> bool
+Android.Gms.Maps.GoogleMap.TransitEnabled.set -> void
 Android.Gms.Maps.GoogleMap.UiSettings.get -> Android.Gms.Maps.UiSettings!
 Android.Gms.Maps.GoogleMapOptions
 Android.Gms.Maps.GoogleMapOptions.AmbientEnabled.get -> Java.Lang.Boolean?
@@ -921,7 +923,6 @@ Google.Android.Gms.Maps.Internal.IMapLifecycleDelegate.GetMapAsync(Android.Gms.M
 Google.Android.Gms.Maps.Internal.IProjectionDelegate
 Google.Android.Gms.Maps.Internal.IProjectionDelegate.FromScreenLocation(Android.Gms.Dynamic.IObjectWrapper! p0) -> Android.Gms.Maps.Model.LatLng!
 Google.Android.Gms.Maps.Internal.IProjectionDelegate.ToScreenLocation(Android.Gms.Maps.Model.LatLng! p0) -> Android.Gms.Dynamic.IObjectWrapper!
-Google.Android.Gms.Maps.Internal.IProjectionDelegate.ToScreenLocationWithAltitude(Android.Gms.Maps.Model.LatLng! p0, float p1) -> Android.Gms.Dynamic.IObjectWrapper!
 Google.Android.Gms.Maps.Internal.IProjectionDelegate.VisibleRegion.get -> Android.Gms.Maps.Model.VisibleRegion!
 Google.Android.Gms.Maps.Internal.IStreetViewLifecycleDelegate
 Google.Android.Gms.Maps.Internal.IStreetViewLifecycleDelegate.GetStreetViewPanoramaAsync(Android.Gms.Maps.IOnStreetViewPanoramaReadyCallback! p0) -> void
@@ -1160,6 +1161,7 @@ override sealed Android.Gms.Maps.Model.FeatureStyle.WriteToParcel(Android.OS.Par
 override sealed Android.Gms.Maps.Model.StampStyle.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Maps.Model.StrokeStyle.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Maps.Model.StyleSpan.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Android.Gms.Maps.SupportMapFragment.Dump(string! p0, Java.IO.FileDescriptor? p1, Java.IO.PrintWriter! p2, string![]? p3) -> void
 static Android.Gms.Maps.CameraUpdateFactory.NewCameraPosition(Android.Gms.Maps.Model.CameraPosition! cameraPosition) -> Android.Gms.Maps.CameraUpdate!
 static Android.Gms.Maps.CameraUpdateFactory.NewLatLng(Android.Gms.Maps.Model.LatLng! latLng) -> Android.Gms.Maps.CameraUpdate!
 static Android.Gms.Maps.CameraUpdateFactory.NewLatLngBounds(Android.Gms.Maps.Model.LatLngBounds! bounds, int padding) -> Android.Gms.Maps.CameraUpdate!
@@ -1179,6 +1181,7 @@ static Android.Gms.Maps.GoogleMapOptions.Zzb(Android.Content.Context? p0, Androi
 static Android.Gms.Maps.MapFragment.NewInstance() -> Android.Gms.Maps.MapFragment!
 static Android.Gms.Maps.MapFragment.NewInstance(Android.Gms.Maps.GoogleMapOptions? options) -> Android.Gms.Maps.MapFragment!
 static Android.Gms.Maps.MapsApiSettings.AddInternalUsageAttributionId(Android.Content.Context! context, string! internalUsageAttributionId) -> void
+static Android.Gms.Maps.MapsApiSettings.Zza.get -> int
 static Android.Gms.Maps.MapsInitializer.Initialize(Android.Content.Context! context) -> int
 static Android.Gms.Maps.MapsInitializer.Initialize(Android.Content.Context! context, Android.Gms.Maps.MapsInitializer.Renderer? preferredRenderer, Android.Gms.Maps.IOnMapsSdkInitializedCallback? callback) -> int
 static Android.Gms.Maps.MapsInitializer.Renderer.Latest.get -> Android.Gms.Maps.MapsInitializer.Renderer!

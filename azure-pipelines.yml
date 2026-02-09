@@ -33,7 +33,7 @@ resources:
       ref: refs/heads/main
 
 extends:
-  ${{ if and(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+  ${{ if eq(variables['Build.DefinitionName'], 'AndroidX') }}:
     template: azure-pipelines/MicroBuild.1ES.Official.yml@1esPipelines
   ${{ else }}:
     template: azure-pipelines/MicroBuild.1ES.Unofficial.yml@1esPipelines
