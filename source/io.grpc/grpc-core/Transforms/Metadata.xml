@@ -141,20 +141,9 @@
       path="/api/package[@name='io.grpc.internal']/class[@name='ManagedChannelImplBuilder']"      
       />
 
-    <!-- Fix AutoConfiguredLoadBalancerFactory to extend LoadBalancer.Factory -->
-    <attr
-        path="/api/package[@name='io.grpc.internal']/class[@name='AutoConfiguredLoadBalancerFactory']"
-        name="extends"
-        >
-        io.grpc.LoadBalancer.Factory
-    </attr>
-    
-    <!-- Fix the return type of newLoadBalancer to match the base class -->
-    <attr
-        path="/api/package[@name='io.grpc.internal']/class[@name='AutoConfiguredLoadBalancerFactory']/method[@name='newLoadBalancer']"
-        name="managedReturn"
-        >
-        Xamarin.Grpc.LoadBalancer
-    </attr>
+    <!-- Remove AutoConfiguredLoadBalancerFactory as it's internal and has complex inheritance -->
+    <remove-node 
+      path="/api/package[@name='io.grpc.internal']/class[@name='AutoConfiguredLoadBalancerFactory']"      
+      />
    
 </metadata>
