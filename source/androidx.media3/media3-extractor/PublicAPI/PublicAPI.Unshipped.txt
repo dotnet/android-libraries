@@ -146,6 +146,7 @@ AndroidX.Media3.Extractor.ChunkIndexMerger.Size() -> int
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize, bool allowSeeksIfLengthUnknown) -> void
+AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize, bool allowSeeksIfLengthUnknown, bool isEstimated) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Extractor.DefaultExtractorInput
 AndroidX.Media3.Extractor.DefaultExtractorInput.AdvancePeekPosition(int length) -> void
@@ -421,6 +422,7 @@ AndroidX.Media3.Extractor.IExtractorsFactory.SetSubtitleParserFactory(AndroidX.M
 AndroidX.Media3.Extractor.ISeekMap
 AndroidX.Media3.Extractor.ISeekMap.DurationUs.get -> long
 AndroidX.Media3.Extractor.ISeekMap.GetSeekPoints(long p0) -> AndroidX.Media3.Extractor.SeekMapSeekPoints?
+AndroidX.Media3.Extractor.ISeekMap.IsEstimated.get -> bool
 AndroidX.Media3.Extractor.ISeekMap.IsSeekable.get -> bool
 AndroidX.Media3.Extractor.ISniffFailure
 AndroidX.Media3.Extractor.ITrackAwareSeekMap
@@ -2353,6 +2355,7 @@ virtual AndroidX.Media3.Extractor.BinarySearchSeeker.OnSeekOperationFinished(boo
 virtual AndroidX.Media3.Extractor.ConstantBitrateSeekMap.DurationUs.get -> long
 virtual AndroidX.Media3.Extractor.ConstantBitrateSeekMap.GetSeekPoints(long timeUs) -> AndroidX.Media3.Extractor.SeekMapSeekPoints?
 virtual AndroidX.Media3.Extractor.ConstantBitrateSeekMap.GetTimeUsAtPosition(long position) -> long
+virtual AndroidX.Media3.Extractor.ConstantBitrateSeekMap.IsEstimated.get -> bool
 virtual AndroidX.Media3.Extractor.ConstantBitrateSeekMap.IsSeekable.get -> bool
 virtual AndroidX.Media3.Extractor.ForwardingExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 virtual AndroidX.Media3.Extractor.ForwardingExtractor.Read(AndroidX.Media3.Extractor.IExtractorInput? input, AndroidX.Media3.Extractor.PositionHolder? seekPosition) -> int
@@ -2387,6 +2390,7 @@ virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.ExperimentalSetTex
 virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.SetSubtitleParserFactory(AndroidX.Media3.Extractor.Text.ISubtitleParserFactory? subtitleParserFactory) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 virtual AndroidX.Media3.Extractor.ForwardingSeekMap.DurationUs.get -> long
 virtual AndroidX.Media3.Extractor.ForwardingSeekMap.GetSeekPoints(long timeUs) -> AndroidX.Media3.Extractor.SeekMapSeekPoints?
+virtual AndroidX.Media3.Extractor.ForwardingSeekMap.IsEstimated.get -> bool
 virtual AndroidX.Media3.Extractor.ForwardingSeekMap.IsSeekable.get -> bool
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.DurationUs(long durationUs) -> void
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.Format(AndroidX.Media3.Common.Format? format) -> void
