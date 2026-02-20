@@ -1,13 +1,23 @@
 ﻿<metadata>
     <attr path="/api/package[@name='androidx.tvprovider.media.tv']/class[@name='Program']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='androidx.tvprovider.media.tv.Program']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
 
-    <!--    
-    <attr
-        path="//class[@visibility='']"
-        name="visibility"
-        >
-        public
-    </attr>
-    -->
+    <!-- Remove and re-add TvContractCompat.WatchNextPrograms with a method so the
+         binding generator does not drop it as an "empty" class. The Java class only has static
+         final fields (constants) and a private constructor, which causes the generator to skip it. -->
+    <remove-node path="/api/package[@name='androidx.tvprovider.media.tv']/class[@name='TvContractCompat.WatchNextPrograms']" />
+    <add-node path="/api/package[@name='androidx.tvprovider.media.tv']">
+        <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="TvContractCompat.WatchNextPrograms" static="true" visibility="public" jni-signature="Landroidx/tvprovider/media/tv/TvContractCompat$WatchNextPrograms;">
+            <constructor deprecated="not deprecated" final="false" name="TvContractCompat.WatchNextPrograms" jni-signature="()V" bridge="false" static="false" type="androidx.tvprovider.media.tv.TvContractCompat.WatchNextPrograms" synthetic="false" visibility="" />
+            <field deprecated="not deprecated" final="true" name="CONTENT_URI" jni-signature="Landroid/net/Uri;" static="true" transient="false" type="android.net.Uri" type-generic-aware="android.net.Uri" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="CONTENT_TYPE" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;vnd.android.cursor.dir/watch_next_program&quot;" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="CONTENT_ITEM_TYPE" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;vnd.android.cursor.item/watch_next_program&quot;" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="WATCH_NEXT_TYPE_CONTINUE" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="0" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="WATCH_NEXT_TYPE_NEXT" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="1" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="WATCH_NEXT_TYPE_NEW" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="2" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="WATCH_NEXT_TYPE_WATCHLIST" jni-signature="I" static="true" transient="false" type="int" type-generic-aware="int" value="3" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="COLUMN_WATCH_NEXT_TYPE" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;watch_next_type&quot;" visibility="public" volatile="false" />
+            <field deprecated="not deprecated" final="true" name="COLUMN_LAST_ENGAGEMENT_TIME_UTC_MILLIS" jni-signature="Ljava/lang/String;" static="true" transient="false" type="java.lang.String" type-generic-aware="java.lang.String" value="&quot;last_engagement_time_utc_millis&quot;" visibility="public" volatile="false" />
+        </class>
+    </add-node>
     
 </metadata>
