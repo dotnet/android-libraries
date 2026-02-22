@@ -34,11 +34,6 @@ Xamarin.Grpc.Core.Internal.AtomicBackoff.GetState() -> Xamarin.Grpc.Core.Interna
 Xamarin.Grpc.Core.Internal.AtomicBackoff.State
 Xamarin.Grpc.Core.Internal.AtomicBackoff.State.Backoff() -> void
 Xamarin.Grpc.Core.Internal.AtomicBackoff.State.Get() -> long
-Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory
-Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.AutoConfiguredLoadBalancer
-Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.AutoConfiguredLoadBalancer.Delegate.get -> Xamarin.Grpc.LoadBalancer?
-Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.AutoConfiguredLoadBalancerFactory(string? defaultPolicy) -> void
-Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.NewLoadBalancer(Xamarin.Grpc.LoadBalancer.Helper? helper) -> Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.AutoConfiguredLoadBalancer?
 Xamarin.Grpc.Core.Internal.CertificateUtils
 Xamarin.Grpc.Core.Internal.CertificateUtils.CertificateUtils() -> void
 Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress
@@ -101,6 +96,9 @@ Xamarin.Grpc.Core.Internal.ForwardingClientStreamTracer.ForwardingClientStreamTr
 Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer
 Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ForwardingReadableBuffer(Xamarin.Grpc.Core.Internal.IReadableBuffer? buf) -> void
 Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ForwardingReadableBuffer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Grpc.Core.Internal.GoAwayDisconnectError
+Xamarin.Grpc.Core.Internal.GoAwayDisconnectError.GoAwayDisconnectError(Xamarin.Grpc.Core.Internal.GrpcUtil.Http2Error? errorCode) -> void
+Xamarin.Grpc.Core.Internal.GoAwayDisconnectError.ToErrorString() -> string?
 Xamarin.Grpc.Core.Internal.GrpcAttributes
 Xamarin.Grpc.Core.Internal.GrpcUtil
 Xamarin.Grpc.Core.Internal.GrpcUtil.AuthorityEscaper
@@ -147,6 +145,8 @@ Xamarin.Grpc.Core.Internal.IDeframer.Deframe(Xamarin.Grpc.Core.Internal.IReadabl
 Xamarin.Grpc.Core.Internal.IDeframer.Request(int p0) -> void
 Xamarin.Grpc.Core.Internal.IDeframer.SetDecompressor(Xamarin.Grpc.IDecompressor? p0) -> void
 Xamarin.Grpc.Core.Internal.IDeframer.SetMaxInboundMessageSize(int p0) -> void
+Xamarin.Grpc.Core.Internal.IDisconnectError
+Xamarin.Grpc.Core.Internal.IDisconnectError.ToErrorString() -> string?
 Xamarin.Grpc.Core.Internal.IFramer
 Xamarin.Grpc.Core.Internal.IFramer.Close() -> void
 Xamarin.Grpc.Core.Internal.IFramer.Dispose() -> void
@@ -176,7 +176,6 @@ Xamarin.Grpc.Core.Internal.IReadableBuffer.Close() -> void
 Xamarin.Grpc.Core.Internal.IReadableBuffer.HasArray.get -> bool
 Xamarin.Grpc.Core.Internal.IReadableBuffer.Mark() -> void
 Xamarin.Grpc.Core.Internal.IReadableBuffer.MarkSupported() -> bool
-Xamarin.Grpc.Core.Internal.IReadableBuffer.ReadBytes(Java.Nio.ByteBuffer? p0) -> void
 Xamarin.Grpc.Core.Internal.IReadableBuffer.ReadBytes(System.IO.Stream? p0, int p1) -> void
 Xamarin.Grpc.Core.Internal.IReadableBuffer.ReadBytes(byte[]? p0, int p1, int p2) -> void
 Xamarin.Grpc.Core.Internal.IReadableBuffer.ReadBytes(int p0) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?
@@ -339,6 +338,8 @@ Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource.Create() -> Java.Lang.
 Xamarin.Grpc.Core.Internal.SharedResourcePool
 Xamarin.Grpc.Core.Internal.SharedResourcePool.Object.get -> Java.Lang.Object?
 Xamarin.Grpc.Core.Internal.SharedResourcePool.ReturnObject(Java.Lang.Object? object) -> Java.Lang.Object?
+Xamarin.Grpc.Core.Internal.SimpleDisconnectError
+Xamarin.Grpc.Core.Internal.SimpleDisconnectError.ToErrorString() -> string?
 Xamarin.Grpc.Core.Internal.SpiffeUtil
 Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeBundle
 Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeBundle.BundleMap.get -> Google.Common.Collect.ImmutableMap?
@@ -389,7 +390,6 @@ Xamarin.Grpc.Core.Internal.TransportTracer.ReportRemoteStreamStarted() -> void
 Xamarin.Grpc.Core.Internal.TransportTracer.ReportStreamClosed(bool success) -> void
 Xamarin.Grpc.Core.Internal.TransportTracer.SetFlowControlWindowReader(Xamarin.Grpc.Core.Internal.TransportTracer.IFlowControlReader? flowControlWindowReader) -> void
 Xamarin.Grpc.Core.Internal.TransportTracer.TransportTracer() -> void
-abstract Xamarin.Grpc.Core.Internal.AbstractReadableBuffer.ReadBytes(Java.Nio.ByteBuffer? p0) -> void
 abstract Xamarin.Grpc.Core.Internal.AbstractReadableBuffer.ReadBytes(System.IO.Stream? p0, int p1) -> void
 abstract Xamarin.Grpc.Core.Internal.AbstractReadableBuffer.ReadBytes(byte[]? p0, int p1, int p2) -> void
 abstract Xamarin.Grpc.Core.Internal.AbstractReadableBuffer.ReadBytes(int p0) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?
@@ -416,7 +416,7 @@ const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultMaxMessageSize = 4194304 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortPlaintext = 80 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortSsl = 443 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.HttpMethod = "POST" -> string!
-const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.78.0" -> string!
+const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.79.0" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.KeepaliveTimeNanosDisabled = 9223372036854775807 -> long
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageAcceptEncoding = "grpc-accept-encoding" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageEncoding = "grpc-encoding" -> string!
@@ -442,8 +442,6 @@ override Xamarin.Grpc.Core.Internal.ApplicationThreadDeframer.ThresholdClass.get
 override Xamarin.Grpc.Core.Internal.ApplicationThreadDeframer.ThresholdType.get -> System.Type!
 override Xamarin.Grpc.Core.Internal.AtomicBackoff.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.AtomicBackoff.State.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.AutoConfiguredLoadBalancer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Xamarin.Grpc.Core.Internal.AutoConfiguredLoadBalancerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.CertificateUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ClientStreamListenerRpcProgress.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -471,6 +469,7 @@ override Xamarin.Grpc.Core.Internal.ForwardingClientStreamTracer.ThresholdType.g
 override Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ThresholdClass.get -> nint
 override Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ThresholdType.get -> System.Type!
+override Xamarin.Grpc.Core.Internal.GoAwayDisconnectError.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.GrpcAttributes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.GrpcUtil.AuthorityEscaper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.GrpcUtil.AuthorityEscaper.ThresholdClass.get -> nint
@@ -536,6 +535,7 @@ override Xamarin.Grpc.Core.Internal.ServiceConfigUtil.LbConfig.JniPeerMembers.ge
 override Xamarin.Grpc.Core.Internal.ServiceConfigUtil.PolicySelection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.SharedResourceHolder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.SharedResourcePool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.Core.Internal.SimpleDisconnectError.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.SpiffeUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeBundle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -662,6 +662,14 @@ static Xamarin.Grpc.Core.Internal.ServiceConfigUtil.UnwrapLoadBalancingConfigLis
 static Xamarin.Grpc.Core.Internal.SharedResourceHolder.Get(Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource? resource) -> Java.Lang.Object?
 static Xamarin.Grpc.Core.Internal.SharedResourceHolder.Release(Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource? resource, Java.Lang.Object? instance) -> Java.Lang.Object?
 static Xamarin.Grpc.Core.Internal.SharedResourcePool.ForResource(Xamarin.Grpc.Core.Internal.SharedResourceHolder.IResource? resource) -> Xamarin.Grpc.Core.Internal.SharedResourcePool?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.ConnectionAborted.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.ConnectionReset.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.ConnectionTimedOut.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.SocketError.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.SubchannelShutdown.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.Unknown.get -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.ValueOf(string? name) -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError?
+static Xamarin.Grpc.Core.Internal.SimpleDisconnectError.Values() -> Xamarin.Grpc.Core.Internal.SimpleDisconnectError![]?
 static Xamarin.Grpc.Core.Internal.SpiffeUtil.LoadTrustBundleFromFile(string? trustBundleFile) -> Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeBundle?
 static Xamarin.Grpc.Core.Internal.SpiffeUtil.Parse(string? uri) -> Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeId?
 static Xamarin.Grpc.Core.Internal.StatsTraceContext.NewClientContext(Xamarin.Grpc.ClientStreamTracer![]? tracers, Xamarin.Grpc.Attributes? transportAtts, Xamarin.Grpc.Metadata? headers) -> Xamarin.Grpc.Core.Internal.StatsTraceContext?
@@ -708,7 +716,6 @@ virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.Close() -> void
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.HasArray.get -> bool
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.Mark() -> void
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.MarkSupported() -> bool
-virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ReadBytes(Java.Nio.ByteBuffer? dest) -> void
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ReadBytes(System.IO.Stream? dest, int length) -> void
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ReadBytes(byte[]? dest, int destOffset, int length) -> void
 virtual Xamarin.Grpc.Core.Internal.ForwardingReadableBuffer.ReadBytes(int length) -> Xamarin.Grpc.Core.Internal.IReadableBuffer?

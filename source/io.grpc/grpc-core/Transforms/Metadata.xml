@@ -140,5 +140,10 @@
     <remove-node 
       path="/api/package[@name='io.grpc.internal']/class[@name='ManagedChannelImplBuilder']"      
       />
+
+    <!-- Remove AutoConfiguredLoadBalancerFactory as it's internal and has complex inheritance -->
+    <remove-node 
+      path="/api/package[@name='io.grpc.internal']/class[@name='AutoConfiguredLoadBalancerFactory']"      
+      />
    
 </metadata>
