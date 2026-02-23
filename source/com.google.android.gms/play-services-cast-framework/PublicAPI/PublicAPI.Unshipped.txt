@@ -17,10 +17,21 @@ Android.Gms.Cast.Framework.CastOptions.Builder.SetReceiverApplicationId(string! 
 Android.Gms.Cast.Framework.CastOptions.Builder.SetRemoteToLocalEnabled(bool remoteToLocalEnabled) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.Builder.SetResumeSavedSession(bool resumeSavedSession) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.Builder.SetSessionTransferEnabled(bool sessionTransferEnabled) -> Android.Gms.Cast.Framework.CastOptions.Builder!
+Android.Gms.Cast.Framework.CastOptions.Builder.SetShowSystemOutputSwitcherOnCastIconClick(bool showOutputSwitcherOnCastIconClick) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.Builder.SetStopReceiverApplicationWhenEndingSession(bool stopApp) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.Builder.SetSupportedNamespaces(System.Collections.Generic.IList<string!>! supportedNamespaces) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.Builder.SetVolumeDeltaBeforeIceCreamSandwich(double volumeDelta) -> Android.Gms.Cast.Framework.CastOptions.Builder!
 Android.Gms.Cast.Framework.CastOptions.CastOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Cast.Framework.CastOptions.Modifier
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.Build() -> Android.Gms.Cast.Framework.CastOptions.Modifier!
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.Builder() -> void
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetReceiverApplicationId(string! receiverApplicationId) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetRemoteToLocalEnabled(Java.Lang.Boolean! remoteToLocalEnabled) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetShowSystemOutputSwitcherOnCastIconClick(Java.Lang.Boolean! showSystemOutputSwitcherOnCastIconClick) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
+Android.Gms.Cast.Framework.CastOptions.Modifier.ReceiverApplicationId.get -> string?
+Android.Gms.Cast.Framework.CastOptions.Modifier.RemoteToLocalEnabled.get -> Java.Lang.Boolean?
+Android.Gms.Cast.Framework.CastOptions.Modifier.ShowSystemOutputSwitcherOnCastIconClick.get -> Java.Lang.Boolean?
 Android.Gms.Cast.Framework.CastReasonCodes
 Android.Gms.Cast.Framework.CastReasonCodes.CastReasonCodes(Android.OS.Bundle! p0) -> void
 Android.Gms.Cast.Framework.CastReasonCodes.CastReasonCodes(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -373,6 +384,8 @@ override Android.Gms.Cast.Framework.CastContext.ThresholdClass.get -> nint
 override Android.Gms.Cast.Framework.CastContext.ThresholdType.get -> System.Type!
 override Android.Gms.Cast.Framework.CastOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Cast.Framework.CastOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Cast.Framework.CastOptions.Modifier.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Cast.Framework.CastOptions.ThresholdClass.get -> nint
 override Android.Gms.Cast.Framework.CastOptions.ThresholdType.get -> System.Type!
 override Android.Gms.Cast.Framework.CastReasonCodes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -496,8 +509,10 @@ static Android.Gms.Cast.Framework.CastButtonFactory.SetUpMediaRouteButton(Androi
 static Android.Gms.Cast.Framework.CastButtonFactory.SetUpMediaRouteButton(Android.Content.Context! context, Java.Util.Concurrent.IExecutor! executor, AndroidX.MediaRouter.App.MediaRouteButton! button) -> Android.Gms.Tasks.Task!
 static Android.Gms.Cast.Framework.CastContext.GetSharedInstance(Android.Content.Context! context) -> Android.Gms.Cast.Framework.CastContext!
 static Android.Gms.Cast.Framework.CastContext.GetSharedInstance(Android.Content.Context! context, Java.Util.Concurrent.IExecutor! executor) -> Android.Gms.Tasks.Task!
+static Android.Gms.Cast.Framework.CastContext.GetSharedInstance(Android.Content.Context! context, Java.Util.Concurrent.IExecutor! executor, Android.Gms.Cast.Framework.IOptionsProvider! defaultOptionsProvider, Android.Gms.Cast.Framework.CastOptions.Modifier! optionsModifier) -> Android.Gms.Tasks.Task!
 static Android.Gms.Cast.Framework.CastContext.SharedInstance.get -> Android.Gms.Cast.Framework.CastContext?
 static Android.Gms.Cast.Framework.CastOptions.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Cast.Framework.CastOptions.Modifier.Empty.get -> Android.Gms.Cast.Framework.CastOptions.Modifier!
 static Android.Gms.Cast.Framework.CastState.ToString(int castState) -> string!
 static Android.Gms.Cast.Framework.Media.CastMediaOptions.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Cast.Framework.Media.ImageHints.Creator.get -> Android.OS.IParcelableCreator!
@@ -515,6 +530,7 @@ static Google.Android.Gms.Cast.Framework.Devicesuggestions.DeviceSuggestions.Get
 virtual Android.Gms.Cast.Framework.CastContext.AddAppVisibilityListener(Android.Gms.Cast.Framework.IAppVisibilityListener! listener) -> void
 virtual Android.Gms.Cast.Framework.CastContext.AddCastStateListener(Android.Gms.Cast.Framework.ICastStateListener! listener) -> void
 virtual Android.Gms.Cast.Framework.CastContext.AddSessionTransferCallback(Android.Gms.Cast.Framework.SessionTransferCallback! callback) -> void
+virtual Android.Gms.Cast.Framework.CastContext.ApplyOptionsModifier(Android.Gms.Cast.Framework.CastOptions.Modifier! optionsModifier) -> void
 virtual Android.Gms.Cast.Framework.CastContext.CastOptions.get -> Android.Gms.Cast.Framework.CastOptions!
 virtual Android.Gms.Cast.Framework.CastContext.CastState.get -> Android.Gms.Cast.Framework.CastStates
 virtual Android.Gms.Cast.Framework.CastContext.GetCastReasonCodeForCastStatusCode(int castStatusCode) -> int
@@ -529,11 +545,13 @@ virtual Android.Gms.Cast.Framework.CastContext.RemoveSessionTransferCallback(And
 virtual Android.Gms.Cast.Framework.CastContext.SessionManager.get -> Android.Gms.Cast.Framework.SessionManager!
 virtual Android.Gms.Cast.Framework.CastContext.SetLaunchCredentialsData(Android.Gms.Cast.CredentialsData! credentialsData) -> void
 virtual Android.Gms.Cast.Framework.CastContext.SetReceiverApplicationId(string! applicationId) -> void
+virtual Android.Gms.Cast.Framework.CastContext.SetShowSystemOutputSwitcherOnCastIconClick(bool showOutputSwitcherOnCastIconClick) -> void
 virtual Android.Gms.Cast.Framework.CastOptions.CastMediaOptions.get -> Android.Gms.Cast.Framework.Media.CastMediaOptions!
 virtual Android.Gms.Cast.Framework.CastOptions.EnableReconnectionService.get -> bool
 virtual Android.Gms.Cast.Framework.CastOptions.LaunchOptions.get -> Android.Gms.Cast.LaunchOptions!
 virtual Android.Gms.Cast.Framework.CastOptions.ReceiverApplicationId.get -> string!
 virtual Android.Gms.Cast.Framework.CastOptions.ResumeSavedSession.get -> bool
+virtual Android.Gms.Cast.Framework.CastOptions.ShowSystemOutputSwitcherOnCastIconClick.get -> bool
 virtual Android.Gms.Cast.Framework.CastOptions.StopReceiverApplicationWhenEndingSession.get -> bool
 virtual Android.Gms.Cast.Framework.CastOptions.SupportedNamespaces.get -> System.Collections.Generic.IList<string!>!
 virtual Android.Gms.Cast.Framework.CastOptions.VolumeDeltaBeforeIceCreamSandwich.get -> double
