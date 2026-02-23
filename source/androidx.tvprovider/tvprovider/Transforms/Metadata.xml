@@ -1,10 +1,9 @@
 ﻿<metadata>
     <attr path="/api/package[@name='androidx.tvprovider.media.tv']/class[@name='Program']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='androidx.tvprovider.media.tv.Program']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
 
-    <!-- Remove and re-add TvContractCompat.WatchNextPrograms with a method so the
-         binding generator does not drop it as an "empty" class. The Java class only has static
-         final fields (constants) and a private constructor, which causes the generator to skip it. -->
-    <remove-node path="/api/package[@name='androidx.tvprovider.media.tv']/class[@name='TvContractCompat.WatchNextPrograms']" />
+    <!-- Add TvContractCompat.WatchNextPrograms which the binding generator drops because the Java
+         class only has static final fields and a private constructor (no public methods). Adding a
+         package-private constructor prevents the generator from treating it as empty. -->
     <add-node path="/api/package[@name='androidx.tvprovider.media.tv']">
         <class abstract="false" deprecated="not deprecated" extends="java.lang.Object" extends-generic-aware="java.lang.Object" jni-extends="Ljava/lang/Object;" final="true" name="TvContractCompat.WatchNextPrograms" static="true" visibility="public" jni-signature="Landroidx/tvprovider/media/tv/TvContractCompat$WatchNextPrograms;">
             <constructor deprecated="not deprecated" final="false" name="TvContractCompat.WatchNextPrograms" jni-signature="()V" bridge="false" static="false" type="androidx.tvprovider.media.tv.TvContractCompat.WatchNextPrograms" synthetic="false" visibility="" />
