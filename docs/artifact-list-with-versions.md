@@ -367,8 +367,8 @@
 | 360|com.google.android.datatransport:transport-api                        |4.0.0               |Xamarin.Google.Android.DataTransport.TransportApi                     |4.0.0.6             |
 | 361|com.google.android.datatransport:transport-backend-cct                |4.0.0               |Xamarin.Google.Android.DataTransport.TransportBackendCct              |4.0.0.6             |
 | 362|com.google.android.datatransport:transport-runtime                    |4.0.0               |Xamarin.Google.Android.DataTransport.TransportRuntime                 |4.0.0.6             |
-| 363|com.google.android.gms:play-services-ads                              |24.9.0              |Xamarin.GooglePlayServices.Ads                                        |124.9.0.1           |
-| 364|com.google.android.gms:play-services-ads-api                          |24.9.0              |Xamarin.GooglePlayServices.Ads.Api                                    |124.9.0.1           |
+| 363|com.google.android.gms:play-services-ads                              |25.0.0              |Xamarin.GooglePlayServices.Ads                                        |125.0.0             |
+| 364|com.google.android.gms:play-services-ads-api                          |25.0.0              |Xamarin.GooglePlayServices.Ads.Api                                    |125.0.0             |
 | 365|com.google.android.gms:play-services-ads-base                         |24.1.0              |Xamarin.GooglePlayServices.Ads.Base                                   |124.1.0.2           |
 | 366|com.google.android.gms:play-services-ads-identifier                   |18.3.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.3.0             |
 | 367|com.google.android.gms:play-services-ads-lite                         |24.0.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.0.0.4           |
@@ -379,9 +379,9 @@
 | 372|com.google.android.gms:play-services-appinvite                        |18.0.0              |Xamarin.GooglePlayServices.AppInvite                                  |118.0.0.24          |
 | 373|com.google.android.gms:play-services-appset                           |16.1.0              |Xamarin.GooglePlayServices.AppSet                                     |116.1.0.8           |
 | 374|com.google.android.gms:play-services-audience                         |17.0.0              |Xamarin.GooglePlayServices.Audience                                   |117.0.0.24          |
-| 375|com.google.android.gms:play-services-auth                             |21.5.0              |Xamarin.GooglePlayServices.Auth                                       |121.5.0             |
+| 375|com.google.android.gms:play-services-auth                             |21.5.1              |Xamarin.GooglePlayServices.Auth                                       |121.5.1             |
 | 376|com.google.android.gms:play-services-auth-api-phone                   |18.3.0              |Xamarin.GooglePlayServices.Auth.Api.Phone                             |118.3.0.1           |
-| 377|com.google.android.gms:play-services-auth-base                        |18.3.1              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.1             |
+| 377|com.google.android.gms:play-services-auth-base                        |18.3.2              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.2             |
 | 378|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.7           |
 | 379|com.google.android.gms:play-services-awareness                        |19.1.0              |Xamarin.GooglePlayServices.Awareness                                  |119.1.0.8           |
 | 380|com.google.android.gms:play-services-base                             |18.10.0             |Xamarin.GooglePlayServices.Base                                       |118.10.0            |
@@ -486,7 +486,7 @@
 | 479|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.22            |
 | 480|com.google.code.gson:gson                                             |2.13.2              |GoogleGson                                                            |2.13.2.1            |
 | 481|com.google.crypto.tink:tink-android                                   |1.20.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.20.0.1            |
-| 482|com.google.dagger:dagger                                              |2.59.1              |Xamarin.Google.Dagger                                                 |2.59.1              |
+| 482|com.google.dagger:dagger                                              |2.59.2              |Xamarin.Google.Dagger                                                 |2.59.2              |
 | 483|com.google.errorprone:error_prone_annotations                         |2.47.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.47.0              |
 | 484|com.google.errorprone:error_prone_type_annotations                    |2.47.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.47.0              |
 | 485|com.google.firebase:firebase-abt                                      |23.0.1              |Xamarin.Firebase.Abt                                                  |123.0.1.1           |
@@ -646,7 +646,7 @@
 | 639|org.chromium.net:cronet-shared                                        |143.7445.0          |Xamarin.Chromium.CroNet.Shared                                        |143.7445.0          |
 | 640|org.chromium.net:httpengine-native-provider                           |143.7445.0          |Xamarin.Chromium.CroNet.HttpEngine.Native.Provider                    |143.7445.0          |
 | 641|org.codehaus.mojo:animal-sniffer-annotations                          |1.27                |Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations                        |1.27.0              |
-| 642|org.jetbrains:annotations                                             |26.0.2              |Xamarin.Jetbrains.Annotations                                         |26.0.2.4            |
+| 642|org.jetbrains:annotations                                             |26.1.0              |Xamarin.Jetbrains.Annotations                                         |26.1.0              |
 | 643|org.jetbrains.kotlin:kotlin-android-extensions-runtime                |2.2.10              |Xamarin.Kotlin.Android.Extensions.Runtime.Library                     |2.2.10.1            |
 | 644|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.3.10              |Xamarin.Kotlin.Parcelize.Runtime                                      |2.3.10              |
 | 645|org.jetbrains.kotlin:kotlin-reflect                                   |2.3.10              |Xamarin.Kotlin.Reflect                                                |2.3.10              |
