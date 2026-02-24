@@ -40,13 +40,17 @@
     <!-- Generate NRT annotations -->
     <Nullable Condition=" '$(Nullable)' == '' ">enable</Nullable>
 
+    <StructuredDataForGenAI Condition=" '$(StructuredDataForGenAI)' == '' ">enable</StructuredDataForGenAI>
+
     <!-- Warnings we want to error on: -->
     <!-- NU5104: A stable release of a package should not have a prerelease dependency. -->
     <WarningsAsErrors>$(WarningsAsErrors)</WarningsAsErrors>
 
     <!-- Ignore binding generator warnings by default -->
     <_AndroidIgnoreGeneratorWarnings>true</_AndroidIgnoreGeneratorWarnings>
+  </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(StructuredDataForGenAI)' != 'enable' ">
     <!--
       BG8102: Class 'foo' has unknown base type 'foo'.
       BG8103: Class 'foo' has invalid base type 'foo'.
@@ -75,7 +79,13 @@
       BG8C01: For type 'IFoo', base interface 'foo' is invalid.
     -->
     <NoWarn Condition=" '$(_AndroidIgnoreGeneratorWarnings)' == 'true' ">$(NoWarn);BG8102;BG8103;BG8300;BG8400;BG8401;BG8402;BG8403;BG8501;BG8502;BG8503;BG8504;BG8601;BG8604;BG8605;BG8606;BG8700;BG8701;BG8800;BG8801;BG8A00;BG8A01;BG8A04;BG8B00;BG8C00;BG8C01;nullable</NoWarn>
+  </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(StructuredDataForGenAI)' == 'enable' ">
+    <ErrorLog>./obj/$(Configuration)/$(MSBuildProjectName).sarif.json</ErrorLog>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <!-- Common package metadata -->
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
