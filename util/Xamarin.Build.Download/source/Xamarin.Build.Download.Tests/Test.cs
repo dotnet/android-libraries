@@ -244,6 +244,34 @@ namespace NativeLibraryDownloaderTests
 		}
 
 		[Fact]
+		public void TestGoogleAppMeasurementDownload ()
+		{
+			var engine = new ProjectCollection ();
+			var prel = ProjectRootElement.Create (Path.Combine (TempDir , "project.csproj") , engine);
+
+			var unpackDir = GetTempPath ("unpacked");
+			prel.SetProperty ("XamarinBuildDownloadDir" , unpackDir);
+
+			prel.AddItem (
+				"XamarinBuildDownload" , "GAppM-10.28.0" , new Dictionary<string , string> {
+					{ "Url", "https://dl.google.com/firebase/ios/analytics/4d5ec9a36b6d4fd4/GoogleAppMeasurement-10.28.0.tar.gz" },
+					{ "Kind", "Tgz" }
+				});
+
+			AddCoreTargets (prel);
+
+			var project = new ProjectInstance (prel);
+			var log = new MSBuildTestLogger ();
+
+			var success = BuildProject (engine , project , "_XamarinBuildDownload" , log);
+
+			AssertNoMessagesOrWarnings (log , DEFAULT_IGNORE_PATTERNS);
+			Assert.True (success);
+
+			Assert.True (File.Exists (Path.Combine (unpackDir , "GAppM-10.28.0" , "GoogleAppMeasurement-10.28.0" , "dummy.txt")));
+		}
+
+		[Fact]
 		public void TestCastAssemblyResources ()
 		{
 			var engine = new ProjectCollection ();
