@@ -62,7 +62,7 @@
 |  55|androidx.compose.material3:material3-window-size-class-android        |1.4.0               |Xamarin.AndroidX.Compose.Material3.WindowSizeClassAndroid             |1.4.0.1             |
 |  56|androidx.compose.runtime:runtime                                      |1.10.3              |Xamarin.AndroidX.Compose.Runtime                                      |1.10.3              |
 |  57|androidx.compose.runtime:runtime-android                              |1.10.3              |Xamarin.AndroidX.Compose.Runtime.Android                              |1.10.3              |
-|  58|androidx.compose.runtime:runtime-annotation                           |1.10.3              |Xamarin.AndroidX.Compose.Runtime.Annotation                           |1.10.3              |
+|  58|androidx.compose.runtime:runtime-annotation                           |1.10.3              |Xamarin.AndroidX.Compose.Runtime.Annotation                           |1.10.3.1            |
 |  59|androidx.compose.runtime:runtime-annotation-android                   |1.10.3              |Xamarin.AndroidX.Compose.Runtime.Annotation.Android                   |1.10.3              |
 |  60|androidx.compose.runtime:runtime-annotation-jvm                       |1.10.3              |Xamarin.AndroidX.Compose.Runtime.Annotation.Jvm                       |1.10.3              |
 |  61|androidx.compose.runtime:runtime-livedata                             |1.10.3              |Xamarin.AndroidX.Compose.Runtime.LiveData                             |1.10.3              |
@@ -125,7 +125,7 @@
 | 118|androidx.datastore:datastore-core-okio-jvm                            |1.2.0               |Xamarin.AndroidX.DataStore.Core.OkIO.Jvm                              |1.2.0.1             |
 | 119|androidx.datastore:datastore-preferences                              |1.2.0               |Xamarin.AndroidX.DataStore.Preferences                                |1.2.0.1             |
 | 120|androidx.datastore:datastore-preferences-android                      |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.Android                        |1.2.0.1             |
-| 121|androidx.datastore:datastore-preferences-core                         |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.Core                           |1.2.0.1             |
+| 121|androidx.datastore:datastore-preferences-core                         |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.Core                           |1.2.0.2             |
 | 122|androidx.datastore:datastore-preferences-core-android                 |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.Core.Android                   |1.2.0.1             |
 | 123|androidx.datastore:datastore-preferences-core-jvm                     |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.Core.Jvm                       |1.2.0.1             |
 | 124|androidx.datastore:datastore-preferences-external-protobuf            |1.2.0               |Xamarin.AndroidX.DataStore.Preferences.External.Protobuf              |1.2.0.1             |
