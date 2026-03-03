@@ -143,6 +143,15 @@
     <remove-node
       path="/api/package[@name='com.google.android.datatransport.runtime.dagger.internal']/class[@name='MapProviderFactory']/implements"
       />
+
+    <!-- Remove dagger.internal.Provider overloads that duplicate the javax.inject.Provider overloads
+         after generics erasure; both erase to the same C# signature Lazy/Provider(Java.Lang.Object?) -->
+    <remove-node
+      path="/api/package[@name='com.google.android.datatransport.runtime.dagger.internal']/class[@name='DoubleCheck']/method[@name='lazy' and @jni-signature='(Lcom/google/android/datatransport/runtime/dagger/internal/Provider;)Lcom/google/android/datatransport/runtime/dagger/Lazy;']"
+      />
+    <remove-node
+      path="/api/package[@name='com.google.android.datatransport.runtime.dagger.internal']/class[@name='DoubleCheck']/method[@name='provider' and @jni-signature='(Lcom/google/android/datatransport/runtime/dagger/internal/Provider;)Lcom/google/android/datatransport/runtime/dagger/internal/Provider;']"
+      />
       
     <attr
       path="/api/package[@name='com.google.android.datatransport.runtime.scheduling.persistence']/class[@name='EventStoreModule_PackageNameFactory']/method[@name='get' and count(parameter)=0]"

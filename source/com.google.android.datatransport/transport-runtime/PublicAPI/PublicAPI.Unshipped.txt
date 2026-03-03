@@ -62,6 +62,7 @@ Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.DoubleCheck
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.DoubleCheck.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IDaggerGenerated
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IFactory
+Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IQualifierMetadata
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IQualifierMetadata.Value() -> string![]?
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IScopeMetadata
@@ -69,6 +70,7 @@ Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IScopeMetadata.Valu
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.InstanceFactory
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.InstanceFactory.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Preconditions
+Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Providers
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.QualifierMetadataAttribute
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.QualifierMetadataAttribute.QualifierMetadataAttribute() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.QualifierMetadataAttribute.Value.get -> string![]?
@@ -340,6 +342,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetE
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetEventMillis(long p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetExperimentIdsClear(byte[]? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetExperimentIdsEncrypted(byte[]? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
+abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetExperimentIdsEncryptedList(System.Collections.Generic.IList<byte[]!>? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetProductId(Java.Lang.Integer? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetPseudonymousId(string? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetTransportName(string? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
@@ -347,6 +350,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetU
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Code.get -> Java.Lang.Integer?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.EncodedPayload.get -> Xamarin.Google.Android.DataTransport.Runtime.EncodedPayload?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.EventMillis.get -> long
+abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.ExperimentIdsEncryptedList.get -> System.Collections.Generic.IList<byte[]!>?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.GetExperimentIdsClear() -> byte[]?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.GetExperimentIdsEncrypted() -> byte[]?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.ProductId.get -> Java.Lang.Integer?
@@ -371,7 +375,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.TransportContext.Priority.
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.BuildType = "release" -> string!
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.Debug = false -> bool
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.LibraryPackageName = "com.google.android.datatransport.runtime" -> string!
-const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.VersionName = "4.0.0" -> string!
+const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.VersionName = "4.1.0" -> string!
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.ThresholdClass.get -> nint
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.ThresholdType.get -> System.Type!
@@ -398,6 +402,7 @@ override Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.JniPeerMembers
 override Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.DoubleCheck.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.InstanceFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Preconditions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Providers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.EncodedPayload.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.ThresholdClass.get -> nint
@@ -548,6 +553,7 @@ static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Precondition
 static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Preconditions.CheckNotNull(Java.Lang.Object? reference, string? errorMessageTemplate, Java.Lang.Object? errorMessageArg) -> Java.Lang.Object?
 static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Preconditions.CheckNotNullFromComponent(Java.Lang.Object? reference) -> Java.Lang.Object?
 static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Preconditions.CheckNotNullFromProvides(Java.Lang.Object? reference) -> Java.Lang.Object?
+static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.Providers.AsDaggerProvider(JavaX.Inject.IProvider? provider) -> Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider?
 static Xamarin.Google.Android.DataTransport.Runtime.EventInternal.InvokeBuilder() -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 static Xamarin.Google.Android.DataTransport.Runtime.ExecutionModule_ExecutorFactory.Create() -> Xamarin.Google.Android.DataTransport.Runtime.ExecutionModule_ExecutorFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.ExecutionModule_ExecutorFactory.Executor() -> Java.Util.Concurrent.IExecutor?
