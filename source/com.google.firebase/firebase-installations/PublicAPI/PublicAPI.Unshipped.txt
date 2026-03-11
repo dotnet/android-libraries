@@ -98,7 +98,7 @@ abstract Firebase.Installations.Remote.TokenResult.TokenExpirationTimestamp.get 
 const Firebase.Installations.BuildConfig.BuildType = "release" -> string!
 const Firebase.Installations.BuildConfig.Debug = false -> bool
 const Firebase.Installations.BuildConfig.LibraryPackageName = "com.google.firebase.installations" -> string!
-const Firebase.Installations.BuildConfig.VersionName = "19.0.1" -> string!
+const Firebase.Installations.BuildConfig.VersionName = "19.1.0" -> string!
 override Firebase.Installations.BuildConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Installations.FirebaseInstallations.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Installations.FirebaseInstallations.ThresholdClass.get -> nint
@@ -183,6 +183,7 @@ static Firebase.Installations.Time.SystemClock.Instance.get -> Firebase.Installa
 static Firebase.Installations.Utils.AuthTokenExpirationBufferInSecs.get -> long
 static Firebase.Installations.Utils.GetInstance(Firebase.Installations.Time.IClock? clock) -> Firebase.Installations.Utils?
 static Firebase.Installations.Utils.Instance.get -> Firebase.Installations.Utils?
+virtual Firebase.Installations.FirebaseInstallations.ClearFidCache() -> void
 virtual Firebase.Installations.FirebaseInstallations.Delete() -> Android.Gms.Tasks.Task!
 virtual Firebase.Installations.FirebaseInstallations.GetId() -> Android.Gms.Tasks.Task!
 virtual Firebase.Installations.FirebaseInstallations.GetToken(bool forceRefresh) -> Android.Gms.Tasks.Task!
@@ -191,6 +192,7 @@ virtual Firebase.Installations.FirebaseInstallationsException.GetStatus() -> Fir
 virtual Firebase.Installations.FirebaseInstallationsRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>?
 virtual Firebase.Installations.Local.IidStore.ReadIid() -> string?
 virtual Firebase.Installations.Local.IidStore.ReadToken() -> string?
+virtual Firebase.Installations.Local.PersistedInstallation.ClearDataFile() -> void
 virtual Firebase.Installations.Local.PersistedInstallation.ClearForTesting() -> void
 virtual Firebase.Installations.Local.PersistedInstallation.InsertOrUpdatePersistedInstallationEntry(Firebase.Installations.Local.PersistedInstallationEntry! prefs) -> Firebase.Installations.Local.PersistedInstallationEntry!
 virtual Firebase.Installations.Local.PersistedInstallation.ReadPersistedInstallationEntryValue() -> Firebase.Installations.Local.PersistedInstallationEntry!

@@ -4,13 +4,14 @@ Android.Support.Wearable.Complications.ComplicationData.Builder
 Android.Support.Wearable.Complications.ComplicationData.Builder.Build() -> Android.Support.Wearable.Complications.ComplicationData!
 Android.Support.Wearable.Complications.ComplicationData.Builder.Builder(Android.Support.Wearable.Complications.ComplicationData! data) -> void
 Android.Support.Wearable.Complications.ComplicationData.Builder.Builder(int type) -> void
+Android.Support.Wearable.Complications.ComplicationData.Builder.Builder(int type, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>! fields) -> void
 Android.Support.Wearable.Complications.ComplicationData.Builder.ClearEndDateTime() -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.ClearStartDateTime() -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetAmbientLayout(byte[]! ambientProtoLayout) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetBurnInProtectionIcon(Android.Graphics.Drawables.Icon? icon) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetBurnInProtectionSmallImage(Android.Graphics.Drawables.Icon? smallImage) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetColorRamp(int[]? colorRamp) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
-Android.Support.Wearable.Complications.ComplicationData.Builder.SetColorRampIsSmoothShaded(Java.Lang.Boolean? isSmoothShaded) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
+Android.Support.Wearable.Complications.ComplicationData.Builder.SetColorRampInterpolated(Java.Lang.Boolean? isColorRampInterpolated) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetContentDescription(Android.Support.Wearable.Complications.ComplicationText? description) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetDataSource(Android.Content.ComponentName? provider) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetDisplayPolicy(int displayPolicy) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
@@ -18,8 +19,10 @@ Android.Support.Wearable.Complications.ComplicationData.Builder.SetElementBackgr
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetElementColors(int[]? elementColors) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetElementWeights(float[]? elementWeights) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetEndDateTimeMillis(long endDateTimeMillis) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
+Android.Support.Wearable.Complications.ComplicationData.Builder.SetExtras(Android.OS.PersistableBundle! extras) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetIcon(Android.Graphics.Drawables.Icon? icon) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetInteractiveLayout(byte[]! protoLayout) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
+Android.Support.Wearable.Complications.ComplicationData.Builder.SetInvalidatedData(Android.Support.Wearable.Complications.ComplicationData? invalidatedData) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetLargeImage(Android.Graphics.Drawables.Icon? largeImage) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetLayoutResources(byte[]! resources) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
 Android.Support.Wearable.Complications.ComplicationData.Builder.SetListEntryCollection(System.Collections.Generic.ICollection<Android.Support.Wearable.Complications.ComplicationData!>? listEntries) -> Android.Support.Wearable.Complications.ComplicationData.Builder!
@@ -56,6 +59,8 @@ Android.Support.Wearable.Complications.ComplicationData.DisplayPolicy.get -> int
 Android.Support.Wearable.Complications.ComplicationData.ElementBackgroundColor.get -> int
 Android.Support.Wearable.Complications.ComplicationData.EndDateTimeMillis.get -> long
 Android.Support.Wearable.Complications.ComplicationData.EqualsUnevaluated(Android.Support.Wearable.Complications.ComplicationData! other) -> bool
+Android.Support.Wearable.Complications.ComplicationData.Extras.get -> Android.OS.PersistableBundle!
+Android.Support.Wearable.Complications.ComplicationData.Extras.set -> void
 Android.Support.Wearable.Complications.ComplicationData.GetAmbientLayout() -> byte[]?
 Android.Support.Wearable.Complications.ComplicationData.GetColorRamp() -> int[]?
 Android.Support.Wearable.Complications.ComplicationData.GetElementColors() -> int[]?
@@ -67,9 +72,11 @@ Android.Support.Wearable.Complications.ComplicationData.HasBurnInProtectionSmall
 Android.Support.Wearable.Complications.ComplicationData.HasContentDescription.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasDynamicValues.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasIcon.get -> bool
+Android.Support.Wearable.Complications.ComplicationData.HasInvalidatedData.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasLargeImage.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasLongText.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasLongTitle.get -> bool
+Android.Support.Wearable.Complications.ComplicationData.HasPlaceholder.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasRangedDynamicValue.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasRangedMaxValue.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.HasRangedMinValue.get -> bool
@@ -83,6 +90,7 @@ Android.Support.Wearable.Complications.ComplicationData.HasTargetValue.get -> bo
 Android.Support.Wearable.Complications.ComplicationData.IComplicationType
 Android.Support.Wearable.Complications.ComplicationData.IImageStyle
 Android.Support.Wearable.Complications.ComplicationData.Icon.get -> Android.Graphics.Drawables.Icon?
+Android.Support.Wearable.Complications.ComplicationData.InvalidatedData.get -> Android.Support.Wearable.Complications.ComplicationData?
 Android.Support.Wearable.Complications.ComplicationData.IsActiveAt(long dateTimeMillis) -> bool
 Android.Support.Wearable.Complications.ComplicationData.IsColorRampInterpolated() -> Java.Lang.Boolean?
 Android.Support.Wearable.Complications.ComplicationData.IsTimeDependent.get -> bool
@@ -104,6 +112,7 @@ Android.Support.Wearable.Complications.ComplicationData.ShortTitle.get -> Androi
 Android.Support.Wearable.Complications.ComplicationData.SmallImage.get -> Android.Graphics.Drawables.Icon?
 Android.Support.Wearable.Complications.ComplicationData.SmallImageStyle.get -> int
 Android.Support.Wearable.Complications.ComplicationData.StartDateTimeMillis.get -> long
+Android.Support.Wearable.Complications.ComplicationData.StripExtras() -> void
 Android.Support.Wearable.Complications.ComplicationData.TapAction.get -> Android.App.PendingIntent?
 Android.Support.Wearable.Complications.ComplicationData.TapActionLostDueToSerialization.get -> bool
 Android.Support.Wearable.Complications.ComplicationData.TargetValue.get -> float
@@ -139,8 +148,8 @@ Android.Support.Wearable.Complications.ComplicationProviderDefault.InterfaceCons
 Android.Support.Wearable.Complications.ComplicationProviderInfo
 Android.Support.Wearable.Complications.ComplicationProviderInfo.AppName.get -> string?
 Android.Support.Wearable.Complications.ComplicationProviderInfo.AppName.set -> void
-Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationProviderInfo(Android.OS.Parcel! in) -> void
-Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationProviderInfo(string! appName, string! providerName, Android.Graphics.Drawables.Icon! providerIcon, int complicationType, Android.Content.ComponentName? providerComponentName) -> void
+Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationProviderInfo(Android.OS.Parcel? in) -> void
+Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationProviderInfo(string? appName, string? providerName, Android.Graphics.Drawables.Icon? providerIcon, int complicationType, Android.Content.ComponentName? providerComponentName) -> void
 Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationType.get -> int
 Android.Support.Wearable.Complications.ComplicationProviderInfo.ComplicationType.set -> void
 Android.Support.Wearable.Complications.ComplicationProviderInfo.DescribeContents() -> int
@@ -150,7 +159,7 @@ Android.Support.Wearable.Complications.ComplicationProviderInfo.ProviderIcon.get
 Android.Support.Wearable.Complications.ComplicationProviderInfo.ProviderIcon.set -> void
 Android.Support.Wearable.Complications.ComplicationProviderInfo.ProviderName.get -> string?
 Android.Support.Wearable.Complications.ComplicationProviderInfo.ProviderName.set -> void
-Android.Support.Wearable.Complications.ComplicationProviderInfo.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+Android.Support.Wearable.Complications.ComplicationProviderInfo.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Support.Wearable.Complications.ComplicationProviderStub
 Android.Support.Wearable.Complications.ComplicationProviderStub.ComplicationProviderStub() -> void
 Android.Support.Wearable.Complications.ComplicationProviderStub.ComplicationProviderStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -159,60 +168,61 @@ Android.Support.Wearable.Complications.ComplicationProvider_Parcel
 Android.Support.Wearable.Complications.ComplicationProvider_Parcel.ComplicationProvider_Parcel() -> void
 Android.Support.Wearable.Complications.ComplicationProvider_Parcel.ComplicationProvider_Parcel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Support.Wearable.Complications.ComplicationText
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence! surroundingText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence! surroundingText, Android.Support.Wearable.Complications.ITimeDependentText! timeDependentText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence! surroundingText, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string! surroundingText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string! surroundingText, Android.Support.Wearable.Complications.ITimeDependentText! timeDependentText) -> void
-Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string! surroundingText, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString? dynamicText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence? surroundingText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence? surroundingText, Android.Support.Wearable.Complications.ITimeDependentText? timeDependentText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(Java.Lang.ICharSequence? surroundingText, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString? dynamicText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string? surroundingText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string? surroundingText, Android.Support.Wearable.Complications.ITimeDependentText? timeDependentText) -> void
+Android.Support.Wearable.Complications.ComplicationText.ComplicationText(string? surroundingText, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString? dynamicText) -> void
 Android.Support.Wearable.Complications.ComplicationText.DescribeContents() -> int
 Android.Support.Wearable.Complications.ComplicationText.DynamicValue.get -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString?
 Android.Support.Wearable.Complications.ComplicationText.GetNextChangeTime(long fromTime) -> long
-Android.Support.Wearable.Complications.ComplicationText.GetTextAt(Android.Content.Res.Resources! resources, long dateTimeMillis) -> string!
-Android.Support.Wearable.Complications.ComplicationText.GetTextAtFormatted(Android.Content.Res.Resources! resources, long dateTimeMillis) -> Java.Lang.ICharSequence!
+Android.Support.Wearable.Complications.ComplicationText.GetTextAt(Android.Content.Res.Resources? resources, long dateTimeMillis) -> string?
+Android.Support.Wearable.Complications.ComplicationText.GetTextAtFormatted(Android.Content.Res.Resources? resources, long dateTimeMillis) -> Java.Lang.ICharSequence?
 Android.Support.Wearable.Complications.ComplicationText.ITimeDifferenceStyle
 Android.Support.Wearable.Complications.ComplicationText.ITimeFormatStyle
 Android.Support.Wearable.Complications.ComplicationText.IsAlwaysEmpty.get -> bool
 Android.Support.Wearable.Complications.ComplicationText.IsPlaceholder.get -> bool
+Android.Support.Wearable.Complications.ComplicationText.IsTimeDependent.get -> bool
 Android.Support.Wearable.Complications.ComplicationText.ReturnsSameText(long firstDateTimeMillis, long secondDateTimeMillis) -> bool
 Android.Support.Wearable.Complications.ComplicationText.SurroundingText.get -> string?
 Android.Support.Wearable.Complications.ComplicationText.SurroundingTextFormatted.get -> Java.Lang.ICharSequence?
-Android.Support.Wearable.Complications.ComplicationText.TimeDependentText.get -> Android.Support.Wearable.Complications.ITimeDependentText!
+Android.Support.Wearable.Complications.ComplicationText.TimeDependentText.get -> Android.Support.Wearable.Complications.ITimeDependentText?
 Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.Build() -> Android.Support.Wearable.Complications.ComplicationText!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetMinimumUnit(Java.Util.Concurrent.TimeUnit? minimumUnit) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetReferencePeriodEndMillis(long refPeriodEndMillis) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetReferencePeriodStartMillis(long refPeriodStartMillis) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetShowNowText(bool showNowText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetStyle(int style) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder!
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.Build() -> Android.Support.Wearable.Complications.ComplicationText?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetMinimumUnit(Java.Util.Concurrent.TimeUnit? minimumUnit) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetReferencePeriodEndMillis(long refPeriodEndMillis) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetReferencePeriodStartMillis(long refPeriodStartMillis) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetShowNowText(bool showNowText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetStyle(int style) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder?
 Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.TimeDifferenceBuilder() -> void
 Android.Support.Wearable.Complications.ComplicationText.TimeDifferenceBuilder.TimeDifferenceBuilder(long referencePeriodStartMillis, long referencePeriodEndMillis) -> void
 Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.Build() -> Android.Support.Wearable.Complications.ComplicationText!
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetFormat(string? format) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetStyle(int style) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder!
-Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetTimeZone(Java.Util.TimeZone? timeZone) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder!
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.Build() -> Android.Support.Wearable.Complications.ComplicationText?
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetFormat(string? format) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetStyle(int style) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder?
+Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.SetTimeZone(Java.Util.TimeZone? timeZone) -> Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder?
 Android.Support.Wearable.Complications.ComplicationText.TimeFormatBuilder.TimeFormatBuilder() -> void
-Android.Support.Wearable.Complications.ComplicationText.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
+Android.Support.Wearable.Complications.ComplicationText.WriteToParcel(Android.OS.Parcel? out, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Support.Wearable.Complications.ComplicationTextTemplate
 Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder
-Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.AddComplicationText(Android.Support.Wearable.Complications.ComplicationText! text) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder!
-Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.Build() -> Android.Support.Wearable.Complications.ComplicationTextTemplate!
+Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.AddComplicationText(Android.Support.Wearable.Complications.ComplicationText? text) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder?
+Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.Build() -> Android.Support.Wearable.Complications.ComplicationTextTemplate?
 Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.Builder() -> void
 Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.IsEmpty.get -> bool
-Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder!
-Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder!
+Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.SetSurroundingText(Java.Lang.ICharSequence? surroundingText) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder?
+Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder.SetSurroundingText(string? surroundingText) -> Android.Support.Wearable.Complications.ComplicationTextTemplate.Builder?
 Android.Support.Wearable.Complications.ComplicationTextTemplate.DescribeContents() -> int
 Android.Support.Wearable.Complications.ComplicationTextTemplate.GetNextChangeTime(long fromTime) -> long
-Android.Support.Wearable.Complications.ComplicationTextTemplate.GetTextAt(Android.Content.Res.Resources! resources, long dateTimeMillis) -> string!
-Android.Support.Wearable.Complications.ComplicationTextTemplate.GetTextAtFormatted(Android.Content.Res.Resources! resources, long dateTimeMillis) -> Java.Lang.ICharSequence!
+Android.Support.Wearable.Complications.ComplicationTextTemplate.GetTextAt(Android.Content.Res.Resources? resources, long dateTimeMillis) -> string?
+Android.Support.Wearable.Complications.ComplicationTextTemplate.GetTextAtFormatted(Android.Content.Res.Resources? resources, long dateTimeMillis) -> Java.Lang.ICharSequence?
 Android.Support.Wearable.Complications.ComplicationTextTemplate.ReturnsSameText(long firstDateTimeMillis, long secondDateTimeMillis) -> bool
-Android.Support.Wearable.Complications.ComplicationTextTemplate.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
+Android.Support.Wearable.Complications.ComplicationTextTemplate.WriteToParcel(Android.OS.Parcel? out, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Support.Wearable.Complications.IComplicationManager
 Android.Support.Wearable.Complications.IComplicationManager.UpdateComplicationData(int p0, Android.Support.Wearable.Complications.ComplicationData? p1) -> void
 Android.Support.Wearable.Complications.IComplicationProvider
@@ -234,7 +244,7 @@ Android.Support.Wearable.Complications.IProviderInfoService.GetProviderInfos(And
 Android.Support.Wearable.Complications.IProviderInfoService.RequestPreviewComplicationData(Android.Content.ComponentName? p0, int p1, Android.Support.Wearable.Complications.IPreviewComplicationDataCallback? p2) -> bool
 Android.Support.Wearable.Complications.ITimeDependentText
 Android.Support.Wearable.Complications.ITimeDependentText.GetNextChangeTime(long p0) -> long
-Android.Support.Wearable.Complications.ITimeDependentText.GetTextAtFormatted(Android.Content.Res.Resources! p0, long p1) -> Java.Lang.ICharSequence!
+Android.Support.Wearable.Complications.ITimeDependentText.GetTextAtFormatted(Android.Content.Res.Resources? p0, long p1) -> Java.Lang.ICharSequence?
 Android.Support.Wearable.Complications.ITimeDependentText.ReturnsSameText(long p0, long p1) -> bool
 Android.Support.Wearable.Complications.ITimeDependentTextExtensions
 Android.Support.Wearable.Complications.PreviewComplicationDataCallback
@@ -266,25 +276,29 @@ Android.Support.Wearable.Complications.ProviderInfoService_Parcel.ProviderInfoSe
 Android.Support.Wearable.Complications.TimeDifferenceText
 Android.Support.Wearable.Complications.TimeDifferenceText.DescribeContents() -> int
 Android.Support.Wearable.Complications.TimeDifferenceText.GetNextChangeTime(long fromTime) -> long
-Android.Support.Wearable.Complications.TimeDifferenceText.GetTextAt(Android.Content.Res.Resources! resources, long dateTimeMillis) -> string!
-Android.Support.Wearable.Complications.TimeDifferenceText.GetTextAtFormatted(Android.Content.Res.Resources! resources, long dateTimeMillis) -> Java.Lang.ICharSequence!
+Android.Support.Wearable.Complications.TimeDifferenceText.GetTextAt(Android.Content.Res.Resources? resources, long dateTimeMillis) -> string?
+Android.Support.Wearable.Complications.TimeDifferenceText.GetTextAtFormatted(Android.Content.Res.Resources? resources, long dateTimeMillis) -> Java.Lang.ICharSequence?
 Android.Support.Wearable.Complications.TimeDifferenceText.MinimumUnit.get -> Java.Util.Concurrent.TimeUnit?
 Android.Support.Wearable.Complications.TimeDifferenceText.Precision.get -> long
+Android.Support.Wearable.Complications.TimeDifferenceText.ReferencePeriodEnd.get -> long
+Android.Support.Wearable.Complications.TimeDifferenceText.ReferencePeriodStart.get -> long
 Android.Support.Wearable.Complications.TimeDifferenceText.ReturnsSameText(long firstDateTimeMillis, long secondDateTimeMillis) -> bool
+Android.Support.Wearable.Complications.TimeDifferenceText.ShouldShowNowText() -> bool
+Android.Support.Wearable.Complications.TimeDifferenceText.Style.get -> int
 Android.Support.Wearable.Complications.TimeDifferenceText.TimeDifferenceText(long referencePeriodStart, long referencePeriodEnd, int style, bool showNowText, Java.Util.Concurrent.TimeUnit? minimumUnit) -> void
-Android.Support.Wearable.Complications.TimeDifferenceText.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+Android.Support.Wearable.Complications.TimeDifferenceText.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void
 Android.Support.Wearable.Complications.TimeFormatText
 Android.Support.Wearable.Complications.TimeFormatText.DescribeContents() -> int
-Android.Support.Wearable.Complications.TimeFormatText.FormatString.get -> string!
+Android.Support.Wearable.Complications.TimeFormatText.FormatString.get -> string?
 Android.Support.Wearable.Complications.TimeFormatText.GetNextChangeTime(long fromTime) -> long
-Android.Support.Wearable.Complications.TimeFormatText.GetTextAt(Android.Content.Res.Resources! resources, long dateTimeMillis) -> string!
-Android.Support.Wearable.Complications.TimeFormatText.GetTextAtFormatted(Android.Content.Res.Resources! resources, long dateTimeMillis) -> Java.Lang.ICharSequence!
+Android.Support.Wearable.Complications.TimeFormatText.GetTextAt(Android.Content.Res.Resources? resources, long dateTimeMillis) -> string?
+Android.Support.Wearable.Complications.TimeFormatText.GetTextAtFormatted(Android.Content.Res.Resources? resources, long dateTimeMillis) -> Java.Lang.ICharSequence?
 Android.Support.Wearable.Complications.TimeFormatText.Precision.get -> long
 Android.Support.Wearable.Complications.TimeFormatText.ReturnsSameText(long firstDateTimeMillis, long secondDateTimeMillis) -> bool
 Android.Support.Wearable.Complications.TimeFormatText.Style.get -> int
-Android.Support.Wearable.Complications.TimeFormatText.TimeFormatText(string! format, int style, Java.Util.TimeZone? timeZone) -> void
+Android.Support.Wearable.Complications.TimeFormatText.TimeFormatText(string? format, int style, Java.Util.TimeZone? timeZone) -> void
 Android.Support.Wearable.Complications.TimeFormatText.TimeZone.get -> Java.Util.TimeZone?
-Android.Support.Wearable.Complications.TimeFormatText.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+Android.Support.Wearable.Complications.TimeFormatText.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void
 AndroidX.Wear.WatchFace.Complications.Data.ColorRamp
 AndroidX.Wear.WatchFace.Complications.Data.ColorRamp.ColorRamp(int[]! colors, bool interpolated) -> void
 AndroidX.Wear.WatchFace.Complications.Data.ColorRamp.GetColors() -> int[]!
@@ -296,12 +310,14 @@ AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.BaseBuil
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.SetDataSource(Android.Content.ComponentName? dataSource) -> Java.Lang.Object!
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.SetDisplayPolicy(int displayPolicy) -> Java.Lang.Object!
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.SetDynamicValueInvalidationFallback(Java.Lang.Object? fallback) -> Java.Lang.Object!
+AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.SetExtras(Android.OS.PersistableBundle! extras) -> Java.Lang.Object!
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.BaseBuilder.SetPersistencePolicy(int persistencePolicy) -> Java.Lang.Object!
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.ComplicationData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.DataSource.get -> Android.Content.ComponentName?
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.DisplayPolicy.get -> int
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.DynamicValueInvalidationFallback.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.EqualsUnevaluated(AndroidX.Wear.WatchFace.Complications.Data.ComplicationData! other) -> bool
+AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.Extras.get -> Android.OS.PersistableBundle!
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.PersistencePolicy.get -> int
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.TapAction.get -> Android.App.PendingIntent?
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.TapActionLostDueToSerialization.get -> bool
@@ -311,6 +327,7 @@ AndroidX.Wear.WatchFace.Complications.Data.ComplicationData.ValidTimeRange.get -
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.Companion
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.Companion.INVALID_DATA.get -> Android.Support.Wearable.Complications.ComplicationData!
+AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.Companion.IsInvalid(Android.Support.Wearable.Complications.ComplicationData! _this_isInvalid) -> bool
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.ComplicationDataEvaluator() -> void
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.ComplicationDataEvaluator(AndroidX.Wear.ProtoLayout.Expression.Pipeline.StateStore? stateStore, AndroidX.Wear.ProtoLayout.Expression.Pipeline.IPlatformTimeUpdateNotifier? platformTimeUpdateNotifier, System.Collections.Generic.IDictionary<AndroidX.Wear.ProtoLayout.Expression.Pipeline.IPlatformDataProvider!, System.Collections.Generic.ICollection<AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!>!>! platformDataProviders, bool keepDynamicValues) -> void
 AndroidX.Wear.WatchFace.Complications.Data.ComplicationDataEvaluator.ComplicationDataEvaluator(AndroidX.Wear.ProtoLayout.Expression.Pipeline.StateStore? stateStore, AndroidX.Wear.ProtoLayout.Expression.Pipeline.IPlatformTimeUpdateNotifier? platformTimeUpdateNotifier, System.Collections.Generic.IDictionary<AndroidX.Wear.ProtoLayout.Expression.Pipeline.IPlatformDataProvider!, System.Collections.Generic.ICollection<AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!>!>! platformDataProviders, bool keepDynamicValues, Java.Util.Functions.ISupplier? clock) -> void
@@ -343,9 +360,9 @@ AndroidX.Wear.WatchFace.Complications.Data.CountUpTimeReference.CountUpTimeRefer
 AndroidX.Wear.WatchFace.Complications.Data.CountUpTimeReference.Instant.get -> Java.Time.Instant!
 AndroidX.Wear.WatchFace.Complications.Data.DataKt
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat
-AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.DefaultComplicationDataSourcePolicyWireFormat(System.Collections.Generic.IList<Android.Content.ComponentName!>! defaultDataSourcesToTry, int fallbackSystemDataSource, int defaultDataSourceType, int primaryDataSourceDefaultType, int secondaryDataSourceDefaultType) -> void
+AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.DefaultComplicationDataSourcePolicyWireFormat(System.Collections.Generic.IList<Android.Content.ComponentName!>? defaultDataSourcesToTry, int fallbackSystemDataSource, int defaultDataSourceType, int primaryDataSourceDefaultType, int secondaryDataSourceDefaultType) -> void
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.DescribeContents() -> int
-AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MDefaultDataSourcesToTry.get -> System.Collections.IList!
+AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MDefaultDataSourcesToTry.get -> System.Collections.IList?
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MDefaultDataSourcesToTry.set -> void
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MDefaultType.get -> int
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MDefaultType.set -> void
@@ -355,10 +372,11 @@ AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWi
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MPrimaryDataSourceDefaultType.set -> void
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MSecondaryDataSourceDefaultType.get -> int
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.MSecondaryDataSourceDefaultType.set -> void
-AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.WriteToParcel(Android.OS.Parcel! parcel, Android.OS.ParcelableWriteFlags flags) -> void
+AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormat.WriteToParcel(Android.OS.Parcel? parcel, Android.OS.ParcelableWriteFlags flags) -> void
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormatParcelizer
 AndroidX.Wear.WatchFace.Complications.Data.DefaultComplicationDataSourcePolicyWireFormatParcelizer.DefaultComplicationDataSourcePolicyWireFormatParcelizer() -> void
 AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText
+AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.DynamicComplicationText(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicValue) -> void
 AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.DynamicComplicationText(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicValue, Java.Lang.ICharSequence! fallbackValue) -> void
 AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.DynamicComplicationText(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicValue, string! fallbackValue) -> void
 AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.DynamicValue.get -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString!
@@ -376,10 +394,25 @@ AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.ToWireComplic
 AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData.Companion
 AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData.EmptyComplicationData() -> void
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ComplicationTextFormatting(Java.Util.Locale! locale) -> void
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.FullTextDayOfWeekFormat.get -> string!
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.GetBestShortTextDateFormat(string![]! skeletons, string? fallback) -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.GetFormattedDayOfWeekForShortText(long timeInMillis, Android.Icu.Util.TimeZone? timeZone) -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.GetFormattedTimeForShortText(long timeInMillis, Android.Icu.Util.TimeZone? timeZone, bool use24Hour) -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextDayMonthFormat.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextDayOfMonthFormat.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextDayOfWeekFormat.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextMonthFormat.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextTimeFormat12Hour.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextTimeFormat12HourWithoutAmPmShortening.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextTimeFormat24Hour.get -> string?
+AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.ShortTextTimeFormat24HourWithoutAmPmShortening.get -> string?
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.Build() -> AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData!
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.Builder(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! dynamicValue, float fallbackValue, float targetValue, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
+AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.Builder(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! dynamicValue, float targetValue, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.Builder(float value, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValue, float targetValue, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.Builder(float value, float targetValue, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.SetColorRamp(AndroidX.Wear.WatchFace.Complications.Data.ColorRamp? colorRamp) -> AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder!
@@ -451,6 +484,7 @@ AndroidX.Wear.WatchFace.Complications.Data.MonochromaticImageComplicationData.Mo
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.Companion
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.ContentDescription.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText?
+AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.InvalidatedData.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.NoDataComplicationData() -> void
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.NoDataComplicationData(AndroidX.Wear.WatchFace.Complications.Data.ComplicationData! placeholder) -> void
 AndroidX.Wear.WatchFace.Complications.Data.NoDataComplicationData.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
@@ -470,6 +504,9 @@ AndroidX.Wear.WatchFace.Complications.Data.NoPermissionComplicationData.Title.ge
 AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData.Companion
 AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData.NotConfiguredComplicationData() -> void
+AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData
+AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData.Get(AndroidX.Wear.WatchFace.Complications.Data.ComplicationType! type) -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
+AndroidX.Wear.WatchFace.Complications.Data.Parser.StaticPreviewDataParser
 AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.Builder
 AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.Builder.Build() -> AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData!
@@ -497,6 +534,7 @@ AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.Build() -> AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData!
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.Builder(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! dynamicValue, float fallbackValue, float min, float max, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
+AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.Builder(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! dynamicValue, float min, float max, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.Builder(float value, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValue, float min, float max, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.Builder(float value, float min, float max, AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! contentDescription) -> void
 AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder.SetColorRamp(AndroidX.Wear.WatchFace.Complications.Data.ColorRamp? colorRamp) -> AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Builder!
@@ -773,6 +811,7 @@ override AndroidX.Wear.WatchFace.Complications.Data.DynamicComplicationText.JniP
 override AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData.GetContentDescription(Android.Content.Context! context) -> Android.Support.Wearable.Complications.ITimeDependentText?
 override AndroidX.Wear.WatchFace.Complications.Data.EmptyComplicationData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.WatchFace.Complications.Data.Formatting.ComplicationTextFormatting.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.GetContentDescription(Android.Content.Context! context) -> Android.Support.Wearable.Complications.ITimeDependentText?
@@ -799,6 +838,8 @@ override AndroidX.Wear.WatchFace.Complications.Data.NoPermissionComplicationData
 override AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData.GetContentDescription(Android.Content.Context! context) -> Android.Support.Wearable.Complications.ITimeDependentText?
 override AndroidX.Wear.WatchFace.Complications.Data.NotConfiguredComplicationData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.WatchFace.Complications.Data.Parser.StaticPreviewDataParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.GetContentDescription(Android.Content.Context! context) -> Android.Support.Wearable.Complications.ITimeDependentText?
@@ -847,13 +888,13 @@ static Android.Support.Wearable.Complications.ComplicationData.MaybeRedact(Java.
 static Android.Support.Wearable.Complications.ComplicationData.MaybeRedact(string? unredacted) -> string!
 static Android.Support.Wearable.Complications.ComplicationData.ShouldRedact() -> bool
 static Android.Support.Wearable.Complications.ComplicationManagerStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.Wearable.Complications.IComplicationManager?
-static Android.Support.Wearable.Complications.ComplicationProviderInfo.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Support.Wearable.Complications.ComplicationProviderInfo.Creator.get -> Android.OS.IParcelableCreator?
 static Android.Support.Wearable.Complications.ComplicationProviderStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.Wearable.Complications.IComplicationProvider?
-static Android.Support.Wearable.Complications.ComplicationText.Creator.get -> Android.OS.IParcelableCreator!
-static Android.Support.Wearable.Complications.ComplicationText.PlainText(Java.Lang.ICharSequence! text) -> Android.Support.Wearable.Complications.ComplicationText!
-static Android.Support.Wearable.Complications.ComplicationText.PlainText(string! text) -> Android.Support.Wearable.Complications.ComplicationText!
+static Android.Support.Wearable.Complications.ComplicationText.Creator.get -> Android.OS.IParcelableCreator?
+static Android.Support.Wearable.Complications.ComplicationText.PlainText(Java.Lang.ICharSequence? text) -> Android.Support.Wearable.Complications.ComplicationText?
+static Android.Support.Wearable.Complications.ComplicationText.PlainText(string? text) -> Android.Support.Wearable.Complications.ComplicationText?
 static Android.Support.Wearable.Complications.ComplicationTextTemplate.Creator.get -> Android.OS.IParcelableCreator?
-static Android.Support.Wearable.Complications.ITimeDependentTextExtensions.GetTextAt(this Android.Support.Wearable.Complications.ITimeDependentText! self, Android.Content.Res.Resources! p0, long p1) -> string!
+static Android.Support.Wearable.Complications.ITimeDependentTextExtensions.GetTextAt(this Android.Support.Wearable.Complications.ITimeDependentText! self, Android.Content.Res.Resources? p0, long p1) -> string?
 static Android.Support.Wearable.Complications.PreviewComplicationDataCallbackStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.Wearable.Complications.IPreviewComplicationDataCallback?
 static Android.Support.Wearable.Complications.ProviderInfoServiceStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.Wearable.Complications.IProviderInfoService?
 static Android.Support.Wearable.Complications.TimeDifferenceText.Creator.get -> Android.OS.IParcelableCreator?
@@ -865,6 +906,7 @@ static AndroidX.Wear.WatchFace.Complications.Data.ComplicationText.Empty.get -> 
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationText.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationTextDefaultImpls.IsPlaceholder(AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! _this) -> bool
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationType.Empty.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationType?
+static AndroidX.Wear.WatchFace.Complications.Data.ComplicationType.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationType.FromWireType(int wireType) -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationType!
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationType.FromWireTypeList(int[]! types) -> System.Collections.Generic.IList<AndroidX.Wear.WatchFace.Complications.Data.ComplicationType!>!
 static AndroidX.Wear.WatchFace.Complications.Data.ComplicationType.FromWireTypes(int[]! types) -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationType![]!
@@ -894,6 +936,9 @@ static AndroidX.Wear.WatchFace.Complications.Data.GoalProgressComplicationData.P
 static AndroidX.Wear.WatchFace.Complications.Data.IComplicationTextExtensions.GetTextAt(this AndroidX.Wear.WatchFace.Complications.Data.IComplicationText! self, Android.Content.Res.Resources! resources, Java.Time.Instant! instant) -> string!
 static AndroidX.Wear.WatchFace.Complications.Data.ImageKt.IsPlaceholder(Android.Graphics.Drawables.Icon! obj) -> bool
 static AndroidX.Wear.WatchFace.Complications.Data.MonochromaticImage.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.MonochromaticImage!
+static AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData.Inflate(Android.Content.Context! providerContext, System.Xml.XmlReader! parser) -> AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData!
+static AndroidX.Wear.WatchFace.Complications.Data.Parser.StaticPreviewDataParser.Instance.get -> AndroidX.Wear.WatchFace.Complications.Data.Parser.StaticPreviewDataParser!
+static AndroidX.Wear.WatchFace.Complications.Data.Parser.StaticPreviewDataParser.ParsePreviewData(Android.Content.Context! context, Android.Content.ComponentName! providerComponent) -> AndroidX.Wear.WatchFace.Complications.Data.Parser.PreviewData?
 static AndroidX.Wear.WatchFace.Complications.Data.PhotoImageComplicationData.Placeholder.get -> Android.Graphics.Drawables.Icon!
 static AndroidX.Wear.WatchFace.Complications.Data.PlainComplicationText.InterfaceConsts.Companion.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationTextCompanion!
 static AndroidX.Wear.WatchFace.Complications.Data.PlainComplicationText.InterfaceConsts.Empty.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
@@ -901,6 +946,7 @@ static AndroidX.Wear.WatchFace.Complications.Data.PlainComplicationText.Interfac
 static AndroidX.Wear.WatchFace.Complications.Data.RangedValueComplicationData.Placeholder.get -> float
 static AndroidX.Wear.WatchFace.Complications.Data.ShortTextComplicationData.MaxTextLength.get -> int
 static AndroidX.Wear.WatchFace.Complications.Data.SmallImage.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.SmallImage!
+static AndroidX.Wear.WatchFace.Complications.Data.SmallImageType.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Wear.WatchFace.Complications.Data.SmallImageType.Icon.get -> AndroidX.Wear.WatchFace.Complications.Data.SmallImageType?
 static AndroidX.Wear.WatchFace.Complications.Data.SmallImageType.Photo.get -> AndroidX.Wear.WatchFace.Complications.Data.SmallImageType?
 static AndroidX.Wear.WatchFace.Complications.Data.SmallImageType.ValueOf(string? value) -> AndroidX.Wear.WatchFace.Complications.Data.SmallImageType?
@@ -909,6 +955,7 @@ static AndroidX.Wear.WatchFace.Complications.Data.TextKt.ToApiComplicationText(A
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceComplicationText.InterfaceConsts.Companion.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationTextCompanion!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceComplicationText.InterfaceConsts.Empty.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceComplicationText.InterfaceConsts.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
+static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle.ShortDualUnit.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle?
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle.ShortSingleUnit.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle?
 static AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle.ShortWordsSingleUnit.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeDifferenceStyle?
@@ -920,6 +967,7 @@ static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatComplicationText.Int
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatComplicationText.InterfaceConsts.Empty.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatComplicationText.InterfaceConsts.Placeholder.get -> AndroidX.Wear.WatchFace.Complications.Data.IComplicationText!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle.Default.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle?
+static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle.LowerCase.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle?
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle.UpperCase.get -> AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle?
 static AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle.ValueOf(string? value) -> AndroidX.Wear.WatchFace.Complications.Data.TimeFormatStyle?
