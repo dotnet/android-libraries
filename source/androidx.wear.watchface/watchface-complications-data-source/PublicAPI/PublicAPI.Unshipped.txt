@@ -4,6 +4,9 @@ AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.C
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataEventArgs
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataEventArgs.ComplicationData.get -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataEventArgs.ComplicationDataEventArgs(AndroidX.Wear.WatchFace.Complications.Data.ComplicationData? complicationData) -> void
+AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester
+AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.ComplicationDataRequester() -> void
+AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.ComplicationDataRequester(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataSourceService() -> void
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataSourceService(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataTimelineEventArgs
@@ -50,13 +53,16 @@ AndroidX.Wear.WatchFace.Complications.Datasource.TimelineEntry.ComplicationData.
 AndroidX.Wear.WatchFace.Complications.Datasource.TimelineEntry.TimelineEntry(AndroidX.Wear.WatchFace.Complications.Datasource.TimeInterval! validity, AndroidX.Wear.WatchFace.Complications.Data.ComplicationData! complicationData) -> void
 AndroidX.Wear.WatchFace.Complications.Datasource.TimelineEntry.Validity.get -> AndroidX.Wear.WatchFace.Complications.Datasource.TimeInterval!
 AndroidX.Wear.WatchFace.Complications.Datasource.TimelineEntry.Validity.set -> void
+abstract AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.OnComplicationRequest(AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationRequest! request, AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.IComplicationRequestListener! listener) -> void
 abstract AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.GetPreviewData(AndroidX.Wear.WatchFace.Complications.Data.ComplicationType! type) -> AndroidX.Wear.WatchFace.Complications.Data.ComplicationData?
 abstract AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.OnComplicationRequest(AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationRequest! request, AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.IComplicationRequestListener! listener) -> void
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ActionComplicationUpdateRequest = "android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" -> string!
+const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ActionWearSdkComplicationUpdateRequest = "android.support.wearable.complications.ACTION_WEAR_SDK_COMPLICATION_UPDATE_REQUEST" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.CategoryDataSourceConfig = "android.support.wearable.complications.category.PROVIDER_CONFIG" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ExtraConfigComplicationId = "android.support.wearable.complications.EXTRA_CONFIG_COMPLICATION_ID" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ExtraConfigComplicationType = "android.support.wearable.complications.EXTRA_CONFIG_COMPLICATION_TYPE" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ExtraConfigDataSourceComponent = "android.support.wearable.complications.EXTRA_CONFIG_PROVIDER_COMPONENT" -> string!
+const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.MetadataKeyConfigRestoreSupported = "androidx.watchface.complications.datasource.CONFIG_RESTORE_SUPPORTED" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.MetadataKeyDataSourceConfigAction = "android.support.wearable.complications.PROVIDER_CONFIG_ACTION" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.MetadataKeyDataSourceDefaultConfigSupported = "androidx.watchface.complications.datasource.DEFAULT_CONFIG_SUPPORTED" -> string!
 const AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.MetadataKeyHidden = "android.support.wearable.complications.HIDDEN" -> string!
@@ -79,6 +85,9 @@ const AndroidX.Wear.WatchFace.Complications.Datasource.TargetWatchFaceSafety.Saf
 const AndroidX.Wear.WatchFace.Complications.Datasource.TargetWatchFaceSafety.Unknown = 0 -> int
 const AndroidX.Wear.WatchFace.Complications.Datasource.TargetWatchFaceSafety.Unsafe = 2 -> int
 override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.ThresholdClass.get -> nint
+override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationDataRequester.ThresholdType.get -> System.Type!
 override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ComplicationRequestListenerDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.WatchFace.Complications.Datasource.ComplicationDataSourceService.ThresholdClass.get -> nint
