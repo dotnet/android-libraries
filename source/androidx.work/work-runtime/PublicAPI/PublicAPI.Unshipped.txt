@@ -220,14 +220,14 @@ AndroidX.Work.Impl.Constraints.Controllers.IConstraintController
 AndroidX.Work.Impl.Constraints.Controllers.IConstraintController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
 AndroidX.Work.Impl.Constraints.Controllers.IConstraintController.IsCurrentlyConstrained(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
 AndroidX.Work.Impl.Constraints.Controllers.IConstraintController.Track(AndroidX.Work.Constraints! constraints) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
-AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedController
-AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedController.NetworkConnectedController(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
-AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredController
-AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredController.NetworkMeteredController(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
-AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingController
-AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingController.NetworkNotRoamingController(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
-AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredController
-AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredController.NetworkUnmeteredController(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
+AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedControllerPre28
+AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedControllerPre28.NetworkConnectedControllerPre28(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
+AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredControllerPre28
+AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredControllerPre28.NetworkMeteredControllerPre28(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
+AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingControllerPre28
+AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingControllerPre28.NetworkNotRoamingControllerPre28(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
+AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredControllerPre28
+AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredControllerPre28.NetworkUnmeteredControllerPre28(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
 AndroidX.Work.Impl.Constraints.Controllers.StorageNotLowController
 AndroidX.Work.Impl.Constraints.Controllers.StorageNotLowController.StorageNotLowController(AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! tracker) -> void
 AndroidX.Work.Impl.Constraints.IConstraintListener
@@ -279,13 +279,13 @@ AndroidX.Work.Impl.Constraints.Trackers.Trackers
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.BatteryChargingTracker.get -> AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker!
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.BatteryNotLowTracker.get -> AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker!
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.Context.get -> Android.Content.Context!
-AndroidX.Work.Impl.Constraints.Trackers.Trackers.NetworkStateTracker.get -> AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker!
+AndroidX.Work.Impl.Constraints.Trackers.Trackers.NetworkStateTracker.get -> AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker?
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.StorageNotLowTracker.get -> AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker!
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor) -> void
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker) -> void
 AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker, AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker! batteryNotLowTracker) -> void
-AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker, AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker! batteryNotLowTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! networkStateTracker) -> void
-AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker, AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker! batteryNotLowTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! networkStateTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! storageNotLowTracker) -> void
+AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker, AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker! batteryNotLowTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker? networkStateTracker) -> void
+AndroidX.Work.Impl.Constraints.Trackers.Trackers.Trackers(Android.Content.Context! context, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor! taskExecutor, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! batteryChargingTracker, AndroidX.Work.Impl.Constraints.Trackers.BatteryNotLowTracker! batteryNotLowTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker? networkStateTracker, AndroidX.Work.Impl.Constraints.Trackers.ConstraintTracker! storageNotLowTracker) -> void
 AndroidX.Work.Impl.Constraints.WorkConstraintsTracker
 AndroidX.Work.Impl.Constraints.WorkConstraintsTracker.AreAllConstraintsMet(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
 AndroidX.Work.Impl.Constraints.WorkConstraintsTracker.Track(AndroidX.Work.Impl.Model.WorkSpec! spec) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -711,6 +711,8 @@ AndroidX.Work.Impl.Utils.LiveDataUtils
 AndroidX.Work.Impl.Utils.LiveDataUtils.LiveDataUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Work.Impl.Utils.NetworkRequest28
 AndroidX.Work.Impl.Utils.NetworkRequestCompatKt
+AndroidX.Work.Impl.Utils.NetworkTypeCompatKt
+AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.WhenMappings
 AndroidX.Work.Impl.Utils.PackageManagerHelper
 AndroidX.Work.Impl.Utils.PackageManagerHelper.PackageManagerHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Work.Impl.Utils.PreferenceUtils
@@ -1255,14 +1257,14 @@ override AndroidX.Work.Impl.Constraints.Controllers.BatteryChargingController.Ha
 override AndroidX.Work.Impl.Constraints.Controllers.BatteryChargingController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Constraints.Controllers.BatteryNotLowController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
 override AndroidX.Work.Impl.Constraints.Controllers.BatteryNotLowController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
-override AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedControllerPre28.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkConnectedControllerPre28.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredControllerPre28.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkMeteredControllerPre28.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingControllerPre28.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkNotRoamingControllerPre28.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredControllerPre28.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
+override AndroidX.Work.Impl.Constraints.Controllers.NetworkUnmeteredControllerPre28.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Constraints.Controllers.StorageNotLowController.HasConstraint(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> bool
 override AndroidX.Work.Impl.Constraints.Controllers.StorageNotLowController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Constraints.NetworkRequestConstraintController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1365,6 +1367,8 @@ override AndroidX.Work.Impl.Utils.LiveDataUtils.ThresholdClass.get -> nint
 override AndroidX.Work.Impl.Utils.LiveDataUtils.ThresholdType.get -> System.Type!
 override AndroidX.Work.Impl.Utils.NetworkRequest28.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.PackageManagerHelper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.PackageManagerHelper.ThresholdClass.get -> nint
 override AndroidX.Work.Impl.Utils.PackageManagerHelper.ThresholdType.get -> System.Type!
@@ -1603,6 +1607,7 @@ static AndroidX.Work.Impl.Utils.NetworkRequest28.CreateNetworkRequest(int[]! cap
 static AndroidX.Work.Impl.Utils.NetworkRequest28.Instance.get -> AndroidX.Work.Impl.Utils.NetworkRequest28!
 static AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.GetCapabilitiesCompat(Android.Net.NetworkRequest! obj) -> int[]!
 static AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.GetTransportTypesCompat(Android.Net.NetworkRequest! obj) -> int[]!
+static AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.ToNetworkRequest(AndroidX.Work.NetworkType! obj) -> Android.Net.NetworkRequest?
 static AndroidX.Work.Impl.Utils.PackageManagerHelper.IsComponentExplicitlyEnabled(Android.Content.Context? context, Java.Lang.Class? klazz) -> bool
 static AndroidX.Work.Impl.Utils.PackageManagerHelper.IsComponentExplicitlyEnabled(Android.Content.Context? context, string? className) -> bool
 static AndroidX.Work.Impl.Utils.PackageManagerHelper.SetComponentEnabled(Android.Content.Context? context, Java.Lang.Class? klazz, bool enabled) -> void
