@@ -155,5 +155,15 @@
     <remove-node
         path="/api/package[@name='androidx.media3.exoplayer.hls.offline']/class[@name='HlsDownloader.Factory']/method[@name='setStartPositionUs' and @return='androidx.media3.exoplayer.hls.offline.HlsDownloader.Factory' and count(parameter)=1 and parameter[1][@type='long']]" />
 
+    <!-- DefaultHlsPlaylistTracker.getRedundantGroups returns ImmutableList but
+         IHlsPlaylistTracker.GetRedundantGroups expects IList<HlsRedundantGroup>.
+         Rename the method and provide an explicit interface implementation in Additions. -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='getRedundantGroups' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName"
+        >
+        GetRedundantGroupsImpl
+    </attr>
+
     
 </metadata>

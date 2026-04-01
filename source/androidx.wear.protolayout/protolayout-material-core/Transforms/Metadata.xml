@@ -1,2 +1,16 @@
 <metadata>
+    <!-- Button.Builder.build() and Chip.Builder.build() return the concrete type, but
+         ILayoutElementBuilder.Build() expects ILayoutElement — use managedReturn to fix CS0738 -->
+    <attr
+        path="/api/package[@name='androidx.wear.protolayout.materialcore']/class[@name='Button.Builder']/method[@name='build' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.wear.protolayout.materialcore']/class[@name='Chip.Builder']/method[@name='build' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement
+    </attr>
 </metadata>
