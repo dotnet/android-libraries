@@ -75,8 +75,6 @@ jobs:
 
     - name: Log disk space (after externals cache restore)
       uses: ./.github/workflows/log-disk-space
-      with:
-        detailed: 'true'
 
     - name: Run dotnet cake
       run: dotnet cake
@@ -84,8 +82,6 @@ jobs:
 
     - name: Log disk space (after dotnet cake)
       uses: ./.github/workflows/log-disk-space
-      with:
-        detailed: 'true'
 
     # Save the externals cache after dotnet cake runs
     # This ensures the cache reflects the original config.json state
