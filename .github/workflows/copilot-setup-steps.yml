@@ -1,6 +1,13 @@
 name: "Copilot Setup Steps"
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
 
 jobs:
   copilot-setup-steps:
@@ -16,9 +23,10 @@ jobs:
     - name: Setup build directories on secondary disk
       run: |
         echo "Setting up build directories on /mnt (secondary disk with 66G+ free)"
-        mkdir -p /mnt/build-output
-        mkdir -p /mnt/externals
-        mkdir -p /mnt/generated
+        sudo mkdir -p /mnt/build-output
+        sudo mkdir -p /mnt/externals
+        sudo mkdir -p /mnt/generated
+        sudo chmod -R 777 /mnt/build-output /mnt/externals /mnt/generated
         
         # Create symlinks to use the secondary disk
         ln -s /mnt/build-output ./output
