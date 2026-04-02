@@ -1,4 +1,10 @@
 <metadata>
+    <!--
+        camera-camera2-pipe is an internal Kotlin-only implementation detail of CameraX.
+        Its API surface uses Kotlin-specific types (value classes, inline classes, companion objects)
+        and internal visibility that cannot be meaningfully bound in C#.
+        All packages are removed so this artifact ships as a dependency-only (no managed API) package.
+    -->
     <remove-node path="/api/package[@name='androidx.camera.camera2.pipe']" />
     <remove-node path="/api/package[@name='androidx.camera.camera2.pipe.core']" />
     <remove-node path="/api/package[@name='androidx.camera.camera2.pipe.compat']" />
