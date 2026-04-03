@@ -2075,7 +2075,7 @@ Task("tools-executive-oreder-csv-and-markdown")
 
 static List<string> FindNamespacesInDirectory (string directory)
 {
-    var list = new SortedSet<string> ();
+    var list = new SortedSet<string> (StringComparer.Ordinal);
 
     foreach (var file in System.IO.Directory.EnumerateFiles (directory, "*.dll", SearchOption.AllDirectories).Where (f => f.Replace ('\\', '/').Contains ("/obj/")))
         foreach (var ns in FindNamespaces (file))
@@ -2087,7 +2087,7 @@ static List<string> FindNamespacesInDirectory (string directory)
 static List<string> FindNamespaces (string assembly)
 {
     var asm = AssemblyDefinition.ReadAssembly (assembly);
-    var list = new SortedSet<string> ();
+    var list = new SortedSet<string> (StringComparer.Ordinal);
 
     foreach (var module in asm.Modules)
         foreach (var type in module.Types)

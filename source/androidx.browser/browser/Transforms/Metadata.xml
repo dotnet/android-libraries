@@ -21,6 +21,10 @@
     Java.Lang.Object[]
   </attr>
     
+    <!-- Rename AuthenticateUserResultContract typed methods to avoid conflicts with abstract base -->
+    <attr path="/api/package[@name='androidx.browser.auth']/class[@name='AuthTabIntent.AuthenticateUserResultContract']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.content.Intent']]" name="managedName">CreateIntentImpl</attr>
+    <attr path="/api/package[@name='androidx.browser.auth']/class[@name='AuthTabIntent.AuthenticateUserResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]" name="managedName">ParseResultImpl</attr>
+
     <!--    
     <attr
         path="//class[@visibility='']"

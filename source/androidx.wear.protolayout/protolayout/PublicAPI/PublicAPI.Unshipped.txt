@@ -133,6 +133,8 @@ AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters.ScreenShape.
 AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters.ScreenWidthDp.get -> int
 AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.IDevicePlatform
 AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.IScreenShape
+AndroidX.Wear.ProtoLayout.Layout.ContainersKt
+AndroidX.Wear.ProtoLayout.Layout.ImageKt
 AndroidX.Wear.ProtoLayout.Layout.TextKt
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Arc
@@ -374,9 +376,12 @@ AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.Build() -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.Builder() -> void
+AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.Builder(AndroidX.Wear.ProtoLayout.ProtoLayoutScope? scope) -> void
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetColorFilter(AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ColorFilter? colorFilter) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetContentScaleMode(AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ContentScaleModeProp? contentScaleMode) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetContentScaleMode(int contentScaleMode) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
+AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetImageResource(AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource? resource) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
+AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetImageResource(AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource? resource, string? resourceId) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetModifiers(AndroidX.Wear.ProtoLayout.ModifiersBuilders.Modifiers? modifiers) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetResourceId(AndroidX.Wear.ProtoLayout.TypeBuilders.StringProp? resourceId) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
 AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder.SetResourceId(string? resourceId) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Image.Builder?
@@ -537,6 +542,7 @@ AndroidX.Wear.ProtoLayout.Modifiers.ModifierAppliersKt
 AndroidX.Wear.ProtoLayout.Modifiers.OpacityKt
 AndroidX.Wear.ProtoLayout.Modifiers.PaddingKt
 AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt
+AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt
 AndroidX.Wear.ProtoLayout.Modifiers.TransitionKt
 AndroidX.Wear.ProtoLayout.Modifiers.VisibilityKt
 AndroidX.Wear.ProtoLayout.ModifiersBuilders
@@ -582,7 +588,9 @@ AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.Build() -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.Builder() -> void
+AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.Builder(AndroidX.Wear.ProtoLayout.ProtoLayoutScope? scope, string? clickableId) -> void
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.SetId(string? id) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder?
+AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.SetOnClick(Android.App.PendingIntent? pendingIntent) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.SetOnClick(AndroidX.Wear.ProtoLayout.ActionBuilders.IAction? onClick) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder.SetVisualFeedbackEnabled(bool visualFeedbackEnabled) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Builder?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
@@ -756,6 +764,16 @@ AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.Builder.SetScaleY(And
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.ScaleX.get -> AndroidX.Wear.ProtoLayout.TypeBuilders.FloatProp?
 AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.ScaleY.get -> AndroidX.Wear.ProtoLayout.TypeBuilders.FloatProp?
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.CollectPendingIntents() -> Android.OS.Bundle!
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.CollectResources() -> AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources!
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.HasCapability(AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability! capability) -> bool
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.HasResources.get -> bool
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.ProtoLayoutScope() -> void
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.ProtoLayoutScope(AndroidX.Wear.ProtoLayout.Expression.VersionBuilders.VersionInfo! rendererVersionInfo) -> void
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RegisterPendingIntent(string! id, Android.App.PendingIntent! intent) -> void
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RegisterResource(string! id, AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource! resource) -> void
+AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability
 AndroidX.Wear.ProtoLayout.ResourceBuilders
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidAnimatedImageResourceByResId
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidAnimatedImageResourceByResId.AnimatedImageFormat.get -> int
@@ -778,8 +796,10 @@ AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder.Build() -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder.Builder(int resourceId) -> void
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder.SetProgress(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? progress) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder?
+AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder.SetProperties(params AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty![]? properties) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder.SetStartTrigger(AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? startTrigger) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Builder?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Progress.get -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat?
+AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.Properties.get -> System.Collections.Generic.IList<AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty!>?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.RawResourceId.get -> int
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.StartTrigger.get -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidSeekableAnimatedImageResourceByResId
@@ -820,6 +840,10 @@ AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.Format.get -> int
 AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.GetData() -> byte[]?
 AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.HeightPx.get -> int
 AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.WidthPx.get -> int
+AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty
+AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.IBuilder
+AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.IBuilder.Build() -> AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty?
+AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.LottieProperty(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources
 AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources.Builder
 AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources.Builder.AddIdToImageMapping(string? id, AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource? image) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources.Builder?
@@ -866,7 +890,9 @@ AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry.Layout.get -> AndroidX.
 AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry.Validity.get -> AndroidX.Wear.ProtoLayout.TimelineBuilders.TimeInterval?
 AndroidX.Wear.ProtoLayout.TriggerBuilders
 AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger
+AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger.Equal(AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? trigger, AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? that) -> bool
 AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
+AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger.Hash(AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? trigger) -> int
 AndroidX.Wear.ProtoLayout.TriggerBuilders.ITriggerBuilder
 AndroidX.Wear.ProtoLayout.TriggerBuilders.ITriggerBuilder.Build() -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
 AndroidX.Wear.ProtoLayout.TriggerBuilders.OnVisibleOnceTrigger
@@ -879,6 +905,8 @@ AndroidX.Wear.ProtoLayout.TriggerBuilders.OnVisibleTrigger.Builder
 AndroidX.Wear.ProtoLayout.TriggerBuilders.OnVisibleTrigger.Builder.Build() -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
 AndroidX.Wear.ProtoLayout.TriggerBuilders.OnVisibleTrigger.Builder.Builder() -> void
 AndroidX.Wear.ProtoLayout.TriggerBuilders.OnVisibleTrigger.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
+AndroidX.Wear.ProtoLayout.TriggerBuilders.Trigger
+AndroidX.Wear.ProtoLayout.TriggerBuilders.TriggerConsts
 AndroidX.Wear.ProtoLayout.TypeBuilders
 AndroidX.Wear.ProtoLayout.TypeBuilders.BoolProp
 AndroidX.Wear.ProtoLayout.TypeBuilders.BoolProp.Builder
@@ -936,6 +964,7 @@ AndroidX.Wear.ProtoLayout.Types.LayoutString
 AndroidX.Wear.ProtoLayout.Types.LayoutString.DynamicValue.get -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString?
 AndroidX.Wear.ProtoLayout.Types.LayoutString.LayoutConstraint.get -> AndroidX.Wear.ProtoLayout.TypeBuilders.StringLayoutConstraint?
 AndroidX.Wear.ProtoLayout.Types.LayoutString.LayoutString(string! staticValue) -> void
+AndroidX.Wear.ProtoLayout.Types.LayoutString.LayoutString(string! staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicValue) -> void
 AndroidX.Wear.ProtoLayout.Types.LayoutString.LayoutString(string! staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! dynamicValue, AndroidX.Wear.ProtoLayout.TypeBuilders.StringLayoutConstraint! layoutConstraint) -> void
 AndroidX.Wear.ProtoLayout.Types.LayoutString.Prop.get -> AndroidX.Wear.ProtoLayout.TypeBuilders.StringProp!
 AndroidX.Wear.ProtoLayout.Types.LayoutString.StaticValue.get -> string!
@@ -1046,6 +1075,8 @@ override AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.Capabilities.JniPeer
 override AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.Layout.ContainersKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.Layout.ImageKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Layout.TextKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Arc.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Arc.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1120,6 +1151,7 @@ override AndroidX.Wear.ProtoLayout.Modifiers.ModifierAppliersKt.JniPeerMembers.g
 override AndroidX.Wear.ProtoLayout.Modifiers.OpacityKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Modifiers.PaddingKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Modifiers.TransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Modifiers.VisibilityKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ModifiersBuilders.AnimatedVisibility.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1166,6 +1198,8 @@ override AndroidX.Wear.ProtoLayout.ModifiersBuilders.SpanModifiers.Builder.JniPe
 override AndroidX.Wear.ProtoLayout.ModifiersBuilders.SpanModifiers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ModifiersBuilders.Transformation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.ProtoLayoutScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidAnimatedImageResourceByResId.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidAnimatedImageResourceByResId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidImageResourceByResId.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1179,6 +1213,9 @@ override AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource.JniPeerMembers
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.ThresholdClass.get -> nint
+override AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.ThresholdType.get -> System.Type!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.ResourceBuilders.Resources.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.StateBuilders.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1220,6 +1257,12 @@ static AndroidX.Wear.ProtoLayout.ActionBuilders.InvokeLaunchAction(Android.Conte
 static AndroidX.Wear.ProtoLayout.ActionBuilders.LongExtra(long value) -> AndroidX.Wear.ProtoLayout.ActionBuilders.AndroidLongExtra?
 static AndroidX.Wear.ProtoLayout.ActionBuilders.StringExtra(string? value) -> AndroidX.Wear.ProtoLayout.ActionBuilders.AndroidStringExtra?
 static AndroidX.Wear.ProtoLayout.ColorBuilders.Argb(int colorArgb) -> AndroidX.Wear.ProtoLayout.ColorBuilders.ColorProp?
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.AndroidImageResource(int resourceId) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidImageResourceByResId!
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.ImageResource(AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidImageResourceByResId? androidImage, AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource? inlineImage, AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId? lottie) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.ImageResource!
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.InlineImageResource(byte[]! compressedBytes, int widthPx, int heightPx) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource!
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.InlineImageResource(byte[]! pixelBuffer, int format, int widthPx, int heightPx) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.InlineImageResource!
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.LottieResource(int rawResourceId, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! progress, System.Collections.Generic.IList<AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty!>! properties) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId!
+static AndroidX.Wear.ProtoLayout.Layout.ImageKt.LottieResource(int rawResourceId, AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? startTrigger, System.Collections.Generic.IList<AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty!>! properties) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId!
 static AndroidX.Wear.ProtoLayout.Layout.TextKt.BasicText(AndroidX.Wear.ProtoLayout.Types.LayoutString! text, AndroidX.Wear.ProtoLayout.LayoutElementBuilders.FontStyle? fontStyle, AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier? modifier, int maxLines, int alignment, int overflow, float lineHeight) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.Text!
 static AndroidX.Wear.ProtoLayout.Layout.TextKt.FontStyle(float size, bool italic, bool underline, AndroidX.Wear.ProtoLayout.Types.LayoutColor? color, int weight, float letterSpacingEm, System.Collections.Generic.IList<Java.Lang.Float!>! additionalSizesSp, System.Collections.Generic.IList<AndroidX.Wear.ProtoLayout.LayoutElementBuilders.IFontSetting!>! settings, System.Collections.Generic.IList<string!>! preferredFontFamilies) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.FontStyle!
 static AndroidX.Wear.ProtoLayout.LayoutElementBuilders.FontSetting.Roundness(int value) -> AndroidX.Wear.ProtoLayout.LayoutElementBuilders.IFontSetting?
@@ -1256,6 +1299,10 @@ static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.P
 static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.ActionBuilders.IAction! action, string? id, float minClickableWidth, float minClickableHeight) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable!
 static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ActionBuilders.IAction! action, string? id) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable! clickable) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.ProtoLayoutScope! obj, Android.App.PendingIntent! pendingIntent, string! id) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable!
+static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.ProtoLayoutScope! obj, Android.App.PendingIntent! pendingIntent, string! id, AndroidX.Wear.ProtoLayout.ActionBuilders.IAction? fallbackAction) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable!
+static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.ProtoLayoutScope! obj, Android.App.PendingIntent! pendingIntent, string! id, AndroidX.Wear.ProtoLayout.ActionBuilders.IAction? fallbackAction, float minClickableWidth) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable!
+static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.Clickable(AndroidX.Wear.ProtoLayout.ProtoLayoutScope! obj, Android.App.PendingIntent! pendingIntent, string! id, AndroidX.Wear.ProtoLayout.ActionBuilders.IAction? fallbackAction, float minClickableWidth, float minClickableHeight) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Clickable!
 static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.LoadAction(AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap? requestedStateMap) -> AndroidX.Wear.ProtoLayout.ActionBuilders.LoadAction!
 static AndroidX.Wear.ProtoLayout.Modifiers.ClickableKt.MinimumTouchTargetSize(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float minWidth, float minHeight) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.LayoutModifier.Companion.get -> AndroidX.Wear.ProtoLayout.Modifiers.LayoutModifierCompanion!
@@ -1263,6 +1310,7 @@ static AndroidX.Wear.ProtoLayout.Modifiers.LayoutModifierCompanion.InterfaceCons
 static AndroidX.Wear.ProtoLayout.Modifiers.MetadataKt.Tag(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, byte[]! tagData) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.MetadataKt.Tag(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, string! tag) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.ModifierAppliersKt.ToProtoLayoutModifiers(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.Modifiers!
+static AndroidX.Wear.ProtoLayout.Modifiers.OpacityKt.FadeInOnVisibleModifier(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.Expression.AnimationParameterBuilders.AnimationSpec! animationSpec) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.OpacityKt.Opacity(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValue) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.PaddingKt.Padding(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ModifiersBuilders.Padding! padding) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.PaddingKt.Padding(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float all) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
@@ -1275,6 +1323,15 @@ static AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt.ClearSemantics(AndroidX.W
 static AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt.ContentDescription(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, string! staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString? dynamicValue) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt.SemanticsHeading(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, bool heading) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.SemanticsKt.SemanticsRole(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, int semanticsRole) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.PivotX(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValueDp, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValueDp) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.PivotY(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValueDp, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValueDp) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.RatioPivotX(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticRatio, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicRatio) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.RatioPivotY(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticRatio, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicRatio) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.Rotate(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValueDegrees, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValueDegrees) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.ScaleX(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValue) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.ScaleY(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValue, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValue) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.TranslateX(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValueDp, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValueDp) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
+static AndroidX.Wear.ProtoLayout.Modifiers.TransformationKt.TranslateY(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, float staticValueDp, AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat? dynamicValueDp) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.TransitionKt.EnterTransition(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ModifiersBuilders.EnterTransition! transition) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.TransitionKt.EnterTransition(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ModifiersBuilders.FadeInTransition? fadeIn, AndroidX.Wear.ProtoLayout.ModifiersBuilders.SlideInTransition? slideIn) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
 static AndroidX.Wear.ProtoLayout.Modifiers.TransitionKt.ExitTransition(AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier! obj, AndroidX.Wear.ProtoLayout.ModifiersBuilders.ExitTransition! transition) -> AndroidX.Wear.ProtoLayout.Modifiers.ILayoutModifier!
@@ -1286,6 +1343,13 @@ static AndroidX.Wear.ProtoLayout.ModifiersBuilders.DefaultContentTransitions.Fad
 static AndroidX.Wear.ProtoLayout.ModifiersBuilders.DefaultContentTransitions.FadeOutSlideOut(int slideDirection) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.ExitTransition?
 static AndroidX.Wear.ProtoLayout.ModifiersBuilders.DefaultContentTransitions.SlideIn(int slideDirection) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.EnterTransition?
 static AndroidX.Wear.ProtoLayout.ModifiersBuilders.DefaultContentTransitions.SlideOut(int slideDirection) -> AndroidX.Wear.ProtoLayout.ModifiersBuilders.ExitTransition?
+static AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.Entries.get -> Kotlin.Enums.IEnumEntries!
+static AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.LottieColorForSlot.get -> AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability?
+static AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.PendingIntentAction.get -> AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability?
+static AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.ValueOf(string? value) -> AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability?
+static AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability.Values() -> AndroidX.Wear.ProtoLayout.ProtoLayoutScope.RendererCapability![]?
+static AndroidX.Wear.ProtoLayout.ResourceBuilders.AndroidLottieResourceByResId.MaxPropertiesCount.get -> int
+static AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty.ColorForSlot(string? sid, AndroidX.Wear.ProtoLayout.ColorBuilders.ColorProp? color) -> AndroidX.Wear.ProtoLayout.ResourceBuilders.LottieProperty?
 static AndroidX.Wear.ProtoLayout.StateBuilders.State.MaxStateEntryCount.get -> int
 static AndroidX.Wear.ProtoLayout.TimelineBuilders.Timeline.FromLayoutElement(AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement? layoutElement) -> AndroidX.Wear.ProtoLayout.TimelineBuilders.Timeline?
 static AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry.FromLayoutElement(AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement? layoutElement) -> AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry?
@@ -1293,12 +1357,17 @@ static AndroidX.Wear.ProtoLayout.TriggerBuilders.CreateOnConditionMetTrigger(And
 static AndroidX.Wear.ProtoLayout.TriggerBuilders.CreateOnLoadTrigger() -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
 static AndroidX.Wear.ProtoLayout.TriggerBuilders.CreateOnVisibleOnceTrigger() -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
 static AndroidX.Wear.ProtoLayout.TriggerBuilders.CreateOnVisibleTrigger() -> AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger?
+static AndroidX.Wear.ProtoLayout.TriggerBuilders.Trigger.Equal(AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? trigger, AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? that) -> bool
+static AndroidX.Wear.ProtoLayout.TriggerBuilders.Trigger.Hash(AndroidX.Wear.ProtoLayout.TriggerBuilders.ITrigger? trigger) -> int
+static AndroidX.Wear.ProtoLayout.Types.HelpersKt.AsFloatProp(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat! obj, float staticValue) -> AndroidX.Wear.ProtoLayout.TypeBuilders.FloatProp!
 static AndroidX.Wear.ProtoLayout.Types.HelpersKt.GetProp(bool obj) -> AndroidX.Wear.ProtoLayout.TypeBuilders.BoolProp!
+static AndroidX.Wear.ProtoLayout.Types.HelpersKt.GetProp(float obj) -> AndroidX.Wear.ProtoLayout.TypeBuilders.FloatProp!
 static AndroidX.Wear.ProtoLayout.Types.LayoutColorUtil.CreateLayoutColor(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicColor! obj, int staticArgb) -> AndroidX.Wear.ProtoLayout.Types.LayoutColor!
 static AndroidX.Wear.ProtoLayout.Types.LayoutColorUtil.CreateLayoutColor(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicColor! obj, long staticArgb) -> AndroidX.Wear.ProtoLayout.Types.LayoutColor!
 static AndroidX.Wear.ProtoLayout.Types.LayoutColorUtil.CreateLayoutColor(int obj) -> AndroidX.Wear.ProtoLayout.Types.LayoutColor!
 static AndroidX.Wear.ProtoLayout.Types.LayoutColorUtil.CreateLayoutColor(long obj) -> AndroidX.Wear.ProtoLayout.Types.LayoutColor!
 static AndroidX.Wear.ProtoLayout.Types.LayoutStringUtil.AsLayoutConstraint(string! obj, int alignment) -> AndroidX.Wear.ProtoLayout.TypeBuilders.StringLayoutConstraint!
+static AndroidX.Wear.ProtoLayout.Types.LayoutStringUtil.CreateLayoutString(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! obj, string! staticValue) -> AndroidX.Wear.ProtoLayout.Types.LayoutString!
 static AndroidX.Wear.ProtoLayout.Types.LayoutStringUtil.CreateLayoutString(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicString! obj, string! staticValue, AndroidX.Wear.ProtoLayout.TypeBuilders.StringLayoutConstraint! layoutConstraint) -> AndroidX.Wear.ProtoLayout.Types.LayoutString!
 static AndroidX.Wear.ProtoLayout.Types.LayoutStringUtil.CreateLayoutString(string! obj) -> AndroidX.Wear.ProtoLayout.Types.LayoutString!
 static AndroidX.Wear.ProtoLayout.Types.LayoutStringUtil.StringLayoutConstraint(string! longestPattern) -> AndroidX.Wear.ProtoLayout.TypeBuilders.StringLayoutConstraint!

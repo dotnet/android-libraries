@@ -164,5 +164,11 @@
         AndroidX.Media3.Common.IVideoGraph
     </attr>
 
+    <!-- GlShaderProgramFrameProcessor implements the generic FrameProcessor<GlTextureFrame,GlTextureFrame>
+         interface, but the binding generator cannot produce a usable IFrameProcessor binding for a raw
+         generic interface type — remove the implements to avoid CS0234/CS0538. -->
+    <remove-node
+        path="/api/package[@name='androidx.media3.effect']/class[@name='GlShaderProgramFrameProcessor']/implements[@name='androidx.media3.effect.FrameProcessor']"
+        />
 
 </metadata>

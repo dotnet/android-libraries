@@ -249,7 +249,11 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.AddListener(And
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.DeactivatePlaylistForPlayback(Android.Net.Uri? url) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.ExcludeMediaPlaylist(Android.Net.Uri? playlistUrl, long exclusionDurationMs) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.GetPlaylistSnapshot(Android.Net.Uri? url, bool isForPlayback) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.GetRedundantGroup(Android.Net.Uri? playlistUrl) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.GetRedundantGroupsImpl(int type) -> Google.Common.Collect.ImmutableList?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.InitialStartTimeUs.get -> long
+AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.IsExcluded(Android.Net.Uri? playlistUrl, long nowMs) -> bool
+AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.IsExcluded(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup? redundantGroup, long nowMs) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.IsLive.get -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.IsSnapshotValid(Android.Net.Uri? url) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.MaybeThrowPlaylistRefreshError(Android.Net.Uri? url) -> void
@@ -470,7 +474,9 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.GroupId
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.GroupId.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Name.get -> string?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Name.set -> void
-AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Rendition(Android.Net.Uri? url, AndroidX.Media3.Common.Format? format, string? groupId, string? name) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Rendition(Android.Net.Uri? url, AndroidX.Media3.Common.Format? format, string? groupId, string? name, string? stableRenditionId) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.StableRenditionId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.StableRenditionId.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Url.get -> Android.Net.Uri?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition.Url.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.SessionKeyDrmInitData.get -> System.Collections.IList?
@@ -487,11 +493,15 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.CaptionGr
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.CopyWithFormat(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Format.get -> AndroidX.Media3.Common.Format?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Format.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.PathwayId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.PathwayId.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.StableVariantId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.StableVariantId.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.SubtitleGroupId.get -> string?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.SubtitleGroupId.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Url.get -> Android.Net.Uri?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Url.set -> void
-AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Variant(Android.Net.Uri? url, AndroidX.Media3.Common.Format? format, string? videoGroupId, string? audioGroupId, string? subtitleGroupId, string? captionGroupId) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.Variant(Android.Net.Uri? url, AndroidX.Media3.Common.Format? format, string? videoGroupId, string? audioGroupId, string? subtitleGroupId, string? captionGroupId, string? pathwayId, string? stableVariantId) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.VideoGroupId.get -> string?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.VideoGroupId.set -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variants.get -> System.Collections.IList?
@@ -525,6 +535,30 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPlaylistStuckException.
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPrimaryPlaylistEventArgs
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPrimaryPlaylistEventArgs.HlsPlaylistTrackerPrimaryPlaylistEventArgs(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist? p0) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPrimaryPlaylistEventArgs.P0.get -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.AllPathwayIds.get -> Google.Common.Collect.ImmutableSet?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.AllPlaylistUrls.get -> Google.Common.Collect.ImmutableSet?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.CurrentPathwayId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.CurrentPathwayId.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.CurrentPlaylistUrl.get -> Android.Net.Uri?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GetPlaylistUrl(string? pathwayId) -> Android.Net.Uri?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.Format.get -> AndroidX.Media3.Common.Format?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.Format.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.GroupKey(AndroidX.Media3.Common.Format? format, string? stableId) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.GroupKey(AndroidX.Media3.Common.Format? format, string? stableId, string? name) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.GroupKey(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.Name.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.Name.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.StableId.get -> string?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.StableId.set -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.HlsRedundantGroup(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey? groupKey, string? pathwayId, Android.Net.Uri? playlistUrl) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.HlsRedundantGroup(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey? groupKey, string? pathwayId, Android.Net.Uri? playlistUrl, int indexInMultivariantPlaylist) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.IType
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.IndicesInMultivariantPlaylist.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.Put(string? pathwayId, Android.Net.Uri? playlistUrl) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.Put(string? pathwayId, Android.Net.Uri? playlistUrl, int indexInMultivariantPlaylist) -> void
+AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.Size() -> int
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory.CreatePlaylistParser() -> AndroidX.Media3.ExoPlayer.Upstream.ParsingLoadable.IParser?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistParserFactory.CreatePlaylistParser(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist? p0, AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist? p1) -> AndroidX.Media3.ExoPlayer.Upstream.ParsingLoadable.IParser?
@@ -533,7 +567,11 @@ AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.AddListener(AndroidX.
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.DeactivatePlaylistForPlayback(Android.Net.Uri? url) -> void
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.ExcludeMediaPlaylist(Android.Net.Uri? p0, long p1) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.GetPlaylistSnapshot(Android.Net.Uri? p0, bool p1) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.GetRedundantGroup(Android.Net.Uri? p0) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup?
+AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.GetRedundantGroups(int p0) -> System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup!>?
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.InitialStartTimeUs.get -> long
+AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.IsExcluded(Android.Net.Uri? p0, long p1) -> bool
+AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.IsExcluded(AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup? p0, long p1) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.IsLive.get -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.IsSnapshotValid(Android.Net.Uri? p0) -> bool
 AndroidX.Media3.ExoPlayer.Hls.Playlist.IHlsPlaylistTracker.MaybeThrowPlaylistRefreshError(Android.Net.Uri? p0) -> void
@@ -593,6 +631,10 @@ const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.PlaylistTypeVod = 
 const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.GroupIndexAudio = 1 -> int
 const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.GroupIndexSubtitle = 2 -> int
 const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.GroupIndexVariant = 0 -> int
+const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.AudioRendition = 2 -> int
+const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.SubtitleRendition = 3 -> int
+const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.Variant = 0 -> int
+const AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.VideoRendition = 1 -> int
 override AndroidX.Media3.ExoPlayer.Hls.BundledHlsMediaChunkExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.DefaultHlsDataSourceFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.DefaultHlsExtractorFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -641,6 +683,10 @@ override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistParser.DeltaUpdateExc
 override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPlaylistResetException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsPlaylistTrackerPlaylistStuckException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.ThresholdClass.get -> nint
+override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.GroupKey.ThresholdType.get -> System.Type!
+override AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.SampleQueueMappingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.TimestampAdjusterProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Hls.WebvttExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -651,6 +697,8 @@ static AndroidX.Media3.ExoPlayer.Hls.Playlist.DefaultHlsPlaylistTracker.Factory.
 static AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.CreateSingleVariantMultivariantPlaylist(string? variantUrl) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist?
 static AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Empty.get -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist?
 static AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant.CreateMediaPlaylistVariantUrl(Android.Net.Uri? url) -> AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant?
+static AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.CreateRenditionRedundantGroupList(System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Rendition!>? renditions) -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsRedundantGroup.CreateVariantRedundantGroupList(System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMultivariantPlaylist.Variant!>? variants) -> Google.Common.Collect.ImmutableList?
 virtual AndroidX.Media3.ExoPlayer.Hls.HlsInterstitialsAdsLoader.AdsResumptionState.ToBundle() -> Android.OS.Bundle?
 virtual AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.ClientDefinedAttribute.DoubleValue.get -> double
 virtual AndroidX.Media3.ExoPlayer.Hls.Playlist.HlsMediaPlaylist.ClientDefinedAttribute.TextValue.get -> string?
