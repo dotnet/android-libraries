@@ -1,3 +1,4 @@
+using System;
 using Android.Content;
 
 namespace AndroidX.Browser.Auth;

@@ -32,7 +32,7 @@
 |  25|androidx.camera:camera-video                                          |1.6.0               |Xamarin.AndroidX.Camera.Video                                         |1.6.0               |
 |  26|androidx.camera:camera-view                                           |1.6.0               |Xamarin.AndroidX.Camera.View                                          |1.6.0               |
 |  27|androidx.camera.featurecombinationquery:featurecombinationquery       |1.6.0               |Xamarin.AndroidX.Camera.FeatureCombinationQuery                       |1.6.0               |
-|  28|androidx.camera.viewfinder:viewfinder-core                            |1.5.1               |Xamarin.AndroidX.Camera.Viewfinder.Core                               |1.5.1               |
+|  28|androidx.camera.viewfinder:viewfinder-core                            |1.6.0               |Xamarin.AndroidX.Camera.Viewfinder.Core                               |1.6.0               |
 |  29|androidx.car:car                                                      |1.0.0-alpha7        |Xamarin.AndroidX.Car.Car                                              |1.0.0.34-alpha7     |
 |  30|androidx.car:car-cluster                                              |1.0.0-alpha5        |Xamarin.AndroidX.Car.Cluster                                          |1.0.0.34-alpha5     |
 |  31|androidx.car.app:app                                                  |1.7.0               |Xamarin.AndroidX.Car.App.App                                          |1.7.0.3             |
@@ -103,8 +103,8 @@
 |  96|androidx.contentpager:contentpager                                    |1.0.0               |Xamarin.AndroidX.ContentPager                                         |1.0.0.36            |
 |  97|androidx.coordinatorlayout:coordinatorlayout                          |1.3.0               |Xamarin.AndroidX.CoordinatorLayout                                    |1.3.0.5             |
 |  98|androidx.core:core                                                    |1.18.0              |Xamarin.AndroidX.Core                                                 |1.18.0              |
-|  99|androidx.core:core-backported-fixes                                   |1.0.0               |Xamarin.AndroidX.Core.BackportedFixes                                 |1.0.0               |
-| 100|androidx.core:core-animation                                          |1.0.0               |Xamarin.AndroidX.Core.Animation                                       |1.0.0.10            |
+|  99|androidx.core:core-animation                                          |1.0.0               |Xamarin.AndroidX.Core.Animation                                       |1.0.0.10            |
+| 100|androidx.core:core-backported-fixes                                   |1.0.0               |Xamarin.AndroidX.Core.BackportedFixes                                 |1.0.0               |
 | 101|androidx.core:core-google-shortcuts                                   |1.1.0               |Xamarin.AndroidX.Core.GoogleShortcuts                                 |1.1.0.21            |
 | 102|androidx.core:core-ktx                                                |1.18.0              |Xamarin.AndroidX.Core.Core.Ktx                                        |1.18.0              |
 | 103|androidx.core:core-role                                               |1.1.0               |Xamarin.AndroidX.Core.Role                                            |1.1.0.5             |
@@ -644,7 +644,7 @@
 | 637|org.aomedia.avif.android:avif                                         |1.1.1.14d8e3c4      |Xamarin.AOMedia.AVIF.Android                                          |1.1.1.349758411     |
 | 638|org.brotli:dec                                                        |0.1.2               |Xamarin.Brotli.Dec                                                    |0.1.2.11            |
 | 639|org.checkerframework:checker-compat-qual                              |2.5.6               |Xamarin.CheckerFramework.CheckerCompatQual                            |2.5.6.15            |
-| 640|org.checkerframework:checker-qual                                     |3.54.0              |Xamarin.CheckerFramework.CheckerQual                                  |3.54.0              |
+| 640|org.checkerframework:checker-qual                                     |3.54.1              |Xamarin.CheckerFramework.CheckerQual                                  |3.54.1              |
 | 641|org.chromium.net:cronet-api                                           |143.7445.0          |Xamarin.Chromium.CroNet.Api                                           |143.7445.0.1        |
 | 642|org.chromium.net:cronet-common                                        |143.7445.0          |Xamarin.Chromium.CroNet.Common                                        |143.7445.0.1        |
 | 643|org.chromium.net:cronet-embedded                                      |143.7445.0          |Xamarin.Chromium.CroNet.Embedded                                      |143.7445.0.1        |
