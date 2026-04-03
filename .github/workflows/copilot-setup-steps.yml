@@ -1,6 +1,10 @@
 name: "Copilot Setup Steps"
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
 
 jobs:
   copilot-setup-steps:
@@ -16,14 +20,15 @@ jobs:
     - name: Setup build directories on secondary disk
       run: |
         echo "Setting up build directories on /mnt (secondary disk with 66G+ free)"
-        mkdir -p /mnt/build-output
-        mkdir -p /mnt/externals
-        mkdir -p /mnt/generated
+        sudo mkdir -p /mnt/build-output
+        sudo mkdir -p /mnt/externals
+        sudo mkdir -p /mnt/generated
+        sudo chmod -R 777 /mnt/build-output /mnt/externals /mnt/generated
         
         # Create symlinks to use the secondary disk
         ln -s /mnt/build-output ./output
-        ln -s /mnt/externals ./externals-link
-        ln -s /mnt/generated ./generated-link
+        ln -s /mnt/externals ./externals
+        ln -s /mnt/generated ./generated
         
         echo "Build directories configured:"
         ls -la | grep -E "(output|externals|generated)"
@@ -70,8 +75,6 @@ jobs:
 
     - name: Log disk space (after externals cache restore)
       uses: ./.github/workflows/log-disk-space
-      with:
-        detailed: 'true'
 
     - name: Run dotnet cake
       run: dotnet cake
@@ -79,8 +82,6 @@ jobs:
 
     - name: Log disk space (after dotnet cake)
       uses: ./.github/workflows/log-disk-space
-      with:
-        detailed: 'true'
 
     # Save the externals cache after dotnet cake runs
     # This ensures the cache reflects the original config.json state
