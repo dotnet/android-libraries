@@ -644,7 +644,7 @@
 | 637|org.aomedia.avif.android:avif                                         |1.1.1.14d8e3c4      |Xamarin.AOMedia.AVIF.Android                                          |1.1.1.349758411     |
 | 638|org.brotli:dec                                                        |0.1.2               |Xamarin.Brotli.Dec                                                    |0.1.2.11            |
 | 639|org.checkerframework:checker-compat-qual                              |2.5.6               |Xamarin.CheckerFramework.CheckerCompatQual                            |2.5.6.15            |
-| 640|org.checkerframework:checker-qual                                     |3.54.1              |Xamarin.CheckerFramework.CheckerQual                                  |3.54.1              |
+| 640|org.checkerframework:checker-qual                                     |3.55.1              |Xamarin.CheckerFramework.CheckerQual                                  |3.55.1              |
 | 641|org.chromium.net:cronet-api                                           |143.7445.0          |Xamarin.Chromium.CroNet.Api                                           |143.7445.0.1        |
 | 642|org.chromium.net:cronet-common                                        |143.7445.0          |Xamarin.Chromium.CroNet.Common                                        |143.7445.0.1        |
 | 643|org.chromium.net:cronet-embedded                                      |143.7445.0          |Xamarin.Chromium.CroNet.Embedded                                      |143.7445.0.1        |
