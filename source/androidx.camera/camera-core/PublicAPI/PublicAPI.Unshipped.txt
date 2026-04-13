@@ -22,14 +22,8 @@ AndroidX.Camera.Core.CameraFilter
 AndroidX.Camera.Core.CameraFilterConsts
 AndroidX.Camera.Core.CameraIdentifier
 AndroidX.Camera.Core.CameraIdentifier.CameraIds.get -> System.Collections.Generic.IList<string!>!
-AndroidX.Camera.Core.CameraIdentifier.Companion
-AndroidX.Camera.Core.CameraIdentifier.Companion.Create(System.Collections.Generic.IList<string!>! cameraIds) -> AndroidX.Camera.Core.CameraIdentifier!
-AndroidX.Camera.Core.CameraIdentifier.Companion.Create(System.Collections.Generic.IList<string!>! cameraIds, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
-AndroidX.Camera.Core.CameraIdentifier.Companion.Create(string! primaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
-AndroidX.Camera.Core.CameraIdentifier.Companion.Create(string! primaryCameraId, string? secondaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
-AndroidX.Camera.Core.CameraIdentifier.Companion.Create(string! primaryCameraId, string? secondaryCameraId, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
-AndroidX.Camera.Core.CameraIdentifier.Companion.FromAdapterInfos(AndroidX.Camera.Core.Impl.AdapterCameraInfo! primaryInfo, AndroidX.Camera.Core.Impl.AdapterCameraInfo? secondaryInfo) -> AndroidX.Camera.Core.CameraIdentifier!
 AndroidX.Camera.Core.CameraIdentifier.CompatibilityId.get -> AndroidX.Camera.Core.Impl.Identifier?
+AndroidX.Camera.Core.CameraIdentifier.Factory
 AndroidX.Camera.Core.CameraIdentifier.InternalId.get -> string!
 AndroidX.Camera.Core.CameraIdentifier.IsOf(AndroidX.Camera.Core.ICamera! camera) -> bool
 AndroidX.Camera.Core.CameraIdentifier.IsOf(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> bool
@@ -78,9 +72,9 @@ AndroidX.Camera.Core.CameraX.CameraFactory.get -> AndroidX.Camera.Core.Impl.ICam
 AndroidX.Camera.Core.CameraX.CameraRepository.get -> AndroidX.Camera.Core.Impl.CameraRepository?
 AndroidX.Camera.Core.CameraX.CameraUseCaseAdapterProvider.get -> AndroidX.Camera.Core.ICameraUseCaseAdapterProvider?
 AndroidX.Camera.Core.CameraX.CameraX(Android.Content.Context? context, AndroidX.Camera.Core.CameraXConfig.IProvider? configProvider) -> void
-AndroidX.Camera.Core.CameraX.ConfigImplType.get -> int
 AndroidX.Camera.Core.CameraX.DefaultConfigFactory.get -> AndroidX.Camera.Core.Impl.IUseCaseConfigFactory?
 AndroidX.Camera.Core.CameraX.InitializeFuture.get -> Google.Common.Util.Concurrent.IListenableFuture?
+AndroidX.Camera.Core.CameraX.RotationProvider.get -> AndroidX.Camera.Core.RotationProvider?
 AndroidX.Camera.Core.CameraX.Shutdown() -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Camera.Core.CameraX.StreamSpecsCalculator.get -> AndroidX.Camera.Core.Internal.IStreamSpecsCalculator?
 AndroidX.Camera.Core.CameraXConfig
@@ -93,7 +87,6 @@ AndroidX.Camera.Core.CameraXConfig.Builder.SetCameraExecutor(Java.Util.Concurren
 AndroidX.Camera.Core.CameraXConfig.Builder.SetCameraFactoryProvider(AndroidX.Camera.Core.Impl.ICameraFactoryProvider? cameraFactory) -> AndroidX.Camera.Core.CameraXConfig.Builder?
 AndroidX.Camera.Core.CameraXConfig.Builder.SetCameraOpenRetryMaxTimeoutInMillisWhileResuming(long maxTimeoutInMillis) -> AndroidX.Camera.Core.CameraXConfig.Builder?
 AndroidX.Camera.Core.CameraXConfig.Builder.SetCameraProviderInitRetryPolicy(AndroidX.Camera.Core.IRetryPolicy? retryPolicy) -> AndroidX.Camera.Core.CameraXConfig.Builder?
-AndroidX.Camera.Core.CameraXConfig.Builder.SetConfigImplType(int configImplType) -> AndroidX.Camera.Core.CameraXConfig.Builder?
 AndroidX.Camera.Core.CameraXConfig.Builder.SetDeviceSurfaceManagerProvider(AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManagerProvider? surfaceManagerProvider) -> AndroidX.Camera.Core.CameraXConfig.Builder?
 AndroidX.Camera.Core.CameraXConfig.Builder.SetMinimumLoggingLevel(int logLevel) -> AndroidX.Camera.Core.CameraXConfig.Builder?
 AndroidX.Camera.Core.CameraXConfig.Builder.SetQuirkSettings(AndroidX.Camera.Core.Impl.QuirkSettings? quirkSettings) -> AndroidX.Camera.Core.CameraXConfig.Builder?
@@ -105,20 +98,20 @@ AndroidX.Camera.Core.CameraXConfig.Builder.SetUseCaseConfigFactoryProvider(Andro
 AndroidX.Camera.Core.CameraXConfig.CameraOpenRetryMaxTimeoutInMillisWhileResuming.get -> long
 AndroidX.Camera.Core.CameraXConfig.CameraProviderInitRetryPolicy.get -> AndroidX.Camera.Core.IRetryPolicy?
 AndroidX.Camera.Core.CameraXConfig.Config.get -> AndroidX.Camera.Core.Impl.IConfig?
-AndroidX.Camera.Core.CameraXConfig.ConfigImplType.get -> int
 AndroidX.Camera.Core.CameraXConfig.GetAvailableCamerasLimiter(AndroidX.Camera.Core.CameraSelector? valueIfMissing) -> AndroidX.Camera.Core.CameraSelector?
 AndroidX.Camera.Core.CameraXConfig.GetCameraExecutor(Java.Util.Concurrent.IExecutor? valueIfMissing) -> Java.Util.Concurrent.IExecutor?
 AndroidX.Camera.Core.CameraXConfig.GetCameraFactoryProvider(AndroidX.Camera.Core.Impl.ICameraFactoryProvider? valueIfMissing) -> AndroidX.Camera.Core.Impl.ICameraFactoryProvider?
 AndroidX.Camera.Core.CameraXConfig.GetDeviceSurfaceManagerProvider(AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManagerProvider? valueIfMissing) -> AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManagerProvider?
 AndroidX.Camera.Core.CameraXConfig.GetSchedulerHandler(Android.OS.Handler? valueIfMissing) -> Android.OS.Handler?
 AndroidX.Camera.Core.CameraXConfig.GetUseCaseConfigFactoryProvider(AndroidX.Camera.Core.Impl.IUseCaseConfigFactoryProvider? valueIfMissing) -> AndroidX.Camera.Core.Impl.IUseCaseConfigFactoryProvider?
-AndroidX.Camera.Core.CameraXConfig.IImplType
 AndroidX.Camera.Core.CameraXConfig.IProvider
 AndroidX.Camera.Core.CameraXConfig.IProvider.CameraXConfig.get -> AndroidX.Camera.Core.CameraXConfig?
 AndroidX.Camera.Core.CameraXConfig.IsRepeatingStreamForced.get -> bool
 AndroidX.Camera.Core.CameraXConfig.MinimumLoggingLevel.get -> int
 AndroidX.Camera.Core.CameraXConfig.QuirkSettings.get -> AndroidX.Camera.Core.Impl.QuirkSettings?
 AndroidX.Camera.Core.CameraXThreads
+AndroidX.Camera.Core.CameraXTracer
+AndroidX.Camera.Core.CameraXTracer.Trace(string! label, Kotlin.Jvm.Functions.IFunction0! block) -> Java.Lang.Object?
 AndroidX.Camera.Core.CamerasAddedEventArgs
 AndroidX.Camera.Core.CamerasAddedEventArgs.CamerasAddedEventArgs(System.Collections.Generic.ICollection<AndroidX.Camera.Core.CameraIdentifier!>? p0) -> void
 AndroidX.Camera.Core.CamerasAddedEventArgs.P0.get -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.CameraIdentifier!>?
@@ -144,12 +137,14 @@ AndroidX.Camera.Core.Concurrent.ICameraCoordinator
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.ActiveConcurrentCameraInfos.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.ICameraInfo!>?
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.ActiveConcurrentCameraInfos.set -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.AddListener(AndroidX.Camera.Core.Concurrent.ICameraCoordinatorConcurrentCameraModeListener? p0) -> void
+AndroidX.Camera.Core.Concurrent.ICameraCoordinator.AddPendingCameraInfo(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.CameraOperatingMode.get -> int
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.CameraOperatingMode.set -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.ConcurrentCameraSelectors.get -> System.Collections.Generic.IList<System.Collections.Generic.IList<AndroidX.Camera.Core.CameraSelector!>!>?
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.GetPairedConcurrentCameraId(string? p0) -> string?
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.Init(AndroidX.Camera.Core.Impl.CameraRepository? cameraRepository) -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.RemoveListener(AndroidX.Camera.Core.Concurrent.ICameraCoordinatorConcurrentCameraModeListener? p0) -> void
+AndroidX.Camera.Core.Concurrent.ICameraCoordinator.RemovePendingCameraInfo(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinator.Shutdown() -> void
 AndroidX.Camera.Core.Concurrent.ICameraCoordinatorCameraOperatingMode
 AndroidX.Camera.Core.Concurrent.ICameraCoordinatorConcurrentCameraModeListener
@@ -182,8 +177,6 @@ AndroidX.Camera.Core.ExperimentalMirrorModeAttribute
 AndroidX.Camera.Core.ExperimentalMirrorModeAttribute.ExperimentalMirrorModeAttribute() -> void
 AndroidX.Camera.Core.ExperimentalRetryPolicyAttribute
 AndroidX.Camera.Core.ExperimentalRetryPolicyAttribute.ExperimentalRetryPolicyAttribute() -> void
-AndroidX.Camera.Core.ExperimentalSessionConfigAttribute
-AndroidX.Camera.Core.ExperimentalSessionConfigAttribute.ExperimentalSessionConfigAttribute() -> void
 AndroidX.Camera.Core.ExperimentalUseCaseApiAttribute
 AndroidX.Camera.Core.ExperimentalUseCaseApiAttribute.ExperimentalUseCaseApiAttribute() -> void
 AndroidX.Camera.Core.ExperimentalZeroShutterLagAttribute
@@ -191,18 +184,20 @@ AndroidX.Camera.Core.ExperimentalZeroShutterLagAttribute.ExperimentalZeroShutter
 AndroidX.Camera.Core.Featuregroup.GroupableFeature
 AndroidX.Camera.Core.Featuregroup.GroupableFeature.Companion
 AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureType.get -> int
+AndroidX.Camera.Core.Featuregroup.GroupableFeature.GroupableFeature() -> void
 AndroidX.Camera.Core.Featuregroup.GroupableFeature.GroupableFeature(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Featuregroup.GroupableFeature.IFeatureType
 AndroidX.Camera.Core.Featuregroup.GroupableFeature.WhenMappings
+AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.Companion
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.FpsRangeFeature(int minFps, int maxFps) -> void
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.MaxFps.get -> int
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.MinFps.get -> int
 AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature
-AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.Mode.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode!
-AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode
-AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.VideoStabilizationFeature(AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode! mode) -> void
+AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.VideoStabilization.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization!
+AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.VideoStabilizationFeature(AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization! videoStabilization) -> void
+AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.WhenMappings
 AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQuery
 AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQueryCompanion
 AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQueryCompanion.CreateSessionConfigBuilder(AndroidX.Camera.Core.Impl.IUseCaseConfig! _this_createSessionConfigBuilder, Android.Util.Size! resolution, AndroidX.Camera.Core.DynamicRange! dynamicRange) -> AndroidX.Camera.Core.Impl.SessionConfig.Builder!
@@ -244,8 +239,6 @@ AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Companion
 AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Companion.GetFeatureGroupUseCaseType(AndroidX.Camera.Core.Impl.IUseCaseConfig! _this_getFeatureGroupUseCaseType) -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType!
 AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Companion.GetFeatureGroupUseCaseType(AndroidX.Camera.Core.UseCase! _this_getFeatureGroupUseCaseType) -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType!
 AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Companion.WhenMappings
-AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.DefaultImageFormat.get -> int
-AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.GetImageFormat(Java.Lang.Integer? imageCaptureFormat) -> int
 AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.SurfaceClass.get -> Java.Lang.Class?
 AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.WhenMappings
 AndroidX.Camera.Core.FlashState
@@ -296,6 +289,7 @@ AndroidX.Camera.Core.ICameraFilter.DefaultId.get -> AndroidX.Camera.Core.Impl.Id
 AndroidX.Camera.Core.ICameraFilter.Filter(System.Collections.Generic.IList<AndroidX.Camera.Core.ICameraInfo!>? p0) -> System.Collections.Generic.IList<AndroidX.Camera.Core.ICameraInfo!>?
 AndroidX.Camera.Core.ICameraFilter.Identifier.get -> AndroidX.Camera.Core.Impl.Identifier?
 AndroidX.Camera.Core.ICameraInfo
+AndroidX.Camera.Core.ICameraInfo.AddCameraStateListener(Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? listener) -> void
 AndroidX.Camera.Core.ICameraInfo.CameraIdentifier.get -> AndroidX.Camera.Core.CameraIdentifier?
 AndroidX.Camera.Core.ICameraInfo.CameraSelector.get -> AndroidX.Camera.Core.CameraSelector?
 AndroidX.Camera.Core.ICameraInfo.CameraState.get -> AndroidX.Lifecycle.LiveData?
@@ -305,11 +299,11 @@ AndroidX.Camera.Core.ICameraInfo.GetSupportedFrameRateRanges(AndroidX.Camera.Cor
 AndroidX.Camera.Core.ICameraInfo.HasFlashUnit.get -> bool
 AndroidX.Camera.Core.ICameraInfo.ImplementationType.get -> string?
 AndroidX.Camera.Core.ICameraInfo.IntrinsicZoomRatio.get -> float
-AndroidX.Camera.Core.ICameraInfo.IsFeatureGroupSupported(AndroidX.Camera.Core.SessionConfig? sessionConfig) -> bool
 AndroidX.Camera.Core.ICameraInfo.IsFocusMeteringSupported(AndroidX.Camera.Core.FocusMeteringAction? action) -> bool
 AndroidX.Camera.Core.ICameraInfo.IsLogicalMultiCameraSupported.get -> bool
 AndroidX.Camera.Core.ICameraInfo.IsLowLightBoostSupported.get -> bool
 AndroidX.Camera.Core.ICameraInfo.IsPrivateReprocessingSupported.get -> bool
+AndroidX.Camera.Core.ICameraInfo.IsSessionConfigSupported(AndroidX.Camera.Core.SessionConfig? sessionConfig) -> bool
 AndroidX.Camera.Core.ICameraInfo.IsTorchStrengthSupported.get -> bool
 AndroidX.Camera.Core.ICameraInfo.IsZslSupported.get -> bool
 AndroidX.Camera.Core.ICameraInfo.LensFacing.get -> int
@@ -318,6 +312,7 @@ AndroidX.Camera.Core.ICameraInfo.MaxTorchStrengthLevel.get -> int
 AndroidX.Camera.Core.ICameraInfo.MustPlayShutterSound() -> bool
 AndroidX.Camera.Core.ICameraInfo.PhysicalCameraInfos.get -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.ICameraInfo!>?
 AndroidX.Camera.Core.ICameraInfo.QuerySupportedDynamicRanges(System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>? candidateDynamicRanges) -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>?
+AndroidX.Camera.Core.ICameraInfo.RemoveCameraStateListener(AndroidX.Core.Util.IConsumer? listener) -> void
 AndroidX.Camera.Core.ICameraInfo.SensorRotationDegrees.get -> int
 AndroidX.Camera.Core.ICameraInfo.SupportedFrameRateRanges.get -> System.Collections.Generic.ICollection<Android.Util.Range!>?
 AndroidX.Camera.Core.ICameraInfo.TorchState.get -> AndroidX.Lifecycle.LiveData?
@@ -331,8 +326,8 @@ AndroidX.Camera.Core.ICameraProvider
 AndroidX.Camera.Core.ICameraProvider.AddCameraPresenceListener(Java.Util.Concurrent.IExecutor! executor, AndroidX.Camera.Core.ICameraPresenceListener! listener) -> void
 AndroidX.Camera.Core.ICameraProvider.AvailableCameraInfos.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.ICameraInfo!>!
 AndroidX.Camera.Core.ICameraProvider.AvailableConcurrentCameraInfos.get -> System.Collections.Generic.IList<System.Collections.Generic.IList<AndroidX.Camera.Core.ICameraInfo!>!>!
-AndroidX.Camera.Core.ICameraProvider.ConfigImplType.get -> int
 AndroidX.Camera.Core.ICameraProvider.GetCameraInfo(AndroidX.Camera.Core.CameraSelector! cameraSelector) -> AndroidX.Camera.Core.ICameraInfo!
+AndroidX.Camera.Core.ICameraProvider.GetCameraInfo(AndroidX.Camera.Core.CameraSelector! cameraSelector, AndroidX.Camera.Core.SessionConfig! sessionConfig) -> AndroidX.Camera.Core.ICameraInfo!
 AndroidX.Camera.Core.ICameraProvider.HasCamera(AndroidX.Camera.Core.CameraSelector! cameraSelector) -> bool
 AndroidX.Camera.Core.ICameraProvider.IsConcurrentCameraModeOn.get -> bool
 AndroidX.Camera.Core.ICameraProvider.RemoveCameraPresenceListener(AndroidX.Camera.Core.ICameraPresenceListener! listener) -> void
@@ -343,7 +338,6 @@ AndroidX.Camera.Core.IExperimentalGetImage
 AndroidX.Camera.Core.IExperimentalLensFacing
 AndroidX.Camera.Core.IExperimentalMirrorMode
 AndroidX.Camera.Core.IExperimentalRetryPolicy
-AndroidX.Camera.Core.IExperimentalSessionConfig
 AndroidX.Camera.Core.IExperimentalUseCaseApi
 AndroidX.Camera.Core.IExperimentalZeroShutterLag
 AndroidX.Camera.Core.IExposureState
@@ -599,6 +593,7 @@ AndroidX.Camera.Core.ImageCaptures.Bitmap2JpegBytes.In.In(nint javaReference, An
 AndroidX.Camera.Core.ImageCaptures.BitmapEffect
 AndroidX.Camera.Core.ImageCaptures.BitmapEffect.BitmapEffect(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.ImageCaptures.CameraRequest
+AndroidX.Camera.Core.ImageCaptures.CameraRequest.CameraRequest(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.CaptureConfig!>? captureConfigs, AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback? callback) -> void
 AndroidX.Camera.Core.ImageCaptures.DngImage2Disk
 AndroidX.Camera.Core.ImageCaptures.DngImage2Disk.DngImage2Disk(Android.Hardware.Camera2.CameraCharacteristics? cameraCharacteristics, Android.Hardware.Camera2.CaptureResult? captureResult) -> void
 AndroidX.Camera.Core.ImageCaptures.DngImage2Disk.DngImage2Disk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -610,6 +605,16 @@ AndroidX.Camera.Core.ImageCaptures.IImageCaptureControl
 AndroidX.Camera.Core.ImageCaptures.IImageCaptureControl.LockFlashMode() -> void
 AndroidX.Camera.Core.ImageCaptures.IImageCaptureControl.SubmitStillCaptureRequests(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.CaptureConfig!>? p0) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Camera.Core.ImageCaptures.IImageCaptureControl.UnlockFlashMode() -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.IsAborted.get -> bool
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnCaptureFailure(AndroidX.Camera.Core.ImageCaptureException? p0) -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnCaptureProcessProgressed(int p0) -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnCaptureStarted() -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnFinalResult(AndroidX.Camera.Core.IImageProxy? p0) -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnFinalResult(AndroidX.Camera.Core.ImageCapture.OutputFileResults? p0) -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnImageCaptured() -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnPostviewBitmapAvailable(Android.Graphics.Bitmap? p0) -> void
+AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback.OnProcessFailure(AndroidX.Camera.Core.ImageCaptureException? p0) -> void
 AndroidX.Camera.Core.ImageCaptures.ITakePictureManager
 AndroidX.Camera.Core.ImageCaptures.ITakePictureManager.AbortRequests() -> void
 AndroidX.Camera.Core.ImageCaptures.ITakePictureManager.CapturingRequest.get -> AndroidX.Camera.Core.ImageCaptures.RequestWithCallback?
@@ -652,6 +657,8 @@ AndroidX.Camera.Core.ImageCaptures.ProcessingNode
 AndroidX.Camera.Core.ImageCaptures.ProcessingNode.In
 AndroidX.Camera.Core.ImageCaptures.ProcessingNode.In.In(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.ImageCaptures.ProcessingNode.ProcessingNode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Core.ImageCaptures.ProcessingRequest
+AndroidX.Camera.Core.ImageCaptures.ProcessingRequest.ProcessingRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.ImageCaptures.RequestWithCallback
 AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.RequestWithCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.ImageCaptures.RgbaImageProxy
@@ -756,13 +763,13 @@ AndroidX.Camera.Core.Impl.CameraMode.IMode
 AndroidX.Camera.Core.Impl.CameraPresenceProvider
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.AddCameraPresenceListener(AndroidX.Camera.Core.ICameraPresenceListener! listener, Java.Util.Concurrent.IExecutor! executor) -> void
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.AddDependentInternalListener(AndroidX.Camera.Core.Impl.IInternalCameraPresenceListener! listener) -> void
-AndroidX.Camera.Core.Impl.CameraPresenceProvider.CameraPresenceProvider(Java.Util.Concurrent.IExecutor! backgroundExecutor) -> void
+AndroidX.Camera.Core.Impl.CameraPresenceProvider.CameraPresenceProvider(Java.Util.Concurrent.IExecutor! backgroundExecutor, Java.Util.Concurrent.IScheduledExecutorService! scheduledExecutor) -> void
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.Companion
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.DependentInternal -> System.EventHandler<AndroidX.Camera.Core.Impl.InternalCameraPresenceEventArgs!>!
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.RemoveCameraPresenceListener(AndroidX.Camera.Core.ICameraPresenceListener! listener) -> void
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.RemoveDependentInternalListener(AndroidX.Camera.Core.Impl.IInternalCameraPresenceListener! listener) -> void
 AndroidX.Camera.Core.Impl.CameraPresenceProvider.Shutdown() -> void
-AndroidX.Camera.Core.Impl.CameraPresenceProvider.Startup(AndroidX.Camera.Core.Impl.ICameraFactory! cameraFactory, AndroidX.Camera.Core.Impl.CameraRepository! cameraRepository) -> void
+AndroidX.Camera.Core.Impl.CameraPresenceProvider.Startup(AndroidX.Camera.Core.Impl.ICameraValidator! cameraValidator, AndroidX.Camera.Core.Impl.ICameraFactory! cameraFactory, AndroidX.Camera.Core.Impl.CameraRepository! cameraRepository) -> void
 AndroidX.Camera.Core.Impl.CameraProviderExecutionState
 AndroidX.Camera.Core.Impl.CameraProviderExecutionState.CameraProviderExecutionState(long taskStartTimeInMillis, int attemptCount, Java.Lang.Throwable? throwable) -> void
 AndroidX.Camera.Core.Impl.CameraProviderExecutionState.Cause.get -> Java.Lang.Throwable?
@@ -785,19 +792,6 @@ AndroidX.Camera.Core.Impl.CameraProviderInitRetryPolicy.TimeoutInMillis.get -> l
 AndroidX.Camera.Core.Impl.CameraRepository
 AndroidX.Camera.Core.Impl.CameraRepository.CameraRepository() -> void
 AndroidX.Camera.Core.Impl.CameraRepository.CameraRepository(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry
-AndroidX.Camera.Core.Impl.CameraStateRegistry.CameraStateRegistry(AndroidX.Camera.Core.Concurrent.ICameraCoordinator? cameraCoordinator, int maxAllowedOpenedCameras) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnConfigureAvailableListener
-AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnConfigureAvailableListener.OnConfigureAvailable() -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnOpenAvailableListener
-AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnOpenAvailableListener.OnOpenAvailable() -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.IsCameraClosing.get -> bool
-AndroidX.Camera.Core.Impl.CameraStateRegistry.MarkCameraState(AndroidX.Camera.Core.ICamera? camera, AndroidX.Camera.Core.Impl.CameraInternalState? state) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.MarkCameraState(AndroidX.Camera.Core.ICamera? camera, AndroidX.Camera.Core.Impl.CameraInternalState? state, bool notifyImmediately) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.OnCameraOperatingModeUpdated(int prevMode, int currMode) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.RegisterCamera(AndroidX.Camera.Core.ICamera? camera, Java.Util.Concurrent.IExecutor? notifyExecutor, AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnConfigureAvailableListener? onConfigureAvailableListener, AndroidX.Camera.Core.Impl.CameraStateRegistry.IOnOpenAvailableListener? onOpenAvailableListener) -> void
-AndroidX.Camera.Core.Impl.CameraStateRegistry.TryOpenCamera(AndroidX.Camera.Core.ICamera? camera) -> bool
-AndroidX.Camera.Core.Impl.CameraStateRegistry.TryOpenCaptureSession(string? cameraId, string? pairedCameraId) -> bool
 AndroidX.Camera.Core.Impl.CameraThreadConfig
 AndroidX.Camera.Core.Impl.CameraThreadConfig.CameraThreadConfig() -> void
 AndroidX.Camera.Core.Impl.CameraThreadConfig.CameraThreadConfig(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -806,9 +800,18 @@ AndroidX.Camera.Core.Impl.CameraUpdateException.CameraUpdateException(Java.Lang.
 AndroidX.Camera.Core.Impl.CameraUpdateException.CameraUpdateException(string? message) -> void
 AndroidX.Camera.Core.Impl.CameraUpdateException.CameraUpdateException(string? message, Java.Lang.Throwable? cause) -> void
 AndroidX.Camera.Core.Impl.CameraValidator
-AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException
-AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.CameraIdListIncorrectException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.CameraIdListIncorrectException(string? message, int availableCameraCount, Java.Lang.Throwable? cause) -> void
+AndroidX.Camera.Core.Impl.CameraValidatorCameraIdListIncorrectException
+AndroidX.Camera.Core.Impl.CameraValidatorCameraIdListIncorrectException.AvailableCameraCount.get -> int
+AndroidX.Camera.Core.Impl.CameraValidatorCameraIdListIncorrectException.CameraValidatorCameraIdListIncorrectException(string? message, int availableCameraCount, Java.Lang.Throwable? cause) -> void
+AndroidX.Camera.Core.Impl.CameraValidatorCompanion
+AndroidX.Camera.Core.Impl.CameraValidatorCompanion.Create(Android.Content.Context! context, AndroidX.Camera.Core.CameraSelector? availableCamerasSelector) -> AndroidX.Camera.Core.Impl.ICameraValidator!
+AndroidX.Camera.Core.Impl.CameraValidatorConsts
+AndroidX.Camera.Core.Impl.CameraValidatorImpl
+AndroidX.Camera.Core.Impl.CameraValidatorImpl.CameraValidatorImpl(Android.Content.Context! context, AndroidX.Camera.Core.CameraSelector? availableCamerasSelector) -> void
+AndroidX.Camera.Core.Impl.CameraValidatorImpl.Companion
+AndroidX.Camera.Core.Impl.CameraValidatorImpl.InterfaceConsts
+AndroidX.Camera.Core.Impl.CameraValidatorImpl.IsChangeInvalid(System.Collections.Generic.ICollection<AndroidX.Camera.Core.Impl.ICameraInternal!>! currentCameras, System.Collections.Generic.ICollection<AndroidX.Camera.Core.CameraIdentifier!>! removedCameras) -> bool
+AndroidX.Camera.Core.Impl.CameraValidatorImpl.ValidateOnFirstInit(AndroidX.Camera.Core.Impl.CameraRepository! cameraRepository) -> void
 AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl
 AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.PreviewCapabilitiesImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Impl.CaptureConfig
@@ -910,6 +913,7 @@ AndroidX.Camera.Core.Impl.ForwardingCameraInfo
 AndroidX.Camera.Core.Impl.ForwardingCameraInfo.ForwardingCameraInfo(AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfoInternal) -> void
 AndroidX.Camera.Core.Impl.ForwardingCameraInfo.ForwardingCameraInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Impl.ForwardingCameraInfo.InterfaceConsts
+AndroidX.Camera.Core.Impl.FrameRates
 AndroidX.Camera.Core.Impl.ICameraCaptureResult
 AndroidX.Camera.Core.Impl.ICameraCaptureResult.AeMode.get -> AndroidX.Camera.Core.Impl.CameraCaptureMetaData.AeMode?
 AndroidX.Camera.Core.Impl.ICameraCaptureResult.AeState.get -> AndroidX.Camera.Core.Impl.CameraCaptureMetaData.AeState?
@@ -971,7 +975,6 @@ AndroidX.Camera.Core.Impl.ICameraControlInternal.InteropConfig.get -> AndroidX.C
 AndroidX.Camera.Core.Impl.ICameraControlInternal.IsInVideoUsage.get -> bool
 AndroidX.Camera.Core.Impl.ICameraControlInternal.IsZslDisabledByByUserCaseConfig.get -> bool
 AndroidX.Camera.Core.Impl.ICameraControlInternal.SessionConfig.get -> AndroidX.Camera.Core.Impl.SessionConfig?
-AndroidX.Camera.Core.Impl.ICameraControlInternal.SetLowLightBoostDisabledByUseCaseSessionConfig(bool disabled) -> void
 AndroidX.Camera.Core.Impl.ICameraControlInternal.SetScreenFlash(AndroidX.Camera.Core.ImageCapture.IScreenFlash? screenFlash) -> void
 AndroidX.Camera.Core.Impl.ICameraControlInternal.SetZslDisabledByUserCaseConfig(bool p0) -> void
 AndroidX.Camera.Core.Impl.ICameraControlInternal.SubmitStillCaptureRequests(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.CaptureConfig!>? p0, int p1, int p2) -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -979,7 +982,7 @@ AndroidX.Camera.Core.Impl.ICameraControlInternalControlUpdateCallback
 AndroidX.Camera.Core.Impl.ICameraControlInternalControlUpdateCallback.OnCameraControlCaptureRequests(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.CaptureConfig!>? p0) -> void
 AndroidX.Camera.Core.Impl.ICameraControlInternalControlUpdateCallback.OnCameraControlUpdateSessionConfig() -> void
 AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManager
-AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManager.GetSuggestedStreamSpecs(int p0, string? p1, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.AttachedSurfaceInfo!>? p2, System.Collections.Generic.IDictionary<AndroidX.Camera.Core.Impl.IUseCaseConfig!, System.Collections.Generic.IList<Android.Util.Size!>!>? p3, bool p4, bool p5, bool p6, bool p7) -> AndroidX.Camera.Core.Impl.SurfaceStreamSpecQueryResult?
+AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManager.GetSuggestedStreamSpecs(int p0, string? p1, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.AttachedSurfaceInfo!>? p2, System.Collections.Generic.IDictionary<AndroidX.Camera.Core.Impl.IUseCaseConfig!, System.Collections.Generic.IList<Android.Util.Size!>!>? p3, AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization? p4, bool p5, bool p6, bool p7) -> AndroidX.Camera.Core.Impl.SurfaceStreamSpecQueryResult?
 AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManager.TransformSurfaceConfig(int p0, string? p1, int p2, Android.Util.Size? p3, AndroidX.Camera.Core.Impl.StreamUseCase? p4) -> AndroidX.Camera.Core.Impl.SurfaceConfig?
 AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManagerProvider
 AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManagerProvider.NewInstance(Android.Content.Context? p0, Java.Lang.Object? p1, System.Collections.Generic.ICollection<string!>? p2) -> AndroidX.Camera.Core.Impl.ICameraDeviceSurfaceManager?
@@ -990,6 +993,8 @@ AndroidX.Camera.Core.Impl.ICameraFactory.CameraManager.get -> Java.Lang.Object?
 AndroidX.Camera.Core.Impl.ICameraFactory.CameraPresenceSource.get -> AndroidX.Camera.Core.Impl.IObservable?
 AndroidX.Camera.Core.Impl.ICameraFactory.GetCamera(string? p0) -> AndroidX.Camera.Core.Impl.ICameraInternal?
 AndroidX.Camera.Core.Impl.ICameraFactory.Shutdown() -> void
+AndroidX.Camera.Core.Impl.ICameraFactoryInterrogator
+AndroidX.Camera.Core.Impl.ICameraFactoryInterrogator.GetAvailableCameraIds(System.Collections.Generic.IList<string!>? p0) -> System.Collections.Generic.IList<string!>?
 AndroidX.Camera.Core.Impl.ICameraFactoryProvider
 AndroidX.Camera.Core.Impl.ICameraFactoryProvider.NewInstance(Android.Content.Context? p0, AndroidX.Camera.Core.Impl.CameraThreadConfig? p1, AndroidX.Camera.Core.CameraSelector? p2, long p3, AndroidX.Camera.Core.CameraXConfig? p4, AndroidX.Camera.Core.Internal.IStreamSpecsCalculator? p5) -> AndroidX.Camera.Core.Impl.ICameraFactory?
 AndroidX.Camera.Core.Impl.ICameraInfoInternal
@@ -1008,6 +1013,7 @@ AndroidX.Camera.Core.Impl.ICameraInfoInternal.GetSupportedHighSpeedResolutionsFo
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.GetSupportedResolutions(int p0) -> System.Collections.Generic.IList<Android.Util.Size!>?
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.Implementation.get -> AndroidX.Camera.Core.Impl.ICameraInfoInternal?
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.IsCaptureProcessProgressSupported.get -> bool
+AndroidX.Camera.Core.Impl.ICameraInfoInternal.IsExternalCamera.get -> bool
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.IsHighSpeedSupported.get -> bool
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.IsPostviewSupported.get -> bool
 AndroidX.Camera.Core.Impl.ICameraInfoInternal.IsPreviewStabilizationSupported.get -> bool
@@ -1038,6 +1044,7 @@ AndroidX.Camera.Core.Impl.ICameraInternal.ExtendedConfig.get -> AndroidX.Camera.
 AndroidX.Camera.Core.Impl.ICameraInternal.ExtendedConfig.set -> void
 AndroidX.Camera.Core.Impl.ICameraInternal.HasTransform.get -> bool
 AndroidX.Camera.Core.Impl.ICameraInternal.IsFrontFacing.get -> bool
+AndroidX.Camera.Core.Impl.ICameraInternal.IsRemoved.get -> bool
 AndroidX.Camera.Core.Impl.ICameraInternal.OnRemoved() -> void
 AndroidX.Camera.Core.Impl.ICameraInternal.Open() -> void
 AndroidX.Camera.Core.Impl.ICameraInternal.Release() -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -1045,6 +1052,11 @@ AndroidX.Camera.Core.Impl.ICameraInternal.SetActiveResumingMode(bool enabled) ->
 AndroidX.Camera.Core.Impl.ICameraInternal.SetPrimary(bool isPrimary) -> void
 AndroidX.Camera.Core.Impl.ICameraPresenceMonitor
 AndroidX.Camera.Core.Impl.ICameraPresenceMonitor.OnCameraIdsUpdated(System.Collections.Generic.IList<string!>? p0) -> void
+AndroidX.Camera.Core.Impl.ICameraValidator
+AndroidX.Camera.Core.Impl.ICameraValidator.Companion.get -> AndroidX.Camera.Core.Impl.CameraValidatorCompanion!
+AndroidX.Camera.Core.Impl.ICameraValidator.Create(Android.Content.Context! context, AndroidX.Camera.Core.CameraSelector? availableCamerasSelector) -> AndroidX.Camera.Core.Impl.ICameraValidator!
+AndroidX.Camera.Core.Impl.ICameraValidator.IsChangeInvalid(System.Collections.Generic.ICollection<AndroidX.Camera.Core.Impl.ICameraInternal!>! currentCameras, System.Collections.Generic.ICollection<AndroidX.Camera.Core.CameraIdentifier!>! removedCameras) -> bool
+AndroidX.Camera.Core.Impl.ICameraValidator.ValidateOnFirstInit(AndroidX.Camera.Core.Impl.CameraRepository! cameraRepository) -> void
 AndroidX.Camera.Core.Impl.ICaptureBundle
 AndroidX.Camera.Core.Impl.ICaptureBundle.CaptureStages.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.ICaptureStage!>?
 AndroidX.Camera.Core.Impl.ICaptureStage
@@ -1079,9 +1091,6 @@ AndroidX.Camera.Core.Impl.IEncoderProfilesProxy.GetRequiredAudioProfile(int code
 AndroidX.Camera.Core.Impl.IEncoderProfilesProxy.GetVideoCodecMimeType(int codec) -> string?
 AndroidX.Camera.Core.Impl.IEncoderProfilesProxy.RecommendedFileFormat.get -> int
 AndroidX.Camera.Core.Impl.IEncoderProfilesProxy.VideoProfiles.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy!>?
-AndroidX.Camera.Core.Impl.IImageInfoProcessor
-AndroidX.Camera.Core.Impl.IImageInfoProcessor.CaptureStage.get -> AndroidX.Camera.Core.Impl.ICaptureStage?
-AndroidX.Camera.Core.Impl.IImageInfoProcessor.Process(AndroidX.Camera.Core.IImageInfo? p0) -> bool
 AndroidX.Camera.Core.Impl.IImageInputConfig
 AndroidX.Camera.Core.Impl.IImageInputConfig.DynamicRange.get -> AndroidX.Camera.Core.DynamicRange?
 AndroidX.Camera.Core.Impl.IImageInputConfig.HasDynamicRange.get -> bool
@@ -1167,28 +1176,9 @@ AndroidX.Camera.Core.Impl.IObservableObserver.OnNewData(Java.Lang.Object? p0) ->
 AndroidX.Camera.Core.Impl.IQuirk
 AndroidX.Camera.Core.Impl.IReadableConfig
 AndroidX.Camera.Core.Impl.IReadableConfig.Config.get -> AndroidX.Camera.Core.Impl.IConfig?
-AndroidX.Camera.Core.Impl.IRequestProcessor
-AndroidX.Camera.Core.Impl.IRequestProcessor.AbortCaptures() -> void
-AndroidX.Camera.Core.Impl.IRequestProcessor.SetRepeating(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? p0, AndroidX.Camera.Core.Impl.IRequestProcessorCallback? p1) -> int
-AndroidX.Camera.Core.Impl.IRequestProcessor.StopRepeating() -> void
-AndroidX.Camera.Core.Impl.IRequestProcessor.Submit(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? p0, AndroidX.Camera.Core.Impl.IRequestProcessorCallback? p1) -> int
-AndroidX.Camera.Core.Impl.IRequestProcessor.Submit(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.IRequestProcessorRequest!>? p0, AndroidX.Camera.Core.Impl.IRequestProcessorCallback? p1) -> int
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureBufferLost(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? request, long frameNumber, int outputConfigId) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureCompleted(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? request, AndroidX.Camera.Core.Impl.ICameraCaptureResult? captureResult) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureFailed(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? request, AndroidX.Camera.Core.Impl.CameraCaptureFailure? captureFailure) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureProgressed(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? request, AndroidX.Camera.Core.Impl.ICameraCaptureResult? captureResult) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureSequenceAborted(int sequenceId) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureSequenceCompleted(int sequenceId, long frameNumber) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorCallback.OnCaptureStarted(AndroidX.Camera.Core.Impl.IRequestProcessorRequest? request, long frameNumber, long timestamp) -> void
-AndroidX.Camera.Core.Impl.IRequestProcessorRequest
-AndroidX.Camera.Core.Impl.IRequestProcessorRequest.Parameters.get -> AndroidX.Camera.Core.Impl.IConfig?
-AndroidX.Camera.Core.Impl.IRequestProcessorRequest.TargetOutputConfigIds.get -> System.Collections.Generic.IList<Java.Lang.Integer!>?
-AndroidX.Camera.Core.Impl.IRequestProcessorRequest.TemplateId.get -> int
 AndroidX.Camera.Core.Impl.IRetryPolicyInternal
 AndroidX.Camera.Core.Impl.IRetryPolicyInternal.Copy(long p0) -> AndroidX.Camera.Core.IRetryPolicy?
 AndroidX.Camera.Core.Impl.ISessionProcessor
-AndroidX.Camera.Core.Impl.ISessionProcessor.AbortCapture(int p0) -> void
 AndroidX.Camera.Core.Impl.ISessionProcessor.AvailableCharacteristicsKeyValues.get -> System.Collections.Generic.IList<Android.Util.Pair!>?
 AndroidX.Camera.Core.Impl.ISessionProcessor.DeInitSession() -> void
 AndroidX.Camera.Core.Impl.ISessionProcessor.ExtensionZoomRange.get -> Android.Util.Range?
@@ -1196,24 +1186,9 @@ AndroidX.Camera.Core.Impl.ISessionProcessor.GetExtensionAvailableStabilizationMo
 AndroidX.Camera.Core.Impl.ISessionProcessor.GetSupportedPostviewSize(Android.Util.Size? captureSize) -> System.Collections.Generic.IDictionary<Java.Lang.Integer!, System.Collections.Generic.IList<Android.Util.Size!>!>?
 AndroidX.Camera.Core.Impl.ISessionProcessor.ImplementationType.get -> Android.Util.Pair?
 AndroidX.Camera.Core.Impl.ISessionProcessor.InitSession(AndroidX.Camera.Core.ICameraInfo? p0, AndroidX.Camera.Core.Impl.OutputSurfaceConfiguration? p1) -> AndroidX.Camera.Core.Impl.SessionConfig?
-AndroidX.Camera.Core.Impl.ISessionProcessor.OnCaptureSessionEnd() -> void
-AndroidX.Camera.Core.Impl.ISessionProcessor.OnCaptureSessionStart(AndroidX.Camera.Core.Impl.IRequestProcessor? p0) -> void
 AndroidX.Camera.Core.Impl.ISessionProcessor.RealtimeCaptureLatency.get -> Android.Util.Pair?
 AndroidX.Camera.Core.Impl.ISessionProcessor.SetCaptureSessionRequestProcessor(AndroidX.Camera.Core.Impl.ISessionProcessorCaptureSessionRequestProcessor? processor) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessor.SetParameters(AndroidX.Camera.Core.Impl.IConfig? p0) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessor.StartCapture(bool p0, AndroidX.Camera.Core.Impl.TagBundle? p1, AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback? p2) -> int
-AndroidX.Camera.Core.Impl.ISessionProcessor.StartRepeating(AndroidX.Camera.Core.Impl.TagBundle? p0, AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback? p1) -> int
-AndroidX.Camera.Core.Impl.ISessionProcessor.StartTrigger(AndroidX.Camera.Core.Impl.IConfig? config, AndroidX.Camera.Core.Impl.TagBundle? tagBundle, AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback? callback) -> int
-AndroidX.Camera.Core.Impl.ISessionProcessor.StopRepeating() -> void
 AndroidX.Camera.Core.Impl.ISessionProcessor.SupportedCameraOperations.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureCompleted(long timestamp, int captureSequenceId, AndroidX.Camera.Core.Impl.ICameraCaptureResult? captureResult) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureFailed(int captureSequenceId) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureProcessProgressed(int progress) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureProcessStarted(int captureSequenceId) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureSequenceAborted(int captureSequenceId) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureSequenceCompleted(int captureSequenceId) -> void
-AndroidX.Camera.Core.Impl.ISessionProcessorCaptureCallback.OnCaptureStarted(int captureSequenceId, long timestamp) -> void
 AndroidX.Camera.Core.Impl.ISessionProcessorCaptureSessionRequestProcessor
 AndroidX.Camera.Core.Impl.ISessionProcessorCaptureSessionRequestProcessor.RealtimeStillCaptureLatency.get -> Android.Util.Pair?
 AndroidX.Camera.Core.Impl.ISessionProcessorCaptureSessionRequestProcessor.SetExtensionStrength(int p0) -> void
@@ -1223,6 +1198,7 @@ AndroidX.Camera.Core.Impl.IUseCaseConfig.CaptureType.get -> AndroidX.Camera.Core
 AndroidX.Camera.Core.Impl.IUseCaseConfig.DefaultCaptureConfig.get -> AndroidX.Camera.Core.Impl.CaptureConfig?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.DefaultSessionConfig.get -> AndroidX.Camera.Core.Impl.SessionConfig?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.GetCaptureOptionUnpacker(AndroidX.Camera.Core.Impl.CaptureConfig.IOptionUnpacker? valueIfMissing) -> AndroidX.Camera.Core.Impl.CaptureConfig.IOptionUnpacker?
+AndroidX.Camera.Core.Impl.IUseCaseConfig.GetCustomMaxFrameRate(Android.Util.Size? size) -> int
 AndroidX.Camera.Core.Impl.IUseCaseConfig.GetDefaultCaptureConfig(AndroidX.Camera.Core.Impl.CaptureConfig? valueIfMissing) -> AndroidX.Camera.Core.Impl.CaptureConfig?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.GetDefaultSessionConfig(AndroidX.Camera.Core.Impl.SessionConfig? valueIfMissing) -> AndroidX.Camera.Core.Impl.SessionConfig?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.GetSessionOptionUnpacker(AndroidX.Camera.Core.Impl.SessionConfig.IOptionUnpacker? valueIfMissing) -> AndroidX.Camera.Core.Impl.SessionConfig.IOptionUnpacker?
@@ -1239,7 +1215,9 @@ AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionDefaultCaptureConfig.get -> Andro
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionDefaultSessionConfig.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionHighResolutionDisabled.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionIsStrictFrameRateRequired.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionIsVideoQualitySelectorDefault.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionPreviewStabilizationMode.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionResolutionToMaxFrameRates.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionSessionConfigUnpacker.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionSessionType.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 AndroidX.Camera.Core.Impl.IUseCaseConfig.OptionStreamUseCase.get -> AndroidX.Camera.Core.Impl.ConfigOption?
@@ -1435,17 +1413,20 @@ AndroidX.Camera.Core.Impl.SessionConfig.ValidatingBuilder.IsValid.get -> bool
 AndroidX.Camera.Core.Impl.SessionConfig.ValidatingBuilder.ValidatingBuilder() -> void
 AndroidX.Camera.Core.Impl.SessionProcessor
 AndroidX.Camera.Core.Impl.SessionProcessorConsts
-AndroidX.Camera.Core.Impl.SessionProcessorSurface
-AndroidX.Camera.Core.Impl.SessionProcessorSurface.OutputConfigId.get -> int
-AndroidX.Camera.Core.Impl.SessionProcessorSurface.SessionProcessorSurface(Android.Views.Surface? surface, int outputConfigId) -> void
 AndroidX.Camera.Core.Impl.SingleImageProxyBundle
 AndroidX.Camera.Core.Impl.SingleImageProxyBundle.CaptureIds.get -> System.Collections.Generic.IList<Java.Lang.Integer!>?
 AndroidX.Camera.Core.Impl.SingleImageProxyBundle.Close() -> void
 AndroidX.Camera.Core.Impl.SingleImageProxyBundle.GetImageProxy(int captureId) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Camera.Core.Impl.SingleImageProxyBundle.SingleImageProxyBundle(AndroidX.Camera.Core.IImageProxy? imageProxy, string? tagBundleKey) -> void
+AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider
+AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.GetAll(int quality) -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
+AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.HasProfile(int quality) -> bool
+AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.InterfaceConsts
+AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.SizeFilteredEncoderProfilesProvider(AndroidX.Camera.Core.Impl.IEncoderProfilesProvider! provider, System.Collections.Generic.IList<Android.Util.Size!>! supportedSizes) -> void
 AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode
 AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.IMode
 AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.StabilizationMode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization
 AndroidX.Camera.Core.Impl.StateObservable
 AndroidX.Camera.Core.Impl.StateObservable.StateObservable(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Impl.StreamSpec
@@ -1642,6 +1623,7 @@ AndroidX.Camera.Core.Impl.Utils.SurfaceUtil.SurfaceUtil(nint javaReference, Andr
 AndroidX.Camera.Core.Impl.Utils.Threads
 AndroidX.Camera.Core.Impl.Utils.TransformUtils
 AndroidX.Camera.Core.Impl.Utils.TransformUtils.TransformUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Core.Impl.Utils.UseCaseUtil
 AndroidX.Camera.Core.InitializationException
 AndroidX.Camera.Core.InitializationException.InitializationException(Java.Lang.Throwable? cause) -> void
 AndroidX.Camera.Core.InitializationException.InitializationException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1704,6 +1686,7 @@ AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ExtendedConfig.get -> Android
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.FrameRate.get -> Android.Util.Range?
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.FrameRate.set -> void
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.IsEquivalent(AndroidX.Camera.Core.Internal.CameraUseCaseAdapter? cameraUseCaseAdapter) -> bool
+AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.IsRemoved.get -> bool
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.IsUseCasesCombinationSupported(bool withStreamSharing, params AndroidX.Camera.Core.UseCase![]? useCases) -> bool
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.RemoveAllUseCases() -> void
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.RemoveUseCases(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>? useCasesToRemove) -> void
@@ -1715,6 +1698,12 @@ AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.SimulateAddUseCases(System.Co
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.UseCases.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>?
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ViewPort.get -> AndroidX.Camera.Core.ViewPort?
 AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ViewPort.set -> void
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.BackportedFixQuirk() -> void
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.BackportedFixQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.Companion
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.Companion.BackportedFixManager.get -> AndroidX.Core.Backported.Fixes.BackportedFixManager!
+AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.HasIssue.get -> bool
 AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk
 AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk.CaptureFailedRetryQuirk() -> void
 AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk.CaptureFailedRetryQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1937,7 +1926,7 @@ AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessor.DualSurfaceProce
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessor.Factory
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessor.Factory.Factory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode
-AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode.DualSurfaceProcessorNode(AndroidX.Camera.Core.Impl.ICameraInternal? primaryCameraInternal, AndroidX.Camera.Core.Impl.ICameraInternal? secondaryCameraInternal, AndroidX.Camera.Core.Processing.ISurfaceProcessorInternal? surfaceProcessor) -> void
+AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode.DualSurfaceProcessorNode(AndroidX.Camera.Core.Impl.ICameraInternal? primaryCameraInternal, AndroidX.Camera.Core.Impl.ICameraInternal? secondaryCameraInternal, AndroidX.Camera.Core.Processing.ISurfaceProcessorInternal? surfaceProcessor, string? debugInfo) -> void
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode.DualSurfaceProcessorNode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode.In
 AndroidX.Camera.Core.Processing.Concurrent.DualSurfaceProcessorNode.In.In() -> void
@@ -2007,7 +1996,7 @@ AndroidX.Camera.Core.Processing.SurfaceProcessorNode.In.In(nint javaReference, A
 AndroidX.Camera.Core.Processing.SurfaceProcessorNode.Out
 AndroidX.Camera.Core.Processing.SurfaceProcessorNode.Out.Out() -> void
 AndroidX.Camera.Core.Processing.SurfaceProcessorNode.Out.Out(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Core.Processing.SurfaceProcessorNode.SurfaceProcessorNode(AndroidX.Camera.Core.Impl.ICameraInternal? cameraInternal, AndroidX.Camera.Core.Processing.ISurfaceProcessorInternal? surfaceProcessor) -> void
+AndroidX.Camera.Core.Processing.SurfaceProcessorNode.SurfaceProcessorNode(AndroidX.Camera.Core.Impl.ICameraInternal? cameraInternal, AndroidX.Camera.Core.Processing.ISurfaceProcessorInternal? surfaceProcessor, string? debugInfo) -> void
 AndroidX.Camera.Core.Processing.SurfaceProcessorNode.SurfaceProcessorNode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Core.Processing.SurfaceProcessorWithExecutor
 AndroidX.Camera.Core.Processing.SurfaceProcessorWithExecutor.SurfaceProcessorWithExecutor(AndroidX.Camera.Core.CameraEffect? cameraEffect) -> void
@@ -2093,6 +2082,19 @@ AndroidX.Camera.Core.RetryPolicyRetryConfig.Builder.SetShouldRetry(bool shouldRe
 AndroidX.Camera.Core.RetryPolicyRetryConfig.RetryDelayInMillis.get -> long
 AndroidX.Camera.Core.RetryPolicyRetryConfig.ShouldCompleteWithoutFailure() -> bool
 AndroidX.Camera.Core.RetryPolicyRetryConfig.ShouldRetry() -> bool
+AndroidX.Camera.Core.RotationProvider
+AndroidX.Camera.Core.RotationProvider.AddListener(Java.Util.Concurrent.IExecutor! executor, AndroidX.Camera.Core.RotationProvider.IListener! listener) -> bool
+AndroidX.Camera.Core.RotationProvider.EventArgs
+AndroidX.Camera.Core.RotationProvider.EventArgs.EventArgs(int rotation) -> void
+AndroidX.Camera.Core.RotationProvider.EventArgs.Rotation.get -> int
+AndroidX.Camera.Core.RotationProvider.IListener
+AndroidX.Camera.Core.RotationProvider.IListener.OnRotationChanged(int rotation) -> void
+AndroidX.Camera.Core.RotationProvider.IsShutdown.get -> bool
+AndroidX.Camera.Core.RotationProvider.RemoveListener(AndroidX.Camera.Core.RotationProvider.IListener! listener) -> void
+AndroidX.Camera.Core.RotationProvider.RotationProvider(Android.Content.Context! appContext) -> void
+AndroidX.Camera.Core.RotationProvider.RotationProvider(Android.Content.Context! appContext, bool ignoreCanDetectForTest) -> void
+AndroidX.Camera.Core.RotationProvider.Shutdown() -> void
+AndroidX.Camera.Core.RotationProvider.UpdateOrientationForTesting(int orientation) -> void
 AndroidX.Camera.Core.SafeCloseImageReaderProxy
 AndroidX.Camera.Core.SafeCloseImageReaderProxy.ImageClose -> System.EventHandler<AndroidX.Camera.Core.ForwardingImageProxy.ImageCloseEventArgs!>!
 AndroidX.Camera.Core.SafeCloseImageReaderProxy.SafeCloseImageReaderProxy(AndroidX.Camera.Core.Impl.IImageReaderProxy? imageReaderProxy) -> void
@@ -2101,8 +2103,10 @@ AndroidX.Camera.Core.SessionConfig
 AndroidX.Camera.Core.SessionConfig.Builder
 AndroidX.Camera.Core.SessionConfig.Builder.AddEffect(AndroidX.Camera.Core.CameraEffect! effect) -> AndroidX.Camera.Core.SessionConfig.Builder!
 AndroidX.Camera.Core.SessionConfig.Builder.Build() -> AndroidX.Camera.Core.SessionConfig!
+AndroidX.Camera.Core.SessionConfig.Builder.Builder(AndroidX.Camera.Core.SessionConfig! sessionConfig) -> void
 AndroidX.Camera.Core.SessionConfig.Builder.Builder(System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>! useCases) -> void
 AndroidX.Camera.Core.SessionConfig.Builder.Builder(params AndroidX.Camera.Core.UseCase![]! useCases) -> void
+AndroidX.Camera.Core.SessionConfig.Builder.SetAutoRotationEnabled(bool isAutoRotationEnabled) -> AndroidX.Camera.Core.SessionConfig.Builder!
 AndroidX.Camera.Core.SessionConfig.Builder.SetFrameRateRange(Android.Util.Range! frameRateRange) -> AndroidX.Camera.Core.SessionConfig.Builder!
 AndroidX.Camera.Core.SessionConfig.Builder.SetPreferredFeatureGroup(params AndroidX.Camera.Core.Featuregroup.GroupableFeature![]! features) -> AndroidX.Camera.Core.SessionConfig.Builder!
 AndroidX.Camera.Core.SessionConfig.Builder.SetRequiredFeatureGroup(params AndroidX.Camera.Core.Featuregroup.GroupableFeature![]! features) -> AndroidX.Camera.Core.SessionConfig.Builder!
@@ -2229,6 +2233,7 @@ abstract AndroidX.Camera.Core.CameraState.Error.get -> AndroidX.Camera.Core.Came
 abstract AndroidX.Camera.Core.CameraState.GetType() -> AndroidX.Camera.Core.CameraState.Type?
 abstract AndroidX.Camera.Core.CameraState.StateError.Cause.get -> Java.Lang.Throwable?
 abstract AndroidX.Camera.Core.CameraState.StateError.Code.get -> int
+abstract AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeInternal.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal!
 abstract AndroidX.Camera.Core.ImageCaptures.PostviewSettings.InputFormat.get -> int
 abstract AndroidX.Camera.Core.ImageCaptures.PostviewSettings.Resolution.get -> Android.Util.Size?
 abstract AndroidX.Camera.Core.ImageCaptures.TakePictureRequest.CropRect.get -> Android.Graphics.Rect?
@@ -2247,6 +2252,7 @@ abstract AndroidX.Camera.Core.Impl.AbstractCameraPresenceSource.FetchData() -> G
 abstract AndroidX.Camera.Core.Impl.AbstractCameraPresenceSource.StartMonitoring() -> void
 abstract AndroidX.Camera.Core.Impl.AbstractCameraPresenceSource.StopMonitoring() -> void
 abstract AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.CaptureTypes.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.UseCaseConfigFactoryCaptureType!>?
+abstract AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.CustomMaxFrameRate.get -> int
 abstract AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.DynamicRange.get -> AndroidX.Camera.Core.DynamicRange?
 abstract AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.ImageFormat.get -> int
 abstract AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.ImplementationOptions.get -> AndroidX.Camera.Core.Impl.IConfig?
@@ -2340,6 +2346,7 @@ abstract AndroidX.Camera.Core.Impl.Utils.Optional.Or(AndroidX.Core.Util.ISupplie
 abstract AndroidX.Camera.Core.Impl.Utils.Optional.Or(Java.Lang.Object? p0) -> Java.Lang.Object?
 abstract AndroidX.Camera.Core.Impl.Utils.Optional.OrNull() -> Java.Lang.Object?
 abstract AndroidX.Camera.Core.Impl.Utils.Optional.ToString() -> string?
+abstract AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.KnownIssue.get -> AndroidX.Core.Backported.Fixes.KnownIssue!
 abstract AndroidX.Camera.Core.Internal.ImmutableZoomState.LinearZoom.get -> float
 abstract AndroidX.Camera.Core.Internal.ImmutableZoomState.MaxZoomRatio.get -> float
 abstract AndroidX.Camera.Core.Internal.ImmutableZoomState.MinZoomRatio.get -> float
@@ -2432,9 +2439,6 @@ const AndroidX.Camera.Core.CameraUnavailableException.CameraInUse = 4 -> int
 const AndroidX.Camera.Core.CameraUnavailableException.CameraMaxInUse = 5 -> int
 const AndroidX.Camera.Core.CameraUnavailableException.CameraUnavailableDoNotDisturb = 6 -> int
 const AndroidX.Camera.Core.CameraUnavailableException.CameraUnknownError = 0 -> int
-const AndroidX.Camera.Core.CameraXConfig.CameraxConfigImplTypeCameraCamera2 = 0 -> int
-const AndroidX.Camera.Core.CameraXConfig.CameraxConfigImplTypePipe = 1 -> int
-const AndroidX.Camera.Core.CameraXConfig.CameraxConfigImplTypeUnknown = -1 -> int
 const AndroidX.Camera.Core.CameraXThreads.Tag = "CameraX-" -> string!
 const AndroidX.Camera.Core.Concurrent.CameraCoordinator.CameraOperatingModeConcurrent = 2 -> int
 const AndroidX.Camera.Core.Concurrent.CameraCoordinator.CameraOperatingModeSingle = 1 -> int
@@ -2452,6 +2456,7 @@ const AndroidX.Camera.Core.DynamicRange.EncodingUnspecified = 0 -> int
 const AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeDynamicRange = 0 -> int
 const AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeFpsRange = 1 -> int
 const AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeImageFormat = 3 -> int
+const AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeRecordingQuality = 4 -> int
 const AndroidX.Camera.Core.Featuregroup.GroupableFeature.FeatureTypeVideoStabilization = 2 -> int
 const AndroidX.Camera.Core.FlashState.Fired = 1 -> int
 const AndroidX.Camera.Core.FlashState.NotFired = 3 -> int
@@ -2523,6 +2528,7 @@ const AndroidX.Camera.Core.Impl.ForwardingCameraInfo.InterfaceConsts.Implementat
 const AndroidX.Camera.Core.Impl.ForwardingCameraInfo.InterfaceConsts.ImplementationTypeUnknown = "<unknown>" -> string!
 const AndroidX.Camera.Core.Impl.ForwardingCameraInfo.InterfaceConsts.IntrinsicZoomRatioUnknown = 1 -> float
 const AndroidX.Camera.Core.Impl.ForwardingCameraInfo.InterfaceConsts.TorchStrengthLevelUnsupported = 0 -> int
+const AndroidX.Camera.Core.Impl.FrameRates.FrameRateUnlimited = 2147483647 -> int
 const AndroidX.Camera.Core.Impl.ImageFormatConstants.InternalDefinedImageFormatJpeg = 33 -> int
 const AndroidX.Camera.Core.Impl.ImageFormatConstants.InternalDefinedImageFormatPrivate = 34 -> int
 const AndroidX.Camera.Core.Impl.ImageOutputConfig.InvalidRotation = -1 -> int
@@ -2535,7 +2541,7 @@ const AndroidX.Camera.Core.Impl.SessionConfig.OutputConfig.SurfaceGroupIdNone = 
 const AndroidX.Camera.Core.Impl.SessionConfig.SessionTypeHighSpeed = 1 -> int
 const AndroidX.Camera.Core.Impl.SessionConfig.SessionTypeRegular = 0 -> int
 const AndroidX.Camera.Core.Impl.SessionProcessor.TypeCamera2Extension = 1 -> int
-const AndroidX.Camera.Core.Impl.SessionProcessor.TypeVendorLibrary = 0 -> int
+const AndroidX.Camera.Core.Impl.SessionProcessor.TypeDefault = 0 -> int
 const AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.Off = 1 -> int
 const AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.On = 2 -> int
 const AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.Unspecified = 0 -> int
@@ -2597,7 +2603,7 @@ override AndroidX.Camera.Core.CameraEffect.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.CameraExecutor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraExecutor.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.CameraExecutor.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Core.CameraIdentifier.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.CameraIdentifier.Factory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraIdentifier.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraInfoUnavailableException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraSelector.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2618,6 +2624,7 @@ override AndroidX.Camera.Core.CameraX.JniPeerMembers.get -> Java.Interop.JniPeer
 override AndroidX.Camera.Core.CameraXConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraXConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CameraXThreads.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.CameraXTracer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CaptureBundles.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CompositionSettings.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.CompositionSettings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2634,10 +2641,13 @@ override AndroidX.Camera.Core.Featuregroup.GroupableFeature.JniPeerMembers.get -
 override AndroidX.Camera.Core.Featuregroup.GroupableFeature.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Featuregroup.GroupableFeature.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.Featuregroup.GroupableFeature.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.FeatureTypeInternal.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal!
 override AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.FeatureTypeInternal.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal!
 override AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQueryCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Featuregroup.Impl.ResolvedFeatureGroup.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Featuregroup.Impl.ResolvedFeatureGroup.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2728,6 +2738,9 @@ override AndroidX.Camera.Core.ImageCaptures.ProcessingNode.In.ThresholdType.get 
 override AndroidX.Camera.Core.ImageCaptures.ProcessingNode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.ImageCaptures.ProcessingNode.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.ImageCaptures.ProcessingNode.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Core.ImageCaptures.ProcessingRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.ImageCaptures.ProcessingRequest.ThresholdClass.get -> nint
+override AndroidX.Camera.Core.ImageCaptures.ProcessingRequest.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.ThresholdType.get -> System.Type!
@@ -2797,15 +2810,14 @@ override AndroidX.Camera.Core.Impl.CameraProviderInitRetryPolicy.Legacy.JniPeerM
 override AndroidX.Camera.Core.Impl.CameraRepository.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.CameraRepository.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.CameraRepository.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Core.Impl.CameraStateRegistry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.CameraThreadConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.CameraThreadConfig.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.CameraThreadConfig.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.Impl.CameraUpdateException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.ThresholdClass.get -> nint
-override AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Core.Impl.CameraValidator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Impl.CameraValidatorCameraIdListIncorrectException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Impl.CameraValidatorCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Impl.CameraValidatorImpl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Impl.CameraValidatorImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.ThresholdType.get -> System.Type!
@@ -2847,6 +2859,7 @@ override AndroidX.Camera.Core.Impl.ForwardingCameraControl.ThresholdType.get -> 
 override AndroidX.Camera.Core.Impl.ForwardingCameraInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.ForwardingCameraInfo.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.ForwardingCameraInfo.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Core.Impl.FrameRates.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Identifier.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Identifier.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.Identifier.ThresholdType.get -> System.Type!
@@ -2913,11 +2926,12 @@ override AndroidX.Camera.Core.Impl.SessionConfig.OutputConfig.ThresholdClass.get
 override AndroidX.Camera.Core.Impl.SessionConfig.OutputConfig.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.Impl.SessionConfig.SessionError.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.SessionConfig.ValidatingBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Core.Impl.SessionProcessorSurface.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.SingleImageProxyBundle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.Stabilization.StabilizationMode.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.StateObservable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.StateObservable.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.StateObservable.ThresholdType.get -> System.Type!
@@ -2998,6 +3012,7 @@ override AndroidX.Camera.Core.Impl.Utils.Threads.JniPeerMembers.get -> Java.Inte
 override AndroidX.Camera.Core.Impl.Utils.TransformUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Impl.Utils.TransformUtils.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Impl.Utils.TransformUtils.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.InitializationException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.InitializationException.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.InitializationException.ThresholdType.get -> System.Type!
@@ -3010,6 +3025,10 @@ override AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ConfigPair.JniPeerMe
 override AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ConfigPair.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.ConfigPair.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.ThresholdClass.get -> nint
+override AndroidX.Camera.Core.Internal.Compat.Quirk.BackportedFixQuirk.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.Internal.Compat.Quirk.CaptureFailedRetryQuirk.ThresholdType.get -> System.Type!
@@ -3189,6 +3208,7 @@ override AndroidX.Camera.Core.ResolutionSelector.ResolutionStrategy.JniPeerMembe
 override AndroidX.Camera.Core.RetryPolicyBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.RetryPolicyRetryConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.RetryPolicyRetryConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Core.RotationProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.SafeCloseImageReaderProxy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Core.SafeCloseImageReaderProxy.ThresholdClass.get -> nint
 override AndroidX.Camera.Core.SafeCloseImageReaderProxy.ThresholdType.get -> System.Type!
@@ -3251,12 +3271,13 @@ override AndroidX.Camera.Core.ViewPort.Builder.JniPeerMembers.get -> Java.Intero
 override AndroidX.Camera.Core.ViewPort.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed AndroidX.Camera.Core.Impl.TagBundle.ToString() -> string?
 static AndroidX.Camera.Core.CameraFilter.DefaultId.get -> AndroidX.Camera.Core.Impl.Identifier?
-static AndroidX.Camera.Core.CameraIdentifier.Create(System.Collections.Generic.IList<string!>! cameraIds) -> AndroidX.Camera.Core.CameraIdentifier!
-static AndroidX.Camera.Core.CameraIdentifier.Create(System.Collections.Generic.IList<string!>! cameraIds, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
-static AndroidX.Camera.Core.CameraIdentifier.Create(string! primaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
-static AndroidX.Camera.Core.CameraIdentifier.Create(string! primaryCameraId, string? secondaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
-static AndroidX.Camera.Core.CameraIdentifier.Create(string! primaryCameraId, string? secondaryCameraId, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
-static AndroidX.Camera.Core.CameraIdentifier.FromAdapterInfos(AndroidX.Camera.Core.Impl.AdapterCameraInfo! primaryInfo, AndroidX.Camera.Core.Impl.AdapterCameraInfo? secondaryInfo) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Create(System.Collections.Generic.IList<string!>! cameraIds) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Create(System.Collections.Generic.IList<string!>! cameraIds, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Create(string! primaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Create(string! primaryCameraId, string? secondaryCameraId) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Create(string! primaryCameraId, string? secondaryCameraId, AndroidX.Camera.Core.Impl.Identifier? compatibilityId) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.FromAdapterInfos(AndroidX.Camera.Core.Impl.AdapterCameraInfo! primaryInfo, AndroidX.Camera.Core.Impl.AdapterCameraInfo? secondaryInfo) -> AndroidX.Camera.Core.CameraIdentifier!
+static AndroidX.Camera.Core.CameraIdentifier.Factory.Instance.get -> AndroidX.Camera.Core.CameraIdentifier.Factory!
 static AndroidX.Camera.Core.CameraInfo.MustPlayShutterSound() -> bool
 static AndroidX.Camera.Core.CameraSelector.Builder.FromSelector(AndroidX.Camera.Core.CameraSelector? cameraSelector) -> AndroidX.Camera.Core.CameraSelector.Builder?
 static AndroidX.Camera.Core.CameraSelector.DefaultBackCamera.get -> AndroidX.Camera.Core.CameraSelector?
@@ -3278,6 +3299,8 @@ static AndroidX.Camera.Core.CameraState.Type.PendingOpen.get -> AndroidX.Camera.
 static AndroidX.Camera.Core.CameraState.Type.ValueOf(string? name) -> AndroidX.Camera.Core.CameraState.Type?
 static AndroidX.Camera.Core.CameraState.Type.Values() -> AndroidX.Camera.Core.CameraState.Type![]?
 static AndroidX.Camera.Core.CameraXConfig.Builder.FromConfig(AndroidX.Camera.Core.CameraXConfig? configuration) -> AndroidX.Camera.Core.CameraXConfig.Builder?
+static AndroidX.Camera.Core.CameraXTracer.Instance.get -> AndroidX.Camera.Core.CameraXTracer!
+static AndroidX.Camera.Core.CameraXTracer.Trace(string! label, Java.Lang.IRunnable! block) -> void
 static AndroidX.Camera.Core.CaptureBundles.SingleDefaultCaptureBundle() -> AndroidX.Camera.Core.Impl.ICaptureBundle?
 static AndroidX.Camera.Core.CompositionSettings.Default.get -> AndroidX.Camera.Core.CompositionSettings?
 static AndroidX.Camera.Core.DynamicRange.DolbyVision10Bit.get -> AndroidX.Camera.Core.DynamicRange?
@@ -3292,14 +3315,16 @@ static AndroidX.Camera.Core.Featuregroup.GroupableFeature.Fps60.get -> AndroidX.
 static AndroidX.Camera.Core.Featuregroup.GroupableFeature.HdrHlg10.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
 static AndroidX.Camera.Core.Featuregroup.GroupableFeature.ImageUltraHdr.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
 static AndroidX.Camera.Core.Featuregroup.GroupableFeature.PreviewStabilization.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.DynamicRange.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.Entries.get -> Kotlin.Enums.IEnumEntries!
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.FpsRange.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.ImageFormat.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.RecordingQuality.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.ValueOf(string? value) -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.Values() -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal![]?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal.VideoStabilization.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.FeatureTypeInternal?
 static AndroidX.Camera.Core.Featuregroup.Impl.Feature.FpsRangeFeature.DefaultFpsRange.get -> Android.Util.Range!
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.DefaultStabilizationMode.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode!
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.Entries.get -> Kotlin.Enums.IEnumEntries!
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.Off.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode?
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.On.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode?
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.Preview.get -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode?
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.ValueOf(string? value) -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode?
-static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode.Values() -> AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.StabilizationMode![]?
+static AndroidX.Camera.Core.Featuregroup.Impl.Feature.VideoStabilizationFeature.DefaultStabilization.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization!
 static AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQuery.Companion.get -> AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQueryCompanion!
 static AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQuery.CreateSessionConfigBuilder(AndroidX.Camera.Core.Impl.IUseCaseConfig! obj, Android.Util.Size! resolution, AndroidX.Camera.Core.DynamicRange! dynamicRange) -> AndroidX.Camera.Core.Impl.SessionConfig.Builder!
 static AndroidX.Camera.Core.Featuregroup.Impl.FeatureCombinationQuery.NoOpFeatureCombinationQuery.get -> AndroidX.Camera.Core.Featuregroup.Impl.IFeatureCombinationQuery!
@@ -3309,6 +3334,7 @@ static AndroidX.Camera.Core.Featuregroup.Impl.Resolver.FeatureGroupResolutionRes
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.GetFeatureGroupUseCaseType(AndroidX.Camera.Core.Impl.IUseCaseConfig! obj) -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType!
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.GetFeatureGroupUseCaseType(AndroidX.Camera.Core.UseCase! obj) -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType!
+static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.ImageAnalysis.get -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType?
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.ImageCapture.get -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType?
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.Preview.get -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType?
 static AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType.StreamSharing.get -> AndroidX.Camera.Core.Featuregroup.Impl.UseCaseType?
@@ -3349,7 +3375,7 @@ static AndroidX.Camera.Core.ImageReaderProxys.CreateIsolatedReader(int width, in
 static AndroidX.Camera.Core.ImmutableImageInfo.Create(AndroidX.Camera.Core.Impl.TagBundle? tag, long timestamp, int rotationDegrees, Android.Graphics.Matrix? sensorToBufferTransformMatrix, int flashState) -> AndroidX.Camera.Core.IImageInfo?
 static AndroidX.Camera.Core.Impl.AdapterCameraInfo.GetPercentageByRatio(float ratio, float minZoomRatio, float maxZoomRatio) -> float
 static AndroidX.Camera.Core.Impl.AdapterCameraInfo.GetZoomRatioByPercentage(float percentage, float minZoomRatio, float maxZoomRatio) -> float
-static AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.Create(AndroidX.Camera.Core.Impl.SurfaceConfig? surfaceConfig, int imageFormat, Android.Util.Size? size, AndroidX.Camera.Core.DynamicRange? dynamicRange, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.UseCaseConfigFactoryCaptureType!>? captureTypes, AndroidX.Camera.Core.Impl.IConfig? implementationOptions, int sessionType, Android.Util.Range? targetFrameRate, bool isStrictFrameRateRequired) -> AndroidX.Camera.Core.Impl.AttachedSurfaceInfo?
+static AndroidX.Camera.Core.Impl.AttachedSurfaceInfo.Create(AndroidX.Camera.Core.Impl.SurfaceConfig? surfaceConfig, int imageFormat, Android.Util.Size? size, AndroidX.Camera.Core.DynamicRange? dynamicRange, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.UseCaseConfigFactoryCaptureType!>? captureTypes, AndroidX.Camera.Core.Impl.IConfig? implementationOptions, int sessionType, Android.Util.Range? targetFrameRate, bool isStrictFrameRateRequired, int customMaxFrameRate) -> AndroidX.Camera.Core.Impl.AttachedSurfaceInfo?
 static AndroidX.Camera.Core.Impl.CameraCaptureCallbacks.CreateComboCallback(params AndroidX.Camera.Core.Impl.CameraCaptureCallback![]? callbacks) -> AndroidX.Camera.Core.Impl.CameraCaptureCallback?
 static AndroidX.Camera.Core.Impl.CameraCaptureCallbacks.CreateNoOpCallback() -> AndroidX.Camera.Core.Impl.CameraCaptureCallback?
 static AndroidX.Camera.Core.Impl.CameraCaptureFailure.Reason.Error.get -> AndroidX.Camera.Core.Impl.CameraCaptureFailure.Reason?
@@ -3446,7 +3472,9 @@ static AndroidX.Camera.Core.Impl.CameraProviderInitRetryPolicy.Legacy.InterfaceC
 static AndroidX.Camera.Core.Impl.CameraProviderInitRetryPolicy.Legacy.InterfaceConsts.Never.get -> AndroidX.Camera.Core.IRetryPolicy?
 static AndroidX.Camera.Core.Impl.CameraProviderInitRetryPolicy.Legacy.InterfaceConsts.RetryUnavailableCamera.get -> AndroidX.Camera.Core.IRetryPolicy?
 static AndroidX.Camera.Core.Impl.CameraThreadConfig.Create(Java.Util.Concurrent.IExecutor? cameraExecutor, Android.OS.Handler? schedulerHandler) -> AndroidX.Camera.Core.Impl.CameraThreadConfig?
-static AndroidX.Camera.Core.Impl.CameraValidator.ValidateCameras(Android.Content.Context? context, AndroidX.Camera.Core.Impl.CameraRepository? cameraRepository, AndroidX.Camera.Core.CameraSelector? availableCamerasSelector) -> void
+static AndroidX.Camera.Core.Impl.CameraValidator.Companion.get -> AndroidX.Camera.Core.Impl.CameraValidatorCompanion!
+static AndroidX.Camera.Core.Impl.CameraValidator.Create(Android.Content.Context! context, AndroidX.Camera.Core.CameraSelector? availableCamerasSelector) -> AndroidX.Camera.Core.Impl.ICameraValidator!
+static AndroidX.Camera.Core.Impl.CameraValidatorImpl.InterfaceConsts.Companion.get -> AndroidX.Camera.Core.Impl.CameraValidatorCompanion!
 static AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.From(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> AndroidX.Camera.Core.IPreviewCapabilities?
 static AndroidX.Camera.Core.Impl.CaptureConfig.Builder.CreateFrom(AndroidX.Camera.Core.Impl.IUseCaseConfig? config) -> AndroidX.Camera.Core.Impl.CaptureConfig.Builder?
 static AndroidX.Camera.Core.Impl.CaptureConfig.Builder.From(AndroidX.Camera.Core.Impl.CaptureConfig? base) -> AndroidX.Camera.Core.Impl.CaptureConfig.Builder?
@@ -3490,6 +3518,7 @@ static AndroidX.Camera.Core.Impl.ExtendedCameraConfigProviderStore.AddConfig(Jav
 static AndroidX.Camera.Core.Impl.ExtendedCameraConfigProviderStore.Clear() -> void
 static AndroidX.Camera.Core.Impl.ExtendedCameraConfigProviderStore.GetConfigProvider(Java.Lang.Object? key) -> AndroidX.Camera.Core.Impl.ICameraConfigProvider?
 static AndroidX.Camera.Core.Impl.ForwardingCameraControl.InterfaceConsts.DefaultEmptyInstance.get -> AndroidX.Camera.Core.Impl.ICameraControlInternal?
+static AndroidX.Camera.Core.Impl.FrameRates.Instance.get -> AndroidX.Camera.Core.Impl.FrameRates!
 static AndroidX.Camera.Core.Impl.Identifier.Create(Java.Lang.Object? value) -> AndroidX.Camera.Core.Impl.Identifier?
 static AndroidX.Camera.Core.Impl.ImageAnalysisConfig.OptionBackpressureStrategy.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.ImageAnalysisConfig.OptionImageQueueDepth.get -> AndroidX.Camera.Core.Impl.ConfigOption?
@@ -3551,6 +3580,15 @@ static AndroidX.Camera.Core.Impl.SessionConfig.SessionError.SessionErrorSurfaceN
 static AndroidX.Camera.Core.Impl.SessionConfig.SessionError.SessionErrorUnknown.get -> AndroidX.Camera.Core.Impl.SessionConfig.SessionError?
 static AndroidX.Camera.Core.Impl.SessionConfig.SessionError.ValueOf(string? name) -> AndroidX.Camera.Core.Impl.SessionConfig.SessionError?
 static AndroidX.Camera.Core.Impl.SessionConfig.SessionError.Values() -> AndroidX.Camera.Core.Impl.SessionConfig.SessionError![]?
+static AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.InterfaceConsts.Empty.get -> AndroidX.Camera.Core.Impl.IEncoderProfilesProvider?
+static AndroidX.Camera.Core.Impl.SizeFilteredEncoderProfilesProvider.InterfaceConsts.QualityHighToLow.get -> System.Collections.IList?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.Entries.get -> Kotlin.Enums.IEnumEntries!
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.Off.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.On.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.Preview.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.Unspecified.get -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.ValueOf(string? value) -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization?
+static AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization.Values() -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization![]?
 static AndroidX.Camera.Core.Impl.StreamSpec.FrameRateRangeUnspecified.get -> Android.Util.Range?
 static AndroidX.Camera.Core.Impl.StreamSpec.InvokeBuilder(Android.Util.Size? resolution) -> AndroidX.Camera.Core.Impl.StreamSpec.Builder?
 static AndroidX.Camera.Core.Impl.StreamUseCase.CroppedRaw.get -> AndroidX.Camera.Core.Impl.StreamUseCase?
@@ -3627,7 +3665,9 @@ static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionHighResolutionDisabled.get 
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionInputDynamicRange.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionInputFormat.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionIsStrictFrameRateRequired.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionIsVideoQualitySelectorDefault.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionPreviewStabilizationMode.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionResolutionToMaxFrameRates.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionSecondaryInputFormat.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionSessionConfigUnpacker.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.Impl.UseCaseConfig.OptionSessionType.get -> AndroidX.Camera.Core.Impl.ConfigOption?
@@ -3658,8 +3698,10 @@ static AndroidX.Camera.Core.Impl.Utils.CameraOrientationUtil.DegreesToSurfaceRot
 static AndroidX.Camera.Core.Impl.Utils.CameraOrientationUtil.GetRelativeImageRotation(int destRotationDegrees, int sourceRotationDegrees, bool isOppositeFacing) -> int
 static AndroidX.Camera.Core.Impl.Utils.CameraOrientationUtil.SurfaceRotationToDegrees(int rotation) -> int
 static AndroidX.Camera.Core.Impl.Utils.CloseGuardHelper.Create() -> AndroidX.Camera.Core.Impl.Utils.CloseGuardHelper?
-static AndroidX.Camera.Core.Impl.Utils.ContextUtil.GetApplicationContext(Android.Content.Context? context) -> Android.Content.Context?
-static AndroidX.Camera.Core.Impl.Utils.ContextUtil.GetApplicationFromContext(Android.Content.Context? context) -> Android.App.Application?
+static AndroidX.Camera.Core.Impl.Utils.ContextUtil.DefaultDeviceId.get -> int
+static AndroidX.Camera.Core.Impl.Utils.ContextUtil.GetApplication(Android.Content.Context? context) -> Android.App.Application?
+static AndroidX.Camera.Core.Impl.Utils.ContextUtil.GetDeviceId(Android.Content.Context? context) -> int
+static AndroidX.Camera.Core.Impl.Utils.ContextUtil.GetPersistentApplicationContext(Android.Content.Context? context) -> Android.Content.Context?
 static AndroidX.Camera.Core.Impl.Utils.Executors.CameraXExecutors.AudioExecutor() -> Java.Util.Concurrent.IExecutor?
 static AndroidX.Camera.Core.Impl.Utils.Executors.CameraXExecutors.DirectExecutor() -> Java.Util.Concurrent.IExecutor?
 static AndroidX.Camera.Core.Impl.Utils.Executors.CameraXExecutors.HighPriorityExecutor() -> Java.Util.Concurrent.IExecutor?
@@ -3751,7 +3793,14 @@ static AndroidX.Camera.Core.Impl.Utils.TransformUtils.SizeToVertices(Android.Uti
 static AndroidX.Camera.Core.Impl.Utils.TransformUtils.UpdateSensorToBufferTransform(Android.Graphics.Matrix? original, Android.Graphics.Rect? cropRect) -> Android.Graphics.Matrix?
 static AndroidX.Camera.Core.Impl.Utils.TransformUtils.VerticesToRect(float[]? vertices) -> Android.Graphics.RectF?
 static AndroidX.Camera.Core.Impl.Utils.TransformUtils.Within360(int degrees) -> int
-static AndroidX.Camera.Core.Internal.CameraUseCaseAdapter.IsVideoCapture(AndroidX.Camera.Core.UseCase? useCase) -> bool
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.ContainsVideoCapture(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj) -> bool
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.FindImageAnalysis(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj) -> AndroidX.Camera.Core.ImageAnalysis?
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.FindImageCapture(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj) -> AndroidX.Camera.Core.ImageCapture?
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.FindPreview(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj) -> AndroidX.Camera.Core.Preview?
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.FindVideoCapture(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj) -> AndroidX.Camera.Core.UseCase?
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.GetVideoStabilization(System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! obj, Kotlin.Jvm.Functions.IFunction1! configProvider) -> AndroidX.Camera.Core.Impl.Stabilization.VideoStabilization!
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.Instance.get -> AndroidX.Camera.Core.Impl.Utils.UseCaseUtil!
+static AndroidX.Camera.Core.Impl.Utils.UseCaseUtil.IsVideoCapture(AndroidX.Camera.Core.UseCase! obj) -> bool
 static AndroidX.Camera.Core.Internal.Compat.Quirk.DeviceQuirks.All.get -> AndroidX.Camera.Core.Impl.Quirks?
 static AndroidX.Camera.Core.Internal.Compat.Quirk.DeviceQuirks.Get(Java.Lang.Class? quirkClass) -> Java.Lang.Object?
 static AndroidX.Camera.Core.Internal.Compat.Quirk.PreviewGreenTintQuirk.Instance.get -> AndroidX.Camera.Core.Internal.Compat.Quirk.PreviewGreenTintQuirk!
@@ -3918,10 +3967,12 @@ static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.Op
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionDefaultSessionConfig.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionHighResolutionDisabled.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionIsStrictFrameRateRequired.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionIsVideoQualitySelectorDefault.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionMaxResolution.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionMirrorMode.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionPreviewStabilizationMode.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionResolutionSelector.get -> AndroidX.Camera.Core.Impl.ConfigOption?
+static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionResolutionToMaxFrameRates.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionSessionConfigUnpacker.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionSessionType.get -> AndroidX.Camera.Core.Impl.ConfigOption?
 static AndroidX.Camera.Core.StreamSharing.StreamSharingConfig.InterfaceConsts.OptionStreamUseCase.get -> AndroidX.Camera.Core.Impl.ConfigOption?
@@ -3947,7 +3998,23 @@ virtual AndroidX.Camera.Core.CameraEffect.OutputOption.get -> int
 virtual AndroidX.Camera.Core.CameraEffect.SurfaceProcessor.get -> AndroidX.Camera.Core.ISurfaceProcessor?
 virtual AndroidX.Camera.Core.CameraEffect.Targets.get -> int
 virtual AndroidX.Camera.Core.CameraEffect.Transformation.get -> int
+virtual AndroidX.Camera.Core.CameraExecutor.AwaitTermination(long timeout, Java.Util.Concurrent.TimeUnit? unit) -> bool
 virtual AndroidX.Camera.Core.CameraExecutor.Execute(Java.Lang.IRunnable? runnable) -> void
+virtual AndroidX.Camera.Core.CameraExecutor.InvokeAll(System.Collections.Generic.ICollection<Java.Util.Concurrent.ICallable!>? tasks) -> System.Collections.Generic.IList<Java.Util.Concurrent.IFuture!>?
+virtual AndroidX.Camera.Core.CameraExecutor.InvokeAll(System.Collections.Generic.ICollection<Java.Util.Concurrent.ICallable!>? tasks, long timeout, Java.Util.Concurrent.TimeUnit? unit) -> System.Collections.Generic.IList<Java.Util.Concurrent.IFuture!>?
+virtual AndroidX.Camera.Core.CameraExecutor.InvokeAny(System.Collections.Generic.ICollection<Java.Util.Concurrent.ICallable!>? tasks) -> Java.Lang.Object?
+virtual AndroidX.Camera.Core.CameraExecutor.InvokeAny(System.Collections.Generic.ICollection<Java.Util.Concurrent.ICallable!>? tasks, long timeout, Java.Util.Concurrent.TimeUnit? unit) -> Java.Lang.Object?
+virtual AndroidX.Camera.Core.CameraExecutor.IsShutdown.get -> bool
+virtual AndroidX.Camera.Core.CameraExecutor.IsTerminated.get -> bool
+virtual AndroidX.Camera.Core.CameraExecutor.Schedule(Java.Lang.IRunnable? command, long delay, Java.Util.Concurrent.TimeUnit? unit) -> Java.Util.Concurrent.IScheduledFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.Schedule(Java.Util.Concurrent.ICallable? callable, long delay, Java.Util.Concurrent.TimeUnit? unit) -> Java.Util.Concurrent.IScheduledFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.ScheduleAtFixedRate(Java.Lang.IRunnable? command, long initialDelay, long period, Java.Util.Concurrent.TimeUnit? unit) -> Java.Util.Concurrent.IScheduledFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.ScheduleWithFixedDelay(Java.Lang.IRunnable? command, long initialDelay, long delay, Java.Util.Concurrent.TimeUnit? unit) -> Java.Util.Concurrent.IScheduledFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.Shutdown() -> void
+virtual AndroidX.Camera.Core.CameraExecutor.ShutdownNow() -> System.Collections.Generic.IList<Java.Lang.IRunnable!>?
+virtual AndroidX.Camera.Core.CameraExecutor.Submit(Java.Lang.IRunnable? task) -> Java.Util.Concurrent.IFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.Submit(Java.Lang.IRunnable? task, Java.Lang.Object? result) -> Java.Util.Concurrent.IFuture?
+virtual AndroidX.Camera.Core.CameraExecutor.Submit(Java.Util.Concurrent.ICallable? task) -> Java.Util.Concurrent.IFuture?
 virtual AndroidX.Camera.Core.CameraState.StateError.Type.get -> AndroidX.Camera.Core.CameraState.ErrorType?
 virtual AndroidX.Camera.Core.CameraUnavailableException.Reason.get -> int
 virtual AndroidX.Camera.Core.CompositionSettings.Alpha.get -> float
@@ -3988,6 +4055,7 @@ virtual AndroidX.Camera.Core.ImageCaptures.BitmapEffect.Apply(AndroidX.Camera.Co
 virtual AndroidX.Camera.Core.ImageCaptures.Image2Bitmap.Apply(AndroidX.Camera.Core.Processing.Packet? imageProxyPacket) -> Android.Graphics.Bitmap?
 virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.Capacity.get -> int
 virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.Close() -> void
+virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.CreateRequests(AndroidX.Camera.Core.ImageCaptures.TakePictureRequest? takePictureRequest, AndroidX.Camera.Core.ImageCaptures.ITakePictureCallback? takePictureCallback, Google.Common.Util.Concurrent.IListenableFuture? captureFuture) -> AndroidX.Core.Util.Pair?
 virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.CreateSessionConfigBuilder(Android.Util.Size? resolution) -> AndroidX.Camera.Core.Impl.SessionConfig.Builder?
 virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.ExpectsMetadata() -> bool
 virtual AndroidX.Camera.Core.ImageCaptures.ImagePipeline.PostviewSettings.get -> AndroidX.Camera.Core.ImageCaptures.PostviewSettings?
@@ -4006,6 +4074,7 @@ virtual AndroidX.Camera.Core.ImageCaptures.NoMetadataImageReader.SetOnImageAvail
 virtual AndroidX.Camera.Core.ImageCaptures.NoMetadataImageReader.Surface.get -> Android.Views.Surface?
 virtual AndroidX.Camera.Core.ImageCaptures.NoMetadataImageReader.Width.get -> int
 virtual AndroidX.Camera.Core.ImageCaptures.ProcessingNode.Release() -> void
+virtual AndroidX.Camera.Core.ImageCaptures.ProcessingRequest.RequestId.get -> int
 virtual AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.IsAborted.get -> bool
 virtual AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.OnCaptureFailure(AndroidX.Camera.Core.ImageCaptureException? imageCaptureException) -> void
 virtual AndroidX.Camera.Core.ImageCaptures.RequestWithCallback.OnCaptureProcessProgressed(int progress) -> void
@@ -4054,6 +4123,7 @@ virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.ExtendedConfig.set -> vo
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.HasTransform.get -> bool
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.Implementation.get -> AndroidX.Camera.Core.Impl.ICameraInternal?
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.IsFrontFacing.get -> bool
+virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.IsRemoved.get -> bool
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.IsUseCasesCombinationSupported(bool withStreamSharing, params AndroidX.Camera.Core.UseCase![]? useCases) -> bool
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.IsUseCasesCombinationSupported(params AndroidX.Camera.Core.UseCase![]? useCases) -> bool
 virtual AndroidX.Camera.Core.Impl.AdapterCameraInternal.IsUseCasesCombinationSupportedByFramework(params AndroidX.Camera.Core.UseCase![]? useCases) -> bool
@@ -4078,7 +4148,6 @@ virtual AndroidX.Camera.Core.Impl.CameraRepository.Deinit() -> Google.Common.Uti
 virtual AndroidX.Camera.Core.Impl.CameraRepository.GetCamera(string? cameraId) -> AndroidX.Camera.Core.Impl.ICameraInternal?
 virtual AndroidX.Camera.Core.Impl.CameraRepository.Init(AndroidX.Camera.Core.Impl.ICameraFactory? cameraFactory) -> void
 virtual AndroidX.Camera.Core.Impl.CameraRepository.OnCamerasUpdated(System.Collections.Generic.IList<string!>? newCameraIds) -> void
-virtual AndroidX.Camera.Core.Impl.CameraValidator.CameraIdListIncorrectException.AvailableCameraCount.get -> int
 virtual AndroidX.Camera.Core.Impl.Capability.PreviewCapabilitiesImpl.IsStabilizationSupported.get -> bool
 virtual AndroidX.Camera.Core.Impl.DeferrableSurface.Close() -> void
 virtual AndroidX.Camera.Core.Impl.DeferrableSurface.CloseFuture.get -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -4117,6 +4186,7 @@ virtual AndroidX.Camera.Core.Impl.ForwardingCameraControl.SetZoomRatio(float rat
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraControl.SetZslDisabledByUserCaseConfig(bool disabled) -> void
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraControl.StartFocusAndMetering(AndroidX.Camera.Core.FocusMeteringAction? action) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraControl.SubmitStillCaptureRequests(System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.CaptureConfig!>? captureConfigs, int captureMode, int flashType) -> Google.Common.Util.Concurrent.IListenableFuture?
+virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.AddCameraStateListener(Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? listener) -> void
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.AddSessionCaptureCallback(Java.Util.Concurrent.IExecutor? executor, AndroidX.Camera.Core.Impl.CameraCaptureCallback? callback) -> void
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.AvailableCapabilities.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.CameraCharacteristics.get -> Java.Lang.Object?
@@ -4137,6 +4207,7 @@ virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.HasFlashUnit.get -> bool
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.Implementation.get -> AndroidX.Camera.Core.Impl.ICameraInfoInternal?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.ImplementationType.get -> string?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.IntrinsicZoomRatio.get -> float
+virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.IsExternalCamera.get -> bool
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.IsFocusMeteringSupported(AndroidX.Camera.Core.FocusMeteringAction? action) -> bool
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.IsHighSpeedSupported.get -> bool
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.IsLogicalMultiCameraSupported.get -> bool
@@ -4152,6 +4223,7 @@ virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.LowLightBoostState.get ->
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.MaxTorchStrengthLevel.get -> int
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.PhysicalCameraInfos.get -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.ICameraInfo!>?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.QuerySupportedDynamicRanges(System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>? candidateDynamicRanges) -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>?
+virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.RemoveCameraStateListener(AndroidX.Core.Util.IConsumer? listener) -> void
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.RemoveSessionCaptureCallback(AndroidX.Camera.Core.Impl.CameraCaptureCallback? callback) -> void
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.SensorRect.get -> Android.Graphics.Rect?
 virtual AndroidX.Camera.Core.Impl.ForwardingCameraInfo.SensorRotationDegrees.get -> int
@@ -4361,7 +4433,10 @@ virtual AndroidX.Camera.Core.SafeCloseImageReaderProxy.SetOnImageAvailableListen
 virtual AndroidX.Camera.Core.SafeCloseImageReaderProxy.SetOnImageCloseListener(AndroidX.Camera.Core.ForwardingImageProxy.IOnImageCloseListener? listener) -> void
 virtual AndroidX.Camera.Core.SafeCloseImageReaderProxy.Surface.get -> Android.Views.Surface?
 virtual AndroidX.Camera.Core.SafeCloseImageReaderProxy.Width.get -> int
+virtual AndroidX.Camera.Core.SessionConfig.CameraFilter.get -> AndroidX.Camera.Core.ICameraFilter?
+virtual AndroidX.Camera.Core.SessionConfig.IsAutoRotationEnabled.get -> bool
 virtual AndroidX.Camera.Core.SessionConfig.IsLegacy.get -> bool
+virtual AndroidX.Camera.Core.SessionConfig.RequireNonEmptyUseCases.get -> bool
 virtual AndroidX.Camera.Core.SessionConfig.SessionType.get -> int
 virtual AndroidX.Camera.Core.StreamSharing.StreamSharing.Children.get -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>?
 virtual AndroidX.Camera.Core.StreamSharing.StreamSharing.SharingInputEdge.get -> AndroidX.Camera.Core.Processing.SurfaceEdge?
@@ -4394,6 +4469,7 @@ virtual AndroidX.Camera.Core.UseCase.GetRelativeRotation(AndroidX.Camera.Core.Im
 virtual AndroidX.Camera.Core.UseCase.GetRelativeRotation(AndroidX.Camera.Core.Impl.ICameraInternal? cameraInternal, bool requireMirroring) -> int
 virtual AndroidX.Camera.Core.UseCase.GetSupportedDynamicRanges(AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfo) -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>?
 virtual AndroidX.Camera.Core.UseCase.ImageFormat.get -> int
+virtual AndroidX.Camera.Core.UseCase.IsAutoRotationSupported.get -> bool
 virtual AndroidX.Camera.Core.UseCase.IsCurrentCamera(string? cameraId) -> bool
 virtual AndroidX.Camera.Core.UseCase.IsEffectTargetsSupported(int effectTargets) -> bool
 virtual AndroidX.Camera.Core.UseCase.IsInSession.get -> bool
@@ -4404,6 +4480,7 @@ virtual AndroidX.Camera.Core.UseCase.Name.get -> string?
 virtual AndroidX.Camera.Core.UseCase.OnBind() -> void
 virtual AndroidX.Camera.Core.UseCase.OnCameraControlReady() -> void
 virtual AndroidX.Camera.Core.UseCase.OnMergeConfig(AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfo, AndroidX.Camera.Core.Impl.IUseCaseConfigBuilder? builder) -> AndroidX.Camera.Core.Impl.IUseCaseConfig?
+virtual AndroidX.Camera.Core.UseCase.OnProviderRotationChanged(int rotation) -> void
 virtual AndroidX.Camera.Core.UseCase.OnSessionStart() -> void
 virtual AndroidX.Camera.Core.UseCase.OnSessionStop() -> void
 virtual AndroidX.Camera.Core.UseCase.OnSuggestedStreamSpecImplementationOptionsUpdated(AndroidX.Camera.Core.Impl.IConfig? config) -> AndroidX.Camera.Core.Impl.StreamSpec?
@@ -4418,6 +4495,7 @@ virtual AndroidX.Camera.Core.UseCase.SecondarySessionConfig.get -> AndroidX.Came
 virtual AndroidX.Camera.Core.UseCase.SensorToBufferTransformMatrix.get -> Android.Graphics.Matrix?
 virtual AndroidX.Camera.Core.UseCase.SensorToBufferTransformMatrix.set -> void
 virtual AndroidX.Camera.Core.UseCase.SessionConfig.get -> AndroidX.Camera.Core.Impl.SessionConfig?
+virtual AndroidX.Camera.Core.UseCase.SetRotationProvider(AndroidX.Camera.Core.RotationProvider? rotationProvider) -> void
 virtual AndroidX.Camera.Core.UseCase.SetTargetRotationInternal(int targetRotation) -> bool
 virtual AndroidX.Camera.Core.UseCase.SupportedEffectTargets.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
 virtual AndroidX.Camera.Core.UseCase.TargetFrameRateInternal.get -> Android.Util.Range?

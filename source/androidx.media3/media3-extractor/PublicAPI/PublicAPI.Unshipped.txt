@@ -507,13 +507,6 @@ AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.PictureType.set -> void
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.PopulateMediaMetadata(AndroidX.Media3.Common.MediaMetadata.Builder? builder) -> void
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.Width.get -> int
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.Width.set -> void
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.Key.get -> string?
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.Key.set -> void
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.Value.get -> string?
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.Value.set -> void
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.VorbisComment(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.VorbisComment(string? key, string? value) -> void
 AndroidX.Media3.Extractor.Metadata.IMetadataDecoder
 AndroidX.Media3.Extractor.Metadata.IMetadataDecoder.Decode(AndroidX.Media3.Extractor.Metadata.MetadataInputBuffer? p0) -> AndroidX.Media3.Common.Metadata?
 AndroidX.Media3.Extractor.Metadata.Icy.IcyDecoder
@@ -785,6 +778,11 @@ AndroidX.Media3.Extractor.Metadata.ThumbnailMetadata.PresentationTimeUs.get -> l
 AndroidX.Media3.Extractor.Metadata.ThumbnailMetadata.PresentationTimeUs.set -> void
 AndroidX.Media3.Extractor.Metadata.ThumbnailMetadata.ThumbnailMetadata(long presentationTimeUs) -> void
 AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment
+AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.Key.get -> string?
+AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.Key.set -> void
+AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.PopulateMediaMetadata(AndroidX.Media3.Common.MediaMetadata.Builder? builder) -> void
+AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.Value.get -> string?
+AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.Value.set -> void
 AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.VorbisComment(string? key, string? value) -> void
 AndroidX.Media3.Extractor.Mkv.IEbmlProcessor
 AndroidX.Media3.Extractor.Mkv.IEbmlProcessor.BinaryElement(int p0, int p1, AndroidX.Media3.Extractor.IExtractorInput? p2) -> void
@@ -1095,8 +1093,6 @@ AndroidX.Media3.Extractor.Ogg.OggExtractor
 AndroidX.Media3.Extractor.Ogg.OggExtractor.InterfaceConsts
 AndroidX.Media3.Extractor.Ogg.OggExtractor.OggExtractor() -> void
 AndroidX.Media3.Extractor.Ogg.OggExtractor.OggExtractor(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Extractor.OpusUtil
-AndroidX.Media3.Extractor.OpusUtil.OpusUtil(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Extractor.Png.PngExtractor
 AndroidX.Media3.Extractor.Png.PngExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 AndroidX.Media3.Extractor.Png.PngExtractor.InterfaceConsts
@@ -1635,6 +1631,15 @@ AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.SampleRate.set -> void
 AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Version.get -> int
 AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Version.set -> void
 AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.VorbisIdHeader(int version, int channels, int sampleRate, int bitrateMaximum, int bitrateNominal, int bitrateMinimum, int blockSize0, int blockSize1, bool framingFlag, byte[]? data) -> void
+AndroidX.Media3.Extractor.VvcConfig
+AndroidX.Media3.Extractor.VvcConfig.BitdepthLuma.get -> int
+AndroidX.Media3.Extractor.VvcConfig.BitdepthLuma.set -> void
+AndroidX.Media3.Extractor.VvcConfig.Codecs.get -> string?
+AndroidX.Media3.Extractor.VvcConfig.Codecs.set -> void
+AndroidX.Media3.Extractor.VvcConfig.InitializationData.get -> System.Collections.IList?
+AndroidX.Media3.Extractor.VvcConfig.InitializationData.set -> void
+AndroidX.Media3.Extractor.VvcConfig.NalUnitLengthFieldLength.get -> int
+AndroidX.Media3.Extractor.VvcConfig.NalUnitLengthFieldLength.set -> void
 AndroidX.Media3.Extractor.Wav.WavExtractor
 AndroidX.Media3.Extractor.Wav.WavExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 AndroidX.Media3.Extractor.Wav.WavExtractor.InterfaceConsts
@@ -1833,8 +1838,6 @@ const AndroidX.Media3.Extractor.MpegAudioUtil.MaxRateBytesPerSecond = 40000 -> i
 const AndroidX.Media3.Extractor.Ogg.OggExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Ogg.OggExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Ogg.OggExtractor.InterfaceConsts.ResultSeek = 1 -> int
-const AndroidX.Media3.Extractor.OpusUtil.MaxBytesPerSecond = 63750 -> int
-const AndroidX.Media3.Extractor.OpusUtil.SampleRate = 48000 -> int
 const AndroidX.Media3.Extractor.Png.PngExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Png.PngExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Png.PngExtractor.InterfaceConsts.ResultSeek = 1 -> int
@@ -2021,9 +2024,6 @@ override AndroidX.Media3.Extractor.Metadata.Emsg.EventMessage.JniPeerMembers.get
 override AndroidX.Media3.Extractor.Metadata.Emsg.EventMessageDecoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Emsg.EventMessageEncoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.ThresholdClass.get -> nint
-override AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.Metadata.Icy.IcyDecoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Icy.IcyHeaders.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Icy.IcyInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2097,9 +2097,6 @@ override AndroidX.Media3.Extractor.NoOpExtractorOutput.JniPeerMembers.get -> Jav
 override AndroidX.Media3.Extractor.Ogg.OggExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Ogg.OggExtractor.ThresholdClass.get -> nint
 override AndroidX.Media3.Extractor.Ogg.OggExtractor.ThresholdType.get -> System.Type!
-override AndroidX.Media3.Extractor.OpusUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.OpusUtil.ThresholdClass.get -> nint
-override AndroidX.Media3.Extractor.OpusUtil.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.Png.PngExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.PositionHolder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.SeekMapSeekPoints.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2193,6 +2190,7 @@ override AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.JniPeerMembers.get -
 override AndroidX.Media3.Extractor.VorbisUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.VorbisUtil.Mode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.VvcConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Wav.WavExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.WavUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Webp.WebpExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2297,14 +2295,6 @@ static AndroidX.Media3.Extractor.MpegAudioUtil.GetFrameSize(int headerData) -> i
 static AndroidX.Media3.Extractor.MpegAudioUtil.ParseMpegAudioFrameSampleCount(int headerData) -> int
 static AndroidX.Media3.Extractor.NoOpExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
 static AndroidX.Media3.Extractor.Ogg.OggExtractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
-static AndroidX.Media3.Extractor.OpusUtil.BuildInitializationData(byte[]? header) -> System.Collections.Generic.IList<byte[]!>?
-static AndroidX.Media3.Extractor.OpusUtil.GetChannelCount(byte[]? header) -> int
-static AndroidX.Media3.Extractor.OpusUtil.GetPacketDurationUs(byte[]? buffer) -> long
-static AndroidX.Media3.Extractor.OpusUtil.GetPreSkipSamples(byte[]? header) -> int
-static AndroidX.Media3.Extractor.OpusUtil.NeedToDecodeOpusFrame(long startTimeUs, long frameTimeUs) -> bool
-static AndroidX.Media3.Extractor.OpusUtil.ParseOggPacketAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
-static AndroidX.Media3.Extractor.OpusUtil.ParseOggPacketForPreAudioSampleByteCount(Java.Nio.ByteBuffer? buffer) -> int
-static AndroidX.Media3.Extractor.OpusUtil.ParsePacketAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
 static AndroidX.Media3.Extractor.SeekPoint.Start.get -> AndroidX.Media3.Extractor.SeekPoint?
 static AndroidX.Media3.Extractor.StartOffsetExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
 static AndroidX.Media3.Extractor.TS.Ac3Extractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
@@ -2324,6 +2314,7 @@ static AndroidX.Media3.Extractor.Text.SubtitleParserOutputOptions.AllCues() -> A
 static AndroidX.Media3.Extractor.Text.SubtitleParserOutputOptions.CuesAfterThenRemainingCuesBefore(long startTimeUs) -> AndroidX.Media3.Extractor.Text.SubtitleParserOutputOptions?
 static AndroidX.Media3.Extractor.Text.SubtitleParserOutputOptions.OnlyCuesAfter(long startTimeUs) -> AndroidX.Media3.Extractor.Text.SubtitleParserOutputOptions?
 static AndroidX.Media3.Extractor.Text.SubtitleTranscodingExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
+static AndroidX.Media3.Extractor.Text.Vobsub.VobsubParser.EmptyCues.get -> AndroidX.Media3.Extractor.Text.CuesWithTiming?
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttCueParser.CueHeaderPattern.get -> Java.Util.Regex.Pattern?
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttCueParser.NewCueForText(Java.Lang.ICharSequence? text) -> AndroidX.Media3.Common.Text.Cue?
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttCueParser.NewCueForText(string? text) -> AndroidX.Media3.Common.Text.Cue?
@@ -2342,6 +2333,7 @@ static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Med
 static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisIdentificationHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader?
 static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisModes(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, int channels) -> AndroidX.Media3.Extractor.VorbisUtil.Mode![]?
 static AndroidX.Media3.Extractor.VorbisUtil.VerifyVorbisHeaderCapturePattern(int headerType, AndroidX.Media3.Common.Util.ParsableByteArray? header, bool quiet) -> bool
+static AndroidX.Media3.Extractor.VvcConfig.Parse(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Extractor.VvcConfig?
 static AndroidX.Media3.Extractor.Wav.WavExtractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
 static AndroidX.Media3.Extractor.WavUtil.GetPcmEncodingForType(int type, int bitsPerSample) -> int
 static AndroidX.Media3.Extractor.WavUtil.GetTypeForPcmEncoding(int pcmEncoding) -> int
@@ -2399,7 +2391,6 @@ virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Medi
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length) -> void
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length, int sampleDataPart) -> void
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleMetadata(long timeUs, int flags, int size, int offset, AndroidX.Media3.Extractor.TrackOutputCryptoData? cryptoData) -> void
-virtual AndroidX.Media3.Extractor.Metadata.Flac.VorbisComment.PopulateMediaMetadata(AndroidX.Media3.Common.MediaMetadata.Builder? builder) -> void
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.BinaryElement(int id, int contentSize, AndroidX.Media3.Extractor.IExtractorInput? input) -> void
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.EndMasterElement(int id) -> void
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FloatElement(int id, double value) -> void

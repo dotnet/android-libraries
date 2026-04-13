@@ -377,6 +377,13 @@ AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder.Put(AndroidX.Wea
 AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder.PutAll(AndroidX.Wear.ProtoLayout.Expression.DynamicDataMap? dynamicDataMap) -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder?
 AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder.PutAll(AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues? other) -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder?
 AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Companion
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Companion.Constant(int value) -> AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus!
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Companion.DynamicDataValueOf(int value) -> AndroidX.Wear.ProtoLayout.Expression.DynamicDataBuilders.IDynamicDataValue!
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.DynamicLayoutUpdateStatus(AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicInt32! impl) -> void
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
+AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.ILayoutUpdateStatus
 AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys
 AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources
 AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.DynamicHeartRateAccuracy
@@ -419,6 +426,9 @@ AndroidX.Wear.ProtoLayout.Expression.VersionBuilders.VersionInfo.Minor.get -> in
 const AndroidX.Wear.ProtoLayout.Expression.AnimationParameterBuilders.RepeatModeRestart = 1 -> int
 const AndroidX.Wear.ProtoLayout.Expression.AnimationParameterBuilders.RepeatModeReverse = 2 -> int
 const AndroidX.Wear.ProtoLayout.Expression.AnimationParameterBuilders.RepeatModeUnknown = 0 -> int
+const AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.LayoutUpdateIdle = 0 -> int
+const AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.LayoutUpdateIdleError = 2 -> int
+const AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.LayoutUpdateWaiting = 1 -> int
 const AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.HeartRateAccuracyHigh = 5 -> int
 const AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.HeartRateAccuracyLow = 3 -> int
 const AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.HeartRateAccuracyMedium = 4 -> int
@@ -467,6 +477,8 @@ override AndroidX.Wear.ProtoLayout.Expression.MutableDynamicDataMap.JniPeerMembe
 override AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.DynamicHeartRateAccuracy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -564,12 +576,16 @@ static AndroidX.Wear.ProtoLayout.Expression.DynamicDataPairUtil.DynamicDataPairO
 static AndroidX.Wear.ProtoLayout.Expression.DynamicDataPairUtil.DynamicDataPairOf(AndroidX.Wear.ProtoLayout.Expression.DynamicDataKey! obj, int value) -> AndroidX.Wear.ProtoLayout.Expression.DynamicDataPair!
 static AndroidX.Wear.ProtoLayout.Expression.DynamicDataPairUtil.DynamicDataPairOf(AndroidX.Wear.ProtoLayout.Expression.DynamicDataKey! obj, string! value) -> AndroidX.Wear.ProtoLayout.Expression.DynamicDataPair!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues.Of(AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey? key, AndroidX.Wear.ProtoLayout.Expression.DynamicDataBuilders.IDynamicDataValue? value) -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataValues?
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.Constant(int value) -> AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus!
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus.DynamicDataValueOf(int value) -> AndroidX.Wear.ProtoLayout.Expression.DynamicDataBuilders.IDynamicDataValue!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Instance.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources!
-static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.IsLayoutUpdatePending() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicBool!
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.IsInAmbientMode() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicBool!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.IsLayoutVisible() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicBool!
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.AmbientModeStatus.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.Instance.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys!
-static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.LayoutUpdatePending.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.LayoutUpdateStatus.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.Keys.LayoutVisibility.get -> AndroidX.Wear.ProtoLayout.Expression.PlatformDataKey!
+static AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.LayoutUpdateStatus() -> AndroidX.Wear.ProtoLayout.Expression.PlatformEventSources.DynamicLayoutUpdateStatus!
 static AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.DailyCalories() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat?
 static AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.DailyDistanceMeters() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat?
 static AndroidX.Wear.ProtoLayout.Expression.PlatformHealthSources.DailyFloors() -> AndroidX.Wear.ProtoLayout.Expression.DynamicBuilders.IDynamicFloat?

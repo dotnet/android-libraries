@@ -480,5 +480,7 @@
     java.lang.Character
   </attr>
 
+  <!-- fix CS0546: TypeParameterReference.UpperBounds.set: cannot override because 'KTypeParameterBase.UpperBounds' does not have an overridable set accessor -->
+  <remove-node path="/api/package[@name='kotlin.jvm.internal']/class[@name='TypeParameterReference']/method[@name='setUpperBounds' and count(parameter)=1]" />
 
 </metadata>

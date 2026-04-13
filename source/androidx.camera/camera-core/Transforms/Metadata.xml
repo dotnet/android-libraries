@@ -139,4 +139,10 @@
         path="/api/package[@name='androidx.camera.core.imagecapture']/class[@name='DngImage2Disk']/implements"
         />
 
+    <!-- CameraExecutor implements ScheduledExecutorService but the generated bindings don't
+         satisfy IExecutorService.InvokeAll/InvokeAny signatures; remove the interface implements -->
+    <remove-node
+        path="/api/package[@name='androidx.camera.core']/class[@name='CameraExecutor']/implements[@name='java.util.concurrent.ScheduledExecutorService']"
+        />
+
 </metadata>

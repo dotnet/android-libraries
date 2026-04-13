@@ -84,4 +84,36 @@
         protected
     </attr>
 
+    <!-- PipeCameraPresenceSource.stopMonitoring is public in Java but the base class
+         AbstractCameraPresenceSource.stopMonitoring is protected — fix visibility to avoid CS0507 -->
+    <attr
+        path="/api/package[@name='androidx.camera.camera2.adapter']/class[@name='PipeCameraPresenceSource']/method[@name='stopMonitoring' and count(parameter)=0]"
+        name="visibility"
+        >
+        protected
+    </attr>
+
+    <!-- CameraInternalAdapter implements CameraInternal which inherits ICamera requiring CameraControl
+         and CameraInfo properties that are exposed as covariant subtypes — remove implements (CS0535) -->
+    <remove-node
+        path="/api/package[@name='androidx.camera.camera2.adapter']/class[@name='CameraInternalAdapter']/implements"
+        />
+
+    <!-- ZoomValue implements IZoomState but is missing LinearZoom property (CS0535) -->
+    <remove-node
+        path="/api/package[@name='androidx.camera.camera2.adapter']/class[@name='ZoomValue']/implements"
+        />
+
+    <!-- MeteringRepeating extends UseCase but is missing new abstract members added in 1.6.0 (CS0534)
+         and its Builder has IUseCaseConfigBuilder return type mismatches (CS0738) — remove both -->
+    <remove-node
+        path="/api/package[@name='androidx.camera.camera2.impl']/class[@name='MeteringRepeating']"
+        />
+
+    <!-- RejectOperationCameraCaptureSession extends CameraCaptureSession but does not implement
+         new abstract members added in Android API 36 — remove to avoid CS0534 -->
+    <remove-node
+        path="/api/package[@name='androidx.camera.camera2.impl']/class[@name='RejectOperationCameraCaptureSession']"
+        />
+
 </metadata>
