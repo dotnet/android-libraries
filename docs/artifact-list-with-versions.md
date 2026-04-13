@@ -410,7 +410,7 @@
 | 403|com.google.android.gms:play-services-gcm                              |17.0.0              |Xamarin.GooglePlayServices.Gcm                                        |117.0.0.25          |
 | 404|com.google.android.gms:play-services-home                             |16.0.0              |Xamarin.GooglePlayServices.Home                                       |116.0.0.18          |
 | 405|com.google.android.gms:play-services-identity                         |18.1.0              |Xamarin.GooglePlayServices.Identity                                   |118.1.0.9           |
-| 406|com.google.android.gms:play-services-identity-credentials             |16.0.0-alpha04      |Xamarin.GooglePlayServices.Identity.Credentials                       |116.0.0.5-alpha04   |
+| 406|com.google.android.gms:play-services-identity-credentials             |16.0.0-alpha08      |Xamarin.GooglePlayServices.Identity.Credentials                       |116.0.0-alpha08     |
 | 407|com.google.android.gms:play-services-iid                              |17.0.0              |Xamarin.GooglePlayServices.Iid                                        |117.0.0.25          |
 | 408|com.google.android.gms:play-services-instantapps                      |18.2.0              |Xamarin.GooglePlayServices.InstantApps                                |118.2.0.3           |
 | 409|com.google.android.gms:play-services-location                         |21.3.0              |Xamarin.GooglePlayServices.Location                                   |121.3.0.9           |
