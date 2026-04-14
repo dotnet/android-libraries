@@ -373,8 +373,8 @@
 | 366|com.google.android.datatransport:transport-api                        |4.1.1               |Xamarin.Google.Android.DataTransport.TransportApi                     |4.1.1               |
 | 367|com.google.android.datatransport:transport-backend-cct                |4.1.1               |Xamarin.Google.Android.DataTransport.TransportBackendCct              |4.1.1               |
 | 368|com.google.android.datatransport:transport-runtime                    |4.1.1               |Xamarin.Google.Android.DataTransport.TransportRuntime                 |4.1.1               |
-| 369|com.google.android.gms:play-services-ads                              |25.1.0              |Xamarin.GooglePlayServices.Ads                                        |125.1.0             |
-| 370|com.google.android.gms:play-services-ads-api                          |25.1.0              |Xamarin.GooglePlayServices.Ads.Api                                    |125.1.0             |
+| 369|com.google.android.gms:play-services-ads                              |25.2.0              |Xamarin.GooglePlayServices.Ads                                        |125.2.0             |
+| 370|com.google.android.gms:play-services-ads-api                          |25.2.0              |Xamarin.GooglePlayServices.Ads.Api                                    |125.2.0             |
 | 371|com.google.android.gms:play-services-ads-base                         |24.1.0              |Xamarin.GooglePlayServices.Ads.Base                                   |124.1.0.3           |
 | 372|com.google.android.gms:play-services-ads-identifier                   |18.3.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.3.0.1           |
 | 373|com.google.android.gms:play-services-ads-lite                         |24.0.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.0.0.5           |

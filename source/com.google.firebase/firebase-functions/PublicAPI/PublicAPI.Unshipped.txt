@@ -69,7 +69,6 @@ Firebase.Functions.Dagger.ProvidesAttribute
 Firebase.Functions.Dagger.ProvidesAttribute.ProvidesAttribute() -> void
 Firebase.Functions.DaggerFunctionsComponent
 Firebase.Functions.FirebaseContextProvider_Factory
-Firebase.Functions.FirebaseContextProvider_Factory.FirebaseContextProvider_Factory(JavaX.Inject.IProvider? tokenProvider, JavaX.Inject.IProvider? instanceIdProvider, JavaX.Inject.IProvider? appCheckDeferredProvider, JavaX.Inject.IProvider? executorProvider) -> void
 Firebase.Functions.FirebaseContextProvider_Factory.Get() -> Java.Lang.Object?
 Firebase.Functions.FirebaseFunctions
 Firebase.Functions.FirebaseFunctions.Companion
@@ -94,14 +93,11 @@ Firebase.Functions.FirebaseFunctionsKtxRegistrar
 Firebase.Functions.FirebaseFunctionsKtxRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>!
 Firebase.Functions.FirebaseFunctionsKtxRegistrar.FirebaseFunctionsKtxRegistrar() -> void
 Firebase.Functions.FirebaseFunctions_Factory
-Firebase.Functions.FirebaseFunctions_Factory.FirebaseFunctions_Factory(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? projectIdProvider, JavaX.Inject.IProvider? contextProvider2, JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? uiExecutorProvider) -> void
 Firebase.Functions.FirebaseFunctions_Factory.Get(string? regionOrCustomDomain) -> Firebase.Functions.FirebaseFunctions?
 Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory
-Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory.FunctionsComponent_MainModule_Companion_BindProjectIdFactory(JavaX.Inject.IProvider? optionsProvider) -> void
 Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory.Get() -> Java.Lang.Object?
 Firebase.Functions.FunctionsKt
 Firebase.Functions.FunctionsMultiResourceComponent_Factory
-Firebase.Functions.FunctionsMultiResourceComponent_Factory.FunctionsMultiResourceComponent_Factory(JavaX.Inject.IProvider? functionsFactoryProvider) -> void
 Firebase.Functions.FunctionsMultiResourceComponent_Factory.Get() -> Java.Lang.Object?
 Firebase.Functions.FunctionsMultiResourceComponent_FirebaseFunctionsFactory_Impl
 Firebase.Functions.FunctionsMultiResourceComponent_FirebaseFunctionsFactory_Impl.Create(string? regionOrCustomDomain) -> Firebase.Functions.FirebaseFunctions?
@@ -133,10 +129,15 @@ Firebase.Functions.StreamResponse.Result
 Firebase.Functions.StreamResponse.Result.GetResult() -> Firebase.Functions.HttpsCallableResult!
 Firebase.Functions.StreamResponse.Result.Result(Firebase.Functions.HttpsCallableResult! result) -> void
 Firebase.Functions.StreamResponse.StreamResponse(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Firebase.Functions.Jakarta.Inject.IProvider
+Google.Firebase.Functions.Jakarta.Inject.IProvider.Get() -> Java.Lang.Object?
+Google.Firebase.Functions.Xamarin.JSpecify.Annotations.INullable
+Google.Firebase.Functions.Xamarin.JSpecify.Annotations.NullableAttribute
+Google.Firebase.Functions.Xamarin.JSpecify.Annotations.NullableAttribute.NullableAttribute() -> void
 const Firebase.Functions.BuildConfig.BuildType = "release" -> string!
 const Firebase.Functions.BuildConfig.Debug = false -> bool
 const Firebase.Functions.BuildConfig.LibraryPackageName = "com.google.firebase.functions" -> string!
-const Firebase.Functions.BuildConfig.VersionName = "22.1.0" -> string!
+const Firebase.Functions.BuildConfig.VersionName = "22.1.1" -> string!
 override Firebase.Functions.BuildConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.Dagger.Interal.DoubleCheck.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.Dagger.Interal.InstanceFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -165,6 +166,8 @@ override Firebase.Functions.StreamResponse.Message.JniPeerMembers.get -> Java.In
 override Firebase.Functions.StreamResponse.Result.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Functions.StreamResponse.ThresholdClass.get -> nint
 override Firebase.Functions.StreamResponse.ThresholdType.get -> System.Type!
+static Firebase.Functions.Dagger.Interal.DoubleCheck.Lazy(Firebase.Functions.Dagger.Interal.IProvider? provider) -> Firebase.Functions.Dagger.ILazy?
+static Firebase.Functions.Dagger.Interal.DoubleCheck.Provider(Firebase.Functions.Dagger.Interal.IProvider? delegate) -> Firebase.Functions.Dagger.Interal.IProvider?
 static Firebase.Functions.Dagger.Interal.InstanceFactory.Create(Java.Lang.Object? instance) -> Firebase.Functions.Dagger.Interal.IFactory?
 static Firebase.Functions.Dagger.Interal.InstanceFactory.CreateNullable(Java.Lang.Object? instance) -> Firebase.Functions.Dagger.Interal.IFactory?
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckBuilderRequirement(Java.Lang.Object? requirement, Java.Lang.Class? clazz) -> void
@@ -174,7 +177,7 @@ static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNull(Java.Lang.Ob
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNullFromComponent(Java.Lang.Object? reference) -> Java.Lang.Object?
 static Firebase.Functions.Dagger.Interal.Preconditions.CheckNotNullFromProvides(Java.Lang.Object? reference) -> Java.Lang.Object?
 static Firebase.Functions.Dagger.Interal.Providers.AsDaggerProvider(JavaX.Inject.IProvider? provider) -> Firebase.Functions.Dagger.Interal.IProvider?
-static Firebase.Functions.FirebaseContextProvider_Factory.Create(JavaX.Inject.IProvider? tokenProvider, JavaX.Inject.IProvider? instanceIdProvider, JavaX.Inject.IProvider? appCheckDeferredProvider, JavaX.Inject.IProvider? executorProvider) -> Firebase.Functions.FirebaseContextProvider_Factory?
+static Firebase.Functions.FirebaseContextProvider_Factory.Create(Firebase.Functions.Dagger.Interal.IProvider? tokenProvider, Firebase.Functions.Dagger.Interal.IProvider? instanceIdProvider, Firebase.Functions.Dagger.Interal.IProvider? appCheckDeferredProvider, Firebase.Functions.Dagger.Interal.IProvider? executorProvider) -> Firebase.Functions.FirebaseContextProvider_Factory?
 static Firebase.Functions.FirebaseContextProvider_Factory.NewInstance(Firebase.Inject.IProvider? tokenProvider, Firebase.Inject.IProvider? instanceId, Firebase.Inject.IDeferred? appCheckDeferred, Java.Util.Concurrent.IExecutor? executor) -> Java.Lang.Object?
 static Firebase.Functions.FirebaseFunctions.GetInstance(Firebase.FirebaseApp! app) -> Firebase.Functions.FirebaseFunctions!
 static Firebase.Functions.FirebaseFunctions.GetInstance(Firebase.FirebaseApp! app, string! regionOrCustomDomain) -> Firebase.Functions.FirebaseFunctions!
@@ -202,14 +205,13 @@ static Firebase.Functions.FirebaseFunctionsException.Code.Unimplemented.get -> F
 static Firebase.Functions.FirebaseFunctionsException.Code.Unknown.get -> Firebase.Functions.FirebaseFunctionsException.Code?
 static Firebase.Functions.FirebaseFunctionsException.Code.ValueOf(string? value) -> Firebase.Functions.FirebaseFunctionsException.Code?
 static Firebase.Functions.FirebaseFunctionsException.Code.Values() -> Firebase.Functions.FirebaseFunctionsException.Code![]?
-static Firebase.Functions.FirebaseFunctions_Factory.Create(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? projectIdProvider, JavaX.Inject.IProvider? contextProvider2, JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? uiExecutorProvider) -> Firebase.Functions.FirebaseFunctions_Factory?
+static Firebase.Functions.FirebaseFunctions_Factory.Create(Firebase.Functions.Dagger.Interal.IProvider? contextProvider, Firebase.Functions.Dagger.Interal.IProvider? projectIdProvider, Firebase.Functions.Dagger.Interal.IProvider? contextProvider2, Firebase.Functions.Dagger.Interal.IProvider? executorProvider, Firebase.Functions.Dagger.Interal.IProvider? uiExecutorProvider) -> Firebase.Functions.FirebaseFunctions_Factory?
 static Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory.BindProjectId(Firebase.FirebaseOptions? options) -> string?
-static Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory.Create(JavaX.Inject.IProvider? optionsProvider) -> Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory?
+static Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory.Create(Firebase.Functions.Dagger.Interal.IProvider? optionsProvider) -> Firebase.Functions.FunctionsComponent_MainModule_Companion_BindProjectIdFactory?
 static Firebase.Functions.FunctionsKt.Functions(Firebase.Firebase! obj, Firebase.FirebaseApp! app) -> Firebase.Functions.FirebaseFunctions!
 static Firebase.Functions.FunctionsKt.Functions(Firebase.Firebase! obj, Firebase.FirebaseApp! app, string! regionOrCustomDomain) -> Firebase.Functions.FirebaseFunctions!
 static Firebase.Functions.FunctionsKt.Functions(Firebase.Firebase! obj, string! regionOrCustomDomain) -> Firebase.Functions.FirebaseFunctions!
 static Firebase.Functions.FunctionsKt.GetFunctions(Firebase.Firebase! obj) -> Firebase.Functions.FirebaseFunctions!
 static Firebase.Functions.FunctionsKt.GetHttpsCallable(Firebase.Functions.FirebaseFunctions! obj, string! name, Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Functions.HttpsCallableReference!
 static Firebase.Functions.FunctionsKt.GetHttpsCallableFromUrl(Firebase.Functions.FirebaseFunctions! obj, Java.Net.URL! url, Kotlin.Jvm.Functions.IFunction1! init) -> Firebase.Functions.HttpsCallableReference!
-static Firebase.Functions.FunctionsMultiResourceComponent_Factory.Create(JavaX.Inject.IProvider? functionsFactoryProvider) -> Firebase.Functions.FunctionsMultiResourceComponent_Factory?
 static Firebase.Functions.FunctionsMultiResourceComponent_FirebaseFunctionsFactory_Impl.Create(Firebase.Functions.FirebaseFunctions_Factory? delegateFactory) -> JavaX.Inject.IProvider?
