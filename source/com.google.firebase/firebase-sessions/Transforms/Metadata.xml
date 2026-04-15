@@ -43,5 +43,11 @@
     <remove-node
         path="/api/package[@name='com.google.firebase.sessions.dagger.internal']/class[@name='DoubleCheck']/method[@name='provider' and count(parameter)=1 and parameter[1][@type='P']]"
         />
+
+    <!-- Remove local jakarta.inject.Provider base from dagger.internal.Provider to fix CS0121
+         ambiguity between jakarta.inject.IProvider.Get() and javax.inject.IProvider.Get() -->
+    <remove-node
+        path="/api/package[@name='com.google.firebase.sessions.dagger.internal']/interface[@name='Provider']/implements[@name='com.google.firebase.sessions.jakarta.inject.Provider']"
+        />
         
 </metadata>

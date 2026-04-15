@@ -49,6 +49,29 @@ Android.Gms.Wallet.Button.PayButton.OnClick(Android.Views.View! view) -> void
 Android.Gms.Wallet.Button.PayButton.PayButton(Android.Content.Context! context) -> void
 Android.Gms.Wallet.Button.PayButton.PayButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
 Android.Gms.Wallet.Button.PayButton.PayButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
+Android.Gms.Wallet.Callback.BasePaymentDataCallbacks
+Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.BasePaymentDataCallbacks() -> void
+Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.BasePaymentDataCallbacks(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Wallet.Callback.CallbackInput
+Android.Gms.Wallet.Callback.CallbackInput.Builder
+Android.Gms.Wallet.Callback.CallbackInput.Builder.Build() -> Android.Gms.Wallet.Callback.CallbackInput!
+Android.Gms.Wallet.Callback.CallbackInput.Builder.SetCallbackType(int callbackType) -> Android.Gms.Wallet.Callback.CallbackInput.Builder!
+Android.Gms.Wallet.Callback.CallbackInput.Builder.SetRequestBytes(byte[]! requestBytes) -> Android.Gms.Wallet.Callback.CallbackInput.Builder!
+Android.Gms.Wallet.Callback.CallbackInput.CallbackInput(int callbackType, byte[]! requestBytes) -> void
+Android.Gms.Wallet.Callback.CallbackInput.CallbackInput(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Wallet.Callback.CallbackOutput
+Android.Gms.Wallet.Callback.CallbackOutput.CallbackOutput(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Wallet.Callback.CompleteEventArgs
+Android.Gms.Wallet.Callback.CompleteEventArgs.CompleteEventArgs(Java.Lang.Object! p0) -> void
+Android.Gms.Wallet.Callback.CompleteEventArgs.P0.get -> Java.Lang.Object!
+Android.Gms.Wallet.Callback.IOnCompleteListener
+Android.Gms.Wallet.Callback.IOnCompleteListener.Complete(Java.Lang.Object! p0) -> void
+Android.Gms.Wallet.Callback.IntermediatePaymentData
+Android.Gms.Wallet.Callback.IntermediatePaymentData.IntermediatePaymentData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Wallet.Callback.PaymentAuthorizationResult
+Android.Gms.Wallet.Callback.PaymentAuthorizationResult.PaymentAuthorizationResult(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Wallet.Callback.PaymentDataRequestUpdate
+Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.PaymentDataRequestUpdate(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.Wallet.CardInfo
 Android.Gms.Wallet.CardInfo.BillingAddress.get -> Android.Gms.Identity.Intents.Model.UserAddress?
 Android.Gms.Wallet.CardInfo.CardClass.get -> int
@@ -802,7 +825,9 @@ const Android.Gms.Wallet.WalletConstants.CardNetwork.Mastercard = 4 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetwork.Other = 1000 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetwork.Visa = 5 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetworkAmex = 1 -> int
+const Android.Gms.Wallet.WalletConstants.CardNetworkBancomat = 11 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetworkDiscover = 2 -> int
+const Android.Gms.Wallet.WalletConstants.CardNetworkEftpos = 10 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetworkInterac = 6 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetworkJcb = 3 -> int
 const Android.Gms.Wallet.WalletConstants.CardNetworkMada = 9 -> int
@@ -833,6 +858,7 @@ const Android.Gms.Wallet.WalletConstants.ExtraIsReadyToPay = "com.google.android
 const Android.Gms.Wallet.WalletConstants.ExtraIsUserPreauthorized = "com.google.android.gm.wallet.EXTRA_IS_USER_PREAUTHORIZED" -> string!
 const Android.Gms.Wallet.WalletConstants.MetadataTagWalletApiEnabled = "com.google.android.gms.wallet.api.enabled" -> string!
 const Android.Gms.Wallet.WalletConstants.PaymentCardRecognitionTypeOcr = 1 -> int
+const Android.Gms.Wallet.WalletConstants.PaymentMethodBankAccount = 4 -> int
 const Android.Gms.Wallet.WalletConstants.PaymentMethodCard = 1 -> int
 const Android.Gms.Wallet.WalletConstants.PaymentMethodEwallet = 3 -> int
 const Android.Gms.Wallet.WalletConstants.PaymentMethodTokenizationTypeDirect = 3 -> int
@@ -871,6 +897,29 @@ override Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.Builder.Jni
 override Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Wallet.Button.PayButton.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.CallbackInput.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.CallbackInput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.CallbackInput.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.CallbackInput.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.CallbackInput.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Wallet.Callback.CallbackOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.CallbackOutput.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.CallbackOutput.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.IntermediatePaymentData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.IntermediatePaymentData.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.IntermediatePaymentData.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.IntermediatePaymentData.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Wallet.Callback.PaymentAuthorizationResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.PaymentAuthorizationResult.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.PaymentAuthorizationResult.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.PaymentAuthorizationResult.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.ThresholdClass.get -> nint
+override Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.ThresholdType.get -> System.Type!
+override Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Wallet.CardInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Wallet.CardInfo.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
 override Android.Gms.Wallet.CardRequirements.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1063,6 +1112,7 @@ override Google.Android.Gms.Wallet.Shared.ApplicationParameters.WriteToParcel(An
 override Google.Android.Gms.Wallet.Shared.BuyFlowConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Wallet.Shared.BuyFlowConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Wallet.Shared.BuyFlowConfig.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Android.Gms.Wallet.Callback.CallbackOutput.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Wallet.CreditCardExpirationDate.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Wallet.IsReadyToPayRequest.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Wallet.PaymentCardRecognitionIntentRequest.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
@@ -1074,11 +1124,19 @@ override sealed Android.Gms.Wallet.WebPaymentDataRequest.WriteToParcel(Android.O
 override sealed Android.Gms.Wallet.Wobs.CommonWalletObject.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 static Android.Gms.Wallet.AutoResolveHelper.GetStatusFromIntent(Android.Content.Intent? data) -> Android.Gms.Common.Apis.Statuses?
 static Android.Gms.Wallet.AutoResolveHelper.PutStatusIntoIntent(Android.Content.Intent! data, Android.Gms.Common.Apis.Statuses? status) -> void
-static Android.Gms.Wallet.AutoResolveHelper.ResolveTask(Android.Gms.Tasks.Task! task, Android.App.Activity! activity, int requestCode) -> void
 static Android.Gms.Wallet.Button.ButtonOptions.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Wallet.Button.ButtonOptions.NewBuilder() -> Android.Gms.Wallet.Button.ButtonOptions.Builder!
 static Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.NewBuilder() -> Android.Gms.Wallet.Button.GetInstrumentAvailabilityResponse.Builder!
+static Android.Gms.Wallet.Callback.CallbackInput.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Wallet.Callback.CallbackInput.NewBuilder() -> Android.Gms.Wallet.Callback.CallbackInput.Builder!
+static Android.Gms.Wallet.Callback.CallbackOutput.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Wallet.Callback.IntermediatePaymentData.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Wallet.Callback.IntermediatePaymentData.FromJson(string! json) -> Android.Gms.Wallet.Callback.IntermediatePaymentData!
+static Android.Gms.Wallet.Callback.PaymentAuthorizationResult.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Wallet.Callback.PaymentAuthorizationResult.FromJson(string! json) -> Android.Gms.Wallet.Callback.PaymentAuthorizationResult!
+static Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.FromJson(string! json) -> Android.Gms.Wallet.Callback.PaymentDataRequestUpdate!
 static Android.Gms.Wallet.CardInfo.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Wallet.CardRequirements.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Wallet.CardRequirements.NewBuilder() -> Android.Gms.Wallet.CardRequirements.Builder!
@@ -1187,6 +1245,20 @@ static Google.Android.Gms.Wallet.Shared.BuyFlowConfig.Creator.get -> Android.OS.
 static Google.Android.Gms.Wallet.Shared.BuyFlowConfig.NewBuilder() -> Google.Android.Gms.Wallet.Shared.BuyFlowConfig.Builder!
 static Google.Android.Gms.Wallet.Shared.BuyFlowConfig.NewBuilderFrom(Google.Android.Gms.Wallet.Shared.BuyFlowConfig! config) -> Google.Android.Gms.Wallet.Shared.BuyFlowConfig.Builder!
 virtual Android.Gms.Wallet.AutoResolvableVoidResult.PutIntoIntent(Android.Content.Intent! p0) -> void
+virtual Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.OnPaymentAuthorized(Android.Gms.Wallet.PaymentData? p0, Android.Gms.Wallet.Callback.IOnCompleteListener! p1) -> void
+virtual Android.Gms.Wallet.Callback.BasePaymentDataCallbacks.OnPaymentDataChanged(Android.Gms.Wallet.Callback.IntermediatePaymentData? p0, Android.Gms.Wallet.Callback.IOnCompleteListener! p1) -> void
+virtual Android.Gms.Wallet.Callback.CallbackInput.CallbackType.get -> int
+virtual Android.Gms.Wallet.Callback.CallbackInput.DeserializeRequest(Android.OS.IParcelableCreator! creator) -> Java.Lang.Object?
+virtual Android.Gms.Wallet.Callback.CallbackInput.GetRequestBytes() -> byte[]!
+virtual Android.Gms.Wallet.Callback.IntermediatePaymentData.LastSavedState.get -> Android.OS.Bundle?
+virtual Android.Gms.Wallet.Callback.IntermediatePaymentData.ToJson() -> string!
+virtual Android.Gms.Wallet.Callback.IntermediatePaymentData.WithLastSavedState(Android.OS.Bundle? savedState) -> Android.Gms.Wallet.Callback.IntermediatePaymentData!
+virtual Android.Gms.Wallet.Callback.PaymentAuthorizationResult.ToJson() -> string!
+virtual Android.Gms.Wallet.Callback.PaymentAuthorizationResult.UpdatedSavedState.get -> Android.OS.Bundle?
+virtual Android.Gms.Wallet.Callback.PaymentAuthorizationResult.WithUpdatedSavedState(Android.OS.Bundle? savedState) -> Android.Gms.Wallet.Callback.PaymentAuthorizationResult!
+virtual Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.ToJson() -> string!
+virtual Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.UpdatedSavedState.get -> Android.OS.Bundle?
+virtual Android.Gms.Wallet.Callback.PaymentDataRequestUpdate.WithUpdatedSavedState(Android.OS.Bundle? savedState) -> Android.Gms.Wallet.Callback.PaymentDataRequestUpdate!
 virtual Android.Gms.Wallet.Contract.ApiTaskResult.Result.get -> Java.Lang.Object?
 virtual Android.Gms.Wallet.Contract.ApiTaskResult.Status.get -> Android.Gms.Common.Apis.Statuses!
 virtual Android.Gms.Wallet.Contract.TaskResultContracts.ResolveApiTaskResult.GetSynchronousResult(Android.Content.Context! p0, Android.Gms.Tasks.Task! input) -> AndroidX.Activity.Result.Contract.ActivityResultContract.SynchronousResult?

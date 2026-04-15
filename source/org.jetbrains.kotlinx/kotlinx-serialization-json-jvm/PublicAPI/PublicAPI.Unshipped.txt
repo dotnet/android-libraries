@@ -12,7 +12,7 @@ KotlinX.Serialization.Json.IJsonNamingStrategy
 KotlinX.Serialization.Json.IJsonNamingStrategy.Builtins.get -> KotlinX.Serialization.Json.JsonNamingStrategyBuiltins!
 KotlinX.Serialization.Json.IJsonNamingStrategy.SerialNameForJson(KotlinX.Serialization.Descriptors.ISerialDescriptor! descriptor, int elementIndex, string! serialName) -> string!
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer
-KotlinX.Serialization.Json.Internal.AbstractJsonLexer.AbstractJsonLexer() -> void
+KotlinX.Serialization.Json.Internal.AbstractJsonLexer.AbstractJsonLexer(KotlinX.Serialization.Json.JsonConfiguration! configuration) -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.AbstractJsonLexer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.ConsumeBoolean() -> bool
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.ConsumeBooleanLenient() -> bool
@@ -30,7 +30,7 @@ KotlinX.Serialization.Json.Internal.AbstractJsonLexer.DiscardPeeked() -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.EscapedString.get -> Java.Lang.StringBuilder!
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.EscapedString.set -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.ExpectEof() -> void
-KotlinX.Serialization.Json.Internal.AbstractJsonLexer.Fail(string! message, int position, string! hint) -> Java.Lang.Void!
+KotlinX.Serialization.Json.Internal.AbstractJsonLexer.Fail(string! message, int position, string? hint) -> Java.Lang.Void!
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.FailOnUnknownKey(string! key) -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.IsNotEof.get -> bool
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.IsValidValueStart(char c) -> bool
@@ -123,15 +123,8 @@ KotlinX.Serialization.Json.Internal.JavaStreamSerialReader.Release() -> void
 KotlinX.Serialization.Json.Internal.JsonDecoderForUnsignedTypes
 KotlinX.Serialization.Json.Internal.JsonDecoderForUnsignedTypes.JsonDecoderForUnsignedTypes(KotlinX.Serialization.Json.Internal.AbstractJsonLexer! lexer, KotlinX.Serialization.Json.Json! json) -> void
 KotlinX.Serialization.Json.Internal.JsonDecoderForUnsignedTypes.SerializersModule.get -> KotlinX.Serialization.Modules.SerializersModule!
-KotlinX.Serialization.Json.Internal.JsonDecodingException
-KotlinX.Serialization.Json.Internal.JsonDecodingException.JsonDecodingException(string! message) -> void
 KotlinX.Serialization.Json.Internal.JsonElementMarker
 KotlinX.Serialization.Json.Internal.JsonElementMarker.JsonElementMarker(KotlinX.Serialization.Descriptors.ISerialDescriptor! descriptor) -> void
-KotlinX.Serialization.Json.Internal.JsonEncodingException
-KotlinX.Serialization.Json.Internal.JsonEncodingException.JsonEncodingException(string! message) -> void
-KotlinX.Serialization.Json.Internal.JsonException
-KotlinX.Serialization.Json.Internal.JsonException.JsonException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-KotlinX.Serialization.Json.Internal.JsonException.JsonException(string! message) -> void
 KotlinX.Serialization.Json.Internal.JsonExceptionsKt
 KotlinX.Serialization.Json.Internal.JsonFriendModuleApiAttribute
 KotlinX.Serialization.Json.Internal.JsonFriendModuleApiAttribute.JsonFriendModuleApiAttribute() -> void
@@ -139,7 +132,7 @@ KotlinX.Serialization.Json.Internal.JsonIteratorKt
 KotlinX.Serialization.Json.Internal.JsonIteratorKt.WhenMappings
 KotlinX.Serialization.Json.Internal.JsonNamesMapKt
 KotlinX.Serialization.Json.Internal.JsonPath
-KotlinX.Serialization.Json.Internal.JsonPath.JsonPath() -> void
+KotlinX.Serialization.Json.Internal.JsonPath.JsonPath(KotlinX.Serialization.Json.JsonConfiguration! configuration) -> void
 KotlinX.Serialization.Json.Internal.JsonPath.Path.get -> string!
 KotlinX.Serialization.Json.Internal.JsonPath.PopDescriptor() -> void
 KotlinX.Serialization.Json.Internal.JsonPath.PushDescriptor(KotlinX.Serialization.Descriptors.ISerialDescriptor! sd) -> void
@@ -193,10 +186,10 @@ KotlinX.Serialization.Json.Internal.StreamingJsonDecoderKt
 KotlinX.Serialization.Json.Internal.StreamingJsonEncoderKt
 KotlinX.Serialization.Json.Internal.StringJsonLexer
 KotlinX.Serialization.Json.Internal.StringJsonLexer.StringJsonLexer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-KotlinX.Serialization.Json.Internal.StringJsonLexer.StringJsonLexer(string! source) -> void
+KotlinX.Serialization.Json.Internal.StringJsonLexer.StringJsonLexer(string! source, KotlinX.Serialization.Json.JsonConfiguration! configuration) -> void
 KotlinX.Serialization.Json.Internal.StringJsonLexerKt
 KotlinX.Serialization.Json.Internal.StringJsonLexerWithComments
-KotlinX.Serialization.Json.Internal.StringJsonLexerWithComments.StringJsonLexerWithComments(string! source) -> void
+KotlinX.Serialization.Json.Internal.StringJsonLexerWithComments.StringJsonLexerWithComments(string! source, KotlinX.Serialization.Json.JsonConfiguration! configuration) -> void
 KotlinX.Serialization.Json.Internal.StringOpsKt
 KotlinX.Serialization.Json.Internal.SuppressAnimalSnifferAttribute
 KotlinX.Serialization.Json.Internal.SuppressAnimalSnifferAttribute.SuppressAnimalSnifferAttribute() -> void
@@ -272,6 +265,8 @@ KotlinX.Serialization.Json.JsonBuilder.DecodeEnumsCaseInsensitive.get -> bool
 KotlinX.Serialization.Json.JsonBuilder.DecodeEnumsCaseInsensitive.set -> void
 KotlinX.Serialization.Json.JsonBuilder.EncodeDefaults.get -> bool
 KotlinX.Serialization.Json.JsonBuilder.EncodeDefaults.set -> void
+KotlinX.Serialization.Json.JsonBuilder.ExceptionsWithDebugInfo.get -> bool
+KotlinX.Serialization.Json.JsonBuilder.ExceptionsWithDebugInfo.set -> void
 KotlinX.Serialization.Json.JsonBuilder.ExplicitNulls.get -> bool
 KotlinX.Serialization.Json.JsonBuilder.ExplicitNulls.set -> void
 KotlinX.Serialization.Json.JsonBuilder.IgnoreUnknownKeys.get -> bool
@@ -301,6 +296,8 @@ KotlinX.Serialization.Json.JsonConfiguration.ClassDiscriminatorMode.set -> void
 KotlinX.Serialization.Json.JsonConfiguration.CoerceInputValues.get -> bool
 KotlinX.Serialization.Json.JsonConfiguration.DecodeEnumsCaseInsensitive.get -> bool
 KotlinX.Serialization.Json.JsonConfiguration.EncodeDefaults.get -> bool
+KotlinX.Serialization.Json.JsonConfiguration.ExceptionsWithDebugInfo.get -> bool
+KotlinX.Serialization.Json.JsonConfiguration.ExceptionsWithDebugInfo.set -> void
 KotlinX.Serialization.Json.JsonConfiguration.ExplicitNulls.get -> bool
 KotlinX.Serialization.Json.JsonConfiguration.IgnoreUnknownKeys.get -> bool
 KotlinX.Serialization.Json.JsonConfiguration.IsLenient.get -> bool
@@ -316,6 +313,10 @@ KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.JsonContentPolymorph
 KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.JsonContentPolymorphicSerializer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.Serialize(KotlinX.Serialization.Encoding.IEncoder! encoder, Java.Lang.Object! value) -> void
 KotlinX.Serialization.Json.JsonDecoderDefaultImpls
+KotlinX.Serialization.Json.JsonDecodingException
+KotlinX.Serialization.Json.JsonDecodingException.Input.get -> string?
+KotlinX.Serialization.Json.JsonDecodingException.Offset.get -> int
+KotlinX.Serialization.Json.JsonDecodingException.Path.get -> string?
 KotlinX.Serialization.Json.JsonElement
 KotlinX.Serialization.Json.JsonElement.Companion
 KotlinX.Serialization.Json.JsonElement.Companion.Serializer() -> KotlinX.Serialization.IKSerializer!
@@ -324,6 +325,10 @@ KotlinX.Serialization.Json.JsonElementBuildersKt
 KotlinX.Serialization.Json.JsonElementKt
 KotlinX.Serialization.Json.JsonElementSerializersKt
 KotlinX.Serialization.Json.JsonEncoderDefaultImpls
+KotlinX.Serialization.Json.JsonEncodingException
+KotlinX.Serialization.Json.JsonEncodingException.ClassSerialName.get -> string?
+KotlinX.Serialization.Json.JsonException
+KotlinX.Serialization.Json.JsonException.JsonException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 KotlinX.Serialization.Json.JsonIgnoreUnknownKeysImpl
 KotlinX.Serialization.Json.JsonIgnoreUnknownKeysImpl.JsonIgnoreUnknownKeysImpl() -> void
 KotlinX.Serialization.Json.JsonKt
@@ -390,6 +395,8 @@ abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.SourceFormatted.g
 abstract KotlinX.Serialization.Json.Internal.InternalJsonReaderCodePointImpl.Exhausted() -> bool
 abstract KotlinX.Serialization.Json.Internal.InternalJsonReaderCodePointImpl.NextCodePoint() -> int
 abstract KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.SelectDeserializer(KotlinX.Serialization.Json.JsonElement! element) -> KotlinX.Serialization.IDeserializationStrategy!
+abstract KotlinX.Serialization.Json.JsonException.Hint.get -> string?
+abstract KotlinX.Serialization.Json.JsonException.ShortMessage.get -> string!
 abstract KotlinX.Serialization.Json.JsonPrimitive.Content.get -> string!
 abstract KotlinX.Serialization.Json.JsonPrimitive.IsString.get -> bool
 override KotlinX.Serialization.Json.ClassDiscriminatorMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -429,12 +436,7 @@ override KotlinX.Serialization.Json.Internal.InternalJsonWriterCompanion.JniPeer
 override KotlinX.Serialization.Json.Internal.JavaStreamSerialReader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonDecoderForUnsignedTypes.DecodeElementIndex(KotlinX.Serialization.Descriptors.ISerialDescriptor! descriptor) -> int
 override KotlinX.Serialization.Json.Internal.JsonDecoderForUnsignedTypes.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonDecodingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonElementMarker.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonEncodingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonException.ThresholdClass.get -> nint
-override KotlinX.Serialization.Json.Internal.JsonException.ThresholdType.get -> System.Type!
 override KotlinX.Serialization.Json.Internal.JsonExceptionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonIteratorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonIteratorKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -489,6 +491,9 @@ override KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.JniPeerMemb
 override KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.ThresholdClass.get -> nint
 override KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.ThresholdType.get -> System.Type!
 override KotlinX.Serialization.Json.JsonDecoderDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.JsonDecodingException.Hint.get -> string?
+override KotlinX.Serialization.Json.JsonDecodingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.JsonDecodingException.ShortMessage.get -> string!
 override KotlinX.Serialization.Json.JsonElement.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonElement.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonElement.ThresholdClass.get -> nint
@@ -497,6 +502,12 @@ override KotlinX.Serialization.Json.JsonElementBuildersKt.JniPeerMembers.get -> 
 override KotlinX.Serialization.Json.JsonElementKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonElementSerializersKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonEncoderDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.JsonEncodingException.Hint.get -> string?
+override KotlinX.Serialization.Json.JsonEncodingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.JsonEncodingException.ShortMessage.get -> string!
+override KotlinX.Serialization.Json.JsonException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.JsonException.ThresholdClass.get -> nint
+override KotlinX.Serialization.Json.JsonException.ThresholdType.get -> System.Type!
 override KotlinX.Serialization.Json.JsonIgnoreUnknownKeysImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.JsonNamingStrategyBuiltins.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
