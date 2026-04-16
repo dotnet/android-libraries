@@ -5,7 +5,7 @@
 ```
 {
     "sdk": {
-        "version": "9.0.301",
+        "version": "9.0.303",
         "rollForward": "latestMajor",
         "allowPrerelease": true
     },
@@ -15,5 +15,6 @@
     }
 }
 ```
-version9.0.301
+version9.0.303
 rollForwardlatestMajor
+allowPrereleaseTrue
