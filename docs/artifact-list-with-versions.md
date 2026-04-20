@@ -342,12 +342,12 @@
 | 335|com.android.installreferrer:installreferrer                           |2.2                 |Xamarin.Google.Android.InstallReferrer                                |2.2.0.7             |
 | 336|com.android.volley:volley                                             |1.2.1               |Xamarin.Android.Volley                                                |1.2.1.20            |
 | 337|com.android.volley:volley-cronet                                      |1.2.1               |Xamarin.Android.Volley.CroNet                                         |1.2.1.20            |
-| 338|com.github.bumptech.glide:annotations                                 |5.0.5               |Xamarin.Android.Glide.Annotations                                     |5.0.5.2             |
-| 339|com.github.bumptech.glide:avif-integration                            |5.0.5               |Xamarin.Android.Glide.AVIF.Integration                                |5.0.5.2             |
-| 340|com.github.bumptech.glide:disklrucache                                |5.0.5               |Xamarin.Android.Glide.DiskLruCache                                    |5.0.5.2             |
-| 341|com.github.bumptech.glide:gifdecoder                                  |5.0.5               |Xamarin.Android.Glide.GifDecoder                                      |5.0.5.2             |
-| 342|com.github.bumptech.glide:glide                                       |5.0.5               |Xamarin.Android.Glide                                                 |5.0.5.2             |
-| 343|com.github.bumptech.glide:recyclerview-integration                    |5.0.5               |Xamarin.Android.Glide.RecyclerViewIntegration                         |5.0.5.2             |
+| 338|com.github.bumptech.glide:annotations                                 |5.0.7               |Xamarin.Android.Glide.Annotations                                     |5.0.7               |
+| 339|com.github.bumptech.glide:avif-integration                            |5.0.7               |Xamarin.Android.Glide.AVIF.Integration                                |5.0.7               |
+| 340|com.github.bumptech.glide:disklrucache                                |5.0.7               |Xamarin.Android.Glide.DiskLruCache                                    |5.0.7               |
+| 341|com.github.bumptech.glide:gifdecoder                                  |5.0.7               |Xamarin.Android.Glide.GifDecoder                                      |5.0.7               |
+| 342|com.github.bumptech.glide:glide                                       |5.0.7               |Xamarin.Android.Glide                                                 |5.0.7               |
+| 343|com.github.bumptech.glide:recyclerview-integration                    |5.0.7               |Xamarin.Android.Glide.RecyclerViewIntegration                         |5.0.7               |
 | 344|com.google.accompanist:accompanist-appcompat-theme                    |0.36.0              |Xamarin.Google.Accompanist.AppCompat.Theme                            |0.36.0.8            |
 | 345|com.google.accompanist:accompanist-drawablepainter                    |0.37.3              |Xamarin.Google.Accompanist.DrawablePainter                            |0.37.3.3            |
 | 346|com.google.accompanist:accompanist-flowlayout                         |0.36.0              |Xamarin.Google.Accompanist.FlowLayout                                 |0.36.0.8            |
@@ -558,7 +558,7 @@
 | 551|com.google.flogger:flogger                                            |0.9                 |Xamarin.Flogger                                                       |0.9.0.3             |
 | 552|com.google.flogger:flogger-system-backend                             |0.9                 |Xamarin.Flogger.SystemBackend                                         |0.9.0.3             |
 | 553|com.google.guava:failureaccess                                        |1.0.3               |Xamarin.Google.Guava.FailureAccess                                    |1.0.3.5             |
-| 554|com.google.guava:guava                                                |33.5.0-android      |Xamarin.Google.Guava                                                  |33.5.0.2            |
+| 554|com.google.guava:guava                                                |33.6.0-android      |Xamarin.Google.Guava                                                  |33.6.0              |
 | 555|com.google.guava:listenablefuture                                     |1.0                 |Xamarin.Google.Guava.ListenableFuture                                 |1.0.0.31            |
 | 556|com.google.inject:guice                                               |7.0.0               |Xamarin.Google.Inject.Guice                                           |7.0.0.9             |
 | 557|com.google.j2objc:j2objc-annotations                                  |3.1                 |Xamarin.Google.J2Objc.Annotations                                     |3.1.0.2             |
