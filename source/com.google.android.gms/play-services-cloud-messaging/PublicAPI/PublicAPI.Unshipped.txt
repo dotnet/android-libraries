@@ -15,14 +15,26 @@ Android.Gms.CloudMessaging.CloudMessage.SenderId.get -> string?
 Android.Gms.CloudMessaging.CloudMessage.SentTime.get -> long
 Android.Gms.CloudMessaging.CloudMessage.To.get -> string?
 Android.Gms.CloudMessaging.CloudMessage.Ttl.get -> int
+Android.Gms.CloudMessaging.CloudMessaging
 Android.Gms.CloudMessaging.CloudMessagingReceiver
 Android.Gms.CloudMessaging.CloudMessagingReceiver.CloudMessagingReceiver() -> void
 Android.Gms.CloudMessaging.CloudMessagingReceiver.CloudMessagingReceiver(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentActionKeys
 Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentKeys
+Android.Gms.CloudMessaging.ICloudMessagingClient
+Android.Gms.CloudMessaging.ICloudMessagingClient.Register(Android.Gms.CloudMessaging.RegisterRequest! p0) -> Android.Gms.Tasks.Task!
+Android.Gms.CloudMessaging.ICloudMessagingClient.Unregister(Android.Gms.CloudMessaging.UnregisterRequest! p0) -> Android.Gms.Tasks.Task!
+Android.Gms.CloudMessaging.RegisterRequest
+Android.Gms.CloudMessaging.RegisterRequest.RegisterRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.CloudMessaging.RegisterRequest.RegisterRequest(string! p0, string! p1, string! p2, string! p3, string! p4, int p5, string! p6) -> void
+Android.Gms.CloudMessaging.RegisterRequest.RegisterRequest(string! senderId, string! gmpAppId, string! apiKey, string! installationId, string! installationAuthToken, string! sdkVersion) -> void
+Android.Gms.CloudMessaging.RegisterRequest.Zza(int p0) -> void
 Android.Gms.CloudMessaging.Rpc
 Android.Gms.CloudMessaging.Rpc.Rpc(Android.Content.Context! context) -> void
 Android.Gms.CloudMessaging.Rpc.Rpc(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.CloudMessaging.UnregisterRequest
+Android.Gms.CloudMessaging.UnregisterRequest.UnregisterRequest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.CloudMessaging.UnregisterRequest.UnregisterRequest(string! projectId, string! apiKey, string! installationId, string! installationAuthToken) -> void
 abstract Android.Gms.CloudMessaging.CloudMessagingReceiver.OnMessageReceive(Android.Content.Context! p0, Android.Gms.CloudMessaging.CloudMessage! p1) -> int
 const Android.Gms.CloudMessaging.CloudMessage.PriorityHigh = 1 -> int
 const Android.Gms.CloudMessaging.CloudMessage.PriorityNormal = 2 -> int
@@ -33,16 +45,28 @@ const Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentKeys.PendingIntent
 const Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentKeys.WrappedIntent = "wrapped_intent" -> string!
 override Android.Gms.CloudMessaging.CloudMessage.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.CloudMessage.WriteToParcel(Android.OS.Parcel! out, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.CloudMessaging.CloudMessaging.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentActionKeys.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.CloudMessagingReceiver.IntentKeys.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.CloudMessagingReceiver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.CloudMessagingReceiver.ThresholdClass.get -> nint
 override Android.Gms.CloudMessaging.CloudMessagingReceiver.ThresholdType.get -> System.Type!
+override Android.Gms.CloudMessaging.RegisterRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.CloudMessaging.RegisterRequest.ThresholdClass.get -> nint
+override Android.Gms.CloudMessaging.RegisterRequest.ThresholdType.get -> System.Type!
 override Android.Gms.CloudMessaging.Rpc.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.CloudMessaging.Rpc.ThresholdClass.get -> nint
 override Android.Gms.CloudMessaging.Rpc.ThresholdType.get -> System.Type!
+override Android.Gms.CloudMessaging.UnregisterRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.Gms.CloudMessaging.UnregisterRequest.ThresholdClass.get -> nint
+override Android.Gms.CloudMessaging.UnregisterRequest.ThresholdType.get -> System.Type!
 override sealed Android.Gms.CloudMessaging.CloudMessagingReceiver.OnReceive(Android.Content.Context! context, Android.Content.Intent! intent) -> void
+override sealed Android.Gms.CloudMessaging.RegisterRequest.WriteToParcel(Android.OS.Parcel! p0, Android.OS.ParcelableWriteFlags p1) -> void
+override sealed Android.Gms.CloudMessaging.UnregisterRequest.WriteToParcel(Android.OS.Parcel! p0, Android.OS.ParcelableWriteFlags p1) -> void
 static Android.Gms.CloudMessaging.CloudMessage.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.CloudMessaging.CloudMessaging.GetClient(Android.Content.Context! context) -> Android.Gms.CloudMessaging.ICloudMessagingClient!
+static Android.Gms.CloudMessaging.RegisterRequest.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.CloudMessaging.UnregisterRequest.Creator.get -> Android.OS.IParcelableCreator!
 virtual Android.Gms.CloudMessaging.CloudMessagingReceiver.BroadcastExecutor.get -> Java.Util.Concurrent.IExecutor!
 virtual Android.Gms.CloudMessaging.CloudMessagingReceiver.OnNotificationDismissed(Android.Content.Context! p0, Android.OS.Bundle! p1) -> void
 virtual Android.Gms.CloudMessaging.Rpc.GetProxiedNotificationData() -> Android.Gms.Tasks.Task!

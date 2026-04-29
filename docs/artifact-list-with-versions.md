@@ -462,7 +462,7 @@
 | 455|com.google.android.gms:play-services-vision-image-label               |18.1.1              |Xamarin.GooglePlayServices.Vision.ImageLabel                          |118.1.1.25          |
 | 456|com.google.android.gms:play-services-vision-image-labeling-internal   |16.1.0              |Xamarin.GooglePlayServices.Vision.ImageLabelingInternal               |116.1.0.25          |
 | 457|com.google.android.gms:play-services-wallet                           |20.0.0              |Xamarin.GooglePlayServices.Wallet                                     |120.0.0             |
-| 458|com.google.android.gms:play-services-wearable                         |19.0.0              |Xamarin.GooglePlayServices.Wearable                                   |119.0.0.6           |
+| 458|com.google.android.gms:play-services-wearable                         |20.0.1              |Xamarin.GooglePlayServices.Wearable                                   |120.0.1             |
 | 459|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.GoogleAndroid.Libraries.Identity.GoogleId                     |1.1.0.13            |
 | 460|com.google.android.libraries.places:places                            |5.2.0               |Xamarin.GoogleAndroid.Libraries.Places                                |5.2.0               |
 | 461|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.GoogleAndroid.Libraries.Places.Compat                         |2.6.0.17            |
@@ -562,7 +562,7 @@
 | 555|com.google.guava:listenablefuture                                     |1.0                 |Xamarin.Google.Guava.ListenableFuture                                 |1.0.0.31            |
 | 556|com.google.inject:guice                                               |7.0.0               |Xamarin.Google.Inject.Guice                                           |7.0.0.9             |
 | 557|com.google.j2objc:j2objc-annotations                                  |3.1                 |Xamarin.Google.J2Objc.Annotations                                     |3.1.0.2             |
-| 558|com.google.mediapipe:tasks-genai                                      |0.10.33             |Xamarin.Google.MediaPipe.Tasks.GenAI                                  |0.10.33             |
+| 558|com.google.mediapipe:tasks-genai                                      |0.10.35             |Xamarin.Google.MediaPipe.Tasks.GenAI                                  |0.10.35             |
 | 559|com.google.mlkit:barcode-scanning                                     |17.3.0              |Xamarin.Google.MLKit.BarcodeScanning                                  |117.3.0.7           |
 | 560|com.google.mlkit:barcode-scanning-common                              |17.0.0              |Xamarin.Google.MLKit.BarcodeScanning.Common                           |117.0.0.20          |
 | 561|com.google.mlkit:common                                               |18.11.0             |Xamarin.Google.MLKit.Common                                           |118.11.0.7          |
