@@ -194,6 +194,14 @@ Android.Gms.Ads.H5.H5AdsRequestHandler.ShouldInterceptRequest(string! url) -> bo
 Android.Gms.Ads.H5.IOnH5AdsEventListener
 Android.Gms.Ads.H5.IOnH5AdsEventListener.OnH5AdsEvent(string! p0) -> void
 Android.Gms.Ads.IMediaAspectRatio
+Android.Gms.Ads.IMediaContent
+Android.Gms.Ads.IMediaContent.AspectRatio.get -> float
+Android.Gms.Ads.IMediaContent.CurrentTime.get -> float
+Android.Gms.Ads.IMediaContent.Duration.get -> float
+Android.Gms.Ads.IMediaContent.HasVideoContent.get -> bool
+Android.Gms.Ads.IMediaContent.MainImage.get -> Android.Graphics.Drawables.Drawable?
+Android.Gms.Ads.IMediaContent.MainImage.set -> void
+Android.Gms.Ads.IMediaContent.VideoController.get -> Android.Gms.Ads.VideoController!
 Android.Gms.Ads.IMuteThisAdListener
 Android.Gms.Ads.IMuteThisAdListener.OnAdMuted() -> void
 Android.Gms.Ads.IMuteThisAdReason
@@ -556,6 +564,24 @@ Android.Gms.Ads.NativeAd.AdChoicesView.AdChoicesView(Android.Content.Context! co
 Android.Gms.Ads.NativeAd.AdChoicesView.AdChoicesView(Android.Content.Context! context, Android.Util.IAttributeSet! attrs, int defStyleAttr) -> void
 Android.Gms.Ads.NativeAd.AdChoicesView.AdChoicesView(Android.Content.Context! context, Android.Util.IAttributeSet! attrs, int defStyleAttr, int defStyleRes) -> void
 Android.Gms.Ads.NativeAd.AdChoicesView.AdChoicesView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.AvailableAssetNames.get -> System.Collections.Generic.IList<string!>?
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.CustomFormatId.get -> string?
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.Destroy() -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.DisplayOpenMeasurement.get -> Android.Gms.Ads.NativeAd.INativeCustomFormatAdDisplayOpenMeasurement!
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.GetImage(string! p0) -> Android.Gms.Ads.NativeAd.NativeAd.Image?
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.GetTextFormatted(string! p0) -> Java.Lang.ICharSequence?
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.MediaContent.get -> Android.Gms.Ads.IMediaContent?
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.PerformClick(string! p0) -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAd.RecordImpression() -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdDisplayOpenMeasurement
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdDisplayOpenMeasurement.SetView(Android.Views.View! p0) -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdDisplayOpenMeasurement.Start() -> bool
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdExtensions
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomClickListener
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomClickListener.OnCustomClick(Android.Gms.Ads.NativeAd.INativeCustomFormatAd! p0, string! p1) -> void
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomFormatAdLoadedListener
+Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomFormatAdLoadedListener.OnCustomFormatAdLoaded(Android.Gms.Ads.NativeAd.INativeCustomFormatAd! p0) -> void
 Android.Gms.Ads.NativeAd.MediaView
 Android.Gms.Ads.NativeAd.MediaView.MediaView(Android.Content.Context! context) -> void
 Android.Gms.Ads.NativeAd.MediaView.MediaView(Android.Content.Context! context, Android.Util.IAttributeSet! attrs) -> void
@@ -649,6 +675,15 @@ Android.Gms.Ads.NativeAd.NativeAdViewHolder.NativeAdViewHolder(Android.Views.Vie
 Android.Gms.Ads.NativeAd.NativeAdViewHolder.SetClickConfirmingView(Android.Views.View! view) -> void
 Android.Gms.Ads.NativeAd.NativeAdViewHolder.SetNativeAd(Android.Gms.Ads.NativeAd.NativeAd! ad) -> void
 Android.Gms.Ads.NativeAd.NativeAdViewHolder.UnregisterNativeAd() -> void
+Android.Gms.Ads.NativeAd.NativeCustomFormatAd
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdConsts
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomClickEventArgs
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomClickEventArgs.NativeCustomFormatAdOnCustomClickEventArgs(Android.Gms.Ads.NativeAd.INativeCustomFormatAd! p0, string! p1) -> void
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomClickEventArgs.P0.get -> Android.Gms.Ads.NativeAd.INativeCustomFormatAd!
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomClickEventArgs.P1.get -> string!
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomFormatAdLoadedEventArgs
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomFormatAdLoadedEventArgs.NativeCustomFormatAdOnCustomFormatAdLoadedEventArgs(Android.Gms.Ads.NativeAd.INativeCustomFormatAd! p0) -> void
+Android.Gms.Ads.NativeAd.NativeCustomFormatAdOnCustomFormatAdLoadedEventArgs.P0.get -> Android.Gms.Ads.NativeAd.INativeCustomFormatAd!
 Android.Gms.Ads.NotificationHandlerActivity
 Android.Gms.Ads.NotificationHandlerActivity.NotificationHandlerActivity() -> void
 Android.Gms.Ads.OutOfContextTestingActivity
@@ -833,6 +868,7 @@ abstract Android.Gms.Ads.NativeAd.NativeAd.Image.Uri.get -> Android.Net.Uri?
 abstract Android.Gms.Ads.NativeAd.NativeAd.Images.get -> System.Collections.Generic.IList<Android.Gms.Ads.NativeAd.NativeAd.Image!>!
 abstract Android.Gms.Ads.NativeAd.NativeAd.IsCustomClickGestureEnabled.get -> bool
 abstract Android.Gms.Ads.NativeAd.NativeAd.IsCustomMuteThisAdEnabled.get -> bool
+abstract Android.Gms.Ads.NativeAd.NativeAd.MediaContent.get -> Android.Gms.Ads.IMediaContent?
 abstract Android.Gms.Ads.NativeAd.NativeAd.MuteThisAd(Android.Gms.Ads.IMuteThisAdReason! p0) -> void
 abstract Android.Gms.Ads.NativeAd.NativeAd.MuteThisAdReasons.get -> System.Collections.Generic.IList<Android.Gms.Ads.IMuteThisAdReason!>!
 abstract Android.Gms.Ads.NativeAd.NativeAd.PerformClick(Android.OS.Bundle! p0) -> void
@@ -965,6 +1001,7 @@ const Android.Gms.Ads.NativeAd.NativeAdOptions.SwipeGestureDirectionDown = 8 -> 
 const Android.Gms.Ads.NativeAd.NativeAdOptions.SwipeGestureDirectionLeft = 2 -> int
 const Android.Gms.Ads.NativeAd.NativeAdOptions.SwipeGestureDirectionRight = 1 -> int
 const Android.Gms.Ads.NativeAd.NativeAdOptions.SwipeGestureDirectionUp = 4 -> int
+const Android.Gms.Ads.NativeAd.NativeCustomFormatAd.AssetNameVideo = "_videoMediaView" -> string!
 const Android.Gms.Ads.NotificationHandlerActivity.ClassName = "com.google.android.gms.ads.NotificationHandlerActivity" -> string!
 const Android.Gms.Ads.OutOfContextTestingActivity.AdUnitKey = "adUnit" -> string!
 const Android.Gms.Ads.OutOfContextTestingActivity.ClassName = "com.google.android.gms.ads.OutOfContextTestingActivity" -> string!
@@ -1286,6 +1323,7 @@ static Android.Gms.Ads.MobileAds.SetAppMuted(bool muted) -> void
 static Android.Gms.Ads.MobileAds.SetAppVolume(float volume) -> void
 static Android.Gms.Ads.MobileAds.StartPreload(Android.Content.Context! context, System.Collections.Generic.IList<Android.Gms.Ads.Preload.PreloadConfiguration!>! preloadConfigurations, Android.Gms.Ads.Preload.IPreloadCallback! preloadCallback) -> void
 static Android.Gms.Ads.MobileAds.Version.get -> Android.Gms.Ads.VersionInfo!
+static Android.Gms.Ads.NativeAd.INativeCustomFormatAdExtensions.GetText(this Android.Gms.Ads.NativeAd.INativeCustomFormatAd! self, string! p0) -> string?
 static Android.Gms.Ads.NativeAd.NativeAdViewHolder.Zza.get -> Java.Util.WeakHashMap!
 static Android.Gms.Ads.Query.QueryInfo.Generate(Android.Content.Context! context, Android.Gms.Ads.AdFormat! adFormat, Android.Gms.Ads.AdRequest? adRequest, Android.Gms.Ads.Query.QueryInfoGenerationCallback! callback) -> void
 static Android.Gms.Ads.Query.QueryInfo.Generate(Android.Content.Context! context, Android.Gms.Ads.AdFormat! adFormat, Android.Gms.Ads.AdRequest? adRequest, string! adUnitId, Android.Gms.Ads.Query.QueryInfoGenerationCallback! callback) -> void
@@ -1328,6 +1366,7 @@ virtual Android.Gms.Ads.AdLoadCallback.OnAdFailedToLoad(Android.Gms.Ads.LoadAdEr
 virtual Android.Gms.Ads.AdLoadCallback.OnAdLoaded(Java.Lang.Object! p0) -> void
 virtual Android.Gms.Ads.AdLoader.Builder.Build() -> Android.Gms.Ads.AdLoader!
 virtual Android.Gms.Ads.AdLoader.Builder.ForAdManagerAdView(Android.Gms.Ads.Formats.IOnAdManagerAdViewLoadedListener! listener, params Android.Gms.Ads.AdSize![]! adSizes) -> Android.Gms.Ads.AdLoader.Builder!
+virtual Android.Gms.Ads.AdLoader.Builder.ForCustomFormatAd(string! customFormatId, Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomFormatAdLoadedListener! adLoadedListener, Android.Gms.Ads.NativeAd.INativeCustomFormatAdOnCustomClickListener? customClickListener) -> Android.Gms.Ads.AdLoader.Builder!
 virtual Android.Gms.Ads.AdLoader.Builder.ForNativeAd(Android.Gms.Ads.NativeAd.NativeAd.IOnNativeAdLoadedListener! listener) -> Android.Gms.Ads.AdLoader.Builder!
 virtual Android.Gms.Ads.AdLoader.Builder.WithAdListener(Android.Gms.Ads.AdListener! listener) -> Android.Gms.Ads.AdLoader.Builder!
 virtual Android.Gms.Ads.AdLoader.Builder.WithAdManagerAdViewOptions(Android.Gms.Ads.Formats.AdManagerAdViewOptions! options) -> Android.Gms.Ads.AdLoader.Builder!
@@ -1362,6 +1401,7 @@ virtual Android.Gms.Ads.BaseAdView.Pause() -> void
 virtual Android.Gms.Ads.BaseAdView.ResponseInfo.get -> Android.Gms.Ads.ResponseInfo?
 virtual Android.Gms.Ads.BaseAdView.Resume() -> void
 virtual Android.Gms.Ads.Formats.MediaView.SetImageScaleType(Android.Widget.ImageView.ScaleType! p0) -> void
+virtual Android.Gms.Ads.Formats.MediaView.SetMediaContent(Android.Gms.Ads.IMediaContent! p0) -> void
 virtual Android.Gms.Ads.Formats.NativeAd.Image.Zza() -> int
 virtual Android.Gms.Ads.Formats.NativeAd.Image.Zzb() -> int
 virtual Android.Gms.Ads.FullScreenContentCallback.OnAdClicked() -> void
@@ -1427,6 +1467,8 @@ virtual Android.Gms.Ads.Mediation.UnifiedNativeAdMapper.RecordImpression() -> vo
 virtual Android.Gms.Ads.Mediation.UnifiedNativeAdMapper.SetMediaView(Android.Views.View! mediaView) -> void
 virtual Android.Gms.Ads.Mediation.UnifiedNativeAdMapper.TrackViews(Android.Views.View! p0, System.Collections.Generic.IDictionary<string!, Android.Views.View!>! p1, System.Collections.Generic.IDictionary<string!, Android.Views.View!>! p2) -> void
 virtual Android.Gms.Ads.Mediation.UnifiedNativeAdMapper.UntrackView(Android.Views.View! p0) -> void
+virtual Android.Gms.Ads.NativeAd.MediaView.MediaContent.get -> Android.Gms.Ads.IMediaContent?
+virtual Android.Gms.Ads.NativeAd.MediaView.MediaContent.set -> void
 virtual Android.Gms.Ads.NativeAd.MediaView.SetImageScaleType(Android.Widget.ImageView.ScaleType! scaleType) -> void
 virtual Android.Gms.Ads.NativeAd.NativeAd.Image.Zza() -> int
 virtual Android.Gms.Ads.NativeAd.NativeAd.Image.Zzb() -> int
