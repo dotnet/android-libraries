@@ -2148,6 +2148,8 @@ AndroidX.Media3.ExoPlayer.Image.IImageDecoderFactory
 AndroidX.Media3.ExoPlayer.Image.IImageDecoderFactory.CreateImageDecoder() -> AndroidX.Media3.ExoPlayer.Image.IImageDecoder?
 AndroidX.Media3.ExoPlayer.Image.IImageDecoderFactory.Default.get -> AndroidX.Media3.ExoPlayer.Image.IImageDecoderFactory?
 AndroidX.Media3.ExoPlayer.Image.IImageDecoderFactory.SupportsFormat(AndroidX.Media3.Common.Format? p0) -> int
+AndroidX.Media3.ExoPlayer.Image.IImageMetadataListener
+AndroidX.Media3.ExoPlayer.Image.IImageMetadataListener.OnImageAboutToBeAvailable(long p0, AndroidX.Media3.Common.Format? p1) -> void
 AndroidX.Media3.ExoPlayer.Image.IImageOutput
 AndroidX.Media3.ExoPlayer.Image.IImageOutput.NoOp.get -> AndroidX.Media3.ExoPlayer.Image.IImageOutput?
 AndroidX.Media3.ExoPlayer.Image.IImageOutput.OnDisabled() -> void
@@ -2156,6 +2158,10 @@ AndroidX.Media3.ExoPlayer.Image.ImageDecoderException
 AndroidX.Media3.ExoPlayer.Image.ImageDecoderException.ImageDecoderException(Java.Lang.Throwable? cause) -> void
 AndroidX.Media3.ExoPlayer.Image.ImageDecoderException.ImageDecoderException(string? message) -> void
 AndroidX.Media3.ExoPlayer.Image.ImageDecoderException.ImageDecoderException(string? message, Java.Lang.Throwable? cause) -> void
+AndroidX.Media3.ExoPlayer.Image.ImageMetadataEventArgs
+AndroidX.Media3.ExoPlayer.Image.ImageMetadataEventArgs.ImageMetadataEventArgs(long p0, AndroidX.Media3.Common.Format? p1) -> void
+AndroidX.Media3.ExoPlayer.Image.ImageMetadataEventArgs.P0.get -> long
+AndroidX.Media3.ExoPlayer.Image.ImageMetadataEventArgs.P1.get -> AndroidX.Media3.Common.Format?
 AndroidX.Media3.ExoPlayer.Image.ImageOutputBuffer
 AndroidX.Media3.ExoPlayer.Image.ImageOutputBuffer.Bitmap.get -> Android.Graphics.Bitmap?
 AndroidX.Media3.ExoPlayer.Image.ImageOutputBuffer.Bitmap.set -> void
@@ -2209,6 +2215,7 @@ AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory.Experimenta
 AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory.ForceDisableAsynchronous() -> AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory?
 AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory.ForceEnableAsynchronous() -> AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory?
 AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory.InterfaceConsts
+AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory.SetAsyncCryptoSynchronizationEnabled(bool enableAsyncCryptoSynchronization) -> AndroidX.Media3.ExoPlayer.MediaCodec.DefaultMediaCodecAdapterFactory?
 AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter
 AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.ForwardingMediaCodecAdapter(AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter? delegate) -> void
 AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.ForwardingMediaCodecAdapter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -5207,6 +5214,7 @@ const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetAuxEffectInfo
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetCameraMotionListener = 8 -> int
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetChangeFrameRateStrategy = 5 -> int
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetCodecParameters = 21 -> int
+const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetImageMetadataListener = 23 -> int
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetImageOutput = 15 -> int
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetPreferredAudioDevice = 12 -> int
 const AndroidX.Media3.ExoPlayer.BaseRenderer.InterfaceConsts.MsgSetPriority = 16 -> int
@@ -5345,6 +5353,7 @@ const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetAuxEffe
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetCameraMotionListener = 8 -> int
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetChangeFrameRateStrategy = 5 -> int
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetCodecParameters = 21 -> int
+const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetImageMetadataListener = 23 -> int
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetImageOutput = 15 -> int
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetPreferredAudioDevice = 12 -> int
 const AndroidX.Media3.ExoPlayer.ForwardingRenderer.InterfaceConsts.MsgSetPriority = 16 -> int
@@ -5399,6 +5408,7 @@ const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetAuxEffect
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetCameraMotionListener = 8 -> int
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetChangeFrameRateStrategy = 5 -> int
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetCodecParameters = 21 -> int
+const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetImageMetadataListener = 23 -> int
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetImageOutput = 15 -> int
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetPreferredAudioDevice = 12 -> int
 const AndroidX.Media3.ExoPlayer.NoSampleRenderer.InterfaceConsts.MsgSetPriority = 16 -> int
@@ -6845,7 +6855,7 @@ virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.Subscri
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.UnsubscribeFromVendorParameters(System.Collections.Generic.IList<string!>? names) -> void
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.UseInputBuffer(Java.Lang.IRunnable? runnable) -> void
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.LoudnessCodecController.LoudnessParameterUpdateHandler.Invoke(Android.OS.Bundle? p0) -> Android.OS.Bundle?
-virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CanReuseCodec(AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecInfo? codecInfo, AndroidX.Media3.Common.Format? oldFormat, AndroidX.Media3.Common.Format? newFormat) -> AndroidX.Media3.ExoPlayer.DecoderReuseEvaluation?
+virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CanReuseCodec(AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecInfo? codecInfo, AndroidX.Media3.Common.Format? oldFormat, AndroidX.Media3.Common.Format? newFormat, bool isAdaptiveFormatChange) -> AndroidX.Media3.ExoPlayer.DecoderReuseEvaluation?
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CodecOperatingRate.get -> float
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CreateDecoderException(Java.Lang.Throwable? cause, AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecInfo? codecInfo) -> AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecDecoderException?
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.ExperimentalEnableProcessedStreamChangedAtStart() -> void
