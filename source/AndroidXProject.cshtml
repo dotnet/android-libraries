@@ -37,7 +37,7 @@
     <PackageId>@(Model.NuGetPackageId)</PackageId>
     <Title>.NET for Android and MAUI bindings for the Android Java library '@(Model.MavenGroupId):@(Model.Name)'.</Title>
     <Description>
-      $(Title)@(Model.NuGetPackageId.StartsWith("Xamarin.AndroidX.Compose") ? " Note this package only adds the Java library to the application. C# bindings are not provided." : string.Empty)
+      $(Title)@(Model.NuGetPackageId.StartsWith("Xamarin.AndroidX.Compose") && Model.NuGetPackageId != "Xamarin.AndroidX.Compose.Runtime" && Model.NuGetPackageId != "Xamarin.AndroidX.Compose.Runtime.Android" ? " Note this package only adds the Java library to the application. C# bindings are not provided." : string.Empty)
 
 @(!string.IsNullOrWhiteSpace(Model.MavenDescription) ? $"Library description: {Model.MavenDescription}" : string.Empty)
     </Description>
