@@ -43,10 +43,12 @@ Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.ChannelL
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.ClientTransportFactoryClientTransportOptions() -> void
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.EagAttributes.get -> Xamarin.Grpc.Attributes?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.HttpConnectProxiedSocketAddress.get -> Xamarin.Grpc.HttpConnectProxiedSocketAddress?
+Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.MetricRecorder.get -> Xamarin.Grpc.IMetricRecorder?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetAuthority(string? authority) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetChannelLogger(Xamarin.Grpc.ChannelLogger? channelLogger) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetEagAttributes(Xamarin.Grpc.Attributes? eagAttributes) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetHttpConnectProxiedSocketAddress(Xamarin.Grpc.HttpConnectProxiedSocketAddress? connectProxiedSocketAddr) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
+Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetMetricRecorder(Xamarin.Grpc.IMetricRecorder? metricRecorder) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.SetUserAgent(string? userAgent) -> Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions?
 Xamarin.Grpc.Core.Internal.ClientTransportFactoryClientTransportOptions.UserAgent.get -> string?
 Xamarin.Grpc.Core.Internal.ClientTransportFactorySwapChannelCredentialsResult
@@ -66,9 +68,6 @@ Xamarin.Grpc.Core.Internal.DnsNameResolver.IAddressResolver.ResolveAddress(strin
 Xamarin.Grpc.Core.Internal.DnsNameResolver.IResourceResolver
 Xamarin.Grpc.Core.Internal.DnsNameResolver.IResourceResolver.ResolveSrv(string? p0) -> System.Collections.Generic.IList<Xamarin.Grpc.Core.Internal.DnsNameResolver.SrvRecord!>?
 Xamarin.Grpc.Core.Internal.DnsNameResolver.IResourceResolver.ResolveTxt(string? p0) -> System.Collections.Generic.IList<string!>?
-Xamarin.Grpc.Core.Internal.DnsNameResolver.InternalResolutionResult
-Xamarin.Grpc.Core.Internal.DnsNameResolver.InternalResolutionResult.Attributes.get -> Xamarin.Grpc.Attributes?
-Xamarin.Grpc.Core.Internal.DnsNameResolver.InternalResolutionResult.Attributes.set -> void
 Xamarin.Grpc.Core.Internal.DnsNameResolver.Resolved.get -> bool
 Xamarin.Grpc.Core.Internal.DnsNameResolver.Resolved.set -> void
 Xamarin.Grpc.Core.Internal.DnsNameResolver.SrvRecord
@@ -416,7 +415,7 @@ const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultMaxMessageSize = 4194304 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortPlaintext = 80 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortSsl = 443 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.HttpMethod = "POST" -> string!
-const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.80.0" -> string!
+const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.81.0" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.KeepaliveTimeNanosDisabled = 9223372036854775807 -> long
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageAcceptEncoding = "grpc-accept-encoding" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageEncoding = "grpc-encoding" -> string!
@@ -452,7 +451,6 @@ override Xamarin.Grpc.Core.Internal.DelayedClientCall.IsReady.get -> bool
 override Xamarin.Grpc.Core.Internal.DelayedClientCall.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.DelayedClientCall.ThresholdClass.get -> nint
 override Xamarin.Grpc.Core.Internal.DelayedClientCall.ThresholdType.get -> System.Type!
-override Xamarin.Grpc.Core.Internal.DnsNameResolver.InternalResolutionResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.DnsNameResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Core.Internal.DnsNameResolver.ServiceAuthority.get -> string?
 override Xamarin.Grpc.Core.Internal.DnsNameResolver.Shutdown() -> void
@@ -703,7 +701,7 @@ virtual Xamarin.Grpc.Core.Internal.ApplicationThreadDeframer.Request(int numMess
 virtual Xamarin.Grpc.Core.Internal.ApplicationThreadDeframer.SetDecompressor(Xamarin.Grpc.IDecompressor? decompressor) -> void
 virtual Xamarin.Grpc.Core.Internal.ApplicationThreadDeframer.SetMaxInboundMessageSize(int messageSize) -> void
 virtual Xamarin.Grpc.Core.Internal.DelayedClientCall.CallCancelled() -> void
-virtual Xamarin.Grpc.Core.Internal.DnsNameResolver.DoResolve(bool forceTxt) -> Xamarin.Grpc.Core.Internal.DnsNameResolver.InternalResolutionResult?
+virtual Xamarin.Grpc.Core.Internal.DnsNameResolver.DoResolve() -> Xamarin.Grpc.NameResolver.ResolutionResult?
 virtual Xamarin.Grpc.Core.Internal.DnsNameResolver.Host.get -> string?
 virtual Xamarin.Grpc.Core.Internal.DnsNameResolver.ResourceResolver.get -> Xamarin.Grpc.Core.Internal.DnsNameResolver.IResourceResolver?
 virtual Xamarin.Grpc.Core.Internal.DnsNameResolver.ResourceResolver.set -> void
