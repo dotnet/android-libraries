@@ -21,9 +21,11 @@ stages:
       use1ESTemplate: false
       installAndroidDependencies: true
 
+# Disabled: macOS lane frequently times out and its output is unused.
 - stage: build_mac
   displayName: Build - Mac
   dependsOn: []
+  condition: false
   jobs:
   - template: build/ci/build.yml@self
     parameters:
