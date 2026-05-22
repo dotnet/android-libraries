@@ -65,7 +65,7 @@ Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.OnReceiveOrNull.get -> Xamar
 Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.Poll() -> Java.Lang.Object?
 Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.Receive(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.ReceiveCatching(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
-Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.ReceiveOrNull(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.ReceiveOrNull(Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel.TryReceive() -> Java.Lang.Object!
 Xamarin.KotlinX.Coroutines.Channels.ISendChannel
 Xamarin.KotlinX.Coroutines.Channels.ISendChannel.Close(Java.Lang.Throwable? cause) -> bool
@@ -175,6 +175,7 @@ Xamarin.KotlinX.Coroutines.FlowPreviewAttribute.FlowPreviewAttribute() -> void
 Xamarin.KotlinX.Coroutines.Future.FutureKt
 Xamarin.KotlinX.Coroutines.GlobalScope
 Xamarin.KotlinX.Coroutines.GlobalScope.CoroutineContext.get -> Kotlin.Coroutines.ICoroutineContext!
+Xamarin.KotlinX.Coroutines.GuidanceJvmKt
 Xamarin.KotlinX.Coroutines.GuidanceKt
 Xamarin.KotlinX.Coroutines.ICancellableContinuation
 Xamarin.KotlinX.Coroutines.ICancellableContinuation.Cancel(Java.Lang.Throwable? cause) -> bool
@@ -217,7 +218,7 @@ Xamarin.KotlinX.Coroutines.IDeferred.Completed.get -> Java.Lang.Object?
 Xamarin.KotlinX.Coroutines.IDeferred.CompletionExceptionOrNull.get -> Java.Lang.Throwable?
 Xamarin.KotlinX.Coroutines.IDeferred.OnAwait.get -> Xamarin.KotlinX.Coroutines.Selects.ISelectClause1!
 Xamarin.KotlinX.Coroutines.IDelay
-Xamarin.KotlinX.Coroutines.IDelay.Delay(long time, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Xamarin.KotlinX.Coroutines.IDelay.Delay(long time, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Xamarin.KotlinX.Coroutines.IDelay.InvokeOnTimeout(long timeMillis, Java.Lang.IRunnable! block, Kotlin.Coroutines.ICoroutineContext! context) -> Xamarin.KotlinX.Coroutines.IDisposableHandle!
 Xamarin.KotlinX.Coroutines.IDelay.ScheduleResumeAfterDelay(long timeMillis, Xamarin.KotlinX.Coroutines.ICancellableContinuation! continuation) -> void
 Xamarin.KotlinX.Coroutines.IDelicateCoroutinesApi
@@ -321,8 +322,8 @@ Xamarin.KotlinX.Coroutines.Scheduling.WorkQueueKt
 Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder
 Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectClause0! p0, Kotlin.Jvm.Functions.IFunction1! block) -> void
 Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectClause1! p0, Kotlin.Jvm.Functions.IFunction2! block) -> void
+Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectClause2! _this_invoke, Kotlin.Jvm.Functions.IFunction2! block) -> void
 Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectClause2! p0, Java.Lang.Object? param, Kotlin.Jvm.Functions.IFunction2! block) -> void
-Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectClause2! p0, Kotlin.Jvm.Functions.IFunction2! block) -> void
 Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder.OnTimeout(long timeMillis, Kotlin.Jvm.Functions.IFunction1! block) -> void
 Xamarin.KotlinX.Coroutines.Selects.ISelectClause
 Xamarin.KotlinX.Coroutines.Selects.ISelectClause.ClauseObject.get -> Java.Lang.Object!
@@ -472,6 +473,7 @@ override Xamarin.KotlinX.Coroutines.Flow.SharingStartedKt.JniPeerMembers.get -> 
 override Xamarin.KotlinX.Coroutines.Flow.StateFlowKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.KotlinX.Coroutines.Future.FutureKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.KotlinX.Coroutines.GlobalScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.KotlinX.Coroutines.GuidanceJvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.KotlinX.Coroutines.GuidanceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.KotlinX.Coroutines.InterruptibleKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.KotlinX.Coroutines.Intrinsics.CancellableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -516,12 +518,14 @@ override _COROUTINE.ArtificialStackFrames.JniPeerMembers.get -> Java.Interop.Jni
 override _COROUTINE.CoroutineDebuggingKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static Xamarin.KotlinX.Coroutines.AwaitKt.AwaitAll(System.Collections.ICollection! obj, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.AwaitKt.AwaitAll(Xamarin.KotlinX.Coroutines.IDeferred![]! deferreds, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
-static Xamarin.KotlinX.Coroutines.AwaitKt.JoinAll(System.Collections.Generic.ICollection<Xamarin.KotlinX.Coroutines.IJob!>! p0, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.AwaitKt.JoinAll(System.Collections.Generic.ICollection<Xamarin.KotlinX.Coroutines.IJob!>! obj, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.AwaitKt.JoinAll(Xamarin.KotlinX.Coroutines.IJob![]! jobs, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.BuildersKt.Async(Xamarin.KotlinX.Coroutines.ICoroutineScope! _this_async, Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IDeferred!
 static Xamarin.KotlinX.Coroutines.BuildersKt.Invoke(Xamarin.KotlinX.Coroutines.CoroutineDispatcher! _this_invoke, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.BuildersKt.Launch(Xamarin.KotlinX.Coroutines.ICoroutineScope! _this_launch, Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
 static Xamarin.KotlinX.Coroutines.BuildersKt.RunBlocking(Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! block) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.BuildersKt.RunBlockingImpl(Kotlin.Coroutines.ICoroutineContext! newContext, Xamarin.KotlinX.Coroutines.CoroutineDispatcher? eventLoop, Kotlin.Jvm.Functions.IFunction2! block) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.BuildersKt.RunBlockingK(Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! block) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.BuildersKt.WithContext(Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.CancellableContinuationKt.DisposeOnCancellation(Xamarin.KotlinX.Coroutines.ICancellableContinuation! obj, Xamarin.KotlinX.Coroutines.IDisposableHandle! handle) -> void
 static Xamarin.KotlinX.Coroutines.CancellableContinuationKt.SuspendCancellableCoroutine(Kotlin.Jvm.Functions.IFunction1! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
@@ -547,15 +551,16 @@ static Xamarin.KotlinX.Coroutines.Channels.ChannelDefaultImpls.Offer(Xamarin.Kot
 static Xamarin.KotlinX.Coroutines.Channels.ChannelDefaultImpls.Poll(Xamarin.KotlinX.Coroutines.Channels.IChannel! _this) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelDefaultImpls.ReceiveOrNull(Xamarin.KotlinX.Coroutines.Channels.IChannel! _this, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.Channel(int capacity, Xamarin.KotlinX.Coroutines.Channels.BufferOverflow! onBufferOverflow, Kotlin.Jvm.Functions.IFunction1? onUndeliveredElement) -> Xamarin.KotlinX.Coroutines.Channels.IChannel!
-static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.GetOrElse(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! onFailure) -> Java.Lang.Object?
-static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnClosed(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
-static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnFailure(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
-static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnSuccess(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
+static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.GetOrElse(Java.Lang.Object! _v_c_kotlinx_coroutines_channels_ChannelResult___this_getOrElse_0, Kotlin.Jvm.Functions.IFunction1! onFailure) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnClosed(Java.Lang.Object! _v_c_kotlinx_coroutines_channels_ChannelResult___this_onClosed_0, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
+static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnFailure(Java.Lang.Object! _v_c_kotlinx_coroutines_channels_ChannelResult___this_onFailure_0, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
+static Xamarin.KotlinX.Coroutines.Channels.ChannelKt.OnSuccess(Java.Lang.Object! _v_c_kotlinx_coroutines_channels_ChannelResult___this_onSuccess_0, Kotlin.Jvm.Functions.IFunction1! action) -> Java.Lang.Object!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.CancelConsumed(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_cancelConsumed, Java.Lang.Throwable? cause) -> void
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Consume(Xamarin.KotlinX.Coroutines.Channels.IBroadcastChannel! _this_consume, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Consume(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_consume, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ConsumeEach(Xamarin.KotlinX.Coroutines.Channels.IBroadcastChannel! _this_consumeEach, Kotlin.Jvm.Functions.IFunction1! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ConsumeEach(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_consumeEach, Kotlin.Jvm.Functions.IFunction1! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ConsumeTo(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_consumeTo, Java.Lang.Object! collection, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Consumes(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_consumes) -> Kotlin.Jvm.Functions.IFunction1!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ConsumesAll(params Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel![]! channels) -> Kotlin.Jvm.Functions.IFunction1!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.DistinctBy(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_distinctBy, Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! selector) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
@@ -563,6 +568,7 @@ static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Filter(Xamarin.KotlinX.Cor
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.FilterNotNull(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_filterNotNull) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Map(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_map, Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! transform) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.MapIndexed(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_mapIndexed, Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction3! transform) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
+static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Produce(Xamarin.KotlinX.Coroutines.ICoroutineScope! _this_produce, Xamarin.KotlinX.Coroutines.IJob! context, int capacity, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ToChannel(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_toChannel, Java.Lang.Object! destination, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ToCollection(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_toCollection, Java.Lang.Object! destination, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ToList(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_toList, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
@@ -570,13 +576,13 @@ static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ToMap(Xamarin.KotlinX.Coro
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.ToMutableSet(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_toMutableSet, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.TrySendBlocking(Xamarin.KotlinX.Coroutines.Channels.ISendChannel! _this_trySendBlocking, Java.Lang.Object? element) -> Java.Lang.Object!
 static Xamarin.KotlinX.Coroutines.Channels.ChannelsKt.Zip(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this_zip, Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! other, Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction2! transform) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
-static Xamarin.KotlinX.Coroutines.Channels.ProduceKt.AwaitClose(Xamarin.KotlinX.Coroutines.Channels.IProducerScope! p0, Kotlin.Jvm.Functions.IFunction0! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Channels.ProduceKt.AwaitClose(Xamarin.KotlinX.Coroutines.Channels.IProducerScope! obj, Kotlin.Jvm.Functions.IFunction0! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.ProduceKt.Produce(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Kotlin.Coroutines.ICoroutineContext! context, int capacity, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.ProduceKt.Produce(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Kotlin.Coroutines.ICoroutineContext! context, int capacity, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction1? onCompletion, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.ProducerScopeDefaultImpls.Offer(Xamarin.KotlinX.Coroutines.Channels.IProducerScope! _this, Java.Lang.Object? element) -> bool
 static Xamarin.KotlinX.Coroutines.Channels.ReceiveChannelDefaultImpls.GetOnReceiveOrNull(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this) -> Xamarin.KotlinX.Coroutines.Selects.ISelectClause1!
 static Xamarin.KotlinX.Coroutines.Channels.ReceiveChannelDefaultImpls.Poll(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this) -> Java.Lang.Object?
-static Xamarin.KotlinX.Coroutines.Channels.ReceiveChannelDefaultImpls.ReceiveOrNull(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! p0, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Channels.ReceiveChannelDefaultImpls.ReceiveOrNull(Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel! _this, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Channels.SendChannelDefaultImpls.Offer(Xamarin.KotlinX.Coroutines.Channels.ISendChannel! _this, Java.Lang.Object? element) -> bool
 static Xamarin.KotlinX.Coroutines.Channels.TickerChannelsKt.Ticker(long delayMillis, long initialDelayMillis, Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.Channels.TickerMode! mode) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Channels.TickerMode.Entries.get -> Kotlin.Enums.IEnumEntries!
@@ -594,6 +600,7 @@ static Xamarin.KotlinX.Coroutines.CompletableDeferredDefaultImpls.Get(Xamarin.Ko
 static Xamarin.KotlinX.Coroutines.CompletableDeferredDefaultImpls.MinusKey(Xamarin.KotlinX.Coroutines.ICompletableDeferred! _this, Kotlin.Coroutines.ICoroutineContextKey! key) -> Kotlin.Coroutines.ICoroutineContext!
 static Xamarin.KotlinX.Coroutines.CompletableDeferredDefaultImpls.Plus(Xamarin.KotlinX.Coroutines.ICompletableDeferred! _this, Kotlin.Coroutines.ICoroutineContext! context) -> Kotlin.Coroutines.ICoroutineContext!
 static Xamarin.KotlinX.Coroutines.CompletableDeferredDefaultImpls.Plus(Xamarin.KotlinX.Coroutines.ICompletableDeferred! _this, Xamarin.KotlinX.Coroutines.IJob! other) -> Xamarin.KotlinX.Coroutines.IJob!
+static Xamarin.KotlinX.Coroutines.CompletableDeferredKt.AsDeferred(Xamarin.KotlinX.Coroutines.ICompletableDeferred! obj) -> Xamarin.KotlinX.Coroutines.IDeferred!
 static Xamarin.KotlinX.Coroutines.CompletableDeferredKt.CompletableDeferred(Java.Lang.Object? value) -> Xamarin.KotlinX.Coroutines.ICompletableDeferred!
 static Xamarin.KotlinX.Coroutines.CompletableDeferredKt.CompletableDeferred(Xamarin.KotlinX.Coroutines.IJob? parent) -> Xamarin.KotlinX.Coroutines.ICompletableDeferred!
 static Xamarin.KotlinX.Coroutines.CompletableDeferredKt.CompleteWith(Xamarin.KotlinX.Coroutines.ICompletableDeferred! obj, Java.Lang.Object! result) -> bool
@@ -655,7 +662,6 @@ static Xamarin.KotlinX.Coroutines.Dispatchers.IO.get -> Xamarin.KotlinX.Coroutin
 static Xamarin.KotlinX.Coroutines.Dispatchers.Instance.get -> Xamarin.KotlinX.Coroutines.Dispatchers!
 static Xamarin.KotlinX.Coroutines.Dispatchers.Main.get -> Xamarin.KotlinX.Coroutines.MainCoroutineDispatcher!
 static Xamarin.KotlinX.Coroutines.Dispatchers.Unconfined.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher!
-static Xamarin.KotlinX.Coroutines.EventLoopKt.ProcessNextEventInCurrentThread() -> long
 static Xamarin.KotlinX.Coroutines.ExceptionsKt.CancellationException(string? message, Java.Lang.Throwable? cause) -> Java.Util.Concurrent.CancellationException!
 static Xamarin.KotlinX.Coroutines.ExecutorsKt.AsExecutor(Xamarin.KotlinX.Coroutines.CoroutineDispatcher! obj) -> Java.Util.Concurrent.IExecutor!
 static Xamarin.KotlinX.Coroutines.ExecutorsKt.From(Java.Util.Concurrent.IExecutor! obj) -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher!
@@ -670,10 +676,19 @@ static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(Kotlin.Jvm.Functions.IFunct
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(Kotlin.Ranges.IntRange! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(Kotlin.Ranges.LongRange! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(Kotlin.Sequences.ISequence! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(Xamarin.KotlinX.Coroutines.Flow.ISharedFlow! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(int[]! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsFlow(long[]! _this_asFlow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsSharedFlow(Xamarin.KotlinX.Coroutines.Flow.IMutableSharedFlow! _this_asSharedFlow) -> Xamarin.KotlinX.Coroutines.Flow.ISharedFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AsStateFlow(Xamarin.KotlinX.Coroutines.Flow.IMutableStateFlow! _this_asStateFlow) -> Xamarin.KotlinX.Coroutines.Flow.IStateFlow!
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Associate(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associate, Kotlin.Jvm.Functions.IFunction2! transform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateBy(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateBy, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateBy(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateBy, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Jvm.Functions.IFunction2! valueTransform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateByTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateByTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateByTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateByTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Jvm.Functions.IFunction2! valueTransform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! transform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateWith(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateWith, Kotlin.Jvm.Functions.IFunction2! valueSelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.AssociateWithTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_associateWithTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! valueSelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Buffer(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_buffer, int capacity, Xamarin.KotlinX.Coroutines.Channels.BufferOverflow! onBufferOverflow) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Cache(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_cache) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.CallbackFlow(Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -685,6 +700,7 @@ static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Chunked(Xamarin.KotlinX.Coroutines
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Collect(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collect, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.CollectIndexed(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectIndexed, Kotlin.Jvm.Functions.IFunction3! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.CollectLatest(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectLatest, Kotlin.Jvm.Functions.IFunction2! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.CollectLatest(Xamarin.KotlinX.Coroutines.Flow.ISharedFlow! _this_collectLatest, Kotlin.Jvm.Functions.IFunction2! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.CollectWhile(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectWhile, Kotlin.Jvm.Functions.IFunction2! predicate, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Combine(Xamarin.KotlinX.Coroutines.Flow.IFlow! flow, Xamarin.KotlinX.Coroutines.Flow.IFlow! flow2, Kotlin.Jvm.Functions.IFunction3! transform) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Combine(Xamarin.KotlinX.Coroutines.Flow.IFlow! flow, Xamarin.KotlinX.Coroutines.Flow.IFlow! flow2, Xamarin.KotlinX.Coroutines.Flow.IFlow! flow3, Kotlin.Jvm.Functions.IFunction4! transform) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -745,6 +761,10 @@ static Xamarin.KotlinX.Coroutines.Flow.FlowKt.FlowOf(params Java.Lang.Object![]!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.FlowOn(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_flowOn, Kotlin.Coroutines.ICoroutineContext! context) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Fold(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_fold, Java.Lang.Object? initial, Kotlin.Jvm.Functions.IFunction3! operation, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.ForEach(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_forEach, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.GroupBy(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_groupBy, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.GroupBy(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_groupBy, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Jvm.Functions.IFunction2! valueTransform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.GroupByTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_groupByTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.GroupByTo(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_groupByTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction2! keySelector, Kotlin.Jvm.Functions.IFunction2! valueTransform, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Last(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_last, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.LastOrNull(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_lastOrNull, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.LaunchIn(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_launchIn, Xamarin.KotlinX.Coroutines.ICoroutineScope! scope) -> Xamarin.KotlinX.Coroutines.IJob!
@@ -766,6 +786,7 @@ static Xamarin.KotlinX.Coroutines.Flow.FlowKt.OnErrorReturn(Xamarin.KotlinX.Coro
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.OnErrorReturn(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_onErrorReturn, Java.Lang.Object? fallback, Kotlin.Jvm.Functions.IFunction1! predicate) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.OnStart(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_onStart, Kotlin.Jvm.Functions.IFunction2! action) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.OnSubscription(Xamarin.KotlinX.Coroutines.Flow.ISharedFlow! _this_onSubscription, Kotlin.Jvm.Functions.IFunction2! action) -> Xamarin.KotlinX.Coroutines.Flow.ISharedFlow!
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.OnSubscription(Xamarin.KotlinX.Coroutines.Flow.IStateFlow! _this_onSubscription, Kotlin.Jvm.Functions.IFunction2! action) -> Xamarin.KotlinX.Coroutines.Flow.IStateFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.ProduceIn(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_produceIn, Xamarin.KotlinX.Coroutines.ICoroutineScope! scope) -> Xamarin.KotlinX.Coroutines.Channels.IReceiveChannel!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Publish(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_publish) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Publish(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_publish, int bufferSize) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -797,7 +818,7 @@ static Xamarin.KotlinX.Coroutines.Flow.FlowKt.SubscribeOn(Xamarin.KotlinX.Corout
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.SwitchMap(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_switchMap, Kotlin.Jvm.Functions.IFunction2! transform) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Take(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_take, int count) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.TakeWhile(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_takeWhile, Kotlin.Jvm.Functions.IFunction2! predicate) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
-static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Timeout(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_timeout_u2dHG0u8IE, long timeout) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
+static Xamarin.KotlinX.Coroutines.Flow.FlowKt.Timeout(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_timeout_u2dHG0u8IE, long _v_c_kotlin_time_Duration__timeout_0) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.ToCollection(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_toCollection, Java.Lang.Object! destination, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.ToList(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_toList, System.Collections.IList! destination, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.FlowKt.ToSet(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_toSet, System.Collections.ICollection! destination, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
@@ -822,7 +843,7 @@ static Xamarin.KotlinX.Coroutines.Flow.SharingCommand.StopAndResetReplayCache.ge
 static Xamarin.KotlinX.Coroutines.Flow.SharingCommand.ValueOf(string? value) -> Xamarin.KotlinX.Coroutines.Flow.SharingCommand?
 static Xamarin.KotlinX.Coroutines.Flow.SharingCommand.Values() -> Xamarin.KotlinX.Coroutines.Flow.SharingCommand![]?
 static Xamarin.KotlinX.Coroutines.Flow.SharingStarted.Companion.get -> Xamarin.KotlinX.Coroutines.Flow.SharingStartedCompanion!
-static Xamarin.KotlinX.Coroutines.Flow.SharingStartedKt.WhileSubscribed(Xamarin.KotlinX.Coroutines.Flow.SharingStartedCompanion! obj, long stopTimeout, long replayExpiration) -> Xamarin.KotlinX.Coroutines.Flow.ISharingStarted!
+static Xamarin.KotlinX.Coroutines.Flow.SharingStartedKt.WhileSubscribed(Xamarin.KotlinX.Coroutines.Flow.SharingStartedCompanion! obj, long _v_c_kotlin_time_Duration__stopTimeout_0, long _v_c_kotlin_time_Duration__replayExpiration_0) -> Xamarin.KotlinX.Coroutines.Flow.ISharingStarted!
 static Xamarin.KotlinX.Coroutines.Flow.StateFlowKt.GetAndUpdate(Xamarin.KotlinX.Coroutines.Flow.IMutableStateFlow! obj, Kotlin.Jvm.Functions.IFunction1! function) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Flow.StateFlowKt.MutableStateFlow(Java.Lang.Object? value) -> Xamarin.KotlinX.Coroutines.Flow.IMutableStateFlow!
 static Xamarin.KotlinX.Coroutines.Flow.StateFlowKt.Update(Xamarin.KotlinX.Coroutines.Flow.IMutableStateFlow! obj, Kotlin.Jvm.Functions.IFunction1! function) -> void
@@ -832,9 +853,15 @@ static Xamarin.KotlinX.Coroutines.Future.FutureKt.AsCompletableFuture(Xamarin.Ko
 static Xamarin.KotlinX.Coroutines.Future.FutureKt.AsDeferred(Java.Util.Concurrent.ICompletionStage! obj) -> Xamarin.KotlinX.Coroutines.IDeferred!
 static Xamarin.KotlinX.Coroutines.Future.FutureKt.Await(Java.Util.Concurrent.ICompletionStage! obj, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Future.FutureKt.Future(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Java.Util.Concurrent.CompletableFuture!
+static Xamarin.KotlinX.Coroutines.Future.FutureKt.Future(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Xamarin.KotlinX.Coroutines.IJob! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Java.Util.Concurrent.CompletableFuture!
 static Xamarin.KotlinX.Coroutines.GlobalScope.Instance.get -> Xamarin.KotlinX.Coroutines.GlobalScope!
+static Xamarin.KotlinX.Coroutines.GuidanceJvmKt.RunInterruptible(Xamarin.KotlinX.Coroutines.IJob! context, Kotlin.Jvm.Functions.IFunction0! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.GuidanceKt.Async(Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IDeferred!
+static Xamarin.KotlinX.Coroutines.GuidanceKt.Async(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Xamarin.KotlinX.Coroutines.IJob! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IDeferred!
+static Xamarin.KotlinX.Coroutines.GuidanceKt.Async(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Xamarin.KotlinX.Coroutines.NonCancellable! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IDeferred!
 static Xamarin.KotlinX.Coroutines.GuidanceKt.Launch(Kotlin.Coroutines.ICoroutineContext! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
+static Xamarin.KotlinX.Coroutines.GuidanceKt.Launch(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Xamarin.KotlinX.Coroutines.IJob! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
+static Xamarin.KotlinX.Coroutines.GuidanceKt.Launch(Xamarin.KotlinX.Coroutines.ICoroutineScope! obj, Xamarin.KotlinX.Coroutines.NonCancellable! context, Xamarin.KotlinX.Coroutines.CoroutineStart! start, Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
 static Xamarin.KotlinX.Coroutines.InterruptibleKt.RunInterruptible(Kotlin.Coroutines.ICoroutineContext! context, Kotlin.Jvm.Functions.IFunction0! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Intrinsics.CancellableKt.StartCoroutineCancellable(Kotlin.Jvm.Functions.IFunction1! obj, Kotlin.Coroutines.IContinuation! completion) -> void
 static Xamarin.KotlinX.Coroutines.JobDefaultImpls.Fold(Xamarin.KotlinX.Coroutines.IJob! _this, Java.Lang.Object? initial, Kotlin.Jvm.Functions.IFunction2! operation) -> Java.Lang.Object?
@@ -864,7 +891,7 @@ static Xamarin.KotlinX.Coroutines.ParentJobDefaultImpls.Plus(Xamarin.KotlinX.Cor
 static Xamarin.KotlinX.Coroutines.Scheduling.TasksKt.IsBlocking(Java.Lang.Object! obj) -> bool
 static Xamarin.KotlinX.Coroutines.Scheduling.WorkQueueKt.GetMaskForStealingMode(Java.Lang.Object! obj) -> int
 static Xamarin.KotlinX.Coroutines.Selects.OnTimeoutKt.OnTimeout(Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder! obj, long timeMillis, Kotlin.Jvm.Functions.IFunction1! block) -> void
-static Xamarin.KotlinX.Coroutines.Selects.OnTimeoutKt.OnTimeout2(Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder! obj, long timeout, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static Xamarin.KotlinX.Coroutines.Selects.OnTimeoutKt.OnTimeout2(Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder! obj, long _v_c_kotlin_time_Duration__timeout_0, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static Xamarin.KotlinX.Coroutines.Selects.SelectBuilderDefaultImpls.Invoke(Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder! _this, Xamarin.KotlinX.Coroutines.Selects.ISelectClause2! _receiver, Kotlin.Jvm.Functions.IFunction2! block) -> void
 static Xamarin.KotlinX.Coroutines.Selects.SelectBuilderDefaultImpls.OnTimeout(Xamarin.KotlinX.Coroutines.Selects.ISelectBuilder! _this, long timeMillis, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static Xamarin.KotlinX.Coroutines.Selects.SelectKt.PARAM_CLAUSE_0.get -> Java.Lang.Object!
@@ -874,9 +901,9 @@ static Xamarin.KotlinX.Coroutines.Selects.WhileSelectKt.WhileSelect(Kotlin.Jvm.F
 static Xamarin.KotlinX.Coroutines.SupervisorKt.SupervisorJob(Xamarin.KotlinX.Coroutines.IJob? parent) -> Xamarin.KotlinX.Coroutines.ICompletableJob!
 static Xamarin.KotlinX.Coroutines.SupervisorKt.SupervisorScope(Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Sync.MutexKt.Mutex(bool locked) -> Xamarin.KotlinX.Coroutines.Sync.IMutex!
-static Xamarin.KotlinX.Coroutines.Sync.MutexKt.WithLock(Xamarin.KotlinX.Coroutines.Sync.IMutex! p0, Java.Lang.Object? owner, Kotlin.Jvm.Functions.IFunction0! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Sync.MutexKt.WithLock(Xamarin.KotlinX.Coroutines.Sync.IMutex! obj, Java.Lang.Object? owner, Kotlin.Jvm.Functions.IFunction0! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.Sync.SemaphoreKt.Semaphore(int permits, int acquiredPermits) -> Xamarin.KotlinX.Coroutines.Sync.ISemaphore!
-static Xamarin.KotlinX.Coroutines.Sync.SemaphoreKt.WithPermit(Xamarin.KotlinX.Coroutines.Sync.ISemaphore! p0, Kotlin.Jvm.Functions.IFunction0! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static Xamarin.KotlinX.Coroutines.Sync.SemaphoreKt.WithPermit(Xamarin.KotlinX.Coroutines.Sync.ISemaphore! obj, Kotlin.Jvm.Functions.IFunction0! action, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.ThreadContextElementDefaultImpls.Fold(Xamarin.KotlinX.Coroutines.IThreadContextElement! _this, Java.Lang.Object? initial, Kotlin.Jvm.Functions.IFunction2! operation) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.ThreadContextElementDefaultImpls.Get(Xamarin.KotlinX.Coroutines.IThreadContextElement! _this, Kotlin.Coroutines.ICoroutineContextKey! key) -> Java.Lang.Object?
 static Xamarin.KotlinX.Coroutines.ThreadContextElementDefaultImpls.MinusKey(Xamarin.KotlinX.Coroutines.IThreadContextElement! _this, Kotlin.Coroutines.ICoroutineContextKey! key) -> Kotlin.Coroutines.ICoroutineContext!

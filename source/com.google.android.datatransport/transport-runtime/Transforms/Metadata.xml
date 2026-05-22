@@ -160,4 +160,10 @@
       Java.Lang.Object
     </attr>
 
+    <!-- Remove local jakarta.inject.Provider base from dagger.internal.Provider to fix CS0121
+         ambiguity between jakarta.inject.IProvider.Get() and javax.inject.IProvider.Get() -->
+    <remove-node
+      path="/api/package[@name='com.google.android.datatransport.runtime.dagger.internal']/interface[@name='Provider']/implements[@name='com.google.android.datatransport.runtime.jakarta.inject.Provider']"
+      />
+
 </metadata>

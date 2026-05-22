@@ -210,6 +210,7 @@ AndroidX.Wear.Tiles.ITileProvider.OnTileRemoveEvent(AndroidX.Wear.Tiles.TileRemo
 AndroidX.Wear.Tiles.ITileProvider.OnTileRequest(int p0, AndroidX.Wear.Tiles.TileRequestData? p1, AndroidX.Wear.Tiles.ITileCallback? p2) -> void
 AndroidX.Wear.Tiles.ITileUpdateRequester
 AndroidX.Wear.Tiles.ITileUpdateRequester.RequestUpdate(Java.Lang.Class? p0) -> void
+AndroidX.Wear.Tiles.ITileUpdateRequester.RequestUpdate(Java.Lang.Class? tileService, int tileId) -> void
 AndroidX.Wear.Tiles.ITileUpdateRequesterService
 AndroidX.Wear.Tiles.ITileUpdateRequesterService.ApiVersion.get -> int
 AndroidX.Wear.Tiles.ITileUpdateRequesterService.RequestUpdate(Android.Content.ComponentName? p0, AndroidX.Wear.Tiles.TileUpdateRequestData? p1) -> void
@@ -564,6 +565,13 @@ AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Builder.Builder(
 AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Builder.SetValue(int value) -> AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Builder?
 AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
 AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Value.get -> int
+AndroidX.Wear.Tiles.Material3TileService
+AndroidX.Wear.Tiles.Material3TileService.Material3TileService() -> void
+AndroidX.Wear.Tiles.Material3TileService.Material3TileService(bool allowDynamicTheme) -> void
+AndroidX.Wear.Tiles.Material3TileService.Material3TileService(bool allowDynamicTheme, AndroidX.Wear.ProtoLayout.Material3.ColorScheme! defaultColorScheme) -> void
+AndroidX.Wear.Tiles.Material3TileService.Material3TileService(bool allowDynamicTheme, AndroidX.Wear.ProtoLayout.Material3.ColorScheme! defaultColorScheme, Xamarin.KotlinX.Coroutines.ICoroutineScope? serviceScope) -> void
+AndroidX.Wear.Tiles.Material3TileService.Material3TileService(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Wear.Tiles.Material3TileServiceKt
 AndroidX.Wear.Tiles.ModifiersBuilders
 AndroidX.Wear.Tiles.ModifiersBuilders.ArcModifiers
 AndroidX.Wear.Tiles.ModifiersBuilders.ArcModifiers.Builder
@@ -664,6 +672,7 @@ AndroidX.Wear.Tiles.ModifiersBuilders.SpanModifiers.Builder.SetClickable(Android
 AndroidX.Wear.Tiles.ModifiersBuilders.SpanModifiers.Clickable.get -> AndroidX.Wear.Tiles.ModifiersBuilders.Clickable?
 AndroidX.Wear.Tiles.ModifiersBuilders.SpanModifiers.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
 AndroidX.Wear.Tiles.ProtoParcelable
+AndroidX.Wear.Tiles.ProtoParcelable.ProtoParcelable(byte[]? contents, Android.OS.Bundle? extras, int version) -> void
 AndroidX.Wear.Tiles.ProtoParcelable.ProtoParcelable(byte[]? contents, int version) -> void
 AndroidX.Wear.Tiles.ProtoParcelable.ProtoParcelable(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.Tiles.RequestBuilders
@@ -688,11 +697,14 @@ AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.Builder() -> void
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetCurrentState(AndroidX.Wear.ProtoLayout.StateBuilders.State? currentState) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetDeviceConfiguration(AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters? deviceConfiguration) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetDeviceParameters(AndroidX.Wear.Tiles.DeviceParametersBuilders.DeviceParameters? deviceParameters) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
+AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetLastVisibleTime(Java.Time.Instant? instant) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetState(AndroidX.Wear.Tiles.StateBuilders.State? state) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder.SetTileId(int tileId) -> AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Builder?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.CurrentState.get -> AndroidX.Wear.ProtoLayout.StateBuilders.State?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.DeviceConfiguration.get -> AndroidX.Wear.ProtoLayout.DeviceParametersBuilders.DeviceParameters?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.DeviceParameters.get -> AndroidX.Wear.Tiles.DeviceParametersBuilders.DeviceParameters?
+AndroidX.Wear.Tiles.RequestBuilders.TileRequest.LastVisibleTime.get -> Java.Time.Instant?
+AndroidX.Wear.Tiles.RequestBuilders.TileRequest.Scope.get -> AndroidX.Wear.ProtoLayout.ProtoLayoutScope?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.State.get -> AndroidX.Wear.Tiles.StateBuilders.State?
 AndroidX.Wear.Tiles.RequestBuilders.TileRequest.TileId.get -> int
 AndroidX.Wear.Tiles.ResourceBuilders
@@ -788,11 +800,13 @@ AndroidX.Wear.Tiles.TileCallback_Parcel
 AndroidX.Wear.Tiles.TileCallback_Parcel.TileCallback_Parcel() -> void
 AndroidX.Wear.Tiles.TileCallback_Parcel.TileCallback_Parcel(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.Tiles.TileData
+AndroidX.Wear.Tiles.TileData.TileData(byte[]? tile, Android.OS.Bundle? extras, int version) -> void
 AndroidX.Wear.Tiles.TileData.TileData(byte[]? tile, int version) -> void
 AndroidX.Wear.Tiles.TileEnterEventData
 AndroidX.Wear.Tiles.TileEnterEventData.TileEnterEventData(byte[]? params, int version) -> void
 AndroidX.Wear.Tiles.TileInteractionEventData
 AndroidX.Wear.Tiles.TileInteractionEventData.TileInteractionEventData(byte[]? params, int version) -> void
+AndroidX.Wear.Tiles.TileKt
 AndroidX.Wear.Tiles.TileLeaveEventData
 AndroidX.Wear.Tiles.TileLeaveEventData.TileLeaveEventData(byte[]? params, int version) -> void
 AndroidX.Wear.Tiles.TileProvider
@@ -817,6 +831,7 @@ AndroidX.Wear.Tiles.TileService.TileService() -> void
 AndroidX.Wear.Tiles.TileService.TileService(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Wear.Tiles.TileUpdateRequestData
 AndroidX.Wear.Tiles.TileUpdateRequestData.TileUpdateRequestData() -> void
+AndroidX.Wear.Tiles.TileUpdateRequestData.TileUpdateRequestData(byte[]? params, int version) -> void
 AndroidX.Wear.Tiles.TileUpdateRequesterService
 AndroidX.Wear.Tiles.TileUpdateRequesterServiceConsts
 AndroidX.Wear.Tiles.TileUpdateRequesterServiceDefault
@@ -885,6 +900,7 @@ AndroidX.Wear.Tiles.TypeBuilders.StringProp.Builder.SetValue(string? value) -> A
 AndroidX.Wear.Tiles.TypeBuilders.StringProp.Fingerprint.get -> AndroidX.Wear.ProtoLayout.Expression.Fingerprint?
 AndroidX.Wear.Tiles.TypeBuilders.StringProp.Value.get -> string?
 abstract AndroidX.Wear.Tiles.InteractionEventsCallbackStub.Finish() -> void
+abstract AndroidX.Wear.Tiles.Material3TileService.TileResponse(AndroidX.Wear.ProtoLayout.Material3.MaterialScope! p0, AndroidX.Wear.Tiles.RequestBuilders.TileRequest! requestParams, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
 abstract AndroidX.Wear.Tiles.ResourcesCallbackStub.UpdateResources(AndroidX.Wear.Tiles.ResourcesData? p0) -> void
 abstract AndroidX.Wear.Tiles.TileCallbackStub.UpdateTileData(AndroidX.Wear.Tiles.TileData? p0) -> void
 abstract AndroidX.Wear.Tiles.TileProviderStub.ApiVersion.get -> int
@@ -955,7 +971,9 @@ const AndroidX.Wear.Tiles.TileAddEventData.VersionProtobuf = 1 -> int
 const AndroidX.Wear.Tiles.TileCallback.Descriptor = "androidx.wear.tiles.TileCallback" -> string!
 const AndroidX.Wear.Tiles.TileCallbackDefault.InterfaceConsts.Descriptor = "androidx.wear.tiles.TileCallback" -> string!
 const AndroidX.Wear.Tiles.TileCallbackStub.InterfaceConsts.Descriptor = "androidx.wear.tiles.TileCallback" -> string!
-const AndroidX.Wear.Tiles.TileData.VersionProtobuf = 1 -> int
+const AndroidX.Wear.Tiles.TileData.PendingIntentKey = "pending_intents" -> string!
+const AndroidX.Wear.Tiles.TileData.VersionProtobuf1 = 1 -> int
+const AndroidX.Wear.Tiles.TileData.VersionProtobuf2 = 2 -> int
 const AndroidX.Wear.Tiles.TileEnterEventData.VersionProtobuf = 1 -> int
 const AndroidX.Wear.Tiles.TileInteractionEventData.VersionProtobuf = 1 -> int
 const AndroidX.Wear.Tiles.TileLeaveEventData.VersionProtobuf = 1 -> int
@@ -966,8 +984,11 @@ const AndroidX.Wear.Tiles.TileRemoveEventData.VersionProtobuf = 1 -> int
 const AndroidX.Wear.Tiles.TileRequestData.VersionProtobuf = 1 -> int
 const AndroidX.Wear.Tiles.TileService.ActionBindTileProvider = "androidx.wear.tiles.action.BIND_TILE_PROVIDER" -> string!
 const AndroidX.Wear.Tiles.TileService.ExtraClickableId = "androidx.wear.tiles.extra.CLICKABLE_ID" -> string!
+const AndroidX.Wear.Tiles.TileService.MetadataGroupKey = "androidx.wear.tiles.GROUP" -> string!
 const AndroidX.Wear.Tiles.TileService.MetadataPreviewKey = "androidx.wear.tiles.PREVIEW" -> string!
-const AndroidX.Wear.Tiles.TileUpdateRequestData.VersionPlaceholder = 1 -> int
+const AndroidX.Wear.Tiles.TileService.MetadataSchemaMajorVersionKey = "tiles_schema_major_version" -> string!
+const AndroidX.Wear.Tiles.TileService.MetadataSchemaMinorVersionKey = "tiles_schema_minor_version" -> string!
+const AndroidX.Wear.Tiles.TileUpdateRequestData.Version1 = 1 -> int
 const AndroidX.Wear.Tiles.TileUpdateRequesterService.Descriptor = "androidx.wear.tiles.TileUpdateRequesterService" -> string!
 const AndroidX.Wear.Tiles.TileUpdateRequesterServiceDefault.InterfaceConsts.Descriptor = "androidx.wear.tiles.TileUpdateRequesterService" -> string!
 const AndroidX.Wear.Tiles.TileUpdateRequesterServiceStub.InterfaceConsts.Descriptor = "androidx.wear.tiles.TileUpdateRequesterService" -> string!
@@ -1083,6 +1104,10 @@ override AndroidX.Wear.Tiles.LayoutElementBuilders.TextOverflowProp.Builder.JniP
 override AndroidX.Wear.Tiles.LayoutElementBuilders.TextOverflowProp.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.LayoutElementBuilders.VerticalAlignmentProp.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Tiles.Material3TileService.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Tiles.Material3TileService.ThresholdClass.get -> nint
+override AndroidX.Wear.Tiles.Material3TileService.ThresholdType.get -> System.Type!
+override AndroidX.Wear.Tiles.Material3TileServiceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.ModifiersBuilders.ArcModifiers.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.ModifiersBuilders.ArcModifiers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.ModifiersBuilders.Background.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1152,6 +1177,7 @@ override AndroidX.Wear.Tiles.TileCallback_Parcel.ThresholdType.get -> System.Typ
 override AndroidX.Wear.Tiles.TileData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TileEnterEventData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TileInteractionEventData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Tiles.TileKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TileLeaveEventData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TileProviderDefault.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TileProviderDefault.ThresholdClass.get -> nint
@@ -1194,6 +1220,10 @@ override AndroidX.Wear.Tiles.TypeBuilders.Int32Prop.JniPeerMembers.get -> Java.I
 override AndroidX.Wear.Tiles.TypeBuilders.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TypeBuilders.StringProp.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Tiles.TypeBuilders.StringProp.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override sealed AndroidX.Wear.Tiles.Material3TileService.OnTileEnterEvent(AndroidX.Wear.Tiles.EventBuilders.TileEnterEvent! requestParams) -> void
+override sealed AndroidX.Wear.Tiles.Material3TileService.OnTileLeaveEvent(AndroidX.Wear.Tiles.EventBuilders.TileLeaveEvent! requestParams) -> void
+override sealed AndroidX.Wear.Tiles.Material3TileService.OnTileRequest(AndroidX.Wear.Tiles.RequestBuilders.TileRequest! requestParams) -> Google.Common.Util.Concurrent.IListenableFuture!
+override sealed AndroidX.Wear.Tiles.Material3TileService.OnTileResourcesRequest(AndroidX.Wear.Tiles.RequestBuilders.ResourcesRequest! requestParams) -> Google.Common.Util.Concurrent.IListenableFuture!
 static AndroidX.Wear.Tiles.ActionBuilders.BooleanExtra(bool value) -> AndroidX.Wear.Tiles.ActionBuilders.AndroidBooleanExtra?
 static AndroidX.Wear.Tiles.ActionBuilders.DoubleExtra(double value) -> AndroidX.Wear.Tiles.ActionBuilders.AndroidDoubleExtra?
 static AndroidX.Wear.Tiles.ActionBuilders.IntExtra(int value) -> AndroidX.Wear.Tiles.ActionBuilders.AndroidIntExtra?
@@ -1230,6 +1260,10 @@ static AndroidX.Wear.Tiles.TileCallbackStub.AsInterface(Android.OS.IBinder? obj)
 static AndroidX.Wear.Tiles.TileData.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Wear.Tiles.TileEnterEventData.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Wear.Tiles.TileInteractionEventData.Creator.get -> Android.OS.IParcelableCreator?
+static AndroidX.Wear.Tiles.TileKt.Tile(AndroidX.Wear.ProtoLayout.TimelineBuilders.Timeline! timeline, Kotlin.Time.Duration? freshness, AndroidX.Wear.ProtoLayout.StateBuilders.State? state, string? resourcesVersion) -> AndroidX.Wear.Tiles.TileBuilders.Tile!
+static AndroidX.Wear.Tiles.TileKt.TimeInterval(long start, long end) -> AndroidX.Wear.ProtoLayout.TimelineBuilders.TimeInterval!
+static AndroidX.Wear.Tiles.TileKt.Timeline(params AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry![]! entries) -> AndroidX.Wear.ProtoLayout.TimelineBuilders.Timeline!
+static AndroidX.Wear.Tiles.TileKt.TimelineEntry(AndroidX.Wear.ProtoLayout.LayoutElementBuilders.ILayoutElement! layout, AndroidX.Wear.ProtoLayout.TimelineBuilders.TimeInterval? validity) -> AndroidX.Wear.ProtoLayout.TimelineBuilders.TimelineEntry!
 static AndroidX.Wear.Tiles.TileLeaveEventData.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Wear.Tiles.TileProviderStub.AsInterface(Android.OS.IBinder? obj) -> AndroidX.Wear.Tiles.ITileProvider?
 static AndroidX.Wear.Tiles.TileRemoveEventData.Creator.get -> Android.OS.IParcelableCreator?
@@ -1245,6 +1279,7 @@ virtual AndroidX.Wear.Tiles.InteractionEventsCallbackDefault.Finish() -> void
 virtual AndroidX.Wear.Tiles.InteractionEventsCallbackStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Wear.Tiles.InteractionEventsCallbackStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual AndroidX.Wear.Tiles.ProtoParcelable.DescribeContents() -> int
+virtual AndroidX.Wear.Tiles.ProtoParcelable.Extras.get -> Android.OS.Bundle?
 virtual AndroidX.Wear.Tiles.ProtoParcelable.GetContents() -> byte[]?
 virtual AndroidX.Wear.Tiles.ProtoParcelable.Version.get -> int
 virtual AndroidX.Wear.Tiles.ProtoParcelable.WriteToParcel(Android.OS.Parcel? dest, Android.OS.ParcelableWriteFlags flags) -> void

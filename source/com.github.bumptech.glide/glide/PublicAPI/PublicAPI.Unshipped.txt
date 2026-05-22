@@ -14,6 +14,8 @@ Bumptech.Glide.GlideBuilder.Build(Android.Content.Context! context) -> Bumptech.
 Bumptech.Glide.GlideBuilder.GlideBuilder() -> void
 Bumptech.Glide.GlideBuilder.LogRequestOrigins
 Bumptech.Glide.GlideBuilder.LogRequestOrigins.LogRequestOrigins() -> void
+Bumptech.Glide.GlideBuilder.MemoryCategoryInBackground
+Bumptech.Glide.GlideBuilder.MemoryCategoryInBackground.Value() -> Bumptech.Glide.MemoryCategory?
 Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority
 Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority.OverrideGlideThreadPriority() -> void
 Bumptech.Glide.GlideBuilder.SetAnimationExecutor(Bumptech.Glide.Load.Engine.Executor.GlideExecutor? service) -> Bumptech.Glide.GlideBuilder!
@@ -32,6 +34,7 @@ Bumptech.Glide.GlideBuilder.SetIsActiveResourceRetentionAllowed(bool isActiveRes
 Bumptech.Glide.GlideBuilder.SetLogLevel(int logLevel) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetLogRequestOrigins(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetMemoryCache(Bumptech.Glide.Load.Engine.Cache.IMemoryCache? memoryCache) -> Bumptech.Glide.GlideBuilder!
+Bumptech.Glide.GlideBuilder.SetMemoryCategoryInBackground(Bumptech.Glide.MemoryCategory? memoryCategory) -> Bumptech.Glide.GlideBuilder?
 Bumptech.Glide.GlideBuilder.SetMemorySizeCalculator(Bumptech.Glide.Load.Engine.Cache.MemorySizeCalculator.Builder! builder) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetMemorySizeCalculator(Bumptech.Glide.Load.Engine.Cache.MemorySizeCalculator? calculator) -> Bumptech.Glide.GlideBuilder!
 Bumptech.Glide.GlideBuilder.SetOverrideGlideThreadPriority(bool isEnabled) -> Bumptech.Glide.GlideBuilder?
@@ -283,6 +286,7 @@ Bumptech.Glide.Load.Engine.Executor.GlideExecutor
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.AwaitTermination(long timeout, Java.Util.Concurrent.TimeUnit! unit) -> bool
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.Build() -> Bumptech.Glide.Load.Engine.Executor.GlideExecutor?
+Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.ExperimentalSetOnExecuteDecorator(Java.Util.Functions.IFunction? onExecuteDecorator) -> Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder?
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.SetName(string? name) -> Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder?
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.SetThreadCount(int threadCount) -> Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder?
 Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder.SetThreadFactory(Java.Util.Concurrent.IThreadFactory! threadFactory) -> Bumptech.Glide.Load.Engine.Executor.GlideExecutor.Builder?
@@ -1373,6 +1377,7 @@ override Bumptech.Glide.Glide.ThresholdClass.get -> nint
 override Bumptech.Glide.Glide.ThresholdType.get -> System.Type!
 override Bumptech.Glide.GlideBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideBuilder.LogRequestOrigins.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Bumptech.Glide.GlideBuilder.MemoryCategoryInBackground.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideBuilder.OverrideGlideThreadPriority.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideBuilder.UseMediaStoreOpenFileApisIfPossible.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Bumptech.Glide.GlideContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2228,6 +2233,7 @@ static Bumptech.Glide.MemoryCategory.Low.get -> Bumptech.Glide.MemoryCategory?
 static Bumptech.Glide.MemoryCategory.Normal.get -> Bumptech.Glide.MemoryCategory?
 static Bumptech.Glide.MemoryCategory.ValueOf(string? name) -> Bumptech.Glide.MemoryCategory?
 static Bumptech.Glide.MemoryCategory.Values() -> Bumptech.Glide.MemoryCategory![]?
+static Bumptech.Glide.MemoryCategory.Zero.get -> Bumptech.Glide.MemoryCategory?
 static Bumptech.Glide.Priority.High.get -> Bumptech.Glide.Priority?
 static Bumptech.Glide.Priority.Immediate.get -> Bumptech.Glide.Priority?
 static Bumptech.Glide.Priority.Low.get -> Bumptech.Glide.Priority?

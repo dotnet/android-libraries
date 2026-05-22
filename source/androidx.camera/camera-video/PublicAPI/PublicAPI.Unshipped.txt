@@ -1,10 +1,34 @@
 ﻿#nullable enable
 AndroidX.Camera.Video.AudioSpec
-AndroidX.Camera.Video.AudioSpec.AudioSpec(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec() -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate, int sourceFormat) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate, int sourceFormat, int source) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate, int sourceFormat, int source, int sampleRate) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate, int sourceFormat, int source, int sampleRate, int channelCount) -> void
+AndroidX.Camera.Video.AudioSpec.AudioSpec(int bitrate, int sourceFormat, int source, int sampleRate, int channelCount, string! mimeType) -> void
+AndroidX.Camera.Video.AudioSpec.Bitrate.get -> int
 AndroidX.Camera.Video.AudioSpec.Builder
-AndroidX.Camera.Video.AudioSpec.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.AudioSpec.Builder.Build() -> AndroidX.Camera.Video.AudioSpec!
+AndroidX.Camera.Video.AudioSpec.Builder.Builder() -> void
+AndroidX.Camera.Video.AudioSpec.Builder.SetBitrate(int bitrate) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Builder.SetChannelCount(int channelCount) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Builder.SetMimeType(string! mimeType) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Builder.SetSampleRate(int sampleRate) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Builder.SetSource(int source) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Builder.SetSourceFormat(int audioFormat) -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.ChannelCount.get -> int
+AndroidX.Camera.Video.AudioSpec.Companion
+AndroidX.Camera.Video.AudioSpec.Companion.Builder() -> AndroidX.Camera.Video.AudioSpec.Builder!
+AndroidX.Camera.Video.AudioSpec.Companion.DEFAULT.get -> AndroidX.Camera.Video.AudioSpec!
 AndroidX.Camera.Video.AudioSpec.IChannelCount
 AndroidX.Camera.Video.AudioSpec.ISource
+AndroidX.Camera.Video.AudioSpec.ISourceFormat
+AndroidX.Camera.Video.AudioSpec.MimeType.get -> string!
+AndroidX.Camera.Video.AudioSpec.SampleRate.get -> int
+AndroidX.Camera.Video.AudioSpec.Source.get -> int
+AndroidX.Camera.Video.AudioSpec.SourceFormat.get -> int
+AndroidX.Camera.Video.AudioSpec.ToBuilder() -> AndroidX.Camera.Video.AudioSpec.Builder!
 AndroidX.Camera.Video.AudioStats
 AndroidX.Camera.Video.AudioStats.AudioStats(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.AudioStats.IAudioState
@@ -13,8 +37,6 @@ AndroidX.Camera.Video.CapabilitiesByQuality.CapabilitiesByQuality(AndroidX.Camer
 AndroidX.Camera.Video.CapabilitiesByQuality.CapabilitiesByQuality(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.ExperimentalAudioApiAttribute
 AndroidX.Camera.Video.ExperimentalAudioApiAttribute.ExperimentalAudioApiAttribute() -> void
-AndroidX.Camera.Video.ExperimentalHighSpeedVideoAttribute
-AndroidX.Camera.Video.ExperimentalHighSpeedVideoAttribute.ExperimentalHighSpeedVideoAttribute() -> void
 AndroidX.Camera.Video.ExperimentalPersistentRecordingAttribute
 AndroidX.Camera.Video.ExperimentalPersistentRecordingAttribute.ExperimentalPersistentRecordingAttribute() -> void
 AndroidX.Camera.Video.FallbackStrategy
@@ -35,6 +57,7 @@ AndroidX.Camera.Video.FileOutputOptions.Builder.SetDurationLimitMillis(long p0) 
 AndroidX.Camera.Video.FileOutputOptions.Builder.SetFileSizeLimitReturnJavaLangObject(long p0) -> Java.Lang.Object?
 AndroidX.Camera.Video.FileOutputOptions.Builder.SetLocation(Android.Locations.Location? p0) -> Java.Lang.Object?
 AndroidX.Camera.Video.FileOutputOptions.File.get -> Java.IO.File?
+AndroidX.Camera.Video.GroupableFeatures
 AndroidX.Camera.Video.HighSpeedVideoSessionConfig
 AndroidX.Camera.Video.HighSpeedVideoSessionConfig.Builder
 AndroidX.Camera.Video.HighSpeedVideoSessionConfig.Builder.Build() -> AndroidX.Camera.Video.HighSpeedVideoSessionConfig!
@@ -50,17 +73,18 @@ AndroidX.Camera.Video.HighSpeedVideoSessionConfig.IsSlowMotionEnabled.get -> boo
 AndroidX.Camera.Video.HighSpeedVideoSessionConfig.Preview.get -> AndroidX.Camera.Core.Preview?
 AndroidX.Camera.Video.HighSpeedVideoSessionConfig.VideoCapture.get -> AndroidX.Camera.Video.VideoCapture!
 AndroidX.Camera.Video.IExperimentalAudioApi
-AndroidX.Camera.Video.IExperimentalHighSpeedVideo
 AndroidX.Camera.Video.IExperimentalPersistentRecording
 AndroidX.Camera.Video.IVideoCapabilities
 AndroidX.Camera.Video.IVideoCapabilities.Empty.get -> AndroidX.Camera.Video.IVideoCapabilities?
-AndroidX.Camera.Video.IVideoCapabilities.FindNearestHigherSupportedQualityFor(Android.Util.Size? size, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> AndroidX.Camera.Video.Quality?
+AndroidX.Camera.Video.IVideoCapabilities.GetResolution(AndroidX.Camera.Video.Quality? quality, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> Android.Util.Size?
 AndroidX.Camera.Video.IVideoCapabilities.GetSupportedQualities(AndroidX.Camera.Core.DynamicRange? p0) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Quality!>?
 AndroidX.Camera.Video.IVideoCapabilities.IsQualitySupported(AndroidX.Camera.Video.Quality? p0, AndroidX.Camera.Core.DynamicRange? p1) -> bool
 AndroidX.Camera.Video.IVideoCapabilities.IsStabilizationSupported.get -> bool
 AndroidX.Camera.Video.IVideoCapabilities.SupportedDynamicRanges.get -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>?
 AndroidX.Camera.Video.IVideoOutput
+AndroidX.Camera.Video.IVideoOutput.GetEncoderProfilesResolver(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int sessionType) -> Java.Lang.Object?
 AndroidX.Camera.Video.IVideoOutput.GetMediaCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int sessionType) -> AndroidX.Camera.Video.IVideoCapabilities?
+AndroidX.Camera.Video.IVideoOutput.IsQualitySelectorDefault.get -> bool
 AndroidX.Camera.Video.IVideoOutput.IsSourceStreamRequired() -> AndroidX.Camera.Core.Impl.IObservable?
 AndroidX.Camera.Video.IVideoOutput.MediaSpec.get -> AndroidX.Camera.Core.Impl.IObservable?
 AndroidX.Camera.Video.IVideoOutput.OnSourceStateChanged(AndroidX.Camera.Video.VideoOutputSourceState? sourceState) -> void
@@ -152,16 +176,10 @@ AndroidX.Camera.Video.Internal.Compat.Quirk.CameraUseInconsistentTimebaseQuirk.C
 AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk.CodecStuckOnFlushQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk.CodecStuckOnFlushQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk
-AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk() -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks
 AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.DeviceQuirks(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirksLoader
 AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirksLoader.DeviceQuirksLoader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk
-AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk.EncoderNotUsePersistentInputSurfaceQuirk() -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk.EncoderNotUsePersistentInputSurfaceQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk.ExcludeStretchedVideoQualityQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk.ExcludeStretchedVideoQualityQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -171,6 +189,7 @@ AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedQualityQuirk.ExtraSupp
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk.ExtraSupportedResolutionQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk.ExtraSupportedResolutionQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Compat.Quirk.GLProcessingStuckOnCodecFlushQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk.HdrRepeatingRequestFailureQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk.HdrRepeatingRequestFailureQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -182,9 +201,6 @@ AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecDefaultDataSpaceQuirk.Medi
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.MediaCodecInfoReportIncorrectInfoQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.MediaCodecInfoReportIncorrectInfoQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk
-AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk() -> void
-AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.MediaStoreVideoCannotWrite() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.MediaStoreVideoCannotWrite(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -218,45 +234,108 @@ AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderCrashQuirk.VideoEncoderC
 AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk
 AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk() -> void
 AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Compat.Quirk.VideoInterlacingQuirk
 AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.AudioMimeToAudioProfile(string! audioMime) -> int
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.OutputFormatToAudioMime(int outputFormat) -> string!
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioSource(AndroidX.Camera.Video.AudioSpec! audioSpec) -> int
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioSourceFormat(AndroidX.Camera.Video.AudioSpec! audioSpec) -> int
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveCompatibleAudioProfile(string! audioMime, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy!>! audioProfiles) -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy?
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ScaleBitrate(int baseBitrate, int actualChannelCount, int baseChannelCount, int actualSampleRate, int baseSampleRate) -> int
+AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.SelectSampleRateOrNearestSupported(int channelCount, int sourceFormat, int initialTargetSampleRate) -> int
 AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver
-AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.AudioEncoderConfigAudioProfileResolver(string? mimeType, int audioProfile, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.AudioSpec? audioSpec, AndroidX.Camera.Video.Internal.Audio.AudioSettings? audioSettings, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy? audioProfileProxy) -> void
-AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.Get() -> Java.Lang.Object?
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.AudioEncoderConfigAudioProfileResolver(string! mimeType, int audioProfile, AndroidX.Camera.Core.Impl.Timebase! inputTimebase, AndroidX.Camera.Video.AudioSpec! audioSpec, AndroidX.Camera.Video.Internal.Audio.AudioSettings! audioSettings, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy! audioProfileProxy) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.Get() -> Java.Lang.Object!
 AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver
-AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.AudioEncoderConfigDefaultResolver(string? mimeType, int audioProfile, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.AudioSpec? audioSpec, AndroidX.Camera.Video.Internal.Audio.AudioSettings? audioSettings) -> void
-AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.Get() -> Java.Lang.Object?
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.AudioEncoderConfigDefaultResolver(string! mimeType, int audioProfile, AndroidX.Camera.Core.Impl.Timebase! inputTimeBase, AndroidX.Camera.Video.AudioSpec! audioSpec, AndroidX.Camera.Video.Internal.Audio.AudioSettings! audioSettings) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.Get() -> Java.Lang.Object!
 AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo
-AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.AudioMimeInfo() -> void
-AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.AudioMimeInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder
-AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.Builder() -> void
-AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.AudioMimeInfo(string! mimeType, int profile, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy? compatibleAudioProfile) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.CompatibleAudioProfile.get -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy?
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Component1() -> string!
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Component2() -> int
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Component3() -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy?
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Copy(string! mimeType, int profile, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy? compatibleAudioProfile) -> AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo!
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.MimeType.get -> string!
+AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Profile.get -> int
 AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver
-AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.AudioSettingsAudioProfileResolver(AndroidX.Camera.Video.AudioSpec? audioSpec, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy? audioProfile, Android.Util.Rational? captureToEncodeRatio) -> void
-AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.Get() -> Java.Lang.Object?
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.AudioSettingsAudioProfileResolver(AndroidX.Camera.Video.AudioSpec! audioSpec, AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy! audioProfile, Android.Util.Rational? captureToEncodeRatio) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.Get() -> Java.Lang.Object!
 AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver
-AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.AudioSettingsDefaultResolver(AndroidX.Camera.Video.AudioSpec? audioSpec, Android.Util.Rational? captureToEncodeRatio) -> void
-AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.Get() -> Java.Lang.Object?
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.AudioSettingsDefaultResolver(AndroidX.Camera.Video.AudioSpec! audioSpec, Android.Util.Rational? captureToEncodeRatio) -> void
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.Get() -> Java.Lang.Object!
 AndroidX.Camera.Video.Internal.Configs.CaptureEncodeRatesKt
-AndroidX.Camera.Video.Internal.Configs.MimeInfo
-AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder
-AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.Builder() -> void
-AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Configs.MimeInfo.MimeInfo() -> void
-AndroidX.Camera.Video.Internal.Configs.MimeInfo.MimeInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.CompatibleEncoderProfiles.get -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.Component1() -> int
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.Component2() -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.ContainerInfo(int outputFormat, AndroidX.Camera.Core.Impl.IEncoderProfilesProxy? compatibleEncoderProfiles) -> void
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.Copy(int outputFormat, AndroidX.Camera.Core.Impl.IEncoderProfilesProxy? compatibleEncoderProfiles) -> AndroidX.Camera.Video.Internal.Configs.ContainerInfo!
+AndroidX.Camera.Video.Internal.Configs.ContainerInfo.OutputFormat.get -> int
+AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry
+AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry.GetDynamicRangesForVideoMime(string! videoMime) -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>!
+AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry.GetRegistry(AndroidX.Camera.Core.DynamicRange! dynamicRange) -> AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry?
+AndroidX.Camera.Video.Internal.Configs.FormatCombo
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.AudioMime.get -> string?
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.Component1() -> int
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.Component2() -> string?
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.Component3() -> string?
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.Container.get -> int
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.Copy(int container, string? videoMime, string? audioMime) -> AndroidX.Camera.Video.Internal.Configs.FormatCombo!
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.FormatCombo(int container, string? videoMime, string? audioMime) -> void
+AndroidX.Camera.Video.Internal.Configs.FormatCombo.VideoMime.get -> string?
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.Build() -> AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry!
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.Builder() -> void
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.Container(int format, Kotlin.Jvm.Functions.IFunction1! block) -> void
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.ContainerScope
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.ContainerScope.ContainerScope(int container, System.Collections.Generic.IDictionary<string!, System.Collections.Generic.ICollection<AndroidX.Camera.Video.Internal.Configs.FormatCombo!>!>! videoMap) -> void
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.ContainerScope.Support(System.Collections.Generic.IList<string!>! videoMimes, System.Collections.Generic.IList<string!>! audioMimes) -> void
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.GetCombos(int outputFormat, string! videoMime, string! audioMime) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Internal.Configs.FormatCombo!>!
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.GetCombosForAudio(string? audioMime) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Internal.Configs.FormatCombo!>!
+AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.GetCombosForVideo(string? videoMime) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Internal.Configs.FormatCombo!>!
+AndroidX.Camera.Video.Internal.Configs.IMimeInfo
+AndroidX.Camera.Video.Internal.Configs.IMimeInfo.MimeType.get -> string!
+AndroidX.Camera.Video.Internal.Configs.IMimeInfo.Profile.get -> int
+AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil
+AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil.SetSupportedEncoderMimeTypes(System.Collections.Generic.IList<string!>? videoMimes, System.Collections.Generic.IList<string!>? audioMimes) -> void
+AndroidX.Camera.Video.Internal.Configs.MediaInfo
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.AudioMimeInfo.get -> AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo?
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.Component1() -> AndroidX.Camera.Video.Internal.Configs.ContainerInfo!
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.Component2() -> AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo!
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.Component3() -> AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo?
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.ContainerInfo.get -> AndroidX.Camera.Video.Internal.Configs.ContainerInfo!
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.Copy(AndroidX.Camera.Video.Internal.Configs.ContainerInfo! containerInfo, AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo! videoMimeInfo, AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo? audioMimeInfo) -> AndroidX.Camera.Video.Internal.Configs.MediaInfo!
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.MediaInfo(AndroidX.Camera.Video.Internal.Configs.ContainerInfo! containerInfo, AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo! videoMimeInfo, AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo? audioMimeInfo) -> void
+AndroidX.Camera.Video.Internal.Configs.MediaInfo.VideoMimeInfo.get -> AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo!
 AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil
+AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.GetDynamicRangeDefaultMime(AndroidX.Camera.Core.DynamicRange! dynamicRange) -> string?
+AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.GetDynamicRangesForMime(string! mime) -> System.Collections.Generic.ICollection<AndroidX.Camera.Core.DynamicRange!>!
+AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.MimeAndProfileToEncoderDataSpace(string! mimeType, int codecProfileLevel) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace!
+AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.OutputFormatToVideoMime(int outputFormat) -> string!
+AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.ResolveCompatibleVideoProfile(string! videoMime, AndroidX.Camera.Core.DynamicRange! dynamicRange, System.Collections.Generic.IList<AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy!>! videoProfiles) -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
 AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver
-AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.VideoEncoderConfigDefaultResolver(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.VideoEncoderConfigDefaultResolver(string? mimeType, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.VideoSpec? videoSpec, Android.Util.Size? surfaceSize, AndroidX.Camera.Core.DynamicRange? dynamicRange, Android.Util.Range? expectedFrameRateRange) -> void
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.Get() -> Java.Lang.Object!
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.VideoEncoderConfigDefaultResolver(string! mimeType, AndroidX.Camera.Core.Impl.Timebase! inputTimebase, AndroidX.Camera.Video.VideoSpec! videoSpec, Android.Util.Size! surfaceSize, AndroidX.Camera.Core.DynamicRange! dynamicRange, Android.Util.Range! expectedFrameRateRange) -> void
 AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver
-AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.VideoEncoderConfigVideoProfileResolver(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.VideoEncoderConfigVideoProfileResolver(string? mimeType, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.VideoSpec? videoSpec, Android.Util.Size? surfaceSize, AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy? videoProfile, AndroidX.Camera.Core.DynamicRange? dynamicRange, Android.Util.Range? expectedFrameRateRange) -> void
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.Companion
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.Get() -> Java.Lang.Object!
+AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.VideoEncoderConfigVideoProfileResolver(string! mimeType, AndroidX.Camera.Core.Impl.Timebase! inputTimebase, AndroidX.Camera.Video.VideoSpec! videoSpec, Android.Util.Size! surfaceSize, AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy! videoProfile, AndroidX.Camera.Core.DynamicRange! dynamicRange, Android.Util.Range! expectedFrameRateRange) -> void
 AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo
-AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder
-AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.Builder() -> void
-AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.VideoMimeInfo() -> void
-AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.VideoMimeInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.CompatibleVideoProfile.get -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Component1() -> string!
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Component2() -> int
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Component3() -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Copy(string! mimeType, int profile, AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy? compatibleVideoProfile) -> AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo!
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.MimeType.get -> string!
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Profile.get -> int
+AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.VideoMimeInfo(string! mimeType, int profile, AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy? compatibleVideoProfile) -> void
 AndroidX.Camera.Video.Internal.DebugUtils
 AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider
 AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider.DynamicRangeMatchedEncoderProfilesProvider(AndroidX.Camera.Core.Impl.IEncoderProfilesProvider? provider, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> void
@@ -267,7 +346,7 @@ AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder
 AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.InterfaceConsts
 AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl
-AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.AudioEncoderInfoImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.BitrateRange.get -> Android.Util.Range!
 AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData
 AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.BufferCopiedEncodedData(AndroidX.Camera.Video.Internal.Encoder.IEncodedData? encodedData) -> void
 AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.BufferCopiedEncodedData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -288,14 +367,11 @@ AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.EncoderImpl(Java.Util.Concurr
 AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.EncoderImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.InterfaceConsts
 AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl
+AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.CodecCapabilities.get -> Android.Media.MediaCodecInfo.CodecCapabilities!
+AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.EncoderInfoImpl(Android.Media.MediaCodecInfo! mediaCodecInfo, string! mime) -> void
 AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.EncoderInfoImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.MCodecCapabilities.get -> Android.Media.MediaCodecInfo.CodecCapabilities?
-AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.MCodecCapabilities.set -> void
-AndroidX.Camera.Video.Internal.Encoder.EncoderSurfaceInputOnSurfaceUpdateEventArgs
-AndroidX.Camera.Video.Internal.Encoder.EncoderSurfaceInputOnSurfaceUpdateEventArgs.EncoderSurfaceInputOnSurfaceUpdateEventArgs(Android.Views.Surface? p0) -> void
-AndroidX.Camera.Video.Internal.Encoder.EncoderSurfaceInputOnSurfaceUpdateEventArgs.P0.get -> Android.Views.Surface?
 AndroidX.Camera.Video.Internal.Encoder.IAudioEncoderInfo
-AndroidX.Camera.Video.Internal.Encoder.IAudioEncoderInfo.BitrateRange.get -> Android.Util.Range?
+AndroidX.Camera.Video.Internal.Encoder.IAudioEncoderInfo.BitrateRange.get -> Android.Util.Range!
 AndroidX.Camera.Video.Internal.Encoder.IEncodedData
 AndroidX.Camera.Video.Internal.Encoder.IEncodedData.BufferInfo.get -> Android.Media.MediaCodec.BufferInfo?
 AndroidX.Camera.Video.Internal.Encoder.IEncodedData.ByteBuffer.get -> Java.Nio.ByteBuffer?
@@ -334,11 +410,9 @@ AndroidX.Camera.Video.Internal.Encoder.IEncoderEncoderInput
 AndroidX.Camera.Video.Internal.Encoder.IEncoderFactory
 AndroidX.Camera.Video.Internal.Encoder.IEncoderFactory.CreateEncoder(Java.Util.Concurrent.IExecutor? p0, AndroidX.Camera.Video.Internal.Encoder.IEncoderConfig? p1, int p2) -> AndroidX.Camera.Video.Internal.Encoder.IEncoder?
 AndroidX.Camera.Video.Internal.Encoder.IEncoderInfo
-AndroidX.Camera.Video.Internal.Encoder.IEncoderInfo.Name.get -> string?
+AndroidX.Camera.Video.Internal.Encoder.IEncoderInfo.Name.get -> string!
 AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInput
-AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInput.SetOnSurfaceUpdateListener(Java.Util.Concurrent.IExecutor? p0, AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInputOnSurfaceUpdateListener? p1) -> void
-AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInputOnSurfaceUpdateListener
-AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInputOnSurfaceUpdateListener.OnSurfaceUpdate(Android.Views.Surface? p0) -> void
+AndroidX.Camera.Video.Internal.Encoder.IEncoderSurfaceInput.Surface.get -> Android.Views.Surface?
 AndroidX.Camera.Video.Internal.Encoder.IInputBuffer
 AndroidX.Camera.Video.Internal.Encoder.IInputBuffer.ByteBuffer.get -> Java.Nio.ByteBuffer?
 AndroidX.Camera.Video.Internal.Encoder.IInputBuffer.Cancel() -> bool
@@ -353,25 +427,35 @@ AndroidX.Camera.Video.Internal.Encoder.ITimeProvider.RealtimeUs() -> long
 AndroidX.Camera.Video.Internal.Encoder.ITimeProvider.UptimeUs() -> long
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.CanSwapWidthHeight() -> bool
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.GetSupportedHeightsFor(int p0) -> Android.Util.Range?
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.GetSupportedWidthsFor(int p0) -> Android.Util.Range?
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.GetSupportedHeightsFor(int width) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.GetSupportedWidthsFor(int height) -> Android.Util.Range!
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.HeightAlignment.get -> int
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.IsSizeSupported(int p0, int p1) -> bool
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.IsSizeSupported(int width, int height) -> bool
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.IsSizeSupportedAllowSwapping(int width, int height) -> bool
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedBitrateRange.get -> Android.Util.Range?
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedHeights.get -> Android.Util.Range?
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedWidths.get -> Android.Util.Range?
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedBitrateRange.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedHeights.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.SupportedWidths.get -> Android.Util.Range!
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo.WidthAlignment.get -> int
 AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfoFinder
-AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfoFinder.Find(string? p0) -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo?
+AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfoFinder.Find(string! mimeType) -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo?
 AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException
 AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.InvalidConfigException(Java.Lang.Throwable? cause) -> void
 AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.InvalidConfigException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.InvalidConfigException(string? message) -> void
 AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.InvalidConfigException(string? message, Java.Lang.Throwable? cause) -> void
 AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo
-AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SwappedVideoEncoderInfo(AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo? videoEncoderInfo) -> void
-AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SwappedVideoEncoderInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.CanSwapWidthHeight() -> bool
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.GetSupportedHeightsFor(int width) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.GetSupportedWidthsFor(int height) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.HeightAlignment.get -> int
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.IsSizeSupported(int width, int height) -> bool
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.IsSizeSupportedAllowSwapping(int width, int height) -> bool
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.Name.get -> string!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedBitrateRange.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedHeights.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedWidths.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SwappedVideoEncoderInfo(AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo! videoEncoderInfo) -> void
+AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.WidthAlignment.get -> int
 AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider
 AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.SystemTimeProvider() -> void
 AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.SystemTimeProvider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -383,7 +467,16 @@ AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.VideoEncoderConfig(nin
 AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace
 AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.VideoEncoderDataSpace(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl
-AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.VideoEncoderInfoImpl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.CanSwapWidthHeight() -> bool
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.Companion
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.GetSupportedHeightsFor(int width) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.GetSupportedWidthsFor(int height) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.HeightAlignment.get -> int
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.IsSizeSupported(int width, int height) -> bool
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedBitrateRange.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedHeights.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedWidths.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.WidthAlignment.get -> int
 AndroidX.Camera.Video.Internal.IBufferProvider
 AndroidX.Camera.Video.Internal.IBufferProvider.AcquireBuffer() -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Camera.Video.Internal.IOutputStorage
@@ -391,6 +484,58 @@ AndroidX.Camera.Video.Internal.IOutputStorage.AvailableBytes.get -> long
 AndroidX.Camera.Video.Internal.IOutputStorage.OutputOptions.get -> AndroidX.Camera.Video.OutputOptions!
 AndroidX.Camera.Video.Internal.IOutputStorageFactory
 AndroidX.Camera.Video.Internal.IOutputStorageFactory.Create(AndroidX.Camera.Video.OutputOptions! outputOptions) -> AndroidX.Camera.Video.Internal.IOutputStorage!
+AndroidX.Camera.Video.Internal.Muxer.IMuxer
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.AddTrack(Android.Media.MediaFormat! format) -> int
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.Companion.get -> AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion!
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.IsInterruptionResilient.get -> bool
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.Release() -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.SetCaptureFps(int captureFps) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.SetLocation(double latitude, double longitude) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.SetOrientationDegrees(int degrees) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.SetOutput(Android.OS.ParcelFileDescriptor! parcelFileDescriptor, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.SetOutput(string! path, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.Start() -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.Stop() -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxer.WriteSampleData(int trackIndex, Java.Nio.ByteBuffer! byteBuffer, Android.Media.MediaCodec.BufferInfo! bufferInfo) -> void
+AndroidX.Camera.Video.Internal.Muxer.IMuxerFactory
+AndroidX.Camera.Video.Internal.Muxer.IMuxerFactory.Create(int outputFormat) -> AndroidX.Camera.Video.Internal.Muxer.IMuxer!
+AndroidX.Camera.Video.Internal.Muxer.IMuxerFormat
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.AddTrack(Android.Media.MediaFormat! format) -> int
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.InterfaceConsts
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.IsInterruptionResilient.get -> bool
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.Media3MuxerImpl() -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.Release() -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.SetCaptureFps(int captureFps) -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.SetLocation(double latitude, double longitude) -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.SetOrientationDegrees(int degrees) -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.SetOutput(Android.OS.ParcelFileDescriptor! parcelFileDescriptor, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.SetOutput(string! path, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.Start() -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.Stop() -> void
+AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.WriteSampleData(int trackIndex, Java.Nio.ByteBuffer! byteBuffer, Android.Media.MediaCodec.BufferInfo! bufferInfo) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.AddTrack(Android.Media.MediaFormat! format) -> int
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.InterfaceConsts
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.IsInterruptionResilient.get -> bool
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.MediaMuxerImpl() -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.Release() -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.SetCaptureFps(int captureFps) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.SetLocation(double latitude, double longitude) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.SetOrientationDegrees(int degrees) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.SetOutput(Android.OS.ParcelFileDescriptor! parcelFileDescriptor, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.SetOutput(string! path, int format) -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.Start() -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.Stop() -> void
+AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.WriteSampleData(int trackIndex, Java.Nio.ByteBuffer! byteBuffer, Android.Media.MediaCodec.BufferInfo! bufferInfo) -> void
+AndroidX.Camera.Video.Internal.Muxer.Muxer
+AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion
+AndroidX.Camera.Video.Internal.Muxer.MuxerConsts
+AndroidX.Camera.Video.Internal.Muxer.MuxerException
+AndroidX.Camera.Video.Internal.Muxer.MuxerException.MuxerException() -> void
+AndroidX.Camera.Video.Internal.Muxer.MuxerException.MuxerException(Java.Lang.Throwable? cause) -> void
+AndroidX.Camera.Video.Internal.Muxer.MuxerException.MuxerException(string? message) -> void
+AndroidX.Camera.Video.Internal.Muxer.MuxerException.MuxerException(string? message, Java.Lang.Throwable? cause) -> void
 AndroidX.Camera.Video.Internal.OutputStorageImpl
 AndroidX.Camera.Video.Internal.OutputStorageImpl.AvailableBytes.get -> long
 AndroidX.Camera.Video.Internal.OutputStorageImpl.OutputOptions.get -> AndroidX.Camera.Video.OutputOptions!
@@ -402,10 +547,12 @@ AndroidX.Camera.Video.Internal.SharedByteBuffer
 AndroidX.Camera.Video.Internal.SharedByteBuffer.Close() -> void
 AndroidX.Camera.Video.Internal.SharedByteBuffer.Get() -> Java.Nio.ByteBuffer?
 AndroidX.Camera.Video.Internal.Utils.CodecUtil
+AndroidX.Camera.Video.Internal.Utils.CodecUtil.Reset() -> void
 AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil
 AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.DynamicRangeUtil(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil
-AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.EncoderProfilesUtil(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Utils.MediaFormatExt
+AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.IsVideo(Android.Media.MediaFormat! _this_isVideo) -> bool
 AndroidX.Camera.Video.Internal.Utils.OutputUtil
 AndroidX.Camera.Video.Internal.Utils.StorageUtil
 AndroidX.Camera.Video.Internal.Workaround.CorrectNegativeLatLongForMediaMuxer
@@ -424,15 +571,41 @@ AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvide
 AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.QualityValidatedEncoderProfilesProvider(AndroidX.Camera.Core.Impl.IEncoderProfilesProvider? provider, AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfo, AndroidX.Camera.Core.Impl.Quirks? quirks) -> void
 AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.QualityValidatedEncoderProfilesProvider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper
-AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.VideoEncoderInfoWrapper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.CanSwapWidthHeight() -> bool
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.Companion
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.Companion.From(AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo! videoEncoderInfo, Android.Util.Size? validSizeToCheck) -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.GetSupportedHeightsFor(int width) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.GetSupportedWidthsFor(int height) -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.HeightAlignment.get -> int
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.IsSizeSupported(int width, int height) -> bool
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.Name.get -> string!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedBitrateRange.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedHeights.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedWidths.get -> Android.Util.Range!
+AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.WidthAlignment.get -> int
 AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter
 AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.VideoTimebaseConverter(AndroidX.Camera.Video.Internal.Encoder.ITimeProvider? timeProvider, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.Internal.Compat.Quirk.CameraUseInconsistentTimebaseQuirk? cameraUseInconsistentTimebaseQuirk) -> void
 AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.VideoTimebaseConverter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.MediaSpec
+AndroidX.Camera.Video.MediaSpec.AudioSpec.get -> AndroidX.Camera.Video.AudioSpec!
 AndroidX.Camera.Video.MediaSpec.Builder
-AndroidX.Camera.Video.MediaSpec.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.MediaSpec.Builder.Build() -> AndroidX.Camera.Video.MediaSpec!
+AndroidX.Camera.Video.MediaSpec.Builder.Builder() -> void
+AndroidX.Camera.Video.MediaSpec.Builder.ConfigureAudio(AndroidX.Core.Util.IConsumer! configBlock) -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.Builder.ConfigureVideo(AndroidX.Core.Util.IConsumer! configBlock) -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.Builder.SetAudioSpec(AndroidX.Camera.Video.AudioSpec! audioSpec) -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.Builder.SetOutputFormat(int format) -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.Builder.SetVideoSpec(AndroidX.Camera.Video.VideoSpec! videoSpec) -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.Companion
+AndroidX.Camera.Video.MediaSpec.Companion.Builder() -> AndroidX.Camera.Video.MediaSpec.Builder!
 AndroidX.Camera.Video.MediaSpec.IOutputFormat
-AndroidX.Camera.Video.MediaSpec.MediaSpec(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Video.MediaSpec.MediaSpec() -> void
+AndroidX.Camera.Video.MediaSpec.MediaSpec(AndroidX.Camera.Video.VideoSpec! videoSpec) -> void
+AndroidX.Camera.Video.MediaSpec.MediaSpec(AndroidX.Camera.Video.VideoSpec! videoSpec, AndroidX.Camera.Video.AudioSpec! audioSpec) -> void
+AndroidX.Camera.Video.MediaSpec.MediaSpec(AndroidX.Camera.Video.VideoSpec! videoSpec, AndroidX.Camera.Video.AudioSpec! audioSpec, int outputFormat) -> void
+AndroidX.Camera.Video.MediaSpec.OutputFormat.get -> int
+AndroidX.Camera.Video.MediaSpec.ToBuilder() -> AndroidX.Camera.Video.MediaSpec.Builder!
+AndroidX.Camera.Video.MediaSpec.VideoSpec.get -> AndroidX.Camera.Video.VideoSpec!
 AndroidX.Camera.Video.MediaStoreOutputOptions
 AndroidX.Camera.Video.MediaStoreOutputOptions.Builder
 AndroidX.Camera.Video.MediaStoreOutputOptions.Builder.Build() -> AndroidX.Camera.Video.MediaStoreOutputOptions?
@@ -472,12 +645,15 @@ AndroidX.Camera.Video.Recorder.Builder.Builder() -> void
 AndroidX.Camera.Video.Recorder.Builder.SetAspectRatio(int aspectRatio) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetAudioSource(int source) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetExecutor(Java.Util.Concurrent.IExecutor? executor) -> AndroidX.Camera.Video.Recorder.Builder?
+AndroidX.Camera.Video.Recorder.Builder.SetMuxerFactory(AndroidX.Camera.Video.Internal.Muxer.IMuxerFactory? muxerFactory) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetQualitySelector(AndroidX.Camera.Video.QualitySelector? qualitySelector) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetRequiredFreeStorageBytes(long bytes) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetTargetVideoEncodingBitRate(int bitrate) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Builder.SetVideoCapabilitiesSource(int videoCapabilitiesSource) -> AndroidX.Camera.Video.Recorder.Builder?
 AndroidX.Camera.Video.Recorder.Executor.get -> Java.Util.Concurrent.IExecutor?
+AndroidX.Camera.Video.Recorder.GetEncoderProfilesResolver(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int sessionType) -> Java.Lang.Object?
 AndroidX.Camera.Video.Recorder.GetMediaCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int sessionType) -> AndroidX.Camera.Video.IVideoCapabilities?
+AndroidX.Camera.Video.Recorder.IsQualitySelectorDefault.get -> bool
 AndroidX.Camera.Video.Recorder.IsSourceStreamRequired() -> AndroidX.Camera.Core.Impl.IObservable?
 AndroidX.Camera.Video.Recorder.MediaSpec.get -> AndroidX.Camera.Core.Impl.IObservable?
 AndroidX.Camera.Video.Recorder.OnSourceStateChanged(AndroidX.Camera.Video.VideoOutputSourceState? newState) -> void
@@ -568,21 +744,30 @@ AndroidX.Camera.Video.VideoRecordEvent.Start
 AndroidX.Camera.Video.VideoRecordEvent.Status
 AndroidX.Camera.Video.VideoRecordEvent.VideoRecordEvent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Video.VideoSpec
+AndroidX.Camera.Video.VideoSpec.AspectRatio.get -> int
+AndroidX.Camera.Video.VideoSpec.Bitrate.get -> int
 AndroidX.Camera.Video.VideoSpec.Builder
-AndroidX.Camera.Video.VideoSpec.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Video.VideoSpec.VideoSpec(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-abstract AndroidX.Camera.Video.AudioSpec.Bitrate.get -> Android.Util.Range?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.Build() -> AndroidX.Camera.Video.AudioSpec?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.SetBitrate(Android.Util.Range? p0) -> AndroidX.Camera.Video.AudioSpec.Builder?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.SetChannelCount(int p0) -> AndroidX.Camera.Video.AudioSpec.Builder?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.SetSampleRate(Android.Util.Range? p0) -> AndroidX.Camera.Video.AudioSpec.Builder?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.SetSource(int p0) -> AndroidX.Camera.Video.AudioSpec.Builder?
-abstract AndroidX.Camera.Video.AudioSpec.Builder.SetSourceFormat(int p0) -> AndroidX.Camera.Video.AudioSpec.Builder?
-abstract AndroidX.Camera.Video.AudioSpec.ChannelCount.get -> int
-abstract AndroidX.Camera.Video.AudioSpec.SampleRate.get -> Android.Util.Range?
-abstract AndroidX.Camera.Video.AudioSpec.Source.get -> int
-abstract AndroidX.Camera.Video.AudioSpec.SourceFormat.get -> int
-abstract AndroidX.Camera.Video.AudioSpec.ToBuilder() -> AndroidX.Camera.Video.AudioSpec.Builder?
+AndroidX.Camera.Video.VideoSpec.Builder.Build() -> AndroidX.Camera.Video.VideoSpec!
+AndroidX.Camera.Video.VideoSpec.Builder.Builder() -> void
+AndroidX.Camera.Video.VideoSpec.Builder.SetAspectRatio(int aspectRatio) -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Builder.SetBitrate(int bitrate) -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Builder.SetEncodeFrameRate(int frameRate) -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Builder.SetMimeType(string! mimeType) -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Builder.SetQualitySelector(AndroidX.Camera.Video.QualitySelector! qualitySelector) -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Companion
+AndroidX.Camera.Video.VideoSpec.Companion.Builder() -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.Companion.DEFAULT.get -> AndroidX.Camera.Video.VideoSpec!
+AndroidX.Camera.Video.VideoSpec.Companion.QUALITY_SELECTOR_UNSPECIFIED.get -> AndroidX.Camera.Video.QualitySelector!
+AndroidX.Camera.Video.VideoSpec.EncodeFrameRate.get -> int
+AndroidX.Camera.Video.VideoSpec.MimeType.get -> string!
+AndroidX.Camera.Video.VideoSpec.QualitySelector.get -> AndroidX.Camera.Video.QualitySelector!
+AndroidX.Camera.Video.VideoSpec.ToBuilder() -> AndroidX.Camera.Video.VideoSpec.Builder!
+AndroidX.Camera.Video.VideoSpec.VideoSpec() -> void
+AndroidX.Camera.Video.VideoSpec.VideoSpec(AndroidX.Camera.Video.QualitySelector! qualitySelector) -> void
+AndroidX.Camera.Video.VideoSpec.VideoSpec(AndroidX.Camera.Video.QualitySelector! qualitySelector, int encodeFrameRate) -> void
+AndroidX.Camera.Video.VideoSpec.VideoSpec(AndroidX.Camera.Video.QualitySelector! qualitySelector, int encodeFrameRate, int bitrate) -> void
+AndroidX.Camera.Video.VideoSpec.VideoSpec(AndroidX.Camera.Video.QualitySelector! qualitySelector, int encodeFrameRate, int bitrate, int aspectRatio) -> void
+AndroidX.Camera.Video.VideoSpec.VideoSpec(AndroidX.Camera.Video.QualitySelector! qualitySelector, int encodeFrameRate, int bitrate, int aspectRatio, string! mimeType) -> void
 abstract AndroidX.Camera.Video.AudioStats.AudioBytesRecorded.get -> long
 abstract AndroidX.Camera.Video.AudioStats.AudioState.get -> int
 abstract AndroidX.Camera.Video.AudioStats.ErrorCause.get -> Java.Lang.Throwable?
@@ -599,15 +784,6 @@ abstract AndroidX.Camera.Video.Internal.Audio.AudioSettings.EncodeSampleRate.get
 abstract AndroidX.Camera.Video.Internal.Audio.AudioSettings.ToBuilder() -> AndroidX.Camera.Video.Internal.Audio.AudioSettings.Builder?
 abstract AndroidX.Camera.Video.Internal.Audio.AudioStreamPacketInfo.SizeInBytes.get -> int
 abstract AndroidX.Camera.Video.Internal.Audio.AudioStreamPacketInfo.TimestampNs.get -> long
-abstract AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.SetCompatibleAudioProfile(AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy? p0) -> AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder?
-abstract AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.CompatibleAudioProfile.get -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyAudioProfileProxy?
-abstract AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.Build() -> Java.Lang.Object?
-abstract AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.SetMimeType(string? p0) -> Java.Lang.Object?
-abstract AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.SetProfile(int p0) -> Java.Lang.Object?
-abstract AndroidX.Camera.Video.Internal.Configs.MimeInfo.MimeType.get -> string?
-abstract AndroidX.Camera.Video.Internal.Configs.MimeInfo.Profile.get -> int
-abstract AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.SetCompatibleVideoProfile(AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy? p0) -> AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder?
-abstract AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.CompatibleVideoProfile.get -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
 abstract AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Bitrate.get -> int
 abstract AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder.SetBitrate(int p0) -> AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder?
 abstract AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder.SetCaptureSampleRate(int p0) -> AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder?
@@ -647,14 +823,6 @@ abstract AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.ToBuilder() -
 abstract AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.Range.get -> int
 abstract AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.Standard.get -> int
 abstract AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.Transfer.get -> int
-abstract AndroidX.Camera.Video.MediaSpec.AudioSpec.get -> AndroidX.Camera.Video.AudioSpec?
-abstract AndroidX.Camera.Video.MediaSpec.Builder.Build() -> AndroidX.Camera.Video.MediaSpec?
-abstract AndroidX.Camera.Video.MediaSpec.Builder.SetAudioSpec(AndroidX.Camera.Video.AudioSpec? p0) -> AndroidX.Camera.Video.MediaSpec.Builder?
-abstract AndroidX.Camera.Video.MediaSpec.Builder.SetOutputFormat(int p0) -> AndroidX.Camera.Video.MediaSpec.Builder?
-abstract AndroidX.Camera.Video.MediaSpec.Builder.SetVideoSpec(AndroidX.Camera.Video.VideoSpec? p0) -> AndroidX.Camera.Video.MediaSpec.Builder?
-abstract AndroidX.Camera.Video.MediaSpec.OutputFormat.get -> int
-abstract AndroidX.Camera.Video.MediaSpec.ToBuilder() -> AndroidX.Camera.Video.MediaSpec.Builder?
-abstract AndroidX.Camera.Video.MediaSpec.VideoSpec.get -> AndroidX.Camera.Video.VideoSpec?
 abstract AndroidX.Camera.Video.OutputResults.OutputUri.get -> Android.Net.Uri?
 abstract AndroidX.Camera.Video.Quality.ConstantQuality.Name.get -> string?
 abstract AndroidX.Camera.Video.Quality.ConstantQuality.TypicalSizes.get -> System.Collections.Generic.IList<Android.Util.Size!>?
@@ -664,22 +832,23 @@ abstract AndroidX.Camera.Video.RecordingStats.RecordedDurationNanos.get -> long
 abstract AndroidX.Camera.Video.StreamInfo.Id.get -> int
 abstract AndroidX.Camera.Video.StreamInfo.InProgressTransformationInfo.get -> AndroidX.Camera.Core.SurfaceRequest.TransformationInfo?
 abstract AndroidX.Camera.Video.StreamInfo.StreamState.get -> Java.Lang.Enum?
-abstract AndroidX.Camera.Video.VideoSpec.Bitrate.get -> Android.Util.Range?
-abstract AndroidX.Camera.Video.VideoSpec.Builder.Build() -> AndroidX.Camera.Video.VideoSpec?
-abstract AndroidX.Camera.Video.VideoSpec.Builder.SetBitrate(Android.Util.Range? p0) -> AndroidX.Camera.Video.VideoSpec.Builder?
-abstract AndroidX.Camera.Video.VideoSpec.Builder.SetEncodeFrameRate(int p0) -> AndroidX.Camera.Video.VideoSpec.Builder?
-abstract AndroidX.Camera.Video.VideoSpec.Builder.SetQualitySelector(AndroidX.Camera.Video.QualitySelector? p0) -> AndroidX.Camera.Video.VideoSpec.Builder?
-abstract AndroidX.Camera.Video.VideoSpec.EncodeFrameRate.get -> int
-abstract AndroidX.Camera.Video.VideoSpec.QualitySelector.get -> AndroidX.Camera.Video.QualitySelector?
-abstract AndroidX.Camera.Video.VideoSpec.ToBuilder() -> AndroidX.Camera.Video.VideoSpec.Builder?
-const AndroidX.Camera.Video.AudioSpec.ChannelCountAuto = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.BitrateUnspecified = 0 -> int
 const AndroidX.Camera.Video.AudioSpec.ChannelCountMono = 1 -> int
 const AndroidX.Camera.Video.AudioSpec.ChannelCountNone = 0 -> int
 const AndroidX.Camera.Video.AudioSpec.ChannelCountStereo = 2 -> int
-const AndroidX.Camera.Video.AudioSpec.SourceAuto = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.ChannelCountUnspecified = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.MimeTypeUnspecified = "audio/*" -> string!
+const AndroidX.Camera.Video.AudioSpec.SampleRateUnspecified = 0 -> int
 const AndroidX.Camera.Video.AudioSpec.SourceCamcorder = 5 -> int
-const AndroidX.Camera.Video.AudioSpec.SourceFormatAuto = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceDefault = 0 -> int
 const AndroidX.Camera.Video.AudioSpec.SourceFormatPcm16bit = 2 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceFormatUnspecified = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceMic = 1 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceUnprocessed = 9 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceUnspecified = -1 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceVoiceCommunication = 7 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceVoicePerformance = 10 -> int
+const AndroidX.Camera.Video.AudioSpec.SourceVoiceRecognition = 6 -> int
 const AndroidX.Camera.Video.AudioStats.AudioAmplitudeNone = 0 -> double
 const AndroidX.Camera.Video.AudioStats.AudioStateActive = 0 -> int
 const AndroidX.Camera.Video.AudioStats.AudioStateDisabled = 1 -> int
@@ -687,26 +856,39 @@ const AndroidX.Camera.Video.AudioStats.AudioStateEncoderError = 3 -> int
 const AndroidX.Camera.Video.AudioStats.AudioStateMuted = 5 -> int
 const AndroidX.Camera.Video.AudioStats.AudioStateSourceError = 4 -> int
 const AndroidX.Camera.Video.AudioStats.AudioStateSourceSilenced = 2 -> int
+const AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.AudioChannelCountDefault = 1 -> int
+const AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.AudioSampleRateDefault = 44100 -> int
+const AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.AudioSourceDefault = 5 -> int
+const AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.AudioSourceFormatDefault = 2 -> int
 const AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.VideoFrameRateFixedDefault = 30 -> int
 const AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.InterfaceConsts.CodecProfileNone = -1 -> int
-const AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.InterfaceConsts.KeyCsd0 = "csd-0" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.InterfaceConsts.KeyCsd1 = "csd-1" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.InterfaceConsts.KeyCsd2 = "csd-2" -> string!
 const AndroidX.Camera.Video.Internal.Encoder.EncodeException.ErrorCodec = 1 -> int
 const AndroidX.Camera.Video.Internal.Encoder.EncodeException.ErrorUnknown = 0 -> int
 const AndroidX.Camera.Video.Internal.Encoder.Encoder.NoTimestamp = -1 -> long
 const AndroidX.Camera.Video.Internal.Encoder.EncoderConfig.CodecProfileNone = -1 -> int
-const AndroidX.Camera.Video.Internal.Encoder.EncoderConfig.KeyCsd0 = "csd-0" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.EncoderConfig.KeyCsd1 = "csd-1" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.EncoderConfig.KeyCsd2 = "csd-2" -> string!
 const AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.InterfaceConsts.NoTimestamp = -1 -> long
 const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.InterfaceConsts.CodecProfileNone = -1 -> int
-const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.InterfaceConsts.KeyCsd0 = "csd-0" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.InterfaceConsts.KeyCsd1 = "csd-1" -> string!
-const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.InterfaceConsts.KeyCsd2 = "csd-2" -> string!
 const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.VideoColorRangeUnspecified = 0 -> int
 const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.VideoColorStandardUnspecified = 0 -> int
 const AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.VideoColorTransferUnspecified = 0 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.InterfaceConsts.MuxerFormat3gpp = 2 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.InterfaceConsts.MuxerFormatMpeg4 = 0 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.InterfaceConsts.MuxerFormatWebm = 1 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.InterfaceConsts.MuxerFormat3gpp = 2 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.InterfaceConsts.MuxerFormatMpeg4 = 0 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.InterfaceConsts.MuxerFormatWebm = 1 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Muxer.MuxerFormat3gpp = 2 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Muxer.MuxerFormatMpeg4 = 0 -> int
+const AndroidX.Camera.Video.Internal.Muxer.Muxer.MuxerFormatWebm = 1 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion.MuxerFormat3gpp = 2 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion.MuxerFormatMpeg4 = 0 -> int
+const AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion.MuxerFormatWebm = 1 -> int
+const AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.KeyCsd0 = "csd-0" -> string!
+const AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.KeyCsd1 = "csd-1" -> string!
+const AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.KeyCsd2 = "csd-2" -> string!
+const AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.KeyTimelapseEnabled = "time-lapse-enable" -> string!
+const AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.KeyTimelapseFps = "time-lapse-fps" -> string!
+const AndroidX.Camera.Video.Internal.Utils.StorageUtil.NoSpaceLeftMessage = "No space left on device" -> string!
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultAudioBitrate = 96000 -> int
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultAudioChannels = 1 -> int
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultAudioCodec = 3 -> int
@@ -726,8 +908,8 @@ const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.D
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultVideoHdrFormat = 0 -> int
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultVideoMimeType = "video/avc" -> string!
 const AndroidX.Camera.Video.Internal.Workaround.DefaultEncoderProfilesProvider.DefaultVideoProfile = -1 -> int
-const AndroidX.Camera.Video.MediaSpec.OutputFormatAuto = -1 -> int
 const AndroidX.Camera.Video.MediaSpec.OutputFormatMpeg4 = 0 -> int
+const AndroidX.Camera.Video.MediaSpec.OutputFormatUnspecified = -1 -> int
 const AndroidX.Camera.Video.MediaSpec.OutputFormatWebm = 1 -> int
 const AndroidX.Camera.Video.OutputOptions.DurationUnlimited = 0 -> int
 const AndroidX.Camera.Video.OutputOptions.FileSizeUnlimited = 0 -> int
@@ -746,13 +928,12 @@ const AndroidX.Camera.Video.VideoRecordEvent.Finalize.ErrorRecorderError = 7 -> 
 const AndroidX.Camera.Video.VideoRecordEvent.Finalize.ErrorRecordingGarbageCollected = 10 -> int
 const AndroidX.Camera.Video.VideoRecordEvent.Finalize.ErrorSourceInactive = 4 -> int
 const AndroidX.Camera.Video.VideoRecordEvent.Finalize.ErrorUnknown = 1 -> int
-const AndroidX.Camera.Video.VideoSpec.EncodeFrameRateAuto = 0 -> int
+const AndroidX.Camera.Video.VideoSpec.BitrateUnspecified = 0 -> int
+const AndroidX.Camera.Video.VideoSpec.EncodeFrameRateUnspecified = 0 -> int
+const AndroidX.Camera.Video.VideoSpec.MimeTypeUnspecified = "video/*" -> string!
 override AndroidX.Camera.Video.AudioSpec.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.AudioSpec.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.AudioSpec.Builder.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.AudioSpec.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.AudioSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.AudioSpec.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.AudioSpec.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.AudioStats.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.AudioStats.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.AudioStats.ThresholdType.get -> System.Type!
@@ -766,6 +947,7 @@ override AndroidX.Camera.Video.FileDescriptorOutputOptions.Builder.JniPeerMember
 override AndroidX.Camera.Video.FileDescriptorOutputOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.FileOutputOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.FileOutputOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.GroupableFeatures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.HighSpeedVideoSessionConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.HighSpeedVideoSessionConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Impl.VideoCaptureConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -812,18 +994,12 @@ override AndroidX.Camera.Video.Internal.Compat.Quirk.CameraUseInconsistentTimeba
 override AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.CodecStuckOnFlushQuirk.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Compat.Quirk.DeactivateEncoderSurfaceBeforeStopEncoderQuirk.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirksLoader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirksLoader.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirksLoader.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Compat.Quirk.EncoderNotUsePersistentInputSurfaceQuirk.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExcludeStretchedVideoQualityQuirk.ThresholdType.get -> System.Type!
@@ -833,6 +1009,7 @@ override AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedQualityQuirk.
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.ExtraSupportedResolutionQuirk.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Compat.Quirk.GLProcessingStuckOnCodecFlushQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.HdrRepeatingRequestFailureQuirk.ThresholdType.get -> System.Type!
@@ -842,9 +1019,6 @@ override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecDefaultDataSpaceQ
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaFormatMustNotUseFrameRateToFindEncoderQuirk.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.ThresholdType.get -> System.Type!
@@ -876,37 +1050,32 @@ override AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderCrashQuirk.Thre
 override AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderSuspendDoesNotIncludeSuspendTimeQuirk.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Compat.Quirk.VideoInterlacingQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigAudioProfileResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.AudioEncoderConfigDefaultResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.AudioSettingsAudioProfileResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.AudioSettingsDefaultResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.CaptureEncodeRatesKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.Builder.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.MimeInfo.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Configs.ContainerInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.FormatCombo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.ContainerScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.FormatComboRegistry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.MediaInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.DebugUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider.ThresholdClass.get -> nint
@@ -918,8 +1087,6 @@ override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.JniPeerMember
 override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.ThresholdType.get -> System.Type!
@@ -939,8 +1106,6 @@ override AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.JniPeerMe
 override AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Encoder.InvalidConfigException.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.ThresholdType.get -> System.Type!
@@ -953,9 +1118,12 @@ override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.ThresholdType
 override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Video.Internal.Muxer.MuxerException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.OutputStorageImpl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.QualityExploredEncoderProfilesProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.QualityExploredEncoderProfilesProvider.ThresholdClass.get -> nint
@@ -966,8 +1134,7 @@ override AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.JniPeerMembers.ge
 override AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Utils.OutputUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Utils.StorageUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Workaround.CorrectNegativeLatLongForMediaMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -982,18 +1149,14 @@ override AndroidX.Camera.Video.Internal.Workaround.QualityResolutionModifiedEnco
 override AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.MediaSpec.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.MediaSpec.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.MediaSpec.Builder.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.MediaSpec.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.MediaSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.MediaSpec.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.MediaSpec.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.MediaStoreOutputOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.MediaStoreOutputOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.OutputOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1037,20 +1200,20 @@ override AndroidX.Camera.Video.VideoRecordEvent.Status.JniPeerMembers.get -> Jav
 override AndroidX.Camera.Video.VideoRecordEvent.ThresholdClass.get -> nint
 override AndroidX.Camera.Video.VideoRecordEvent.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Video.VideoSpec.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.VideoSpec.Builder.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.VideoSpec.Builder.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Video.VideoSpec.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Video.VideoSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Video.VideoSpec.ThresholdClass.get -> nint
-override AndroidX.Camera.Video.VideoSpec.ThresholdType.get -> System.Type!
-static AndroidX.Camera.Video.AudioSpec.BitrateRangeAuto.get -> Android.Util.Range?
-static AndroidX.Camera.Video.AudioSpec.InvokeBuilder() -> AndroidX.Camera.Video.AudioSpec.Builder?
-static AndroidX.Camera.Video.AudioSpec.NoAudio.get -> AndroidX.Camera.Video.AudioSpec?
-static AndroidX.Camera.Video.AudioSpec.SampleRateRangeAuto.get -> Android.Util.Range?
+static AndroidX.Camera.Video.AudioSpec.InvokeBuilder() -> AndroidX.Camera.Video.AudioSpec.Builder!
 static AndroidX.Camera.Video.CapabilitiesByQuality.ContainsSupportedQuality(AndroidX.Camera.Core.Impl.IEncoderProfilesProvider? provider, int qualitySource) -> bool
 static AndroidX.Camera.Video.FallbackStrategy.HigherQualityOrLowerThan(AndroidX.Camera.Video.Quality? quality) -> AndroidX.Camera.Video.FallbackStrategy?
 static AndroidX.Camera.Video.FallbackStrategy.HigherQualityThan(AndroidX.Camera.Video.Quality? quality) -> AndroidX.Camera.Video.FallbackStrategy?
 static AndroidX.Camera.Video.FallbackStrategy.LowerQualityOrHigherThan(AndroidX.Camera.Video.Quality? quality) -> AndroidX.Camera.Video.FallbackStrategy?
 static AndroidX.Camera.Video.FallbackStrategy.LowerQualityThan(AndroidX.Camera.Video.Quality? quality) -> AndroidX.Camera.Video.FallbackStrategy?
+static AndroidX.Camera.Video.GroupableFeatures.FhdRecording.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
+static AndroidX.Camera.Video.GroupableFeatures.HdRecording.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
+static AndroidX.Camera.Video.GroupableFeatures.Instance.get -> AndroidX.Camera.Video.GroupableFeatures!
+static AndroidX.Camera.Video.GroupableFeatures.SdRecording.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
+static AndroidX.Camera.Video.GroupableFeatures.UhdRecording.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
+static AndroidX.Camera.Video.GroupableFeatures.VideoStabilization.get -> AndroidX.Camera.Core.Featuregroup.GroupableFeature!
 static AndroidX.Camera.Video.Impl.VideoCaptureConfig.HasConflict(AndroidX.Camera.Core.Impl.ConfigOptionPriority! priority1, AndroidX.Camera.Core.Impl.ConfigOptionPriority! priority2) -> bool
 static AndroidX.Camera.Video.Impl.VideoCaptureConfig.MergeConfigs(AndroidX.Camera.Core.Impl.IConfig? extendedConfig, AndroidX.Camera.Core.Impl.IConfig? baseConfig) -> AndroidX.Camera.Core.Impl.IConfig!
 static AndroidX.Camera.Video.Impl.VideoCaptureConfig.OptionForceEnableSurfaceProcessing.get -> AndroidX.Camera.Core.Impl.ConfigOption?
@@ -1078,6 +1241,8 @@ static AndroidX.Camera.Video.Internal.Compat.Api31Impl.SetContext(Android.Media.
 static AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.All.get -> AndroidX.Camera.Core.Impl.Quirks?
 static AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.Get(Java.Lang.Class? quirkClass) -> Java.Lang.Object?
 static AndroidX.Camera.Video.Internal.Compat.Quirk.DeviceQuirks.GetAll(Java.Lang.Class? quirkClass) -> System.Collections.IList?
+static AndroidX.Camera.Video.Internal.Compat.Quirk.GLProcessingStuckOnCodecFlushQuirk.Instance.get -> AndroidX.Camera.Video.Internal.Compat.Quirk.GLProcessingStuckOnCodecFlushQuirk!
+static AndroidX.Camera.Video.Internal.Compat.Quirk.GLProcessingStuckOnCodecFlushQuirk.Load() -> bool
 static AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.ExtraSupportedSizes.get -> System.Collections.Generic.ICollection<Android.Util.Size!>?
 static AndroidX.Camera.Video.Internal.Compat.Quirk.MediaCodecInfoReportIncorrectInfoQuirk.IncorrectFhdProfileModelList.get -> System.Collections.IList?
 static AndroidX.Camera.Video.Internal.Compat.Quirk.MediaStoreVideoCannotWrite.IsItelW6004.get -> bool
@@ -1087,14 +1252,19 @@ static AndroidX.Camera.Video.Internal.Compat.Quirk.PrematureEndOfStreamVideoQuir
 static AndroidX.Camera.Video.Internal.Compat.Quirk.PreviewBlackScreenQuirk.Load() -> bool
 static AndroidX.Camera.Video.Internal.Compat.Quirk.PreviewFreezeAfterHighSpeedRecordingQuirk.Instance.get -> AndroidX.Camera.Video.Internal.Compat.Quirk.PreviewFreezeAfterHighSpeedRecordingQuirk!
 static AndroidX.Camera.Video.Internal.Compat.Quirk.PreviewFreezeAfterHighSpeedRecordingQuirk.Load() -> bool
-static AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioEncoderConfig(AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo? audioMimeInfo, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.Internal.Audio.AudioSettings? audioSettings, AndroidX.Camera.Video.AudioSpec? audioSpec) -> AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig?
-static AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioSettings(AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo? audioMimeInfo, AndroidX.Camera.Video.AudioSpec? audioSpec, Android.Util.Rational? captureToEncodeRatio) -> AndroidX.Camera.Video.Internal.Audio.AudioSettings?
-static AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.InvokeBuilder(string? mimeType) -> AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo.Builder?
-static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.MimeAndProfileToEncoderDataSpace(string? mimeType, int codecProfileLevel) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace?
-static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.ResolveVideoEncoderConfig(AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo? videoMimeInfo, AndroidX.Camera.Core.Impl.Timebase? inputTimebase, AndroidX.Camera.Video.VideoSpec? videoSpec, Android.Util.Size? surfaceSize, AndroidX.Camera.Core.DynamicRange? dynamicRange, Android.Util.Range? expectedFrameRateRange) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig?
-static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.ScaleAndClampBitrate(int baseBitrate, int actualBitDepth, int baseBitDepth, int actualFrameRate, int baseFrameRate, int actualWidth, int baseWidth, int actualHeight, int baseHeight, Android.Util.Range? clampedRange) -> int
-static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.WorkaroundDataSpaceIfRequired(AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig? config, bool hasGlProcessing) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig?
-static AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.InvokeBuilder(string? mimeType) -> AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo.Builder?
+static AndroidX.Camera.Video.Internal.Compat.Quirk.VideoInterlacingQuirk.Instance.get -> AndroidX.Camera.Video.Internal.Compat.Quirk.VideoInterlacingQuirk!
+static AndroidX.Camera.Video.Internal.Compat.Quirk.VideoInterlacingQuirk.Load() -> bool
+static AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.Instance.get -> AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil!
+static AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioEncoderConfig(AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo! audioMimeInfo, AndroidX.Camera.Core.Impl.Timebase! inputTimebase, AndroidX.Camera.Video.Internal.Audio.AudioSettings! audioSettings, AndroidX.Camera.Video.AudioSpec! audioSpec) -> AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig!
+static AndroidX.Camera.Video.Internal.Configs.AudioConfigUtil.ResolveAudioSettings(AndroidX.Camera.Video.Internal.Configs.AudioMimeInfo! audioMimeInfo, AndroidX.Camera.Video.AudioSpec! audioSpec, Android.Util.Rational? captureToEncodeRatio) -> AndroidX.Camera.Video.Internal.Audio.AudioSettings!
+static AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry.Instance.get -> AndroidX.Camera.Video.Internal.Configs.DynamicRangeFormatComboRegistry!
+static AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil.Instance.get -> AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil!
+static AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil.OutputFormatToMuxerFormat(int outputFormat) -> int
+static AndroidX.Camera.Video.Internal.Configs.MediaConfigUtil.ResolveMediaInfo(AndroidX.Camera.Video.MediaSpec! mediaSpec, AndroidX.Camera.Core.DynamicRange! dynamicRange, AndroidX.Camera.Core.Impl.IEncoderProfilesProxy? encoderProfiles) -> AndroidX.Camera.Video.Internal.Configs.MediaInfo!
+static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.Instance.get -> AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil!
+static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.ResolveVideoEncoderConfig(AndroidX.Camera.Video.Internal.Configs.VideoMimeInfo! videoMimeInfo, AndroidX.Camera.Core.Impl.Timebase! inputTimebase, AndroidX.Camera.Video.VideoSpec! videoSpec, Android.Util.Size! surfaceSize, AndroidX.Camera.Core.DynamicRange! dynamicRange, Android.Util.Range! expectedFrameRateRange) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig!
+static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.ScaleBitrate(int baseBitrate, int actualBitDepth, int baseBitDepth, int actualFrameRate, int baseFrameRate, int actualWidth, int baseWidth, int actualHeight, int baseHeight) -> int
+static AndroidX.Camera.Video.Internal.Configs.VideoConfigUtil.WorkaroundDataSpaceIfRequired(AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig! config, bool hasGlProcessing) -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig!
 static AndroidX.Camera.Video.Internal.DebugUtils.ByteBufferToHex(Java.Nio.ByteBuffer? byteBuffer) -> string?
 static AndroidX.Camera.Video.Internal.DebugUtils.BytesToHexString(byte[]? bytes) -> string?
 static AndroidX.Camera.Video.Internal.DebugUtils.DumpCodecCapabilities(string? mimeType, Android.Media.MediaCodec? codec, Android.Media.MediaFormat? mediaFormat) -> string?
@@ -1112,9 +1282,15 @@ static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.EncoderDataS
 static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.EncoderDataSpaceBt709.get -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace?
 static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.EncoderDataSpaceSrgb.get -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace?
 static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace.EncoderDataSpaceUnspecified.get -> AndroidX.Camera.Video.Internal.Encoder.VideoEncoderDataSpace?
-static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.Finder.get -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfoFinder?
-static AndroidX.Camera.Video.Internal.Utils.CodecUtil.CreateCodec(AndroidX.Camera.Video.Internal.Encoder.IEncoderConfig? encoderConfig) -> Android.Media.MediaCodec?
-static AndroidX.Camera.Video.Internal.Utils.CodecUtil.FindCodecAndGetCodecInfo(string? mimeType) -> Android.Media.MediaCodecInfo?
+static AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.Finder.get -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfoFinder!
+static AndroidX.Camera.Video.Internal.Muxer.Media3MuxerImpl.InterfaceConsts.Companion.get -> AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion!
+static AndroidX.Camera.Video.Internal.Muxer.MediaMuxerImpl.InterfaceConsts.Companion.get -> AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion!
+static AndroidX.Camera.Video.Internal.Muxer.Muxer.Companion.get -> AndroidX.Camera.Video.Internal.Muxer.MuxerCompanion!
+static AndroidX.Camera.Video.Internal.Utils.CodecUtil.AudioEncoderMimeTypes.get -> System.Collections.Generic.IList<string!>!
+static AndroidX.Camera.Video.Internal.Utils.CodecUtil.CreateCodec(AndroidX.Camera.Video.Internal.Encoder.IEncoderConfig! encoderConfig) -> Android.Media.MediaCodec!
+static AndroidX.Camera.Video.Internal.Utils.CodecUtil.FindCodecAndGetCodecInfo(string! mimeType) -> Android.Media.MediaCodecInfo!
+static AndroidX.Camera.Video.Internal.Utils.CodecUtil.Instance.get -> AndroidX.Camera.Video.Internal.Utils.CodecUtil!
+static AndroidX.Camera.Video.Internal.Utils.CodecUtil.VideoEncoderMimeTypes.get -> System.Collections.Generic.IList<string!>!
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.DrToVpBitDepthMap.get -> System.Collections.IDictionary?
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.DrToVpFormatMap.get -> System.Collections.IDictionary?
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.DynamicRangeToCodecProfileLevelForMime(string? mimeType, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> int
@@ -1125,8 +1301,10 @@ static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.VideoProfileBitDept
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.VideoProfileHdrFormatsToDynamicRangeEncoding(int hdrFormat) -> int
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.VpToDrBitDepth.get -> System.Collections.IDictionary?
 static AndroidX.Camera.Video.Internal.Utils.DynamicRangeUtil.VpToDrFormatMap.get -> System.Collections.IDictionary?
-static AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.DeriveVideoProfile(AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy? baseVideoProfile, Android.Util.Size? newResolution, Android.Util.Range? bitrateRangeToClamp) -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
+static AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.DeriveVideoProfile(AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy! baseVideoProfile, Android.Util.Size! newResolution, Android.Util.Range! bitrateRangeToClamp) -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy!
 static AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.GetFirstVideoProfile(AndroidX.Camera.Core.Impl.IEncoderProfilesProxy? encoderProfiles) -> AndroidX.Camera.Core.Impl.EncoderProfilesProxyVideoProfileProxy?
+static AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil.Instance.get -> AndroidX.Camera.Video.Internal.Utils.EncoderProfilesUtil!
+static AndroidX.Camera.Video.Internal.Utils.MediaFormatExt.Instance.get -> AndroidX.Camera.Video.Internal.Utils.MediaFormatExt!
 static AndroidX.Camera.Video.Internal.Utils.OutputUtil.CreateParentFolder(Java.IO.File? file) -> bool
 static AndroidX.Camera.Video.Internal.Utils.OutputUtil.GetAbsolutePathFromUri(Android.Content.ContentResolver? resolver, Android.Net.Uri? contentUri, string? mediaStoreColumn) -> string?
 static AndroidX.Camera.Video.Internal.Utils.StorageUtil.FormatSize(long bytes) -> string!
@@ -1134,13 +1312,14 @@ static AndroidX.Camera.Video.Internal.Utils.StorageUtil.GetAvailableBytes(Java.I
 static AndroidX.Camera.Video.Internal.Utils.StorageUtil.GetAvailableBytes(string! path) -> long
 static AndroidX.Camera.Video.Internal.Utils.StorageUtil.GetAvailableBytesForMediaStoreUri(Android.Net.Uri! uri) -> long
 static AndroidX.Camera.Video.Internal.Utils.StorageUtil.Instance.get -> AndroidX.Camera.Video.Internal.Utils.StorageUtil!
-static AndroidX.Camera.Video.Internal.Utils.StorageUtil.IsStorageFullException(Java.Lang.Exception! e) -> bool
+static AndroidX.Camera.Video.Internal.Utils.StorageUtil.IsStorageFullException(Java.Lang.Throwable? throwable) -> bool
 static AndroidX.Camera.Video.Internal.Workaround.CorrectNegativeLatLongForMediaMuxer.AdjustGeoLocation(double latitude, double longitude) -> Android.Util.Pair?
-static AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.From(AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo? videoEncoderInfo, Android.Util.Size? validSizeToCheck) -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo?
-static AndroidX.Camera.Video.MediaSpec.InvokeBuilder() -> AndroidX.Camera.Video.MediaSpec.Builder?
-static AndroidX.Camera.Video.MediaSpec.OutputFormatToAudioMime(int outputFormat) -> string?
+static AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.From(AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo! videoEncoderInfo, Android.Util.Size? validSizeToCheck) -> AndroidX.Camera.Video.Internal.Encoder.IVideoEncoderInfo!
+static AndroidX.Camera.Video.MediaSpec.InvokeBuilder() -> AndroidX.Camera.Video.MediaSpec.Builder!
+static AndroidX.Camera.Video.MediaSpec.OutputFormatToAudioMime(int outputFormat) -> string!
 static AndroidX.Camera.Video.MediaSpec.OutputFormatToAudioProfile(int outputFormat) -> int
-static AndroidX.Camera.Video.MediaSpec.OutputFormatToVideoMime(int outputFormat) -> string?
+static AndroidX.Camera.Video.MediaSpec.OutputFormatToMuxerFormat(int outputFormat) -> int
+static AndroidX.Camera.Video.MediaSpec.OutputFormatToVideoMime(int outputFormat) -> string!
 static AndroidX.Camera.Video.MediaStoreOutputOptions.EmptyContentValues.get -> Android.Content.ContentValues?
 static AndroidX.Camera.Video.Quality.Fhd.get -> AndroidX.Camera.Video.Quality?
 static AndroidX.Camera.Video.Quality.Hd.get -> AndroidX.Camera.Video.Quality?
@@ -1157,11 +1336,13 @@ static AndroidX.Camera.Video.QualitySelector.GetQualityToResolutionMap(AndroidX.
 static AndroidX.Camera.Video.QualitySelector.GetResolution(AndroidX.Camera.Core.ICameraInfo? cameraInfo, AndroidX.Camera.Video.Quality? quality) -> Android.Util.Size?
 static AndroidX.Camera.Video.QualitySelector.GetSupportedQualities(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Quality!>?
 static AndroidX.Camera.Video.QualitySelector.IsQualitySupported(AndroidX.Camera.Core.ICameraInfo? cameraInfo, AndroidX.Camera.Video.Quality? quality) -> bool
+static AndroidX.Camera.Video.QualitySelector.None.get -> AndroidX.Camera.Video.QualitySelector?
 static AndroidX.Camera.Video.Recorder.DefaultQualitySelector.get -> AndroidX.Camera.Video.QualitySelector?
 static AndroidX.Camera.Video.Recorder.GetHighSpeedVideoCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.Recorder.GetHighSpeedVideoCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int videoCapabilitiesSource) -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.Recorder.GetVideoCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.Recorder.GetVideoCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo, int videoCapabilitiesSource) -> AndroidX.Camera.Video.IVideoCapabilities?
+static AndroidX.Camera.Video.Recorder.GetVideoCapabilities(AndroidX.Camera.Core.ICameraInfo? cameraInfo, string? mimeType) -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.RecorderVideoCapabilities.InterfaceConsts.Empty.get -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.VideoCapabilities.Empty.get -> AndroidX.Camera.Video.IVideoCapabilities?
 static AndroidX.Camera.Video.VideoCapture.Builder.FromConfig(AndroidX.Camera.Video.Impl.VideoCaptureConfig? configuration) -> AndroidX.Camera.Video.VideoCapture.Builder?
@@ -1171,13 +1352,12 @@ static AndroidX.Camera.Video.VideoOutputSourceState.ActiveStreaming.get -> Andro
 static AndroidX.Camera.Video.VideoOutputSourceState.Inactive.get -> AndroidX.Camera.Video.VideoOutputSourceState?
 static AndroidX.Camera.Video.VideoOutputSourceState.ValueOf(string? name) -> AndroidX.Camera.Video.VideoOutputSourceState?
 static AndroidX.Camera.Video.VideoOutputSourceState.Values() -> AndroidX.Camera.Video.VideoOutputSourceState![]?
-static AndroidX.Camera.Video.VideoSpec.BitrateRangeAuto.get -> Android.Util.Range?
-static AndroidX.Camera.Video.VideoSpec.InvokeBuilder() -> AndroidX.Camera.Video.VideoSpec.Builder?
-static AndroidX.Camera.Video.VideoSpec.QualitySelectorAuto.get -> AndroidX.Camera.Video.QualitySelector?
+static AndroidX.Camera.Video.VideoSpec.InvokeBuilder() -> AndroidX.Camera.Video.VideoSpec.Builder!
 virtual AndroidX.Camera.Video.AudioStats.AudioAmplitude.get -> double
 virtual AndroidX.Camera.Video.AudioStats.HasAudio.get -> bool
 virtual AndroidX.Camera.Video.AudioStats.HasError.get -> bool
 virtual AndroidX.Camera.Video.CapabilitiesByQuality.FindNearestHigherSupportedQualityFor(Android.Util.Size? size) -> AndroidX.Camera.Video.Quality?
+virtual AndroidX.Camera.Video.CapabilitiesByQuality.GetResolution(AndroidX.Camera.Video.Quality? quality) -> Android.Util.Size?
 virtual AndroidX.Camera.Video.CapabilitiesByQuality.IsQualitySupported(AndroidX.Camera.Video.Quality? quality) -> bool
 virtual AndroidX.Camera.Video.CapabilitiesByQuality.SupportedQualities.get -> System.Collections.Generic.IList<AndroidX.Camera.Video.Quality!>?
 virtual AndroidX.Camera.Video.Internal.Audio.AudioSettings.BytesPerFrame.get -> int
@@ -1210,13 +1390,10 @@ virtual AndroidX.Camera.Video.Internal.Compat.Quirk.SizeCannotEncodeVideoQuirk.A
 virtual AndroidX.Camera.Video.Internal.Compat.Quirk.SizeCannotEncodeVideoQuirk.IsProblematicEncodeSize(Android.Util.Size? size) -> bool
 virtual AndroidX.Camera.Video.Internal.Compat.Quirk.StretchedVideoResolutionQuirk.GetAlternativeResolution(int quality) -> Android.Util.Size?
 virtual AndroidX.Camera.Video.Internal.Compat.Quirk.VideoEncoderCrashQuirk.IsProblematicVideoQuality(AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfo, AndroidX.Camera.Video.Quality? quality) -> bool
-virtual AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigDefaultResolver.Get() -> Java.Lang.Object?
-virtual AndroidX.Camera.Video.Internal.Configs.VideoEncoderConfigVideoProfileResolver.Get() -> Java.Lang.Object?
 virtual AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider.GetAll(int quality) -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
 virtual AndroidX.Camera.Video.Internal.DynamicRangeMatchedEncoderProfilesProvider.HasProfile(int quality) -> bool
 virtual AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.Builder.Build() -> AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig?
 virtual AndroidX.Camera.Video.Internal.Encoder.AudioEncoderConfig.ToMediaFormat() -> Android.Media.MediaFormat?
-virtual AndroidX.Camera.Video.Internal.Encoder.AudioEncoderInfoImpl.BitrateRange.get -> Android.Util.Range?
 virtual AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.BufferInfo.get -> Android.Media.MediaCodec.BufferInfo?
 virtual AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.ByteBuffer.get -> Java.Nio.ByteBuffer?
 virtual AndroidX.Camera.Video.Internal.Encoder.BufferCopiedEncodedData.Close() -> void
@@ -1244,29 +1421,11 @@ virtual AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.SignalSourceStopped()
 virtual AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.Start() -> void
 virtual AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.Stop() -> void
 virtual AndroidX.Camera.Video.Internal.Encoder.EncoderImpl.Stop(long expectedStopTimeUs) -> void
-virtual AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.Name.get -> string?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.CanSwapWidthHeight() -> bool
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.GetSupportedHeightsFor(int width) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.GetSupportedWidthsFor(int height) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.HeightAlignment.get -> int
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.IsSizeSupported(int width, int height) -> bool
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.Name.get -> string?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedBitrateRange.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedHeights.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.SupportedWidths.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.SwappedVideoEncoderInfo.WidthAlignment.get -> int
+virtual AndroidX.Camera.Video.Internal.Encoder.EncoderInfoImpl.Name.get -> string!
 virtual AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.RealtimeUs() -> long
 virtual AndroidX.Camera.Video.Internal.Encoder.SystemTimeProvider.UptimeUs() -> long
+virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.IsSlowMotion.get -> bool
 virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderConfig.ToMediaFormat() -> Android.Media.MediaFormat?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.CanSwapWidthHeight() -> bool
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.GetSupportedHeightsFor(int width) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.GetSupportedWidthsFor(int height) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.HeightAlignment.get -> int
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.IsSizeSupported(int width, int height) -> bool
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedBitrateRange.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedHeights.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.SupportedWidths.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Encoder.VideoEncoderInfoImpl.WidthAlignment.get -> int
 virtual AndroidX.Camera.Video.Internal.QualityExploredEncoderProfilesProvider.GetAll(int quality) -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
 virtual AndroidX.Camera.Video.Internal.QualityExploredEncoderProfilesProvider.HasProfile(int quality) -> bool
 virtual AndroidX.Camera.Video.Internal.Workaround.QualityAddedEncoderProfilesProvider.GetAll(int quality) -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
@@ -1275,24 +1434,12 @@ virtual AndroidX.Camera.Video.Internal.Workaround.QualityResolutionModifiedEncod
 virtual AndroidX.Camera.Video.Internal.Workaround.QualityResolutionModifiedEncoderProfilesProvider.HasProfile(int quality) -> bool
 virtual AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.GetAll(int quality) -> AndroidX.Camera.Core.Impl.IEncoderProfilesProxy?
 virtual AndroidX.Camera.Video.Internal.Workaround.QualityValidatedEncoderProfilesProvider.HasProfile(int quality) -> bool
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.CanSwapWidthHeight() -> bool
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.GetSupportedHeightsFor(int width) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.GetSupportedWidthsFor(int height) -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.HeightAlignment.get -> int
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.IsSizeSupported(int width, int height) -> bool
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.Name.get -> string?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedBitrateRange.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedHeights.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.SupportedWidths.get -> Android.Util.Range?
-virtual AndroidX.Camera.Video.Internal.Workaround.VideoEncoderInfoWrapper.WidthAlignment.get -> int
 virtual AndroidX.Camera.Video.Internal.Workaround.VideoTimebaseConverter.ConvertToUptimeUs(long timestampUs) -> long
-virtual AndroidX.Camera.Video.MediaSpec.Builder.ConfigureAudio(AndroidX.Core.Util.IConsumer? configBlock) -> AndroidX.Camera.Video.MediaSpec.Builder?
-virtual AndroidX.Camera.Video.MediaSpec.Builder.ConfigureVideo(AndroidX.Core.Util.IConsumer? configBlock) -> AndroidX.Camera.Video.MediaSpec.Builder?
 virtual AndroidX.Camera.Video.OutputOptions.DurationLimitMillis.get -> long
 virtual AndroidX.Camera.Video.OutputOptions.FileSizeLimit.get -> long
 virtual AndroidX.Camera.Video.OutputOptions.Location.get -> Android.Locations.Location?
 virtual AndroidX.Camera.Video.Quality.ConstantQuality.GetQualityValue(int qualitySource) -> int
-virtual AndroidX.Camera.Video.RecorderVideoCapabilities.FindNearestHigherSupportedQualityFor(Android.Util.Size? size, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> AndroidX.Camera.Video.Quality?
+virtual AndroidX.Camera.Video.RecorderVideoCapabilities.GetResolution(AndroidX.Camera.Video.Quality? quality, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> Android.Util.Size?
 virtual AndroidX.Camera.Video.RecorderVideoCapabilities.GetSupportedQualities(AndroidX.Camera.Core.DynamicRange? dynamicRange) -> System.Collections.Generic.IList<AndroidX.Camera.Video.Quality!>?
 virtual AndroidX.Camera.Video.RecorderVideoCapabilities.IsQualitySupported(AndroidX.Camera.Video.Quality? quality, AndroidX.Camera.Core.DynamicRange? dynamicRange) -> bool
 virtual AndroidX.Camera.Video.RecorderVideoCapabilities.IsStabilizationSupported.get -> bool

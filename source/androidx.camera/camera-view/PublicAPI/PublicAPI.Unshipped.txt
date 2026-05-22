@@ -9,37 +9,6 @@ AndroidX.Camera.View.CameraController.OutputSize.OutputSize(Android.Util.Size? r
 AndroidX.Camera.View.CameraController.OutputSize.OutputSize(int aspectRatio) -> void
 AndroidX.Camera.View.CameraController.OutputSize.Resolution.get -> Android.Util.Size?
 AndroidX.Camera.View.ITransformExperimental
-AndroidX.Camera.View.Impl.ZoomGestureDetector
-AndroidX.Camera.View.Impl.ZoomGestureDetector.Companion
-AndroidX.Camera.View.Impl.ZoomGestureDetector.IOnZoomGestureListener
-AndroidX.Camera.View.Impl.ZoomGestureDetector.IOnZoomGestureListener.OnZoomEvent(AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent! zoomEvent) -> bool
-AndroidX.Camera.View.Impl.ZoomGestureDetector.OnTouchEvent(Android.Views.MotionEvent! e) -> bool
-AndroidX.Camera.View.Impl.ZoomGestureDetector.QuickZoomEnabled.get -> bool
-AndroidX.Camera.View.Impl.ZoomGestureDetector.QuickZoomEnabled.set -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.StylusZoomEnabled.get -> bool
-AndroidX.Camera.View.Impl.ZoomGestureDetector.StylusZoomEnabled.set -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.TimeDelta.get -> long
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Begin
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Begin.Begin(long eventTime, int focusX, int focusY) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.End
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.End.End(long eventTime, int focusX, int focusY, float incrementalScaleFactor) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.End.IncrementalScaleFactor.get -> float
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.EventTime.get -> long
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.FocusX.get -> int
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.FocusY.get -> int
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Move
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Move.IncrementalScaleFactor.get -> float
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Move.Move(long eventTime, int focusX, int focusY, float incrementalScaleFactor) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.ZoomEvent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureDetector(Android.Content.Context! context, AndroidX.Camera.View.Impl.ZoomGestureDetector.IOnZoomGestureListener! listener) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureDetector(Android.Content.Context! context, int spanSlop, AndroidX.Camera.View.Impl.ZoomGestureDetector.IOnZoomGestureListener! listener) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureDetector(Android.Content.Context! context, int spanSlop, int minSpan, AndroidX.Camera.View.Impl.ZoomGestureDetector.IOnZoomGestureListener! listener) -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureEventArgs
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureEventArgs.Handled.get -> bool
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureEventArgs.Handled.set -> void
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureEventArgs.ZoomEvent.get -> AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent!
-AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomGestureEventArgs.ZoomGestureEventArgs(bool handled, AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent! zoomEvent) -> void
 AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirks
 AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirks.DeviceQuirks(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirksLoader
@@ -152,14 +121,6 @@ override AndroidX.Camera.View.CameraController.JniPeerMembers.get -> Java.Intero
 override AndroidX.Camera.View.CameraController.OutputSize.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.View.CameraController.ThresholdClass.get -> nint
 override AndroidX.Camera.View.CameraController.ThresholdType.get -> System.Type!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Begin.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.End.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.Move.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.ThresholdClass.get -> nint
-override AndroidX.Camera.View.Impl.ZoomGestureDetector.ZoomEvent.ThresholdType.get -> System.Type!
 override AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirks.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirks.ThresholdClass.get -> nint
 override AndroidX.Camera.View.Internal.Compat.Quirk.DeviceQuirks.ThresholdType.get -> System.Type!
@@ -214,13 +175,14 @@ static AndroidX.Camera.View.PreviewView.StreamState.ValueOf(string? name) -> And
 static AndroidX.Camera.View.PreviewView.StreamState.Values() -> AndroidX.Camera.View.PreviewView.StreamState![]?
 static AndroidX.Camera.View.Video.AudioConfig.AudioDisabled.get -> AndroidX.Camera.View.Video.AudioConfig?
 static AndroidX.Camera.View.Video.AudioConfig.Create(bool enableAudio) -> AndroidX.Camera.View.Video.AudioConfig?
+virtual AndroidX.Camera.View.CameraController.BoundSessionConfig.get -> AndroidX.Camera.Core.SessionConfig?
 virtual AndroidX.Camera.View.CameraController.CameraControl.get -> AndroidX.Camera.Core.ICameraControl?
 virtual AndroidX.Camera.View.CameraController.CameraInfo.get -> AndroidX.Camera.Core.ICameraInfo?
 virtual AndroidX.Camera.View.CameraController.CameraSelector.get -> AndroidX.Camera.Core.CameraSelector?
 virtual AndroidX.Camera.View.CameraController.CameraSelector.set -> void
 virtual AndroidX.Camera.View.CameraController.ClearEffects() -> void
 virtual AndroidX.Camera.View.CameraController.ClearImageAnalysisAnalyzer() -> void
-virtual AndroidX.Camera.View.CameraController.CreateUseCaseGroup() -> AndroidX.Camera.Core.UseCaseGroup?
+virtual AndroidX.Camera.View.CameraController.CreateUseCaseGroup(bool checkPreviewViewAttached) -> AndroidX.Camera.Core.UseCaseGroup?
 virtual AndroidX.Camera.View.CameraController.EnableTorch(bool torchEnabled) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.View.CameraController.HasCamera(AndroidX.Camera.Core.CameraSelector? cameraSelector) -> bool
 virtual AndroidX.Camera.View.CameraController.ImageAnalysisBackgroundExecutor.get -> Java.Util.Concurrent.IExecutor?
@@ -264,6 +226,7 @@ virtual AndroidX.Camera.View.CameraController.SetEnabledUseCases(int enabledUseC
 virtual AndroidX.Camera.View.CameraController.SetImageAnalysisAnalyzer(Java.Util.Concurrent.IExecutor? executor, AndroidX.Camera.Core.ImageAnalysis.IAnalyzer? analyzer) -> void
 virtual AndroidX.Camera.View.CameraController.SetLinearZoom(float linearZoom) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.View.CameraController.SetScreenFlashUiInfo(AndroidX.Camera.View.Internal.ScreenFlashUiInfo? screenFlashUiInfo) -> void
+virtual AndroidX.Camera.View.CameraController.SetSessionConfig(AndroidX.Camera.Core.SessionConfig? sessionConfig, AndroidX.Camera.Core.CameraSelector? cameraSelector) -> void
 virtual AndroidX.Camera.View.CameraController.SetTapToFocusAutoCancelDuration(long duration, Java.Util.Concurrent.TimeUnit? timeUnit) -> void
 virtual AndroidX.Camera.View.CameraController.SetZoomRatio(float zoomRatio) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.View.CameraController.StartRecording(AndroidX.Camera.Video.FileDescriptorOutputOptions? outputOptions, AndroidX.Camera.View.Video.AudioConfig? audioConfig, Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? listener) -> AndroidX.Camera.Video.Recording?

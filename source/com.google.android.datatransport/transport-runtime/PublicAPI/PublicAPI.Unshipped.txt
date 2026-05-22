@@ -16,7 +16,6 @@ Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext
 Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.CreationContext() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.CreationContext(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory
-Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory.CreationContextFactory_Factory(JavaX.Inject.IProvider? applicationContextProvider, JavaX.Inject.IProvider? wallClockProvider, JavaX.Inject.IProvider? monotonicClockProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Backends.IBackendFactory
 Xamarin.Google.Android.DataTransport.Runtime.Backends.IBackendFactory.Create(Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext? p0) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.ITransportBackend?
@@ -27,7 +26,6 @@ Xamarin.Google.Android.DataTransport.Runtime.Backends.ITransportBackend.Decorate
 Xamarin.Google.Android.DataTransport.Runtime.Backends.ITransportBackend.Send(Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest? p0) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
 Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory
 Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory.MetadataBackendRegistry_Factory(JavaX.Inject.IProvider? applicationContextProvider, JavaX.Inject.IProvider? creationContextFactoryProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Backends.TransportBackendDiscovery
 Xamarin.Google.Android.DataTransport.Runtime.Backends.TransportBackendDiscovery.TransportBackendDiscovery() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Backends.TransportBackendDiscovery.TransportBackendDiscovery(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -167,6 +165,8 @@ Xamarin.Google.Android.DataTransport.Runtime.IDestination.GetExtras() -> byte[]?
 Xamarin.Google.Android.DataTransport.Runtime.IDestination.Name.get -> string!
 Xamarin.Google.Android.DataTransport.Runtime.IEncodedDestination
 Xamarin.Google.Android.DataTransport.Runtime.IEncodedDestination.SupportedEncodings.get -> System.Collections.Generic.ICollection<Xamarin.Google.Android.DataTransport.Encoding!>?
+Xamarin.Google.Android.DataTransport.Runtime.Jakarta.Inject.IProvider
+Xamarin.Google.Android.DataTransport.Runtime.Jakarta.Inject.IProvider.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Logging.Logging
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule.EventStoreModule() -> void
@@ -175,7 +175,6 @@ Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbName
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbNameFactory.EventStoreModule_DbNameFactory() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbNameFactory.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory
-Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory.EventStoreModule_PackageNameFactory(JavaX.Inject.IProvider? contextProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_SchemaVersionFactory
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_SchemaVersionFactory.EventStoreModule_SchemaVersionFactory() -> void
@@ -204,10 +203,8 @@ Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore.SQLiteEventStore(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory.SQLiteEventStore_Factory(JavaX.Inject.IProvider? wallClockProvider, JavaX.Inject.IProvider? clockProvider, JavaX.Inject.IProvider? configProvider, JavaX.Inject.IProvider? schemaManagerProvider, JavaX.Inject.IProvider? packageNameProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory
 Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory.SchemaManager_Factory(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? dbNameProvider, JavaX.Inject.IProvider? schemaVersionProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.ProtoEncoderDoNotUse
 Xamarin.Google.Android.DataTransport.Runtime.ProtoEncoderDoNotUse.ProtoEncoderDoNotUse(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Retries.IFunction
@@ -219,7 +216,6 @@ Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler.DefaultScheduler(Java.Util.Concurrent.IExecutor? executor, Xamarin.Google.Android.DataTransport.Runtime.Backends.IBackendRegistry? backendRegistry, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.IWorkScheduler? workScheduler, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IEventStore? eventStore, Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard? guard) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler.DefaultScheduler(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory
-Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory.DefaultScheduler_Factory(JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? backendRegistryProvider, JavaX.Inject.IProvider? workSchedulerProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? guardProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory.Get() -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.IScheduler
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.IScheduler.Schedule(Xamarin.Google.Android.DataTransport.Runtime.TransportContext? p0, Xamarin.Google.Android.DataTransport.Runtime.EventInternal? p1, Xamarin.Google.Android.DataTransport.ITransportScheduleCallback? p2) -> void
@@ -256,24 +252,20 @@ Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader.U
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader.Uploader(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory.Uploader_Factory(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? backendRegistryProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? workSchedulerProvider, JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? guardProvider, JavaX.Inject.IProvider? clockProvider, JavaX.Inject.IProvider? uptimeClockProvider, JavaX.Inject.IProvider? clientHealthMetricsStoreProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer.WorkInitializer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory.WorkInitializer_Factory(JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? storeProvider, JavaX.Inject.IProvider? schedulerProvider, JavaX.Inject.IProvider? guardProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule.SchedulingConfigModule() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule.SchedulingConfigModule(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory.SchedulingConfigModule_ConfigFactory(JavaX.Inject.IProvider? clockProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule.SchedulingModule() -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule.SchedulingModule(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory
 Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory.SchedulingModule_WorkSchedulerFactory(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? configProvider, JavaX.Inject.IProvider? clockProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard
 Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard.RunCriticalSection(Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuardCriticalSection? p0) -> Java.Lang.Object?
 Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuardCriticalSection
@@ -319,9 +311,11 @@ Xamarin.Google.Android.DataTransport.Runtime.TransportRuntimeComponent
 Xamarin.Google.Android.DataTransport.Runtime.TransportRuntimeComponent.TransportRuntimeComponent(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory
 Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory.Get() -> Java.Lang.Object?
-Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory.TransportRuntime_Factory(JavaX.Inject.IProvider? eventClockProvider, JavaX.Inject.IProvider? uptimeClockProvider, JavaX.Inject.IProvider? schedulerProvider, JavaX.Inject.IProvider? uploaderProvider, JavaX.Inject.IProvider? initializerProvider) -> void
 Xamarin.Google.Android.DataTransport.Runtime.Util.PriorityMapping
 Xamarin.Google.Android.DataTransport.Runtime.Util.PriorityMapping.PriorityMapping() -> void
+Xamarin.Google.Android.DataTransport.Runtime.Xamarin.JSpecify.Annotations.INullable
+Xamarin.Google.Android.DataTransport.Runtime.Xamarin.JSpecify.Annotations.NullableAttribute
+Xamarin.Google.Android.DataTransport.Runtime.Xamarin.JSpecify.Annotations.NullableAttribute.NullableAttribute() -> void
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder.Build() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder.SetEvents(Java.Lang.IIterable? p0) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder.SetExtras(byte[]? p0) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder?
@@ -329,6 +323,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Ev
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.GetExtras() -> byte[]?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.GetStatus() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.NextRequestWaitMillis.get -> long
+abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.UpdatedPseudonymousId.get -> string?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.ApplicationContext.get -> Android.Content.Context?
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.BackendName.get -> string!
 abstract Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.MonotonicClock.get -> Xamarin.Google.Android.DataTransport.Runtime.Time.IClock?
@@ -345,6 +340,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetE
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetExperimentIdsEncryptedList(System.Collections.Generic.IList<byte[]!>? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetProductId(Java.Lang.Integer? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetPseudonymousId(string? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
+abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetPseudonymousIdUpdateReceiverClassName(string? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetTransportName(string? p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder.SetUptimeMillis(long p0) -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Builder?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.Code.get -> Java.Lang.Integer?
@@ -355,6 +351,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.GetExperimen
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.GetExperimentIdsEncrypted() -> byte[]?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.ProductId.get -> Java.Lang.Integer?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.PseudonymousId.get -> string?
+abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.PseudonymousIdUpdateReceiverClassName.get -> string?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.TransportName.get -> string?
 abstract Xamarin.Google.Android.DataTransport.Runtime.EventInternal.UptimeMillis.get -> long
 abstract Xamarin.Google.Android.DataTransport.Runtime.Persistence.PersistedEvent.Event.get -> Xamarin.Google.Android.DataTransport.Runtime.EventInternal?
@@ -375,7 +372,7 @@ abstract Xamarin.Google.Android.DataTransport.Runtime.TransportContext.Priority.
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.BuildType = "release" -> string!
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.Debug = false -> bool
 const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.LibraryPackageName = "com.google.android.datatransport.runtime" -> string!
-const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.VersionName = "4.1.0" -> string!
+const Xamarin.Google.Android.DataTransport.Runtime.BuildConfig.VersionName = "4.1.1" -> string!
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.ThresholdClass.get -> nint
 override Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRegistryModule.ThresholdType.get -> System.Type!
@@ -529,7 +526,7 @@ static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Crea
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.InvokeBuilder() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendRequest.Builder?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.FatalError() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.InvalidPayload() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
-static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Ok(long nextRequestWaitMillis) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
+static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Ok(long nextRequestWaitMillis, string? updatedPseudonymousId) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status.FatalError.get -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status.InvalidPayload.get -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status.Ok.get -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Status?
@@ -539,9 +536,9 @@ static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.Sta
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse.TransientError() -> Xamarin.Google.Android.DataTransport.Runtime.Backends.BackendResponse?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.Create(Android.Content.Context? applicationContext, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? wallClock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? monotonicClock) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext.Create(Android.Content.Context? applicationContext, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? wallClock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? monotonicClock, string? backendName) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContext?
-static Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory.Create(JavaX.Inject.IProvider? applicationContextProvider, JavaX.Inject.IProvider? wallClockProvider, JavaX.Inject.IProvider? monotonicClockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? applicationContextProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? wallClockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? monotonicClockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.CreationContextFactory_Factory.NewInstance(Android.Content.Context? applicationContext, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? wallClock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? monotonicClock) -> Java.Lang.Object?
-static Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory.Create(JavaX.Inject.IProvider? applicationContextProvider, JavaX.Inject.IProvider? creationContextFactoryProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? applicationContextProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? creationContextFactoryProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Backends.MetadataBackendRegistry_Factory.NewInstance(Android.Content.Context? applicationContext, Java.Lang.Object? creationContextFactory) -> Java.Lang.Object?
 static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.DoubleCheck.Lazy(Java.Lang.Object? provider) -> Xamarin.Google.Android.DataTransport.Runtime.Dagger.ILazy?
 static Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.DoubleCheck.Provider(Java.Lang.Object? delegate) -> JavaX.Inject.IProvider?
@@ -588,21 +585,21 @@ static Xamarin.Google.Android.DataTransport.Runtime.Logging.Logging.I(string? ta
 static Xamarin.Google.Android.DataTransport.Runtime.Logging.Logging.W(string? tag, string? message, Java.Lang.Object? arg1) -> void
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbNameFactory.Create() -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbNameFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_DbNameFactory.DbName() -> string?
-static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory.Create(JavaX.Inject.IProvider? contextProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory?
+static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? contextProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_PackageNameFactory.PackageName(Android.Content.Context? context) -> string?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_SchemaVersionFactory.Create() -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_SchemaVersionFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_SchemaVersionFactory.SchemaVersion() -> int
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_StoreConfigFactory.Create() -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_StoreConfigFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.EventStoreModule_StoreConfigFactory.StoreConfig() -> Java.Lang.Object?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.PersistedEvent.Create(long id, Xamarin.Google.Android.DataTransport.Runtime.TransportContext? transportContext, Xamarin.Google.Android.DataTransport.Runtime.EventInternal? object) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.PersistedEvent?
-static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory.Create(JavaX.Inject.IProvider? wallClockProvider, JavaX.Inject.IProvider? clockProvider, JavaX.Inject.IProvider? configProvider, JavaX.Inject.IProvider? schemaManagerProvider, JavaX.Inject.IProvider? packageNameProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? wallClockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? clockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? configProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? schemaManagerProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? packageNameProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore_Factory.NewInstance(Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? wallClock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? clock, Java.Lang.Object? config, Java.Lang.Object? schemaManager, JavaX.Inject.IProvider? packageName) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.SQLiteEventStore?
-static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory.Create(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? dbNameProvider, JavaX.Inject.IProvider? schemaVersionProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? contextProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? dbNameProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? schemaVersionProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Persistence.SchemaManager_Factory.NewInstance(Android.Content.Context? context, string? dbName, int schemaVersion) -> Android.Database.Sqlite.SQLiteOpenHelper?
 static Xamarin.Google.Android.DataTransport.Runtime.ProtoEncoderDoNotUse.Encode(Java.Lang.Object? value) -> byte[]?
 static Xamarin.Google.Android.DataTransport.Runtime.ProtoEncoderDoNotUse.Encode(Java.Lang.Object? value, System.IO.Stream? output) -> void
 static Xamarin.Google.Android.DataTransport.Runtime.Retries.Retries.Retry(int maxAttempts, Java.Lang.Object? input, Xamarin.Google.Android.DataTransport.Runtime.Retries.IFunction? function, Xamarin.Google.Android.DataTransport.Runtime.Retries.IRetryStrategy? retryStrategy) -> Java.Lang.Object?
-static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory.Create(JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? backendRegistryProvider, JavaX.Inject.IProvider? workSchedulerProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? guardProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? executorProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? backendRegistryProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? workSchedulerProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? eventStoreProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? guardProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler_Factory.NewInstance(Java.Util.Concurrent.IExecutor? executor, Xamarin.Google.Android.DataTransport.Runtime.Backends.IBackendRegistry? backendRegistry, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.IWorkScheduler? workScheduler, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IEventStore? eventStore, Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard? guard) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.DefaultScheduler?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.ConfigValue.InvokeBuilder() -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.ConfigValue.Builder?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.Flag.DeviceCharging.get -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.Flag?
@@ -612,13 +609,13 @@ static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Sch
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.Flag.Values() -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.Flag![]?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.GetDefault(Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? clock) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.InvokeBuilder() -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig.Builder?
-static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory.Create(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? backendRegistryProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? workSchedulerProvider, JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? guardProvider, JavaX.Inject.IProvider? clockProvider, JavaX.Inject.IProvider? uptimeClockProvider, JavaX.Inject.IProvider? clientHealthMetricsStoreProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? contextProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? backendRegistryProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? eventStoreProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? workSchedulerProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? executorProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? guardProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? clockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? uptimeClockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? clientHealthMetricsStoreProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader_Factory.NewInstance(Android.Content.Context? context, Xamarin.Google.Android.DataTransport.Runtime.Backends.IBackendRegistry? backendRegistry, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IEventStore? eventStore, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.IWorkScheduler? workScheduler, Java.Util.Concurrent.IExecutor? executor, Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard? guard, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? clock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? uptimeClock, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IClientHealthMetricsStore? clientHealthMetricsStore) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader?
-static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory.Create(JavaX.Inject.IProvider? executorProvider, JavaX.Inject.IProvider? storeProvider, JavaX.Inject.IProvider? schedulerProvider, JavaX.Inject.IProvider? guardProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? executorProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? storeProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? schedulerProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? guardProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer_Factory.NewInstance(Java.Util.Concurrent.IExecutor? executor, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IEventStore? store, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.IWorkScheduler? scheduler, Xamarin.Google.Android.DataTransport.Runtime.Synchronization.ISynchronizationGuard? guard) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory.Config(Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? clock) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig?
-static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory.Create(JavaX.Inject.IProvider? clockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory?
-static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory.Create(JavaX.Inject.IProvider? contextProvider, JavaX.Inject.IProvider? eventStoreProvider, JavaX.Inject.IProvider? configProvider, JavaX.Inject.IProvider? clockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory?
+static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? clockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingConfigModule_ConfigFactory?
+static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? contextProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? eventStoreProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? configProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? clockProvider) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Scheduling.SchedulingModule_WorkSchedulerFactory.WorkScheduler(Android.Content.Context? context, Xamarin.Google.Android.DataTransport.Runtime.Persistence.IEventStore? eventStore, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.SchedulerConfig? config, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? clock) -> Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.IWorkScheduler?
 static Xamarin.Google.Android.DataTransport.Runtime.Time.TimeModule_EventClockFactory.Create() -> Xamarin.Google.Android.DataTransport.Runtime.Time.TimeModule_EventClockFactory?
 static Xamarin.Google.Android.DataTransport.Runtime.Time.TimeModule_EventClockFactory.EventClock() -> Xamarin.Google.Android.DataTransport.Runtime.Time.IClock?
@@ -627,7 +624,7 @@ static Xamarin.Google.Android.DataTransport.Runtime.Time.TimeModule_UptimeClockF
 static Xamarin.Google.Android.DataTransport.Runtime.TransportContext.InvokeBuilder() -> Xamarin.Google.Android.DataTransport.Runtime.TransportContext.Builder?
 static Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime.Initialize(Android.Content.Context? applicationContext) -> void
 static Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime.Instance.get -> Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime?
-static Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory.Create(JavaX.Inject.IProvider? eventClockProvider, JavaX.Inject.IProvider? uptimeClockProvider, JavaX.Inject.IProvider? schedulerProvider, JavaX.Inject.IProvider? uploaderProvider, JavaX.Inject.IProvider? initializerProvider) -> Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory?
+static Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory.Create(Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? eventClockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? uptimeClockProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? schedulerProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? uploaderProvider, Xamarin.Google.Android.DataTransport.Runtime.Dagger.Internal.IProvider? initializerProvider) -> Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory?
 static Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime_Factory.NewInstance(Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? eventClock, Xamarin.Google.Android.DataTransport.Runtime.Time.IClock? uptimeClock, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.IScheduler? scheduler, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.Uploader? uploader, Xamarin.Google.Android.DataTransport.Runtime.Scheduling.JobScheduling.WorkInitializer? initializer) -> Xamarin.Google.Android.DataTransport.Runtime.TransportRuntime?
 static Xamarin.Google.Android.DataTransport.Runtime.Util.PriorityMapping.ToInt(Xamarin.Google.Android.DataTransport.Priority! priority) -> int
 static Xamarin.Google.Android.DataTransport.Runtime.Util.PriorityMapping.ValueOf(int value) -> Xamarin.Google.Android.DataTransport.Priority!
