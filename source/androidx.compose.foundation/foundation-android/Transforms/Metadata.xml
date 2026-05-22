@@ -1,5 +1,44 @@
-﻿<metadata>
-    <remove-node path="/api/package" />
+<metadata>
+  <!--
+    Inline-class hash-mangled overloads: Kotlin inline-class receivers get JVM
+    name-mangled with a `-hash` suffix; both overloads collapse to the same C#
+    signature and clash.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='CornerSizeKt']/method[starts-with(@name,'CornerSize-')]" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.lazy.layout']/class[@name='LazyLayoutCacheWindowKt']/method[starts-with(@name,'LazyLayoutCacheWindow-')]" />
 
+  <!--
+    LazyLayoutPinnedItemList: Kotlin MutableList that re-declares java.util.List
+    operations; the full set of MutableList method signatures clashes with
+    java.util.List on the auto-generated Invoker (CS0535, CS0738).
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.foundation.lazy.layout']/class[@name='LazyLayoutPinnedItemList']" />
 
+  <!--
+    KeyMapping: interface returns java.lang.Enum&lt;KeyCommand&gt; which doesn't
+    project; drop it and its helpers.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.foundation.text']/interface[@name='KeyMapping']" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.text']/class[@name='KeyMappingKt']" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.text']/class[@name='KeyMapping_androidKt']" />
+
+  <!--
+    StyleState (and MutableStyleState peer): abstract class whose abstract
+    bool getters (IsChecked/IsPressed/IsSelected/IsHovered/IsEnabled/IsFocused)
+    are not implemented by the auto-generated MutableStyleState subclass
+    (CS0534). New in 1.11.x.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.foundation.style']/class[@name='StyleState']" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.style']/class[@name='MutableStyleState']" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.style']/class[@name='StyleStateKey']" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.style']/class[@name='StyleStateKt']" />
+
+  <!--
+    SelectionGestures_androidKt references AndroidX.Compose.Foundation.Text.Selection.ISelectionAdjustment
+    which is not surfaced by the binding generator (the underlying
+    SelectionAdjustment interface is not emitted as an interface — only its
+    *Kt companion). Drop the Android-specific helper that references the
+    missing type. New in 1.11.x.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.foundation.text.selection']/class[@name='SelectionGestures_androidKt']" />
 </metadata>

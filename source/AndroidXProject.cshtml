@@ -1,6 +1,21 @@
 @model AndroidBinderator.BindingProjectModel
 @using System
+@using System.Collections.Generic
 @using System.Linq
+@{
+  // Compose packages that ship real C# bindings (do not append the "C# bindings are not provided" note).
+  var ComposePackagesWithBindings = new HashSet<string>(StringComparer.Ordinal)
+  {
+    "Xamarin.AndroidX.Compose.Runtime",
+    "Xamarin.AndroidX.Compose.Runtime.Android",
+    "Xamarin.AndroidX.Compose.UI",
+    "Xamarin.AndroidX.Compose.UI.Android",
+    "Xamarin.AndroidX.Compose.Foundation",
+    "Xamarin.AndroidX.Compose.Foundation.Android",
+    "Xamarin.AndroidX.Compose.Foundation.Layout",
+    "Xamarin.AndroidX.Compose.Foundation.Layout.Android",
+  };
+}
 <Project Sdk="Microsoft.NET.Sdk">
 
   <!-- Build properties -->
@@ -37,7 +52,7 @@
     <PackageId>@(Model.NuGetPackageId)</PackageId>
     <Title>.NET for Android and MAUI bindings for the Android Java library '@(Model.MavenGroupId):@(Model.Name)'.</Title>
     <Description>
-      $(Title)@(Model.NuGetPackageId.StartsWith("Xamarin.AndroidX.Compose") && Model.NuGetPackageId != "Xamarin.AndroidX.Compose.Runtime" && Model.NuGetPackageId != "Xamarin.AndroidX.Compose.Runtime.Android" ? " Note this package only adds the Java library to the application. C# bindings are not provided." : string.Empty)
+      $(Title)@(Model.NuGetPackageId.StartsWith("Xamarin.AndroidX.Compose") && !ComposePackagesWithBindings.Contains(Model.NuGetPackageId) ? " Note this package only adds the Java library to the application. C# bindings are not provided." : string.Empty)
 
 @(!string.IsNullOrWhiteSpace(Model.MavenDescription) ? $"Library description: {Model.MavenDescription}" : string.Empty)
     </Description>
