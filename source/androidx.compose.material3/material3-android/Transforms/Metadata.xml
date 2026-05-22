@@ -1,0 +1,11 @@
+<metadata>
+  <!--
+    MaterialTheme.getMotionScheme returns androidx.compose.material3.MotionScheme,
+    a Kotlin-internal interface (visibility="" in api.xml). The binding generator
+    skips emitting the interface but still emits this getter referencing it,
+    producing CS0234. The method was never emitted on main either (the parameter
+    type androidx.compose.runtime.Composer was unresolvable when Compose.Runtime
+    shipped as an empty managed facade), so removing it keeps API surface unchanged.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.material3']/class[@name='MaterialTheme']/method[@name='getMotionScheme']" />
+</metadata>
