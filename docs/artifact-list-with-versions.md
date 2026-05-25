@@ -670,7 +670,7 @@
 | 663|org.jetbrains.kotlinx:kotlinx-coroutines-play-services                |1.11.0              |Xamarin.KotlinX.Coroutines.Play.Services                              |1.11.0              |
 | 664|org.jetbrains.kotlinx:kotlinx-coroutines-reactive                     |1.11.0              |Xamarin.KotlinX.Coroutines.Reactive                                   |1.11.0              |
 | 665|org.jetbrains.kotlinx:kotlinx-coroutines-rx2                          |1.11.0              |Xamarin.KotlinX.Coroutines.Rx2                                        |1.11.0              |
-| 666|org.jetbrains.kotlinx:kotlinx-coroutines-rx3                          |1.10.2              |Xamarin.KotlinX.Coroutines.Rx3                                        |1.10.2.3            |
+| 666|org.jetbrains.kotlinx:kotlinx-coroutines-rx3                          |1.11.0              |Xamarin.KotlinX.Coroutines.Rx3                                        |1.11.0              |
 | 667|org.jetbrains.kotlinx:kotlinx-serialization-core                      |1.11.0              |Xamarin.KotlinX.Serialization.Core                                    |1.11.0              |
 | 668|org.jetbrains.kotlinx:kotlinx-serialization-core-jvm                  |1.11.0              |Xamarin.KotlinX.Serialization.Core.Jvm                                |1.11.0              |
 | 669|org.jetbrains.kotlinx:kotlinx-serialization-json                      |1.11.0              |Xamarin.KotlinX.Serialization.Json                                    |1.11.0              |
@@ -678,7 +678,7 @@
 | 671|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.11.0              |Xamarin.KotlinX.Serialization.Protobuf                                |1.11.0              |
 | 672|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.11.0              |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.11.0              |
 | 673|org.jspecify:jspecify                                                 |1.0.0               |Xamarin.JSpecify                                                      |1.0.0.6             |
-| 674|org.ow2.asm:asm                                                       |9.9.1               |Xamarin.OW2.ASM                                                       |9.9.1.2             |
+| 674|org.ow2.asm:asm                                                       |9.10.1              |Xamarin.OW2.ASM                                                       |9.10.1              |
 | 675|org.reactivestreams:reactive-streams                                  |1.0.4               |Xamarin.Android.ReactiveStreams                                       |1.0.4.23            |
 | 676|org.tensorflow:tensorflow-android                                     |1.13.1              |Xamarin.TensorFlow.Android                                            |1.13.1.17           |
 | 677|org.tensorflow:tensorflow-lite                                        |2.16.1              |Xamarin.TensorFlow.Lite                                               |2.16.1.9            |

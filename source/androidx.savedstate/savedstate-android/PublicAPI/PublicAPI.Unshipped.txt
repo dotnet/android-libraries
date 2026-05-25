@@ -25,6 +25,7 @@ AndroidX.SavedState.SavedStateRegistryController.PerformAttach() -> void
 AndroidX.SavedState.SavedStateRegistryController.PerformRestore(Android.OS.Bundle? savedState) -> void
 AndroidX.SavedState.SavedStateRegistryController.PerformSave(Android.OS.Bundle! outBundle) -> void
 AndroidX.SavedState.SavedStateRegistryController.SavedStateRegistry.get -> AndroidX.SavedState.SavedStateRegistry!
+AndroidX.SavedState.SavedStateRegistryOwnerFactory
 AndroidX.SavedState.SavedStateWriter
 AndroidX.SavedState.SavedStateWriterKt
 AndroidX.SavedState.Serialization.ClassDiscriminatorMode
@@ -50,7 +51,6 @@ AndroidX.SavedState.Serialization.SavedStateDecoder_androidKt
 AndroidX.SavedState.Serialization.SavedStateEncoderKt
 AndroidX.SavedState.Serialization.SavedStateEncoder_androidKt
 AndroidX.SavedState.Serialization.SavedStateRegistryOwnerDelegateKt
-AndroidX.SavedState.Serialization.Serializers.BuiltInSerializerKt
 AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer
 AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer.Descriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer.Deserialize(KotlinX.Serialization.Encoding.IDecoder! decoder) -> Java.Lang.Object!
@@ -73,6 +73,8 @@ AndroidX.SavedState.Serialization.Serializers.SavedStateSerializer
 AndroidX.SavedState.Serialization.Serializers.SavedStateSerializer.Descriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 AndroidX.SavedState.Serialization.Serializers.SavedStateSerializer.Deserialize(KotlinX.Serialization.Encoding.IDecoder! decoder) -> Java.Lang.Object!
 AndroidX.SavedState.Serialization.Serializers.SavedStateSerializer.Serialize(KotlinX.Serialization.Encoding.IEncoder! encoder, Java.Lang.Object! value) -> void
+AndroidX.SavedState.Serialization.Serializers.SavedStateSerializerKt
+AndroidX.SavedState.Serialization.Serializers.SavedStateSerializerUtilsKt
 AndroidX.SavedState.Serialization.Serializers.SizeFSerializer
 AndroidX.SavedState.Serialization.Serializers.SizeFSerializer.Descriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 AndroidX.SavedState.Serialization.Serializers.SizeFSerializer.Deserialize(KotlinX.Serialization.Encoding.IDecoder! decoder) -> Java.Lang.Object!
@@ -99,6 +101,7 @@ override AndroidX.SavedState.SavedStateReaderKt.JniPeerMembers.get -> Java.Inter
 override AndroidX.SavedState.SavedStateRegistry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.SavedStateRegistryController.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.SavedStateRegistryController.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.SavedState.SavedStateRegistryOwnerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.SavedStateWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.SavedStateWriterKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.ClassDiscriminatorMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -115,7 +118,6 @@ override AndroidX.SavedState.Serialization.SavedStateDecoder_androidKt.JniPeerMe
 override AndroidX.SavedState.Serialization.SavedStateEncoderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.SavedStateEncoder_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.SavedStateRegistryOwnerDelegateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.SavedState.Serialization.Serializers.BuiltInSerializerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer.ThresholdClass.get -> nint
 override AndroidX.SavedState.Serialization.Serializers.JavaSerializableSerializer.ThresholdType.get -> System.Type!
@@ -125,27 +127,37 @@ override AndroidX.SavedState.Serialization.Serializers.ParcelableSerializer.JniP
 override AndroidX.SavedState.Serialization.Serializers.ParcelableSerializer.ThresholdClass.get -> nint
 override AndroidX.SavedState.Serialization.Serializers.ParcelableSerializer.ThresholdType.get -> System.Type!
 override AndroidX.SavedState.Serialization.Serializers.SavedStateSerializer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.SavedState.Serialization.Serializers.SavedStateSerializerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.SavedState.Serialization.Serializers.SavedStateSerializerUtilsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.Serializers.SizeFSerializer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.Serializers.SizeSerializer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.Serialization.Serializers.SparseArraySerializer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.ViewKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.SavedState.ViewTreeSavedStateRegistryOwner.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.SavedState.Internal.CanonicalName_jvmKt.GetCanonicalName(Kotlin.Reflect.IKClass? obj) -> string?
+static AndroidX.SavedState.SavedStateKt.GetKotlinSerializable(Android.OS.Bundle! _this_getKotlinSerializable_u2dFwvpL2Y, KotlinX.Serialization.IKSerializer! deserializer, string! key, AndroidX.SavedState.Serialization.SavedStateConfiguration! configuration) -> Java.Lang.Object?
+static AndroidX.SavedState.SavedStateKt.PutKotlinSerializable(Android.OS.Bundle! _this_putKotlinSerializable_u2dxOxc9nE, KotlinX.Serialization.IKSerializer! serializer, string! key, Java.Lang.Object? value, AndroidX.SavedState.Serialization.SavedStateConfiguration! configuration) -> void
 static AndroidX.SavedState.SavedStateKt.Read(Android.OS.Bundle! _this_read, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.SavedState.SavedStateKt.SavedState(Android.OS.Bundle! initialState, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.OS.Bundle!
 static AndroidX.SavedState.SavedStateKt.SavedState(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>! initialState, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.OS.Bundle!
 static AndroidX.SavedState.SavedStateKt.Write(Android.OS.Bundle! _this_write, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.SavedState.SavedStateReaderKt.KeyOrValueNotFoundError(string! key) -> Java.Lang.Void!
 static AndroidX.SavedState.SavedStateRegistryController.Create(AndroidX.SavedState.ISavedStateRegistryOwner! owner) -> AndroidX.SavedState.SavedStateRegistryController!
+static AndroidX.SavedState.SavedStateRegistryOwnerFactory.Create(AndroidX.SavedState.SavedStateRegistry! savedStateRegistry, AndroidX.Lifecycle.Lifecycle! lifecycle) -> AndroidX.SavedState.ISavedStateRegistryOwner!
 static AndroidX.SavedState.SavedStateWriterKt.ToArrayListUnsafe(System.Collections.Generic.ICollection<object!>! _this_toArrayListUnsafe) -> System.Collections.IList!
 static AndroidX.SavedState.Serialization.ClassDiscriminatorMode.Instance.get -> AndroidX.SavedState.Serialization.ClassDiscriminatorMode!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.BooleanArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
+static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.BooleanListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.CharArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
+static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.CharListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.DoubleArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
+static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.DoubleListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.FloatArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
+static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.FloatListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.IntArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.IntListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.LongArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
+static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.LongListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.StringArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtilsKt.StringListDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!
 static AndroidX.SavedState.Serialization.SavedStateCodecUtils_androidKt.CharSequenceArrayDescriptor.get -> KotlinX.Serialization.Descriptors.ISerialDescriptor!

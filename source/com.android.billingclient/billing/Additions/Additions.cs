@@ -19,12 +19,12 @@ namespace Android.BillingClient.Api
         public IList<PurchaseHistoryRecord> PurchaseHistoryRecords { get; set; }
     }
 
-    [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
+    [Obsolete("SkuDetails was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync(QueryProductDetailsParams) instead.")]
     public class QuerySkuDetailsResult
     {
         public BillingResult Result { get; set; }
 
-        public IList<SkuDetails> SkuDetails { get; set; }
+        public IList<object> SkuDetails { get; set; }
     }
 
     public partial class QueryProductDetailsResult
@@ -103,7 +103,7 @@ namespace Android.BillingClient.Api
         }
 
         [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
+        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(object queryPurchaseHistoryParams)
         {
             // Migration: QueryPurchaseHistory was replaced by QueryPurchases
             // However, we cannot provide automatic migration as the parameters and return types are different
@@ -113,7 +113,7 @@ namespace Android.BillingClient.Api
         const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead. See: https://developer.android.com/google/play/billing/migrate";
 
         [Obsolete(QuerySkuDetailsNotSupported, error: true)]
-        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
+        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(object skuDetailsParams)
         {
             // Migration: QuerySkuDetails was replaced by QueryProductDetails
             // However, we cannot provide automatic migration as the parameters and return types are different
@@ -241,12 +241,12 @@ namespace Android.BillingClient.Api
             => PurchasesUpdatedHandler?.Invoke(result, purchases);
     }
 
-    [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
-    internal class InternalSkuDetailsResponseListener : Java.Lang.Object, ISkuDetailsResponseListener
+    [Obsolete("SkuDetails was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead.")]
+    internal class InternalSkuDetailsResponseListener : Java.Lang.Object
     {
-        public Action<BillingResult, IList<SkuDetails>> SkuDetailsResponseHandler { get; set; }
+        public Action<BillingResult, IList<object>> SkuDetailsResponseHandler { get; set; }
 
-        public void OnSkuDetailsResponse(BillingResult result, IList<SkuDetails> skuDetails)
+        public void OnSkuDetailsResponse(BillingResult result, IList<object> skuDetails)
             => SkuDetailsResponseHandler?.Invoke(result, skuDetails);
     }
 
