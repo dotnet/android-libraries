@@ -18,13 +18,6 @@ steps:
       version: $(dotnetVersion)
     condition: ne('$(dotnetVersion)', '')
 
-  - task: UseDotNet@2
-    displayName: 'Use dotnet $(dotnetNextVersion)'
-    inputs:
-      version: $(dotnetNextVersion)
-      performMultiLevelLookup: true
-    condition: ne('$(dotnetNextVersion)', '')
-
   - script: dotnet --info
     displayName: Display dotnet info
 
