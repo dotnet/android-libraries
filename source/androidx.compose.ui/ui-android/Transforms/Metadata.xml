@@ -1,28 +1,94 @@
-﻿<metadata>
-    <remove-node path="/api/package" />
+<metadata>
+  <!--
+    Force C# namespace casing to "UI" rather than the default title-cased "Ui".
+    Once these NuGets ship real types this is a permanent ABI decision, so we
+    apply it everywhere a `…ui…` package appears in androidx.compose.ui:ui-android.
+    Mirrors src/ComposeNet.Bindings.UI/Transforms/Metadata.xml in
+    jonathanpeppers/compose-net@d1c6a5e.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui']" name="managedName">AndroidX.Compose.UI</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.autofill']" name="managedName">AndroidX.Compose.UI.Autofill</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.draw']" name="managedName">AndroidX.Compose.UI.Draw</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.focus']" name="managedName">AndroidX.Compose.UI.Focus</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics']" name="managedName">AndroidX.Compose.UI.Graphics</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.vector']" name="managedName">AndroidX.Compose.UI.Graphics.Vector</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.hapticfeedback']" name="managedName">AndroidX.Compose.UI.HapticFeedback</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.input']" name="managedName">AndroidX.Compose.UI.Input</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.input.key']" name="managedName">AndroidX.Compose.UI.Input.Key</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.input.nestedscroll']" name="managedName">AndroidX.Compose.UI.Input.NestedScroll</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.input.pointer']" name="managedName">AndroidX.Compose.UI.Input.Pointer</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.input.rotary']" name="managedName">AndroidX.Compose.UI.Input.Rotary</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.layout']" name="managedName">AndroidX.Compose.UI.Layout</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.modifier']" name="managedName">AndroidX.Compose.UI.Modifier</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.node']" name="managedName">AndroidX.Compose.UI.Node</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.platform']" name="managedName">AndroidX.Compose.UI.Platform</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.platform.accessibility']" name="managedName">AndroidX.Compose.UI.Platform.Accessibility</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.res']" name="managedName">AndroidX.Compose.UI.Res</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.semantics']" name="managedName">AndroidX.Compose.UI.Semantics</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.state']" name="managedName">AndroidX.Compose.UI.State</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text']" name="managedName">AndroidX.Compose.UI.Text</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.input']" name="managedName">AndroidX.Compose.UI.Text.Input</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.style']" name="managedName">AndroidX.Compose.UI.Text.Style</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']" name="managedName">AndroidX.Compose.UI.Unit</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.util']" name="managedName">AndroidX.Compose.UI.Util</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.viewinterop']" name="managedName">AndroidX.Compose.UI.ViewInterop</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.window']" name="managedName">AndroidX.Compose.UI.Window</attr>
 
-    <!--
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.layout']/class[@name='SubcomposeSlotReusePolicy.SlotIdsSet']/implements"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.platform']/class[@name='AndroidUiFrameClock']/implements"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.node']/class[@name='ModifierNodeElement']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.layout']/class[@name='ScaleFactorKt']"        
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.input.pointer']/class[@name='RequestDisallowInterceptTouchEvent']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.modifier']/interface[@name='ModifierLocalModifierNode']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui']/class[@name='Modifier.Companion']"
-        />
-    -->
-    
+  <!--
+    AndroidUiFrameClock / MotionDurationScale.Key / InfiniteAnimationPolicy.Key:
+    same problem as MonotonicFrameClock.Key in runtime. Nested companion Key
+    clashes with inherited CoroutineContext.Element.key property (CS0119 / CS0572).
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.platform']/class[@name='AndroidUiFrameClock']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='MotionDurationScale.Key']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui']/interface[@name='MotionDurationScale']/field[@name='Key']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.platform']/class[@name='InfiniteAnimationPolicy.Key']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.platform']/interface[@name='InfiniteAnimationPolicy']/field[@name='Key']" />
+
+  <!--
+    Modifier.Companion: Kotlin companion conflicts with the nested Modifier
+    "Companion" class the generator emits in the same C# namespace as the
+    interface.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='Modifier.Companion']" />
+
+  <!--
+    Modifier.Node: nested class inside Modifier creates CS0542
+    (member-same-as-enclosing).
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='Modifier.Node']" />
+
+  <!--
+    Inline-class hash-mangled overloads: Kotlin inline-class receivers get JVM
+    name-mangled with a `-hash` suffix; both overloads collapse to the same C#
+    signature and clash.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='FrameRateKt']/method[@name='preferredFrameRate']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.layout']/class[@name='ScaleFactorKt']/method[starts-with(@name,'times-')]" />
+
+  <!--
+    ModifierLocalReadScope / ModifierLocalModifierNode: Kotlin typealias that
+    doesn't project as an interface.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.modifier']/interface[@name='ModifierLocalModifierNode']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.modifier']/interface[@name='ModifierLocalReadScope']" />
+
+  <!--
+    SubcomposeSlotReusePolicy / .SlotIdsSet: Kotlin MutableSet projected into
+    Java Collection breaks the signature contract on the auto-generated Invoker.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.layout']/interface[@name='SubcomposeSlotReusePolicy']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.layout']/interface[@name='SubcomposeSlotReusePolicy.SlotIdsSet']" />
+
+  <!--
+    RequestDisallowInterceptTouchEvent: Kotlin Function1-as-Java-class
+    projection where the interface method isn't surfaced.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.input.pointer']/class[@name='RequestDisallowInterceptTouchEvent']" />
+
+  <!--
+    ModifierNodeElement: abstract class whose auto-generated Invoker can't
+    satisfy abstract any/all(Function1).
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.node']/class[@name='ModifierNodeElement']" />
 </metadata>
