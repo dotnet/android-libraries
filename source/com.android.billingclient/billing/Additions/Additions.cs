@@ -11,22 +11,6 @@ namespace Android.BillingClient.Api
         public string PurchaseToken { get; set; }
     }
 
-    [Obsolete("QueryPurchaseHistory was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead.")]
-    public class QueryPurchaseHistoryResult
-    {
-        public BillingResult Result { get; set; }
-
-        public IList<PurchaseHistoryRecord> PurchaseHistoryRecords { get; set; }
-    }
-
-    [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
-    public class QuerySkuDetailsResult
-    {
-        public BillingResult Result { get; set; }
-
-        public IList<SkuDetails> SkuDetails { get; set; }
-    }
-
     public partial class QueryProductDetailsResult
     {
         public QueryProductDetailsResult() { }
@@ -90,34 +74,6 @@ namespace Android.BillingClient.Api
             Consume(consumeParams, listener);
 
             return tcs.Task;
-        }
-
-        const string QueryPurchaseHistoryNotSupported = "QueryPurchaseHistory method was removed in Billing Client v8.0.0. Use QueryPurchasesAsync instead. See: https://developer.android.com/google/play/billing/migrate";
-
-        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(string skuType)
-        {
-            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
-            // However, we cannot provide automatic migration as the parameters and return types are different
-            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
-        }
-
-        [Obsolete(QueryPurchaseHistoryNotSupported, error: true)]
-        public Task<QueryPurchaseHistoryResult> QueryPurchaseHistoryAsync(QueryPurchaseHistoryParams queryPurchaseHistoryParams)
-        {
-            // Migration: QueryPurchaseHistory was replaced by QueryPurchases
-            // However, we cannot provide automatic migration as the parameters and return types are different
-            throw new NotSupportedException(QueryPurchaseHistoryNotSupported);
-        }
-
-        const string QuerySkuDetailsNotSupported = "QuerySkuDetails method was removed in Billing Client v8.0.0. Use QueryProductDetailsAsync instead. See: https://developer.android.com/google/play/billing/migrate";
-
-        [Obsolete(QuerySkuDetailsNotSupported, error: true)]
-        public Task<QuerySkuDetailsResult> QuerySkuDetailsAsync(SkuDetailsParams skuDetailsParams)
-        {
-            // Migration: QuerySkuDetails was replaced by QueryProductDetails
-            // However, we cannot provide automatic migration as the parameters and return types are different
-            throw new NotSupportedException(QuerySkuDetailsNotSupported);
         }
 
         public Task<QueryProductDetailsResult> QueryProductDetailsAsync(QueryProductDetailsParams productDetailsParams)
@@ -219,13 +175,6 @@ namespace Android.BillingClient.Api
             => ConsumeResponseHandler?.Invoke(result, str);
     }
 
-    internal class InternalPriceChangeConfirmationListener : Java.Lang.Object //, IPriceChangeConfirmationListener
-    {
-        public Action<BillingResult> PriceChangeConfirmationHandler { get; set; }
-        public void OnPriceChangeConfirmationResult(BillingResult result)
-            => PriceChangeConfirmationHandler?.Invoke(result);
-    }
-
     internal class InternalPurchaseHistoryResponseListener : Java.Lang.Object, IPurchaseHistoryResponseListener
     {
         public Action<BillingResult, IList<PurchaseHistoryRecord>> PurchaseHistoryResponseHandler { get; set; }
@@ -239,15 +188,6 @@ namespace Android.BillingClient.Api
         public Action<BillingResult, IList<Purchase>> PurchasesUpdatedHandler { get; set; }
         public void OnPurchasesUpdated(BillingResult result, IList<Purchase> purchases)
             => PurchasesUpdatedHandler?.Invoke(result, purchases);
-    }
-
-    [Obsolete("Use QueryProductDetailsAsync(QueryProductDetailsParams) instead")]
-    internal class InternalSkuDetailsResponseListener : Java.Lang.Object, ISkuDetailsResponseListener
-    {
-        public Action<BillingResult, IList<SkuDetails>> SkuDetailsResponseHandler { get; set; }
-
-        public void OnSkuDetailsResponse(BillingResult result, IList<SkuDetails> skuDetails)
-            => SkuDetailsResponseHandler?.Invoke(result, skuDetails);
     }
 
     internal class InternalProductDetailsResponseListener : Java.Lang.Object, IProductDetailsResponseListener
