@@ -15,6 +15,40 @@ AndroidX.Activity.BackEventCompat.ToBackEvent() -> Android.Window.BackEvent!
 AndroidX.Activity.BackEventCompat.ToNavigationEvent() -> AndroidX.NavigationEvent.NavigationEvent!
 AndroidX.Activity.BackEventCompat.TouchX.get -> float
 AndroidX.Activity.BackEventCompat.TouchY.get -> float
+AndroidX.Activity.ComponentActivity
+AndroidX.Activity.ComponentActivity.ActivityResultRegistry.get -> AndroidX.Activity.Result.ActivityResultRegistry!
+AndroidX.Activity.ComponentActivity.AddOnConfigurationChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnContextAvailableListener(AndroidX.Activity.ContextAware.IOnContextAvailableListener! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnMultiWindowModeChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnNewIntentListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnPictureInPictureModeChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnPictureInPictureUiStateChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnTrimMemoryListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.AddOnUserLeaveHintListener(Java.Lang.IRunnable! listener) -> void
+AndroidX.Activity.ComponentActivity.ComponentActivity() -> void
+AndroidX.Activity.ComponentActivity.ComponentActivity(int contentLayoutId) -> void
+AndroidX.Activity.ComponentActivity.ComponentActivity(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Activity.ComponentActivity.ContextAvailable -> System.EventHandler<AndroidX.Activity.ContextAware.ContextAvailableEventArgs!>!
+AndroidX.Activity.ComponentActivity.EnterPictureInPictureMode(AndroidX.Core.App.PictureInPictureParamsCompat! params) -> void
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances.Custom.get -> Java.Lang.Object?
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances.Custom.set -> void
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances.NonConfigurationInstances() -> void
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances.ViewModelStore.get -> AndroidX.Lifecycle.ViewModelStore?
+AndroidX.Activity.ComponentActivity.NonConfigurationInstances.ViewModelStore.set -> void
+AndroidX.Activity.ComponentActivity.OnBackPressedDispatcher.get -> AndroidX.Activity.OnBackPressedDispatcher!
+AndroidX.Activity.ComponentActivity.RegisterForActivityResult(AndroidX.Activity.Result.Contract.ActivityResultContract! contract, AndroidX.Activity.Result.ActivityResultRegistry! registry, AndroidX.Activity.Result.IActivityResultCallback! callback) -> AndroidX.Activity.Result.ActivityResultLauncher!
+AndroidX.Activity.ComponentActivity.RegisterForActivityResult(AndroidX.Activity.Result.Contract.ActivityResultContract! contract, AndroidX.Activity.Result.IActivityResultCallback! callback) -> AndroidX.Activity.Result.ActivityResultLauncher!
+AndroidX.Activity.ComponentActivity.RemoveOnConfigurationChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnContextAvailableListener(AndroidX.Activity.ContextAware.IOnContextAvailableListener! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnMultiWindowModeChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnNewIntentListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnPictureInPictureModeChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnPictureInPictureUiStateChangedListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnTrimMemoryListener(AndroidX.Core.Util.IConsumer! listener) -> void
+AndroidX.Activity.ComponentActivity.RemoveOnUserLeaveHintListener(Java.Lang.IRunnable! listener) -> void
+AndroidX.Activity.ComponentActivity.SavedStateRegistry.get -> AndroidX.SavedState.SavedStateRegistry!
+AndroidX.Activity.ComponentActivity.SetPictureInPictureParams(AndroidX.Core.App.PictureInPictureParamsCompat! params) -> void
 AndroidX.Activity.ComponentDialog
 AndroidX.Activity.ComponentDialog.ComponentDialog(Android.Content.Context! context) -> void
 AndroidX.Activity.ComponentDialog.ComponentDialog(Android.Content.Context! context, int themeResId) -> void
@@ -272,6 +306,10 @@ override AndroidX.Activity.ActivityFlags.JniPeerMembers.get -> Java.Interop.JniP
 override AndroidX.Activity.ActivityViewModelLazyKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.BackEventCompat.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.BackEventCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.ComponentActivity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.ComponentActivity.NonConfigurationInstances.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Activity.ComponentActivity.ThresholdClass.get -> nint
+override AndroidX.Activity.ComponentActivity.ThresholdType.get -> System.Type!
 override AndroidX.Activity.ComponentDialog.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.ComponentDialog.ThresholdClass.get -> nint
 override AndroidX.Activity.ComponentDialog.ThresholdType.get -> System.Type!
@@ -393,6 +431,7 @@ override AndroidX.Activity.SystemBarStyle.Companion.JniPeerMembers.get -> Java.I
 override AndroidX.Activity.SystemBarStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.ViewTreeFullyDrawnReporterOwner.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Activity.ViewTreeOnBackPressedDispatcherOwner.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override sealed AndroidX.Activity.ComponentActivity.OnRetainNonConfigurationInstance() -> Java.Lang.Object?
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.CaptureVideo.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object!
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.CreateDocument.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object?
 override sealed AndroidX.Activity.Result.Contract.ActivityResultContracts.GetContent.ParseResult(int resultCode, Android.Content.Intent? intent) -> Java.Lang.Object?
@@ -411,6 +450,9 @@ static AndroidX.Activity.ActivityFlags.IsOnBackPressedLifecycleOrderMaintained.s
 static AndroidX.Activity.ContextAware.ContextAwareKt.WithContextAvailable(AndroidX.Activity.ContextAware.IContextAware! obj, Kotlin.Jvm.Functions.IFunction1! onContextAvailable, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Activity.EdgeToEdge.DefaultDarkScrim.get -> int
 static AndroidX.Activity.EdgeToEdge.DefaultLightScrim.get -> int
+static AndroidX.Activity.EdgeToEdge.Enable(AndroidX.Activity.ComponentActivity! obj) -> void
+static AndroidX.Activity.EdgeToEdge.Enable(AndroidX.Activity.ComponentActivity! obj, AndroidX.Activity.SystemBarStyle! statusBarStyle) -> void
+static AndroidX.Activity.EdgeToEdge.Enable(AndroidX.Activity.ComponentActivity! obj, AndroidX.Activity.SystemBarStyle! statusBarStyle, AndroidX.Activity.SystemBarStyle! navigationBarStyle) -> void
 static AndroidX.Activity.FullyDrawnReporterKt.ReportWhenComplete(AndroidX.Activity.FullyDrawnReporter! p0, Kotlin.Jvm.Functions.IFunction1! reporter, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Activity.OnBackPressedDispatcherKt.AddCallback(AndroidX.Activity.OnBackPressedDispatcher! obj, AndroidX.Lifecycle.ILifecycleOwner? owner, bool enabled, Kotlin.Jvm.Functions.IFunction1! onBackPressed) -> AndroidX.Activity.OnBackPressedCallback!
 static AndroidX.Activity.PipHintTrackerKt.TrackPipAnimationHintView(Android.App.Activity! obj, Android.Views.View! view, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
@@ -442,6 +484,20 @@ static AndroidX.Activity.ViewTreeFullyDrawnReporterOwner.Get(Android.Views.View!
 static AndroidX.Activity.ViewTreeFullyDrawnReporterOwner.Set(Android.Views.View! obj, AndroidX.Activity.IFullyDrawnReporterOwner! fullyDrawnReporterOwner) -> void
 static AndroidX.Activity.ViewTreeOnBackPressedDispatcherOwner.Get(Android.Views.View! obj) -> AndroidX.Activity.IOnBackPressedDispatcherOwner?
 static AndroidX.Activity.ViewTreeOnBackPressedDispatcherOwner.Set(Android.Views.View! obj, AndroidX.Activity.IOnBackPressedDispatcherOwner! onBackPressedDispatcherOwner) -> void
+virtual AndroidX.Activity.ComponentActivity.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider) -> void
+virtual AndroidX.Activity.ComponentActivity.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider, AndroidX.Lifecycle.ILifecycleOwner! owner) -> void
+virtual AndroidX.Activity.ComponentActivity.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider, AndroidX.Lifecycle.ILifecycleOwner! owner, AndroidX.Lifecycle.Lifecycle.State! state) -> void
+virtual AndroidX.Activity.ComponentActivity.DefaultViewModelCreationExtras.get -> AndroidX.Lifecycle.ViewModels.CreationExtras!
+virtual AndroidX.Activity.ComponentActivity.DefaultViewModelProviderFactory.get -> AndroidX.Lifecycle.ViewModelProvider.IFactory!
+virtual AndroidX.Activity.ComponentActivity.FullyDrawnReporter.get -> AndroidX.Activity.FullyDrawnReporter!
+virtual AndroidX.Activity.ComponentActivity.InitializeViewTreeOwners() -> void
+virtual AndroidX.Activity.ComponentActivity.InvalidateMenu() -> void
+virtual AndroidX.Activity.ComponentActivity.LastCustomNonConfigurationInstance.get -> Java.Lang.Object?
+virtual AndroidX.Activity.ComponentActivity.NavigationEventDispatcher.get -> AndroidX.NavigationEvent.NavigationEventDispatcher!
+virtual AndroidX.Activity.ComponentActivity.OnRetainCustomNonConfigurationInstance() -> Java.Lang.Object?
+virtual AndroidX.Activity.ComponentActivity.PeekAvailableContext() -> Android.Content.Context?
+virtual AndroidX.Activity.ComponentActivity.RemoveMenuProvider(AndroidX.Core.View.IMenuProvider! provider) -> void
+virtual AndroidX.Activity.ComponentActivity.ViewModelStore.get -> AndroidX.Lifecycle.ViewModelStore!
 virtual AndroidX.Activity.ComponentDialog.GetOnBackPressedDispatcher() -> AndroidX.Activity.OnBackPressedDispatcher!
 virtual AndroidX.Activity.ComponentDialog.InitializeViewTreeOwners() -> void
 virtual AndroidX.Activity.ComponentDialog.Lifecycle.get -> AndroidX.Lifecycle.Lifecycle!
