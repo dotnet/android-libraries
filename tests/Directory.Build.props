@@ -4,5 +4,8 @@
   <PropertyGroup>
     <!-- Default TFM's we build for -->
     <_DefaultNetTargetFramework>net9.0</_DefaultNetTargetFramework>
+    <!-- Allow tests to run on newer runtimes (e.g. .NET 10) when the targeted
+         runtime isn't installed on the build agent. -->
+    <RollForward>Major</RollForward>
   </PropertyGroup>
 </Project>
