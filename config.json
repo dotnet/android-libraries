@@ -2701,10 +2701,12 @@
       {
         "groupId": "com.google.android.gms",
         "artifactId": "play-services-ads-lite",
-        "version": "25.0.0",
-        "nugetVersion": "125.0.0",
+        "version": "24.0.0",
+        "nugetVersion": "124.0.0.5",
         "nugetId": "Xamarin.GooglePlayServices.Ads.Lite",
-        "comments": "Upstream 'com.google.android.gms:play-services-ads-lite' is an empty stub from 24.3.0 onward (0 classes); the implementation moved to 'play-services-ads-api'. This binding therefore contains no API and only depends on Xamarin.GooglePlayServices.Ads.Api. Consumers needing the Ads API should reference Xamarin.GooglePlayServices.Ads or Xamarin.GooglePlayServices.Ads.Api.",
+        "frozen": true,
+        "comments": "Intentionally frozen at 24.0.0. Starting with upstream 24.3.0, 'com.google.android.gms:play-services-ads-lite' became an empty stub (no classes) that only depends on 'com.google.android.gms:play-services-ads-api'. 24.0.0 is the last version that actually contains the binding API, so updating would ship an empty package. Consumers needing newer Ads APIs should use Xamarin.GooglePlayServices.Ads or Xamarin.GooglePlayServices.Ads.Api.",
+        "extraDependencies": "androidx.lifecycle.lifecycle-livedata-core,androidx.lifecycle.lifecycle-runtime",
         "type": "xbd"
       },
       {
@@ -5515,6 +5517,15 @@
         "nugetId": "Xamarin.GooglePlayServices.Ads.Base",
         "dependencyOnly": true,
         "comments": "Required by 'com.google.android.gms.play-services-gass:20.0.0'"
+      },
+      {
+        "groupId": "com.google.android.gms",
+        "artifactId": "play-services-ads-base",
+        "version": "24.0.0",
+        "nugetVersion": "124.0.0.1",
+        "nugetId": "Xamarin.GooglePlayServices.Ads.Base",
+        "dependencyOnly": true,
+        "comments": "Required by 'com.google.android.gms:play-services-ads-lite:24.0.0'"
       },
       {
         "groupId": "com.google.android.gms",
