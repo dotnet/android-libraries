@@ -385,9 +385,9 @@
 | 378|com.google.android.gms:play-services-appinvite                        |18.0.0              |Xamarin.GooglePlayServices.AppInvite                                  |118.0.0.25          |
 | 379|com.google.android.gms:play-services-appset                           |16.1.0              |Xamarin.GooglePlayServices.AppSet                                     |116.1.0.9           |
 | 380|com.google.android.gms:play-services-audience                         |17.0.0              |Xamarin.GooglePlayServices.Audience                                   |117.0.0.25          |
-| 381|com.google.android.gms:play-services-auth                             |21.5.1              |Xamarin.GooglePlayServices.Auth                                       |121.5.1.1           |
+| 381|com.google.android.gms:play-services-auth                             |21.6.0              |Xamarin.GooglePlayServices.Auth                                       |121.6.0             |
 | 382|com.google.android.gms:play-services-auth-api-phone                   |18.3.0              |Xamarin.GooglePlayServices.Auth.Api.Phone                             |118.3.0.2           |
-| 383|com.google.android.gms:play-services-auth-base                        |18.3.2              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.2.1           |
+| 383|com.google.android.gms:play-services-auth-base                        |18.3.3              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.3             |
 | 384|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.8           |
 | 385|com.google.android.gms:play-services-awareness                        |20.0.0              |Xamarin.GooglePlayServices.Awareness                                  |120.0.0             |
 | 386|com.google.android.gms:play-services-base                             |18.10.0             |Xamarin.GooglePlayServices.Base                                       |118.10.0.1          |
@@ -501,9 +501,9 @@
 | 494|com.google.firebase:firebase-analytics                                |23.2.0              |Xamarin.Firebase.Analytics                                            |123.2.0             |
 | 495|com.google.firebase:firebase-analytics-impl                           |16.3.0              |Xamarin.Firebase.Analytics.Impl                                       |116.3.0.25          |
 | 496|com.google.firebase:firebase-annotations                              |17.0.0              |Xamarin.Firebase.Annotations                                          |117.0.0.3           |
-| 497|com.google.firebase:firebase-appcheck                                 |19.0.2              |Xamarin.Firebase.AppCheck                                             |119.0.2.1           |
+| 497|com.google.firebase:firebase-appcheck                                 |19.1.0              |Xamarin.Firebase.AppCheck                                             |119.1.0             |
 | 498|com.google.firebase:firebase-appcheck-interop                         |17.1.0              |Xamarin.Firebase.AppCheck.Interop                                     |117.1.0.13          |
-| 499|com.google.firebase:firebase-appcheck-playintegrity                   |19.0.2              |Xamarin.Firebase.AppCheck.PlayIntegrity                               |119.0.2.1           |
+| 499|com.google.firebase:firebase-appcheck-playintegrity                   |19.1.0              |Xamarin.Firebase.AppCheck.PlayIntegrity                               |119.1.0             |
 | 500|com.google.firebase:firebase-appindexing                              |20.0.0              |Xamarin.Firebase.AppIndexing                                          |120.0.0.28          |
 | 501|com.google.firebase:firebase-auth                                     |24.1.0              |Xamarin.Firebase.Auth                                                 |124.1.0             |
 | 502|com.google.firebase:firebase-auth-interop                             |20.0.0              |Xamarin.Firebase.Auth.Interop                                         |120.0.0.25          |
@@ -661,8 +661,8 @@
 | 654|org.jetbrains.kotlin:kotlin-stdlib-common                             |2.0.21              |Xamarin.Kotlin.StdLib.Common                                          |2.0.21.7            |
 | 655|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.3.21              |Xamarin.Kotlin.StdLib.Jdk7                                            |2.3.21              |
 | 656|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.3.21              |Xamarin.Kotlin.StdLib.Jdk8                                            |2.3.21              |
-| 657|org.jetbrains.kotlinx:atomicfu                                        |0.32.1              |Xamarin.KotlinX.AtomicFU                                              |0.32.1              |
-| 658|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.32.1              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.32.1              |
+| 657|org.jetbrains.kotlinx:atomicfu                                        |0.33.0              |Xamarin.KotlinX.AtomicFU                                              |0.33.0              |
+| 658|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.33.0              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.33.0              |
 | 659|org.jetbrains.kotlinx:kotlinx-coroutines-android                      |1.11.0              |Xamarin.KotlinX.Coroutines.Android                                    |1.11.0              |
 | 660|org.jetbrains.kotlinx:kotlinx-coroutines-core                         |1.11.0              |Xamarin.KotlinX.Coroutines.Core                                       |1.11.0              |
 | 661|org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm                     |1.11.0              |Xamarin.KotlinX.Coroutines.Core.Jvm                                   |1.11.0              |
