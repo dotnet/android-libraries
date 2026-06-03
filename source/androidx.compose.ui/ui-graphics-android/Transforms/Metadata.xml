@@ -1,25 +1,32 @@
-﻿<metadata>
-    <remove-node path="/api/package" />
+<metadata>
+  <!--
+    Force C# namespace casing to "UI" rather than the default title-cased "Ui".
+    Once these NuGets ship real types this is a permanent ABI decision, so we
+    apply it everywhere a `…ui…` package appears in
+    androidx.compose.ui:ui-graphics-android. Mirrors the casing decision in
+    androidx.compose.ui/ui-android/Transforms/Metadata.xml.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.graphics']" name="managedName">AndroidX.Compose.UI.Graphics</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.colorspace']" name="managedName">AndroidX.Compose.UI.Graphics.Colorspace</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.drawscope']" name="managedName">AndroidX.Compose.UI.Graphics.Drawscope</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.internal']" name="managedName">AndroidX.Compose.UI.Graphics.Internal</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.layer']" name="managedName">AndroidX.Compose.UI.Graphics.Layer</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.layer.view']" name="managedName">AndroidX.Compose.UI.Graphics.Layer.View</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.painter']" name="managedName">AndroidX.Compose.UI.Graphics.Painter</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.graphics.vector']" name="managedName">AndroidX.Compose.UI.Graphics.Vector</attr>
 
-    <!--
-    <attr
-        path="/api/package[@name='androidx.compose.ui.graphics.drawscope']/class[@name='CanvasDrawScope']/method[@name='toSp-0xMU5do' and count(parameter)=1 and parameter[1][@type='float']]"
-        name="managedName"
-        >
-        ToSp
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.compose.ui.graphics.drawscope']/class[@name='CanvasDrawScope']/method[@name='toSp-kPz2Gy4' and count(parameter)=1 and parameter[1][@type='float']]"
-        name="managedName"
-        >
-        ToSp1
-    </attr>
-    <attr
-        path="/api/package[@name='androidx.compose.ui.graphics.drawscope']/class[@name='CanvasDrawScope']/method[@name='toSp-kPz2Gy4' and count(parameter)=1 and parameter[1][@type='int']]"
-        name="managedName"
-        >
-        ToSp
-    </attr>        
-    -->
+  <!--
+    Experimental drop/inner-shadow package: its title-cased namespace
+    `AndroidX.Compose.UI.Graphics.Shadow` collides (CS0101) with the existing
+    `Shadow` class in androidx.compose.ui.graphics. Strip the experimental
+    package to keep the widely-used `Shadow` spec class.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.graphics.shadow']" />
+
+  <!--
+    PathIterator: interface implementing java.util.Iterator whose auto-generated
+    Invoker can't satisfy Iterator.next() with an Object return (CS0738).
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.graphics']/interface[@name='PathIterator']" />
 
 </metadata>
