@@ -143,6 +143,9 @@
         >
         OnNativeVideoEnd
     </attr>
+    <remove-node
+        path="/api/package[starts-with(@name,'com.google.android.libraries.ads.mobile.sdk.internal')]"
+        />
     <!-- Generic type-erasure: remove abstract generic members that subclasses cannot satisfy in C# -->
     <remove-node
         path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.common']/class[@name='BaseRequestBuilder']/method[@name='self' and count(parameter)=0]"
