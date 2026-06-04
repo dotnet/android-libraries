@@ -150,6 +150,8 @@ Manifest.Defaults.VersionBasedOnFullyQualifiedArtifactIdDelegate = delegate(stri
             fully_qualified_artifact_id.StartsWith("com.google.android.odml")
             ||
             fully_qualified_artifact_id.StartsWith("com.google.android.ump")
+            ||
+            fully_qualified_artifact_id.StartsWith("com.google.android.libraries.ads.mobile.sdk")
         )
     {
         const string l = "Android Software Development Kit License";
