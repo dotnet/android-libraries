@@ -5,6 +5,10 @@
     signature and clash.
   -->
   <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='CornerSizeKt']/method[starts-with(@name,'CornerSize-')]" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='RoundedCornerShapeKt']/method[starts-with(@name,'RoundedCornerShape-')]" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='CutCornerShapeKt']/method[starts-with(@name,'CutCornerShape-')]" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteRoundedCornerShapeKt']/method[starts-with(@name,'AbsoluteRoundedCornerShape-')]" />
+  <remove-node path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteCutCornerShapeKt']/method[starts-with(@name,'AbsoluteCutCornerShape-')]" />
   <remove-node path="/api/package[@name='androidx.compose.foundation.lazy.layout']/class[@name='LazyLayoutCacheWindowKt']/method[starts-with(@name,'LazyLayoutCacheWindow-')]" />
 
   <!--
@@ -41,4 +45,18 @@
     missing type. New in 1.11.x.
   -->
   <remove-node path="/api/package[@name='androidx.compose.foundation.text.selection']/class[@name='SelectionGestures_androidKt']" />
+
+  <!--
+    CornerBasedShape.copy(CornerSize,CornerSize,CornerSize,CornerSize) is abstract
+    and returns CornerBasedShape; every subclass (RoundedCornerShape,
+    CutCornerShape, AbsoluteRoundedCornerShape, AbsoluteCutCornerShape) overrides
+    it with a covariant (subclass-typed) return, which the binding generator emits
+    without the `override` keyword, leaving the abstract member unimplemented
+    (CS0534). Pin the managed return to the base type so the override is
+    recognized. New in 1.11.x (surfaced once UI.Graphics started binding).
+  -->
+  <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='RoundedCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='CutCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteRoundedCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteCutCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
 </metadata>
