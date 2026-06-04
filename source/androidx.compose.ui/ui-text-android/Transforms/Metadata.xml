@@ -1,19 +1,58 @@
 ﻿<metadata>
-    <remove-node path="/api/package" />
+  <!--
+    Force C# namespace casing to "UI" rather than the default title-cased "Ui".
+    Once these NuGets ship real types this is a permanent ABI decision, so we
+    apply it everywhere a `…ui…` package appears in
+    androidx.compose.ui:ui-text-android. Mirrors the casing decision in
+    androidx.compose.ui/ui-graphics-android/Transforms/Metadata.xml.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.text']" name="managedName">AndroidX.Compose.UI.Text</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.android']" name="managedName">AndroidX.Compose.UI.Text.Android</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.android.selection']" name="managedName">AndroidX.Compose.UI.Text.Android.Selection</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.android.style']" name="managedName">AndroidX.Compose.UI.Text.Android.Style</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.font']" name="managedName">AndroidX.Compose.UI.Text.Font</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.input']" name="managedName">AndroidX.Compose.UI.Text.Input</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.internal']" name="managedName">AndroidX.Compose.UI.Text.Internal</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.intl']" name="managedName">AndroidX.Compose.UI.Text.Intl</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.platform']" name="managedName">AndroidX.Compose.UI.Text.Platform</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.platform.extensions']" name="managedName">AndroidX.Compose.UI.Text.Platform.Extensions</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.platform.style']" name="managedName">AndroidX.Compose.UI.Text.Platform.Style</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.style']" name="managedName">AndroidX.Compose.UI.Text.Style</attr>
 
-    <!--
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.text.intl']/class[@name='LocaleList']/implements"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontListFontFamily']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontWeight']"
-        />
-    <remove-node
-        path="/api/package[@name='androidx.compose.ui.text']/class[@name='AnnotatedString']"
-        />
-    -->
-            
+  <!--
+    `FontWeight` is a Kotlin `class FontWeight … : Comparable<FontWeight>`. The
+    generated `compareTo(FontWeight)` cannot satisfy
+    `java.lang.Comparable.compareTo(Object)` (CS0535). Drop the `Comparable`
+    interface so the class (and its `Companion` constants such as Bold/Normal)
+    still bind. Mirrors the inline-class lowering caveat from
+    androidx.compose.ui/ui-graphics-android.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontWeight']/implements[@name='java.lang.Comparable']" />
+
+  <!--
+    These classes implement java.util.Collection/List or java.lang.CharSequence/
+    Appendable, whose generated members can't satisfy the managed interface
+    contracts (CS0535/CS0738). Drop the interface declarations so the concrete
+    classes still bind with their own members.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.text.intl']/class[@name='LocaleList']/implements[@name='java.util.Collection']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontListFontFamily']/implements[@name='java.util.List']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.text']/class[@name='AnnotatedString']/implements[@name='java.lang.CharSequence']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.text']/class[@name='AnnotatedString.Builder']/implements[@name='java.lang.Appendable']" />
+
+  <!--
+    `AnnotatedString.Builder.append(String): Unit` lowers to the same C#
+    signature as the auto-generated `string` overload of `append(CharSequence)`
+    (CS0111). Rename the void overload to keep both callable.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.text']/class[@name='AnnotatedString.Builder']/method[@name='append' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedName">AppendString</attr>
+
+  <!--
+    These public members leak internal/unbound types (the package-private
+    `PlatformLocaleDelegate` interface and `kotlinx.coroutines.CoroutineDispatcher`
+    from a dependency that is not referenced), producing CS0234. Remove the
+    leaking members.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.text.intl']/class[@name='PlatformLocaleKt']/method[@name='getPlatformLocaleDelegate']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.text.platform']/class[@name='DispatcherKt']/method[@name='getFontCacheManagementDispatcher']" />
 </metadata>

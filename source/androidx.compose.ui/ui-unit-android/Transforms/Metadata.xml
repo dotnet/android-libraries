@@ -1,13 +1,37 @@
 ﻿<metadata>
-    <remove-node path="/api/package" />
+  <!--
+    Force C# namespace casing to "UI" rather than the default title-cased "Ui".
+    Once these NuGets ship real types this is a permanent ABI decision, so we
+    apply it everywhere a `…ui…` package appears in
+    androidx.compose.ui:ui-unit-android. Mirrors the casing decision in
+    androidx.compose.ui/ui-graphics-android/Transforms/Metadata.xml.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.unit']" name="managedName">AndroidX.Compose.UI.Unit</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit.fontscaling']" name="managedName">AndroidX.Compose.UI.Unit.Fontscaling</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit.internal']" name="managedName">AndroidX.Compose.UI.Unit.Internal</attr>
 
-    <!--
-    <attr
-        path="/api/package[@name='androidx.compose.ui.unit']/interface[@name='Density']/method[@name='toSp-kPz2Gy4' and count(parameter)=1 and parameter[1][@type='float']]"
-        name="managedName"
-        >
-        ToSp_kPz2Gy4
-    </attr>
-    -->
+  <!--
+    `Dp` is a Kotlin `@JvmInline value class … : Comparable<Dp>`. Because the
+    inline `Dp` parameter lowers to a raw `float` at the JNI boundary, the
+    generated `compareTo(float)` cannot satisfy `java.lang.Comparable.compareTo(Object)`
+    (CS0535). Drop the `Comparable` interface so the class still binds (and its
+    `Companion` constants stay reachable). Mirrors the inline-class lowering
+    caveat from androidx.compose.ui/ui-graphics-android.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.unit']/class[@name='Dp']/implements[@name='java.lang.Comparable']" />
 
+  <!--
+    Inline value-class operator/extension overloads that lower to identical
+    primitive signatures collide in C# (CS0111). Rename the duplicates rather
+    than dropping them so both remain callable.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='Dp']/method[@name='div-u2uoSUM' and count(parameter)=2 and parameter[1][@type='float'] and parameter[2][@type='float']]" name="managedName">Div2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='DpKt']/method[@name='isSpecified-jo-Fl9I']" name="managedName">IsSpecified2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='DpKt']/method[@name='isUnspecified-jo-Fl9I']" name="managedName">IsUnspecified2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='DpKt']/method[@name='lerp-xhh869w']" name="managedName">Lerp2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='DpKt']/method[@name='takeOrElse-itqla9I']" name="managedName">TakeOrElse2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='ConstraintsKt']/method[@name='constrain-N9IONVI']" name="managedName">Constrain2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='IntOffsetKt']/method[@name='minus-oCl6YwE']" name="managedName">Minus2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='IntOffsetKt']/method[@name='plus-oCl6YwE']" name="managedName">Plus2</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.unit']/class[@name='IntRectKt']/method[@name='IntRect-VbeCjmY']" name="managedName">IntRect2</attr>
 </metadata>
