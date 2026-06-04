@@ -605,11 +605,11 @@
 | 598|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4.2             |
 | 599|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.19           |
 | 600|com.squareup.okhttp3:logging-interceptor                              |5.3.2               |Square.OkHttp3.LoggingInterceptor                                     |5.3.2.2             |
-| 601|com.squareup.okhttp3:okhttp                                           |5.3.2               |Square.OkHttp3                                                        |5.3.2.2             |
-| 602|com.squareup.okhttp3:okhttp-android                                   |5.3.2               |Square.OkHttp3.Android                                                |5.3.2.2             |
+| 601|com.squareup.okhttp3:okhttp                                           |5.3.2               |Square.OkHttp3                                                        |5.3.2.3             |
+| 602|com.squareup.okhttp3:okhttp-android                                   |5.3.2               |Square.OkHttp3.Android                                                |5.3.2.3             |
 | 603|com.squareup.okhttp3:okhttp-brotli                                    |5.3.2               |Square.OkHttp3.OkHttp.Brotli                                          |5.3.2.2             |
 | 604|com.squareup.okhttp3:okhttp-java-net-cookiejar                        |5.3.2               |Square.OkHttp3.JavaNetCookieJar                                       |5.3.2.2             |
-| 605|com.squareup.okhttp3:okhttp-jvm                                       |5.3.2               |Square.OkHttp3.JVM                                                    |5.3.2.2             |
+| 605|com.squareup.okhttp3:okhttp-jvm                                       |5.3.2               |Square.OkHttp3.JVM                                                    |5.3.2.3             |
 | 606|com.squareup.okhttp3:okhttp-tls                                       |5.3.2               |Square.OkHttp3.OkHttp.TLS                                             |5.3.2.2             |
 | 607|com.squareup.okhttp3:okhttp-urlconnection                             |5.3.2               |Square.OkHttp3.UrlConnection                                          |5.3.2.2             |
 | 608|com.squareup.okio:okio                                                |3.17.0              |Square.OkIO                                                           |3.17.0              |

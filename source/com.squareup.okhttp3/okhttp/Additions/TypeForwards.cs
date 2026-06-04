@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.AuthenticatorConsts))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.Cache))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.CacheControl))]
+[assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.CallExtensions))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.CertificatePinner))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.Challenge))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.CipherSuite))]
