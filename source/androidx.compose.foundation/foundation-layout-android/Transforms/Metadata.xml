@@ -5,4 +5,20 @@
     calculate*Padding() impls, so the auto-generated C# class is broken.
   -->
   <remove-node path="/api/package[@name='androidx.compose.foundation.layout']/class[@name='PaddingValues.Absolute']" />
+
+  <!--
+    Now that androidx.compose.ui:ui-unit binds (Dp is resolvable), several
+    Kotlin inline value-class operator/extension overloads in the Flex/Grid
+    config scopes lower to identical primitive signatures and collide in C#
+    (CS0111). Rename the mangled duplicates so all overloads remain callable,
+    keeping the un-mangled overload on its default managed name. Mirrors the
+    inline-class rename approach in
+    androidx.compose.ui/ui-unit-android/Transforms/Metadata.xml.
+  -->
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/interface[@name='FlexConfigScope']/method[@name='basis-0680j_4']" name="managedName">Basis2</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/class[@name='ResolvedFlexItemInfo']/method[@name='basis-0680j_4']" name="managedName">Basis2</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/interface[@name='GridConfigurationScope']/method[@name='column-0680j_4']" name="managedName">Column2</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/interface[@name='GridConfigurationScope']/method[@name='column-XZblgos']" name="managedName">Column3</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/interface[@name='GridConfigurationScope']/method[@name='row-0680j_4']" name="managedName">Row2</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.layout']/interface[@name='GridConfigurationScope']/method[@name='row-XZblgos']" name="managedName">Row3</attr>
 </metadata>
