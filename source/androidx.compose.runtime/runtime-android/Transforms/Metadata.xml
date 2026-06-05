@@ -33,17 +33,62 @@
   <remove-node path="/api/package[@name='androidx.compose.runtime']/class[@name='BroadcastFrameClock']" />
   <remove-node path="/api/package[@name='androidx.compose.runtime']/class[@name='PausableMonotonicFrameClock']" />
 
-  <!-- IMutable{Int,Long,Float,Double}State override `value` with the primitive
-       form, hiding MutableState<T>.value's setter. The auto-generated Invoker
-       is then missing IMutableState.Value.set. -->
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableIntState']" />
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableLongState']" />
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableFloatState']" />
+  <!-- IMutable{Double}State overrides `value` with the primitive form, hiding
+       MutableState<T>.value's setter. The auto-generated Invoker is then missing
+       IMutableState.Value.set. The Int/Long/Float variants are surfaced (see
+       below) so C# consumers can use primitive Compose state without boxing. -->
   <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableDoubleState']" />
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='IntState']" />
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='LongState']" />
-  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='FloatState']" />
   <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='DoubleState']" />
+
+  <!-- Int/Long/Float {Mutable}State: drop the boxed `getValue()`/`setValue(primitive)`
+       overrides that hide the inherited (Mutable)State.value property. Without these the
+       generated Invoker keeps the un-boxed `IntValue`/`LongValue`/`FloatValue` accessors and
+       correctly implements IMutableState.Value (get/set). -->
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='IntState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='LongState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='FloatState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableIntState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableLongState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableFloatState']/method[@name='getValue' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableIntState']/method[@name='setValue' and count(parameter)=1 and parameter[1][@type='int']]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableLongState']/method[@name='setValue' and count(parameter)=1 and parameter[1][@type='long']]" />
+  <remove-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableFloatState']/method[@name='setValue' and count(parameter)=1 and parameter[1][@type='float']]" />
+
+  <!-- Re-introduce the inherited `getValue()/setValue(Object)` directly on Mutable{Int,Long,Float}State
+       so the binding generator pairs them into the IMutableState.Value get/set property on the
+       Invoker. Without this, the Invoker only implements the read-only IntState/LongState/FloatState
+       getter (inherited Value.get) and CS0535 fires for the missing Value.set. The underlying JNI
+       methods exist on the interface via MutableState inheritance. -->
+  <add-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableIntState']">
+    <method visibility="public" abstract="true" static="false" return="java.lang.Object" name="getValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false" />
+    <method visibility="public" abstract="true" static="false" return="void" name="setValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false">
+      <parameter name="value" type="java.lang.Object" />
+    </method>
+  </add-node>
+  <add-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableLongState']">
+    <method visibility="public" abstract="true" static="false" return="java.lang.Object" name="getValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false" />
+    <method visibility="public" abstract="true" static="false" return="void" name="setValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false">
+      <parameter name="value" type="java.lang.Object" />
+    </method>
+  </add-node>
+  <add-node path="/api/package[@name='androidx.compose.runtime']/interface[@name='MutableFloatState']">
+    <method visibility="public" abstract="true" static="false" return="java.lang.Object" name="getValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false" />
+    <method visibility="public" abstract="true" static="false" return="void" name="setValue"
+            deprecated="not deprecated" final="false" bridge="false" native="false"
+            synchronized="false" synthetic="false">
+      <parameter name="value" type="java.lang.Object" />
+    </method>
+  </add-node>
 
   <!-- Nested `Key` companion object on these interfaces collides with the inherited
        CoroutineContext.Element.key property in generated code (CS0119/CS0572). -->
