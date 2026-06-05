@@ -136,6 +136,7 @@ AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Implementations.
 AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Implementations.ImmutableSet.TrieNodeKt
 AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Internal.CommonFunctionsKt
 AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Internal.ForEachOneBitKt
+AndroidX.Compose.Runtime.FloatStateDefaultImpls
 AndroidX.Compose.Runtime.GapComposerKt
 AndroidX.Compose.Runtime.HostDefaultProviderKt
 AndroidX.Compose.Runtime.HotReloaderKt
@@ -282,14 +283,29 @@ AndroidX.Compose.Runtime.IDontMemoize
 AndroidX.Compose.Runtime.IExperimentalComposeApi
 AndroidX.Compose.Runtime.IExperimentalComposeRuntimeApi
 AndroidX.Compose.Runtime.IExplicitGroupsComposable
+AndroidX.Compose.Runtime.IFloatState
+AndroidX.Compose.Runtime.IFloatState.FloatValue.get -> float
 AndroidX.Compose.Runtime.IHostDefaultKey
 AndroidX.Compose.Runtime.IHostDefaultProvider
 AndroidX.Compose.Runtime.IHostDefaultProvider.GetHostDefault(AndroidX.Compose.Runtime.IHostDefaultKey! key) -> Java.Lang.Object?
+AndroidX.Compose.Runtime.IIntState
+AndroidX.Compose.Runtime.IIntState.IntValue.get -> int
 AndroidX.Compose.Runtime.IInternalComposeApi
 AndroidX.Compose.Runtime.IInternalComposeTracingApi
+AndroidX.Compose.Runtime.ILongState
+AndroidX.Compose.Runtime.ILongState.LongValue.get -> long
 AndroidX.Compose.Runtime.IMonotonicFrameClock
 AndroidX.Compose.Runtime.IMonotonicFrameClock.Key.get -> Kotlin.Coroutines.ICoroutineContextKey!
 AndroidX.Compose.Runtime.IMonotonicFrameClock.WithFrameNanos(Kotlin.Jvm.Functions.IFunction1! onFrame, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+AndroidX.Compose.Runtime.IMutableFloatState
+AndroidX.Compose.Runtime.IMutableFloatState.FloatValue.get -> float
+AndroidX.Compose.Runtime.IMutableFloatState.FloatValue.set -> void
+AndroidX.Compose.Runtime.IMutableIntState
+AndroidX.Compose.Runtime.IMutableIntState.IntValue.get -> int
+AndroidX.Compose.Runtime.IMutableIntState.IntValue.set -> void
+AndroidX.Compose.Runtime.IMutableLongState
+AndroidX.Compose.Runtime.IMutableLongState.LongValue.get -> long
+AndroidX.Compose.Runtime.IMutableLongState.LongValue.set -> void
 AndroidX.Compose.Runtime.IMutableState
 AndroidX.Compose.Runtime.IMutableState.Component1() -> Java.Lang.Object?
 AndroidX.Compose.Runtime.IMutableState.Component2() -> Kotlin.Jvm.Functions.IFunction1!
@@ -341,6 +357,7 @@ AndroidX.Compose.Runtime.IState
 AndroidX.Compose.Runtime.IState.Value.get -> Java.Lang.Object?
 AndroidX.Compose.Runtime.IViewTreeHostDefaultKey
 AndroidX.Compose.Runtime.IViewTreeHostDefaultKey.TagKey.get -> int
+AndroidX.Compose.Runtime.IntStateDefaultImpls
 AndroidX.Compose.Runtime.Internal.Atomic_jvmKt
 AndroidX.Compose.Runtime.Internal.ComposableLambdaKt
 AndroidX.Compose.Runtime.Internal.ComposableLambdaN_jvmKt
@@ -422,6 +439,7 @@ AndroidX.Compose.Runtime.InternalComposeApiAttribute.InternalComposeApiAttribute
 AndroidX.Compose.Runtime.InternalComposeTracingApiAttribute
 AndroidX.Compose.Runtime.InternalComposeTracingApiAttribute.InternalComposeTracingApiAttribute() -> void
 AndroidX.Compose.Runtime.LinkComposerKt
+AndroidX.Compose.Runtime.LongStateDefaultImpls
 AndroidX.Compose.Runtime.MonotonicFrameClockDefaultImpls
 AndroidX.Compose.Runtime.MonotonicFrameClockKt
 AndroidX.Compose.Runtime.MovableContent
@@ -430,6 +448,9 @@ AndroidX.Compose.Runtime.MovableContent.MovableContent(Kotlin.Jvm.Functions.IFun
 AndroidX.Compose.Runtime.MovableContentKt
 AndroidX.Compose.Runtime.MovableContentState
 AndroidX.Compose.Runtime.MovableContentStateReference
+AndroidX.Compose.Runtime.MutableFloatStateDefaultImpls
+AndroidX.Compose.Runtime.MutableIntStateDefaultImpls
+AndroidX.Compose.Runtime.MutableLongStateDefaultImpls
 AndroidX.Compose.Runtime.NoLiveLiteralsAttribute
 AndroidX.Compose.Runtime.NoLiveLiteralsAttribute.NoLiveLiteralsAttribute() -> void
 AndroidX.Compose.Runtime.NonRestartableComposableAttribute
@@ -702,9 +723,11 @@ override AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Impleme
 override AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Implementations.ImmutableSet.TrieNodeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Internal.CommonFunctionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.Internal.ForEachOneBitKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.FloatStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.GapComposerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.HostDefaultProviderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.HotReloaderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.IntStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Internal.Atomic_jvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Internal.ComposableLambdaKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Internal.ComposableLambdaN_jvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -721,12 +744,16 @@ override AndroidX.Compose.Runtime.Internal.Thread_jvmKt.JniPeerMembers.get -> Ja
 override AndroidX.Compose.Runtime.Internal.TraceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Internal.Utils_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.LinkComposerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.LongStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MonotonicFrameClockDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MonotonicFrameClockKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MovableContent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MovableContentKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MovableContentState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.MovableContentStateReference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.MutableFloatStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.MutableIntStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.MutableLongStateDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.PausableCompositionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Platform.Synchronization_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.PreconditionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -871,6 +898,7 @@ static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object? key1,
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.RememberCoroutineScope(Kotlin.Jvm.Functions.IFunction0? getContext, AndroidX.Compose.Runtime.IComposer? _composer, int p2, int _changed) -> Xamarin.KotlinX.Coroutines.ICoroutineScope!
 static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Compose.Runtime.FloatStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.IFloatState! _this) -> Java.Lang.Float!
 static AndroidX.Compose.Runtime.HostDefaultProviderKt.LocalHostDefaultProvider.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Runtime.HotReloaderKt.ClearCompositionErrors() -> void
 static AndroidX.Compose.Runtime.HotReloaderKt.CurrentCompositionErrors.get -> System.Collections.Generic.IList<Kotlin.Pair!>!
@@ -878,6 +906,7 @@ static AndroidX.Compose.Runtime.HotReloaderKt.DisableHotReloadMode() -> void
 static AndroidX.Compose.Runtime.HotReloaderKt.InvalidateGroupsWithKey(int key) -> void
 static AndroidX.Compose.Runtime.HotReloaderKt.InvokeCurrentCompositionErrors() -> System.Collections.Generic.IList<Kotlin.Pair!>!
 static AndroidX.Compose.Runtime.HotReloaderKt.SimulateHotReload(Java.Lang.Object! context) -> void
+static AndroidX.Compose.Runtime.IntStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.IIntState! _this) -> Java.Lang.Integer!
 static AndroidX.Compose.Runtime.Internal.ComposableLambdaKt.ComposableLambda(AndroidX.Compose.Runtime.IComposer! composer, int key, bool tracked, Java.Lang.Object! block) -> AndroidX.Compose.Runtime.Internal.IComposableLambda!
 static AndroidX.Compose.Runtime.Internal.ComposableLambdaKt.ComposableLambdaInstance(int key, bool tracked, Java.Lang.Object! block) -> AndroidX.Compose.Runtime.Internal.IComposableLambda!
 static AndroidX.Compose.Runtime.Internal.ComposableLambdaKt.RememberComposableLambda(int key, bool tracked, Java.Lang.Object! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.Internal.IComposableLambda!
@@ -890,6 +919,7 @@ static AndroidX.Compose.Runtime.Internal.LiveLiteralKt.IsLiveLiteralsEnabled.get
 static AndroidX.Compose.Runtime.Internal.LiveLiteralKt.LiveLiteral(string! key, Java.Lang.Object? value) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.Internal.LiveLiteralKt.UpdateLiveLiteralValue(string! key, Java.Lang.Object? value) -> void
 static AndroidX.Compose.Runtime.Internal.Thread_androidKt.MainThreadId.get -> long
+static AndroidX.Compose.Runtime.LongStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.ILongState! _this) -> Java.Lang.Long!
 static AndroidX.Compose.Runtime.MonotonicFrameClockDefaultImpls.Fold(AndroidX.Compose.Runtime.IMonotonicFrameClock! _this, Java.Lang.Object? initial, Kotlin.Jvm.Functions.IFunction2! operation) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.MonotonicFrameClockDefaultImpls.Get(AndroidX.Compose.Runtime.IMonotonicFrameClock! _this, Kotlin.Coroutines.ICoroutineContextKey! key) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.MonotonicFrameClockDefaultImpls.GetKey(AndroidX.Compose.Runtime.IMonotonicFrameClock! _this) -> Kotlin.Coroutines.ICoroutineContextKey!
@@ -908,7 +938,16 @@ static AndroidX.Compose.Runtime.MovableContentKt.MovableContentWithReceiverOf(Ko
 static AndroidX.Compose.Runtime.MovableContentKt.MovableContentWithReceiverOf(Kotlin.Jvm.Functions.IFunction4! content) -> Kotlin.Jvm.Functions.IFunction4!
 static AndroidX.Compose.Runtime.MovableContentKt.MovableContentWithReceiverOf(Kotlin.Jvm.Functions.IFunction5! content) -> Kotlin.Jvm.Functions.IFunction5!
 static AndroidX.Compose.Runtime.MovableContentKt.MovableContentWithReceiverOf(Kotlin.Jvm.Functions.IFunction6! content) -> Kotlin.Jvm.Functions.IFunction6!
+static AndroidX.Compose.Runtime.MutableFloatStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.IMutableFloatState! _this) -> Java.Lang.Float!
+static AndroidX.Compose.Runtime.MutableFloatStateDefaultImpls.SetValue(AndroidX.Compose.Runtime.IMutableFloatState! _this, float value) -> void
+static AndroidX.Compose.Runtime.MutableIntStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.IMutableIntState! _this) -> Java.Lang.Integer!
+static AndroidX.Compose.Runtime.MutableIntStateDefaultImpls.SetValue(AndroidX.Compose.Runtime.IMutableIntState! _this, int value) -> void
+static AndroidX.Compose.Runtime.MutableLongStateDefaultImpls.GetValue(AndroidX.Compose.Runtime.IMutableLongState! _this) -> Java.Lang.Long!
+static AndroidX.Compose.Runtime.MutableLongStateDefaultImpls.SetValue(AndroidX.Compose.Runtime.IMutableLongState! _this, long value) -> void
 static AndroidX.Compose.Runtime.PausableCompositionKt.PausableComposition(AndroidX.Compose.Runtime.IApplier! applier, AndroidX.Compose.Runtime.CompositionContext! parent) -> AndroidX.Compose.Runtime.IPausableComposition!
+static AndroidX.Compose.Runtime.PrimitiveSnapshotStateKt.GetValue(AndroidX.Compose.Runtime.IFloatState! _this_getValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property) -> float
+static AndroidX.Compose.Runtime.PrimitiveSnapshotStateKt.MutableFloatStateOf(float value) -> AndroidX.Compose.Runtime.IMutableFloatState!
+static AndroidX.Compose.Runtime.PrimitiveSnapshotStateKt.SetValue(AndroidX.Compose.Runtime.IMutableFloatState! _this_setValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property, float value) -> void
 static AndroidX.Compose.Runtime.Recomposer.State.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Compose.Runtime.Recomposer.State.Idle.get -> AndroidX.Compose.Runtime.Recomposer.State?
 static AndroidX.Compose.Runtime.Recomposer.State.Inactive.get -> AndroidX.Compose.Runtime.Recomposer.State?
@@ -922,7 +961,16 @@ static AndroidX.Compose.Runtime.RecomposerInfo.Companion.get -> AndroidX.Compose
 static AndroidX.Compose.Runtime.RecomposerKt.WithRunningRecomposer(Kotlin.Jvm.Functions.IFunction3! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.Reflect.ComposableMethodKt.AsComposableMethod(Java.Lang.Reflect.Method! obj) -> AndroidX.Compose.Runtime.Reflect.ComposableMethod?
 static AndroidX.Compose.Runtime.Reflect.ComposableMethodKt.GetDeclaredComposableMethod(Java.Lang.Class! obj, string! methodName, params Java.Lang.Class![]! args) -> AndroidX.Compose.Runtime.Reflect.ComposableMethod!
+static AndroidX.Compose.Runtime.SnapshotIntStateKt.GetValue(AndroidX.Compose.Runtime.IIntState! _this_getValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property) -> int
+static AndroidX.Compose.Runtime.SnapshotIntStateKt.MutableIntStateOf(int value) -> AndroidX.Compose.Runtime.IMutableIntState!
+static AndroidX.Compose.Runtime.SnapshotIntStateKt.SetValue(AndroidX.Compose.Runtime.IMutableIntState! _this_setValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property, int value) -> void
+static AndroidX.Compose.Runtime.SnapshotLongStateKt.GetValue(AndroidX.Compose.Runtime.ILongState! _this_getValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property) -> long
+static AndroidX.Compose.Runtime.SnapshotLongStateKt.MutableLongStateOf(long value) -> AndroidX.Compose.Runtime.IMutableLongState!
+static AndroidX.Compose.Runtime.SnapshotLongStateKt.SetValue(AndroidX.Compose.Runtime.IMutableLongState! _this_setValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property, long value) -> void
 static AndroidX.Compose.Runtime.SnapshotMutationPolicyDefaultImpls.Merge(AndroidX.Compose.Runtime.ISnapshotMutationPolicy! _this, Java.Lang.Object? previous, Java.Lang.Object? current, Java.Lang.Object? applied) -> Java.Lang.Object?
+static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsFloatState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.IFloatState!
+static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsIntState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.IIntState!
+static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsLongState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.ILongState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectAsState, Java.Lang.Object? initial, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IStateFlow! _this_collectAsState, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.DerivedStateObservers() -> AndroidX.Compose.Runtime.Collection.MutableVector!
