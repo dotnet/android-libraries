@@ -41,9 +41,9 @@
 |  34|androidx.collection:collection-jvm                                    |1.6.0               |Xamarin.AndroidX.Collection.Jvm                                       |1.6.0               |
 |  35|androidx.collection:collection-ktx                                    |1.6.0               |Xamarin.AndroidX.Collection.Ktx                                       |1.6.0               |
 |  36|androidx.compose.animation:animation                                  |1.11.2              |Xamarin.AndroidX.Compose.Animation                                    |1.11.2              |
-|  37|androidx.compose.animation:animation-android                          |1.11.2              |Xamarin.AndroidX.Compose.Animation.Android                            |1.11.2              |
+|  37|androidx.compose.animation:animation-android                          |1.11.2              |Xamarin.AndroidX.Compose.Animation.Android                            |1.11.2.1            |
 |  38|androidx.compose.animation:animation-core                             |1.11.2              |Xamarin.AndroidX.Compose.Animation.Core                               |1.11.2              |
-|  39|androidx.compose.animation:animation-core-android                     |1.11.2              |Xamarin.AndroidX.Compose.Animation.Core.Android                       |1.11.2              |
+|  39|androidx.compose.animation:animation-core-android                     |1.11.2              |Xamarin.AndroidX.Compose.Animation.Core.Android                       |1.11.2.1            |
 |  40|androidx.compose.animation:animation-graphics                         |1.11.2              |Xamarin.AndroidX.Compose.Animation.Graphics                           |1.11.2              |
 |  41|androidx.compose.animation:animation-graphics-android                 |1.11.2              |Xamarin.AndroidX.Compose.Animation.Graphics.Android                   |1.11.2              |
 |  42|androidx.compose.foundation:foundation                                |1.11.2              |Xamarin.AndroidX.Compose.Foundation                                   |1.11.2              |

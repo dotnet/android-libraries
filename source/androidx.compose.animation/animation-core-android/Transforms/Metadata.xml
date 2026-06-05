@@ -1,4 +1,32 @@
 ﻿<metadata>
-    <remove-node path="/api/package" />
-    
+  <!--
+    Kotlin's AnimationSpec hierarchy uses covariant return types on the generic
+    `vectorize()` method (AnimationSpec -> VectorizedAnimationSpec,
+    FiniteAnimationSpec -> VectorizedFiniteAnimationSpec, etc.) which cannot be
+    expressed in C#. Remove the `vectorize` methods so the spec types still bind.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.animation.core']//method[@name='vectorize']" />
+
+  <!--
+    `VectorizedAnimationSpec.isInfinite` is a Kotlin interface property with a
+    default implementation; class-parse marks it abstract so the concrete
+    Vectorized* classes fail to implement it. Remove it from the interface.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.animation.core']/interface[@name='VectorizedAnimationSpec']/method[@name='isInfinite']" />
+
+  <!--
+    `TransitionState` is generic in Kotlin (TransitionState&lt;S&gt;) but binds
+    non-generic, so its abstract getCurrentState()/getTargetState() become
+    abstract `Raw*State` members the subclasses can't override. Remove them from
+    the base type.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.animation.core']/class[@name='TransitionState']/method[@name='getCurrentState']" />
+  <remove-node path="/api/package[@name='androidx.compose.animation.core']/class[@name='TransitionState']/method[@name='getTargetState']" />
+
+  <!--
+    Two DecayAnimation constructors collide in C# because the generic parameters
+    `T initialVelocity` and `V (AnimationVector) initialVelocityVector` both erase
+    to Java.Lang.Object. Remove the AnimationVector overload.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.animation.core']/class[@name='DecayAnimation']/constructor[count(parameter)=4 and parameter[1][@type='androidx.compose.animation.core.DecayAnimationSpec&lt;T&gt;'] and parameter[4][@type='V']]" />
 </metadata>
