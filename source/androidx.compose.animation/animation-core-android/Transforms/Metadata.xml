@@ -29,4 +29,11 @@
     to Java.Lang.Object. Remove the AnimationVector overload.
   -->
   <remove-node path="/api/package[@name='androidx.compose.animation.core']/class[@name='DecayAnimation']/constructor[count(parameter)=4 and parameter[1][@type='androidx.compose.animation.core.DecayAnimationSpec&lt;T&gt;'] and parameter[4][@type='V']]" />
+
+  <!--
+    `androidx.compose.animation.core.internal` is an internal Kotlin package
+    (JvmDefaultWithCompatibility / PlatformOptimizedCancellationException
+    helpers); it is not public API, so remove it entirely.
+  -->
+  <remove-node path="/api/package[@name='androidx.compose.animation.core.internal']" />
 </metadata>
