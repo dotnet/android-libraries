@@ -11,6 +11,15 @@
   <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" name="managedName">CreateIntentImpl</attr>
   <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]" name="managedName">ParseResultImpl</attr>
   
+  <!-- Fix record interface visibility - class-parse emits empty visibility for these public Kotlin
+       interfaces, so they get dropped and concrete records lose their implements chain to IRecord -->
+  <attr path="/api/package[@name='androidx.health.connect.client.records']/interface[@name='IntervalRecord']" name="visibility">public</attr>
+  <attr path="/api/package[@name='androidx.health.connect.client.records']/interface[@name='InstantaneousRecord']" name="visibility">public</attr>
+  <attr path="/api/package[@name='androidx.health.connect.client.records']/interface[@name='SeriesRecord']" name="visibility">public</attr>
+  <!-- Remove the generic getSamples() from ISeriesRecord; its erased IList<Object> return type
+       collides (CS0738) with the strongly-typed Samples on concrete series records -->
+  <remove-node path="/api/package[@name='androidx.health.connect.client.records']/interface[@name='SeriesRecord']/method[@name='getSamples']" />
+  
   <!-- Fix Units classes IComparable implementation by removing the Comparable interface -->
   <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='BloodGlucose']/implements[@name='java.lang.Comparable']" />
   <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Energy']/implements[@name='java.lang.Comparable']" />
