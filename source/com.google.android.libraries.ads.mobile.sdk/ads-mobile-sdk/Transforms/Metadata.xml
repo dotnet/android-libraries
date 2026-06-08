@@ -159,4 +159,12 @@
     <remove-node
         path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.banner']/interface[@name='BannerRequest']/method[@name='getAdSizes' and count(parameter)=0]"
         />
+    <!-- BannerAd exposes obfuscated members referencing the unbound 'ads_mobile_sdk' package;
+         removing them lets the BannerAd interface (and AdView.LoadAd, which takes AdLoadCallback<BannerAd>) bind. -->
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.banner']/interface[@name='BannerAd']/method[@name='getView' and count(parameter)=0]"
+        />
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.banner']/interface[@name='BannerAd']/method[@name='a' and count(parameter)=1 and parameter[1][@type='com.google.android.libraries.ads.mobile.sdk.banner.AdSize']]"
+        />
 </metadata>
