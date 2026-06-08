@@ -463,7 +463,7 @@
 | 456|com.google.android.gms:play-services-vision-image-labeling-internal   |16.1.0              |Xamarin.GooglePlayServices.Vision.ImageLabelingInternal               |116.1.0.25          |
 | 457|com.google.android.gms:play-services-wallet                           |20.0.0              |Xamarin.GooglePlayServices.Wallet                                     |120.0.0             |
 | 458|com.google.android.gms:play-services-wearable                         |20.0.1              |Xamarin.GooglePlayServices.Wearable                                   |120.0.1             |
-| 459|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.1.1               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.1.1               |
+| 459|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.1.1               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.1.1.1             |
 | 460|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.GoogleAndroid.Libraries.Identity.GoogleId                     |1.1.0.13            |
 | 461|com.google.android.libraries.places:places                            |5.2.0               |Xamarin.GoogleAndroid.Libraries.Places                                |5.2.0               |
 | 462|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.GoogleAndroid.Libraries.Places.Compat                         |2.6.0.17            |
