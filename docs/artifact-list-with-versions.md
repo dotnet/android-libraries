@@ -369,7 +369,7 @@
 | 362|com.google.ai.edge.litert:litert-support-api                          |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.Support.API                             |1.4.2               |
 | 363|com.google.ai.edge.localagents:localagents-fc                         |0.1.0               |Xamarin.Google.AI.Edge.LocalAgents.FunctionCalling                    |0.1.0.2             |
 | 364|com.google.ai.edge.localagents:localagents-rag                        |0.3.0               |Xamarin.Google.AI.Edge.LocalAgents.RAG                                |0.3.0.2             |
-| 365|com.google.android:annotations                                        |4.1.1.4             |Xamarin.GoogleAndroid.Annotations                                     |4.1.1.25            |
+| 365|com.google.android:annotations                                        |4.1.1.4             |Xamarin.Google.Android.Annotations                                    |4.1.1.26            |
 | 366|com.google.android.datatransport:transport-api                        |4.1.1               |Xamarin.Google.Android.DataTransport.TransportApi                     |4.1.1               |
 | 367|com.google.android.datatransport:transport-backend-cct                |4.1.1               |Xamarin.Google.Android.DataTransport.TransportBackendCct              |4.1.1               |
 | 368|com.google.android.datatransport:transport-runtime                    |4.1.1               |Xamarin.Google.Android.DataTransport.TransportRuntime                 |4.1.1               |
@@ -464,9 +464,9 @@
 | 457|com.google.android.gms:play-services-wallet                           |20.0.0              |Xamarin.GooglePlayServices.Wallet                                     |120.0.0             |
 | 458|com.google.android.gms:play-services-wearable                         |20.0.1              |Xamarin.GooglePlayServices.Wearable                                   |120.0.1             |
 | 459|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.1.1               |Xamarin.GoogleAndroid.Libraries.Ads.Mobile.Sdk                        |1.1.1               |
-| 460|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.GoogleAndroid.Libraries.Identity.GoogleId                     |1.1.0.13            |
-| 461|com.google.android.libraries.places:places                            |5.2.0               |Xamarin.GoogleAndroid.Libraries.Places                                |5.2.0               |
-| 462|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.GoogleAndroid.Libraries.Places.Compat                         |2.6.0.17            |
+| 460|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.Google.Android.Libraries.Identity.GoogleId                    |1.1.0.14            |
+| 461|com.google.android.libraries.places:places                            |5.2.0               |Xamarin.Google.Android.Libraries.Places                               |5.2.0.1             |
+| 462|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.Google.Android.Libraries.Places.Compat                        |2.6.0.18            |
 | 463|com.google.android.material:compose-theme-adapter                     |1.1.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter                 |1.1.18.22           |
 | 464|com.google.android.material:compose-theme-adapter-3                   |1.0.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter3                |1.0.18.21           |
 | 465|com.google.android.material:material                                  |1.14.0              |Xamarin.Google.Android.Material                                       |1.14.0.1            |
@@ -481,10 +481,10 @@
 | 474|com.google.android.play:core-ktx                                      |1.8.1               |Xamarin.Google.Android.Play.Core.Ktx                                  |1.8.1.18            |
 | 475|com.google.android.play:feature-delivery                              |2.1.0               |Xamarin.Google.Android.Play.Feature.Delivery                          |2.1.0.17            |
 | 476|com.google.android.play:integrity                                     |1.6.0               |Xamarin.Google.Android.Play.Integrity                                 |1.6.0.2             |
-| 477|com.google.android.play:review                                        |2.0.2               |Xamarin.Google.Android.Play.Review                                    |2.0.2.7             |
-| 478|com.google.android.play:review-ktx                                    |2.0.2               |Xamarin.Google.Android.Play.Review.Ktx                                |2.0.2.7             |
+| 477|com.google.android.play:review                                        |2.0.2               |Xamarin.Google.Android.Play.Review                                    |2.0.2.8             |
+| 478|com.google.android.play:review-ktx                                    |2.0.2               |Xamarin.Google.Android.Play.Review.Ktx                                |2.0.2.8             |
 | 479|com.google.android.recaptcha:recaptcha                                |18.9.1              |Xamarin.Google.Android.Recaptcha                                      |18.9.1              |
-| 480|com.google.android.tv:tv-ads                                          |1.0.1               |Xamarin.GoogleAndroid.TV.Ads                                          |1.0.1.6             |
+| 480|com.google.android.tv:tv-ads                                          |1.0.1               |Xamarin.Google.Android.TV.Ads                                         |1.0.1.7             |
 | 481|com.google.android.ump:user-messaging-platform                        |4.0.0               |Xamarin.Google.UserMessagingPlatform                                  |4.0.0.2             |
 | 482|com.google.assistant.appactions:suggestions                           |1.0.0               |Xamarin.Google.Assistant.AppActions.Suggestions                       |1.0.0.22            |
 | 483|com.google.assistant.appactions:widgets                               |0.0.1               |Xamarin.Google.Assistant.AppActions.Widgets                           |0.0.1.23            |

@@ -20,7 +20,7 @@ public class TestAllIndividualPackages
 	static List<string> ignored_packages = [
 		"Xamarin.Google.Guava.ListenableFuture",
 		"Xamarin.Protobuf.Lite",
-		"Xamarin.GoogleAndroid.Libraries.Places.Compat",
+		"Xamarin.Google.Android.Libraries.Places.Compat",
 
 		// PlayServices packages
 		// - Duplicate managed types (due to Games.V2)
