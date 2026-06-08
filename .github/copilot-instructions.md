@@ -73,6 +73,30 @@ public partial class ClassName
 }
 ```
 
+### Missing `IRecord`/Interface Chain (Kotlin `@PublishedApi internal`)
+When concrete classes lose an `implements` to a public interface because an
+intermediate Kotlin interface is `@PublishedApi internal` (or otherwise has
+`visibility=""` from class-parse), the binding generator drops the intermediate
+type and strips it from every implementer.
+
+**Do NOT** force `<attr ... name="visibility">public</attr>` on the dropped
+interface — `metadata-verify` (build/cake/validations.cake) will fail with
+"Preventing exposing/surfacing interfaces with default package accessibility
+as public", and it correctly protects against republishing types upstream
+explicitly marked internal.
+
+**Instead**, inject the public ancestor directly onto each concrete implementer
+using `<add-node>` with an XPath that matches by the dropped intermediate(s):
+```xml
+<add-node path="/api/package[@name='pkg']/class[implements[@name='pkg.InternalIntermediate']]">
+  <implements name="pkg.PublicAncestor" name-generic-aware="pkg.PublicAncestor"></implements>
+</add-node>
+```
+This preserves the public chain without exposing the internal intermediary.
+See `source/GPS.Metadata.Common.xml` (ReflectedParcelable/Parcelable) and
+`source/androidx.health.connect/connect-client/Transforms/Metadata.xml`
+(IntervalRecord/InstantaneousRecord/SeriesRecord → Record) for examples.
+
 ### Build File Locking Errors (XARLP7024)
 Transient parallel build issue. Usually resolves on retry. If persistent, may need to reduce build parallelism in `build/cake/build-and-package.cake`.
 
