@@ -59,4 +59,16 @@
   <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='CutCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
   <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteRoundedCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
   <attr path="/api/package[@name='androidx.compose.foundation.shape']/class[@name='AbsoluteCutCornerShape']/method[@name='copy' and count(parameter)=4]" name="managedReturn">AndroidX.Compose.Foundation.Shape.CornerBasedShape</attr>
+
+  <!--
+    MutationInterruptedException is `public final` in the JAR but Kotlin metadata
+    marks both it and its parent (internal.PlatformOptimizedCancellationException)
+    as `private`, so class-parse emits visibility="private" and both classes are
+    dropped. This is the exception Compose throws into await-able state-mutation
+    APIs (e.g. ScrollState.animateScrollTo, LazyListState.animateScrollToItem) when
+    a higher-priority MutatorMutex caller wins mid-flight. Force both back to public
+    so C# callers can catch it by type.
+  -->
+  <attr path="/api/package[@name='androidx.compose.foundation.internal']/class[@name='PlatformOptimizedCancellationException']" name="visibility">public</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation']/class[@name='MutationInterruptedException']" name="visibility">public</attr>
 </metadata>
