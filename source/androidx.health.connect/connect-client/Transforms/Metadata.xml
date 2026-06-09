@@ -11,6 +11,17 @@
   <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='createIntent' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" name="managedName">CreateIntentImpl</attr>
   <attr path="/api/package[@name='androidx.health.connect.client.contracts']/class[@name='ExerciseRouteRequestContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]" name="managedName">ParseResultImpl</attr>
   
+  <!-- IntervalRecord, InstantaneousRecord, and SeriesRecord are `@PublishedApi internal` in
+       upstream Kotlin source, so class-parse correctly emits an empty visibility and the
+       binding generator drops them. That also strips the implements chain on every concrete
+       record (e.g. SleepSessionRecord -> IntervalRecord -> Record), leaving the records with
+       no IRecord. Re-attach the public Record interface directly to each concrete record so
+       they remain assignable to IRecord without surfacing the internal intermediaries.
+       This mirrors the pattern in source/GPS.Metadata.Common.xml for ReflectedParcelable. -->
+  <add-node path="/api/package[@name='androidx.health.connect.client.records']/class[implements[@name='androidx.health.connect.client.records.IntervalRecord'] or implements[@name='androidx.health.connect.client.records.InstantaneousRecord'] or implements[@name='androidx.health.connect.client.records.SeriesRecord']]">
+    <implements name="androidx.health.connect.client.records.Record" name-generic-aware="androidx.health.connect.client.records.Record"></implements>
+  </add-node>
+  
   <!-- Fix Units classes IComparable implementation by removing the Comparable interface -->
   <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='BloodGlucose']/implements[@name='java.lang.Comparable']" />
   <remove-node path="/api/package[@name='androidx.health.connect.client.units']/class[@name='Energy']/implements[@name='java.lang.Comparable']" />
