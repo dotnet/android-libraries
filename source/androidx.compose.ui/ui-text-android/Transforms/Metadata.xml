@@ -55,4 +55,20 @@
   -->
   <remove-node path="/api/package[@name='androidx.compose.ui.text.intl']/class[@name='PlatformLocaleKt']/method[@name='getPlatformLocaleDelegate']" />
   <remove-node path="/api/package[@name='androidx.compose.ui.text.platform']/class[@name='DispatcherKt']/method[@name='getFontCacheManagementDispatcher']" />
+
+  <!--
+    Kotlin `object` companions on classes: the nested peer binds as
+    `<Outer>.Companion`, colliding with the static `Companion` property the
+    generator would emit on the outer class, so the field is dropped and the
+    singleton is only reachable via raw JNI. Rename the nested peer to
+    `CompanionStatic` (okio binding convention) so the generator surfaces
+    `public static <Outer>.CompanionStatic Companion { get; }`, letting consumers
+    write e.g. `TextStyle.Companion.Default` directly. (Interface companions are
+    unaffected — their peer is already hoisted/renamed.)
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.text']/class[@name='TextStyle.Companion']" name="managedName">CompanionStatic</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontFamily.Companion']" name="managedName">CompanionStatic</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontStyle.Companion']" name="managedName">CompanionStatic</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.font']/class[@name='FontWeight.Companion']" name="managedName">CompanionStatic</attr>
+  <attr path="/api/package[@name='androidx.compose.ui.text.style']/class[@name='TextDecoration.Companion']" name="managedName">CompanionStatic</attr>
 </metadata>

@@ -71,4 +71,18 @@
   -->
   <attr path="/api/package[@name='androidx.compose.foundation.internal']/class[@name='PlatformOptimizedCancellationException']" name="visibility">public</attr>
   <attr path="/api/package[@name='androidx.compose.foundation']/class[@name='MutationInterruptedException']" name="visibility">public</attr>
+
+  <!--
+    Kotlin `object` companion on a `class`: the nested peer binds as
+    `<Outer>.Companion`, which collides with the static `Companion` property the
+    generator would otherwise emit on the outer class (a nested type and a
+    property can't share a name), so the field is silently dropped and the
+    singleton is only reachable via raw JNI. Rename the nested companion peer to
+    `CompanionStatic` (matching the okio binding convention) so the generator can
+    surface `public static KeyboardOptions.CompanionStatic Companion { get; }`,
+    letting consumers write `KeyboardOptions.Companion.Default` directly.
+    (Interface companions are unaffected — their peer is already hoisted/renamed,
+    so they surface without help.)
+  -->
+  <attr path="/api/package[@name='androidx.compose.foundation.text']/class[@name='KeyboardOptions.Companion']" name="managedName">CompanionStatic</attr>
 </metadata>

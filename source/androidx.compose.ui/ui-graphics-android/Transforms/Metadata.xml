@@ -29,4 +29,16 @@
   -->
   <remove-node path="/api/package[@name='androidx.compose.ui.graphics']/interface[@name='PathIterator']" />
 
+  <!--
+    Kotlin `object` companion on the `Color` inline value class: the nested peer
+    binds as `Color.Companion`, colliding with the static `Companion` property
+    the generator would emit on `Color`, so the field is dropped and the
+    singleton (which exposes Red/Green/Blue/Transparent/… constants) is only
+    reachable via raw JNI. Rename the nested peer to `CompanionStatic` (okio
+    binding convention) so the generator surfaces
+    `public static Color.CompanionStatic Companion { get; }`, letting consumers
+    write `Color.Companion.Red` directly.
+  -->
+  <attr path="/api/package[@name='androidx.compose.ui.graphics']/class[@name='Color.Companion']" name="managedName">CompanionStatic</attr>
+
 </metadata>
