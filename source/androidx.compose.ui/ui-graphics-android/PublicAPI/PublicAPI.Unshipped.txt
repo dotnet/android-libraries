@@ -124,10 +124,15 @@ AndroidX.Compose.UI.Graphics.Brush
 AndroidX.Compose.UI.Graphics.Brush.Brush(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Compose.UI.Graphics.Brush.Companion
 AndroidX.Compose.UI.Graphics.Brush.Companion.Composite_7EN7VTw(AndroidX.Compose.UI.Graphics.Brush! dstBrush, AndroidX.Compose.UI.Graphics.Brush! srcBrush, int blendMode) -> AndroidX.Compose.UI.Graphics.Brush!
+AndroidX.Compose.UI.Graphics.Brush.Companion.HorizontalGradient_8A_3gB4(Kotlin.Pair![]! colorStops, float startX, float endX, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.Companion.HorizontalGradient_8A_3gB4(System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, float startX, float endX, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
+AndroidX.Compose.UI.Graphics.Brush.Companion.LinearGradient_mHitzGk(Kotlin.Pair![]! colorStops, long start, long end, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.Companion.LinearGradient_mHitzGk(System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, long start, long end, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
+AndroidX.Compose.UI.Graphics.Brush.Companion.RadialGradient_P_Vx_Ks(Kotlin.Pair![]! colorStops, long center, float radius, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.Companion.RadialGradient_P_Vx_Ks(System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, long center, float radius, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
+AndroidX.Compose.UI.Graphics.Brush.Companion.SweepGradient_Uv8p0NA(Kotlin.Pair![]! colorStops, long center) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.Companion.SweepGradient_Uv8p0NA(System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, long center) -> AndroidX.Compose.UI.Graphics.Brush!
+AndroidX.Compose.UI.Graphics.Brush.Companion.VerticalGradient_8A_3gB4(Kotlin.Pair![]! colorStops, float startY, float endY, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.Companion.VerticalGradient_8A_3gB4(System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, float startY, float endY, int tileMode) -> AndroidX.Compose.UI.Graphics.Brush!
 AndroidX.Compose.UI.Graphics.Brush.IntrinsicSize.get -> long
 AndroidX.Compose.UI.Graphics.BrushKt
@@ -135,6 +140,7 @@ AndroidX.Compose.UI.Graphics.CanvasDefaultImpls
 AndroidX.Compose.UI.Graphics.CanvasHolder
 AndroidX.Compose.UI.Graphics.CanvasHolder.AndroidCanvas.get -> Java.Lang.Object!
 AndroidX.Compose.UI.Graphics.CanvasHolder.CanvasHolder() -> void
+AndroidX.Compose.UI.Graphics.CanvasHolder.DrawInto(Android.Graphics.Canvas! targetCanvas, Kotlin.Jvm.Functions.IFunction1! block) -> void
 AndroidX.Compose.UI.Graphics.CanvasKt
 AndroidX.Compose.UI.Graphics.ClipOp
 AndroidX.Compose.UI.Graphics.ClipOp.Companion
@@ -235,6 +241,7 @@ AndroidX.Compose.UI.Graphics.Colorspace.RenderIntent.Companion.Perceptual_uksYyK
 AndroidX.Compose.UI.Graphics.Colorspace.RenderIntent.Companion.Relative_uksYyKA.get -> int
 AndroidX.Compose.UI.Graphics.Colorspace.RenderIntent.Companion.Saturation_uksYyKA.get -> int
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb
+AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Eotf.get -> Kotlin.Jvm.Functions.IFunction1!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.FromLinear(float r, float g, float b) -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.FromLinear(float[]! v) -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.GetInverseTransform() -> float[]!
@@ -243,9 +250,12 @@ AndroidX.Compose.UI.Graphics.Colorspace.Rgb.GetPrimaries() -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.GetPrimaries(float[]! primaries) -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.GetTransform() -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.GetTransform(float[]! transform) -> float[]!
+AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Oetf.get -> Kotlin.Jvm.Functions.IFunction1!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! primaries, AndroidX.Compose.UI.Graphics.Colorspace.WhitePoint! whitePoint, AndroidX.Compose.UI.Graphics.Colorspace.TransferParameters! function) -> void
+AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! primaries, AndroidX.Compose.UI.Graphics.Colorspace.WhitePoint! whitePoint, Kotlin.Jvm.Functions.IFunction1! oetf, Kotlin.Jvm.Functions.IFunction1! eotf, float min, float max) -> void
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! primaries, AndroidX.Compose.UI.Graphics.Colorspace.WhitePoint! whitePoint, double gamma) -> void
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! toXYZ, AndroidX.Compose.UI.Graphics.Colorspace.TransferParameters! function) -> void
+AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! toXYZ, Kotlin.Jvm.Functions.IFunction1! oetf, Kotlin.Jvm.Functions.IFunction1! eotf) -> void
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.Rgb(string! name, float[]! toXYZ, double gamma) -> void
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.ToLinear(float r, float g, float b) -> float[]!
 AndroidX.Compose.UI.Graphics.Colorspace.Rgb.ToLinear(float[]! v) -> float[]!
@@ -464,8 +474,11 @@ AndroidX.Compose.UI.Graphics.Interval.Start.get -> float
 AndroidX.Compose.UI.Graphics.IntervalTree
 AndroidX.Compose.UI.Graphics.IntervalTree.AddInterval(float start, float end, Java.Lang.Object? data) -> void
 AndroidX.Compose.UI.Graphics.IntervalTree.Clear() -> void
+AndroidX.Compose.UI.Graphics.IntervalTree.Contains(Kotlin.Ranges.IClosedFloatingPointRange! interval) -> bool
 AndroidX.Compose.UI.Graphics.IntervalTree.Contains(float value) -> bool
+AndroidX.Compose.UI.Graphics.IntervalTree.FindFirstOverlap(Kotlin.Ranges.IClosedFloatingPointRange! interval) -> AndroidX.Compose.UI.Graphics.Interval!
 AndroidX.Compose.UI.Graphics.IntervalTree.FindFirstOverlap(float start, float end) -> AndroidX.Compose.UI.Graphics.Interval!
+AndroidX.Compose.UI.Graphics.IntervalTree.FindOverlaps(Kotlin.Ranges.IClosedFloatingPointRange! interval, System.Collections.IList! results) -> System.Collections.IList!
 AndroidX.Compose.UI.Graphics.IntervalTree.FindOverlaps(float start, float end, System.Collections.IList! results) -> System.Collections.IList!
 AndroidX.Compose.UI.Graphics.IntervalTree.IntervalTree() -> void
 AndroidX.Compose.UI.Graphics.IntervalTree.Iterator() -> Java.Util.IIterator!
@@ -518,6 +531,7 @@ AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.ShadowElevation.set -> void
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.Size.get -> long
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.SpotShadowColor.get -> long
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.SpotShadowColor.set -> void
+AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.ToImageBitmap(Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.TopLeft.get -> long
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.TopLeft.set -> void
 AndroidX.Compose.UI.Graphics.Layer.GraphicsLayer.TranslationX.get -> float
@@ -1175,6 +1189,7 @@ static AndroidX.Compose.UI.Graphics.CanvasKt.Canvas(AndroidX.Compose.UI.Graphics
 static AndroidX.Compose.UI.Graphics.CanvasKt.Rotate(AndroidX.Compose.UI.Graphics.ICanvas! obj, float degrees, float pivotX, float pivotY) -> void
 static AndroidX.Compose.UI.Graphics.CanvasKt.RotateRad(AndroidX.Compose.UI.Graphics.ICanvas! obj, float radians, float pivotX, float pivotY) -> void
 static AndroidX.Compose.UI.Graphics.CanvasKt.Scale(AndroidX.Compose.UI.Graphics.ICanvas! obj, float sx, float sy, float pivotX, float pivotY) -> void
+static AndroidX.Compose.UI.Graphics.CanvasKt.WithSave(AndroidX.Compose.UI.Graphics.ICanvas! obj, Kotlin.Jvm.Functions.IFunction0! block) -> void
 static AndroidX.Compose.UI.Graphics.Color.Convert(long arg0, AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace! colorSpace) -> long
 static AndroidX.Compose.UI.Graphics.Color.Copy(long arg0, float alpha, float red, float green, float blue) -> long
 static AndroidX.Compose.UI.Graphics.ColorKt.Color(float red, float green, float blue, float alpha, AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace! colorSpace) -> long
@@ -1186,6 +1201,7 @@ static AndroidX.Compose.UI.Graphics.ColorKt.IsSpecified(long obj) -> bool
 static AndroidX.Compose.UI.Graphics.ColorKt.IsUnspecified(long obj) -> bool
 static AndroidX.Compose.UI.Graphics.ColorKt.Lerp(long start, long stop, float fraction) -> long
 static AndroidX.Compose.UI.Graphics.ColorKt.Luminance(long obj) -> float
+static AndroidX.Compose.UI.Graphics.ColorKt.TakeOrElse(long obj, Kotlin.Jvm.Functions.IFunction0! block) -> long
 static AndroidX.Compose.UI.Graphics.ColorKt.ToArgb(long obj) -> int
 static AndroidX.Compose.UI.Graphics.ColorMatrix.Set(float[]? arg0, float[]! src) -> void
 static AndroidX.Compose.UI.Graphics.ColorMatrix.TimesAssign(float[]? arg0, float[]! colorMatrix) -> void
@@ -1193,6 +1209,7 @@ static AndroidX.Compose.UI.Graphics.Colorspace.ColorSpaceKt.Adapt(AndroidX.Compo
 static AndroidX.Compose.UI.Graphics.Colorspace.ColorSpaceKt.Adapt(AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace! obj, AndroidX.Compose.UI.Graphics.Colorspace.WhitePoint! whitePoint, AndroidX.Compose.UI.Graphics.Colorspace.Adaptation! adaptation) -> AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace!
 static AndroidX.Compose.UI.Graphics.Colorspace.ColorSpaceKt.Connect(AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace! obj, AndroidX.Compose.UI.Graphics.Colorspace.ColorSpace! destination, int intent) -> AndroidX.Compose.UI.Graphics.Colorspace.Connector!
 static AndroidX.Compose.UI.Graphics.Colorspace.ColorSpaces.Instance.get -> AndroidX.Compose.UI.Graphics.Colorspace.ColorSpaces!
+static AndroidX.Compose.UI.Graphics.Colorspace.ConnectorKt.Connectors.get -> AndroidX.Collection.MutableIntObjectMap!
 static AndroidX.Compose.UI.Graphics.Colorspace.Illuminant.Instance.get -> AndroidX.Compose.UI.Graphics.Colorspace.Illuminant!
 static AndroidX.Compose.UI.Graphics.Drawscope.DrawTransformDefaultImpls.GetCenter_F1C5BW0(AndroidX.Compose.UI.Graphics.Drawscope.IDrawTransform! _this) -> long
 static AndroidX.Compose.UI.Graphics.Drawscope.DrawTransformKt.Inset(AndroidX.Compose.UI.Graphics.Drawscope.IDrawTransform! obj, float horizontal, float vertical) -> void
@@ -1227,6 +1244,7 @@ static AndroidX.Compose.UI.Graphics.PathDefaultImpls.Transform_58bKbWc(AndroidX.
 static AndroidX.Compose.UI.Graphics.PathDefaultImpls.Xor(AndroidX.Compose.UI.Graphics.IPath! _this, AndroidX.Compose.UI.Graphics.IPath! path) -> AndroidX.Compose.UI.Graphics.IPath!
 static AndroidX.Compose.UI.Graphics.PathDirection.Clockwise.get -> AndroidX.Compose.UI.Graphics.PathDirection?
 static AndroidX.Compose.UI.Graphics.PathDirection.CounterClockwise.get -> AndroidX.Compose.UI.Graphics.PathDirection?
+static AndroidX.Compose.UI.Graphics.PathDirection.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Compose.UI.Graphics.PathDirection.ValueOf(string? value) -> AndroidX.Compose.UI.Graphics.PathDirection?
 static AndroidX.Compose.UI.Graphics.PathDirection.Values() -> AndroidX.Compose.UI.Graphics.PathDirection![]?
 static AndroidX.Compose.UI.Graphics.PathEffect.Companion.get -> AndroidX.Compose.UI.Graphics.PathEffectCompanion!
@@ -1244,6 +1262,7 @@ static AndroidX.Compose.UI.Graphics.PathSegment.Type.Close.get -> AndroidX.Compo
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Conic.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Cubic.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Done.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
+static AndroidX.Compose.UI.Graphics.PathSegment.Type.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Line.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Move.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
 static AndroidX.Compose.UI.Graphics.PathSegment.Type.Quadratic.get -> AndroidX.Compose.UI.Graphics.PathSegment.Type?
