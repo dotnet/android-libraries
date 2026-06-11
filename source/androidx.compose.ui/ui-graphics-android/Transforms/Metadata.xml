@@ -30,15 +30,20 @@
   <remove-node path="/api/package[@name='androidx.compose.ui.graphics']/interface[@name='PathIterator']" />
 
   <!--
-    Kotlin `object` companion on the `Color` inline value class: the nested peer
-    binds as `Color.Companion`, colliding with the static `Companion` property
-    the generator would emit on `Color`, so the field is dropped and the
-    singleton (which exposes Red/Green/Blue/Transparent/… constants) is only
-    reachable via raw JNI. Rename the nested peer to `CompanionStatic` (okio
-    binding convention) so the generator surfaces
-    `public static Color.CompanionStatic Companion { get; }`, letting consumers
-    write `Color.Companion.Red` directly.
+    Kotlin `object` companions on classes: the nested peer binds as
+    `<Outer>.Companion`, colliding with the static `Companion` property the
+    generator would emit on the outer class, so the field is dropped and the
+    singleton (which exposes constants such as Color.Red/Green/Blue,
+    BlendMode.Clear, Brush family helpers, ColorFilter factories, etc.) is only
+    reachable via raw JNI. Rename every nested `*.Companion` peer to
+    `CompanionStatic` (the same wildcard pattern kotlin-stdlib, okio, aicore,
+    and genai-prompt already use) so the generator surfaces
+    `public static <Outer>.CompanionStatic Companion { get; }` on every outer
+    class, letting consumers write `Color.Companion.Red`,
+    `BlendMode.Companion.Clear`, `Brush.Companion.HorizontalGradient(...)`
+    directly. (Interface companions are hoisted to top-level `<Outer>Companion`
+    by the generator before this rename matches, so they're unaffected.)
   -->
-  <attr path="/api/package[@name='androidx.compose.ui.graphics']/class[@name='Color.Companion']" name="managedName">CompanionStatic</attr>
+  <attr path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion']" name="managedName">CompanionStatic</attr>
 
 </metadata>
