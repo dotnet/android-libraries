@@ -29,4 +29,19 @@
   -->
   <remove-node path="/api/package[@name='androidx.compose.ui.graphics']/interface[@name='PathIterator']" />
 
+  <!--
+    SolidColor(Color): the primary Kotlin constructor takes the @JvmInline
+    value class `Color`, so the binder strips the constructor even though the
+    JVM bytecode signature is the plain primitive `<init>(J)V`. Re-introduce it
+    via <add-node> so it binds as `public SolidColor(long value)`, matching how
+    the existing value-class-param members (getValue-0d7_KjU()J,
+    applyTo-Pq9zytI(JL…/Paint;F)V) already project their value-class params as
+    the underlying primitive. See dotnet/android-libraries#1470.
+  -->
+  <add-node path="/api/package[@name='androidx.compose.ui.graphics']/class[@name='SolidColor']">
+    <constructor deprecated="not deprecated" final="false" name="SolidColor" static="false" visibility="public" bridge="false" synthetic="false" jni-signature="(J)V">
+      <parameter name="value" type="long" jni-type="J" />
+    </constructor>
+  </add-node>
+
 </metadata>
