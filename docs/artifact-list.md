@@ -59,11 +59,11 @@
 |  52|androidx.compose.material:material-ripple                             |Xamarin.AndroidX.Compose.Material.Ripple                              |
 |  53|androidx.compose.material:material-ripple-android                     |Xamarin.AndroidX.Compose.Material.Ripple.Android                      |
 |  54|androidx.compose.material3:material3                                  |Xamarin.AndroidX.Compose.Material3                                    |
-|  55|androidx.compose.material3:material3-android                          |Xamarin.AndroidX.Compose.Material3Android                             |
-|  56|androidx.compose.material3:material3-window-size-class                |Xamarin.AndroidX.Compose.Material3.WindowSizeClass                    |
-|  57|androidx.compose.material3:material3-window-size-class-android        |Xamarin.AndroidX.Compose.Material3.WindowSizeClassAndroid             |
-|  58|androidx.compose.material3:material3-adaptive-navigation-suite        |Xamarin.AndroidX.Compose.Material3.Adaptive.NavigationSuite           |
-|  59|androidx.compose.material3:material3-adaptive-navigation-suite-android|Xamarin.AndroidX.Compose.Material3.Adaptive.NavigationSuiteAndroid    |
+|  55|androidx.compose.material3:material3-adaptive-navigation-suite        |Xamarin.AndroidX.Compose.Material3.Adaptive.NavigationSuite           |
+|  56|androidx.compose.material3:material3-adaptive-navigation-suite-android|Xamarin.AndroidX.Compose.Material3.Adaptive.NavigationSuiteAndroid    |
+|  57|androidx.compose.material3:material3-android                          |Xamarin.AndroidX.Compose.Material3Android                             |
+|  58|androidx.compose.material3:material3-window-size-class                |Xamarin.AndroidX.Compose.Material3.WindowSizeClass                    |
+|  59|androidx.compose.material3:material3-window-size-class-android        |Xamarin.AndroidX.Compose.Material3.WindowSizeClassAndroid             |
 |  60|androidx.compose.material3.adaptive:adaptive                          |Xamarin.AndroidX.Compose.Material3.Adaptive                           |
 |  61|androidx.compose.material3.adaptive:adaptive-android                  |Xamarin.AndroidX.Compose.Material3.AdaptiveAndroid                    |
 |  62|androidx.compose.material3.adaptive:adaptive-layout                   |Xamarin.AndroidX.Compose.Material3.Adaptive.Layout                    |
