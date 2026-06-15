@@ -281,6 +281,7 @@ Square.OkHttp3.IAuthenticator.Authenticate(Square.OkHttp3.Route? route, Square.O
 Square.OkHttp3.IAuthenticator.JavaNetAuthenticator.get -> Square.OkHttp3.IAuthenticator!
 Square.OkHttp3.IAuthenticator.None.get -> Square.OkHttp3.IAuthenticator!
 Square.OkHttp3.ICall
+Square.OkHttp3.ICall.AddEventListener(Square.OkHttp3.EventListener! eventListener) -> void
 Square.OkHttp3.ICall.Cancel() -> void
 Square.OkHttp3.ICall.Clone() -> Square.OkHttp3.ICall!
 Square.OkHttp3.ICall.Enqueue(Square.OkHttp3.ICallback! responseCallback) -> void
@@ -313,16 +314,46 @@ Square.OkHttp3.IDns.System.get -> Square.OkHttp3.IDns!
 Square.OkHttp3.IInterceptor
 Square.OkHttp3.IInterceptor.Intercept(Square.OkHttp3.IInterceptorChain! chain) -> Square.OkHttp3.Response!
 Square.OkHttp3.IInterceptorChain
+Square.OkHttp3.IInterceptorChain.Authenticator.get -> Square.OkHttp3.IAuthenticator!
+Square.OkHttp3.IInterceptorChain.Cache.get -> Square.OkHttp3.Cache?
 Square.OkHttp3.IInterceptorChain.Call() -> Square.OkHttp3.ICall!
+Square.OkHttp3.IInterceptorChain.CertificatePinner.get -> Square.OkHttp3.CertificatePinner!
 Square.OkHttp3.IInterceptorChain.ConnectTimeoutMillis() -> int
 Square.OkHttp3.IInterceptorChain.Connection() -> Square.OkHttp3.IConnection?
+Square.OkHttp3.IInterceptorChain.ConnectionPool.get -> Square.OkHttp3.ConnectionPool!
+Square.OkHttp3.IInterceptorChain.CookieJar.get -> Square.OkHttp3.ICookieJar!
+Square.OkHttp3.IInterceptorChain.Dns.get -> Square.OkHttp3.IDns!
+Square.OkHttp3.IInterceptorChain.EventListener.get -> Square.OkHttp3.EventListener!
+Square.OkHttp3.IInterceptorChain.FollowRedirects.get -> bool
+Square.OkHttp3.IInterceptorChain.FollowSslRedirects.get -> bool
+Square.OkHttp3.IInterceptorChain.HostnameVerifier.get -> Javax.Net.Ssl.IHostnameVerifier!
 Square.OkHttp3.IInterceptorChain.Proceed(Square.OkHttp3.Request! request) -> Square.OkHttp3.Response!
+Square.OkHttp3.IInterceptorChain.Proxy.get -> Java.Net.Proxy?
+Square.OkHttp3.IInterceptorChain.ProxyAuthenticator.get -> Square.OkHttp3.IAuthenticator!
+Square.OkHttp3.IInterceptorChain.ProxySelector.get -> Java.Net.ProxySelector!
 Square.OkHttp3.IInterceptorChain.ReadTimeoutMillis() -> int
 Square.OkHttp3.IInterceptorChain.Request() -> Square.OkHttp3.Request!
+Square.OkHttp3.IInterceptorChain.RetryOnConnectionFailure.get -> bool
+Square.OkHttp3.IInterceptorChain.SocketFactory.get -> Javax.Net.SocketFactory!
+Square.OkHttp3.IInterceptorChain.SslSocketFactoryOrNull.get -> Javax.Net.Ssl.SSLSocketFactory?
+Square.OkHttp3.IInterceptorChain.WithAuthenticator(Square.OkHttp3.IAuthenticator! authenticator) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithCache(Square.OkHttp3.Cache? cache) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithCertificatePinner(Square.OkHttp3.CertificatePinner! certificatePinner) -> Square.OkHttp3.IInterceptorChain!
 Square.OkHttp3.IInterceptorChain.WithConnectTimeout(int timeout, Java.Util.Concurrent.TimeUnit! unit) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithConnectionPool(Square.OkHttp3.ConnectionPool! connectionPool) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithCookieJar(Square.OkHttp3.ICookieJar! cookieJar) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithDns(Square.OkHttp3.IDns! dns) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithHostnameVerifier(Javax.Net.Ssl.IHostnameVerifier! hostnameVerifier) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithProxy(Java.Net.Proxy? proxy) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithProxyAuthenticator(Square.OkHttp3.IAuthenticator! proxyAuthenticator) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithProxySelector(Java.Net.ProxySelector! proxySelector) -> Square.OkHttp3.IInterceptorChain!
 Square.OkHttp3.IInterceptorChain.WithReadTimeout(int timeout, Java.Util.Concurrent.TimeUnit! unit) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithRetryOnConnectionFailure(bool retryOnConnectionFailure) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithSocketFactory(Javax.Net.SocketFactory! socketFactory) -> Square.OkHttp3.IInterceptorChain!
+Square.OkHttp3.IInterceptorChain.WithSslSocketFactory(Javax.Net.Ssl.SSLSocketFactory? sslSocketFactory, Javax.Net.Ssl.IX509TrustManager? x509TrustManager) -> Square.OkHttp3.IInterceptorChain!
 Square.OkHttp3.IInterceptorChain.WithWriteTimeout(int timeout, Java.Util.Concurrent.TimeUnit! unit) -> Square.OkHttp3.IInterceptorChain!
 Square.OkHttp3.IInterceptorChain.WriteTimeoutMillis() -> int
+Square.OkHttp3.IInterceptorChain.X509TrustManagerOrNull.get -> Javax.Net.Ssl.IX509TrustManager?
 Square.OkHttp3.ITrailersSource
 Square.OkHttp3.ITrailersSource.Empty.get -> Square.OkHttp3.ITrailersSource!
 Square.OkHttp3.ITrailersSource.Get() -> Square.OkHttp3.Headers!
@@ -540,7 +571,6 @@ Square.OkHttp3.TlsVersion
 Square.OkHttp3.TlsVersion.JavaName() -> string!
 Square.OkHttp3.TrailersSource
 Square.OkHttp3.TrailersSourceConsts
-Square.OkHttp3.TrailersSourceDefaultImpls
 Square.OkHttp3.WebSocketListener
 Square.OkHttp3.WebSocketListener.WebSocketListener() -> void
 Square.OkHttp3.WebSocketListener.WebSocketListener(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -611,7 +641,6 @@ override Square.OkHttp3.ResponseBody.ThresholdClass.get -> nint
 override Square.OkHttp3.ResponseBody.ThresholdType.get -> System.Type!
 override Square.OkHttp3.Route.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.TlsVersion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Square.OkHttp3.TrailersSourceDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.WebSocketListener.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.WebSocketListener.ThresholdClass.get -> nint
 override Square.OkHttp3.WebSocketListener.ThresholdType.get -> System.Type!
@@ -829,7 +858,6 @@ static Square.OkHttp3.TlsVersion.Tls13.get -> Square.OkHttp3.TlsVersion?
 static Square.OkHttp3.TlsVersion.ValueOf(string? name) -> Square.OkHttp3.TlsVersion?
 static Square.OkHttp3.TlsVersion.Values() -> Square.OkHttp3.TlsVersion![]?
 static Square.OkHttp3.TrailersSource.Empty.get -> Square.OkHttp3.ITrailersSource!
-static Square.OkHttp3.TrailersSourceDefaultImpls.Peek(Square.OkHttp3.ITrailersSource! _this) -> Square.OkHttp3.Headers?
 virtual Square.OkHttp3.CompressionInterceptor.Intercept(Square.OkHttp3.IInterceptorChain! chain) -> Square.OkHttp3.Response!
 virtual Square.OkHttp3.EventListener.CacheConditionalHit(Square.OkHttp3.ICall! call, Square.OkHttp3.Response! cachedResponse) -> void
 virtual Square.OkHttp3.EventListener.CacheHit(Square.OkHttp3.ICall! call, Square.OkHttp3.Response! response) -> void

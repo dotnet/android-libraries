@@ -3,6 +3,7 @@ Android.Support.V4.App.INotificationSideChannel
 Android.Support.V4.App.INotificationSideChannel.Cancel(string? packageName, int id, string? tag) -> void
 Android.Support.V4.App.INotificationSideChannel.CancelAll(string? packageName) -> void
 Android.Support.V4.App.INotificationSideChannel.Descriptor.get -> string?
+Android.Support.V4.App.INotificationSideChannel.InterfaceVersion.get -> int
 Android.Support.V4.App.INotificationSideChannel.Notify(string? packageName, int id, string? tag, Android.App.Notification? notification) -> void
 Android.Support.V4.App.NotificationSideChannel
 Android.Support.V4.App.NotificationSideChannelConsts
@@ -20,9 +21,11 @@ Android.Support.V4.Graphics.Drawable.IconCompatParcelizer
 Android.Support.V4.Graphics.Drawable.IconCompatParcelizer.IconCompatParcelizer() -> void
 Android.Support.V4.OS.IResultReceiver
 Android.Support.V4.OS.IResultReceiver.Descriptor.get -> string?
+Android.Support.V4.OS.IResultReceiver.InterfaceVersion.get -> int
 Android.Support.V4.OS.IResultReceiver.Send(int resultCode, Android.OS.Bundle? resultData) -> void
 Android.Support.V4.OS.IResultReceiver2
 Android.Support.V4.OS.IResultReceiver2.Descriptor.get -> string?
+Android.Support.V4.OS.IResultReceiver2.InterfaceVersion.get -> int
 Android.Support.V4.OS.IResultReceiver2.Send(int p0, Android.OS.Bundle? p1) -> void
 Android.Support.V4.OS.ResultReceiver
 Android.Support.V4.OS.ResultReceiver.ResultReceiver(Android.OS.Handler? handler) -> void
@@ -46,6 +49,7 @@ Android.Support.V4.OS.ResultReceiverStub.InterfaceConsts
 Android.Support.V4.OS.ResultReceiverStub.ResultReceiverStub() -> void
 Android.Support.V4.OS.ResultReceiverStub.ResultReceiverStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat
+AndroidX.Core.Animation.AnimatorKt
 AndroidX.Core.App.ActivityCompat
 AndroidX.Core.App.ActivityCompat.ActivityCompat() -> void
 AndroidX.Core.App.ActivityCompat.ActivityCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -151,6 +155,8 @@ AndroidX.Core.App.NotificationCompat.Action.Builder.AddExtras(Android.OS.Bundle?
 AndroidX.Core.App.NotificationCompat.Action.Builder.AddRemoteInput(AndroidX.Core.App.RemoteInput? remoteInput) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.Builder.Api31Impl
 AndroidX.Core.App.NotificationCompat.Action.Builder.Api31Impl.Api31Impl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl
+AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl.Api37Impl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Build() -> AndroidX.Core.App.NotificationCompat.Action?
 AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(AndroidX.Core.App.NotificationCompat.Action? action) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(AndroidX.Core.Graphics.Drawable.IconCompat? icon, Java.Lang.ICharSequence? title, Android.App.PendingIntent? intent) -> void
@@ -162,11 +168,15 @@ AndroidX.Core.App.NotificationCompat.Action.Builder.Extras.get -> Android.OS.Bun
 AndroidX.Core.App.NotificationCompat.Action.Builder.SetAllowGeneratedReplies(bool allowGeneratedReplies) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.Builder.SetAuthenticationRequired(bool authenticationRequired) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.Builder.SetContextual(bool isContextual) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
+AndroidX.Core.App.NotificationCompat.Action.Builder.SetEmphasisHint(int emphasis) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.Builder.SetSemanticAction(int semanticAction) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.Builder.SetShowsUserInterface(bool showsUserInterface) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
+AndroidX.Core.App.NotificationCompat.Action.Builder.SetStyleHint(int style) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
+AndroidX.Core.App.NotificationCompat.Action.IEmphasis
 AndroidX.Core.App.NotificationCompat.Action.IExtender
 AndroidX.Core.App.NotificationCompat.Action.IExtender.Extend(AndroidX.Core.App.NotificationCompat.Action.Builder? builder) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
 AndroidX.Core.App.NotificationCompat.Action.ISemanticAction
+AndroidX.Core.App.NotificationCompat.Action.IStyle
 AndroidX.Core.App.NotificationCompat.Action.IconData.get -> int
 AndroidX.Core.App.NotificationCompat.Action.IconData.set -> void
 AndroidX.Core.App.NotificationCompat.Action.Title.get -> string?
@@ -285,6 +295,7 @@ AndroidX.Core.App.NotificationCompat.IExtender
 AndroidX.Core.App.NotificationCompat.IExtender.Extend(AndroidX.Core.App.NotificationCompat.Builder? builder) -> AndroidX.Core.App.NotificationCompat.Builder?
 AndroidX.Core.App.NotificationCompat.IGroupAlertBehavior
 AndroidX.Core.App.NotificationCompat.INotificationVisibility
+AndroidX.Core.App.NotificationCompat.ISemanticStyle
 AndroidX.Core.App.NotificationCompat.IServiceNotificationBehavior
 AndroidX.Core.App.NotificationCompat.IStreamType
 AndroidX.Core.App.NotificationCompat.InboxStyle
@@ -319,6 +330,68 @@ AndroidX.Core.App.NotificationCompat.MessagingStyle.MessagingStyle(nint javaRefe
 AndroidX.Core.App.NotificationCompat.MessagingStyle.MessagingStyle(string? userDisplayName) -> void
 AndroidX.Core.App.NotificationCompat.MessagingStyle.SetConversationTitle(string? conversationTitle) -> AndroidX.Core.App.NotificationCompat.MessagingStyle?
 AndroidX.Core.App.NotificationCompat.MessagingStyle.UserDisplayName.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate.FixedDate(Java.Time.LocalDate? value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate.FixedDate(Java.Time.LocalDate? value, int format) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate.Format.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate.IFormat
+AndroidX.Core.App.NotificationCompat.Metric.FixedDate.Value.get -> Java.Time.LocalDate?
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.FixedFloat(float value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.FixedFloat(float value, Java.Lang.ICharSequence? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.FixedFloat(float value, Java.Lang.ICharSequence? unit, int minFractionDigits, int maxFractionDigits) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.FixedFloat(float value, string? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.FixedFloat(float value, string? unit, int minFractionDigits, int maxFractionDigits) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.MaxFractionDigits.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.MinFractionDigits.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.Unit.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.UnitFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.Value.get -> float
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.FixedInt(int value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.FixedInt(int value, Java.Lang.ICharSequence? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.FixedInt(int value, string? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.Unit.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.UnitFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.NotificationCompat.Metric.FixedInt.Value.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.FixedText
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.FixedText(Java.Lang.ICharSequence? value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.FixedText(Java.Lang.ICharSequence? value, Java.Lang.ICharSequence? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.FixedText(string? value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.FixedText(string? value, string? unit) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.Unit.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.UnitFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.Value.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric.FixedText.ValueFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.NotificationCompat.Metric.FixedTime
+AndroidX.Core.App.NotificationCompat.Metric.FixedTime.FixedTime(Java.Time.LocalTime? value) -> void
+AndroidX.Core.App.NotificationCompat.Metric.FixedTime.Value.get -> Java.Time.LocalTime?
+AndroidX.Core.App.NotificationCompat.Metric.Label.get -> string?
+AndroidX.Core.App.NotificationCompat.Metric.LabelFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.NotificationCompat.Metric.Metric(AndroidX.Core.App.NotificationCompat.Metric.MetricValue? value, Java.Lang.ICharSequence? label) -> void
+AndroidX.Core.App.NotificationCompat.Metric.Metric(AndroidX.Core.App.NotificationCompat.Metric.MetricValue? value, Java.Lang.ICharSequence? label, int semanticStyle) -> void
+AndroidX.Core.App.NotificationCompat.Metric.Metric(AndroidX.Core.App.NotificationCompat.Metric.MetricValue? value, string? label) -> void
+AndroidX.Core.App.NotificationCompat.Metric.Metric(AndroidX.Core.App.NotificationCompat.Metric.MetricValue? value, string? label, int semanticStyle) -> void
+AndroidX.Core.App.NotificationCompat.Metric.MetricValue
+AndroidX.Core.App.NotificationCompat.Metric.MetricValue.MetricValue(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.NotificationCompat.Metric.SemanticStyle.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.Format.get -> int
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.IFormat
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.IsStopwatch.get -> bool
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.IsTimer.get -> bool
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.PausedDuration.get -> Java.Time.Duration?
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ZeroElapsedRealtime.get -> Java.Lang.Long?
+AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ZeroTime.get -> Java.Time.Instant?
+AndroidX.Core.App.NotificationCompat.Metric.Value.get -> AndroidX.Core.App.NotificationCompat.Metric.MetricValue?
+AndroidX.Core.App.NotificationCompat.MetricStyle
+AndroidX.Core.App.NotificationCompat.MetricStyle.AddMetric(AndroidX.Core.App.NotificationCompat.Metric? metric) -> AndroidX.Core.App.NotificationCompat.MetricStyle?
+AndroidX.Core.App.NotificationCompat.MetricStyle.CriticalMetric.get -> AndroidX.Core.App.NotificationCompat.Metric?
+AndroidX.Core.App.NotificationCompat.MetricStyle.MetricStyle() -> void
+AndroidX.Core.App.NotificationCompat.MetricStyle.Metrics.get -> System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.Metric!>?
+AndroidX.Core.App.NotificationCompat.MetricStyle.SetCriticalMetric(int index) -> AndroidX.Core.App.NotificationCompat.MetricStyle?
+AndroidX.Core.App.NotificationCompat.MetricStyle.SetMetrics(System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.Metric!>? metrics) -> AndroidX.Core.App.NotificationCompat.MetricStyle?
 AndroidX.Core.App.NotificationCompat.NotificationCompat() -> void
 AndroidX.Core.App.NotificationCompat.NotificationCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.NotificationCompat.ProgressStyle
@@ -327,8 +400,10 @@ AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Color.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Id.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Point(int position) -> void
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.Position.get -> int
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SemanticStyle.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SetColor(int color) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Point?
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SetId(int id) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Point?
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.SetSemanticStyle(int semanticStyle) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Point?
 AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStyle() -> void
 AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStyle(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment
@@ -336,8 +411,10 @@ AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Color.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Id.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Length.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.Segment(int length) -> void
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SemanticStyle.get -> int
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SetColor(int color) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment?
 AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SetId(int id) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment?
+AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.SetSemanticStyle(int semanticStyle) -> AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment?
 AndroidX.Core.App.NotificationCompat.ProjectedExtender
 AndroidX.Core.App.NotificationCompat.ProjectedExtender.ContentIntent.get -> Android.App.PendingIntent?
 AndroidX.Core.App.NotificationCompat.ProjectedExtender.Extend(AndroidX.Core.App.NotificationCompat.Builder? builder) -> AndroidX.Core.App.NotificationCompat.Builder?
@@ -594,9 +671,11 @@ AndroidX.Core.App.TaskStackBuilder.StartActivities() -> void
 AndroidX.Core.App.TaskStackBuilder.StartActivities(Android.OS.Bundle? options) -> void
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback.Descriptor.get -> string?
+AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback.InterfaceVersion.get -> int
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback.OnIsPermissionRevocationEnabledForAppResult(bool p0, bool p1) -> void
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportService
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportService.Descriptor.get -> string?
+AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportService.InterfaceVersion.get -> int
 AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportService.IsPermissionRevocationEnabledForApp(AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback? p0) -> void
 AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallback
 AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackConsts
@@ -620,10 +699,12 @@ AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub
 AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.UnusedAppRestrictionsBackportServiceStub(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Content.ContentProviderCompat
 AndroidX.Core.Content.ContentResolverCompat
+AndroidX.Core.Content.ContentValuesKt
 AndroidX.Core.Content.ContextCompat
 AndroidX.Core.Content.ContextCompat.ContextCompat() -> void
 AndroidX.Core.Content.ContextCompat.ContextCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Content.ContextCompat.IRegisterReceiverFlags
+AndroidX.Core.Content.ContextKt
 AndroidX.Core.Content.FileProvider
 AndroidX.Core.Content.FileProvider.FileProvider() -> void
 AndroidX.Core.Content.FileProvider.FileProvider(int resourceId) -> void
@@ -756,11 +837,13 @@ AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback.CallbackSuccessAsyn
 AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback.FontCallback() -> void
 AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback.FontCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Content.Resources.ResourcesCompat.ThemeCompat
+AndroidX.Core.Content.Resources.TypedArrayKt
 AndroidX.Core.Content.Resources.TypedArrayUtils
 AndroidX.Core.Content.Resources.TypedArrayUtils.TypedArrayUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Content.SharedPreferencesCompat
 AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat
 AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat.Apply(Android.Content.ISharedPreferencesEditor? editor) -> void
+AndroidX.Core.Content.SharedPreferencesKt
 AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback
 AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.UnusedAppRestrictionsBackportCallback(AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback? callback) -> void
 AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.UnusedAppRestrictionsBackportCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -770,9 +853,11 @@ AndroidX.Core.Content.UnusedAppRestrictionsBackportService.UnusedAppRestrictions
 AndroidX.Core.Content.UnusedAppRestrictionsConstants
 AndroidX.Core.Content.UriMatcherCompat
 AndroidX.Core.Content.UriMatcherCompat.UriMatcherCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Database.CursorKt
 AndroidX.Core.Database.CursorWindowCompat
 AndroidX.Core.Database.DatabaseUtilsCompat
 AndroidX.Core.Database.SqlLite.SQLiteCursorCompat
+AndroidX.Core.Database.SqlLite.SQLiteDatabaseKt
 AndroidX.Core.Flagging.AconfigPackageCompat
 AndroidX.Core.Flagging.AconfigPackageCompatCompanion
 AndroidX.Core.Flagging.AconfigPackageCompatCompanion.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
@@ -787,11 +872,17 @@ AndroidX.Core.Flagging.IAconfigPackageCompat.Companion.get -> AndroidX.Core.Flag
 AndroidX.Core.Flagging.IAconfigPackageCompat.GetBooleanFlagValue(string! flagName, bool defaultValue) -> bool
 AndroidX.Core.Flagging.IAconfigPackageCompat.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
 AndroidX.Core.Graphics.BitmapCompat
+AndroidX.Core.Graphics.BitmapKt
 AndroidX.Core.Graphics.BlendModeColorFilterCompat
 AndroidX.Core.Graphics.BlendModeColorFilterCompat.BlendModeColorFilterCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Graphics.BlendModeCompat
+AndroidX.Core.Graphics.CanvasKt
+AndroidX.Core.Graphics.ColorKt
 AndroidX.Core.Graphics.ColorUtils
+AndroidX.Core.Graphics.Drawable.BitmapDrawableKt
+AndroidX.Core.Graphics.Drawable.ColorDrawableKt
 AndroidX.Core.Graphics.Drawable.DrawableCompat
+AndroidX.Core.Graphics.Drawable.DrawableKt
 AndroidX.Core.Graphics.Drawable.ITintAwareDrawable
 AndroidX.Core.Graphics.Drawable.ITintAwareDrawable.SetTint(int tint) -> void
 AndroidX.Core.Graphics.Drawable.ITintAwareDrawable.SetTintList(Android.Content.Res.ColorStateList? tint) -> void
@@ -822,11 +913,13 @@ AndroidX.Core.Graphics.Drawable.IconCompat.MType.set -> void
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.IconCompatParcelizer() -> void
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.IconCompatParcelizer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Graphics.Drawable.IconKt
 AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable
 AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Bitmap.get -> Android.Graphics.Bitmap?
 AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Paint.get -> Android.Graphics.Paint?
 AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.RoundedBitmapDrawable(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory
+AndroidX.Core.Graphics.ImageDecoderKt
 AndroidX.Core.Graphics.Insets
 AndroidX.Core.Graphics.Insets.Bottom.get -> int
 AndroidX.Core.Graphics.Insets.Bottom.set -> void
@@ -837,7 +930,10 @@ AndroidX.Core.Graphics.Insets.Right.set -> void
 AndroidX.Core.Graphics.Insets.ToPlatformInsets() -> Android.Graphics.Insets?
 AndroidX.Core.Graphics.Insets.Top.get -> int
 AndroidX.Core.Graphics.Insets.Top.set -> void
+AndroidX.Core.Graphics.MatrixKt
 AndroidX.Core.Graphics.PaintCompat
+AndroidX.Core.Graphics.PaintKt
+AndroidX.Core.Graphics.PathKt
 AndroidX.Core.Graphics.PathParser
 AndroidX.Core.Graphics.PathParser.PathDataNode
 AndroidX.Core.Graphics.PathParser.PathDataNode.PathDataNode(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -848,6 +944,12 @@ AndroidX.Core.Graphics.PathSegment.PathSegment(Android.Graphics.PointF? start, f
 AndroidX.Core.Graphics.PathSegment.Start.get -> Android.Graphics.PointF?
 AndroidX.Core.Graphics.PathSegment.StartFraction.get -> float
 AndroidX.Core.Graphics.PathUtils
+AndroidX.Core.Graphics.PictureKt
+AndroidX.Core.Graphics.PointKt
+AndroidX.Core.Graphics.PorterDuffKt
+AndroidX.Core.Graphics.RectKt
+AndroidX.Core.Graphics.RegionKt
+AndroidX.Core.Graphics.ShaderKt
 AndroidX.Core.Graphics.TypefaceCompat
 AndroidX.Core.Graphics.TypefaceCompat.ResourcesCallbackAdapter
 AndroidX.Core.Graphics.TypefaceCompat.ResourcesCallbackAdapter.ResourcesCallbackAdapter(AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback? fontCallback) -> void
@@ -921,6 +1023,7 @@ AndroidX.Core.Location.ILocationListenerCompat
 AndroidX.Core.Location.ILocationListenerCompat.OnLocationChanged(System.Collections.Generic.IList<Android.Locations.Location!>? locations) -> void
 AndroidX.Core.Location.ILocationListenerCompat.OnStatusChanged(string? provider, int status, Android.OS.Bundle? extras) -> void
 AndroidX.Core.Location.LocationCompat
+AndroidX.Core.Location.LocationKt
 AndroidX.Core.Location.LocationManagerCompat
 AndroidX.Core.Location.LocationRequestCompat
 AndroidX.Core.Location.LocationRequestCompat.Builder
@@ -962,12 +1065,14 @@ AndroidX.Core.Net.ParseException.Response.get -> string?
 AndroidX.Core.Net.ParseException.Response.set -> void
 AndroidX.Core.Net.TrafficStatsCompat
 AndroidX.Core.Net.UriCompat
+AndroidX.Core.Net.UriKt
 AndroidX.Core.OS.BufferFillPolicy
 AndroidX.Core.OS.BufferFillPolicy.BufferFillPolicy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.OS.BufferFillPolicy.Companion
 AndroidX.Core.OS.BuildCompat
 AndroidX.Core.OS.BuildCompat.IPrereleaseSdkCheck
 AndroidX.Core.OS.BundleCompat
+AndroidX.Core.OS.BundleKt
 AndroidX.Core.OS.CancellationSignal
 AndroidX.Core.OS.CancellationSignal.Cancel() -> void
 AndroidX.Core.OS.CancellationSignal.CancelEvent -> System.EventHandler!
@@ -982,6 +1087,7 @@ AndroidX.Core.OS.ConfigurationCompat
 AndroidX.Core.OS.EnvironmentCompat
 AndroidX.Core.OS.ExecutorCompat
 AndroidX.Core.OS.HandlerCompat
+AndroidX.Core.OS.HandlerKt
 AndroidX.Core.OS.HeapProfileRequestBuilder
 AndroidX.Core.OS.HeapProfileRequestBuilder.HeapProfileRequestBuilder() -> void
 AndroidX.Core.OS.HeapProfileRequestBuilder.SetBufferSizeKb(int bufferSizeKb) -> AndroidX.Core.OS.HeapProfileRequestBuilder!
@@ -1010,8 +1116,11 @@ AndroidX.Core.OS.OperationCanceledException
 AndroidX.Core.OS.OperationCanceledException.OperationCanceledException() -> void
 AndroidX.Core.OS.OperationCanceledException.OperationCanceledException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.OS.OperationCanceledException.OperationCanceledException(string? message) -> void
+AndroidX.Core.OS.OutcomeReceiverKt
 AndroidX.Core.OS.ParcelCompat
+AndroidX.Core.OS.ParcelKt
 AndroidX.Core.OS.ParcelableCompat
+AndroidX.Core.OS.PersistableBundleKt
 AndroidX.Core.OS.ProcessCompat
 AndroidX.Core.OS.Profiling
 AndroidX.Core.OS.ProfilingRequest
@@ -1035,6 +1144,7 @@ AndroidX.Core.OS.SystemTraceRequestBuilder.SetBufferSizeKb(int bufferSizeKb) -> 
 AndroidX.Core.OS.SystemTraceRequestBuilder.SetDurationMs(int durationMs) -> AndroidX.Core.OS.SystemTraceRequestBuilder!
 AndroidX.Core.OS.SystemTraceRequestBuilder.SystemTraceRequestBuilder() -> void
 AndroidX.Core.OS.TraceCompat
+AndroidX.Core.OS.TraceKt
 AndroidX.Core.OS.UserHandleCompat
 AndroidX.Core.OS.UserHandleCompat.UserHandleCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.OS.UserManagerCompat
@@ -1046,7 +1156,9 @@ AndroidX.Core.Provider.FontRequest.Certificates.get -> System.Collections.Generi
 AndroidX.Core.Provider.FontRequest.CertificatesArrayResId.get -> int
 AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>? certificates) -> void
 AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>? certificates, string? systemFont, string? variationSettings) -> void
+AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, System.Collections.Generic.IList<System.Collections.Generic.IList<byte[]!>!>? certificates, string? variationSettings) -> void
 AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, int certificates) -> void
+AndroidX.Core.Provider.FontRequest.FontRequest(string? providerAuthority, string? providerPackage, string? query, int certificates, string? variationSettings) -> void
 AndroidX.Core.Provider.FontRequest.Identifier.get -> string?
 AndroidX.Core.Provider.FontRequest.ProviderAuthority.get -> string?
 AndroidX.Core.Provider.FontRequest.ProviderPackage.get -> string?
@@ -1104,12 +1216,15 @@ AndroidX.Core.Text.BidiFormatter.UnicodeWrapFormatted(Java.Lang.ICharSequence? s
 AndroidX.Core.Text.BidiFormatter.UnicodeWrapFormatted(Java.Lang.ICharSequence? str, AndroidX.Core.Text.ITextDirectionHeuristicCompat? heuristic) -> Java.Lang.ICharSequence?
 AndroidX.Core.Text.BidiFormatter.UnicodeWrapFormatted(Java.Lang.ICharSequence? str, AndroidX.Core.Text.ITextDirectionHeuristicCompat? heuristic, bool isolate) -> Java.Lang.ICharSequence?
 AndroidX.Core.Text.BidiFormatter.UnicodeWrapFormatted(Java.Lang.ICharSequence? str, bool isolate) -> Java.Lang.ICharSequence?
+AndroidX.Core.Text.CharSequenceKt
 AndroidX.Core.Text.HtmlCompat
+AndroidX.Core.Text.HtmlKt
 AndroidX.Core.Text.ICUCompat
 AndroidX.Core.Text.ITextDirectionHeuristicCompat
 AndroidX.Core.Text.ITextDirectionHeuristicCompat.IsRtl(Java.Lang.ICharSequence? cs, int start, int count) -> bool
 AndroidX.Core.Text.ITextDirectionHeuristicCompat.IsRtl(char[]? array, int start, int count) -> bool
 AndroidX.Core.Text.ITextDirectionHeuristicCompatExtensions
+AndroidX.Core.Text.LocaleKt
 AndroidX.Core.Text.Method.LinkMovementMethodCompat
 AndroidX.Core.Text.Method.LinkMovementMethodCompat.LinkMovementMethodCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Text.PrecomputedTextCompat
@@ -1125,6 +1240,10 @@ AndroidX.Core.Text.PrecomputedTextCompat.Params.TextDirection.get -> Android.Tex
 AndroidX.Core.Text.PrecomputedTextCompat.Params.TextPaint.get -> Android.Text.TextPaint?
 AndroidX.Core.Text.PrecomputedTextCompat.PrecomputedTextCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Text.PrecomputedTextCompat.SubSequence(int start, int end) -> string?
+AndroidX.Core.Text.SpannableStringBuilderKt
+AndroidX.Core.Text.SpannableStringKt
+AndroidX.Core.Text.SpannedStringKt
+AndroidX.Core.Text.StringKt
 AndroidX.Core.Text.TextDirectionHeuristicsCompat
 AndroidX.Core.Text.TextUtilsCompat
 AndroidX.Core.Text.Util.LinkifyCompat
@@ -1142,11 +1261,16 @@ AndroidX.Core.Text.Util.LocalePreferences.HourCycle.IHourCycleTypes
 AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit
 AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit.ITemperatureUnits
 AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit.TemperatureUnit(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Transition.TransitionKt
+AndroidX.Core.Util.AndroidXConsumerKt
 AndroidX.Core.Util.AtomicFile
 AndroidX.Core.Util.AtomicFile.AtomicFile(Java.IO.File? baseName) -> void
 AndroidX.Core.Util.AtomicFile.AtomicFile(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Util.AtomicFileKt
+AndroidX.Core.Util.ConsumerKt
 AndroidX.Core.Util.DebugUtils
 AndroidX.Core.Util.DebugUtils.DebugUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Util.HalfKt
 AndroidX.Core.Util.IConsumer
 AndroidX.Core.Util.IConsumer.Accept(Java.Lang.Object? t) -> void
 AndroidX.Core.Util.IFunction
@@ -1163,6 +1287,8 @@ AndroidX.Core.Util.ISupplier.Get() -> Java.Lang.Object?
 AndroidX.Core.Util.LogWriter
 AndroidX.Core.Util.LogWriter.LogWriter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Util.LogWriter.LogWriter(string? tag) -> void
+AndroidX.Core.Util.LongSparseArrayKt
+AndroidX.Core.Util.LruCacheKt
 AndroidX.Core.Util.ObjectsCompat
 AndroidX.Core.Util.ObjectsCompat.ObjectsCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Util.Pair
@@ -1172,6 +1298,7 @@ AndroidX.Core.Util.Pair.Pair(Java.Lang.Object? first, Java.Lang.Object? second) 
 AndroidX.Core.Util.Pair.Pair(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.Util.Pair.Second.get -> Java.Lang.Object?
 AndroidX.Core.Util.Pair.Second.set -> void
+AndroidX.Core.Util.PairKt
 AndroidX.Core.Util.PatternsCompat
 AndroidX.Core.Util.Pools
 AndroidX.Core.Util.Pools.IPool
@@ -1186,11 +1313,18 @@ AndroidX.Core.Util.Pools.SynchronizedPool.SynchronizedPool(nint javaReference, A
 AndroidX.Core.Util.Preconditions
 AndroidX.Core.Util.Predicate
 AndroidX.Core.Util.PredicateConsts
+AndroidX.Core.Util.RangeKt
+AndroidX.Core.Util.RunnableKt
 AndroidX.Core.Util.SizeFCompat
 AndroidX.Core.Util.SizeFCompat.Height.get -> float
 AndroidX.Core.Util.SizeFCompat.SizeFCompat(float width, float height) -> void
 AndroidX.Core.Util.SizeFCompat.ToSizeF() -> Android.Util.SizeF?
 AndroidX.Core.Util.SizeFCompat.Width.get -> float
+AndroidX.Core.Util.SizeKt
+AndroidX.Core.Util.SparseArrayKt
+AndroidX.Core.Util.SparseBooleanArrayKt
+AndroidX.Core.Util.SparseIntArrayKt
+AndroidX.Core.Util.SparseLongArrayKt
 AndroidX.Core.Util.TimeUtils
 AndroidX.Core.Util.TypedValueCompat
 AndroidX.Core.Util.TypedValueCompat.IComplexDimensionUnit
@@ -1267,6 +1401,11 @@ AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ICheckedState
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.IExpandedState
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MParentVirtualDescendantId.get -> int
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MParentVirtualDescendantId.set -> void
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.IMathAttribute
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.IMathTag
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathInfoCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathInfoCompat(string? tag) -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.PackageName.get -> string?
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.PackageName.set -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.PaneTitle.get -> string?
@@ -1286,8 +1425,12 @@ AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCo
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.SelectionPositionCompat(Android.Views.View? view, int offset) -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.SelectionPositionCompat(Android.Views.View? view, int virtualDescendantId, int offset) -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.SelectionPositionCompat(AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat? node, int offset) -> void
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.View.get -> Android.Views.View?
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.VirtualDescendantId.get -> int
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescription.get -> string?
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescription.set -> void
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat
+AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.StructuredDataInfoCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescription.get -> string?
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescription.set -> void
 AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Text.get -> string?
@@ -1551,6 +1694,17 @@ AndroidX.Core.View.InputMethod.InputContentInfoCompat.LinkUri.get -> Android.Net
 AndroidX.Core.View.InputMethod.InputContentInfoCompat.ReleasePermission() -> void
 AndroidX.Core.View.InputMethod.InputContentInfoCompat.RequestPermission() -> void
 AndroidX.Core.View.InputMethod.InputContentInfoCompat.Unwrap() -> Java.Lang.Object?
+AndroidX.Core.View.InputMethod.TextAttributeCompat
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.Build() -> AndroidX.Core.View.InputMethod.TextAttributeCompat?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.Builder() -> void
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.SetExtras(Android.OS.PersistableBundle? extras) -> AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.SetTextConversionSuggestions(System.Collections.Generic.IList<string!>? textConversionSuggestions) -> AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.SetTextSuggestionSelected(bool textSuggestionSelected) -> AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Extras.get -> Android.OS.PersistableBundle?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.IsTextSuggestionSelected.get -> bool
+AndroidX.Core.View.InputMethod.TextAttributeCompat.TextConversionSuggestions.get -> System.Collections.Generic.IList<string!>?
+AndroidX.Core.View.InputMethod.TextAttributeCompat.Unwrap() -> Java.Lang.Object?
 AndroidX.Core.View.Insets.ColorProtection
 AndroidX.Core.View.Insets.ColorProtection.ColorProtection(int side) -> void
 AndroidX.Core.View.Insets.ColorProtection.ColorProtection(int side, int color) -> void
@@ -1593,6 +1747,7 @@ AndroidX.Core.View.MenuItemCompat.MenuItemActionExpandEventArgs.Handled.get -> b
 AndroidX.Core.View.MenuItemCompat.MenuItemActionExpandEventArgs.Handled.set -> void
 AndroidX.Core.View.MenuItemCompat.MenuItemActionExpandEventArgs.Item.get -> Android.Views.IMenuItem?
 AndroidX.Core.View.MenuItemCompat.MenuItemActionExpandEventArgs.MenuItemActionExpandEventArgs(bool handled, Android.Views.IMenuItem? item) -> void
+AndroidX.Core.View.MenuKt
 AndroidX.Core.View.MotionEventCompat
 AndroidX.Core.View.NestedScrollingChildHelper
 AndroidX.Core.View.NestedScrollingChildHelper.NestedScrollingChildHelper(Android.Views.View? view) -> void
@@ -1638,6 +1793,8 @@ AndroidX.Core.View.ViewCompat.ViewCompat() -> void
 AndroidX.Core.View.ViewCompat.ViewCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.View.ViewConfigurationCompat
 AndroidX.Core.View.ViewGroupCompat
+AndroidX.Core.View.ViewGroupKt
+AndroidX.Core.View.ViewKt
 AndroidX.Core.View.ViewParentCompat
 AndroidX.Core.View.ViewPropertyAnimatorCompat
 AndroidX.Core.View.ViewPropertyAnimatorCompat.Alpha(float value) -> AndroidX.Core.View.ViewPropertyAnimatorCompat?
@@ -1868,19 +2025,25 @@ AndroidX.Core.Widget.ScrollerCompat.StartScroll(int startX, int startY, int dx, 
 AndroidX.Core.Widget.ScrollerCompat.StartScroll(int startX, int startY, int dx, int dy, int duration) -> void
 AndroidX.Core.Widget.TextViewCompat
 AndroidX.Core.Widget.TextViewCompat.IAutoSizeTextType
+AndroidX.Core.Widget.TextViewKt
 AndroidX.Core.Widget.TextViewOnReceiveContentListener
 AndroidX.Core.Widget.TextViewOnReceiveContentListener.OnReceiveContent(Android.Views.View? view, AndroidX.Core.View.ContentInfoCompat? payload) -> AndroidX.Core.View.ContentInfoCompat?
 AndroidX.Core.Widget.TextViewOnReceiveContentListener.TextViewOnReceiveContentListener() -> void
 abstract Android.Support.V4.App.NotificationSideChannelStub.Cancel(string? packageName, int id, string? tag) -> void
 abstract Android.Support.V4.App.NotificationSideChannelStub.CancelAll(string? packageName) -> void
+abstract Android.Support.V4.App.NotificationSideChannelStub.InterfaceVersion.get -> int
 abstract Android.Support.V4.App.NotificationSideChannelStub.Notify(string? packageName, int id, string? tag, Android.App.Notification? notification) -> void
+abstract Android.Support.V4.OS.ResultReceiver2Stub.InterfaceVersion.get -> int
 abstract Android.Support.V4.OS.ResultReceiver2Stub.Send(int p0, Android.OS.Bundle? p1) -> void
+abstract Android.Support.V4.OS.ResultReceiverStub.InterfaceVersion.get -> int
 abstract Android.Support.V4.OS.ResultReceiverStub.Send(int resultCode, Android.OS.Bundle? resultData) -> void
 abstract AndroidX.Core.App.JobIntentService.OnHandleWork(Android.Content.Intent? intent) -> void
 abstract AndroidX.Core.App.NotificationCompatSideChannelService.Cancel(string? packageName, int id, string? tag) -> void
 abstract AndroidX.Core.App.NotificationCompatSideChannelService.CancelAll(string? packageName) -> void
 abstract AndroidX.Core.App.NotificationCompatSideChannelService.Notify(string? packageName, int id, string? tag, Android.App.Notification? notification) -> void
+abstract AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackStub.InterfaceVersion.get -> int
 abstract AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackStub.OnIsPermissionRevocationEnabledForAppResult(bool p0, bool p1) -> void
+abstract AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.InterfaceVersion.get -> int
 abstract AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.IsPermissionRevocationEnabledForApp(AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback? p0) -> void
 abstract AndroidX.Core.Content.PM.ShortcutInfoCompatSaver.AddShortcuts(System.Collections.Generic.IList<AndroidX.Core.Content.PM.ShortcutInfoCompat!>? shortcuts) -> Java.Lang.Object?
 abstract AndroidX.Core.Content.PM.ShortcutInfoCompatSaver.RemoveAllShortcuts() -> Java.Lang.Object?
@@ -1909,6 +2072,14 @@ abstract AndroidX.Core.View.WindowInsetsAnimationCompat.Callback.OnProgress(Andr
 abstract AndroidX.Core.Widget.AutoScrollHelper.CanTargetScrollHorizontally(int direction) -> bool
 abstract AndroidX.Core.Widget.AutoScrollHelper.CanTargetScrollVertically(int direction) -> bool
 abstract AndroidX.Core.Widget.AutoScrollHelper.ScrollTargetBy(int deltaX, int deltaY) -> void
+const Android.Support.V4.App.NotificationSideChannel.Version = 1 -> int
+const Android.Support.V4.App.NotificationSideChannelDefault.InterfaceConsts.Version = 1 -> int
+const Android.Support.V4.App.NotificationSideChannelStub.InterfaceConsts.Version = 1 -> int
+const Android.Support.V4.OS.ResultReceiver2.Version = 1 -> int
+const Android.Support.V4.OS.ResultReceiver2Default.InterfaceConsts.Version = 1 -> int
+const Android.Support.V4.OS.ResultReceiver2Stub.InterfaceConsts.Version = 1 -> int
+const Android.Support.V4.OS.ResultReceiverDefault.InterfaceConsts.Version = 1 -> int
+const Android.Support.V4.OS.ResultReceiverStub.InterfaceConsts.Version = 1 -> int
 const AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.CapabilityCanFilterKeyEvents = 8 -> int
 const AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.CapabilityCanRequestEnhancedWebAccessibility = 4 -> int
 const AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.CapabilityCanRequestTouchExploration = 2 -> int
@@ -1951,6 +2122,9 @@ const AndroidX.Core.App.GrammaticalInflectionManagerCompat.GrammaticalGenderNeut
 const AndroidX.Core.App.GrammaticalInflectionManagerCompat.GrammaticalGenderNotSpecified = 0 -> int
 const AndroidX.Core.App.NavUtils.ParentActivity = "android.support.PARENT_ACTIVITY" -> string!
 const AndroidX.Core.App.NotificationChannelCompat.DefaultChannelId = "miscellaneous" -> string!
+const AndroidX.Core.App.NotificationCompat.Action.EmphasisAuto = 0 -> int
+const AndroidX.Core.App.NotificationCompat.Action.EmphasisPrimary = 1 -> int
+const AndroidX.Core.App.NotificationCompat.Action.EmphasisSecondary = 2 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionArchive = 5 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionCall = 10 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionDelete = 4 -> int
@@ -1958,10 +2132,17 @@ const AndroidX.Core.App.NotificationCompat.Action.SemanticActionMarkAsRead = 2 -
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionMarkAsUnread = 3 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionMute = 6 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionNone = 0 -> int
+const AndroidX.Core.App.NotificationCompat.Action.SemanticActionPause = 14 -> int
+const AndroidX.Core.App.NotificationCompat.Action.SemanticActionPlay = 13 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionReply = 1 -> int
+const AndroidX.Core.App.NotificationCompat.Action.SemanticActionStop = 15 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionThumbsDown = 9 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionThumbsUp = 8 -> int
 const AndroidX.Core.App.NotificationCompat.Action.SemanticActionUnmute = 7 -> int
+const AndroidX.Core.App.NotificationCompat.Action.StyleAuto = 0 -> int
+const AndroidX.Core.App.NotificationCompat.Action.StyleIconAndText = 2 -> int
+const AndroidX.Core.App.NotificationCompat.Action.StyleIconOnly = 3 -> int
+const AndroidX.Core.App.NotificationCompat.Action.StyleTextOnly = 1 -> int
 const AndroidX.Core.App.NotificationCompat.BadgeIconLarge = 2 -> int
 const AndroidX.Core.App.NotificationCompat.BadgeIconNone = 0 -> int
 const AndroidX.Core.App.NotificationCompat.BadgeIconSmall = 1 -> int
@@ -2030,6 +2211,7 @@ const AndroidX.Core.App.NotificationCompat.ExtraPeopleList = "android.people.lis
 const AndroidX.Core.App.NotificationCompat.ExtraPicture = "android.picture" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraPictureContentDescription = "android.pictureContentDescription" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraPictureIcon = "android.pictureIcon" -> string!
+const AndroidX.Core.App.NotificationCompat.ExtraPreferSmallIcon = "android.app.preferSmallIcon" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgress = "android.progress" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgressEndIcon = "android.progressEndIcon" -> string!
 const AndroidX.Core.App.NotificationCompat.ExtraProgressIndeterminate = "android.progressIndeterminate" -> string!
@@ -2078,11 +2260,22 @@ const AndroidX.Core.App.NotificationCompat.GroupKeySilent = "silent" -> string!
 const AndroidX.Core.App.NotificationCompat.IntentCategoryNotificationPreferences = "android.intent.category.NOTIFICATION_PREFERENCES" -> string!
 const AndroidX.Core.App.NotificationCompat.MaxActionButtons = 3 -> int
 const AndroidX.Core.App.NotificationCompat.MessagingStyle.MaximumRetainedMessages = 25 -> int
+const AndroidX.Core.App.NotificationCompat.Metric.FixedDate.FormatAutomatic = 0 -> int
+const AndroidX.Core.App.NotificationCompat.Metric.FixedDate.FormatLongDate = 1 -> int
+const AndroidX.Core.App.NotificationCompat.Metric.FixedDate.FormatShortDate = 2 -> int
+const AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.FormatAdaptive = 1 -> int
+const AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.FormatChronometer = 2 -> int
+const AndroidX.Core.App.NotificationCompat.MetricStyle.MetricIndexNone = -1 -> int
 const AndroidX.Core.App.NotificationCompat.PriorityDefault = 0 -> int
 const AndroidX.Core.App.NotificationCompat.PriorityHigh = 1 -> int
 const AndroidX.Core.App.NotificationCompat.PriorityLow = -1 -> int
 const AndroidX.Core.App.NotificationCompat.PriorityMax = 2 -> int
 const AndroidX.Core.App.NotificationCompat.PriorityMin = -2 -> int
+const AndroidX.Core.App.NotificationCompat.SemanticStyleCaution = 3 -> int
+const AndroidX.Core.App.NotificationCompat.SemanticStyleDanger = 4 -> int
+const AndroidX.Core.App.NotificationCompat.SemanticStyleInfo = 1 -> int
+const AndroidX.Core.App.NotificationCompat.SemanticStyleSafe = 2 -> int
+const AndroidX.Core.App.NotificationCompat.SemanticStyleUnspecified = 0 -> int
 const AndroidX.Core.App.NotificationCompat.StreamDefault = -1 -> int
 const AndroidX.Core.App.NotificationCompat.VisibilityPrivate = 0 -> int
 const AndroidX.Core.App.NotificationCompat.VisibilityPublic = 1 -> int
@@ -2130,6 +2323,12 @@ const AndroidX.Core.App.ShareCompat.ExtraCallingActivity = "androidx.core.app.EX
 const AndroidX.Core.App.ShareCompat.ExtraCallingActivityInterop = "android.support.v4.app.EXTRA_CALLING_ACTIVITY" -> string!
 const AndroidX.Core.App.ShareCompat.ExtraCallingPackage = "androidx.core.app.EXTRA_CALLING_PACKAGE" -> string!
 const AndroidX.Core.App.ShareCompat.ExtraCallingPackageInterop = "android.support.v4.app.EXTRA_CALLING_PACKAGE" -> string!
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallback.Version = 1 -> int
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackDefault.InterfaceConsts.Version = 1 -> int
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackStub.InterfaceConsts.Version = 1 -> int
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportService.Version = 1 -> int
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceDefault.InterfaceConsts.Version = 1 -> int
+const AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.InterfaceConsts.Version = 1 -> int
 const AndroidX.Core.Content.ContextCompat.ReceiverExported = 2 -> int
 const AndroidX.Core.Content.ContextCompat.ReceiverNotExported = 4 -> int
 const AndroidX.Core.Content.ContextCompat.ReceiverVisibleToInstantApps = 1 -> int
@@ -2312,7 +2511,7 @@ const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumen
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentRowInt = "android.view.accessibility.action.ARGUMENT_ROW_INT" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentScrollAmountFloat = "androidx.core.view.accessibility.action.ARGUMENT_SCROLL_AMOUNT_FLOAT" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentSelectionEndInt = "ACTION_ARGUMENT_SELECTION_END_INT" -> string!
-const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentSelectionParcelable = "androidx.core.view.accessibility.action.ARGUMENT_SELECTION_PARCELABLE" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentSelectionParcelable = "android.view.accessibility.action.ARGUMENT_SELECTION_PARCELABLE" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentSelectionStartInt = "ACTION_ARGUMENT_SELECTION_START_INT" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionArgumentSetTextCharsequence = "ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ActionClearAccessibilityFocus = 128 -> int
@@ -2364,6 +2563,30 @@ const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.FlagPrefetchS
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.FlagPrefetchUninterruptible = 32 -> int
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.FocusAccessibility = 2 -> int
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.FocusInput = 1 -> int
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathAttributeArg = "arg" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathAttributeIntent = "intent" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagFraction = "mfrac" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagIdentifier = "mi" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagMath = "math" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagMultiscripts = "mmultiscripts" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagNoneScript = "none" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagNumber = "mn" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagOperator = "mo" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagOver = "mover" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagPrescriptDelimiter = "mprescripts" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagRoot = "mroot" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagRow = "mrow" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagSquareRoot = "msqrt" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagStringLiteral = "ms" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagSub = "msub" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagSubSup = "msubsup" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagSup = "msup" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagTable = "mtable" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagTableCell = "mtd" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagTableRow = "mtr" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagText = "mtext" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagUnder = "munder" -> string!
+const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.MathTagUnderOver = "munderover" -> string!
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MaxNumberOfPrefetchedNodes = 50 -> int
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MovementGranularityCharacter = 1 -> int
 const AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MovementGranularityLine = 4 -> int
@@ -2608,6 +2831,7 @@ override Android.Support.V4.OS.ResultReceiverStub.JniPeerMembers.get -> Java.Int
 override Android.Support.V4.OS.ResultReceiverStub.ThresholdClass.get -> nint
 override Android.Support.V4.OS.ResultReceiverStub.ThresholdType.get -> System.Type!
 override AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Animation.AnimatorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.ActivityCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.ActivityCompat.ThresholdClass.get -> nint
 override AndroidX.Core.App.ActivityCompat.ThresholdType.get -> System.Type!
@@ -2665,6 +2889,9 @@ override AndroidX.Core.App.NotificationChannelGroupCompat.ThresholdType.get -> S
 override AndroidX.Core.App.NotificationCompat.Action.Builder.Api31Impl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.Action.Builder.Api31Impl.ThresholdClass.get -> nint
 override AndroidX.Core.App.NotificationCompat.Action.Builder.Api31Impl.ThresholdType.get -> System.Type!
+override AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl.ThresholdClass.get -> nint
+override AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl.ThresholdType.get -> System.Type!
 override AndroidX.Core.App.NotificationCompat.Action.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.Action.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.Action.ThresholdClass.get -> nint
@@ -2705,6 +2932,17 @@ override AndroidX.Core.App.NotificationCompat.MessagingStyle.JniPeerMembers.get 
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.Message.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.ThresholdClass.get -> nint
 override AndroidX.Core.App.NotificationCompat.MessagingStyle.ThresholdType.get -> System.Type!
+override AndroidX.Core.App.NotificationCompat.Metric.FixedDate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.FixedFloat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.FixedInt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.FixedText.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.FixedTime.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.MetricValue.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.Metric.MetricValue.ThresholdClass.get -> nint
+override AndroidX.Core.App.NotificationCompat.Metric.MetricValue.ThresholdType.get -> System.Type!
+override AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.NotificationCompat.MetricStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.ProgressStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.ProgressStyle.Point.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2774,9 +3012,11 @@ override AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportSe
 override AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.ThresholdType.get -> System.Type!
 override AndroidX.Core.Content.ContentProviderCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.ContentResolverCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Content.ContentValuesKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.ContextCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.ContextCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Content.ContextCompat.ThresholdType.get -> System.Type!
+override AndroidX.Core.Content.ContextKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.FileProvider.Delete(Android.Net.Uri? uri, string? selection, string![]? selectionArgs) -> int
 override AndroidX.Core.Content.FileProvider.GetType(Android.Net.Uri? uri) -> string?
 override AndroidX.Core.Content.FileProvider.Insert(Android.Net.Uri? uri, Android.Content.ContentValues? values) -> Android.Net.Uri?
@@ -2839,11 +3079,13 @@ override AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback.ThresholdC
 override AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback.ThresholdType.get -> System.Type!
 override AndroidX.Core.Content.Resources.ResourcesCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.Resources.ResourcesCompat.ThemeCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Content.Resources.TypedArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.Resources.TypedArrayUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.Resources.TypedArrayUtils.ThresholdClass.get -> nint
 override AndroidX.Core.Content.Resources.TypedArrayUtils.ThresholdType.get -> System.Type!
 override AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.SharedPreferencesCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Content.SharedPreferencesKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.ThresholdClass.get -> nint
 override AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.ThresholdType.get -> System.Type!
@@ -2855,25 +3097,34 @@ override AndroidX.Core.Content.UnusedAppRestrictionsConstants.JniPeerMembers.get
 override AndroidX.Core.Content.UriMatcherCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Content.UriMatcherCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Content.UriMatcherCompat.ThresholdType.get -> System.Type!
+override AndroidX.Core.Database.CursorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Database.CursorWindowCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Database.DatabaseUtilsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Database.SqlLite.SQLiteCursorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Database.SqlLite.SQLiteDatabaseKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Flagging.AconfigPackageCompatCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Flagging.Flags.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Flagging.Flags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BitmapCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.BitmapKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BlendModeColorFilterCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.BlendModeColorFilterCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.BlendModeColorFilterCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Graphics.BlendModeCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.CanvasKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.ColorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.ColorUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.Drawable.BitmapDrawableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.Drawable.ColorDrawableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.DrawableCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.Drawable.DrawableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.IconCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.IconCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.Drawable.IconCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.ThresholdType.get -> System.Type!
+override AndroidX.Core.Graphics.Drawable.IconKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Draw(Android.Graphics.Canvas? canvas) -> void
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Opacity.get -> int
@@ -2882,14 +3133,24 @@ override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.SetColorFilter(An
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.ThresholdType.get -> System.Type!
 override AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.ImageDecoderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Insets.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.MatrixKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.PaintCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.PaintKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.PathKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.PathParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.PathParser.PathDataNode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.PathParser.PathDataNode.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.PathParser.PathDataNode.ThresholdType.get -> System.Type!
 override AndroidX.Core.Graphics.PathSegment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.PathUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.PictureKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.PointKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.PorterDuffKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.RectKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.RegionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.ShaderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.TypefaceCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.TypefaceCompat.ResourcesCallbackAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.TypefaceCompat.ResourcesCallbackAdapter.ThresholdClass.get -> nint
@@ -2917,6 +3178,7 @@ override AndroidX.Core.Location.GnssStatusCompat.JniPeerMembers.get -> Java.Inte
 override AndroidX.Core.Location.GnssStatusCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Location.GnssStatusCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Location.LocationCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Location.LocationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Location.LocationManagerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Location.LocationRequestCompat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Location.LocationRequestCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2930,17 +3192,20 @@ override AndroidX.Core.Net.ParseException.ThresholdClass.get -> nint
 override AndroidX.Core.Net.ParseException.ThresholdType.get -> System.Type!
 override AndroidX.Core.Net.TrafficStatsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Net.UriCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Net.UriKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.BufferFillPolicy.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.BufferFillPolicy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.BufferFillPolicy.ThresholdClass.get -> nint
 override AndroidX.Core.OS.BufferFillPolicy.ThresholdType.get -> System.Type!
 override AndroidX.Core.OS.BuildCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.BundleCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.OS.BundleKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.CancellationSignal.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ConfigurationCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.EnvironmentCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ExecutorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.HandlerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.OS.HandlerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.HeapProfileRequestBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.JavaHeapDumpRequestBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.LocaleListCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2948,8 +3213,11 @@ override AndroidX.Core.OS.MessageCompat.JniPeerMembers.get -> Java.Interop.JniPe
 override AndroidX.Core.OS.OperationCanceledException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.OperationCanceledException.ThresholdClass.get -> nint
 override AndroidX.Core.OS.OperationCanceledException.ThresholdType.get -> System.Type!
+override AndroidX.Core.OS.OutcomeReceiverKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ParcelCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.OS.ParcelKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ParcelableCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.OS.PersistableBundleKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ProcessCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.Profiling.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.ProfilingRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2959,6 +3227,7 @@ override AndroidX.Core.OS.ProfilingRequestBuilder.ThresholdType.get -> System.Ty
 override AndroidX.Core.OS.StackSamplingRequestBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.SystemTraceRequestBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.TraceCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.OS.TraceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.UserHandleCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.OS.UserHandleCompat.ThresholdClass.get -> nint
 override AndroidX.Core.OS.UserHandleCompat.ThresholdType.get -> System.Type!
@@ -2998,8 +3267,11 @@ override AndroidX.Core.Telephony.TelephonyManagerCompat.ThresholdClass.get -> ni
 override AndroidX.Core.Telephony.TelephonyManagerCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Text.BidiFormatter.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.BidiFormatter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.CharSequenceKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.HtmlCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.HtmlKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.ICUCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.LocaleKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.Method.LinkMovementMethodCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.Method.LinkMovementMethodCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Text.Method.LinkMovementMethodCompat.ThresholdType.get -> System.Type!
@@ -3010,6 +3282,10 @@ override AndroidX.Core.Text.PrecomputedTextCompat.Params.Builder.ThresholdType.g
 override AndroidX.Core.Text.PrecomputedTextCompat.Params.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.PrecomputedTextCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Text.PrecomputedTextCompat.ThresholdType.get -> System.Type!
+override AndroidX.Core.Text.SpannableStringBuilderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.SpannableStringKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.SpannedStringKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Text.StringKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.TextDirectionHeuristicsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.TextUtilsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.Util.LinkifyCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3026,24 +3302,32 @@ override AndroidX.Core.Text.Util.LocalePreferences.JniPeerMembers.get -> Java.In
 override AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit.ThresholdClass.get -> nint
 override AndroidX.Core.Text.Util.LocalePreferences.TemperatureUnit.ThresholdType.get -> System.Type!
+override AndroidX.Core.Transition.TransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.AndroidXConsumerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.AtomicFile.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.AtomicFile.ThresholdClass.get -> nint
 override AndroidX.Core.Util.AtomicFile.ThresholdType.get -> System.Type!
+override AndroidX.Core.Util.AtomicFileKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.ConsumerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.DebugUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.DebugUtils.ThresholdClass.get -> nint
 override AndroidX.Core.Util.DebugUtils.ThresholdType.get -> System.Type!
+override AndroidX.Core.Util.HalfKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.LogWriter.Close() -> void
 override AndroidX.Core.Util.LogWriter.Flush() -> void
 override AndroidX.Core.Util.LogWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.LogWriter.ThresholdClass.get -> nint
 override AndroidX.Core.Util.LogWriter.ThresholdType.get -> System.Type!
 override AndroidX.Core.Util.LogWriter.Write(char[]? buf, int offset, int count) -> void
+override AndroidX.Core.Util.LongSparseArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.LruCacheKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.ObjectsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.ObjectsCompat.ThresholdClass.get -> nint
 override AndroidX.Core.Util.ObjectsCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Util.Pair.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.Pair.ThresholdClass.get -> nint
 override AndroidX.Core.Util.Pair.ThresholdType.get -> System.Type!
+override AndroidX.Core.Util.PairKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.PatternsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.Pools.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.Pools.SimplePool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3053,7 +3337,14 @@ override AndroidX.Core.Util.Pools.SynchronizedPool.JniPeerMembers.get -> Java.In
 override AndroidX.Core.Util.Pools.SynchronizedPool.ThresholdClass.get -> nint
 override AndroidX.Core.Util.Pools.SynchronizedPool.ThresholdType.get -> System.Type!
 override AndroidX.Core.Util.Preconditions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.RangeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.RunnableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.SizeFCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.SizeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.SparseArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.SparseBooleanArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.SparseIntArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Util.SparseLongArrayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.TimeUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.TypedValueCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Util.TypedValueCompat.ThresholdClass.get -> nint
@@ -3077,11 +3368,17 @@ override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.Collection
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat.ThresholdClass.get -> nint
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.ThresholdClass.get -> nint
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.MathInfoCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat.ThresholdClass.get -> nint
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SelectionPositionCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.ThresholdClass.get -> nint
+override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ThresholdClass.get -> nint
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TouchDelegateInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3137,6 +3434,8 @@ override AndroidX.Core.View.InputDeviceCompat.JniPeerMembers.get -> Java.Interop
 override AndroidX.Core.View.InputMethod.EditorInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.InputMethod.InputConnectionCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.InputMethod.InputContentInfoCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.InputMethod.TextAttributeCompat.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.InputMethod.TextAttributeCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.Insets.ColorProtection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.Insets.ColorProtection.ThresholdClass.get -> nint
 override AndroidX.Core.View.Insets.ColorProtection.ThresholdType.get -> System.Type!
@@ -3159,6 +3458,7 @@ override AndroidX.Core.View.MenuHostHelper.JniPeerMembers.get -> Java.Interop.Jn
 override AndroidX.Core.View.MenuHostHelper.ThresholdClass.get -> nint
 override AndroidX.Core.View.MenuHostHelper.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.MenuItemCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.MenuKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.MotionEventCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.NestedScrollingChildHelper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.NestedScrollingChildHelper.ThresholdClass.get -> nint
@@ -3180,6 +3480,8 @@ override AndroidX.Core.View.ViewCompat.ThresholdClass.get -> nint
 override AndroidX.Core.View.ViewCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.View.ViewConfigurationCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ViewGroupCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.ViewGroupKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.View.ViewKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ViewParentCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ViewPropertyAnimatorCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.View.ViewPropertyAnimatorListenerAdapter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3230,6 +3532,7 @@ override AndroidX.Core.Widget.PopupMenuCompat.JniPeerMembers.get -> Java.Interop
 override AndroidX.Core.Widget.PopupWindowCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Widget.ScrollerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Widget.TextViewCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Widget.TextViewKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Widget.TextViewOnReceiveContentListener.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed AndroidX.Core.App.AppComponentFactory.InstantiateActivity(Java.Lang.ClassLoader? cl, string? className, Android.Content.Intent? intent) -> Android.App.Activity?
 override sealed AndroidX.Core.App.AppComponentFactory.InstantiateApplication(Java.Lang.ClassLoader? cl, string? className) -> Android.App.Application?
@@ -3257,6 +3560,14 @@ static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.Feedbac
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.FlagToString(int flag) -> string?
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.GetCapabilities(Android.AccessibilityServices.AccessibilityServiceInfo? info) -> int
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.LoadDescription(Android.AccessibilityServices.AccessibilityServiceInfo? info, Android.Content.PM.PackageManager? packageManager) -> string?
+static AndroidX.Core.Animation.AnimatorKt.AddListener(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! onEnd, Kotlin.Jvm.Functions.IFunction1! onStart, Kotlin.Jvm.Functions.IFunction1! onCancel, Kotlin.Jvm.Functions.IFunction1! onRepeat) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.AddPauseListener(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! onResume, Kotlin.Jvm.Functions.IFunction1! onPause) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnCancel(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnEnd(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnPause(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnRepeat(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnResume(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnStart(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
 static AndroidX.Core.App.ActivityCompat.FinishAffinity(Android.App.Activity? activity) -> void
 static AndroidX.Core.App.ActivityCompat.FinishAfterTransition(Android.App.Activity? activity) -> void
 static AndroidX.Core.App.ActivityCompat.GetReferrer(Android.App.Activity? activity) -> Android.Net.Uri?
@@ -3326,6 +3637,7 @@ static AndroidX.Core.App.NotificationCompat.Builder.LimitCharSequenceLengthForma
 static AndroidX.Core.App.NotificationCompat.CallStyle.ForIncomingCall(AndroidX.Core.App.Person? person, Android.App.PendingIntent? declineIntent, Android.App.PendingIntent? answerIntent) -> AndroidX.Core.App.NotificationCompat.CallStyle?
 static AndroidX.Core.App.NotificationCompat.CallStyle.ForOngoingCall(AndroidX.Core.App.Person? person, Android.App.PendingIntent? hangUpIntent) -> AndroidX.Core.App.NotificationCompat.CallStyle?
 static AndroidX.Core.App.NotificationCompat.CallStyle.ForScreeningCall(AndroidX.Core.App.Person? person, Android.App.PendingIntent? hangUpIntent, Android.App.PendingIntent? answerIntent) -> AndroidX.Core.App.NotificationCompat.CallStyle?
+static AndroidX.Core.App.NotificationCompat.CreateSemanticStyleAnnotation(int semanticStyle) -> Android.Text.IParcelableSpan?
 static AndroidX.Core.App.NotificationCompat.DecoratedCustomViewStyle.GetTextsFromContentView(Android.Content.Context? context, Android.App.Notification? notification) -> System.Collections.Generic.IList<Java.Lang.ICharSequence!>?
 static AndroidX.Core.App.NotificationCompat.GetAction(Android.App.Notification? notification, int actionIndex) -> AndroidX.Core.App.NotificationCompat.Action?
 static AndroidX.Core.App.NotificationCompat.GetActionCount(Android.App.Notification? notification) -> int
@@ -3367,6 +3679,12 @@ static AndroidX.Core.App.NotificationCompat.HasPromotableCharacteristics(Android
 static AndroidX.Core.App.NotificationCompat.IsGroupSummary(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.IsRequestPromotedOngoing(Android.App.Notification? notification) -> bool
 static AndroidX.Core.App.NotificationCompat.MessagingStyle.ExtractMessagingStyleFromNotification(Android.App.Notification? notification) -> AndroidX.Core.App.NotificationCompat.MessagingStyle?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForPausedStopwatch(Java.Time.Duration? elapsedTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForPausedTimer(Java.Time.Duration? remainingTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForStopwatch(Java.Time.Instant? startTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForStopwatch(long startTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForTimer(Java.Time.Instant? endTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
+static AndroidX.Core.App.NotificationCompat.Metric.TimeDifference.ForTimer(long endTime, int format) -> AndroidX.Core.App.NotificationCompat.Metric.TimeDifference?
 static AndroidX.Core.App.NotificationCompat.ReduceLargeIconSize(Android.Content.Context? context, Android.Graphics.Bitmap? icon) -> Android.Graphics.Bitmap?
 static AndroidX.Core.App.NotificationCompat.Style.ExtractStyleFromNotification(Android.App.Notification? notification) -> AndroidX.Core.App.NotificationCompat.Style?
 static AndroidX.Core.App.NotificationManagerCompat.From(Android.Content.Context? context) -> AndroidX.Core.App.NotificationManagerCompat?
@@ -3415,6 +3733,7 @@ static AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServ
 static AndroidX.Core.Content.ContentProviderCompat.RequireContext(Android.Content.ContentProvider? provider) -> Android.Content.Context?
 static AndroidX.Core.Content.ContentResolverCompat.Query(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri, string![]? projection, string? selection, string![]? selectionArgs, string? sortOrder, Android.OS.CancellationSignal? cancellationSignal) -> Android.Database.ICursor?
 static AndroidX.Core.Content.ContentResolverCompat.Query(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri, string![]? projection, string? selection, string![]? selectionArgs, string? sortOrder, AndroidX.Core.OS.CancellationSignal? cancellationSignal) -> Android.Database.ICursor?
+static AndroidX.Core.Content.ContentValuesKt.ContentValuesOf(params Kotlin.Pair![]! pairs) -> Android.Content.ContentValues!
 static AndroidX.Core.Content.ContextCompat.CheckSelfPermission(Android.Content.Context? context, string? permission) -> Android.Content.PM.Permission
 static AndroidX.Core.Content.ContextCompat.CreateAttributionContext(Android.Content.Context? context, string? attributionTag) -> Android.Content.Context?
 static AndroidX.Core.Content.ContextCompat.CreateDeviceProtectedStorageContext(Android.Content.Context? context) -> Android.Content.Context?
@@ -3441,6 +3760,10 @@ static AndroidX.Core.Content.ContextCompat.StartActivities(Android.Content.Conte
 static AndroidX.Core.Content.ContextCompat.StartActivities(Android.Content.Context? context, Android.Content.Intent![]? intents, Android.OS.Bundle? options) -> bool
 static AndroidX.Core.Content.ContextCompat.StartActivity(Android.Content.Context? context, Android.Content.Intent? intent, Android.OS.Bundle? options) -> void
 static AndroidX.Core.Content.ContextCompat.StartForegroundService(Android.Content.Context? context, Android.Content.Intent? intent) -> void
+static AndroidX.Core.Content.ContextKt.ReceiveBroadcasts(Android.Content.Context! p0, Android.Content.IntentFilter! filter, int flags, string? broadcastPermission, Android.OS.Handler? scheduler, Kotlin.Jvm.Functions.IFunction2! onReceive, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Core.Content.ContextKt.ReceiveBroadcastsAsync(Android.Content.Context! p0, Android.Content.IntentFilter! filter, int flags, string? broadcastPermission, Android.OS.Handler? scheduler, Kotlin.Jvm.Functions.IFunction3! onReceive, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Core.Content.ContextKt.WithStyledAttributes(Android.Content.Context! obj, Android.Util.IAttributeSet? set, int[]! attrs, int defStyleAttr, int defStyleRes, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Content.ContextKt.WithStyledAttributes(Android.Content.Context! obj, int resourceId, int[]! attrs, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Content.FileProvider.GetUriForFile(Android.Content.Context? context, string? authority, Java.IO.File? file) -> Android.Net.Uri?
 static AndroidX.Core.Content.FileProvider.GetUriForFile(Android.Content.Context? context, string? authority, Java.IO.File? file, string? displayName) -> Android.Net.Uri?
 static AndroidX.Core.Content.IntentCompat.CreateManageUnusedAppRestrictionsIntent(Android.Content.Context? context, string? packageName) -> Android.Content.Intent?
@@ -3509,6 +3832,24 @@ static AndroidX.Core.Content.Resources.ResourcesCompat.GetFont(Android.Content.C
 static AndroidX.Core.Content.Resources.ResourcesCompat.GetFont(Android.Content.Context? context, int id, Android.Util.TypedValue? value, int style, AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback? fontCallback) -> Android.Graphics.Typeface?
 static AndroidX.Core.Content.Resources.ResourcesCompat.GetFont(Android.Content.Context? context, int id, AndroidX.Core.Content.Resources.ResourcesCompat.FontCallback? fontCallback, Android.OS.Handler? handler) -> void
 static AndroidX.Core.Content.Resources.ResourcesCompat.ThemeCompat.Rebase(Android.Content.Res.Resources.Theme? theme) -> void
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetBooleanOrThrow(Android.Content.Res.TypedArray! obj, int index) -> bool
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetColorOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetColorStateListOrThrow(Android.Content.Res.TypedArray! obj, int index) -> Android.Content.Res.ColorStateList!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetDimensionOrThrow(Android.Content.Res.TypedArray! obj, int index) -> float
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetDimensionPixelOffsetOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetDimensionPixelSizeOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetDrawableOrThrow(Android.Content.Res.TypedArray! obj, int index) -> Android.Graphics.Drawables.Drawable!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetFloatOrThrow(Android.Content.Res.TypedArray! obj, int index) -> float
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetFontOrThrow(Android.Content.Res.TypedArray! obj, int index) -> Android.Graphics.Typeface!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetIntOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetIntegerOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetResourceIdOrThrow(Android.Content.Res.TypedArray! obj, int index) -> int
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetStringOrThrow(Android.Content.Res.TypedArray! obj, int index) -> string!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextArrayOrThrow(Android.Content.Res.TypedArray! obj, int index) -> string![]!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextArrayOrThrowFormatted(Android.Content.Res.TypedArray! obj, int index) -> Java.Lang.ICharSequence![]!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextOrThrow(Android.Content.Res.TypedArray! obj, int index) -> string!
+static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextOrThrowFormatted(Android.Content.Res.TypedArray! obj, int index) -> Java.Lang.ICharSequence!
+static AndroidX.Core.Content.Resources.TypedArrayKt.Use(Android.Content.Res.TypedArray! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetAttr(Android.Content.Context? context, int attr, int fallbackAttr) -> int
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetBoolean(Android.Content.Res.TypedArray? a, int index, int fallbackIndex, bool defaultValue) -> bool
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetDrawable(Android.Content.Res.TypedArray? a, int index, int fallbackIndex) -> Android.Graphics.Drawables.Drawable?
@@ -3531,11 +3872,20 @@ static AndroidX.Core.Content.Resources.TypedArrayUtils.HasAttribute(System.Xml.X
 static AndroidX.Core.Content.Resources.TypedArrayUtils.ObtainAttributes(Android.Content.Res.Resources? res, Android.Content.Res.Resources.Theme? theme, Android.Util.IAttributeSet? set, int[]? attrs) -> Android.Content.Res.TypedArray?
 static AndroidX.Core.Content.Resources.TypedArrayUtils.PeekNamedValue(Android.Content.Res.TypedArray? a, System.Xml.XmlReader? parser, string? attrName, int resId) -> Android.Util.TypedValue?
 static AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat.Instance.get -> AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat?
+static AndroidX.Core.Content.SharedPreferencesKt.Edit(Android.Content.ISharedPreferences! obj, bool commit, Kotlin.Jvm.Functions.IFunction1! action) -> void
 static AndroidX.Core.Content.UriMatcherCompat.AsPredicate(Android.Content.UriMatcher? matcher) -> AndroidX.Core.Util.IPredicate?
+static AndroidX.Core.Database.CursorKt.GetBlobOrNull(Android.Database.ICursor! obj, int index) -> byte[]?
+static AndroidX.Core.Database.CursorKt.GetDoubleOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Double?
+static AndroidX.Core.Database.CursorKt.GetFloatOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Float?
+static AndroidX.Core.Database.CursorKt.GetIntOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Integer?
+static AndroidX.Core.Database.CursorKt.GetLongOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Long?
+static AndroidX.Core.Database.CursorKt.GetShortOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Short?
+static AndroidX.Core.Database.CursorKt.GetStringOrNull(Android.Database.ICursor! obj, int index) -> string?
 static AndroidX.Core.Database.CursorWindowCompat.Create(string? name, long windowSizeBytes) -> Android.Database.CursorWindow?
 static AndroidX.Core.Database.DatabaseUtilsCompat.AppendSelectionArgs(string![]? originalValues, string![]? newValues) -> string![]?
 static AndroidX.Core.Database.DatabaseUtilsCompat.ConcatenateWhere(string? a, string? b) -> string?
 static AndroidX.Core.Database.SqlLite.SQLiteCursorCompat.SetFillWindowForwardOnly(Android.Database.Sqlite.SQLiteCursor? cursor, bool fillWindowForwardOnly) -> void
+static AndroidX.Core.Database.SqlLite.SQLiteDatabaseKt.Transaction(Android.Database.Sqlite.SQLiteDatabase! obj, bool exclusive, Kotlin.Jvm.Functions.IFunction1! body) -> Java.Lang.Object?
 static AndroidX.Core.Flagging.AconfigPackageCompat.Companion.get -> AndroidX.Core.Flagging.AconfigPackageCompatCompanion!
 static AndroidX.Core.Flagging.AconfigPackageCompat.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
 static AndroidX.Core.Flagging.Flags.GetBooleanFlagValue(string! packageName, string! flagName) -> bool
@@ -3544,6 +3894,14 @@ static AndroidX.Core.Graphics.BitmapCompat.CreateScaledBitmap(Android.Graphics.B
 static AndroidX.Core.Graphics.BitmapCompat.GetAllocationByteCount(Android.Graphics.Bitmap? bitmap) -> int
 static AndroidX.Core.Graphics.BitmapCompat.HasMipMap(Android.Graphics.Bitmap? bitmap) -> bool
 static AndroidX.Core.Graphics.BitmapCompat.SetHasMipMap(Android.Graphics.Bitmap? bitmap, bool hasMipMap) -> void
+static AndroidX.Core.Graphics.BitmapKt.ApplyCanvas(Android.Graphics.Bitmap! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.BitmapKt.Contains(Android.Graphics.Bitmap! obj, Android.Graphics.Point! p) -> bool
+static AndroidX.Core.Graphics.BitmapKt.Contains(Android.Graphics.Bitmap! obj, Android.Graphics.PointF! p) -> bool
+static AndroidX.Core.Graphics.BitmapKt.CreateBitmap(int width, int height, Android.Graphics.Bitmap.Config! config) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.BitmapKt.CreateBitmap(int width, int height, Android.Graphics.Bitmap.Config! config, bool hasAlpha, Android.Graphics.ColorSpace! colorSpace) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.BitmapKt.Get(Android.Graphics.Bitmap! obj, int x, int y) -> int
+static AndroidX.Core.Graphics.BitmapKt.Scale(Android.Graphics.Bitmap! obj, int width, int height, bool filter) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.BitmapKt.Set(Android.Graphics.Bitmap! obj, int x, int y, int color) -> void
 static AndroidX.Core.Graphics.BlendModeColorFilterCompat.CreateBlendModeColorFilterCompat(int color, AndroidX.Core.Graphics.BlendModeCompat? blendModeCompat) -> Android.Graphics.ColorFilter?
 static AndroidX.Core.Graphics.BlendModeCompat.Clear.get -> AndroidX.Core.Graphics.BlendModeCompat?
 static AndroidX.Core.Graphics.BlendModeCompat.Color.get -> AndroidX.Core.Graphics.BlendModeCompat?
@@ -3576,6 +3934,54 @@ static AndroidX.Core.Graphics.BlendModeCompat.SrcOver.get -> AndroidX.Core.Graph
 static AndroidX.Core.Graphics.BlendModeCompat.ValueOf(string? name) -> AndroidX.Core.Graphics.BlendModeCompat?
 static AndroidX.Core.Graphics.BlendModeCompat.Values() -> AndroidX.Core.Graphics.BlendModeCompat![]?
 static AndroidX.Core.Graphics.BlendModeCompat.Xor.get -> AndroidX.Core.Graphics.BlendModeCompat?
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.Path! clipPath, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.Rect! clipRect, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.RectF! clipRect, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, float left, float top, float right, float bottom, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, int left, int top, int right, int bottom, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithMatrix(Android.Graphics.Canvas! obj, Android.Graphics.Matrix! matrix, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithRotation(Android.Graphics.Canvas! obj, float degrees, float pivotX, float pivotY, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithSave(Android.Graphics.Canvas! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithScale(Android.Graphics.Canvas! obj, float x, float y, float pivotX, float pivotY, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithSkew(Android.Graphics.Canvas! obj, float x, float y, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithTranslation(Android.Graphics.Canvas! obj, float x, float y, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.ColorKt.Component1(Android.Graphics.ColorObject! obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component1(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.Component1(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component2(Android.Graphics.ColorObject! obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component2(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.Component2(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component3(Android.Graphics.ColorObject! obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component3(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.Component3(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component4(Android.Graphics.ColorObject! obj) -> float
+static AndroidX.Core.Graphics.ColorKt.Component4(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.Component4(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(Android.Graphics.ColorObject! obj, Android.Graphics.ColorSpace! colorSpace) -> Android.Graphics.ColorObject!
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(Android.Graphics.ColorObject! obj, Android.Graphics.ColorSpace.Named! colorSpace) -> Android.Graphics.ColorObject!
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(int obj, Android.Graphics.ColorSpace! colorSpace) -> long
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(int obj, Android.Graphics.ColorSpace.Named! colorSpace) -> long
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(long obj, Android.Graphics.ColorSpace! colorSpace) -> long
+static AndroidX.Core.Graphics.ColorKt.ConvertTo(long obj, Android.Graphics.ColorSpace.Named! colorSpace) -> long
+static AndroidX.Core.Graphics.ColorKt.GetAlpha(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.GetAlpha(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.GetBlue(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.GetBlue(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.GetColorSpace(long obj) -> Android.Graphics.ColorSpace!
+static AndroidX.Core.Graphics.ColorKt.GetGreen(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.GetGreen(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.GetLuminance(int obj) -> float
+static AndroidX.Core.Graphics.ColorKt.GetLuminance(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.GetRed(int obj) -> int
+static AndroidX.Core.Graphics.ColorKt.GetRed(long obj) -> float
+static AndroidX.Core.Graphics.ColorKt.IsSrgb(long obj) -> bool
+static AndroidX.Core.Graphics.ColorKt.IsWideGamut(long obj) -> bool
+static AndroidX.Core.Graphics.ColorKt.Plus(Android.Graphics.ColorObject! obj, Android.Graphics.ColorObject! c) -> Android.Graphics.ColorObject!
+static AndroidX.Core.Graphics.ColorKt.ToColor(int obj) -> Android.Graphics.ColorObject!
+static AndroidX.Core.Graphics.ColorKt.ToColor(long obj) -> Android.Graphics.ColorObject!
+static AndroidX.Core.Graphics.ColorKt.ToColorInt(long obj) -> int
+static AndroidX.Core.Graphics.ColorKt.ToColorInt(string! obj) -> int
+static AndroidX.Core.Graphics.ColorKt.ToColorLong(int obj) -> long
 static AndroidX.Core.Graphics.ColorUtils.BlendARGB(int color1, int color2, float ratio) -> int
 static AndroidX.Core.Graphics.ColorUtils.BlendHSL(float[]? hsl1, float[]? hsl2, float ratio, float[]? outResult) -> void
 static AndroidX.Core.Graphics.ColorUtils.BlendLAB(double[]? lab1, double[]? lab2, double ratio, double[]? outResult) -> void
@@ -3599,6 +4005,9 @@ static AndroidX.Core.Graphics.ColorUtils.RGBToXYZ(int r, int g, int b, double[]?
 static AndroidX.Core.Graphics.ColorUtils.SetAlphaComponent(int color, int alpha) -> int
 static AndroidX.Core.Graphics.ColorUtils.XYZToColor(double x, double y, double z) -> int
 static AndroidX.Core.Graphics.ColorUtils.XYZToLAB(double x, double y, double z, double[]? outLab) -> void
+static AndroidX.Core.Graphics.Drawable.BitmapDrawableKt.ToDrawable(Android.Graphics.Bitmap! obj, Android.Content.Res.Resources! resources) -> Android.Graphics.Drawables.BitmapDrawable!
+static AndroidX.Core.Graphics.Drawable.ColorDrawableKt.ToDrawable(Android.Graphics.ColorObject! obj) -> Android.Graphics.Drawables.ColorDrawable!
+static AndroidX.Core.Graphics.Drawable.ColorDrawableKt.ToDrawable(int obj) -> Android.Graphics.Drawables.ColorDrawable!
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.ApplyTheme(Android.Graphics.Drawables.Drawable? drawable, Android.Content.Res.Resources.Theme? theme) -> void
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.CanApplyTheme(Android.Graphics.Drawables.Drawable? drawable) -> bool
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.ClearColorFilter(Android.Graphics.Drawables.Drawable? drawable) -> void
@@ -3617,6 +4026,9 @@ static AndroidX.Core.Graphics.Drawable.DrawableCompat.SetTintList(Android.Graphi
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.SetTintMode(Android.Graphics.Drawables.Drawable? drawable, Android.Graphics.PorterDuff.Mode? tintMode) -> void
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.Unwrap(Android.Graphics.Drawables.Drawable? drawable) -> Java.Lang.Object?
 static AndroidX.Core.Graphics.Drawable.DrawableCompat.Wrap(Android.Graphics.Drawables.Drawable? drawable) -> Android.Graphics.Drawables.Drawable?
+static AndroidX.Core.Graphics.Drawable.DrawableKt.ToBitmap(Android.Graphics.Drawables.Drawable! obj, int width, int height, Android.Graphics.Bitmap.Config? config) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.Drawable.DrawableKt.ToBitmapOrNull(Android.Graphics.Drawables.Drawable! obj, int width, int height, Android.Graphics.Bitmap.Config? config) -> Android.Graphics.Bitmap?
+static AndroidX.Core.Graphics.Drawable.DrawableKt.UpdateBounds(Android.Graphics.Drawables.Drawable! obj, int left, int top, int right, int bottom) -> void
 static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromBundle(Android.OS.Bundle? bundle) -> AndroidX.Core.Graphics.Drawable.IconCompat?
 static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromIcon(Android.Content.Context? context, Android.Graphics.Drawables.Icon? icon) -> AndroidX.Core.Graphics.Drawable.IconCompat?
 static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromIcon(Android.Graphics.Drawables.Icon? icon) -> AndroidX.Core.Graphics.Drawable.IconCompat?
@@ -3632,9 +4044,15 @@ static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithResource(Android.Con
 static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithResource(Android.Content.Res.Resources? r, string? pkg, int resId) -> AndroidX.Core.Graphics.Drawable.IconCompat?
 static AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.Read(AndroidX.VersionedParcelable.VersionedParcel? parcel) -> AndroidX.Core.Graphics.Drawable.IconCompat?
 static AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.Write(AndroidX.Core.Graphics.Drawable.IconCompat? obj, AndroidX.VersionedParcelable.VersionedParcel? parcel) -> void
+static AndroidX.Core.Graphics.Drawable.IconKt.ToAdaptiveIcon(Android.Graphics.Bitmap! obj) -> Android.Graphics.Drawables.Icon!
+static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(Android.Graphics.Bitmap! obj) -> Android.Graphics.Drawables.Icon!
+static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(Android.Net.Uri! obj) -> Android.Graphics.Drawables.Icon!
+static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(byte[]! obj) -> Android.Graphics.Drawables.Icon!
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, Android.Graphics.Bitmap? bitmap) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, System.IO.Stream? is) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, string? filepath) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
+static AndroidX.Core.Graphics.ImageDecoderKt.DecodeBitmap(Android.Graphics.ImageDecoder.Source! obj, Kotlin.Jvm.Functions.IFunction3! action) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.ImageDecoderKt.DecodeDrawable(Android.Graphics.ImageDecoder.Source! obj, Kotlin.Jvm.Functions.IFunction3! action) -> Android.Graphics.Drawables.Drawable!
 static AndroidX.Core.Graphics.Insets.Add(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.Max(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.Min(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
@@ -3644,8 +4062,20 @@ static AndroidX.Core.Graphics.Insets.Of(int left, int top, int right, int bottom
 static AndroidX.Core.Graphics.Insets.Subtract(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.ToCompatInsets(Android.Graphics.Insets? insets) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.Wrap(Android.Graphics.Insets? insets) -> AndroidX.Core.Graphics.Insets?
+static AndroidX.Core.Graphics.MatrixKt.RotationMatrix(float degrees, float px, float py) -> Android.Graphics.Matrix!
+static AndroidX.Core.Graphics.MatrixKt.ScaleMatrix(float sx, float sy) -> Android.Graphics.Matrix!
+static AndroidX.Core.Graphics.MatrixKt.Times(Android.Graphics.Matrix! obj, Android.Graphics.Matrix! m) -> Android.Graphics.Matrix!
+static AndroidX.Core.Graphics.MatrixKt.TranslationMatrix(float tx, float ty) -> Android.Graphics.Matrix!
+static AndroidX.Core.Graphics.MatrixKt.Values(Android.Graphics.Matrix! obj) -> float[]!
 static AndroidX.Core.Graphics.PaintCompat.HasGlyph(Android.Graphics.Paint? paint, string? string) -> bool
 static AndroidX.Core.Graphics.PaintCompat.SetBlendMode(Android.Graphics.Paint? paint, AndroidX.Core.Graphics.BlendModeCompat? blendMode) -> bool
+static AndroidX.Core.Graphics.PaintKt.SetBlendMode(Android.Graphics.Paint! obj, AndroidX.Core.Graphics.BlendModeCompat? blendModeCompat) -> bool
+static AndroidX.Core.Graphics.PathKt.And(Android.Graphics.Path! obj, Android.Graphics.Path! p) -> Android.Graphics.Path!
+static AndroidX.Core.Graphics.PathKt.Flatten(Android.Graphics.Path! obj, float error) -> Java.Lang.IIterable!
+static AndroidX.Core.Graphics.PathKt.Minus(Android.Graphics.Path! obj, Android.Graphics.Path! p) -> Android.Graphics.Path!
+static AndroidX.Core.Graphics.PathKt.Or(Android.Graphics.Path! obj, Android.Graphics.Path! p) -> Android.Graphics.Path!
+static AndroidX.Core.Graphics.PathKt.Plus(Android.Graphics.Path! obj, Android.Graphics.Path! p) -> Android.Graphics.Path!
+static AndroidX.Core.Graphics.PathKt.Xor(Android.Graphics.Path! obj, Android.Graphics.Path! p) -> Android.Graphics.Path!
 static AndroidX.Core.Graphics.PathParser.CanMorph(AndroidX.Core.Graphics.PathParser.PathDataNode![]? nodesFrom, AndroidX.Core.Graphics.PathParser.PathDataNode![]? nodesTo) -> bool
 static AndroidX.Core.Graphics.PathParser.CreateNodesFromPathData(string? pathData) -> AndroidX.Core.Graphics.PathParser.PathDataNode![]?
 static AndroidX.Core.Graphics.PathParser.CreatePathFromPathData(string? pathData) -> Android.Graphics.Path?
@@ -3657,6 +4087,81 @@ static AndroidX.Core.Graphics.PathParser.PathDataNode.NodesToPath(AndroidX.Core.
 static AndroidX.Core.Graphics.PathParser.UpdateNodes(AndroidX.Core.Graphics.PathParser.PathDataNode![]? target, AndroidX.Core.Graphics.PathParser.PathDataNode![]? source) -> void
 static AndroidX.Core.Graphics.PathUtils.Flatten(Android.Graphics.Path? path) -> System.Collections.Generic.ICollection<AndroidX.Core.Graphics.PathSegment!>?
 static AndroidX.Core.Graphics.PathUtils.Flatten(Android.Graphics.Path? path, float error) -> System.Collections.Generic.ICollection<AndroidX.Core.Graphics.PathSegment!>?
+static AndroidX.Core.Graphics.PictureKt.Record(Android.Graphics.Picture! obj, int width, int height, Kotlin.Jvm.Functions.IFunction1! block) -> Android.Graphics.Picture!
+static AndroidX.Core.Graphics.PointKt.Component1(Android.Graphics.Point! obj) -> int
+static AndroidX.Core.Graphics.PointKt.Component1(Android.Graphics.PointF! obj) -> float
+static AndroidX.Core.Graphics.PointKt.Component2(Android.Graphics.Point! obj) -> int
+static AndroidX.Core.Graphics.PointKt.Component2(Android.Graphics.PointF! obj) -> float
+static AndroidX.Core.Graphics.PointKt.Div(Android.Graphics.Point! obj, float scalar) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Div(Android.Graphics.PointF! obj, float scalar) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.Minus(Android.Graphics.Point! obj, Android.Graphics.Point! p) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Minus(Android.Graphics.Point! obj, int xy) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Minus(Android.Graphics.PointF! obj, Android.Graphics.PointF! p) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.Minus(Android.Graphics.PointF! obj, float xy) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.Plus(Android.Graphics.Point! obj, Android.Graphics.Point! p) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Plus(Android.Graphics.Point! obj, int xy) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Plus(Android.Graphics.PointF! obj, Android.Graphics.PointF! p) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.Plus(Android.Graphics.PointF! obj, float xy) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.Times(Android.Graphics.Point! obj, float scalar) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.Times(Android.Graphics.PointF! obj, float scalar) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.ToPoint(Android.Graphics.PointF! obj) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.ToPointF(Android.Graphics.Point! obj) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PointKt.UnaryMinus(Android.Graphics.Point! obj) -> Android.Graphics.Point!
+static AndroidX.Core.Graphics.PointKt.UnaryMinus(Android.Graphics.PointF! obj) -> Android.Graphics.PointF!
+static AndroidX.Core.Graphics.PorterDuffKt.ToColorFilter(Android.Graphics.PorterDuff.Mode! obj, int color) -> Android.Graphics.PorterDuffColorFilter!
+static AndroidX.Core.Graphics.PorterDuffKt.ToXfermode(Android.Graphics.PorterDuff.Mode! obj) -> Android.Graphics.PorterDuffXfermode!
+static AndroidX.Core.Graphics.RectKt.And(Android.Graphics.Rect! obj, Android.Graphics.Rect! r) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.And(Android.Graphics.RectF! obj, Android.Graphics.RectF! r) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Component1(Android.Graphics.Rect! obj) -> int
+static AndroidX.Core.Graphics.RectKt.Component1(Android.Graphics.RectF! obj) -> float
+static AndroidX.Core.Graphics.RectKt.Component2(Android.Graphics.Rect! obj) -> int
+static AndroidX.Core.Graphics.RectKt.Component2(Android.Graphics.RectF! obj) -> float
+static AndroidX.Core.Graphics.RectKt.Component3(Android.Graphics.Rect! obj) -> int
+static AndroidX.Core.Graphics.RectKt.Component3(Android.Graphics.RectF! obj) -> float
+static AndroidX.Core.Graphics.RectKt.Component4(Android.Graphics.Rect! obj) -> int
+static AndroidX.Core.Graphics.RectKt.Component4(Android.Graphics.RectF! obj) -> float
+static AndroidX.Core.Graphics.RectKt.Contains(Android.Graphics.Rect! obj, Android.Graphics.Point! p) -> bool
+static AndroidX.Core.Graphics.RectKt.Contains(Android.Graphics.RectF! obj, Android.Graphics.PointF! p) -> bool
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.Rect! obj, Android.Graphics.Point! xy) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.Rect! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.Rect! obj, int xy) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.RectF! obj, Android.Graphics.PointF! xy) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.RectF! obj, Android.Graphics.RectF! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RectKt.Minus(Android.Graphics.RectF! obj, float xy) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Or(Android.Graphics.Rect! obj, Android.Graphics.Rect! r) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Or(Android.Graphics.RectF! obj, Android.Graphics.RectF! r) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.Rect! obj, Android.Graphics.Point! xy) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.Rect! obj, Android.Graphics.Rect! r) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.Rect! obj, int xy) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.RectF! obj, Android.Graphics.PointF! xy) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.RectF! obj, Android.Graphics.RectF! r) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Plus(Android.Graphics.RectF! obj, float xy) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Times(Android.Graphics.Rect! obj, int factor) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.Times(Android.Graphics.RectF! obj, float factor) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Times(Android.Graphics.RectF! obj, int factor) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.ToRect(Android.Graphics.RectF! obj) -> Android.Graphics.Rect!
+static AndroidX.Core.Graphics.RectKt.ToRectF(Android.Graphics.Rect! obj) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.ToRegion(Android.Graphics.Rect! obj) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RectKt.ToRegion(Android.Graphics.RectF! obj) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RectKt.Transform(Android.Graphics.RectF! obj, Android.Graphics.Matrix! m) -> Android.Graphics.RectF!
+static AndroidX.Core.Graphics.RectKt.Xor(Android.Graphics.Rect! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RectKt.Xor(Android.Graphics.RectF! obj, Android.Graphics.RectF! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.And(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.And(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Contains(Android.Graphics.Region! obj, Android.Graphics.Point! p) -> bool
+static AndroidX.Core.Graphics.RegionKt.ForEach(Android.Graphics.Region! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.Graphics.RegionKt.Iterator(Android.Graphics.Region! obj) -> Java.Util.IIterator!
+static AndroidX.Core.Graphics.RegionKt.Minus(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Minus(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Not(Android.Graphics.Region! obj) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Or(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Or(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Plus(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Plus(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.UnaryMinus(Android.Graphics.Region! obj) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Xor(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.RegionKt.Xor(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.ShaderKt.Transform(Android.Graphics.Shader! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Graphics.TypefaceCompat.ClearCache() -> void
 static AndroidX.Core.Graphics.TypefaceCompat.Create(Android.Content.Context? context, Android.Graphics.Typeface? family, int style) -> Android.Graphics.Typeface?
 static AndroidX.Core.Graphics.TypefaceCompat.Create(Android.Content.Context? context, Android.Graphics.Typeface? family, int weight, bool italic) -> Android.Graphics.Typeface?
@@ -3707,6 +4212,8 @@ static AndroidX.Core.Location.LocationCompat.SetMslAltitudeAccuracyMeters(Androi
 static AndroidX.Core.Location.LocationCompat.SetMslAltitudeMeters(Android.Locations.Location? location, double mslAltitudeMeters) -> void
 static AndroidX.Core.Location.LocationCompat.SetSpeedAccuracyMetersPerSecond(Android.Locations.Location? location, float speedAccuracyMps) -> void
 static AndroidX.Core.Location.LocationCompat.SetVerticalAccuracyMeters(Android.Locations.Location? location, float verticalAccuracyM) -> void
+static AndroidX.Core.Location.LocationKt.Component1(Android.Locations.Location! obj) -> double
+static AndroidX.Core.Location.LocationKt.Component2(Android.Locations.Location! obj) -> double
 static AndroidX.Core.Location.LocationManagerCompat.GetCurrentLocation(Android.Locations.LocationManager? locationManager, string? provider, Android.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? consumer) -> void
 static AndroidX.Core.Location.LocationManagerCompat.GetCurrentLocation(Android.Locations.LocationManager? locationManager, string? provider, AndroidX.Core.OS.CancellationSignal? cancellationSignal, Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? consumer) -> void
 static AndroidX.Core.Location.LocationManagerCompat.GetGnssHardwareModelName(Android.Locations.LocationManager? locationManager) -> string?
@@ -3756,6 +4263,9 @@ static AndroidX.Core.Net.TrafficStatsCompat.ThreadStatsTag.set -> void
 static AndroidX.Core.Net.TrafficStatsCompat.UntagDatagramSocket(Java.Net.DatagramSocket? socket) -> void
 static AndroidX.Core.Net.TrafficStatsCompat.UntagSocket(Java.Net.Socket? socket) -> void
 static AndroidX.Core.Net.UriCompat.ToSafeString(Android.Net.Uri? uri) -> string?
+static AndroidX.Core.Net.UriKt.ToFile(Android.Net.Uri! obj) -> Java.IO.File!
+static AndroidX.Core.Net.UriKt.ToUri(Java.IO.File! obj) -> Android.Net.Uri!
+static AndroidX.Core.Net.UriKt.ToUri(string! obj) -> Android.Net.Uri!
 static AndroidX.Core.OS.BufferFillPolicy.Discard.get -> AndroidX.Core.OS.BufferFillPolicy!
 static AndroidX.Core.OS.BufferFillPolicy.RingBuffer.get -> AndroidX.Core.OS.BufferFillPolicy!
 static AndroidX.Core.OS.BuildCompat.AdServicesExtensionInt.get -> int
@@ -3785,6 +4295,8 @@ static AndroidX.Core.OS.BundleCompat.GetParcelableArrayList(Android.OS.Bundle? i
 static AndroidX.Core.OS.BundleCompat.GetSerializable(Android.OS.Bundle? in, string? key, Java.Lang.Class? clazz) -> Java.Lang.Object?
 static AndroidX.Core.OS.BundleCompat.GetSparseParcelableArray(Android.OS.Bundle? in, string? key, Java.Lang.Class? clazz) -> Android.Util.SparseArray?
 static AndroidX.Core.OS.BundleCompat.PutBinder(Android.OS.Bundle? bundle, string? key, Android.OS.IBinder? binder) -> void
+static AndroidX.Core.OS.BundleKt.BundleOf() -> Android.OS.Bundle!
+static AndroidX.Core.OS.BundleKt.BundleOf(params Kotlin.Pair![]! pairs) -> Android.OS.Bundle!
 static AndroidX.Core.OS.ConfigurationCompat.GetLocales(Android.Content.Res.Configuration? configuration) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.ConfigurationCompat.SetLocales(Android.Content.Res.Configuration? configuration, AndroidX.Core.OS.LocaleListCompat? locales) -> void
 static AndroidX.Core.OS.EnvironmentCompat.GetStorageState(Java.IO.File? path) -> string?
@@ -3793,6 +4305,8 @@ static AndroidX.Core.OS.HandlerCompat.CreateAsync(Android.OS.Looper? looper) -> 
 static AndroidX.Core.OS.HandlerCompat.CreateAsync(Android.OS.Looper? looper, Android.OS.Handler.ICallback? callback) -> Android.OS.Handler?
 static AndroidX.Core.OS.HandlerCompat.HasCallbacks(Android.OS.Handler? handler, Java.Lang.IRunnable? r) -> bool
 static AndroidX.Core.OS.HandlerCompat.PostDelayed(Android.OS.Handler? handler, Java.Lang.IRunnable? r, Java.Lang.Object? token, long delayMillis) -> bool
+static AndroidX.Core.OS.HandlerKt.PostAtTime(Android.OS.Handler! obj, long uptimeMillis, Java.Lang.Object? token, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
+static AndroidX.Core.OS.HandlerKt.PostDelayed(Android.OS.Handler! obj, long delayInMillis, Java.Lang.Object? token, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
 static AndroidX.Core.OS.LocaleListCompat.AdjustedDefault.get -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.LocaleListCompat.Create(params Java.Util.Locale![]? localeList) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.LocaleListCompat.Default.get -> AndroidX.Core.OS.LocaleListCompat?
@@ -3803,6 +4317,7 @@ static AndroidX.Core.OS.LocaleListCompat.Wrap(Android.OS.LocaleList? localeList)
 static AndroidX.Core.OS.LocaleListCompat.Wrap(Java.Lang.Object? localeList) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.MessageCompat.IsAsynchronous(Android.OS.Message? message) -> bool
 static AndroidX.Core.OS.MessageCompat.SetAsynchronous(Android.OS.Message? message, bool async) -> void
+static AndroidX.Core.OS.OutcomeReceiverKt.AsOutcomeReceiver(Kotlin.Coroutines.IContinuation! obj) -> Android.OS.IOutcomeReceiver!
 static AndroidX.Core.OS.ParcelCompat.ReadArray(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Java.Lang.Object![]?
 static AndroidX.Core.OS.ParcelCompat.ReadArrayList(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> System.Collections.IList?
 static AndroidX.Core.OS.ParcelCompat.ReadBoolean(Android.OS.Parcel? in) -> bool
@@ -3817,7 +4332,11 @@ static AndroidX.Core.OS.ParcelCompat.ReadParcelableList(Android.OS.Parcel? in, S
 static AndroidX.Core.OS.ParcelCompat.ReadSerializable(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Java.Lang.Object?
 static AndroidX.Core.OS.ParcelCompat.ReadSparseArray(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Android.Util.SparseArray?
 static AndroidX.Core.OS.ParcelCompat.WriteBoolean(Android.OS.Parcel? out, bool value) -> void
+static AndroidX.Core.OS.ParcelKt.Use(Android.OS.Parcel! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Core.OS.ParcelableCompat.NewCreator(AndroidX.Core.OS.IParcelableCompatCreatorCallbacks? callbacks) -> Android.OS.IParcelableCreator?
+static AndroidX.Core.OS.PersistableBundleKt.PersistableBundleOf() -> Android.OS.PersistableBundle!
+static AndroidX.Core.OS.PersistableBundleKt.PersistableBundleOf(params Kotlin.Pair![]! pairs) -> Android.OS.PersistableBundle!
+static AndroidX.Core.OS.PersistableBundleKt.ToPersistableBundle(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>! obj) -> Android.OS.PersistableBundle!
 static AndroidX.Core.OS.ProcessCompat.IsApplicationUid(int uid) -> bool
 static AndroidX.Core.OS.Profiling.RegisterForAllProfilingResults(Android.Content.Context! context) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Core.OS.Profiling.RegisterForAllProfilingResults(Android.Content.Context! context, Java.Util.Concurrent.IExecutor! executor, Java.Util.Functions.IConsumer! listener) -> void
@@ -3829,6 +4348,7 @@ static AndroidX.Core.OS.TraceCompat.EndAsyncSection(string? methodName, int cook
 static AndroidX.Core.OS.TraceCompat.EndSection() -> void
 static AndroidX.Core.OS.TraceCompat.IsEnabled.get -> bool
 static AndroidX.Core.OS.TraceCompat.SetCounter(string? counterName, int counterValue) -> void
+static AndroidX.Core.OS.TraceKt.Trace(string! sectionName, Kotlin.Jvm.Functions.IFunction0! block) -> Java.Lang.Object?
 static AndroidX.Core.OS.UserHandleCompat.GetUserHandleForUid(int uid) -> Android.OS.UserHandle?
 static AndroidX.Core.OS.UserManagerCompat.IsUserUnlocked(Android.Content.Context? context) -> bool
 static AndroidX.Core.Provider.DocumentsContractCompat.BuildChildDocumentsUri(string? authority, string? parentDocumentId) -> Android.Net.Uri?
@@ -3865,16 +4385,43 @@ static AndroidX.Core.Telephony.TelephonyManagerCompat.GetSubscriptionId(Android.
 static AndroidX.Core.Text.BidiFormatter.GetInstance(Java.Util.Locale? locale) -> AndroidX.Core.Text.BidiFormatter?
 static AndroidX.Core.Text.BidiFormatter.GetInstance(bool rtlContext) -> AndroidX.Core.Text.BidiFormatter?
 static AndroidX.Core.Text.BidiFormatter.Instance.get -> AndroidX.Core.Text.BidiFormatter?
+static AndroidX.Core.Text.CharSequenceKt.IsDigitsOnly(Java.Lang.ICharSequence! obj) -> bool
+static AndroidX.Core.Text.CharSequenceKt.IsDigitsOnly(string! obj) -> bool
+static AndroidX.Core.Text.CharSequenceKt.TrimmedLength(Java.Lang.ICharSequence! obj) -> int
+static AndroidX.Core.Text.CharSequenceKt.TrimmedLength(string! obj) -> int
 static AndroidX.Core.Text.HtmlCompat.FromHtml(string? source, int flags) -> Android.Text.ISpanned?
 static AndroidX.Core.Text.HtmlCompat.FromHtml(string? source, int flags, Android.Text.Html.IImageGetter? imageGetter, Android.Text.Html.ITagHandler? tagHandler) -> Android.Text.ISpanned?
 static AndroidX.Core.Text.HtmlCompat.ToHtml(Android.Text.ISpanned? text, int options) -> string?
+static AndroidX.Core.Text.HtmlKt.ParseAsHtml(string! obj, int flags, Android.Text.Html.IImageGetter? imageGetter, Android.Text.Html.ITagHandler? tagHandler) -> Android.Text.ISpanned!
+static AndroidX.Core.Text.HtmlKt.ToHtml(Android.Text.ISpanned! obj, int option) -> string!
 static AndroidX.Core.Text.ICUCompat.MaximizeAndGetScript(Java.Util.Locale? locale) -> string?
 static AndroidX.Core.Text.ITextDirectionHeuristicCompatExtensions.IsRtl(this AndroidX.Core.Text.ITextDirectionHeuristicCompat! self, string? cs, int start, int count) -> bool
+static AndroidX.Core.Text.LocaleKt.GetLayoutDirection(Java.Util.Locale! obj) -> int
 static AndroidX.Core.Text.Method.LinkMovementMethodCompat.Instance.get -> AndroidX.Core.Text.Method.LinkMovementMethodCompat?
 static AndroidX.Core.Text.PrecomputedTextCompat.Create(Java.Lang.ICharSequence? text, AndroidX.Core.Text.PrecomputedTextCompat.Params? params) -> AndroidX.Core.Text.PrecomputedTextCompat?
 static AndroidX.Core.Text.PrecomputedTextCompat.Create(string? text, AndroidX.Core.Text.PrecomputedTextCompat.Params? params) -> AndroidX.Core.Text.PrecomputedTextCompat?
 static AndroidX.Core.Text.PrecomputedTextCompat.GetTextFuture(Java.Lang.ICharSequence? charSequence, AndroidX.Core.Text.PrecomputedTextCompat.Params? params, Java.Util.Concurrent.IExecutor? executor) -> Java.Util.Concurrent.IFuture?
 static AndroidX.Core.Text.PrecomputedTextCompat.GetTextFuture(string? charSequence, AndroidX.Core.Text.PrecomputedTextCompat.Params? params, Java.Util.Concurrent.IExecutor? executor) -> Java.Util.Concurrent.IFuture?
+static AndroidX.Core.Text.SpannableStringBuilderKt.BackgroundColor(Android.Text.SpannableStringBuilder! obj, int color, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Bold(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.BuildSpannedString(Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannedString!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Color(Android.Text.SpannableStringBuilder! obj, int color, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.InSpans(Android.Text.SpannableStringBuilder! obj, Java.Lang.Object! span, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.InSpans(Android.Text.SpannableStringBuilder! obj, Java.Lang.Object![]! spans, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Italic(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Scale(Android.Text.SpannableStringBuilder! obj, float proportion, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.StrikeThrough(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Subscript(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Superscript(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Underline(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringKt.ClearSpans(Android.Text.ISpannable! obj) -> void
+static AndroidX.Core.Text.SpannableStringKt.Set(Android.Text.ISpannable! obj, Kotlin.Ranges.IntRange! range, Java.Lang.Object! span) -> void
+static AndroidX.Core.Text.SpannableStringKt.Set(Android.Text.ISpannable! obj, int start, int end, Java.Lang.Object! span) -> void
+static AndroidX.Core.Text.SpannableStringKt.ToSpannable(Java.Lang.ICharSequence! obj) -> Android.Text.ISpannable!
+static AndroidX.Core.Text.SpannableStringKt.ToSpannable(string! obj) -> Android.Text.ISpannable!
+static AndroidX.Core.Text.SpannedStringKt.ToSpanned(Java.Lang.ICharSequence! obj) -> Android.Text.ISpanned!
+static AndroidX.Core.Text.SpannedStringKt.ToSpanned(string! obj) -> Android.Text.ISpanned!
+static AndroidX.Core.Text.StringKt.HtmlEncode(string! obj) -> string!
 static AndroidX.Core.Text.TextDirectionHeuristicsCompat.AnyrtlLtr.get -> AndroidX.Core.Text.ITextDirectionHeuristicCompat?
 static AndroidX.Core.Text.TextDirectionHeuristicsCompat.FirststrongLtr.get -> AndroidX.Core.Text.ITextDirectionHeuristicCompat?
 static AndroidX.Core.Text.TextDirectionHeuristicsCompat.FirststrongRtl.get -> AndroidX.Core.Text.ITextDirectionHeuristicCompat?
@@ -3907,7 +4454,40 @@ static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit() -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(Java.Util.Locale? locale) -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(Java.Util.Locale? locale, bool resolved) -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(bool resolved) -> string?
+static AndroidX.Core.Transition.TransitionKt.AddListener(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! onEnd, Kotlin.Jvm.Functions.IFunction1! onStart, Kotlin.Jvm.Functions.IFunction1! onCancel, Kotlin.Jvm.Functions.IFunction1! onResume, Kotlin.Jvm.Functions.IFunction1! onPause) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnCancel(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnEnd(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnPause(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnResume(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnStart(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Util.AndroidXConsumerKt.AsAndroidXConsumer(Kotlin.Coroutines.IContinuation! obj) -> AndroidX.Core.Util.IConsumer!
+static AndroidX.Core.Util.AtomicFileKt.ReadBytes(Android.Util.AtomicFile! obj) -> byte[]!
+static AndroidX.Core.Util.AtomicFileKt.ReadText(Android.Util.AtomicFile! obj, Java.Nio.Charset.Charset! charset) -> string!
+static AndroidX.Core.Util.AtomicFileKt.TryWrite(Android.Util.AtomicFile! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Util.AtomicFileKt.WriteBytes(Android.Util.AtomicFile! obj, byte[]! array) -> void
+static AndroidX.Core.Util.AtomicFileKt.WriteText(Android.Util.AtomicFile! obj, string! text, Java.Nio.Charset.Charset! charset) -> void
+static AndroidX.Core.Util.ConsumerKt.AsConsumer(Kotlin.Coroutines.IContinuation! obj) -> Java.Util.Functions.IConsumer!
 static AndroidX.Core.Util.DebugUtils.BuildShortClassTag(Java.Lang.Object? cls, Java.Lang.StringBuilder? out) -> void
+static AndroidX.Core.Util.HalfKt.ToHalf(double obj) -> Android.Util.Half!
+static AndroidX.Core.Util.HalfKt.ToHalf(float obj) -> Android.Util.Half!
+static AndroidX.Core.Util.HalfKt.ToHalf(short obj) -> Android.Util.Half!
+static AndroidX.Core.Util.HalfKt.ToHalf(string! obj) -> Android.Util.Half!
+static AndroidX.Core.Util.LongSparseArrayKt.Contains(Android.Util.LongSparseArray! obj, long key) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.ContainsKey(Android.Util.LongSparseArray! obj, long key) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.ContainsValue(Android.Util.LongSparseArray! obj, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.ForEach(Android.Util.LongSparseArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.Util.LongSparseArrayKt.GetOrDefault(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.LongSparseArrayKt.GetOrElse(Android.Util.LongSparseArray! obj, long key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.LongSparseArrayKt.GetSize(Android.Util.LongSparseArray! obj) -> int
+static AndroidX.Core.Util.LongSparseArrayKt.IsEmpty(Android.Util.LongSparseArray! obj) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.IsNotEmpty(Android.Util.LongSparseArray! obj) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.KeyIterator(Android.Util.LongSparseArray! obj) -> Kotlin.Collections.LongIterator!
+static AndroidX.Core.Util.LongSparseArrayKt.Plus(Android.Util.LongSparseArray! obj, Android.Util.LongSparseArray! other) -> Android.Util.LongSparseArray!
+static AndroidX.Core.Util.LongSparseArrayKt.PutAll(Android.Util.LongSparseArray! obj, Android.Util.LongSparseArray! other) -> void
+static AndroidX.Core.Util.LongSparseArrayKt.Remove(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.Set(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? value) -> void
+static AndroidX.Core.Util.LongSparseArrayKt.ValueIterator(Android.Util.LongSparseArray! obj) -> Java.Util.IIterator!
+static AndroidX.Core.Util.LruCacheKt.LruCache(int maxSize, Kotlin.Jvm.Functions.IFunction2! sizeOf, Kotlin.Jvm.Functions.IFunction1! create, Kotlin.Jvm.Functions.IFunction4! onEntryRemoved) -> Android.Util.LruCache!
 static AndroidX.Core.Util.ObjectsCompat.Equals(Java.Lang.Object? a, Java.Lang.Object? b) -> bool
 static AndroidX.Core.Util.ObjectsCompat.Hash(params Java.Lang.Object![]? values) -> int
 static AndroidX.Core.Util.ObjectsCompat.HashCode(Java.Lang.Object? o) -> int
@@ -3915,6 +4495,14 @@ static AndroidX.Core.Util.ObjectsCompat.RequireNonNull(Java.Lang.Object? obj) ->
 static AndroidX.Core.Util.ObjectsCompat.RequireNonNull(Java.Lang.Object? obj, string? message) -> Java.Lang.Object?
 static AndroidX.Core.Util.ObjectsCompat.ToString(Java.Lang.Object? o, string? nullDefault) -> string?
 static AndroidX.Core.Util.Pair.Create(Java.Lang.Object? a, Java.Lang.Object? b) -> AndroidX.Core.Util.Pair?
+static AndroidX.Core.Util.PairKt.Component1(Android.Util.Pair! obj) -> Java.Lang.Object?
+static AndroidX.Core.Util.PairKt.Component1(AndroidX.Core.Util.Pair! obj) -> Java.Lang.Object?
+static AndroidX.Core.Util.PairKt.Component2(Android.Util.Pair! obj) -> Java.Lang.Object?
+static AndroidX.Core.Util.PairKt.Component2(AndroidX.Core.Util.Pair! obj) -> Java.Lang.Object?
+static AndroidX.Core.Util.PairKt.ToAndroidPair(Kotlin.Pair! obj) -> Android.Util.Pair!
+static AndroidX.Core.Util.PairKt.ToAndroidXPair(Kotlin.Pair! obj) -> AndroidX.Core.Util.Pair!
+static AndroidX.Core.Util.PairKt.ToKotlinPair(Android.Util.Pair! obj) -> Kotlin.Pair!
+static AndroidX.Core.Util.PairKt.ToKotlinPair(AndroidX.Core.Util.Pair! obj) -> Kotlin.Pair!
 static AndroidX.Core.Util.PatternsCompat.AutolinkEmailAddress.get -> Java.Util.Regex.Pattern?
 static AndroidX.Core.Util.PatternsCompat.AutolinkWebUrl.get -> Java.Util.Regex.Pattern?
 static AndroidX.Core.Util.PatternsCompat.DomainName.get -> Java.Util.Regex.Pattern?
@@ -3938,7 +4526,80 @@ static AndroidX.Core.Util.Preconditions.CheckState(bool expression) -> void
 static AndroidX.Core.Util.Preconditions.CheckState(bool expression, string? message) -> void
 static AndroidX.Core.Util.Predicate.IsEqual(Java.Lang.Object? targetRef) -> AndroidX.Core.Util.IPredicate?
 static AndroidX.Core.Util.Predicate.Not(AndroidX.Core.Util.IPredicate? target) -> AndroidX.Core.Util.IPredicate?
+static AndroidX.Core.Util.RangeKt.And(Android.Util.Range! obj, Android.Util.Range! other) -> Android.Util.Range!
+static AndroidX.Core.Util.RangeKt.Plus(Android.Util.Range! obj, Android.Util.Range! other) -> Android.Util.Range!
+static AndroidX.Core.Util.RangeKt.Plus(Android.Util.Range! obj, Java.Lang.Object! value) -> Android.Util.Range!
+static AndroidX.Core.Util.RangeKt.RangeTo(Java.Lang.Object! obj, Java.Lang.Object! that) -> Android.Util.Range!
+static AndroidX.Core.Util.RangeKt.ToClosedRange(Android.Util.Range! obj) -> Kotlin.Ranges.IClosedRange!
+static AndroidX.Core.Util.RangeKt.ToRange(Kotlin.Ranges.IClosedRange! obj) -> Android.Util.Range!
+static AndroidX.Core.Util.RunnableKt.AsRunnable(Kotlin.Coroutines.IContinuation! obj) -> Java.Lang.IRunnable!
 static AndroidX.Core.Util.SizeFCompat.ToSizeFCompat(Android.Util.SizeF? size) -> AndroidX.Core.Util.SizeFCompat?
+static AndroidX.Core.Util.SizeKt.Component1(Android.Util.Size! obj) -> int
+static AndroidX.Core.Util.SizeKt.Component1(Android.Util.SizeF! obj) -> float
+static AndroidX.Core.Util.SizeKt.Component1(AndroidX.Core.Util.SizeFCompat! obj) -> float
+static AndroidX.Core.Util.SizeKt.Component2(Android.Util.Size! obj) -> int
+static AndroidX.Core.Util.SizeKt.Component2(Android.Util.SizeF! obj) -> float
+static AndroidX.Core.Util.SizeKt.Component2(AndroidX.Core.Util.SizeFCompat! obj) -> float
+static AndroidX.Core.Util.SparseArrayKt.Contains(Android.Util.SparseArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseArrayKt.ContainsKey(Android.Util.SparseArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseArrayKt.ContainsValue(Android.Util.SparseArray! obj, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.SparseArrayKt.ForEach(Android.Util.SparseArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.Util.SparseArrayKt.GetOrDefault(Android.Util.SparseArray! obj, int key, Java.Lang.Object? defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.SparseArrayKt.GetOrElse(Android.Util.SparseArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.SparseArrayKt.GetSize(Android.Util.SparseArray! obj) -> int
+static AndroidX.Core.Util.SparseArrayKt.IsEmpty(Android.Util.SparseArray! obj) -> bool
+static AndroidX.Core.Util.SparseArrayKt.IsNotEmpty(Android.Util.SparseArray! obj) -> bool
+static AndroidX.Core.Util.SparseArrayKt.KeyIterator(Android.Util.SparseArray! obj) -> Kotlin.Collections.IntIterator!
+static AndroidX.Core.Util.SparseArrayKt.Plus(Android.Util.SparseArray! obj, Android.Util.SparseArray! other) -> Android.Util.SparseArray!
+static AndroidX.Core.Util.SparseArrayKt.PutAll(Android.Util.SparseArray! obj, Android.Util.SparseArray! other) -> void
+static AndroidX.Core.Util.SparseArrayKt.Remove(Android.Util.SparseArray! obj, int key, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.SparseArrayKt.Set(Android.Util.SparseArray! obj, int key, Java.Lang.Object? value) -> void
+static AndroidX.Core.Util.SparseArrayKt.ValueIterator(Android.Util.SparseArray! obj) -> Java.Util.IIterator!
+static AndroidX.Core.Util.SparseBooleanArrayKt.Contains(Android.Util.SparseBooleanArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.ContainsKey(Android.Util.SparseBooleanArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.ContainsValue(Android.Util.SparseBooleanArray! obj, bool value) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.ForEach(Android.Util.SparseBooleanArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.Util.SparseBooleanArrayKt.GetOrDefault(Android.Util.SparseBooleanArray! obj, int key, bool defaultValue) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.GetOrElse(Android.Util.SparseBooleanArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.GetSize(Android.Util.SparseBooleanArray! obj) -> int
+static AndroidX.Core.Util.SparseBooleanArrayKt.IsEmpty(Android.Util.SparseBooleanArray! obj) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.IsNotEmpty(Android.Util.SparseBooleanArray! obj) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.KeyIterator(Android.Util.SparseBooleanArray! obj) -> Kotlin.Collections.IntIterator!
+static AndroidX.Core.Util.SparseBooleanArrayKt.Plus(Android.Util.SparseBooleanArray! obj, Android.Util.SparseBooleanArray! other) -> Android.Util.SparseBooleanArray!
+static AndroidX.Core.Util.SparseBooleanArrayKt.PutAll(Android.Util.SparseBooleanArray! obj, Android.Util.SparseBooleanArray! other) -> void
+static AndroidX.Core.Util.SparseBooleanArrayKt.Remove(Android.Util.SparseBooleanArray! obj, int key, bool value) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.Set(Android.Util.SparseBooleanArray! obj, int key, bool value) -> void
+static AndroidX.Core.Util.SparseBooleanArrayKt.ValueIterator(Android.Util.SparseBooleanArray! obj) -> Kotlin.Collections.BooleanIterator!
+static AndroidX.Core.Util.SparseIntArrayKt.Contains(Android.Util.SparseIntArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.ContainsKey(Android.Util.SparseIntArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.ContainsValue(Android.Util.SparseIntArray! obj, int value) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.ForEach(Android.Util.SparseIntArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.Util.SparseIntArrayKt.GetOrDefault(Android.Util.SparseIntArray! obj, int key, int defaultValue) -> int
+static AndroidX.Core.Util.SparseIntArrayKt.GetOrElse(Android.Util.SparseIntArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> int
+static AndroidX.Core.Util.SparseIntArrayKt.GetSize(Android.Util.SparseIntArray! obj) -> int
+static AndroidX.Core.Util.SparseIntArrayKt.IsEmpty(Android.Util.SparseIntArray! obj) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.IsNotEmpty(Android.Util.SparseIntArray! obj) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.KeyIterator(Android.Util.SparseIntArray! obj) -> Kotlin.Collections.IntIterator!
+static AndroidX.Core.Util.SparseIntArrayKt.Plus(Android.Util.SparseIntArray! obj, Android.Util.SparseIntArray! other) -> Android.Util.SparseIntArray!
+static AndroidX.Core.Util.SparseIntArrayKt.PutAll(Android.Util.SparseIntArray! obj, Android.Util.SparseIntArray! other) -> void
+static AndroidX.Core.Util.SparseIntArrayKt.Remove(Android.Util.SparseIntArray! obj, int key, int value) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.Set(Android.Util.SparseIntArray! obj, int key, int value) -> void
+static AndroidX.Core.Util.SparseIntArrayKt.ValueIterator(Android.Util.SparseIntArray! obj) -> Kotlin.Collections.IntIterator!
+static AndroidX.Core.Util.SparseLongArrayKt.Contains(Android.Util.SparseLongArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.ContainsKey(Android.Util.SparseLongArray! obj, int key) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.ContainsValue(Android.Util.SparseLongArray! obj, long value) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.ForEach(Android.Util.SparseLongArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.Util.SparseLongArrayKt.GetOrDefault(Android.Util.SparseLongArray! obj, int key, long defaultValue) -> long
+static AndroidX.Core.Util.SparseLongArrayKt.GetOrElse(Android.Util.SparseLongArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> long
+static AndroidX.Core.Util.SparseLongArrayKt.GetSize(Android.Util.SparseLongArray! obj) -> int
+static AndroidX.Core.Util.SparseLongArrayKt.IsEmpty(Android.Util.SparseLongArray! obj) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.IsNotEmpty(Android.Util.SparseLongArray! obj) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.KeyIterator(Android.Util.SparseLongArray! obj) -> Kotlin.Collections.IntIterator!
+static AndroidX.Core.Util.SparseLongArrayKt.Plus(Android.Util.SparseLongArray! obj, Android.Util.SparseLongArray! other) -> Android.Util.SparseLongArray!
+static AndroidX.Core.Util.SparseLongArrayKt.PutAll(Android.Util.SparseLongArray! obj, Android.Util.SparseLongArray! other) -> void
+static AndroidX.Core.Util.SparseLongArrayKt.Remove(Android.Util.SparseLongArray! obj, int key, long value) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.Set(Android.Util.SparseLongArray! obj, int key, long value) -> void
+static AndroidX.Core.Util.SparseLongArrayKt.ValueIterator(Android.Util.SparseLongArray! obj) -> Kotlin.Collections.LongIterator!
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.IO.PrintWriter? pw) -> void
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.IO.PrintWriter? pw, int fieldLen) -> void
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.Lang.StringBuilder? builder) -> void
@@ -4071,6 +4732,7 @@ static AndroidX.Core.View.InputMethod.InputConnectionCompat.CommitContent(Androi
 static AndroidX.Core.View.InputMethod.InputConnectionCompat.CreateWrapper(Android.Views.InputMethods.IInputConnection? inputConnection, Android.Views.InputMethods.EditorInfo? editorInfo, AndroidX.Core.View.InputMethod.InputConnectionCompat.IOnCommitContentListener? onCommitContentListener) -> Android.Views.InputMethods.IInputConnection?
 static AndroidX.Core.View.InputMethod.InputConnectionCompat.CreateWrapper(Android.Views.View? view, Android.Views.InputMethods.IInputConnection? inputConnection, Android.Views.InputMethods.EditorInfo? editorInfo) -> Android.Views.InputMethods.IInputConnection?
 static AndroidX.Core.View.InputMethod.InputContentInfoCompat.Wrap(Java.Lang.Object? inputContentInfo) -> AndroidX.Core.View.InputMethod.InputContentInfoCompat?
+static AndroidX.Core.View.InputMethod.TextAttributeCompat.Wrap(Java.Lang.Object? textAttribute) -> AndroidX.Core.View.InputMethod.TextAttributeCompat?
 static AndroidX.Core.View.KeyEventDispatcher.DispatchBeforeHierarchy(Android.Views.View? root, Android.Views.KeyEvent? e) -> bool
 static AndroidX.Core.View.KeyEventDispatcher.DispatchKeyEvent(AndroidX.Core.View.KeyEventDispatcher.IComponent? component, Android.Views.View? root, Android.Views.Window.ICallback? callback, Android.Views.KeyEvent? e) -> bool
 static AndroidX.Core.View.LayoutInflaterCompat.GetFactory(Android.Views.LayoutInflater? inflater) -> AndroidX.Core.View.ILayoutInflaterFactory?
@@ -4113,6 +4775,17 @@ static AndroidX.Core.View.MenuItemCompat.SetShortcut(Android.Views.IMenuItem? it
 static AndroidX.Core.View.MenuItemCompat.SetShowAsAction(Android.Views.IMenuItem? item, int actionEnum) -> void
 static AndroidX.Core.View.MenuItemCompat.SetTooltipText(Android.Views.IMenuItem? item, Java.Lang.ICharSequence? tooltipText) -> void
 static AndroidX.Core.View.MenuItemCompat.SetTooltipText(Android.Views.IMenuItem? item, string? tooltipText) -> void
+static AndroidX.Core.View.MenuKt.Contains(Android.Views.IMenu! obj, Android.Views.IMenuItem! item) -> bool
+static AndroidX.Core.View.MenuKt.ForEach(Android.Views.IMenu! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.MenuKt.ForEachIndexed(Android.Views.IMenu! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.View.MenuKt.Get(Android.Views.IMenu! obj, int index) -> Android.Views.IMenuItem!
+static AndroidX.Core.View.MenuKt.GetChildren(Android.Views.IMenu! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.MenuKt.GetSize(Android.Views.IMenu! obj) -> int
+static AndroidX.Core.View.MenuKt.IsEmpty(Android.Views.IMenu! obj) -> bool
+static AndroidX.Core.View.MenuKt.IsNotEmpty(Android.Views.IMenu! obj) -> bool
+static AndroidX.Core.View.MenuKt.Iterator(Android.Views.IMenu! obj) -> Java.Util.IIterator!
+static AndroidX.Core.View.MenuKt.MinusAssign(Android.Views.IMenu! obj, Android.Views.IMenuItem! item) -> void
+static AndroidX.Core.View.MenuKt.RemoveItemAt(Android.Views.IMenu! obj, int index) -> void
 static AndroidX.Core.View.MotionEventCompat.FindPointerIndex(Android.Views.MotionEvent? e, int pointerId) -> int
 static AndroidX.Core.View.MotionEventCompat.GetActionIndex(Android.Views.MotionEvent? e) -> int
 static AndroidX.Core.View.MotionEventCompat.GetActionMasked(Android.Views.MotionEvent? e) -> int
@@ -4347,6 +5020,48 @@ static AndroidX.Core.View.ViewGroupCompat.OnRequestSendAccessibilityEvent(Androi
 static AndroidX.Core.View.ViewGroupCompat.SetLayoutMode(Android.Views.ViewGroup? group, int mode) -> void
 static AndroidX.Core.View.ViewGroupCompat.SetMotionEventSplittingEnabled(Android.Views.ViewGroup? group, bool split) -> void
 static AndroidX.Core.View.ViewGroupCompat.SetTransitionGroup(Android.Views.ViewGroup? group, bool isTransitionGroup) -> void
+static AndroidX.Core.View.ViewGroupKt.Contains(Android.Views.ViewGroup! obj, Android.Views.View! view) -> bool
+static AndroidX.Core.View.ViewGroupKt.ForEach(Android.Views.ViewGroup! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewGroupKt.ForEachIndexed(Android.Views.ViewGroup! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
+static AndroidX.Core.View.ViewGroupKt.Get(Android.Views.ViewGroup! obj, int index) -> Android.Views.View!
+static AndroidX.Core.View.ViewGroupKt.GetChildren(Android.Views.ViewGroup! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewGroupKt.GetDescendants(Android.Views.ViewGroup! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewGroupKt.GetIndices(Android.Views.ViewGroup! obj) -> Kotlin.Ranges.IntRange!
+static AndroidX.Core.View.ViewGroupKt.GetSize(Android.Views.ViewGroup! obj) -> int
+static AndroidX.Core.View.ViewGroupKt.IsEmpty(Android.Views.ViewGroup! obj) -> bool
+static AndroidX.Core.View.ViewGroupKt.IsNotEmpty(Android.Views.ViewGroup! obj) -> bool
+static AndroidX.Core.View.ViewGroupKt.Iterator(Android.Views.ViewGroup! obj) -> Java.Util.IIterator!
+static AndroidX.Core.View.ViewGroupKt.MinusAssign(Android.Views.ViewGroup! obj, Android.Views.View! view) -> void
+static AndroidX.Core.View.ViewGroupKt.PlusAssign(Android.Views.ViewGroup! obj, Android.Views.View! view) -> void
+static AndroidX.Core.View.ViewGroupKt.SetMargins(Android.Views.ViewGroup.MarginLayoutParams! obj, int size) -> void
+static AndroidX.Core.View.ViewGroupKt.UpdateMargins(Android.Views.ViewGroup.MarginLayoutParams! obj, int left, int top, int right, int bottom) -> void
+static AndroidX.Core.View.ViewGroupKt.UpdateMarginsRelative(Android.Views.ViewGroup.MarginLayoutParams! obj, int start, int top, int end, int bottom) -> void
+static AndroidX.Core.View.ViewKt.DoOnAttach(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnDetach(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnLayout(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnNextLayout(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnPreDraw(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> AndroidX.Core.View.OneShotPreDrawListener!
+static AndroidX.Core.View.ViewKt.DrawToBitmap(Android.Views.View! obj, Android.Graphics.Bitmap.Config! config) -> Android.Graphics.Bitmap!
+static AndroidX.Core.View.ViewKt.GetAllViews(Android.Views.View! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewKt.GetAncestors(Android.Views.View! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewKt.GetMarginBottom(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.GetMarginEnd(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.GetMarginLeft(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.GetMarginRight(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.GetMarginStart(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.GetMarginTop(Android.Views.View! obj) -> int
+static AndroidX.Core.View.ViewKt.IsGone(Android.Views.View! obj) -> bool
+static AndroidX.Core.View.ViewKt.IsInvisible(Android.Views.View! obj) -> bool
+static AndroidX.Core.View.ViewKt.IsVisible(Android.Views.View! obj) -> bool
+static AndroidX.Core.View.ViewKt.PostDelayed(Android.Views.View! obj, long delayInMillis, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
+static AndroidX.Core.View.ViewKt.PostOnAnimationDelayed(Android.Views.View! obj, long delayInMillis, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
+static AndroidX.Core.View.ViewKt.SetGone(Android.Views.View! obj, bool value) -> void
+static AndroidX.Core.View.ViewKt.SetInvisible(Android.Views.View! obj, bool value) -> void
+static AndroidX.Core.View.ViewKt.SetPadding(Android.Views.View! obj, int size) -> void
+static AndroidX.Core.View.ViewKt.SetVisible(Android.Views.View! obj, bool value) -> void
+static AndroidX.Core.View.ViewKt.UpdateLayoutParams(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.View.ViewKt.UpdatePadding(Android.Views.View! obj, int left, int top, int right, int bottom) -> void
+static AndroidX.Core.View.ViewKt.UpdatePaddingRelative(Android.Views.View! obj, int start, int top, int end, int bottom) -> void
 static AndroidX.Core.View.ViewParentCompat.NotifySubtreeAccessibilityStateChanged(Android.Views.IViewParent? parent, Android.Views.View? child, Android.Views.View? source, int changeType) -> void
 static AndroidX.Core.View.ViewParentCompat.OnNestedFling(Android.Views.IViewParent? parent, Android.Views.View? target, float velocityX, float velocityY, bool consumed) -> bool
 static AndroidX.Core.View.ViewParentCompat.OnNestedPreFling(Android.Views.IViewParent? parent, Android.Views.View? target, float velocityX, float velocityY) -> bool
@@ -4449,9 +5164,14 @@ static AndroidX.Core.Widget.TextViewCompat.SetTextAppearance(Android.Widget.Text
 static AndroidX.Core.Widget.TextViewCompat.SetTextMetricsParams(Android.Widget.TextView? textView, AndroidX.Core.Text.PrecomputedTextCompat.Params? params) -> void
 static AndroidX.Core.Widget.TextViewCompat.UnwrapCustomSelectionActionModeCallback(Android.Views.ActionMode.ICallback? callback) -> Android.Views.ActionMode.ICallback?
 static AndroidX.Core.Widget.TextViewCompat.WrapCustomSelectionActionModeCallback(Android.Widget.TextView? textView, Android.Views.ActionMode.ICallback? callback) -> Android.Views.ActionMode.ICallback?
+static AndroidX.Core.Widget.TextViewKt.AddTextChangedListener(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! beforeTextChanged, Kotlin.Jvm.Functions.IFunction4! onTextChanged, Kotlin.Jvm.Functions.IFunction1! afterTextChanged) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoAfterTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoBeforeTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! action) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoOnTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! action) -> Android.Text.ITextWatcher!
 virtual Android.Support.V4.App.NotificationSideChannelDefault.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.V4.App.NotificationSideChannelDefault.Cancel(string? packageName, int id, string? tag) -> void
 virtual Android.Support.V4.App.NotificationSideChannelDefault.CancelAll(string? packageName) -> void
+virtual Android.Support.V4.App.NotificationSideChannelDefault.InterfaceVersion.get -> int
 virtual Android.Support.V4.App.NotificationSideChannelDefault.Notify(string? packageName, int id, string? tag, Android.App.Notification? notification) -> void
 virtual Android.Support.V4.App.NotificationSideChannelStub.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.V4.App.NotificationSideChannelStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
@@ -4460,10 +5180,12 @@ virtual Android.Support.V4.OS.ResultReceiver.OnReceiveResult(int resultCode, And
 virtual Android.Support.V4.OS.ResultReceiver.Send(int resultCode, Android.OS.Bundle? resultData) -> void
 virtual Android.Support.V4.OS.ResultReceiver.WriteToParcel(Android.OS.Parcel? out, Android.OS.ParcelableWriteFlags flags) -> void
 virtual Android.Support.V4.OS.ResultReceiver2Default.AsBinder() -> Android.OS.IBinder?
+virtual Android.Support.V4.OS.ResultReceiver2Default.InterfaceVersion.get -> int
 virtual Android.Support.V4.OS.ResultReceiver2Default.Send(int resultCode, Android.OS.Bundle? resultData) -> void
 virtual Android.Support.V4.OS.ResultReceiver2Stub.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.V4.OS.ResultReceiver2Stub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual Android.Support.V4.OS.ResultReceiverDefault.AsBinder() -> Android.OS.IBinder?
+virtual Android.Support.V4.OS.ResultReceiverDefault.InterfaceVersion.get -> int
 virtual Android.Support.V4.OS.ResultReceiverDefault.Send(int resultCode, Android.OS.Bundle? resultData) -> void
 virtual Android.Support.V4.OS.ResultReceiverStub.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.V4.OS.ResultReceiverStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
@@ -4535,6 +5257,7 @@ virtual AndroidX.Core.App.NotificationChannelGroupCompat.NameFormatted.get -> Ja
 virtual AndroidX.Core.App.NotificationChannelGroupCompat.ToBuilder() -> AndroidX.Core.App.NotificationChannelGroupCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Action.ActionIntent.get -> Android.App.PendingIntent?
 virtual AndroidX.Core.App.NotificationCompat.Action.AllowGeneratedReplies.get -> bool
+virtual AndroidX.Core.App.NotificationCompat.Action.EmphasisHint.get -> int
 virtual AndroidX.Core.App.NotificationCompat.Action.Extras.get -> Android.OS.Bundle?
 virtual AndroidX.Core.App.NotificationCompat.Action.Icon.get -> int
 virtual AndroidX.Core.App.NotificationCompat.Action.IconCompat.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
@@ -4542,6 +5265,7 @@ virtual AndroidX.Core.App.NotificationCompat.Action.IsAuthenticationRequired.get
 virtual AndroidX.Core.App.NotificationCompat.Action.IsContextual.get -> bool
 virtual AndroidX.Core.App.NotificationCompat.Action.SemanticAction.get -> int
 virtual AndroidX.Core.App.NotificationCompat.Action.ShowsUserInterface.get -> bool
+virtual AndroidX.Core.App.NotificationCompat.Action.StyleHint.get -> int
 virtual AndroidX.Core.App.NotificationCompat.Action.TitleFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.App.NotificationCompat.Action._GetDataOnlyRemoteInputs() -> AndroidX.Core.App.RemoteInput![]?
 virtual AndroidX.Core.App.NotificationCompat.Action._GetRemoteInputs() -> AndroidX.Core.App.RemoteInput![]?
@@ -4773,10 +5497,12 @@ virtual AndroidX.Core.App.SharedElementCallback.OnSharedElementEnd(System.Collec
 virtual AndroidX.Core.App.SharedElementCallback.OnSharedElementStart(System.Collections.Generic.IList<string!>? sharedElementNames, System.Collections.Generic.IList<Android.Views.View!>? sharedElements, System.Collections.Generic.IList<Android.Views.View!>? sharedElementSnapshots) -> void
 virtual AndroidX.Core.App.SharedElementCallback.OnSharedElementsArrived(System.Collections.Generic.IList<string!>? sharedElementNames, System.Collections.Generic.IList<Android.Views.View!>? sharedElements, AndroidX.Core.App.SharedElementCallback.IOnSharedElementsReadyListener? listener) -> void
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackDefault.AsBinder() -> Android.OS.IBinder?
+virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackDefault.InterfaceVersion.get -> int
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackDefault.OnIsPermissionRevocationEnabledForAppResult(bool success, bool isEnabled) -> void
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportCallbackStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceDefault.AsBinder() -> Android.OS.IBinder?
+virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceDefault.InterfaceVersion.get -> int
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceDefault.IsPermissionRevocationEnabledForApp(AndroidX.Core.App.UnusedAppRestrictions.IUnusedAppRestrictionsBackportCallback? callback) -> void
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServiceStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
@@ -5107,6 +5833,13 @@ virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ShowingHint
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.ShowingHintText.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescriptionFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StateDescriptionFormatted.set -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfo.get -> AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat?
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfo.set -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.Attributes.get -> System.Collections.Generic.IDictionary<string!, string!>?
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.GetAttribute(string? attributeKey) -> string?
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.PutAttribute(string? attributeKey, string? value) -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.RemoveAttribute(string? attributeKey) -> void
+virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.StructuredDataInfoCompat.Tag.get -> string?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescriptionFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.SupplementalDescriptionFormatted.set -> void
 virtual AndroidX.Core.View.Accessibility.AccessibilityNodeInfoCompat.TextEntryKey.get -> bool

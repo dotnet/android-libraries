@@ -349,6 +349,8 @@ Xamarin.Grpc.Core.Internal.StatsTraceContext
 Xamarin.Grpc.Core.Internal.StatsTraceContext.ClientInboundHeaders(Xamarin.Grpc.Metadata? headers) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.ClientInboundTrailers(Xamarin.Grpc.Metadata? trailers) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.ClientOutboundHeaders() -> void
+Xamarin.Grpc.Core.Internal.StatsTraceContext.IServerCallMethodListener
+Xamarin.Grpc.Core.Internal.StatsTraceContext.IServerCallMethodListener.ServerCallMethodResolved(Xamarin.Grpc.MethodDescriptor? p0) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.InboundMessage(int seqNo) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.InboundMessageRead(int seqNo, long optionalWireSize, long optionalUncompressedSize) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.InboundUncompressedSize(long bytes) -> void
@@ -357,6 +359,10 @@ Xamarin.Grpc.Core.Internal.StatsTraceContext.OutboundMessage(int seqNo) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.OutboundMessageSent(int seqNo, long optionalWireSize, long optionalUncompressedSize) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.OutboundUncompressedSize(long bytes) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.OutboundWireSize(long bytes) -> void
+Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerCallMethodEventArgs
+Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerCallMethodEventArgs.P0.get -> Xamarin.Grpc.MethodDescriptor?
+Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerCallMethodEventArgs.ServerCallMethodEventArgs(Xamarin.Grpc.MethodDescriptor? p0) -> void
+Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerCallMethodResolved(Xamarin.Grpc.MethodDescriptor? method) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerCallStarted(Xamarin.Grpc.ServerStreamTracer.ServerCallInfo? callInfo) -> void
 Xamarin.Grpc.Core.Internal.StatsTraceContext.ServerFilterContext(Xamarin.Grpc.Context? context) -> Xamarin.Grpc.Context?
 Xamarin.Grpc.Core.Internal.StatsTraceContext.StreamClosed(Xamarin.Grpc.Status? status) -> void
@@ -415,7 +421,7 @@ const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultMaxMessageSize = 4194304 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortPlaintext = 80 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultPortSsl = 443 -> int
 const Xamarin.Grpc.Core.Internal.GrpcUtil.HttpMethod = "POST" -> string!
-const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.81.0" -> string!
+const Xamarin.Grpc.Core.Internal.GrpcUtil.ImplementationVersion = "1.82.0" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.KeepaliveTimeNanosDisabled = 9223372036854775807 -> long
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageAcceptEncoding = "grpc-accept-encoding" -> string!
 const Xamarin.Grpc.Core.Internal.GrpcUtil.MessageEncoding = "grpc-encoding" -> string!
@@ -582,6 +588,7 @@ static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultKeepaliveTimeoutNanos.get -> l
 static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultProxyDetector.get -> Xamarin.Grpc.IProxyDetector?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultServerKeepaliveTimeNanos.get -> long
 static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultServerKeepaliveTimeoutNanos.get -> long
+static Xamarin.Grpc.Core.Internal.GrpcUtil.DefaultServerPermitKeepaliveTimeNanos.get -> long
 static Xamarin.Grpc.Core.Internal.GrpcUtil.Exhaust(System.IO.Stream? in) -> void
 static Xamarin.Grpc.Core.Internal.GrpcUtil.GetClientStreamTracers(Xamarin.Grpc.CallOptions? callOptions, Xamarin.Grpc.Metadata? headers, int previousAttempts, bool isTransparentRetry, bool isHedging) -> Xamarin.Grpc.ClientStreamTracer![]?
 static Xamarin.Grpc.Core.Internal.GrpcUtil.GetFlag(string? envVarName, bool enableByDefault) -> bool

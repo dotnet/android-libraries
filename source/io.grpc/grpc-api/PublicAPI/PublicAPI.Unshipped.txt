@@ -591,6 +591,14 @@ Xamarin.Grpc.NameResolverRegistry.Register(Xamarin.Grpc.NameResolverProvider? pr
 Xamarin.Grpc.ProxiedSocketAddress
 Xamarin.Grpc.ProxiedSocketAddress.ProxiedSocketAddress() -> void
 Xamarin.Grpc.ProxiedSocketAddress.ProxiedSocketAddress(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.Grpc.QueryParams
+Xamarin.Grpc.QueryParams.AsList() -> System.Collections.Generic.IList<Xamarin.Grpc.QueryParams.Entry!>?
+Xamarin.Grpc.QueryParams.Entry
+Xamarin.Grpc.QueryParams.Entry.HasValue.get -> bool
+Xamarin.Grpc.QueryParams.Entry.Key.get -> string?
+Xamarin.Grpc.QueryParams.Entry.Value.get -> string?
+Xamarin.Grpc.QueryParams.QueryParams() -> void
+Xamarin.Grpc.QueryParams.ToRawQuery() -> string?
 Xamarin.Grpc.SecurityLevel
 Xamarin.Grpc.Server
 Xamarin.Grpc.Server.Server() -> void
@@ -753,9 +761,10 @@ Xamarin.Grpc.Uri.Builder.SetHost(Java.Net.InetAddress? addr) -> Xamarin.Grpc.Uri
 Xamarin.Grpc.Uri.Builder.SetHost(string? regName) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetPath(string? path) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetPort(int port) -> Xamarin.Grpc.Uri.Builder?
-Xamarin.Grpc.Uri.Builder.SetQuery(string? query) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetRawAuthority(string? authority) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetRawFragment(string? fragment) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetRawPath(string? path) -> Xamarin.Grpc.Uri.Builder?
+Xamarin.Grpc.Uri.Builder.SetRawQuery(string? query) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetScheme(string? scheme) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetUserInfo(string? userInfo) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Fragment.get -> string?
@@ -766,7 +775,6 @@ Xamarin.Grpc.Uri.IsPathRootless.get -> bool
 Xamarin.Grpc.Uri.Path.get -> string?
 Xamarin.Grpc.Uri.PathSegments.get -> System.Collections.Generic.IList<string!>?
 Xamarin.Grpc.Uri.Port.get -> int
-Xamarin.Grpc.Uri.Query.get -> string?
 Xamarin.Grpc.Uri.RawAuthority.get -> string?
 Xamarin.Grpc.Uri.RawFragment.get -> string?
 Xamarin.Grpc.Uri.RawHost.get -> string?
@@ -1145,6 +1153,8 @@ override Xamarin.Grpc.NameResolverRegistry.JniPeerMembers.get -> Java.Interop.Jn
 override Xamarin.Grpc.ProxiedSocketAddress.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.ProxiedSocketAddress.ThresholdClass.get -> nint
 override Xamarin.Grpc.ProxiedSocketAddress.ThresholdType.get -> System.Type!
+override Xamarin.Grpc.QueryParams.Entry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Xamarin.Grpc.QueryParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.SecurityLevel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Server.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.Grpc.Server.ThresholdClass.get -> nint
@@ -1330,6 +1340,9 @@ static Xamarin.Grpc.NameResolver.ConfigOrError.FromConfig(Java.Lang.Object? conf
 static Xamarin.Grpc.NameResolver.ConfigOrError.FromError(Xamarin.Grpc.Status? status) -> Xamarin.Grpc.NameResolver.ConfigOrError?
 static Xamarin.Grpc.NameResolver.ResolutionResult.NewBuilder() -> Xamarin.Grpc.NameResolver.ResolutionResult.Builder?
 static Xamarin.Grpc.NameResolverRegistry.DefaultRegistry.get -> Xamarin.Grpc.NameResolverRegistry?
+static Xamarin.Grpc.QueryParams.Entry.ForKeyValue(string? key, string? value) -> Xamarin.Grpc.QueryParams.Entry?
+static Xamarin.Grpc.QueryParams.Entry.ForLoneKey(string? key) -> Xamarin.Grpc.QueryParams.Entry?
+static Xamarin.Grpc.QueryParams.FromRawQuery(string? rawQuery) -> Xamarin.Grpc.QueryParams?
 static Xamarin.Grpc.SecurityLevel.Integrity.get -> Xamarin.Grpc.SecurityLevel?
 static Xamarin.Grpc.SecurityLevel.None.get -> Xamarin.Grpc.SecurityLevel?
 static Xamarin.Grpc.SecurityLevel.PrivacyAndIntegrity.get -> Xamarin.Grpc.SecurityLevel?
