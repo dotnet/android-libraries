@@ -232,6 +232,7 @@ Kotlin.Contracts.IContractBuilder.Implies(bool p0, Kotlin.Contracts.IReturnsNotN
 Kotlin.Contracts.IContractBuilder.Returns() -> Kotlin.Contracts.IReturns!
 Kotlin.Contracts.IContractBuilder.Returns(Java.Lang.Object? value) -> Kotlin.Contracts.IReturns!
 Kotlin.Contracts.IContractBuilder.ReturnsNotNull() -> Kotlin.Contracts.IReturnsNotNull!
+Kotlin.Contracts.IContractBuilder.ReturnsResultOf(Kotlin.IFunction! lambda) -> void
 Kotlin.Contracts.IEffect
 Kotlin.Contracts.IExperimentalContracts
 Kotlin.Contracts.IExperimentalExtendedContracts
@@ -479,6 +480,7 @@ Kotlin.ISuppress.Names() -> string![]?
 Kotlin.IUnsafeVariance
 Kotlin.IgnorableReturnValueAttribute
 Kotlin.IgnorableReturnValueAttribute.IgnorableReturnValueAttribute() -> void
+Kotlin.Internal.ConstantsKt
 Kotlin.Internal.PlatformImplementationsKt
 Kotlin.Internal.ProgressionUtilKt
 Kotlin.Internal.SerializationUtilKt
@@ -493,6 +495,8 @@ Kotlin.JS.ExperimentalJsExportAttribute
 Kotlin.JS.ExperimentalJsExportAttribute.ExperimentalJsExportAttribute() -> void
 Kotlin.JS.ExperimentalJsFileNameAttribute
 Kotlin.JS.ExperimentalJsFileNameAttribute.ExperimentalJsFileNameAttribute() -> void
+Kotlin.JS.ExperimentalJsNoRuntimeAttribute
+Kotlin.JS.ExperimentalJsNoRuntimeAttribute.ExperimentalJsNoRuntimeAttribute() -> void
 Kotlin.JS.ExperimentalJsReflectionCreateInstanceAttribute
 Kotlin.JS.ExperimentalJsReflectionCreateInstanceAttribute.ExperimentalJsReflectionCreateInstanceAttribute() -> void
 Kotlin.JS.ExperimentalJsStaticAttribute
@@ -500,6 +504,7 @@ Kotlin.JS.ExperimentalJsStaticAttribute.ExperimentalJsStaticAttribute() -> void
 Kotlin.JS.IExperimentalJsCollectionsApi
 Kotlin.JS.IExperimentalJsExport
 Kotlin.JS.IExperimentalJsFileName
+Kotlin.JS.IExperimentalJsNoRuntime
 Kotlin.JS.IExperimentalJsReflectionCreateInstance
 Kotlin.JS.IExperimentalJsStatic
 Kotlin.JS.IJsImplicitExport
@@ -1959,6 +1964,7 @@ override Kotlin.IO.Path.PathWalkOption.JniPeerMembers.get -> Java.Interop.JniPee
 override Kotlin.IO.Path.PathsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.IO.SerializableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.IO.TextStreamsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Kotlin.Internal.ConstantsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Internal.PlatformImplementationsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Internal.ProgressionUtilKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Kotlin.Internal.SerializationUtilKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2823,6 +2829,51 @@ static Kotlin.Collections.ArraysKt.Intersect(float[]! _this_intersect, Java.Lang
 static Kotlin.Collections.ArraysKt.Intersect(int[]! _this_intersect, Java.Lang.IIterable! other) -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
 static Kotlin.Collections.ArraysKt.Intersect(long[]! _this_intersect, Java.Lang.IIterable! other) -> System.Collections.Generic.ICollection<Java.Lang.Long!>!
 static Kotlin.Collections.ArraysKt.Intersect(short[]! _this_intersect, Java.Lang.IIterable! other) -> System.Collections.Generic.ICollection<Java.Lang.Short!>!
+static Kotlin.Collections.ArraysKt.IsSorted(Java.Lang.Object![]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(bool[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(byte[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(char[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(double[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(float[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(int[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(long[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSorted(short[]! _this_isSorted) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(Java.Lang.Object![]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(bool[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(byte[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(char[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(double[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(float[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(int[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(long[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedBy(short[]! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(Java.Lang.Object![]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(bool[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(byte[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(char[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(double[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(float[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(int[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(long[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedByDescending(short[]! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(Java.Lang.Object![]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(bool[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(byte[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(char[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(double[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(float[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(int[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(long[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedDescending(short[]! _this_isSortedDescending) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(Java.Lang.Object![]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(bool[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(byte[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(char[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(double[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(float[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(int[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(long[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.ArraysKt.IsSortedWith(short[]! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
 static Kotlin.Collections.ArraysKt.JoinTo(Java.Lang.Object![]! _this_joinTo, Java.Lang.Object! buffer, Java.Lang.ICharSequence! separator, Java.Lang.ICharSequence! prefix, Java.Lang.ICharSequence! postfix, int limit, Java.Lang.ICharSequence! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
 static Kotlin.Collections.ArraysKt.JoinTo(Java.Lang.Object![]! _this_joinTo, Java.Lang.Object! buffer, string! separator, string! prefix, string! postfix, int limit, string! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
 static Kotlin.Collections.ArraysKt.JoinTo(bool[]! _this_joinTo, Java.Lang.Object! buffer, Java.Lang.ICharSequence! separator, Java.Lang.ICharSequence! prefix, Java.Lang.ICharSequence! postfix, int limit, Java.Lang.ICharSequence! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
@@ -3749,6 +3800,11 @@ static Kotlin.Collections.CollectionsKt.IndexOfFirst(System.Collections.IList! _
 static Kotlin.Collections.CollectionsKt.IndexOfLast(Java.Lang.IIterable! _this_indexOfLast, Kotlin.Jvm.Functions.IFunction1! predicate) -> int
 static Kotlin.Collections.CollectionsKt.IndexOfLast(System.Collections.IList! _this_indexOfLast, Kotlin.Jvm.Functions.IFunction1! predicate) -> int
 static Kotlin.Collections.CollectionsKt.Intersect(Java.Lang.IIterable! _this_intersect, Java.Lang.IIterable! other) -> System.Collections.ICollection!
+static Kotlin.Collections.CollectionsKt.IsSorted(Java.Lang.IIterable! _this_isSorted) -> bool
+static Kotlin.Collections.CollectionsKt.IsSortedBy(Java.Lang.IIterable! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.CollectionsKt.IsSortedByDescending(Java.Lang.IIterable! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.CollectionsKt.IsSortedDescending(Java.Lang.IIterable! _this_isSortedDescending) -> bool
+static Kotlin.Collections.CollectionsKt.IsSortedWith(Java.Lang.IIterable! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
 static Kotlin.Collections.CollectionsKt.Iterator(Java.Util.IEnumeration! _this_iterator) -> Java.Util.IIterator!
 static Kotlin.Collections.CollectionsKt.JoinTo(Java.Lang.IIterable! _this_joinTo, Java.Lang.Object! buffer, Java.Lang.ICharSequence! separator, Java.Lang.ICharSequence! prefix, Java.Lang.ICharSequence! postfix, int limit, Java.Lang.ICharSequence! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
 static Kotlin.Collections.CollectionsKt.JoinTo(Java.Lang.IIterable! _this_joinTo, Java.Lang.Object! buffer, string! separator, string! prefix, string! postfix, int limit, string! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
@@ -3947,10 +4003,11 @@ static Kotlin.Collections.MapsKt.FlatMapSequence(System.Collections.IDictionary!
 static Kotlin.Collections.MapsKt.FlatMapSequenceTo(System.Collections.IDictionary! _this_flatMapTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction1! transform) -> Java.Lang.Object!
 static Kotlin.Collections.MapsKt.FlatMapTo(System.Collections.IDictionary! _this_flatMapTo, Java.Lang.Object! destination, Kotlin.Jvm.Functions.IFunction1! transform) -> Java.Lang.Object!
 static Kotlin.Collections.MapsKt.ForEach(System.Collections.IDictionary! _this_forEach, Kotlin.Jvm.Functions.IFunction1! action) -> void
-static Kotlin.Collections.MapsKt.GetOrElseNullable(System.Collections.IDictionary! _this_getOrElseNullable, Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
+static Kotlin.Collections.MapsKt.GetOrDefaultImpl(System.Collections.IDictionary! _this_getOrDefaultImpl, Java.Lang.Object? key, Java.Lang.Object? default) -> Java.Lang.Object?
 static Kotlin.Collections.MapsKt.GetOrImplicitDefaultNullable(System.Collections.IDictionary! _this_getOrImplicitDefault, Java.Lang.Object? key) -> Java.Lang.Object?
 static Kotlin.Collections.MapsKt.GetOrPut(Java.Util.Concurrent.IConcurrentMap! _this_getOrPut, Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
 static Kotlin.Collections.MapsKt.GetOrPut(System.Collections.IDictionary! _this_getOrPut, Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
+static Kotlin.Collections.MapsKt.GetOrPutIfNullImpl(Java.Util.Concurrent.IConcurrentMap! _this_getOrPutIfNullImpl, Java.Lang.Object? key, Java.Lang.Object? newValue) -> Java.Lang.Object?
 static Kotlin.Collections.MapsKt.GetValue(System.Collections.IDictionary! _this_getValue, Java.Lang.Object? key) -> Java.Lang.Object?
 static Kotlin.Collections.MapsKt.HashMapOf(params Kotlin.Pair![]! pairs) -> System.Collections.IDictionary!
 static Kotlin.Collections.MapsKt.LinkedMapOf(params Kotlin.Pair![]! pairs) -> Java.Util.LinkedHashMap!
@@ -4079,6 +4136,26 @@ static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(byte[]! _this_getOrNull_u
 static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(int[]! _this_getOrNull_u2dqFRl0hI, int index) -> Kotlin.UInt?
 static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(long[]! _this_getOrNull_u2dr7IrZao, int index) -> Kotlin.ULong?
 static Kotlin.Collections.Unsigned.UArraysKt.GetOrNull(short[]! _this_getOrNull_u2dnggk6HY, int index) -> Kotlin.UShort?
+static Kotlin.Collections.Unsigned.UArraysKt.IsSorted(byte[]! _this_isSorted_u2dGBYM_sE) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSorted(int[]! _this_isSorted_u2d_u2dajY_u2d9A) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSorted(long[]! _this_isSorted_u2dQwZRm1k) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSorted(short[]! _this_isSorted_u2drL5Bavg) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedBy(byte[]! _this_isSortedBy_u2dJOV_ifY, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedBy(int[]! _this_isSortedBy_u2djgv0xPQ, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedBy(long[]! _this_isSortedBy_u2dMShoTSo, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedBy(short[]! _this_isSortedBy_u2dxTcfx_M, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedByDescending(byte[]! _this_isSortedByDescending_u2dJOV_ifY, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedByDescending(int[]! _this_isSortedByDescending_u2djgv0xPQ, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedByDescending(long[]! _this_isSortedByDescending_u2dMShoTSo, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedByDescending(short[]! _this_isSortedByDescending_u2dxTcfx_M, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedDescending(byte[]! _this_isSortedDescending_u2dGBYM_sE) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedDescending(int[]! _this_isSortedDescending_u2d_u2dajY_u2d9A) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedDescending(long[]! _this_isSortedDescending_u2dQwZRm1k) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedDescending(short[]! _this_isSortedDescending_u2drL5Bavg) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedWith(byte[]! _this_isSortedWith_u2dXMRcp5o, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedWith(int[]! _this_isSortedWith_u2dYmdZ_VM, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedWith(long[]! _this_isSortedWith_u2dzrEWJaI, Java.Util.IComparator! comparator) -> bool
+static Kotlin.Collections.Unsigned.UArraysKt.IsSortedWith(short[]! _this_isSortedWith_u2deOHTfZs, Java.Util.IComparator! comparator) -> bool
 static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(byte[]! _this_lastOrNull_u2dGBYM_sE) -> Kotlin.UByte?
 static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(int[]! _this_lastOrNull_u2d_u2dajY_u2d9A) -> Kotlin.UInt?
 static Kotlin.Collections.Unsigned.UArraysKt.LastOrNull(long[]! _this_lastOrNull_u2dQwZRm1k) -> Kotlin.ULong?
@@ -4664,6 +4741,7 @@ static Kotlin.NumbersKt.RotateLeft(sbyte _this_rotateLeft, int bitCount) -> sbyt
 static Kotlin.NumbersKt.RotateLeft(short _this_rotateLeft, int bitCount) -> short
 static Kotlin.NumbersKt.RotateRight(sbyte _this_rotateRight, int bitCount) -> sbyte
 static Kotlin.NumbersKt.RotateRight(short _this_rotateRight, int bitCount) -> short
+static Kotlin.NumbersKt.ToBigInteger(long _this_toBigInteger_u2dVKZWuLQ) -> Java.Math.BigInteger!
 static Kotlin.Properties.Delegates.Instance.get -> Kotlin.Properties.Delegates!
 static Kotlin.Random.PlatformRandomKt.AsJavaRandom(Kotlin.Random.Random! obj) -> Java.Util.Random!
 static Kotlin.Random.PlatformRandomKt.AsKotlinRandom(Java.Util.Random! obj) -> Kotlin.Random.Random!
@@ -4980,6 +5058,11 @@ static Kotlin.Sequences.SequencesKt.IfEmpty(Kotlin.Sequences.ISequence! _this_if
 static Kotlin.Sequences.SequencesKt.IndexOf(Kotlin.Sequences.ISequence! _this_indexOf, Java.Lang.Object? element) -> int
 static Kotlin.Sequences.SequencesKt.IndexOfFirst(Kotlin.Sequences.ISequence! _this_indexOfFirst, Kotlin.Jvm.Functions.IFunction1! predicate) -> int
 static Kotlin.Sequences.SequencesKt.IndexOfLast(Kotlin.Sequences.ISequence! _this_indexOfLast, Kotlin.Jvm.Functions.IFunction1! predicate) -> int
+static Kotlin.Sequences.SequencesKt.IsSorted(Kotlin.Sequences.ISequence! _this_isSorted) -> bool
+static Kotlin.Sequences.SequencesKt.IsSortedBy(Kotlin.Sequences.ISequence! _this_isSortedBy, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Sequences.SequencesKt.IsSortedByDescending(Kotlin.Sequences.ISequence! _this_isSortedByDescending, Kotlin.Jvm.Functions.IFunction1! selector) -> bool
+static Kotlin.Sequences.SequencesKt.IsSortedDescending(Kotlin.Sequences.ISequence! _this_isSortedDescending) -> bool
+static Kotlin.Sequences.SequencesKt.IsSortedWith(Kotlin.Sequences.ISequence! _this_isSortedWith, Java.Util.IComparator! comparator) -> bool
 static Kotlin.Sequences.SequencesKt.Iterator(Kotlin.Jvm.Functions.IFunction2! block) -> Java.Util.IIterator!
 static Kotlin.Sequences.SequencesKt.JoinTo(Kotlin.Sequences.ISequence! _this_joinTo, Java.Lang.Object! buffer, Java.Lang.ICharSequence! separator, Java.Lang.ICharSequence! prefix, Java.Lang.ICharSequence! postfix, int limit, Java.Lang.ICharSequence! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!
 static Kotlin.Sequences.SequencesKt.JoinTo(Kotlin.Sequences.ISequence! _this_joinTo, Java.Lang.Object! buffer, string! separator, string! prefix, string! postfix, int limit, string! truncated, Kotlin.Jvm.Functions.IFunction1? transform) -> Java.Lang.Object!

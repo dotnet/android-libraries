@@ -51,5 +51,4 @@ using System.Runtime.CompilerServices;
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.TlsVersion))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.TrailersSource))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.TrailersSourceConsts))]
-[assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.TrailersSourceDefaultImpls))]
 [assembly:TypeForwardedToAttribute(typeof(Square.OkHttp3.WebSocketListener))]

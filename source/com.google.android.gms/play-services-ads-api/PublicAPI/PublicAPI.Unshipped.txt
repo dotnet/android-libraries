@@ -112,6 +112,8 @@ Google.Android.Gms.Ads.AdapterResponseInfo.AdapterClassName.get -> string!
 Google.Android.Gms.Ads.AdapterResponseInfo.Credentials.get -> Android.OS.Bundle!
 Google.Android.Gms.Ads.AdapterResponseInfo.LatencyMillis.get -> long
 Google.Android.Gms.Ads.AdapterResponseInfo.Zzb() -> Org.Json.JSONObject!
+Google.Android.Gms.Ads.AgeRestrictedTreatment
+Google.Android.Gms.Ads.AgeRestrictedTreatment.Value.get -> int
 Google.Android.Gms.Ads.AppOpen.AppOpenAd
 Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAd() -> void
 Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAd(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -675,6 +677,7 @@ Google.Android.Gms.Ads.RequestConfiguration.ITagForUnderAgeOfConsent
 Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState
 Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState.Value.get -> int
 Google.Android.Gms.Ads.RequestConfiguration.RequestConfiguration(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Ads.RequestConfiguration.Zza() -> Google.Android.Gms.Ads.AgeRestrictedTreatment?
 Google.Android.Gms.Ads.ResponseInfo
 Google.Android.Gms.Ads.ResponseInfo.AdapterResponses.get -> System.Collections.Generic.IList<Google.Android.Gms.Ads.AdapterResponseInfo!>!
 Google.Android.Gms.Ads.ResponseInfo.LoadedAdapterResponseInfo.get -> Google.Android.Gms.Ads.AdapterResponseInfo?
@@ -1019,6 +1022,7 @@ override Google.Android.Gms.Ads.AdSize.JniPeerMembers.get -> Java.Interop.JniPee
 override Google.Android.Gms.Ads.AdValue.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AdView.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AdapterResponseInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Ads.AgeRestrictedTreatment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAdLoadCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAdLoadCallback.ThresholdClass.get -> nint
 override Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAdLoadCallback.ThresholdType.get -> System.Type!
@@ -1250,6 +1254,11 @@ static Google.Android.Gms.Ads.AdSize.SmartBanner.get -> Google.Android.Gms.Ads.A
 static Google.Android.Gms.Ads.AdSize.WideSkyscraper.get -> Google.Android.Gms.Ads.AdSize!
 static Google.Android.Gms.Ads.AdSize.Zza.get -> Google.Android.Gms.Ads.AdSize!
 static Google.Android.Gms.Ads.AdValue.Zza(int p0, string! p1, long p2) -> Google.Android.Gms.Ads.AdValue!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Child.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Teen.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Unspecified.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.ValueOf(string! name) -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Values() -> Google.Android.Gms.Ads.AgeRestrictedTreatment![]!
 static Google.Android.Gms.Ads.AppOpen.AppOpenAd.IsAdAvailable(Android.Content.Context! context, string! adUnitId) -> bool
 static Google.Android.Gms.Ads.AppOpen.AppOpenAd.Load(Android.Content.Context! context, string! adUnitId, Google.Android.Gms.Ads.AdRequest! adRequest, Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAdLoadCallback! loadCallback) -> void
 static Google.Android.Gms.Ads.AppOpen.AppOpenAd.PollAd(Android.Content.Context! context, string! adUnitId) -> Google.Android.Gms.Ads.AppOpen.AppOpenAd?
@@ -1306,7 +1315,6 @@ static Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizati
 static Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState.Enabled.get -> Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState!
 static Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState.ValueOf(string! name) -> Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState!
 static Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState.Values() -> Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState![]!
-static Google.Android.Gms.Ads.RequestConfiguration.Zza.get -> System.Collections.IList!
 static Google.Android.Gms.Ads.Rewarded.RewardItem.DefaultReward.get -> Google.Android.Gms.Ads.Rewarded.IRewardItem!
 static Google.Android.Gms.Ads.Rewarded.RewardedAd.IsAdAvailable(Android.Content.Context! context, string! adUnitId) -> bool
 static Google.Android.Gms.Ads.Rewarded.RewardedAd.Load(Android.Content.Context! context, string! adUnitId, Google.Android.Gms.Ads.AdManager.AdManagerAdRequest! adManagerAdRequest, Google.Android.Gms.Ads.Rewarded.RewardedAdLoadCallback! loadCallback) -> void
@@ -1481,7 +1489,9 @@ virtual Google.Android.Gms.Ads.Query.QueryInfo.QueryBundle.get -> Android.OS.Bun
 virtual Google.Android.Gms.Ads.Query.QueryInfo.RequestId.get -> string!
 virtual Google.Android.Gms.Ads.Query.QueryInfoGenerationCallback.OnFailure(string! p0) -> void
 virtual Google.Android.Gms.Ads.Query.QueryInfoGenerationCallback.OnSuccess(Google.Android.Gms.Ads.Query.QueryInfo! p0) -> void
+virtual Google.Android.Gms.Ads.RequestConfiguration.AgeRestrictedTreatment.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
 virtual Google.Android.Gms.Ads.RequestConfiguration.Builder.Build() -> Google.Android.Gms.Ads.RequestConfiguration!
+virtual Google.Android.Gms.Ads.RequestConfiguration.Builder.SetAgeRestrictedTreatment(Google.Android.Gms.Ads.AgeRestrictedTreatment? ageRestrictedTreatment) -> Google.Android.Gms.Ads.RequestConfiguration.Builder!
 virtual Google.Android.Gms.Ads.RequestConfiguration.Builder.SetMaxAdContentRating(string? maxAdContentRating) -> Google.Android.Gms.Ads.RequestConfiguration.Builder!
 virtual Google.Android.Gms.Ads.RequestConfiguration.Builder.SetPublisherPrivacyPersonalizationState(Google.Android.Gms.Ads.RequestConfiguration.PublisherPrivacyPersonalizationState! publisherPrivacyPersonalizationState) -> Google.Android.Gms.Ads.RequestConfiguration.Builder!
 virtual Google.Android.Gms.Ads.RequestConfiguration.Builder.SetTagForChildDirectedTreatment(int tagForChildDirectedTreatment) -> Google.Android.Gms.Ads.RequestConfiguration.Builder!
