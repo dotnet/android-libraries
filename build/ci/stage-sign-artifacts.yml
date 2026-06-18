@@ -1,5 +1,5 @@
-# Signs artifacts on tags built for release
-  
+# Signs artifacts on release/* branches and non-scheduled main builds
+
 stages:
 - stage: sign_artifacts
   displayName: Sign Artifacts
@@ -14,7 +14,7 @@ stages:
       artifactName: output-windows
       usePipelineArtifactTasks: true
       checkoutType: self
-      ${{ if and(or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
+      ${{ if and(or(and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'Schedule')), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), not(eq(variables['Build.Reason'], 'PullRequest'))) }}:
         signType: Real
       ${{ else }}:
         signType: Test
