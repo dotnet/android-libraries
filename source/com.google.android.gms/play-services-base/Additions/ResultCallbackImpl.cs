@@ -75,16 +75,6 @@ namespace Android.Gms.Common.Apis
             {
                 return AddOnConnectionFailedListener (new GoogleApiClientOnConnectionFailedListenerImpl (callback));
             }
-
-            public Builder EnableAutoManage(AndroidX.Fragment.App.FragmentActivity fragmentActivity, int clientId, Action<Android.Gms.Common.ConnectionResult> unresolvedConnectionFailedHandler)
-            {
-                return EnableAutoManage(fragmentActivity, clientId, new GoogleApiClientOnConnectionFailedListenerImpl(unresolvedConnectionFailedHandler));
-            }
-
-            public Builder EnableAutoManage(AndroidX.Fragment.App.FragmentActivity fragmentActivity, Action<Android.Gms.Common.ConnectionResult> unresolvedConnectionFailedHandler)
-            {
-                return EnableAutoManage(fragmentActivity, new GoogleApiClientOnConnectionFailedListenerImpl(unresolvedConnectionFailedHandler));
-            }
         }
     }
 
