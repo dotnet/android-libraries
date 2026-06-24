@@ -51,6 +51,11 @@ AndroidX.Lifecycle.Lifecycle.Lifecycle() -> void
 AndroidX.Lifecycle.Lifecycle.Lifecycle(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Lifecycle.Lifecycle.State
 AndroidX.Lifecycle.Lifecycle.State.IsAtLeast(AndroidX.Lifecycle.Lifecycle.State! state) -> bool
+AndroidX.Lifecycle.LifecycleCoroutineScope
+AndroidX.Lifecycle.LifecycleCoroutineScope.LaunchWhenCreated(Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
+AndroidX.Lifecycle.LifecycleCoroutineScope.LaunchWhenResumed(Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
+AndroidX.Lifecycle.LifecycleCoroutineScope.LaunchWhenStarted(Kotlin.Jvm.Functions.IFunction2! block) -> Xamarin.KotlinX.Coroutines.IJob!
+AndroidX.Lifecycle.LifecycleCoroutineScope.LifecycleCoroutineScope(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Lifecycle.LifecycleKt
 AndroidX.Lifecycle.LifecycleOwnerFactory
 AndroidX.Lifecycle.LifecycleOwnerKt
@@ -65,6 +70,7 @@ AndroidX.Lifecycle.SingleGeneratedAdapterObserver.SingleGeneratedAdapterObserver
 abstract AndroidX.Lifecycle.Lifecycle.AddObserver(AndroidX.Lifecycle.ILifecycleObserver! observer) -> void
 abstract AndroidX.Lifecycle.Lifecycle.CurrentState.get -> AndroidX.Lifecycle.Lifecycle.State!
 abstract AndroidX.Lifecycle.Lifecycle.RemoveObserver(AndroidX.Lifecycle.ILifecycleObserver! observer) -> void
+abstract AndroidX.Lifecycle.LifecycleCoroutineScope.CoroutineContext.get -> Kotlin.Coroutines.ICoroutineContext!
 override AndroidX.Lifecycle.AtomicReference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.CompositeGeneratedAdaptersObserver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.Lifecycle.Event.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -75,6 +81,9 @@ override AndroidX.Lifecycle.Lifecycle.JniPeerMembers.get -> Java.Interop.JniPeer
 override AndroidX.Lifecycle.Lifecycle.State.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.Lifecycle.ThresholdClass.get -> nint
 override AndroidX.Lifecycle.Lifecycle.ThresholdType.get -> System.Type!
+override AndroidX.Lifecycle.LifecycleCoroutineScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Lifecycle.LifecycleCoroutineScope.ThresholdClass.get -> nint
+override AndroidX.Lifecycle.LifecycleCoroutineScope.ThresholdType.get -> System.Type!
 override AndroidX.Lifecycle.LifecycleKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.LifecycleOwnerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.LifecycleOwnerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -86,6 +95,7 @@ override AndroidX.Lifecycle.PausingDispatcherKt.JniPeerMembers.get -> Java.Inter
 override AndroidX.Lifecycle.SingleGeneratedAdapterObserver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Lifecycle.Lifecycle.Event.DownFrom(AndroidX.Lifecycle.Lifecycle.State! state) -> AndroidX.Lifecycle.Lifecycle.Event?
 static AndroidX.Lifecycle.Lifecycle.Event.DownTo(AndroidX.Lifecycle.Lifecycle.State! state) -> AndroidX.Lifecycle.Lifecycle.Event?
+static AndroidX.Lifecycle.Lifecycle.Event.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Lifecycle.Lifecycle.Event.OnAny.get -> AndroidX.Lifecycle.Lifecycle.Event?
 static AndroidX.Lifecycle.Lifecycle.Event.OnCreate.get -> AndroidX.Lifecycle.Lifecycle.Event?
 static AndroidX.Lifecycle.Lifecycle.Event.OnDestroy.get -> AndroidX.Lifecycle.Lifecycle.Event?
@@ -99,13 +109,26 @@ static AndroidX.Lifecycle.Lifecycle.Event.ValueOf(string? value) -> AndroidX.Lif
 static AndroidX.Lifecycle.Lifecycle.Event.Values() -> AndroidX.Lifecycle.Lifecycle.Event![]?
 static AndroidX.Lifecycle.Lifecycle.State.Created.get -> AndroidX.Lifecycle.Lifecycle.State?
 static AndroidX.Lifecycle.Lifecycle.State.Destroyed.get -> AndroidX.Lifecycle.Lifecycle.State?
+static AndroidX.Lifecycle.Lifecycle.State.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Lifecycle.Lifecycle.State.Initialized.get -> AndroidX.Lifecycle.Lifecycle.State?
 static AndroidX.Lifecycle.Lifecycle.State.Resumed.get -> AndroidX.Lifecycle.Lifecycle.State?
 static AndroidX.Lifecycle.Lifecycle.State.Started.get -> AndroidX.Lifecycle.Lifecycle.State?
 static AndroidX.Lifecycle.Lifecycle.State.ValueOf(string? value) -> AndroidX.Lifecycle.Lifecycle.State?
 static AndroidX.Lifecycle.Lifecycle.State.Values() -> AndroidX.Lifecycle.Lifecycle.State![]?
+static AndroidX.Lifecycle.LifecycleKt.AddObserver(AndroidX.Lifecycle.Lifecycle! obj, Kotlin.Jvm.Functions.IFunction3! action) -> AndroidX.Lifecycle.ILifecycleObserver!
+static AndroidX.Lifecycle.LifecycleKt.GetCoroutineScope(AndroidX.Lifecycle.Lifecycle! obj) -> AndroidX.Lifecycle.LifecycleCoroutineScope!
+static AndroidX.Lifecycle.LifecycleKt.GetEventFlow(AndroidX.Lifecycle.Lifecycle! obj) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Lifecycle.LifecycleOwnerFactory.Create(AndroidX.Lifecycle.Lifecycle! lifecycle) -> AndroidX.Lifecycle.ILifecycleOwner!
+static AndroidX.Lifecycle.LifecycleOwnerKt.GetLifecycleScope(AndroidX.Lifecycle.ILifecycleOwner! obj) -> AndroidX.Lifecycle.LifecycleCoroutineScope!
 static AndroidX.Lifecycle.Lifecycling.GetAdapterName(string! className) -> string!
 static AndroidX.Lifecycle.Lifecycling.Instance.get -> AndroidX.Lifecycle.Lifecycling!
 static AndroidX.Lifecycle.Lifecycling.LifecycleEventObserver(Java.Lang.Object! object) -> AndroidX.Lifecycle.ILifecycleEventObserver!
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenCreated(AndroidX.Lifecycle.ILifecycleOwner! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenCreated(AndroidX.Lifecycle.Lifecycle! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenResumed(AndroidX.Lifecycle.ILifecycleOwner! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenResumed(AndroidX.Lifecycle.Lifecycle! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenStarted(AndroidX.Lifecycle.ILifecycleOwner! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenStarted(AndroidX.Lifecycle.Lifecycle! obj, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Lifecycle.PausingDispatcherKt.WhenStateAtLeast(AndroidX.Lifecycle.Lifecycle! obj, AndroidX.Lifecycle.Lifecycle.State! minState, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Lifecycle.Lifecycle.CurrentStateFlow.get -> Xamarin.KotlinX.Coroutines.Flow.IStateFlow!
 virtual AndroidX.Lifecycle.MethodCallsLogger.ApproveCall(string! name, int type) -> bool

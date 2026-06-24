@@ -76,6 +76,13 @@ AndroidX.Core.App.AppLocalesStorageHelper
 AndroidX.Core.App.AppLocalesStorageHelper.AppLocalesStorageHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.AppOpsManagerCompat
 AndroidX.Core.App.BundleCompat
+AndroidX.Core.App.ComponentActivity
+AndroidX.Core.App.ComponentActivity.ComponentActivity() -> void
+AndroidX.Core.App.ComponentActivity.ComponentActivity(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.ComponentActivity.ExtraData
+AndroidX.Core.App.ComponentActivity.ExtraData.ExtraData() -> void
+AndroidX.Core.App.ComponentActivity.ExtraData.ExtraData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.App.ComponentActivity.ShouldDumpInternalState(string![]? args) -> bool
 AndroidX.Core.App.CoreComponentFactory
 AndroidX.Core.App.CoreComponentFactory.CoreComponentFactory() -> void
 AndroidX.Core.App.CoreComponentFactory.CoreComponentFactory(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -136,6 +143,8 @@ AndroidX.Core.App.NotificationChannelGroupCompat.Name.get -> string?
 AndroidX.Core.App.NotificationChannelGroupCompat.NotificationChannelGroupCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.NotificationCompat
 AndroidX.Core.App.NotificationCompat.Action
+AndroidX.Core.App.NotificationCompat.Action.Action(AndroidX.Core.Graphics.Drawable.IconCompat? icon, Java.Lang.ICharSequence? title, Android.App.PendingIntent? intent) -> void
+AndroidX.Core.App.NotificationCompat.Action.Action(AndroidX.Core.Graphics.Drawable.IconCompat? icon, string? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Action(int icon, Java.Lang.ICharSequence? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Action(int icon, string? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Action(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -150,6 +159,8 @@ AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl
 AndroidX.Core.App.NotificationCompat.Action.Builder.Api37Impl.Api37Impl(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Build() -> AndroidX.Core.App.NotificationCompat.Action?
 AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(AndroidX.Core.App.NotificationCompat.Action? action) -> void
+AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(AndroidX.Core.Graphics.Drawable.IconCompat? icon, Java.Lang.ICharSequence? title, Android.App.PendingIntent? intent) -> void
+AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(AndroidX.Core.Graphics.Drawable.IconCompat? icon, string? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(int icon, Java.Lang.ICharSequence? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Builder(int icon, string? title, Android.App.PendingIntent? intent) -> void
 AndroidX.Core.App.NotificationCompat.Action.Builder.Extend(AndroidX.Core.App.NotificationCompat.Action.IExtender? extender) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
@@ -213,16 +224,19 @@ AndroidX.Core.App.NotificationCompat.BubbleMetadata.AutoExpandBubble.get -> bool
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.Build() -> AndroidX.Core.App.NotificationCompat.BubbleMetadata?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.Builder() -> void
+AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.Builder(Android.App.PendingIntent? intent, AndroidX.Core.Graphics.Drawable.IconCompat? icon) -> void
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.Builder(string? shortcutId) -> void
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetAutoExpandBubble(bool shouldExpand) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetDeleteIntent(Android.App.PendingIntent? deleteIntent) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetDesiredHeight(int height) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetDesiredHeightResId(int heightResId) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
+AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetIcon(AndroidX.Core.Graphics.Drawable.IconCompat? icon) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetIntent(Android.App.PendingIntent? intent) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder.SetSuppressNotification(bool shouldSuppressNotif) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata.Builder?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.DeleteIntent.get -> Android.App.PendingIntent?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.DesiredHeight.get -> int
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.DesiredHeightResId.get -> int
+AndroidX.Core.App.NotificationCompat.BubbleMetadata.Icon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.Intent.get -> Android.App.PendingIntent?
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.IsNotificationSuppressed.get -> bool
 AndroidX.Core.App.NotificationCompat.BubbleMetadata.SetFlags(int flags) -> void
@@ -569,6 +583,34 @@ AndroidX.Core.App.PictureInPictureUiStateCompat.Companion.FromPictureInPictureUi
 AndroidX.Core.App.PictureInPictureUiStateCompat.IsStashed.get -> bool
 AndroidX.Core.App.PictureInPictureUiStateCompat.IsTransitioningToPip.get -> bool
 AndroidX.Core.App.PictureInPictureUiStateCompat.PictureInPictureUiStateCompat(bool isStashed, bool isTransitioningToPip) -> void
+AndroidX.Core.App.RemoteActionCompat
+AndroidX.Core.App.RemoteActionCompat.ActionIntent.get -> Android.App.PendingIntent?
+AndroidX.Core.App.RemoteActionCompat.ContentDescription.get -> string?
+AndroidX.Core.App.RemoteActionCompat.ContentDescriptionFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.RemoteActionCompat.Enabled.get -> bool
+AndroidX.Core.App.RemoteActionCompat.Enabled.set -> void
+AndroidX.Core.App.RemoteActionCompat.Icon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+AndroidX.Core.App.RemoteActionCompat.MActionIntent.get -> Android.App.PendingIntent?
+AndroidX.Core.App.RemoteActionCompat.MActionIntent.set -> void
+AndroidX.Core.App.RemoteActionCompat.MContentDescription.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.RemoteActionCompat.MContentDescription.set -> void
+AndroidX.Core.App.RemoteActionCompat.MEnabled.get -> bool
+AndroidX.Core.App.RemoteActionCompat.MEnabled.set -> void
+AndroidX.Core.App.RemoteActionCompat.MIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+AndroidX.Core.App.RemoteActionCompat.MIcon.set -> void
+AndroidX.Core.App.RemoteActionCompat.MShouldShowIcon.get -> bool
+AndroidX.Core.App.RemoteActionCompat.MShouldShowIcon.set -> void
+AndroidX.Core.App.RemoteActionCompat.MTitle.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.RemoteActionCompat.MTitle.set -> void
+AndroidX.Core.App.RemoteActionCompat.RemoteActionCompat() -> void
+AndroidX.Core.App.RemoteActionCompat.RemoteActionCompat(AndroidX.Core.App.RemoteActionCompat? other) -> void
+AndroidX.Core.App.RemoteActionCompat.RemoteActionCompat(AndroidX.Core.Graphics.Drawable.IconCompat? icon, Java.Lang.ICharSequence? title, Java.Lang.ICharSequence? contentDescription, Android.App.PendingIntent? intent) -> void
+AndroidX.Core.App.RemoteActionCompat.RemoteActionCompat(AndroidX.Core.Graphics.Drawable.IconCompat? icon, string? title, string? contentDescription, Android.App.PendingIntent? intent) -> void
+AndroidX.Core.App.RemoteActionCompat.SetShouldShowIcon(bool shouldShowIcon) -> void
+AndroidX.Core.App.RemoteActionCompat.ShouldShowIcon() -> bool
+AndroidX.Core.App.RemoteActionCompat.Title.get -> string?
+AndroidX.Core.App.RemoteActionCompat.TitleFormatted.get -> Java.Lang.ICharSequence?
+AndroidX.Core.App.RemoteActionCompat.ToRemoteAction() -> Android.App.RemoteAction?
 AndroidX.Core.App.RemoteActionCompatParcelizer
 AndroidX.Core.App.RemoteActionCompatParcelizer.RemoteActionCompatParcelizer() -> void
 AndroidX.Core.App.RemoteActionCompatParcelizer.RemoteActionCompatParcelizer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -848,6 +890,26 @@ AndroidX.Core.Graphics.Drawable.ITintAwareDrawable.SetTintMode(Android.Graphics.
 AndroidX.Core.Graphics.Drawable.IWrappedDrawable
 AndroidX.Core.Graphics.Drawable.IWrappedDrawable.WrappedDrawable.get -> Android.Graphics.Drawables.Drawable?
 AndroidX.Core.Graphics.Drawable.IWrappedDrawable.WrappedDrawable.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat
+AndroidX.Core.Graphics.Drawable.IconCompat.IIconType
+AndroidX.Core.Graphics.Drawable.IconCompat.IconCompat() -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.IconCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MData.get -> System.Collections.Generic.IList<byte>?
+AndroidX.Core.Graphics.Drawable.IconCompat.MData.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MInt1.get -> int
+AndroidX.Core.Graphics.Drawable.IconCompat.MInt1.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MInt2.get -> int
+AndroidX.Core.Graphics.Drawable.IconCompat.MInt2.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MParcelable.get -> Android.OS.IParcelable?
+AndroidX.Core.Graphics.Drawable.IconCompat.MParcelable.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MString1.get -> string?
+AndroidX.Core.Graphics.Drawable.IconCompat.MString1.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MTintList.get -> Android.Content.Res.ColorStateList?
+AndroidX.Core.Graphics.Drawable.IconCompat.MTintList.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MTintModeStr.get -> string?
+AndroidX.Core.Graphics.Drawable.IconCompat.MTintModeStr.set -> void
+AndroidX.Core.Graphics.Drawable.IconCompat.MType.get -> int
+AndroidX.Core.Graphics.Drawable.IconCompat.MType.set -> void
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.IconCompatParcelizer() -> void
 AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.IconCompatParcelizer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1536,6 +1598,8 @@ AndroidX.Core.View.ILayoutInflaterFactory
 AndroidX.Core.View.ILayoutInflaterFactory.OnCreateView(Android.Views.View? parent, string? name, Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> Android.Views.View?
 AndroidX.Core.View.IMenuHost
 AndroidX.Core.View.IMenuHost.AddMenuProvider(AndroidX.Core.View.IMenuProvider? p0) -> void
+AndroidX.Core.View.IMenuHost.AddMenuProvider(AndroidX.Core.View.IMenuProvider? p0, AndroidX.Lifecycle.ILifecycleOwner? p1) -> void
+AndroidX.Core.View.IMenuHost.AddMenuProvider(AndroidX.Core.View.IMenuProvider? p0, AndroidX.Lifecycle.ILifecycleOwner? p1, AndroidX.Lifecycle.Lifecycle.State? p2) -> void
 AndroidX.Core.View.IMenuHost.InvalidateMenu() -> void
 AndroidX.Core.View.IMenuHost.RemoveMenuProvider(AndroidX.Core.View.IMenuProvider? p0) -> void
 AndroidX.Core.View.IMenuProvider
@@ -2296,6 +2360,13 @@ const AndroidX.Core.Content.UnusedAppRestrictionsConstants.Api31 = 5 -> int
 const AndroidX.Core.Content.UnusedAppRestrictionsConstants.Disabled = 2 -> int
 const AndroidX.Core.Content.UnusedAppRestrictionsConstants.Error = 0 -> int
 const AndroidX.Core.Content.UnusedAppRestrictionsConstants.FeatureNotAvailable = 1 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeAdaptiveBitmap = 5 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeBitmap = 1 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeData = 3 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeResource = 2 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeUnknown = -1 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeUri = 4 -> int
+const AndroidX.Core.Graphics.Drawable.IconCompat.TypeUriAdaptiveBitmap = 6 -> int
 const AndroidX.Core.Graphics.TypefaceCompat.DownloadableFallbackDebug = false -> bool
 const AndroidX.Core.Graphics.TypefaceCompat.DownloadableFontTracing = true -> bool
 const AndroidX.Core.Hardware.Display.DisplayManagerCompat.DisplayCategoryBuiltInDisplays = "android.hardware.display.category.BUILT_IN_DISPLAYS" -> string!
@@ -2780,6 +2851,12 @@ override AndroidX.Core.App.AppLocalesStorageHelper.ThresholdClass.get -> nint
 override AndroidX.Core.App.AppLocalesStorageHelper.ThresholdType.get -> System.Type!
 override AndroidX.Core.App.AppOpsManagerCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.BundleCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.ComponentActivity.ExtraData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.ComponentActivity.ExtraData.ThresholdClass.get -> nint
+override AndroidX.Core.App.ComponentActivity.ExtraData.ThresholdType.get -> System.Type!
+override AndroidX.Core.App.ComponentActivity.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.ComponentActivity.ThresholdClass.get -> nint
+override AndroidX.Core.App.ComponentActivity.ThresholdType.get -> System.Type!
 override AndroidX.Core.App.CoreComponentFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.CoreComponentFactory.ThresholdClass.get -> nint
 override AndroidX.Core.App.CoreComponentFactory.ThresholdType.get -> System.Type!
@@ -2903,6 +2980,7 @@ override AndroidX.Core.App.PictureInPictureParamsCompat.Builder.JniPeerMembers.g
 override AndroidX.Core.App.PictureInPictureParamsCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.PictureInPictureUiStateCompat.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.PictureInPictureUiStateCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.App.RemoteActionCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.RemoteActionCompatParcelizer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.App.RemoteActionCompatParcelizer.ThresholdClass.get -> nint
 override AndroidX.Core.App.RemoteActionCompatParcelizer.ThresholdType.get -> System.Type!
@@ -3040,6 +3118,9 @@ override AndroidX.Core.Graphics.Drawable.BitmapDrawableKt.JniPeerMembers.get -> 
 override AndroidX.Core.Graphics.Drawable.ColorDrawableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.DrawableCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.DrawableKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.Drawable.IconCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Core.Graphics.Drawable.IconCompat.ThresholdClass.get -> nint
+override AndroidX.Core.Graphics.Drawable.IconCompat.ThresholdType.get -> System.Type!
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.ThresholdClass.get -> nint
 override AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.ThresholdType.get -> System.Type!
@@ -3462,6 +3543,10 @@ static Android.Support.V4.App.NotificationSideChannel.Descriptor.get -> string?
 static Android.Support.V4.App.NotificationSideChannelDefault.InterfaceConsts.Descriptor.get -> string?
 static Android.Support.V4.App.NotificationSideChannelStub.AsInterface(Android.OS.IBinder? obj) -> Android.Support.V4.App.INotificationSideChannel?
 static Android.Support.V4.App.NotificationSideChannelStub.InterfaceConsts.Descriptor.get -> string?
+static Android.Support.V4.App.RemoteActionCompatParcelizer.Read(AndroidX.VersionedParcelable.VersionedParcel? parcel) -> AndroidX.Core.App.RemoteActionCompat?
+static Android.Support.V4.App.RemoteActionCompatParcelizer.Write(AndroidX.Core.App.RemoteActionCompat? obj, AndroidX.VersionedParcelable.VersionedParcel? parcel) -> void
+static Android.Support.V4.Graphics.Drawable.IconCompatParcelizer.Read(AndroidX.VersionedParcelable.VersionedParcel? parcel) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static Android.Support.V4.Graphics.Drawable.IconCompatParcelizer.Write(AndroidX.Core.Graphics.Drawable.IconCompat? obj, AndroidX.VersionedParcelable.VersionedParcel? parcel) -> void
 static Android.Support.V4.OS.ResultReceiver.Creator.get -> Android.OS.IParcelableCreator?
 static Android.Support.V4.OS.ResultReceiver2.Descriptor.get -> string?
 static Android.Support.V4.OS.ResultReceiver2Default.InterfaceConsts.Descriptor.get -> string?
@@ -3475,6 +3560,14 @@ static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.Feedbac
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.FlagToString(int flag) -> string?
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.GetCapabilities(Android.AccessibilityServices.AccessibilityServiceInfo? info) -> int
 static AndroidX.Core.AccessibilityService.AccessibilityServiceInfoCompat.LoadDescription(Android.AccessibilityServices.AccessibilityServiceInfo? info, Android.Content.PM.PackageManager? packageManager) -> string?
+static AndroidX.Core.Animation.AnimatorKt.AddListener(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! onEnd, Kotlin.Jvm.Functions.IFunction1! onStart, Kotlin.Jvm.Functions.IFunction1! onCancel, Kotlin.Jvm.Functions.IFunction1! onRepeat) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.AddPauseListener(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! onResume, Kotlin.Jvm.Functions.IFunction1! onPause) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnCancel(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnEnd(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnPause(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnRepeat(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnResume(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorPauseListener!
+static AndroidX.Core.Animation.AnimatorKt.DoOnStart(Android.Animation.Animator! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Animation.Animator.IAnimatorListener!
 static AndroidX.Core.App.ActivityCompat.FinishAffinity(Android.App.Activity? activity) -> void
 static AndroidX.Core.App.ActivityCompat.FinishAfterTransition(Android.App.Activity? activity) -> void
 static AndroidX.Core.App.ActivityCompat.GetReferrer(Android.App.Activity? activity) -> Android.Net.Uri?
@@ -3536,6 +3629,7 @@ static AndroidX.Core.App.NavUtils.NavigateUpFromSameTask(Android.App.Activity? s
 static AndroidX.Core.App.NavUtils.NavigateUpTo(Android.App.Activity? sourceActivity, Android.Content.Intent? upIntent) -> void
 static AndroidX.Core.App.NavUtils.ShouldUpRecreateTask(Android.App.Activity? sourceActivity, Android.Content.Intent? targetIntent) -> bool
 static AndroidX.Core.App.NotificationCompat.Action.Builder.FromAndroidAction(Android.App.Notification.Action? action) -> AndroidX.Core.App.NotificationCompat.Action.Builder?
+static AndroidX.Core.App.NotificationCompat.BigPictureStyle.GetPictureIcon(Android.OS.Bundle? extras) -> AndroidX.Core.Graphics.Drawable.IconCompat?
 static AndroidX.Core.App.NotificationCompat.BubbleMetadata.FromPlatform(Android.App.Notification.BubbleMetadata? platformMetadata) -> AndroidX.Core.App.NotificationCompat.BubbleMetadata?
 static AndroidX.Core.App.NotificationCompat.BubbleMetadata.ToPlatform(AndroidX.Core.App.NotificationCompat.BubbleMetadata? compatMetadata) -> Android.App.Notification.BubbleMetadata?
 static AndroidX.Core.App.NotificationCompat.Builder.LimitCharSequenceLength(string? cs) -> string?
@@ -3609,6 +3703,9 @@ static AndroidX.Core.App.Person.FromAndroidPerson(Android.App.Person? person) ->
 static AndroidX.Core.App.Person.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Core.App.Person?
 static AndroidX.Core.App.Person.FromPersistableBundle(Android.OS.PersistableBundle? bundle) -> AndroidX.Core.App.Person?
 static AndroidX.Core.App.PictureInPictureUiStateCompat.FromPictureInPictureUiState(Android.App.PictureInPictureUiState! uiState) -> AndroidX.Core.App.PictureInPictureUiStateCompat!
+static AndroidX.Core.App.RemoteActionCompat.CreateFromRemoteAction(Android.App.RemoteAction? remoteAction) -> AndroidX.Core.App.RemoteActionCompat?
+static AndroidX.Core.App.RemoteActionCompatParcelizer.Read(AndroidX.VersionedParcelable.VersionedParcel? parcel) -> AndroidX.Core.App.RemoteActionCompat?
+static AndroidX.Core.App.RemoteActionCompatParcelizer.Write(AndroidX.Core.App.RemoteActionCompat? obj, AndroidX.VersionedParcelable.VersionedParcel? parcel) -> void
 static AndroidX.Core.App.RemoteInput.AddDataResultToIntent(AndroidX.Core.App.RemoteInput? remoteInput, Android.Content.Intent? intent, System.Collections.Generic.IDictionary<string!, Android.Net.Uri!>? results) -> void
 static AndroidX.Core.App.RemoteInput.AddResultsToIntent(AndroidX.Core.App.RemoteInput![]? remoteInputs, Android.Content.Intent? intent, Android.OS.Bundle? results) -> void
 static AndroidX.Core.App.RemoteInput.GetDataResultsFromIntent(Android.Content.Intent? intent, string? remoteInputResultKey) -> System.Collections.Generic.IDictionary<string!, Android.Net.Uri!>?
@@ -3636,6 +3733,7 @@ static AndroidX.Core.App.UnusedAppRestrictions.UnusedAppRestrictionsBackportServ
 static AndroidX.Core.Content.ContentProviderCompat.RequireContext(Android.Content.ContentProvider? provider) -> Android.Content.Context?
 static AndroidX.Core.Content.ContentResolverCompat.Query(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri, string![]? projection, string? selection, string![]? selectionArgs, string? sortOrder, Android.OS.CancellationSignal? cancellationSignal) -> Android.Database.ICursor?
 static AndroidX.Core.Content.ContentResolverCompat.Query(Android.Content.ContentResolver? resolver, Android.Net.Uri? uri, string![]? projection, string? selection, string![]? selectionArgs, string? sortOrder, AndroidX.Core.OS.CancellationSignal? cancellationSignal) -> Android.Database.ICursor?
+static AndroidX.Core.Content.ContentValuesKt.ContentValuesOf(params Kotlin.Pair![]! pairs) -> Android.Content.ContentValues!
 static AndroidX.Core.Content.ContextCompat.CheckSelfPermission(Android.Content.Context? context, string? permission) -> Android.Content.PM.Permission
 static AndroidX.Core.Content.ContextCompat.CreateAttributionContext(Android.Content.Context? context, string? attributionTag) -> Android.Content.Context?
 static AndroidX.Core.Content.ContextCompat.CreateDeviceProtectedStorageContext(Android.Content.Context? context) -> Android.Content.Context?
@@ -3662,6 +3760,10 @@ static AndroidX.Core.Content.ContextCompat.StartActivities(Android.Content.Conte
 static AndroidX.Core.Content.ContextCompat.StartActivities(Android.Content.Context? context, Android.Content.Intent![]? intents, Android.OS.Bundle? options) -> bool
 static AndroidX.Core.Content.ContextCompat.StartActivity(Android.Content.Context? context, Android.Content.Intent? intent, Android.OS.Bundle? options) -> void
 static AndroidX.Core.Content.ContextCompat.StartForegroundService(Android.Content.Context? context, Android.Content.Intent? intent) -> void
+static AndroidX.Core.Content.ContextKt.ReceiveBroadcasts(Android.Content.Context! p0, Android.Content.IntentFilter! filter, int flags, string? broadcastPermission, Android.OS.Handler? scheduler, Kotlin.Jvm.Functions.IFunction2! onReceive, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Core.Content.ContextKt.ReceiveBroadcastsAsync(Android.Content.Context! p0, Android.Content.IntentFilter! filter, int flags, string? broadcastPermission, Android.OS.Handler? scheduler, Kotlin.Jvm.Functions.IFunction3! onReceive, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Core.Content.ContextKt.WithStyledAttributes(Android.Content.Context! obj, Android.Util.IAttributeSet? set, int[]! attrs, int defStyleAttr, int defStyleRes, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Content.ContextKt.WithStyledAttributes(Android.Content.Context! obj, int resourceId, int[]! attrs, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Content.FileProvider.GetUriForFile(Android.Content.Context? context, string? authority, Java.IO.File? file) -> Android.Net.Uri?
 static AndroidX.Core.Content.FileProvider.GetUriForFile(Android.Content.Context? context, string? authority, Java.IO.File? file, string? displayName) -> Android.Net.Uri?
 static AndroidX.Core.Content.IntentCompat.CreateManageUnusedAppRestrictionsIntent(Android.Content.Context? context, string? packageName) -> Android.Content.Intent?
@@ -3704,6 +3806,7 @@ static AndroidX.Core.Content.PM.ShortcutXmlParser.GetShortcutIds(Android.Content
 static AndroidX.Core.Content.PM.ShortcutXmlParser.ParseShortcutIds(System.Xml.XmlReader? parser) -> System.Collections.Generic.IList<string!>?
 static AndroidX.Core.Content.PackageManagerCompat.AreUnusedAppRestrictionsAvailable(Android.Content.PM.PackageManager? packageManager) -> bool
 static AndroidX.Core.Content.PackageManagerCompat.GetPermissionRevocationVerifierApp(Android.Content.PM.PackageManager? packageManager) -> string?
+static AndroidX.Core.Content.PackageManagerCompat.GetUnusedAppRestrictionsStatus(Android.Content.Context? context) -> Google.Common.Util.Concurrent.IListenableFuture?
 static AndroidX.Core.Content.PermissionChecker.CheckCallingOrSelfPermission(Android.Content.Context? context, string? permission) -> int
 static AndroidX.Core.Content.PermissionChecker.CheckCallingPermission(Android.Content.Context? context, string? permission, string? packageName) -> int
 static AndroidX.Core.Content.PermissionChecker.CheckPermission(Android.Content.Context? context, string? permission, int pid, int uid, string? packageName) -> int
@@ -3746,6 +3849,7 @@ static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextArrayOrThrow(Android.
 static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextArrayOrThrowFormatted(Android.Content.Res.TypedArray! obj, int index) -> Java.Lang.ICharSequence![]!
 static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextOrThrow(Android.Content.Res.TypedArray! obj, int index) -> string!
 static AndroidX.Core.Content.Resources.TypedArrayKt.GetTextOrThrowFormatted(Android.Content.Res.TypedArray! obj, int index) -> Java.Lang.ICharSequence!
+static AndroidX.Core.Content.Resources.TypedArrayKt.Use(Android.Content.Res.TypedArray! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetAttr(Android.Content.Context? context, int attr, int fallbackAttr) -> int
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetBoolean(Android.Content.Res.TypedArray? a, int index, int fallbackIndex, bool defaultValue) -> bool
 static AndroidX.Core.Content.Resources.TypedArrayUtils.GetDrawable(Android.Content.Res.TypedArray? a, int index, int fallbackIndex) -> Android.Graphics.Drawables.Drawable?
@@ -3768,6 +3872,7 @@ static AndroidX.Core.Content.Resources.TypedArrayUtils.HasAttribute(System.Xml.X
 static AndroidX.Core.Content.Resources.TypedArrayUtils.ObtainAttributes(Android.Content.Res.Resources? res, Android.Content.Res.Resources.Theme? theme, Android.Util.IAttributeSet? set, int[]? attrs) -> Android.Content.Res.TypedArray?
 static AndroidX.Core.Content.Resources.TypedArrayUtils.PeekNamedValue(Android.Content.Res.TypedArray? a, System.Xml.XmlReader? parser, string? attrName, int resId) -> Android.Util.TypedValue?
 static AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat.Instance.get -> AndroidX.Core.Content.SharedPreferencesCompat.EditorCompat?
+static AndroidX.Core.Content.SharedPreferencesKt.Edit(Android.Content.ISharedPreferences! obj, bool commit, Kotlin.Jvm.Functions.IFunction1! action) -> void
 static AndroidX.Core.Content.UriMatcherCompat.AsPredicate(Android.Content.UriMatcher? matcher) -> AndroidX.Core.Util.IPredicate?
 static AndroidX.Core.Database.CursorKt.GetBlobOrNull(Android.Database.ICursor! obj, int index) -> byte[]?
 static AndroidX.Core.Database.CursorKt.GetDoubleOrNull(Android.Database.ICursor! obj, int index) -> Java.Lang.Double?
@@ -3780,6 +3885,7 @@ static AndroidX.Core.Database.CursorWindowCompat.Create(string? name, long windo
 static AndroidX.Core.Database.DatabaseUtilsCompat.AppendSelectionArgs(string![]? originalValues, string![]? newValues) -> string![]?
 static AndroidX.Core.Database.DatabaseUtilsCompat.ConcatenateWhere(string? a, string? b) -> string?
 static AndroidX.Core.Database.SqlLite.SQLiteCursorCompat.SetFillWindowForwardOnly(Android.Database.Sqlite.SQLiteCursor? cursor, bool fillWindowForwardOnly) -> void
+static AndroidX.Core.Database.SqlLite.SQLiteDatabaseKt.Transaction(Android.Database.Sqlite.SQLiteDatabase! obj, bool exclusive, Kotlin.Jvm.Functions.IFunction1! body) -> Java.Lang.Object?
 static AndroidX.Core.Flagging.AconfigPackageCompat.Companion.get -> AndroidX.Core.Flagging.AconfigPackageCompatCompanion!
 static AndroidX.Core.Flagging.AconfigPackageCompat.Load(string! packageName) -> AndroidX.Core.Flagging.IAconfigPackageCompat!
 static AndroidX.Core.Flagging.Flags.GetBooleanFlagValue(string! packageName, string! flagName) -> bool
@@ -3788,6 +3894,7 @@ static AndroidX.Core.Graphics.BitmapCompat.CreateScaledBitmap(Android.Graphics.B
 static AndroidX.Core.Graphics.BitmapCompat.GetAllocationByteCount(Android.Graphics.Bitmap? bitmap) -> int
 static AndroidX.Core.Graphics.BitmapCompat.HasMipMap(Android.Graphics.Bitmap? bitmap) -> bool
 static AndroidX.Core.Graphics.BitmapCompat.SetHasMipMap(Android.Graphics.Bitmap? bitmap, bool hasMipMap) -> void
+static AndroidX.Core.Graphics.BitmapKt.ApplyCanvas(Android.Graphics.Bitmap! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Android.Graphics.Bitmap!
 static AndroidX.Core.Graphics.BitmapKt.Contains(Android.Graphics.Bitmap! obj, Android.Graphics.Point! p) -> bool
 static AndroidX.Core.Graphics.BitmapKt.Contains(Android.Graphics.Bitmap! obj, Android.Graphics.PointF! p) -> bool
 static AndroidX.Core.Graphics.BitmapKt.CreateBitmap(int width, int height, Android.Graphics.Bitmap.Config! config) -> Android.Graphics.Bitmap!
@@ -3827,6 +3934,17 @@ static AndroidX.Core.Graphics.BlendModeCompat.SrcOver.get -> AndroidX.Core.Graph
 static AndroidX.Core.Graphics.BlendModeCompat.ValueOf(string? name) -> AndroidX.Core.Graphics.BlendModeCompat?
 static AndroidX.Core.Graphics.BlendModeCompat.Values() -> AndroidX.Core.Graphics.BlendModeCompat![]?
 static AndroidX.Core.Graphics.BlendModeCompat.Xor.get -> AndroidX.Core.Graphics.BlendModeCompat?
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.Path! clipPath, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.Rect! clipRect, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, Android.Graphics.RectF! clipRect, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, float left, float top, float right, float bottom, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithClip(Android.Graphics.Canvas! obj, int left, int top, int right, int bottom, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithMatrix(Android.Graphics.Canvas! obj, Android.Graphics.Matrix! matrix, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithRotation(Android.Graphics.Canvas! obj, float degrees, float pivotX, float pivotY, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithSave(Android.Graphics.Canvas! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithScale(Android.Graphics.Canvas! obj, float x, float y, float pivotX, float pivotY, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithSkew(Android.Graphics.Canvas! obj, float x, float y, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Core.Graphics.CanvasKt.WithTranslation(Android.Graphics.Canvas! obj, float x, float y, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Graphics.ColorKt.Component1(Android.Graphics.ColorObject! obj) -> float
 static AndroidX.Core.Graphics.ColorKt.Component1(int obj) -> int
 static AndroidX.Core.Graphics.ColorKt.Component1(long obj) -> float
@@ -3911,6 +4029,21 @@ static AndroidX.Core.Graphics.Drawable.DrawableCompat.Wrap(Android.Graphics.Draw
 static AndroidX.Core.Graphics.Drawable.DrawableKt.ToBitmap(Android.Graphics.Drawables.Drawable! obj, int width, int height, Android.Graphics.Bitmap.Config? config) -> Android.Graphics.Bitmap!
 static AndroidX.Core.Graphics.Drawable.DrawableKt.ToBitmapOrNull(Android.Graphics.Drawables.Drawable! obj, int width, int height, Android.Graphics.Bitmap.Config? config) -> Android.Graphics.Bitmap?
 static AndroidX.Core.Graphics.Drawable.DrawableKt.UpdateBounds(Android.Graphics.Drawables.Drawable! obj, int left, int top, int right, int bottom) -> void
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromBundle(Android.OS.Bundle? bundle) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromIcon(Android.Content.Context? context, Android.Graphics.Drawables.Icon? icon) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromIcon(Android.Graphics.Drawables.Icon? icon) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateFromIconOrNullIfZeroResId(Android.Graphics.Drawables.Icon? icon) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithAdaptiveBitmap(Android.Graphics.Bitmap? bits) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithAdaptiveBitmapContentUri(Android.Net.Uri? uri) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithAdaptiveBitmapContentUri(string? uri) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithBitmap(Android.Graphics.Bitmap? bits) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithContentUri(Android.Net.Uri? uri) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithContentUri(string? uri) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithData(byte[]? data, int offset, int length) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithResource(Android.Content.Context? context, int resId) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompat.CreateWithResource(Android.Content.Res.Resources? r, string? pkg, int resId) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.Read(AndroidX.VersionedParcelable.VersionedParcel? parcel) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+static AndroidX.Core.Graphics.Drawable.IconCompatParcelizer.Write(AndroidX.Core.Graphics.Drawable.IconCompat? obj, AndroidX.VersionedParcelable.VersionedParcel? parcel) -> void
 static AndroidX.Core.Graphics.Drawable.IconKt.ToAdaptiveIcon(Android.Graphics.Bitmap! obj) -> Android.Graphics.Drawables.Icon!
 static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(Android.Graphics.Bitmap! obj) -> Android.Graphics.Drawables.Icon!
 static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(Android.Net.Uri! obj) -> Android.Graphics.Drawables.Icon!
@@ -3918,6 +4051,8 @@ static AndroidX.Core.Graphics.Drawable.IconKt.ToIcon(byte[]! obj) -> Android.Gra
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, Android.Graphics.Bitmap? bitmap) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, System.IO.Stream? is) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
 static AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawableFactory.Create(Android.Content.Res.Resources? res, string? filepath) -> AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable?
+static AndroidX.Core.Graphics.ImageDecoderKt.DecodeBitmap(Android.Graphics.ImageDecoder.Source! obj, Kotlin.Jvm.Functions.IFunction3! action) -> Android.Graphics.Bitmap!
+static AndroidX.Core.Graphics.ImageDecoderKt.DecodeDrawable(Android.Graphics.ImageDecoder.Source! obj, Kotlin.Jvm.Functions.IFunction3! action) -> Android.Graphics.Drawables.Drawable!
 static AndroidX.Core.Graphics.Insets.Add(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.Max(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
 static AndroidX.Core.Graphics.Insets.Min(AndroidX.Core.Graphics.Insets? a, AndroidX.Core.Graphics.Insets? b) -> AndroidX.Core.Graphics.Insets?
@@ -3952,6 +4087,7 @@ static AndroidX.Core.Graphics.PathParser.PathDataNode.NodesToPath(AndroidX.Core.
 static AndroidX.Core.Graphics.PathParser.UpdateNodes(AndroidX.Core.Graphics.PathParser.PathDataNode![]? target, AndroidX.Core.Graphics.PathParser.PathDataNode![]? source) -> void
 static AndroidX.Core.Graphics.PathUtils.Flatten(Android.Graphics.Path? path) -> System.Collections.Generic.ICollection<AndroidX.Core.Graphics.PathSegment!>?
 static AndroidX.Core.Graphics.PathUtils.Flatten(Android.Graphics.Path? path, float error) -> System.Collections.Generic.ICollection<AndroidX.Core.Graphics.PathSegment!>?
+static AndroidX.Core.Graphics.PictureKt.Record(Android.Graphics.Picture! obj, int width, int height, Kotlin.Jvm.Functions.IFunction1! block) -> Android.Graphics.Picture!
 static AndroidX.Core.Graphics.PointKt.Component1(Android.Graphics.Point! obj) -> int
 static AndroidX.Core.Graphics.PointKt.Component1(Android.Graphics.PointF! obj) -> float
 static AndroidX.Core.Graphics.PointKt.Component2(Android.Graphics.Point! obj) -> int
@@ -4013,6 +4149,7 @@ static AndroidX.Core.Graphics.RectKt.Xor(Android.Graphics.RectF! obj, Android.Gr
 static AndroidX.Core.Graphics.RegionKt.And(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
 static AndroidX.Core.Graphics.RegionKt.And(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
 static AndroidX.Core.Graphics.RegionKt.Contains(Android.Graphics.Region! obj, Android.Graphics.Point! p) -> bool
+static AndroidX.Core.Graphics.RegionKt.ForEach(Android.Graphics.Region! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
 static AndroidX.Core.Graphics.RegionKt.Iterator(Android.Graphics.Region! obj) -> Java.Util.IIterator!
 static AndroidX.Core.Graphics.RegionKt.Minus(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
 static AndroidX.Core.Graphics.RegionKt.Minus(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
@@ -4024,6 +4161,7 @@ static AndroidX.Core.Graphics.RegionKt.Plus(Android.Graphics.Region! obj, Androi
 static AndroidX.Core.Graphics.RegionKt.UnaryMinus(Android.Graphics.Region! obj) -> Android.Graphics.Region!
 static AndroidX.Core.Graphics.RegionKt.Xor(Android.Graphics.Region! obj, Android.Graphics.Rect! r) -> Android.Graphics.Region!
 static AndroidX.Core.Graphics.RegionKt.Xor(Android.Graphics.Region! obj, Android.Graphics.Region! r) -> Android.Graphics.Region!
+static AndroidX.Core.Graphics.ShaderKt.Transform(Android.Graphics.Shader! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Graphics.TypefaceCompat.ClearCache() -> void
 static AndroidX.Core.Graphics.TypefaceCompat.Create(Android.Content.Context? context, Android.Graphics.Typeface? family, int style) -> Android.Graphics.Typeface?
 static AndroidX.Core.Graphics.TypefaceCompat.Create(Android.Content.Context? context, Android.Graphics.Typeface? family, int weight, bool italic) -> Android.Graphics.Typeface?
@@ -4158,6 +4296,7 @@ static AndroidX.Core.OS.BundleCompat.GetSerializable(Android.OS.Bundle? in, stri
 static AndroidX.Core.OS.BundleCompat.GetSparseParcelableArray(Android.OS.Bundle? in, string? key, Java.Lang.Class? clazz) -> Android.Util.SparseArray?
 static AndroidX.Core.OS.BundleCompat.PutBinder(Android.OS.Bundle? bundle, string? key, Android.OS.IBinder? binder) -> void
 static AndroidX.Core.OS.BundleKt.BundleOf() -> Android.OS.Bundle!
+static AndroidX.Core.OS.BundleKt.BundleOf(params Kotlin.Pair![]! pairs) -> Android.OS.Bundle!
 static AndroidX.Core.OS.ConfigurationCompat.GetLocales(Android.Content.Res.Configuration? configuration) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.ConfigurationCompat.SetLocales(Android.Content.Res.Configuration? configuration, AndroidX.Core.OS.LocaleListCompat? locales) -> void
 static AndroidX.Core.OS.EnvironmentCompat.GetStorageState(Java.IO.File? path) -> string?
@@ -4166,6 +4305,8 @@ static AndroidX.Core.OS.HandlerCompat.CreateAsync(Android.OS.Looper? looper) -> 
 static AndroidX.Core.OS.HandlerCompat.CreateAsync(Android.OS.Looper? looper, Android.OS.Handler.ICallback? callback) -> Android.OS.Handler?
 static AndroidX.Core.OS.HandlerCompat.HasCallbacks(Android.OS.Handler? handler, Java.Lang.IRunnable? r) -> bool
 static AndroidX.Core.OS.HandlerCompat.PostDelayed(Android.OS.Handler? handler, Java.Lang.IRunnable? r, Java.Lang.Object? token, long delayMillis) -> bool
+static AndroidX.Core.OS.HandlerKt.PostAtTime(Android.OS.Handler! obj, long uptimeMillis, Java.Lang.Object? token, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
+static AndroidX.Core.OS.HandlerKt.PostDelayed(Android.OS.Handler! obj, long delayInMillis, Java.Lang.Object? token, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
 static AndroidX.Core.OS.LocaleListCompat.AdjustedDefault.get -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.LocaleListCompat.Create(params Java.Util.Locale![]? localeList) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.LocaleListCompat.Default.get -> AndroidX.Core.OS.LocaleListCompat?
@@ -4176,6 +4317,7 @@ static AndroidX.Core.OS.LocaleListCompat.Wrap(Android.OS.LocaleList? localeList)
 static AndroidX.Core.OS.LocaleListCompat.Wrap(Java.Lang.Object? localeList) -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.Core.OS.MessageCompat.IsAsynchronous(Android.OS.Message? message) -> bool
 static AndroidX.Core.OS.MessageCompat.SetAsynchronous(Android.OS.Message? message, bool async) -> void
+static AndroidX.Core.OS.OutcomeReceiverKt.AsOutcomeReceiver(Kotlin.Coroutines.IContinuation! obj) -> Android.OS.IOutcomeReceiver!
 static AndroidX.Core.OS.ParcelCompat.ReadArray(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Java.Lang.Object![]?
 static AndroidX.Core.OS.ParcelCompat.ReadArrayList(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> System.Collections.IList?
 static AndroidX.Core.OS.ParcelCompat.ReadBoolean(Android.OS.Parcel? in) -> bool
@@ -4190,10 +4332,13 @@ static AndroidX.Core.OS.ParcelCompat.ReadParcelableList(Android.OS.Parcel? in, S
 static AndroidX.Core.OS.ParcelCompat.ReadSerializable(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Java.Lang.Object?
 static AndroidX.Core.OS.ParcelCompat.ReadSparseArray(Android.OS.Parcel? in, Java.Lang.ClassLoader? loader, Java.Lang.Class? clazz) -> Android.Util.SparseArray?
 static AndroidX.Core.OS.ParcelCompat.WriteBoolean(Android.OS.Parcel? out, bool value) -> void
+static AndroidX.Core.OS.ParcelKt.Use(Android.OS.Parcel! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Core.OS.ParcelableCompat.NewCreator(AndroidX.Core.OS.IParcelableCompatCreatorCallbacks? callbacks) -> Android.OS.IParcelableCreator?
 static AndroidX.Core.OS.PersistableBundleKt.PersistableBundleOf() -> Android.OS.PersistableBundle!
+static AndroidX.Core.OS.PersistableBundleKt.PersistableBundleOf(params Kotlin.Pair![]! pairs) -> Android.OS.PersistableBundle!
 static AndroidX.Core.OS.PersistableBundleKt.ToPersistableBundle(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>! obj) -> Android.OS.PersistableBundle!
 static AndroidX.Core.OS.ProcessCompat.IsApplicationUid(int uid) -> bool
+static AndroidX.Core.OS.Profiling.RegisterForAllProfilingResults(Android.Content.Context! context) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Core.OS.Profiling.RegisterForAllProfilingResults(Android.Content.Context! context, Java.Util.Concurrent.IExecutor! executor, Java.Util.Functions.IConsumer! listener) -> void
 static AndroidX.Core.OS.Profiling.RequestProfiling(Android.Content.Context! context, AndroidX.Core.OS.ProfilingRequest! profilingRequest, Java.Util.Concurrent.IExecutor? executor, Java.Util.Functions.IConsumer? listener) -> void
 static AndroidX.Core.OS.Profiling.UnregisterForAllProfilingResults(Android.Content.Context! context, Java.Util.Functions.IConsumer! listener) -> void
@@ -4203,6 +4348,7 @@ static AndroidX.Core.OS.TraceCompat.EndAsyncSection(string? methodName, int cook
 static AndroidX.Core.OS.TraceCompat.EndSection() -> void
 static AndroidX.Core.OS.TraceCompat.IsEnabled.get -> bool
 static AndroidX.Core.OS.TraceCompat.SetCounter(string? counterName, int counterValue) -> void
+static AndroidX.Core.OS.TraceKt.Trace(string! sectionName, Kotlin.Jvm.Functions.IFunction0! block) -> Java.Lang.Object?
 static AndroidX.Core.OS.UserHandleCompat.GetUserHandleForUid(int uid) -> Android.OS.UserHandle?
 static AndroidX.Core.OS.UserManagerCompat.IsUserUnlocked(Android.Content.Context? context) -> bool
 static AndroidX.Core.Provider.DocumentsContractCompat.BuildChildDocumentsUri(string? authority, string? parentDocumentId) -> Android.Net.Uri?
@@ -4256,7 +4402,20 @@ static AndroidX.Core.Text.PrecomputedTextCompat.Create(Java.Lang.ICharSequence? 
 static AndroidX.Core.Text.PrecomputedTextCompat.Create(string? text, AndroidX.Core.Text.PrecomputedTextCompat.Params? params) -> AndroidX.Core.Text.PrecomputedTextCompat?
 static AndroidX.Core.Text.PrecomputedTextCompat.GetTextFuture(Java.Lang.ICharSequence? charSequence, AndroidX.Core.Text.PrecomputedTextCompat.Params? params, Java.Util.Concurrent.IExecutor? executor) -> Java.Util.Concurrent.IFuture?
 static AndroidX.Core.Text.PrecomputedTextCompat.GetTextFuture(string? charSequence, AndroidX.Core.Text.PrecomputedTextCompat.Params? params, Java.Util.Concurrent.IExecutor? executor) -> Java.Util.Concurrent.IFuture?
+static AndroidX.Core.Text.SpannableStringBuilderKt.BackgroundColor(Android.Text.SpannableStringBuilder! obj, int color, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Bold(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.BuildSpannedString(Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannedString!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Color(Android.Text.SpannableStringBuilder! obj, int color, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.InSpans(Android.Text.SpannableStringBuilder! obj, Java.Lang.Object! span, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.InSpans(Android.Text.SpannableStringBuilder! obj, Java.Lang.Object![]! spans, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Italic(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Scale(Android.Text.SpannableStringBuilder! obj, float proportion, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.StrikeThrough(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Subscript(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Superscript(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
+static AndroidX.Core.Text.SpannableStringBuilderKt.Underline(Android.Text.SpannableStringBuilder! obj, Kotlin.Jvm.Functions.IFunction1! builderAction) -> Android.Text.SpannableStringBuilder!
 static AndroidX.Core.Text.SpannableStringKt.ClearSpans(Android.Text.ISpannable! obj) -> void
+static AndroidX.Core.Text.SpannableStringKt.Set(Android.Text.ISpannable! obj, Kotlin.Ranges.IntRange! range, Java.Lang.Object! span) -> void
 static AndroidX.Core.Text.SpannableStringKt.Set(Android.Text.ISpannable! obj, int start, int end, Java.Lang.Object! span) -> void
 static AndroidX.Core.Text.SpannableStringKt.ToSpannable(Java.Lang.ICharSequence! obj) -> Android.Text.ISpannable!
 static AndroidX.Core.Text.SpannableStringKt.ToSpannable(string! obj) -> Android.Text.ISpannable!
@@ -4295,10 +4454,19 @@ static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit() -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(Java.Util.Locale? locale) -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(Java.Util.Locale? locale, bool resolved) -> string?
 static AndroidX.Core.Text.Util.LocalePreferences.GetTemperatureUnit(bool resolved) -> string?
+static AndroidX.Core.Transition.TransitionKt.AddListener(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! onEnd, Kotlin.Jvm.Functions.IFunction1! onStart, Kotlin.Jvm.Functions.IFunction1! onCancel, Kotlin.Jvm.Functions.IFunction1! onResume, Kotlin.Jvm.Functions.IFunction1! onPause) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnCancel(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnEnd(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnPause(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnResume(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Transition.TransitionKt.DoOnStart(Android.Transitions.Transition! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Transitions.Transition.ITransitionListener!
+static AndroidX.Core.Util.AndroidXConsumerKt.AsAndroidXConsumer(Kotlin.Coroutines.IContinuation! obj) -> AndroidX.Core.Util.IConsumer!
 static AndroidX.Core.Util.AtomicFileKt.ReadBytes(Android.Util.AtomicFile! obj) -> byte[]!
 static AndroidX.Core.Util.AtomicFileKt.ReadText(Android.Util.AtomicFile! obj, Java.Nio.Charset.Charset! charset) -> string!
+static AndroidX.Core.Util.AtomicFileKt.TryWrite(Android.Util.AtomicFile! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.Util.AtomicFileKt.WriteBytes(Android.Util.AtomicFile! obj, byte[]! array) -> void
 static AndroidX.Core.Util.AtomicFileKt.WriteText(Android.Util.AtomicFile! obj, string! text, Java.Nio.Charset.Charset! charset) -> void
+static AndroidX.Core.Util.ConsumerKt.AsConsumer(Kotlin.Coroutines.IContinuation! obj) -> Java.Util.Functions.IConsumer!
 static AndroidX.Core.Util.DebugUtils.BuildShortClassTag(Java.Lang.Object? cls, Java.Lang.StringBuilder? out) -> void
 static AndroidX.Core.Util.HalfKt.ToHalf(double obj) -> Android.Util.Half!
 static AndroidX.Core.Util.HalfKt.ToHalf(float obj) -> Android.Util.Half!
@@ -4307,15 +4475,19 @@ static AndroidX.Core.Util.HalfKt.ToHalf(string! obj) -> Android.Util.Half!
 static AndroidX.Core.Util.LongSparseArrayKt.Contains(Android.Util.LongSparseArray! obj, long key) -> bool
 static AndroidX.Core.Util.LongSparseArrayKt.ContainsKey(Android.Util.LongSparseArray! obj, long key) -> bool
 static AndroidX.Core.Util.LongSparseArrayKt.ContainsValue(Android.Util.LongSparseArray! obj, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.ForEach(Android.Util.LongSparseArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.Util.LongSparseArrayKt.GetOrDefault(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.LongSparseArrayKt.GetOrElse(Android.Util.LongSparseArray! obj, long key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
 static AndroidX.Core.Util.LongSparseArrayKt.GetSize(Android.Util.LongSparseArray! obj) -> int
 static AndroidX.Core.Util.LongSparseArrayKt.IsEmpty(Android.Util.LongSparseArray! obj) -> bool
 static AndroidX.Core.Util.LongSparseArrayKt.IsNotEmpty(Android.Util.LongSparseArray! obj) -> bool
+static AndroidX.Core.Util.LongSparseArrayKt.KeyIterator(Android.Util.LongSparseArray! obj) -> Kotlin.Collections.LongIterator!
 static AndroidX.Core.Util.LongSparseArrayKt.Plus(Android.Util.LongSparseArray! obj, Android.Util.LongSparseArray! other) -> Android.Util.LongSparseArray!
 static AndroidX.Core.Util.LongSparseArrayKt.PutAll(Android.Util.LongSparseArray! obj, Android.Util.LongSparseArray! other) -> void
 static AndroidX.Core.Util.LongSparseArrayKt.Remove(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? value) -> bool
 static AndroidX.Core.Util.LongSparseArrayKt.Set(Android.Util.LongSparseArray! obj, long key, Java.Lang.Object? value) -> void
 static AndroidX.Core.Util.LongSparseArrayKt.ValueIterator(Android.Util.LongSparseArray! obj) -> Java.Util.IIterator!
+static AndroidX.Core.Util.LruCacheKt.LruCache(int maxSize, Kotlin.Jvm.Functions.IFunction2! sizeOf, Kotlin.Jvm.Functions.IFunction1! create, Kotlin.Jvm.Functions.IFunction4! onEntryRemoved) -> Android.Util.LruCache!
 static AndroidX.Core.Util.ObjectsCompat.Equals(Java.Lang.Object? a, Java.Lang.Object? b) -> bool
 static AndroidX.Core.Util.ObjectsCompat.Hash(params Java.Lang.Object![]? values) -> int
 static AndroidX.Core.Util.ObjectsCompat.HashCode(Java.Lang.Object? o) -> int
@@ -4327,6 +4499,10 @@ static AndroidX.Core.Util.PairKt.Component1(Android.Util.Pair! obj) -> Java.Lang
 static AndroidX.Core.Util.PairKt.Component1(AndroidX.Core.Util.Pair! obj) -> Java.Lang.Object?
 static AndroidX.Core.Util.PairKt.Component2(Android.Util.Pair! obj) -> Java.Lang.Object?
 static AndroidX.Core.Util.PairKt.Component2(AndroidX.Core.Util.Pair! obj) -> Java.Lang.Object?
+static AndroidX.Core.Util.PairKt.ToAndroidPair(Kotlin.Pair! obj) -> Android.Util.Pair!
+static AndroidX.Core.Util.PairKt.ToAndroidXPair(Kotlin.Pair! obj) -> AndroidX.Core.Util.Pair!
+static AndroidX.Core.Util.PairKt.ToKotlinPair(Android.Util.Pair! obj) -> Kotlin.Pair!
+static AndroidX.Core.Util.PairKt.ToKotlinPair(AndroidX.Core.Util.Pair! obj) -> Kotlin.Pair!
 static AndroidX.Core.Util.PatternsCompat.AutolinkEmailAddress.get -> Java.Util.Regex.Pattern?
 static AndroidX.Core.Util.PatternsCompat.AutolinkWebUrl.get -> Java.Util.Regex.Pattern?
 static AndroidX.Core.Util.PatternsCompat.DomainName.get -> Java.Util.Regex.Pattern?
@@ -4354,6 +4530,9 @@ static AndroidX.Core.Util.RangeKt.And(Android.Util.Range! obj, Android.Util.Rang
 static AndroidX.Core.Util.RangeKt.Plus(Android.Util.Range! obj, Android.Util.Range! other) -> Android.Util.Range!
 static AndroidX.Core.Util.RangeKt.Plus(Android.Util.Range! obj, Java.Lang.Object! value) -> Android.Util.Range!
 static AndroidX.Core.Util.RangeKt.RangeTo(Java.Lang.Object! obj, Java.Lang.Object! that) -> Android.Util.Range!
+static AndroidX.Core.Util.RangeKt.ToClosedRange(Android.Util.Range! obj) -> Kotlin.Ranges.IClosedRange!
+static AndroidX.Core.Util.RangeKt.ToRange(Kotlin.Ranges.IClosedRange! obj) -> Android.Util.Range!
+static AndroidX.Core.Util.RunnableKt.AsRunnable(Kotlin.Coroutines.IContinuation! obj) -> Java.Lang.IRunnable!
 static AndroidX.Core.Util.SizeFCompat.ToSizeFCompat(Android.Util.SizeF? size) -> AndroidX.Core.Util.SizeFCompat?
 static AndroidX.Core.Util.SizeKt.Component1(Android.Util.Size! obj) -> int
 static AndroidX.Core.Util.SizeKt.Component1(Android.Util.SizeF! obj) -> float
@@ -4364,10 +4543,13 @@ static AndroidX.Core.Util.SizeKt.Component2(AndroidX.Core.Util.SizeFCompat! obj)
 static AndroidX.Core.Util.SparseArrayKt.Contains(Android.Util.SparseArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseArrayKt.ContainsKey(Android.Util.SparseArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseArrayKt.ContainsValue(Android.Util.SparseArray! obj, Java.Lang.Object? value) -> bool
+static AndroidX.Core.Util.SparseArrayKt.ForEach(Android.Util.SparseArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.Util.SparseArrayKt.GetOrDefault(Android.Util.SparseArray! obj, int key, Java.Lang.Object? defaultValue) -> Java.Lang.Object?
+static AndroidX.Core.Util.SparseArrayKt.GetOrElse(Android.Util.SparseArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> Java.Lang.Object?
 static AndroidX.Core.Util.SparseArrayKt.GetSize(Android.Util.SparseArray! obj) -> int
 static AndroidX.Core.Util.SparseArrayKt.IsEmpty(Android.Util.SparseArray! obj) -> bool
 static AndroidX.Core.Util.SparseArrayKt.IsNotEmpty(Android.Util.SparseArray! obj) -> bool
+static AndroidX.Core.Util.SparseArrayKt.KeyIterator(Android.Util.SparseArray! obj) -> Kotlin.Collections.IntIterator!
 static AndroidX.Core.Util.SparseArrayKt.Plus(Android.Util.SparseArray! obj, Android.Util.SparseArray! other) -> Android.Util.SparseArray!
 static AndroidX.Core.Util.SparseArrayKt.PutAll(Android.Util.SparseArray! obj, Android.Util.SparseArray! other) -> void
 static AndroidX.Core.Util.SparseArrayKt.Remove(Android.Util.SparseArray! obj, int key, Java.Lang.Object? value) -> bool
@@ -4376,36 +4558,48 @@ static AndroidX.Core.Util.SparseArrayKt.ValueIterator(Android.Util.SparseArray! 
 static AndroidX.Core.Util.SparseBooleanArrayKt.Contains(Android.Util.SparseBooleanArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseBooleanArrayKt.ContainsKey(Android.Util.SparseBooleanArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseBooleanArrayKt.ContainsValue(Android.Util.SparseBooleanArray! obj, bool value) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.ForEach(Android.Util.SparseBooleanArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.Util.SparseBooleanArrayKt.GetOrDefault(Android.Util.SparseBooleanArray! obj, int key, bool defaultValue) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.GetOrElse(Android.Util.SparseBooleanArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> bool
 static AndroidX.Core.Util.SparseBooleanArrayKt.GetSize(Android.Util.SparseBooleanArray! obj) -> int
 static AndroidX.Core.Util.SparseBooleanArrayKt.IsEmpty(Android.Util.SparseBooleanArray! obj) -> bool
 static AndroidX.Core.Util.SparseBooleanArrayKt.IsNotEmpty(Android.Util.SparseBooleanArray! obj) -> bool
+static AndroidX.Core.Util.SparseBooleanArrayKt.KeyIterator(Android.Util.SparseBooleanArray! obj) -> Kotlin.Collections.IntIterator!
 static AndroidX.Core.Util.SparseBooleanArrayKt.Plus(Android.Util.SparseBooleanArray! obj, Android.Util.SparseBooleanArray! other) -> Android.Util.SparseBooleanArray!
 static AndroidX.Core.Util.SparseBooleanArrayKt.PutAll(Android.Util.SparseBooleanArray! obj, Android.Util.SparseBooleanArray! other) -> void
 static AndroidX.Core.Util.SparseBooleanArrayKt.Remove(Android.Util.SparseBooleanArray! obj, int key, bool value) -> bool
 static AndroidX.Core.Util.SparseBooleanArrayKt.Set(Android.Util.SparseBooleanArray! obj, int key, bool value) -> void
+static AndroidX.Core.Util.SparseBooleanArrayKt.ValueIterator(Android.Util.SparseBooleanArray! obj) -> Kotlin.Collections.BooleanIterator!
 static AndroidX.Core.Util.SparseIntArrayKt.Contains(Android.Util.SparseIntArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseIntArrayKt.ContainsKey(Android.Util.SparseIntArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseIntArrayKt.ContainsValue(Android.Util.SparseIntArray! obj, int value) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.ForEach(Android.Util.SparseIntArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.Util.SparseIntArrayKt.GetOrDefault(Android.Util.SparseIntArray! obj, int key, int defaultValue) -> int
+static AndroidX.Core.Util.SparseIntArrayKt.GetOrElse(Android.Util.SparseIntArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> int
 static AndroidX.Core.Util.SparseIntArrayKt.GetSize(Android.Util.SparseIntArray! obj) -> int
 static AndroidX.Core.Util.SparseIntArrayKt.IsEmpty(Android.Util.SparseIntArray! obj) -> bool
 static AndroidX.Core.Util.SparseIntArrayKt.IsNotEmpty(Android.Util.SparseIntArray! obj) -> bool
+static AndroidX.Core.Util.SparseIntArrayKt.KeyIterator(Android.Util.SparseIntArray! obj) -> Kotlin.Collections.IntIterator!
 static AndroidX.Core.Util.SparseIntArrayKt.Plus(Android.Util.SparseIntArray! obj, Android.Util.SparseIntArray! other) -> Android.Util.SparseIntArray!
 static AndroidX.Core.Util.SparseIntArrayKt.PutAll(Android.Util.SparseIntArray! obj, Android.Util.SparseIntArray! other) -> void
 static AndroidX.Core.Util.SparseIntArrayKt.Remove(Android.Util.SparseIntArray! obj, int key, int value) -> bool
 static AndroidX.Core.Util.SparseIntArrayKt.Set(Android.Util.SparseIntArray! obj, int key, int value) -> void
+static AndroidX.Core.Util.SparseIntArrayKt.ValueIterator(Android.Util.SparseIntArray! obj) -> Kotlin.Collections.IntIterator!
 static AndroidX.Core.Util.SparseLongArrayKt.Contains(Android.Util.SparseLongArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseLongArrayKt.ContainsKey(Android.Util.SparseLongArray! obj, int key) -> bool
 static AndroidX.Core.Util.SparseLongArrayKt.ContainsValue(Android.Util.SparseLongArray! obj, long value) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.ForEach(Android.Util.SparseLongArray! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.Util.SparseLongArrayKt.GetOrDefault(Android.Util.SparseLongArray! obj, int key, long defaultValue) -> long
+static AndroidX.Core.Util.SparseLongArrayKt.GetOrElse(Android.Util.SparseLongArray! obj, int key, Kotlin.Jvm.Functions.IFunction0! defaultValue) -> long
 static AndroidX.Core.Util.SparseLongArrayKt.GetSize(Android.Util.SparseLongArray! obj) -> int
 static AndroidX.Core.Util.SparseLongArrayKt.IsEmpty(Android.Util.SparseLongArray! obj) -> bool
 static AndroidX.Core.Util.SparseLongArrayKt.IsNotEmpty(Android.Util.SparseLongArray! obj) -> bool
+static AndroidX.Core.Util.SparseLongArrayKt.KeyIterator(Android.Util.SparseLongArray! obj) -> Kotlin.Collections.IntIterator!
 static AndroidX.Core.Util.SparseLongArrayKt.Plus(Android.Util.SparseLongArray! obj, Android.Util.SparseLongArray! other) -> Android.Util.SparseLongArray!
 static AndroidX.Core.Util.SparseLongArrayKt.PutAll(Android.Util.SparseLongArray! obj, Android.Util.SparseLongArray! other) -> void
 static AndroidX.Core.Util.SparseLongArrayKt.Remove(Android.Util.SparseLongArray! obj, int key, long value) -> bool
 static AndroidX.Core.Util.SparseLongArrayKt.Set(Android.Util.SparseLongArray! obj, int key, long value) -> void
+static AndroidX.Core.Util.SparseLongArrayKt.ValueIterator(Android.Util.SparseLongArray! obj) -> Kotlin.Collections.LongIterator!
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.IO.PrintWriter? pw) -> void
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.IO.PrintWriter? pw, int fieldLen) -> void
 static AndroidX.Core.Util.TimeUtils.FormatDuration(long duration, Java.Lang.StringBuilder? builder) -> void
@@ -4582,7 +4776,10 @@ static AndroidX.Core.View.MenuItemCompat.SetShowAsAction(Android.Views.IMenuItem
 static AndroidX.Core.View.MenuItemCompat.SetTooltipText(Android.Views.IMenuItem? item, Java.Lang.ICharSequence? tooltipText) -> void
 static AndroidX.Core.View.MenuItemCompat.SetTooltipText(Android.Views.IMenuItem? item, string? tooltipText) -> void
 static AndroidX.Core.View.MenuKt.Contains(Android.Views.IMenu! obj, Android.Views.IMenuItem! item) -> bool
+static AndroidX.Core.View.MenuKt.ForEach(Android.Views.IMenu! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.MenuKt.ForEachIndexed(Android.Views.IMenu! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.View.MenuKt.Get(Android.Views.IMenu! obj, int index) -> Android.Views.IMenuItem!
+static AndroidX.Core.View.MenuKt.GetChildren(Android.Views.IMenu! obj) -> Kotlin.Sequences.ISequence!
 static AndroidX.Core.View.MenuKt.GetSize(Android.Views.IMenu! obj) -> int
 static AndroidX.Core.View.MenuKt.IsEmpty(Android.Views.IMenu! obj) -> bool
 static AndroidX.Core.View.MenuKt.IsNotEmpty(Android.Views.IMenu! obj) -> bool
@@ -4824,7 +5021,12 @@ static AndroidX.Core.View.ViewGroupCompat.SetLayoutMode(Android.Views.ViewGroup?
 static AndroidX.Core.View.ViewGroupCompat.SetMotionEventSplittingEnabled(Android.Views.ViewGroup? group, bool split) -> void
 static AndroidX.Core.View.ViewGroupCompat.SetTransitionGroup(Android.Views.ViewGroup? group, bool isTransitionGroup) -> void
 static AndroidX.Core.View.ViewGroupKt.Contains(Android.Views.ViewGroup! obj, Android.Views.View! view) -> bool
+static AndroidX.Core.View.ViewGroupKt.ForEach(Android.Views.ViewGroup! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewGroupKt.ForEachIndexed(Android.Views.ViewGroup! obj, Kotlin.Jvm.Functions.IFunction2! action) -> void
 static AndroidX.Core.View.ViewGroupKt.Get(Android.Views.ViewGroup! obj, int index) -> Android.Views.View!
+static AndroidX.Core.View.ViewGroupKt.GetChildren(Android.Views.ViewGroup! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewGroupKt.GetDescendants(Android.Views.ViewGroup! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewGroupKt.GetIndices(Android.Views.ViewGroup! obj) -> Kotlin.Ranges.IntRange!
 static AndroidX.Core.View.ViewGroupKt.GetSize(Android.Views.ViewGroup! obj) -> int
 static AndroidX.Core.View.ViewGroupKt.IsEmpty(Android.Views.ViewGroup! obj) -> bool
 static AndroidX.Core.View.ViewGroupKt.IsNotEmpty(Android.Views.ViewGroup! obj) -> bool
@@ -4834,7 +5036,14 @@ static AndroidX.Core.View.ViewGroupKt.PlusAssign(Android.Views.ViewGroup! obj, A
 static AndroidX.Core.View.ViewGroupKt.SetMargins(Android.Views.ViewGroup.MarginLayoutParams! obj, int size) -> void
 static AndroidX.Core.View.ViewGroupKt.UpdateMargins(Android.Views.ViewGroup.MarginLayoutParams! obj, int left, int top, int right, int bottom) -> void
 static AndroidX.Core.View.ViewGroupKt.UpdateMarginsRelative(Android.Views.ViewGroup.MarginLayoutParams! obj, int start, int top, int end, int bottom) -> void
+static AndroidX.Core.View.ViewKt.DoOnAttach(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnDetach(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnLayout(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnNextLayout(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> void
+static AndroidX.Core.View.ViewKt.DoOnPreDraw(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! action) -> AndroidX.Core.View.OneShotPreDrawListener!
 static AndroidX.Core.View.ViewKt.DrawToBitmap(Android.Views.View! obj, Android.Graphics.Bitmap.Config! config) -> Android.Graphics.Bitmap!
+static AndroidX.Core.View.ViewKt.GetAllViews(Android.Views.View! obj) -> Kotlin.Sequences.ISequence!
+static AndroidX.Core.View.ViewKt.GetAncestors(Android.Views.View! obj) -> Kotlin.Sequences.ISequence!
 static AndroidX.Core.View.ViewKt.GetMarginBottom(Android.Views.View! obj) -> int
 static AndroidX.Core.View.ViewKt.GetMarginEnd(Android.Views.View! obj) -> int
 static AndroidX.Core.View.ViewKt.GetMarginLeft(Android.Views.View! obj) -> int
@@ -4844,10 +5053,13 @@ static AndroidX.Core.View.ViewKt.GetMarginTop(Android.Views.View! obj) -> int
 static AndroidX.Core.View.ViewKt.IsGone(Android.Views.View! obj) -> bool
 static AndroidX.Core.View.ViewKt.IsInvisible(Android.Views.View! obj) -> bool
 static AndroidX.Core.View.ViewKt.IsVisible(Android.Views.View! obj) -> bool
+static AndroidX.Core.View.ViewKt.PostDelayed(Android.Views.View! obj, long delayInMillis, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
+static AndroidX.Core.View.ViewKt.PostOnAnimationDelayed(Android.Views.View! obj, long delayInMillis, Kotlin.Jvm.Functions.IFunction0! action) -> Java.Lang.IRunnable!
 static AndroidX.Core.View.ViewKt.SetGone(Android.Views.View! obj, bool value) -> void
 static AndroidX.Core.View.ViewKt.SetInvisible(Android.Views.View! obj, bool value) -> void
 static AndroidX.Core.View.ViewKt.SetPadding(Android.Views.View! obj, int size) -> void
 static AndroidX.Core.View.ViewKt.SetVisible(Android.Views.View! obj, bool value) -> void
+static AndroidX.Core.View.ViewKt.UpdateLayoutParams(Android.Views.View! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
 static AndroidX.Core.View.ViewKt.UpdatePadding(Android.Views.View! obj, int left, int top, int right, int bottom) -> void
 static AndroidX.Core.View.ViewKt.UpdatePaddingRelative(Android.Views.View! obj, int start, int top, int end, int bottom) -> void
 static AndroidX.Core.View.ViewParentCompat.NotifySubtreeAccessibilityStateChanged(Android.Views.IViewParent? parent, Android.Views.View? child, Android.Views.View? source, int changeType) -> void
@@ -4952,6 +5164,10 @@ static AndroidX.Core.Widget.TextViewCompat.SetTextAppearance(Android.Widget.Text
 static AndroidX.Core.Widget.TextViewCompat.SetTextMetricsParams(Android.Widget.TextView? textView, AndroidX.Core.Text.PrecomputedTextCompat.Params? params) -> void
 static AndroidX.Core.Widget.TextViewCompat.UnwrapCustomSelectionActionModeCallback(Android.Views.ActionMode.ICallback? callback) -> Android.Views.ActionMode.ICallback?
 static AndroidX.Core.Widget.TextViewCompat.WrapCustomSelectionActionModeCallback(Android.Widget.TextView? textView, Android.Views.ActionMode.ICallback? callback) -> Android.Views.ActionMode.ICallback?
+static AndroidX.Core.Widget.TextViewKt.AddTextChangedListener(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! beforeTextChanged, Kotlin.Jvm.Functions.IFunction4! onTextChanged, Kotlin.Jvm.Functions.IFunction1! afterTextChanged) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoAfterTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction1! action) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoBeforeTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! action) -> Android.Text.ITextWatcher!
+static AndroidX.Core.Widget.TextViewKt.DoOnTextChanged(Android.Widget.TextView! obj, Kotlin.Jvm.Functions.IFunction4! action) -> Android.Text.ITextWatcher!
 virtual Android.Support.V4.App.NotificationSideChannelDefault.AsBinder() -> Android.OS.IBinder?
 virtual Android.Support.V4.App.NotificationSideChannelDefault.Cancel(string? packageName, int id, string? tag) -> void
 virtual Android.Support.V4.App.NotificationSideChannelDefault.CancelAll(string? packageName) -> void
@@ -4987,6 +5203,10 @@ virtual AndroidX.Core.App.AppComponentFactory.InstantiateApplicationCompat(Java.
 virtual AndroidX.Core.App.AppComponentFactory.InstantiateProviderCompat(Java.Lang.ClassLoader? cl, string? className) -> Android.Content.ContentProvider?
 virtual AndroidX.Core.App.AppComponentFactory.InstantiateReceiverCompat(Java.Lang.ClassLoader? cl, string? className, Android.Content.Intent? intent) -> Android.Content.BroadcastReceiver?
 virtual AndroidX.Core.App.AppComponentFactory.InstantiateServiceCompat(Java.Lang.ClassLoader? cl, string? className, Android.Content.Intent? intent) -> Android.App.Service?
+virtual AndroidX.Core.App.ComponentActivity.GetExtraData(Java.Lang.Class! extraDataClass) -> Java.Lang.Object?
+virtual AndroidX.Core.App.ComponentActivity.Lifecycle.get -> AndroidX.Lifecycle.Lifecycle!
+virtual AndroidX.Core.App.ComponentActivity.PutExtraData(AndroidX.Core.App.ComponentActivity.ExtraData! extraData) -> void
+virtual AndroidX.Core.App.ComponentActivity.SuperDispatchKeyEvent(Android.Views.KeyEvent! e) -> bool
 virtual AndroidX.Core.App.FrameMetricsAggregator.Add(Android.App.Activity? activity) -> void
 virtual AndroidX.Core.App.FrameMetricsAggregator.GetMetrics() -> Android.Util.SparseIntArray![]?
 virtual AndroidX.Core.App.FrameMetricsAggregator.Remove(Android.App.Activity? activity) -> Android.Util.SparseIntArray![]?
@@ -5040,6 +5260,7 @@ virtual AndroidX.Core.App.NotificationCompat.Action.AllowGeneratedReplies.get ->
 virtual AndroidX.Core.App.NotificationCompat.Action.EmphasisHint.get -> int
 virtual AndroidX.Core.App.NotificationCompat.Action.Extras.get -> Android.OS.Bundle?
 virtual AndroidX.Core.App.NotificationCompat.Action.Icon.get -> int
+virtual AndroidX.Core.App.NotificationCompat.Action.IconCompat.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 virtual AndroidX.Core.App.NotificationCompat.Action.IsAuthenticationRequired.get -> bool
 virtual AndroidX.Core.App.NotificationCompat.Action.IsContextual.get -> bool
 virtual AndroidX.Core.App.NotificationCompat.Action.SemanticAction.get -> int
@@ -5128,6 +5349,7 @@ virtual AndroidX.Core.App.NotificationCompat.Builder.SetShortcutId(string? short
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetShortcutInfo(AndroidX.Core.Content.PM.ShortcutInfoCompat? shortcutInfo) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetShowWhen(bool show) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetSilent(bool silent) -> AndroidX.Core.App.NotificationCompat.Builder?
+virtual AndroidX.Core.App.NotificationCompat.Builder.SetSmallIcon(AndroidX.Core.Graphics.Drawable.IconCompat? icon) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetSmallIcon(int icon) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetSmallIcon(int icon, int level) -> AndroidX.Core.App.NotificationCompat.Builder?
 virtual AndroidX.Core.App.NotificationCompat.Builder.SetSortKey(string? sortKey) -> AndroidX.Core.App.NotificationCompat.Builder?
@@ -5182,13 +5404,19 @@ virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.AddProgressSegment(An
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.IsProgressIndeterminate.get -> bool
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.IsStyledByProgress.get -> bool
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.Progress.get -> int
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressEndIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressMax.get -> int
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressPoints.get -> System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Point!>?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressSegments.get -> System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment!>?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressStartIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.ProgressTrackerIcon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgress(int progress) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressEndIcon(AndroidX.Core.Graphics.Drawable.IconCompat? endIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressIndeterminate(bool indeterminate) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressPoints(System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Point!>? points) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressSegments(System.Collections.Generic.IList<AndroidX.Core.App.NotificationCompat.ProgressStyle.Segment!>? progressSegments) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressStartIcon(AndroidX.Core.Graphics.Drawable.IconCompat? startIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
+virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetProgressTrackerIcon(AndroidX.Core.Graphics.Drawable.IconCompat? trackerIcon) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.ProgressStyle.SetStyledByProgress(bool enabled) -> AndroidX.Core.App.NotificationCompat.ProgressStyle?
 virtual AndroidX.Core.App.NotificationCompat.Style.AddCompatExtras(Android.OS.Bundle? extras) -> void
 virtual AndroidX.Core.App.NotificationCompat.Style.Apply(AndroidX.Core.App.INotificationBuilderWithBuilderAccessor? builder) -> void
@@ -5206,10 +5434,12 @@ virtual AndroidX.Core.App.NotificationCompat.Style.RestoreFromCompatExtras(Andro
 virtual AndroidX.Core.App.NotificationCompat.Style.SetBuilder(AndroidX.Core.App.NotificationCompat.Builder? builder) -> void
 virtual AndroidX.Core.App.Person.Builder.Build() -> AndroidX.Core.App.Person?
 virtual AndroidX.Core.App.Person.Builder.SetBot(bool bot) -> AndroidX.Core.App.Person.Builder?
+virtual AndroidX.Core.App.Person.Builder.SetIcon(AndroidX.Core.Graphics.Drawable.IconCompat? icon) -> AndroidX.Core.App.Person.Builder?
 virtual AndroidX.Core.App.Person.Builder.SetImportant(bool important) -> AndroidX.Core.App.Person.Builder?
 virtual AndroidX.Core.App.Person.Builder.SetKey(string? key) -> AndroidX.Core.App.Person.Builder?
 virtual AndroidX.Core.App.Person.Builder.SetName(Java.Lang.ICharSequence? name) -> AndroidX.Core.App.Person.Builder?
 virtual AndroidX.Core.App.Person.Builder.SetUri(string? uri) -> AndroidX.Core.App.Person.Builder?
+virtual AndroidX.Core.App.Person.Icon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 virtual AndroidX.Core.App.Person.IsBot.get -> bool
 virtual AndroidX.Core.App.Person.IsImportant.get -> bool
 virtual AndroidX.Core.App.Person.Key.get -> string?
@@ -5294,6 +5524,7 @@ virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetCategories(System
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetDisabledMessage(Java.Lang.ICharSequence? disabledMessage) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetExcludedFromSurfaces(int surfaces) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetExtras(Android.OS.PersistableBundle? extras) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
+virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetIcon(AndroidX.Core.Graphics.Drawable.IconCompat? icon) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetIntent(Android.Content.Intent? intent) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetIntents(Android.Content.Intent![]? intents) -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder.SetIsConversation() -> AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder?
@@ -5314,6 +5545,7 @@ virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.ExcludedFromSurfaces.get -> 
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Extras.get -> Android.OS.PersistableBundle?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.GetIntents() -> Android.Content.Intent![]?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.HasKeyFieldsOnly.get -> bool
+virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Icon.get -> AndroidX.Core.Graphics.Drawable.IconCompat?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Id.get -> string?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.Intent.get -> Android.Content.Intent?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.IsCached.get -> bool
@@ -5334,6 +5566,21 @@ virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.TransientExtras.get -> Andro
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompat.UserHandle.get -> Android.OS.UserHandle?
 virtual AndroidX.Core.Content.PM.ShortcutInfoCompatSaver.Shortcuts.get -> System.Collections.Generic.IList<AndroidX.Core.Content.PM.ShortcutInfoCompat!>?
 virtual AndroidX.Core.Content.UnusedAppRestrictionsBackportCallback.OnResult(bool success, bool enabled) -> void
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.AddToShortcutIntent(Android.Content.Intent? outIntent, Android.Graphics.Drawables.Drawable? badge, Android.Content.Context? c) -> void
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.Bitmap.get -> Android.Graphics.Bitmap?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.CheckResource(Android.Content.Context? context) -> void
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.GetUriInputStream(Android.Content.Context? context) -> System.IO.Stream?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.LoadDrawable(Android.Content.Context? context) -> Android.Graphics.Drawables.Drawable?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.ResId.get -> int
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.ResPackage.get -> string?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.SetTint(int tint) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.SetTintList(Android.Content.Res.ColorStateList? tintList) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.SetTintMode(Android.Graphics.PorterDuff.Mode? mode) -> AndroidX.Core.Graphics.Drawable.IconCompat?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.ToBundle() -> Android.OS.Bundle?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.ToIcon() -> Android.Graphics.Drawables.Icon?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.ToIcon(Android.Content.Context? context) -> Android.Graphics.Drawables.Icon?
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.Type.get -> int
+virtual AndroidX.Core.Graphics.Drawable.IconCompat.Uri.get -> Android.Net.Uri?
 virtual AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Circular.get -> bool
 virtual AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.Circular.set -> void
 virtual AndroidX.Core.Graphics.Drawable.RoundedBitmapDrawable.CornerRadius.get -> float
@@ -5741,6 +5988,8 @@ virtual AndroidX.Core.View.Insets.Protection.InsetAmount.set -> void
 virtual AndroidX.Core.View.Insets.Protection.Side.get -> int
 virtual AndroidX.Core.View.Insets.ProtectionLayout.SetProtections(System.Collections.Generic.IList<AndroidX.Core.View.Insets.Protection!>? protections) -> void
 virtual AndroidX.Core.View.MenuHostHelper.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider) -> void
+virtual AndroidX.Core.View.MenuHostHelper.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider, AndroidX.Lifecycle.ILifecycleOwner? owner) -> void
+virtual AndroidX.Core.View.MenuHostHelper.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider, AndroidX.Lifecycle.ILifecycleOwner? owner, AndroidX.Lifecycle.Lifecycle.State? state) -> void
 virtual AndroidX.Core.View.MenuHostHelper.OnCreateMenu(Android.Views.IMenu? menu, Android.Views.MenuInflater? menuInflater) -> void
 virtual AndroidX.Core.View.MenuHostHelper.OnMenuClosed(Android.Views.IMenu? menu) -> void
 virtual AndroidX.Core.View.MenuHostHelper.OnMenuItemSelected(Android.Views.IMenuItem? item) -> bool
