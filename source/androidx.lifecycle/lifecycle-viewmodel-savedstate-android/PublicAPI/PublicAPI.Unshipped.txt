@@ -35,6 +35,30 @@ AndroidX.Lifecycle.SavedStateViewModelFactory.SavedStateViewModelFactory(Android
 AndroidX.Lifecycle.SavedStateViewModelFactory.SavedStateViewModelFactory(Android.App.Application? application, AndroidX.SavedState.ISavedStateRegistryOwner! owner, Android.OS.Bundle? defaultArgs) -> void
 AndroidX.Lifecycle.SavedStateViewModelFactory_androidKt
 AndroidX.Lifecycle.Serialization.SavedStateHandleDelegateKt
+AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.AcquireToken(Java.Lang.Object? key) -> AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.IReferenceToken!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ClearAllKeys() -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ClearKey(Java.Lang.Object? key) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreate(Java.Lang.Object? key) -> AndroidX.Lifecycle.ViewModelStore!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreateOwner(Java.Lang.Object? key) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreateOwner(Java.Lang.Object? key, AndroidX.SavedState.ISavedStateRegistryOwner? savedStateRegistryOwner) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreateOwner(Java.Lang.Object? key, AndroidX.SavedState.ISavedStateRegistryOwner? savedStateRegistryOwner, Android.OS.Bundle! defaultArgs) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreateOwner(Java.Lang.Object? key, AndroidX.SavedState.ISavedStateRegistryOwner? savedStateRegistryOwner, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.GetOrCreateOwner(Java.Lang.Object? key, AndroidX.SavedState.ISavedStateRegistryOwner? savedStateRegistryOwner, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.IReferenceToken
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ProviderMarkerKey
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.IViewModelStoreOwner? parentOwner) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.IViewModelStoreOwner? parentOwner, Java.Lang.Object? parentKey) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.IViewModelStoreOwner? parentOwner, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.IViewModelStoreOwner? parentOwner, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.IViewModelStoreOwner? parentOwner, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? parentStore) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? parentStore, Java.Lang.Object? parentKey) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? parentStore, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? parentStore, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? parentStore, Java.Lang.Object? parentKey, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> void
+AndroidX.Lifecycle.ViewModels.ViewModelStoreProviderKt
 abstract AndroidX.Lifecycle.AbstractSavedStateViewModelFactory.Create(string! key, Java.Lang.Class! modelClass, AndroidX.Lifecycle.SavedStateHandle! handle) -> Java.Lang.Object!
 override AndroidX.Lifecycle.AbstractSavedStateViewModelFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.AbstractSavedStateViewModelFactory.ThresholdClass.get -> nint
@@ -48,6 +72,10 @@ override AndroidX.Lifecycle.SavedStateHandle_androidKt.JniPeerMembers.get -> Jav
 override AndroidX.Lifecycle.SavedStateViewModelFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.SavedStateViewModelFactory_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Lifecycle.Serialization.SavedStateHandleDelegateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ProviderMarkerKey.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Lifecycle.ViewModels.ViewModelStoreProviderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Lifecycle.Internal.CanonicalName_jvmKt.GetCanonicalName(Kotlin.Reflect.IKClass? obj) -> string?
 static AndroidX.Lifecycle.SavedStateHandle.CreateHandle(Android.OS.Bundle? restoredState, Android.OS.Bundle? defaultState) -> AndroidX.Lifecycle.SavedStateHandle!
 static AndroidX.Lifecycle.SavedStateHandleSupport.CreateSavedStateHandle(AndroidX.Lifecycle.ViewModels.CreationExtras! obj) -> AndroidX.Lifecycle.SavedStateHandle!
@@ -58,5 +86,18 @@ static AndroidX.Lifecycle.SavedStateHandleSupport.GetSavedStateHandlesVM(Android
 static AndroidX.Lifecycle.SavedStateHandleSupport.SavedStateRegistryOwnerKey.get -> AndroidX.Lifecycle.ViewModels.CreationExtras.IKey!
 static AndroidX.Lifecycle.SavedStateHandleSupport.ViewModelStoreOwnerKey.get -> AndroidX.Lifecycle.ViewModels.CreationExtras.IKey!
 static AndroidX.Lifecycle.Serialization.SavedStateHandleDelegateKt.SavedNullable(AndroidX.Lifecycle.SavedStateHandle! obj, KotlinX.Serialization.IKSerializer! serializer, string? key, AndroidX.SavedState.Serialization.SavedStateConfiguration! configuration, Kotlin.Jvm.Functions.IFunction0! init) -> Kotlin.Properties.IReadWriteProperty!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, Android.OS.Bundle! defaultArgs) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.ISavedStateRegistryOwner! savedStateRegistryOwner) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.ISavedStateRegistryOwner! savedStateRegistryOwner, Android.OS.Bundle! defaultArgs) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.ISavedStateRegistryOwner! savedStateRegistryOwner, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.ISavedStateRegistryOwner! savedStateRegistryOwner, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.SavedStateRegistry! savedStateRegistry, AndroidX.Lifecycle.Lifecycle! lifecycle) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.SavedStateRegistry! savedStateRegistry, AndroidX.Lifecycle.Lifecycle! lifecycle, Android.OS.Bundle! defaultArgs) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.SavedStateRegistry! savedStateRegistry, AndroidX.Lifecycle.Lifecycle! lifecycle, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreOwnerFactory.Create(AndroidX.Lifecycle.ViewModelStore! viewModelStore, AndroidX.SavedState.SavedStateRegistry! savedStateRegistry, AndroidX.Lifecycle.Lifecycle! lifecycle, Android.OS.Bundle! defaultArgs, AndroidX.Lifecycle.ViewModels.CreationExtras! defaultCreationExtras, AndroidX.Lifecycle.ViewModelProvider.IFactory! defaultFactory) -> AndroidX.Lifecycle.IViewModelStoreOwner!
+static AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ProviderMarkerKey.Instance.get -> AndroidX.Lifecycle.ViewModels.ViewModelStoreProvider.ProviderMarkerKey!
 virtual AndroidX.Lifecycle.AbstractSavedStateViewModelFactory.Create(Java.Lang.Class! modelClass) -> Java.Lang.Object!
 virtual AndroidX.Lifecycle.AbstractSavedStateViewModelFactory.Create(Java.Lang.Class! modelClass, AndroidX.Lifecycle.ViewModels.CreationExtras! extras) -> Java.Lang.Object!
