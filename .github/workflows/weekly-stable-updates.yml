@@ -75,7 +75,7 @@ jobs:
           console.log(`Created issue #${response.data.number}: ${response.data.title}`);
           core.setOutput('issue-number', response.data.number);
 
-    - name: Assign issue to Copilot with Claude Opus 4.6
+    - name: Assign issue to Copilot
       if: steps.create-issue.outputs.issue-number && steps.create-issue.outputs.issue-number != ''
       run: |
         gh api \
@@ -86,7 +86,7 @@ jobs:
           --input - <<< '{
           "assignees": ["copilot-swe-agent[bot]"],
           "agent_assignment": {
-            "model": "claude-opus-4.6"
+            "model": "claude-opus-4.8"
           }
         }'
       env:
