@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.IHasDefaultViewModelProviderFactory))]
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.IViewModelStoreOwner))]
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.ViewModel))]
-[assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.ViewModelLazy))]
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.ViewModelProvider))]
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.ViewModelProviderGetKt))]
 [assembly:TypeForwardedTo (typeof (AndroidX.Lifecycle.ViewModelStore))]

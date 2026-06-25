@@ -34,5 +34,10 @@
     path="/api/package[@name='com.android.billingclient.api']/class[@name='DeveloperBillingOptionParams']/method[@name='getLaunchMode' and count(parameter)=0]"
     name="propertyName"></attr>
 
+  <!-- Fix duplicate DeveloperBillingType: property collides with nested class -->
+  <attr path="/api/package[@name='com.android.billingclient.api']/class[@name='BillingProgramReportingDetailsParams']/method[@name='getDeveloperBillingType']" name="managedName">GetDeveloperBillingTypeValue</attr>
+
+  <!-- Fix duplicate ChoiceScreenType: property collides with nested class -->
+  <attr path="/api/package[@name='com.android.billingclient.api']/class[@name='BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails']/method[@name='getChoiceScreenType']" name="managedName">GetChoiceScreenTypeValue</attr>
 
 </metadata>
