@@ -319,6 +319,9 @@ namespace Xamarin.Build.Download
 			if (ignoreTarSymLinks)
 				args.Add ("-snl-");
 
+			// Add the "-y" parameter to automatically confirm all overwrite operations to avoid the iOS build task hanging forever.
+			args.Add ("-y");
+
 			args.AddQuoted ("-o" + contentDir);
 			args.AddQuoted (file);
 			return args;
