@@ -319,49 +319,69 @@
       com.google.android.material.appbar.AppBarLayout
     </attr>
 
-    <!-- Fix BaseSlider addOnChangeListener and removeOnChangeListener methods -->
+    <!-- BaseOnChangeListener<S> / BaseOnSliderTouchListener<S> are Google-internal
+         (@RestrictTo(LIBRARY_GROUP) / @hide) generic interfaces that only exist to provide a
+         type bound for BaseSlider's generic listener parameters. They must NOT be bound:
+         1. They are generic with an unbounded type parameter, so they bind with an erased
+            onValueChange(Object, ...) / onStartTrackingTouch(Object) method.
+         2. The public typed sub-interfaces (Slider.OnChangeListener, RangeSlider.OnChangeListener,
+            and the touch equivalents) extend them and redeclare the method with the concrete type
+            (onValueChange(Slider, ...)). A managed class implementing a typed sub-interface then
+            inherits BOTH the erased base method and the typed method, and the generated Android
+            Callable Wrapper emits two Java methods with the same erasure -> javac "name clash".
+         3. Emptying the base interfaces (removing only their methods) is also invalid: the generator
+            still emits Android Callable Wrapper implementors for them, but with no __md_methods,
+            producing empty Java classes that still 'implements' the abstract Java interfaces ->
+            javac "is not abstract and does not override abstract method" (issue #1484).
+         Removing the interfaces entirely leaves only the public typed sub-interfaces, whose
+         implementors override exactly the concrete method they declare and compile cleanly. -->
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnChangeListener']" />
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnSliderTouchListener']" />
+
+    <!-- The public typed sub-interfaces extend the internal base interfaces removed above. Drop the
+         now-dangling <implements> so they bind as standalone interfaces that declare only their own
+         concrete method (e.g. onValueChange(Slider, float, boolean)). Their implementors then
+         override exactly that method and compile (javac synthesizes the erased bridge). -->
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='Slider.OnChangeListener']/implements" />
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='Slider.OnSliderTouchListener']/implements" />
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='RangeSlider.OnChangeListener']/implements" />
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='RangeSlider.OnSliderTouchListener']/implements" />
+
+    <!-- With the internal base interfaces removed, type the BaseSlider add/remove listener
+         parameters (generic type variables L and T) as java.lang.Object. Slider/RangeSlider expose
+         the strongly typed AddOnChangeListener/AddOnSliderTouchListener overloads via Additions; a
+         typed listener instance (which IS-A BaseOnChangeListener in Java) is passed straight through
+         to these Object-typed methods at runtime. -->
     <attr
       path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
       name="type"
       >
-      com.google.android.material.slider.BaseOnChangeListener
+      java.lang.Object
     </attr>
     <attr
       path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
       name="type"
       >
-      com.google.android.material.slider.BaseOnChangeListener
+      java.lang.Object
     </attr>
-    
-    <!-- Fix BaseSlider addOnSliderTouchListener and removeOnSliderTouchListener methods -->
     <attr
       path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
       name="type"
       >
-      com.google.android.material.slider.BaseOnSliderTouchListener
+      java.lang.Object
     </attr>
     <attr
       path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
       name="type"
       >
-      com.google.android.material.slider.BaseOnSliderTouchListener
+      java.lang.Object
     </attr>
-
-    <!-- Remove erased onValueChange from BaseOnChangeListener to prevent ACW type erasure clash.
-         The typed sub-interfaces (Slider.OnChangeListener, RangeSlider.OnChangeListener) provide
-         the concrete onValueChange(Slider/RangeSlider, float, boolean) methods that users implement.
-         Without this, implementing Slider.IOnChangeListener causes Java error:
-         "name clash: class has two methods with the same erasure" because the ACW generates both
-         onValueChange(Object,...) from the base and onValueChange(Slider,...) from the sub-interface. -->
-    <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnChangeListener']/method[@name='onValueChange']" />
-
-    <!-- Remove erased onStartTrackingTouch/onStopTrackingTouch from BaseOnSliderTouchListener
-         for the same ACW type erasure reason as above. -->
-    <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnSliderTouchListener']/method[@name='onStartTrackingTouch']" />
-    <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnSliderTouchListener']/method[@name='onStopTrackingTouch']" />
 
     <!-- Use discoverable .NET-style casing for newer multi-word Material package namespaces -->
     <attr path="/api/package[@name='com.google.android.material.listitem']" name="managedName">Google.Android.Material.ListItem</attr>
