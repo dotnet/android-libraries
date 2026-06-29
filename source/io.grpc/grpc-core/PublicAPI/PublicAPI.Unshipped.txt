@@ -189,6 +189,7 @@ Xamarin.Grpc.Core.Internal.IRetryScheduler.Reset() -> void
 Xamarin.Grpc.Core.Internal.IRetryScheduler.Schedule(Java.Lang.IRunnable? p0) -> void
 Xamarin.Grpc.Core.Internal.IServerListener
 Xamarin.Grpc.Core.Internal.IServerListener.ServerShutdown() -> void
+Xamarin.Grpc.Core.Internal.IServerListener.TransportCreated(Xamarin.Grpc.Core.Internal.IServerTransport? p0) -> Xamarin.Grpc.Core.Internal.IServerTransportListener?
 Xamarin.Grpc.Core.Internal.IServerStream
 Xamarin.Grpc.Core.Internal.IServerStream.Attributes.get -> Xamarin.Grpc.Attributes?
 Xamarin.Grpc.Core.Internal.IServerStream.Authority.get -> string?
@@ -203,6 +204,10 @@ Xamarin.Grpc.Core.Internal.IServerStream.WriteHeaders(Xamarin.Grpc.Metadata? p0,
 Xamarin.Grpc.Core.Internal.IServerStreamListener
 Xamarin.Grpc.Core.Internal.IServerStreamListener.Closed(Xamarin.Grpc.Status? p0) -> void
 Xamarin.Grpc.Core.Internal.IServerStreamListener.HalfClosed() -> void
+Xamarin.Grpc.Core.Internal.IServerTransport
+Xamarin.Grpc.Core.Internal.IServerTransport.ScheduledExecutorService.get -> Java.Util.Concurrent.IScheduledExecutorService?
+Xamarin.Grpc.Core.Internal.IServerTransport.Shutdown() -> void
+Xamarin.Grpc.Core.Internal.IServerTransport.ShutdownNow(Xamarin.Grpc.Status? p0) -> void
 Xamarin.Grpc.Core.Internal.IServerTransportListener
 Xamarin.Grpc.Core.Internal.IServerTransportListener.StreamCreated(Xamarin.Grpc.Core.Internal.IServerStream? p0, string? p1, Xamarin.Grpc.Metadata? p2) -> void
 Xamarin.Grpc.Core.Internal.IServerTransportListener.TransportReady(Xamarin.Grpc.Attributes? p0) -> Xamarin.Grpc.Attributes?
@@ -320,6 +325,7 @@ Xamarin.Grpc.Core.Internal.SerializingExecutor.Execute(Java.Lang.IRunnable? r) -
 Xamarin.Grpc.Core.Internal.SerializingExecutor.Run() -> void
 Xamarin.Grpc.Core.Internal.SerializingExecutor.SerializingExecutor(Java.Util.Concurrent.IExecutor? executor) -> void
 Xamarin.Grpc.Core.Internal.SerializingExecutor.SetExecutor(Java.Util.Concurrent.IExecutor? executor) -> void
+Xamarin.Grpc.Core.Internal.ServerTransportCreatedHandler
 Xamarin.Grpc.Core.Internal.ServerTransportTransportReadyHandler
 Xamarin.Grpc.Core.Internal.ServiceConfigUtil
 Xamarin.Grpc.Core.Internal.ServiceConfigUtil.LbConfig
@@ -784,6 +790,7 @@ virtual Xamarin.Grpc.Core.Internal.NoopSslSession.Protocol.get -> string?
 virtual Xamarin.Grpc.Core.Internal.NoopSslSession.PutValue(string? s, Java.Lang.Object? o) -> void
 virtual Xamarin.Grpc.Core.Internal.NoopSslSession.RemoveValue(string? s) -> void
 virtual Xamarin.Grpc.Core.Internal.NoopSslSession.SessionContext.get -> Javax.Net.Ssl.ISSLSessionContext?
+virtual Xamarin.Grpc.Core.Internal.ServerTransportCreatedHandler.Invoke(Xamarin.Grpc.Core.Internal.IServerTransport? p0) -> Xamarin.Grpc.Core.Internal.IServerTransportListener?
 virtual Xamarin.Grpc.Core.Internal.ServerTransportTransportReadyHandler.Invoke(Xamarin.Grpc.Attributes? p0) -> Xamarin.Grpc.Attributes?
 virtual Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeId.Path.get -> string?
 virtual Xamarin.Grpc.Core.Internal.SpiffeUtil.SpiffeId.TrustDomain.get -> string?
