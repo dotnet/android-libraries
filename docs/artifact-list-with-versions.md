@@ -502,7 +502,7 @@
 | 495|com.google.code.findbugs:jsr305                                       |3.0.2               |Xamarin.Google.Code.FindBugs.JSR305                                   |3.0.2.24            |
 | 496|com.google.code.gson:gson                                             |2.14.0              |GoogleGson                                                            |2.14.0.1            |
 | 497|com.google.crypto.tink:tink-android                                   |1.22.0              |Xamarin.Google.Crypto.Tink.Android                                    |1.22.0.1            |
-| 498|com.google.dagger:dagger                                              |2.60.0              |Xamarin.Google.Dagger                                                 |2.60.0              |
+| 498|com.google.dagger:dagger                                              |2.60                |Xamarin.Google.Dagger                                                 |2.60.0              |
 | 499|com.google.errorprone:error_prone_annotations                         |2.50.0              |Xamarin.Google.ErrorProne.Annotations                                 |2.50.0.1            |
 | 500|com.google.errorprone:error_prone_type_annotations                    |2.50.0              |Xamarin.Google.ErrorProne.TypeAnnotations                             |2.50.0.1            |
 | 501|com.google.firebase:firebase-abt                                      |23.0.1              |Xamarin.Firebase.Abt                                                  |123.0.1.3           |
