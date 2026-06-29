@@ -22,8 +22,14 @@ public partial class Slider
         const string __id = "addOnChangeListener." + _addOnChangeListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void RemoveOnChangeListener(Slider.IOnChangeListener listener)
@@ -31,8 +37,14 @@ public partial class Slider
         const string __id = "removeOnChangeListener." + _removeOnChangeListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void AddOnSliderTouchListener(Slider.IOnSliderTouchListener listener)
@@ -40,8 +52,14 @@ public partial class Slider
         const string __id = "addOnSliderTouchListener." + _addOnSliderTouchListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void RemoveOnSliderTouchListener(Slider.IOnSliderTouchListener listener)
@@ -49,8 +67,14 @@ public partial class Slider
         const string __id = "removeOnSliderTouchListener." + _removeOnSliderTouchListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 }
 
@@ -66,8 +90,14 @@ public partial class RangeSlider
         const string __id = "addOnChangeListener." + _addOnChangeListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void RemoveOnChangeListener(RangeSlider.IOnChangeListener listener)
@@ -75,8 +105,14 @@ public partial class RangeSlider
         const string __id = "removeOnChangeListener." + _removeOnChangeListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void AddOnSliderTouchListener(RangeSlider.IOnSliderTouchListener listener)
@@ -84,8 +120,14 @@ public partial class RangeSlider
         const string __id = "addOnSliderTouchListener." + _addOnSliderTouchListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 
     public unsafe void RemoveOnSliderTouchListener(RangeSlider.IOnSliderTouchListener listener)
@@ -93,8 +135,14 @@ public partial class RangeSlider
         const string __id = "removeOnSliderTouchListener." + _removeOnSliderTouchListenerJni;
         Java.Interop.JniArgumentValue* __args = stackalloc Java.Interop.JniArgumentValue[1];
         __args[0] = new Java.Interop.JniArgumentValue(listener == null ? IntPtr.Zero : ((Java.Lang.Object)listener).Handle);
-        _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
-        GC.KeepAlive(listener);
+        try
+        {
+            _members.InstanceMethods.InvokeVirtualVoidMethod(__id, this, __args);
+        }
+        finally
+        {
+            GC.KeepAlive(listener);
+        }
     }
 }
 
