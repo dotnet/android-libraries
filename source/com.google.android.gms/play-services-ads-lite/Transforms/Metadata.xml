@@ -127,6 +127,62 @@
             <parameter name="bundle" type="android.os.Bundle"></parameter>
         </method>
     </add-node>
+
+    <!--
+      Java-generics erasure fix for AdLoadCallback<AdT> subclasses (issue #1491).
+
+      The base class:
+          public abstract class AdLoadCallback<AdT> {
+              public void onAdLoaded(AdT ad) { }
+          }
+      only declares the erased `onAdLoaded(Object)` in bytecode, so the binding
+      generator exposes it as `virtual OnAdLoaded(Java.Lang.Object p0)` on every
+      concrete subclass (AdManagerInterstitialAdLoadCallback, InterstitialAdLoadCallback,
+      etc.).
+
+      When a user overrides that in C#, the generated Java ACW stub emits
+      `public void onAdLoaded(java.lang.Object p0)`. From javac's point of view
+      the parent (after generic substitution) declares
+      `onAdLoaded(AdManagerInterstitialAd)`, and the two methods have the same
+      erasure but neither overrides the other — javac reports a name-clash and
+      the app fails to build.
+
+      Fix: for each concrete subclass, add a specialized `onAdLoaded(SpecificAd)`
+      method via <add-node>. That surfaces a properly-typed
+      `virtual OnAdLoaded(SpecificAd p0)` in C# with a specialized JNI
+      registration, so users' ACW stubs emit the specialized signature that
+      correctly overrides the parent. This matches how Google's own docs show
+      the callback being overridden in Java.
+    -->
+    <add-node path="/api/package[@name='com.google.android.gms.ads.admanager']/class[@name='AdManagerInterstitialAdLoadCallback']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="onAdLoaded" native="false" return="void" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Lcom/google/android/gms/ads/admanager/AdManagerInterstitialAd;)V" jni-return="V">
+            <parameter name="p0" type="com.google.android.gms.ads.admanager.AdManagerInterstitialAd" not-null="true"></parameter>
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.gms.ads.interstitial']/class[@name='InterstitialAdLoadCallback']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="onAdLoaded" native="false" return="void" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Lcom/google/android/gms/ads/interstitial/InterstitialAd;)V" jni-return="V">
+            <parameter name="p0" type="com.google.android.gms.ads.interstitial.InterstitialAd" not-null="true"></parameter>
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.gms.ads.rewarded']/class[@name='RewardedAdLoadCallback']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="onAdLoaded" native="false" return="void" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Lcom/google/android/gms/ads/rewarded/RewardedAd;)V" jni-return="V">
+            <parameter name="p0" type="com.google.android.gms.ads.rewarded.RewardedAd" not-null="true"></parameter>
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.gms.ads.rewardedinterstitial']/class[@name='RewardedInterstitialAdLoadCallback']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="onAdLoaded" native="false" return="void" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;)V" jni-return="V">
+            <parameter name="p0" type="com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd" not-null="true"></parameter>
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.gms.ads.appopen']/class[@name='AppOpenAd.AppOpenAdLoadCallback']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="onAdLoaded" native="false" return="void" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Lcom/google/android/gms/ads/appopen/AppOpenAd;)V" jni-return="V">
+            <parameter name="p0" type="com.google.android.gms.ads.appopen.AppOpenAd" not-null="true"></parameter>
+        </method>
+    </add-node>
     
     
     <attr
