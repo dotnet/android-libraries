@@ -227,6 +227,17 @@ Google.Android.Gms.Ads.Initialization.IOnInitializationCompleteListener.OnInitia
 Google.Android.Gms.Ads.Initialization.InitializationCompleteEventArgs
 Google.Android.Gms.Ads.Initialization.InitializationCompleteEventArgs.InitializationCompleteEventArgs(Google.Android.Gms.Ads.Initialization.IInitializationStatus! p0) -> void
 Google.Android.Gms.Ads.Initialization.InitializationCompleteEventArgs.P0.get -> Google.Android.Gms.Ads.Initialization.IInitializationStatus!
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpDeepLinkServiceWrapper
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpDeepLinkServiceWrapper.EndSession(Android.Gms.Dynamic.IObjectWrapper! p0, string! p1) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpDeepLinkServiceWrapper.Open(Android.Gms.Dynamic.IObjectWrapper! p0, string! p1, string! p2, Android.OS.Bundle! p3, bool p4, Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpServiceCallback! p5) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpDeepLinkServiceWrapper.Prewarm(Android.Gms.Dynamic.IObjectWrapper! p0, System.Collections.Generic.IList<Android.OS.Bundle!>! p1, Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpPrewarmServiceCallback! p2) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpPrewarmServiceCallback
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpPrewarmServiceCallback.OnError(Android.OS.Bundle! p0) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpPrewarmServiceCallback.OnPrewarmCompleted(Android.OS.Bundle! p0) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpServiceCallback
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpServiceCallback.OnDismissed(Android.OS.Bundle! p0) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpServiceCallback.OnError(Android.OS.Bundle! p0) -> void
+Google.Android.Gms.Ads.Internal.Client.Hsdp.IHsdpServiceCallback.OnShown(Android.OS.Bundle! p0) -> void
 Google.Android.Gms.Ads.Internal.Offline.Buffering.OfflineNotificationPoster
 Google.Android.Gms.Ads.Internal.Offline.Buffering.OfflineNotificationPoster.OfflineNotificationPoster(Android.Content.Context! context, AndroidX.Work.WorkerParameters! params) -> void
 Google.Android.Gms.Ads.Internal.Offline.Buffering.OfflineNotificationPoster.OfflineNotificationPoster(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -1375,6 +1386,7 @@ virtual Google.Android.Gms.Ads.AdLoader.IsLoading.get -> bool
 virtual Google.Android.Gms.Ads.AdLoader.LoadAd(Google.Android.Gms.Ads.AdManager.AdManagerAdRequest! adManagerAdRequest) -> void
 virtual Google.Android.Gms.Ads.AdLoader.LoadAd(Google.Android.Gms.Ads.AdRequest! adRequest) -> void
 virtual Google.Android.Gms.Ads.AdLoader.LoadAds(Google.Android.Gms.Ads.AdRequest! adRequest, int maxNumberOfAds) -> void
+virtual Google.Android.Gms.Ads.AdManager.AdManagerInterstitialAdLoadCallback.OnAdLoaded(Google.Android.Gms.Ads.AdManager.AdManagerInterstitialAd! p0) -> void
 virtual Google.Android.Gms.Ads.AdRequest.AdString.get -> string?
 virtual Google.Android.Gms.Ads.AdRequest.Builder.Build() -> Google.Android.Gms.Ads.AdRequest!
 virtual Google.Android.Gms.Ads.AdRequest.Builder.Self() -> Google.Android.Gms.Ads.AdRequest.Builder!
@@ -1387,6 +1399,7 @@ virtual Google.Android.Gms.Ads.AdRequest.Keywords.get -> System.Collections.Gene
 virtual Google.Android.Gms.Ads.AdRequest.NeighboringContentUrls.get -> System.Collections.Generic.IList<string!>!
 virtual Google.Android.Gms.Ads.AdRequest.PlacementId.get -> long
 virtual Google.Android.Gms.Ads.AdRequest.RequestAgent.get -> string!
+virtual Google.Android.Gms.Ads.AppOpen.AppOpenAd.AppOpenAdLoadCallback.OnAdLoaded(Google.Android.Gms.Ads.AppOpen.AppOpenAd! p0) -> void
 virtual Google.Android.Gms.Ads.BaseAdView.AdListener.get -> Google.Android.Gms.Ads.AdListener!
 virtual Google.Android.Gms.Ads.BaseAdView.AdListener.set -> void
 virtual Google.Android.Gms.Ads.BaseAdView.AdSize.get -> Google.Android.Gms.Ads.AdSize?
@@ -1412,6 +1425,7 @@ virtual Google.Android.Gms.Ads.FullScreenContentCallback.OnAdDismissedFullScreen
 virtual Google.Android.Gms.Ads.FullScreenContentCallback.OnAdFailedToShowFullScreenContent(Google.Android.Gms.Ads.AdError! p0) -> void
 virtual Google.Android.Gms.Ads.FullScreenContentCallback.OnAdImpression() -> void
 virtual Google.Android.Gms.Ads.FullScreenContentCallback.OnAdShowedFullScreenContent() -> void
+virtual Google.Android.Gms.Ads.Interstitial.InterstitialAdLoadCallback.OnAdLoaded(Google.Android.Gms.Ads.Interstitial.InterstitialAd! p0) -> void
 virtual Google.Android.Gms.Ads.Mediation.Adapter.LoadAppOpenAd(Google.Android.Gms.Ads.Mediation.MediationAppOpenAdConfiguration! p0, Google.Android.Gms.Ads.Mediation.IMediationAdLoadCallback! callback) -> void
 virtual Google.Android.Gms.Ads.Mediation.Adapter.LoadBannerAd(Google.Android.Gms.Ads.Mediation.MediationBannerAdConfiguration! p0, Google.Android.Gms.Ads.Mediation.IMediationAdLoadCallback! callback) -> void
 virtual Google.Android.Gms.Ads.Mediation.Adapter.LoadInterstitialAd(Google.Android.Gms.Ads.Mediation.MediationInterstitialAdConfiguration! p0, Google.Android.Gms.Ads.Mediation.IMediationAdLoadCallback! callback) -> void
@@ -1503,8 +1517,10 @@ virtual Google.Android.Gms.Ads.RequestConfiguration.TagForChildDirectedTreatment
 virtual Google.Android.Gms.Ads.RequestConfiguration.TagForUnderAgeOfConsent.get -> int
 virtual Google.Android.Gms.Ads.RequestConfiguration.TestDeviceIds.get -> System.Collections.Generic.IList<string!>!
 virtual Google.Android.Gms.Ads.RequestConfiguration.ToBuilder() -> Google.Android.Gms.Ads.RequestConfiguration.Builder!
+virtual Google.Android.Gms.Ads.Rewarded.RewardedAdLoadCallback.OnAdLoaded(Google.Android.Gms.Ads.Rewarded.RewardedAd! p0) -> void
 virtual Google.Android.Gms.Ads.Rewarded.ServerSideVerificationOptions.CustomData.get -> string!
 virtual Google.Android.Gms.Ads.Rewarded.ServerSideVerificationOptions.UserId.get -> string!
+virtual Google.Android.Gms.Ads.RewardedInterstitial.RewardedInterstitialAdLoadCallback.OnAdLoaded(Google.Android.Gms.Ads.RewardedInterstitial.RewardedInterstitialAd! p0) -> void
 virtual Google.Android.Gms.Ads.VersionInfo.MajorVersion.get -> int
 virtual Google.Android.Gms.Ads.VersionInfo.MicroVersion.get -> int
 virtual Google.Android.Gms.Ads.VersionInfo.MinorVersion.get -> int
