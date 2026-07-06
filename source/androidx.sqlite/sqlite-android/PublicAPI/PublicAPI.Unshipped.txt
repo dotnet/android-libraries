@@ -78,6 +78,7 @@ AndroidX.Sqlite.Db.SimpleSQLiteQuery.SimpleSQLiteQuery(string! query) -> void
 AndroidX.Sqlite.Db.SimpleSQLiteQuery.SimpleSQLiteQuery(string! query, Java.Lang.Object![]? bindArgs) -> void
 AndroidX.Sqlite.Db.SimpleSQLiteQuery.Sql.get -> string!
 AndroidX.Sqlite.Db.SupportSQLiteCompat
+AndroidX.Sqlite.Db.SupportSQLiteDatabaseKt
 AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback
 AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.SupportSQLiteOpenHelperCallback(int version) -> void
 AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.SupportSQLiteOpenHelperCallback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -145,6 +146,7 @@ AndroidX.Sqlite.ISQLiteStatement.Reset() -> void
 AndroidX.Sqlite.ISQLiteStatement.Step() -> bool
 AndroidX.Sqlite.SQLite
 AndroidX.Sqlite.SQLiteException_androidKt
+AndroidX.Sqlite.Util.SQLStatementParserKt
 abstract AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.OnCreate(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db) -> void
 abstract AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.OnUpgrade(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db, int oldVersion, int newVersion) -> void
 const AndroidX.Sqlite.SQLite.SqliteDataBlob = 4 -> int
@@ -155,6 +157,7 @@ const AndroidX.Sqlite.SQLite.SqliteDataText = 3 -> int
 override AndroidX.Sqlite.Db.SimpleSQLiteQuery.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Db.SimpleSQLiteQuery.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Db.SupportSQLiteCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Sqlite.Db.SupportSQLiteDatabaseKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.ThresholdClass.get -> nint
 override AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.ThresholdType.get -> System.Type!
@@ -167,11 +170,14 @@ override AndroidX.Sqlite.Db.SupportSQLiteQueryBuilder.Companion.JniPeerMembers.g
 override AndroidX.Sqlite.Db.SupportSQLiteQueryBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.SQLite.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Sqlite.SQLiteException_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Sqlite.Util.SQLStatementParserKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Sqlite.Db.SimpleSQLiteQuery.Bind(AndroidX.Sqlite.Db.ISupportSQLiteProgram! statement, Java.Lang.Object![]? bindArgs) -> void
+static AndroidX.Sqlite.Db.SupportSQLiteDatabaseKt.Transaction(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! obj, bool exclusive, Kotlin.Jvm.Functions.IFunction1! body) -> Java.Lang.Object?
 static AndroidX.Sqlite.Db.SupportSQLiteOpenHelperConfiguration.InvokeBuilder(Android.Content.Context! context) -> AndroidX.Sqlite.Db.SupportSQLiteOpenHelperConfiguration.Builder!
 static AndroidX.Sqlite.Db.SupportSQLiteQueryBuilder.Builder(string! tableName) -> AndroidX.Sqlite.Db.SupportSQLiteQueryBuilder!
-static AndroidX.Sqlite.SQLite.ExecSQL(AndroidX.Sqlite.ISQLiteConnection! obj, string! sql) -> void
+static AndroidX.Sqlite.SQLite.ExecSQL(AndroidX.Sqlite.ISQLiteConnection! _this_execSQL, string! sql) -> void
 static AndroidX.Sqlite.SQLite.ThrowSQLiteException(int errorCode, string? errorMsg) -> Java.Lang.Void!
+static AndroidX.Sqlite.Util.SQLStatementParserKt.GetStatementPrefix(string! sql) -> string?
 virtual AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.OnConfigure(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db) -> void
 virtual AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.OnCorruption(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db) -> void
 virtual AndroidX.Sqlite.Db.SupportSQLiteOpenHelperCallback.OnDowngrade(AndroidX.Sqlite.Db.ISupportSQLiteDatabase! db, int oldVersion, int newVersion) -> void
