@@ -39,11 +39,32 @@ Bumptech.Glide.GifDecoder.IGifDecoderBitmapProvider.Release(byte[]! p0) -> void
 Bumptech.Glide.GifDecoder.IGifDecoderBitmapProvider.Release(int[]! p0) -> void
 Bumptech.Glide.GifDecoder.IGifDecoderGifDecodeStatus
 Bumptech.Glide.GifDecoder.StandardGifDecoder
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Advance() -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.ByteSize.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Clear() -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.CurrentFrameIndex.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Data.get -> Java.Nio.ByteBuffer!
+Bumptech.Glide.GifDecoder.StandardGifDecoder.FrameCount.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.GetDelay(int n) -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Height.get -> int
 Bumptech.Glide.GifDecoder.StandardGifDecoder.InterfaceConsts
+Bumptech.Glide.GifDecoder.StandardGifDecoder.LoopCount.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.NetscapeLoopCount.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.NextDelay.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.NextFrame.get -> Android.Graphics.Bitmap?
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Read(System.IO.Stream? is, int contentLength) -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Read(byte[]? data) -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.ResetFrameIndex() -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, Java.Nio.ByteBuffer! buffer) -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, Java.Nio.ByteBuffer! buffer, int sampleSize) -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, byte[]! data) -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.SetDefaultBitmapConfig(Android.Graphics.Bitmap.Config! config) -> void
 Bumptech.Glide.GifDecoder.StandardGifDecoder.StandardGifDecoder(Bumptech.Glide.GifDecoder.IGifDecoderBitmapProvider! provider) -> void
 Bumptech.Glide.GifDecoder.StandardGifDecoder.StandardGifDecoder(Bumptech.Glide.GifDecoder.IGifDecoderBitmapProvider! provider, Bumptech.Glide.GifDecoder.GifHeader? gifHeader, Java.Nio.ByteBuffer? rawData) -> void
 Bumptech.Glide.GifDecoder.StandardGifDecoder.StandardGifDecoder(Bumptech.Glide.GifDecoder.IGifDecoderBitmapProvider! provider, Bumptech.Glide.GifDecoder.GifHeader? gifHeader, Java.Nio.ByteBuffer? rawData, int sampleSize) -> void
-Bumptech.Glide.GifDecoder.StandardGifDecoder.StandardGifDecoder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Status.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.TotalIterationCount.get -> int
+Bumptech.Glide.GifDecoder.StandardGifDecoder.Width.get -> int
 const Bumptech.Glide.GifDecoder.GifDecoder.StatusFormatError = 1 -> int
 const Bumptech.Glide.GifDecoder.GifDecoder.StatusOk = 0 -> int
 const Bumptech.Glide.GifDecoder.GifDecoder.StatusOpenError = 2 -> int
@@ -63,8 +84,6 @@ override Bumptech.Glide.GifDecoder.GifHeaderParser.JniPeerMembers.get -> Java.In
 override Bumptech.Glide.GifDecoder.GifHeaderParser.ThresholdClass.get -> nint
 override Bumptech.Glide.GifDecoder.GifHeaderParser.ThresholdType.get -> System.Type!
 override Bumptech.Glide.GifDecoder.StandardGifDecoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override Bumptech.Glide.GifDecoder.StandardGifDecoder.ThresholdClass.get -> nint
-override Bumptech.Glide.GifDecoder.StandardGifDecoder.ThresholdType.get -> System.Type!
 virtual Bumptech.Glide.GifDecoder.GifHeader.Height.get -> int
 virtual Bumptech.Glide.GifDecoder.GifHeader.NumFrames.get -> int
 virtual Bumptech.Glide.GifDecoder.GifHeader.Status.get -> int
@@ -74,25 +93,3 @@ virtual Bumptech.Glide.GifDecoder.GifHeaderParser.IsAnimated.get -> bool
 virtual Bumptech.Glide.GifDecoder.GifHeaderParser.ParseHeader() -> Bumptech.Glide.GifDecoder.GifHeader!
 virtual Bumptech.Glide.GifDecoder.GifHeaderParser.SetData(Java.Nio.ByteBuffer! data) -> Bumptech.Glide.GifDecoder.GifHeaderParser?
 virtual Bumptech.Glide.GifDecoder.GifHeaderParser.SetData(byte[]? data) -> Bumptech.Glide.GifDecoder.GifHeaderParser?
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Advance() -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.ByteSize.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Clear() -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.CurrentFrameIndex.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Data.get -> Java.Nio.ByteBuffer!
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.FrameCount.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.GetDelay(int n) -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Height.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.LoopCount.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.NetscapeLoopCount.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.NextDelay.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.NextFrame.get -> Android.Graphics.Bitmap?
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Read(System.IO.Stream? is, int contentLength) -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Read(byte[]? data) -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.ResetFrameIndex() -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, Java.Nio.ByteBuffer! buffer) -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, Java.Nio.ByteBuffer! buffer, int sampleSize) -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.SetData(Bumptech.Glide.GifDecoder.GifHeader! header, byte[]! data) -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.SetDefaultBitmapConfig(Android.Graphics.Bitmap.Config! config) -> void
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Status.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.TotalIterationCount.get -> int
-virtual Bumptech.Glide.GifDecoder.StandardGifDecoder.Width.get -> int

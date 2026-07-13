@@ -31,6 +31,8 @@ Google.Android.Gms.Ads.AdSize.IsAnchoredAdaptiveBanner.get -> bool
 Google.Android.Gms.Ads.AdSize.IsFluid.get -> bool
 Google.Android.Gms.Ads.AdSize.IsInlineAdaptiveBanner.get -> bool
 Google.Android.Gms.Ads.AdSize.Width.get -> int
+Google.Android.Gms.Ads.AgeRestrictedTreatment
+Google.Android.Gms.Ads.AgeRestrictedTreatment.Value.get -> int
 Google.Android.Gms.Ads.Formats.NativeAd
 Google.Android.Gms.Ads.Formats.NativeAd.AdChoicesInfo
 Google.Android.Gms.Ads.Formats.NativeAd.AdChoicesInfo.AdChoicesInfo() -> void
@@ -465,13 +467,16 @@ Google.Android.Gms.Ads.NativeAd.NativeAdOptions.ShouldReturnUrlsForImageAssets()
 Google.Android.Gms.Ads.NativeAd.NativeAdOptions.UseCustomMuteThisAd.get -> bool
 Google.Android.Gms.Ads.NativeAd.NativeAdOptions.VideoOptions.get -> Google.Android.Gms.Ads.VideoOptions?
 Google.Android.Gms.Ads.RequestConfiguration
+Google.Android.Gms.Ads.RequestConfiguration.AgeRestrictedTreatment.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment!
 Google.Android.Gms.Ads.RequestConfiguration.Companion
 Google.Android.Gms.Ads.RequestConfiguration.Companion.Companion(int p0) -> void
 Google.Android.Gms.Ads.RequestConfiguration.IMaxAdContentRating
 Google.Android.Gms.Ads.RequestConfiguration.ITagForChildDirectedTreatment
 Google.Android.Gms.Ads.RequestConfiguration.ITagForUnderAgeOfConsent
 Google.Android.Gms.Ads.RequestConfiguration.MaxAdContentRating.get -> string!
+Google.Android.Gms.Ads.RequestConfiguration.RequestConfiguration(int p0, int p1, string? p2, System.Collections.IList? p3, int p4) -> void
 Google.Android.Gms.Ads.RequestConfiguration.RequestConfiguration(int tagForChildDirectedTreatment, int tagForUnderAgeOfConsent, string! maxAdContentRating, System.Collections.Generic.IList<string!>! testDeviceIds) -> void
+Google.Android.Gms.Ads.RequestConfiguration.RequestConfiguration(int tagForChildDirectedTreatment, int tagForUnderAgeOfConsent, string! maxAdContentRating, System.Collections.Generic.IList<string!>! testDeviceIds, Google.Android.Gms.Ads.AgeRestrictedTreatment! ageRestrictedTreatment) -> void
 Google.Android.Gms.Ads.RequestConfiguration.TagForChildDirectedTreatment.get -> int
 Google.Android.Gms.Ads.RequestConfiguration.TagForUnderAgeOfConsent.get -> int
 Google.Android.Gms.Ads.RequestConfiguration.TestDeviceIds.get -> System.Collections.Generic.IList<string!>!
@@ -984,10 +989,13 @@ Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.Headline.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.Icon.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.Image!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.LoadFromAdResponse(string! adResponse, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.PackageName.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAd.StarRating.get -> Java.Lang.Double?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdEventCallback
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdLoadCallback
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdLoadCallback.OnAdLoadingCompleted() -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconRequest
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconRequest.Correlator.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconRequest.IconAdPlacement.get -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement?
@@ -997,6 +1005,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion.LoadFromAdResponse(string! adResponse, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdConsts
@@ -1004,16 +1013,18 @@ Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement.Value.get -> int
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.AdChoicesPlacement.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement!
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.AdPersistenceEnabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.Builder(string! adUnitId) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.DisableImageDownloading() -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.SetAdChoicesPlacement(Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement! adChoicesPlacement) -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder!
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.SetAdPersistenceEnabled() -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.SetCorrelator(string! correlator) -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder.SetIconAdPlacement(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement! placement) -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.Correlator.get -> string!
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.IconAdPlacement.get -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement!
-Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.IconAdRequest(string? p0, Java.Util.LinkedHashSet? p1, string? p2, Java.Util.LinkedHashMap? p3, Android.OS.Bundle? p4, Java.Util.HashSet? p5, Java.Util.HashSet? p6, Java.Util.LinkedHashMap? p7, string? p8, string? p9, long p10, Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement? p11, Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement? p12, string? p13, bool p14, bool p15, int p16) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.IconAdRequest(string? p0, Java.Util.LinkedHashSet? p1, string? p2, Java.Util.LinkedHashMap? p3, Android.OS.Bundle? p4, Java.Util.HashSet? p5, Java.Util.HashSet? p6, Java.Util.LinkedHashMap? p7, string? p8, string? p9, long p10, Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement? p11, Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement? p12, string? p13, bool p14, bool p15, bool p16, int p17) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest.IsImageLoadingDisabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdView
 Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdView.IconAdView(Android.Content.Context! context) -> void
@@ -1203,6 +1214,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdPreloaderCompanion.Poll
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdPreloaderConsts
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.AdChoicesPlacement.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement!
+Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.AdPersistenceEnabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.AdSize.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.AdSizes.get -> System.Collections.Generic.IList<Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize!>!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder
@@ -1210,6 +1222,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.A(bool 
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.DisableImageDownloading() -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.SetAdChoicesPlacement(Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement! adChoicesPlacement) -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
+Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.SetAdPersistenceEnabled() -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.SetAdSize(Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize! adSize) -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.SetAdSizes(System.Collections.Generic.IList<Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize!>! adSizes) -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder.SetCustomFormatIds(System.Collections.Generic.IList<string!>! customFormatIds) -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdRequest.Builder!
@@ -1386,11 +1399,27 @@ Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableIntersti
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAd.VideoLifecycleCallbacks.set -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdEventCallback
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdEventCallback.OnAdScreenHoldTimerStarted() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion!
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.Configurations.get -> System.Collections.Generic.IDictionary<string!, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration!>!
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.Destroy(string! preloadId) -> bool
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.DestroyAll() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.GetConfiguration(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration?
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.GetNumAdsAvailable(string! preloadId) -> int
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.IsAdAvailable(string! preloadId) -> bool
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.PeekAdResponseInfo(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.ResponseInfo?
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.PollAd(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAd?
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration) -> bool
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAdPreloader.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IPreloadCallback? preloadCallback) -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAd
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdCompanion
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest! adRequest, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdConsts
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion.PollAd(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAd?
+Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderConsts
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest.AdSize.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize?
 Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest.Builder
@@ -1568,6 +1597,7 @@ override Google.Android.Gms.Ads.AdError.JniPeerMembers.get -> Java.Interop.JniPe
 override Google.Android.Gms.Ads.AdFormat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AdSize.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.AdSize.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Ads.AgeRestrictedTreatment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.Formats.NativeAd.AdChoicesInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Ads.Formats.NativeAd.AdChoicesInfo.ThresholdClass.get -> nint
 override Google.Android.Gms.Ads.Formats.NativeAd.AdChoicesInfo.ThresholdType.get -> System.Type!
@@ -1782,6 +1812,8 @@ override Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalRequest.JniPeerMem
 override Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalRequest.ThresholdClass.get -> nint
 override Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalRequest.ThresholdType.get -> System.Type!
 override Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration) -> bool
 override Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdActivity.OnConfigurationChanged(Android.Content.Res.Configuration? p0) -> void
@@ -1812,6 +1844,10 @@ static Google.Android.Gms.Ads.AdSize.Leaderboard.get -> Google.Android.Gms.Ads.A
 static Google.Android.Gms.Ads.AdSize.MediumRectangle.get -> Google.Android.Gms.Ads.AdSize!
 static Google.Android.Gms.Ads.AdSize.Search.get -> Google.Android.Gms.Ads.AdSize!
 static Google.Android.Gms.Ads.AdSize.WideSkyscraper.get -> Google.Android.Gms.Ads.AdSize!
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Child.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment?
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Teen.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment?
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Unspecified.get -> Google.Android.Gms.Ads.AgeRestrictedTreatment?
+static Google.Android.Gms.Ads.AgeRestrictedTreatment.Values() -> Google.Android.Gms.Ads.AgeRestrictedTreatment![]?
 static Google.Android.Gms.Ads.Formats.UnifiedNativeAdAssetNames.Instance.get -> Google.Android.Gms.Ads.Formats.UnifiedNativeAdAssetNames!
 static Google.Android.Gms.Ads.Mediation.MediationAdConfiguration.TagForChildDirectedTreatment.Companion.get -> Google.Android.Gms.Ads.Mediation.MediationAdConfiguration.TagForChildDirectedTreatmentCompanion!
 static Google.Android.Gms.Ads.Mediation.MediationAdRequest.Companion.get -> Google.Android.Gms.Ads.Mediation.MediationAdRequestCompanion!
@@ -1938,6 +1974,7 @@ static Google.Android.Libraries.Ads.Mobile.Sdk.Common.VideoOptionsKt.VideoOption
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAd.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdCompanion!
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdRequest! adRequest, int maxNumberOfAds, Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IIconAdLoadCallback! adLoadCallback) -> void
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAd.LoadFromAdResponse(string! adResponse, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement.Browser.get -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement?
 static Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement.Folder.get -> Google.Android.Libraries.Ads.Mobile.Sdk.IconAd.IconAdPlacement?
@@ -2033,6 +2070,16 @@ static Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalError.ErrorCode.Time
 static Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalError.ErrorCode.Values() -> Google.Android.Libraries.Ads.Mobile.Sdk.Signal.SignalError.ErrorCode![]?
 static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAd.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdCompanion!
 static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloaderCompanion!
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.Destroy(string! preloadId) -> bool
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.DestroyAll() -> void
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.GetConfiguration(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration?
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.GetNumAdsAvailable(string! preloadId) -> int
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.IsAdAvailable(string! preloadId) -> bool
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.PeekAdResponseInfo(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.ResponseInfo?
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.PollAd(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.ISwipeableInterstitialAd?
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration) -> bool
+static Google.Android.Libraries.Ads.Mobile.Sdk.SwipeableInterstitial.SwipeableInterstitialAdPreloader.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IPreloadCallback? preloadCallback) -> bool
 virtual Google.Android.Gms.Ads.Formats.NativeAd.Image.Height.get -> int
 virtual Google.Android.Gms.Ads.Formats.NativeAd.Image.Width.get -> int
 virtual Google.Android.Gms.Ads.Mediation.Adapter.LoadAppOpenAd(Google.Android.Gms.Ads.Mediation.MediationAppOpenAdConfiguration! adConfiguration, Google.Android.Gms.Ads.Mediation.IMediationAdLoadCallback! callback) -> void

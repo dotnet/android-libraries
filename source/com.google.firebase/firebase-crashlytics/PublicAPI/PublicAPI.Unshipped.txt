@@ -222,6 +222,18 @@ Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.File.File(nin
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.FilesPayload() -> void
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.FilesPayload(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.IArchitecture
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.Builder() -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingManagerInfo() -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingManagerInfo(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.Builder() -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.ProfilingTrigger() -> void
+Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.ProfilingTrigger(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application
 Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Application() -> void
@@ -525,6 +537,12 @@ abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.GmpAppId.get -> s
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.InstallationUuid.get -> string!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.NdkPayload.get -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload?
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Platform.get -> int
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.SetProfilingTrigger(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.GetProfilingTrigger() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.SetTrigger(int p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Trigger.get -> int
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.SdkVersion.get -> string!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.App.get -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.AppQualitySessionId.get -> string?
@@ -609,6 +627,7 @@ abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.App
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetAppExitInfo(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ApplicationExitInfo! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetBinaries(System.Collections.Generic.IList<Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.BinaryImage!>! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetException(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Exception! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetProfilingManagerInfo(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetSignal(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder.SetThreads(System.Collections.Generic.IList<Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Thread!>! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Exception.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Exception!
@@ -624,6 +643,7 @@ abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.App
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Exception.Type.get -> string!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.GetException() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Exception?
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.GetSignal() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.ProfilingManagerInfo.get -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo?
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal.Address.get -> long
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal.Builder.SetAddress(long p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Signal.Builder!
@@ -650,6 +670,7 @@ abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.App
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Thread.Importance.get -> int
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Thread.Name.get -> string!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Threads.get -> System.Collections.Generic.IList<Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Thread!>?
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.ToBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.GetExecution() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.Execution!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.InternalKeys.get -> System.Collections.Generic.IList<Firebase.Crashlytics.Internal.Model.CrashlyticsReport.CustomAttribute!>?
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.ProcessDetails.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event.Application.ProcessDetails!
@@ -756,7 +777,7 @@ abstract Firebase.Crashlytics.Internal.Model.StaticSessionData.OsData.OsRelease(
 const Firebase.Crashlytics.BuildConfig.BuildType = "release" -> string!
 const Firebase.Crashlytics.BuildConfig.Debug = false -> bool
 const Firebase.Crashlytics.BuildConfig.LibraryPackageName = "com.google.firebase.crashlytics" -> string!
-const Firebase.Crashlytics.BuildConfig.VersionName = "20.0.5" -> string!
+const Firebase.Crashlytics.BuildConfig.VersionName = "20.1.0" -> string!
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateBetaos = 8 -> int
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateCompromisedlibraries = 32 -> int
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateDebuggerattached = 4 -> int
@@ -922,6 +943,18 @@ override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.JniP
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.ThresholdClass.get -> nint
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.ThresholdType.get -> System.Type!
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.ThresholdClass.get -> nint
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.ThresholdType.get -> System.Type!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.ThresholdClass.get -> nint
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.ThresholdType.get -> System.Type!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.ThresholdClass.get -> nint
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.ThresholdType.get -> System.Type!
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ThresholdClass.get -> nint
+override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ThresholdType.get -> System.Type!
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Builder.ThresholdClass.get -> nint
 override Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Builder.ThresholdType.get -> System.Type!
@@ -1183,6 +1216,8 @@ static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.CustomAttribute.Inv
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.File.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.File.Builder!
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.FilesPayload.Builder!
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Builder!
+static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder!
+static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder!
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Builder!
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Organization.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application.Organization.Builder!
 static Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Device.InvokeBuilder() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Device.Builder!
@@ -1294,6 +1329,7 @@ virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.ListSor
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.OnBeginSession(string! sessionId, long timestampSeconds) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistFatalEvent(Java.Lang.Throwable! e, Java.Lang.Thread! thread, string! sessionId, long timestamp) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistNonFatalEvent(Java.Lang.Throwable! e, Java.Lang.Thread! thread, Java.Lang.Object! eventMetadata) -> void
+virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistProfilingManagerInfo(string? sessionId, System.Collections.Generic.IList<Java.Lang.Integer!>? triggers, System.Collections.Generic.IList<Android.App.ApplicationExitInfo!>? applicationExitInfoList) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistRelevantAppExitInfoEvent(string? sessionId, System.Collections.Generic.IList<Android.App.ApplicationExitInfo!>? applicationExitInfoList, Firebase.Crashlytics.Internal.Metadata.LogFileManager? logFileManagerForSession, Firebase.Crashlytics.Internal.Metadata.UserMetadata? userMetadataForSession) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.RemoveAllReports() -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.SendReports(Java.Util.Concurrent.IExecutor! reportSendCompleteExecutor) -> Android.Gms.Tasks.Task?
@@ -1357,6 +1393,8 @@ virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonT
 virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.ApplicationExitInfoToJson(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ApplicationExitInfo! applicationExitInfo) -> string!
 virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.EventFromJson(string! json) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event!
 virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.EventToJson(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event! e) -> string!
+virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.ProfilingManagerInfoFromJson(string! json) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo!
+virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.ProfilingManagerInfoToJson(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo! profilingManagerInfo) -> string!
 virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.ReportFromJson(string! json) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport!
 virtual Firebase.Crashlytics.Internal.Model.Serialization.CrashlyticsReportJsonTransform.ReportToJson(Firebase.Crashlytics.Internal.Model.CrashlyticsReport! report) -> string!
 virtual Firebase.Crashlytics.Internal.Network.HttpGetRequest.Execute() -> Firebase.Crashlytics.Internal.Network.HttpResponse?
@@ -1375,6 +1413,7 @@ virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.L
 virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.OpenSessionIds.get -> Java.Util.ISortedSet?
 virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.PersistEvent(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event! e, string! sessionId) -> void
 virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.PersistEvent(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Event! e, string! sessionId, bool isHighPriority) -> void
+virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.PersistProfilingManagerInfo(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo! profilingManagerInfo, string! sessionId) -> void
 virtual Firebase.Crashlytics.Internal.Persistence.CrashlyticsReportPersistence.PersistReport(Firebase.Crashlytics.Internal.Model.CrashlyticsReport! report) -> void
 virtual Firebase.Crashlytics.Internal.Persistence.FileStore.AllOpenSessionIds.get -> System.Collections.Generic.IList<string!>?
 virtual Firebase.Crashlytics.Internal.Persistence.FileStore.CleanupPreviousFileSystems() -> void

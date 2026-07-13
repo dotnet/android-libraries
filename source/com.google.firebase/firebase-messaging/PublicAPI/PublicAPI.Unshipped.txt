@@ -146,7 +146,7 @@ abstract Firebase.Messaging.ProtoEncoderDoNotUse.MessagingClientEventExtension.g
 const Firebase.Messaging.BuildConfig.BuildType = "release" -> string!
 const Firebase.Messaging.BuildConfig.Debug = false -> bool
 const Firebase.Messaging.BuildConfig.LibraryPackageName = "com.google.firebase.messaging" -> string!
-const Firebase.Messaging.BuildConfig.VersionName = "25.0.1" -> string!
+const Firebase.Messaging.BuildConfig.VersionName = "25.1.1" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.FcmFallbackNotificationChannel = "fcm_fallback_notification_channel" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.FcmFallbackNotificationChannelLabel = "fcm_fallback_notification_channel_label" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.MetadataDefaultChannelId = "com.google.firebase.messaging.default_notification_channel_id" -> string!
@@ -381,17 +381,21 @@ virtual Firebase.Messaging.FirebaseMessaging.DeleteToken() -> Android.Gms.Tasks.
 virtual Firebase.Messaging.FirebaseMessaging.DeliveryMetricsExportToBigQueryEnabled() -> bool
 virtual Firebase.Messaging.FirebaseMessaging.GetToken() -> Android.Gms.Tasks.Task!
 virtual Firebase.Messaging.FirebaseMessaging.IsNotificationDelegationEnabled.get -> bool
+virtual Firebase.Messaging.FirebaseMessaging.Register() -> Android.Gms.Tasks.Task!
 virtual Firebase.Messaging.FirebaseMessaging.Send(Firebase.Messaging.RemoteMessage! message) -> void
 virtual Firebase.Messaging.FirebaseMessaging.SetDeliveryMetricsExportToBigQuery(bool enable) -> void
 virtual Firebase.Messaging.FirebaseMessaging.SetNotificationDelegationEnabled(bool enable) -> Android.Gms.Tasks.Task!
 virtual Firebase.Messaging.FirebaseMessaging.SubscribeToTopic(string! topic) -> Android.Gms.Tasks.Task!
+virtual Firebase.Messaging.FirebaseMessaging.Unregister() -> Android.Gms.Tasks.Task!
 virtual Firebase.Messaging.FirebaseMessaging.UnsubscribeFromTopic(string! topic) -> Android.Gms.Tasks.Task!
 virtual Firebase.Messaging.FirebaseMessagingRegistrar.Components.get -> System.Collections.Generic.IList<Firebase.Components.Component!>?
 virtual Firebase.Messaging.FirebaseMessagingService.OnDeletedMessages() -> void
 virtual Firebase.Messaging.FirebaseMessagingService.OnMessageReceived(Firebase.Messaging.RemoteMessage! message) -> void
 virtual Firebase.Messaging.FirebaseMessagingService.OnMessageSent(string! msgId) -> void
 virtual Firebase.Messaging.FirebaseMessagingService.OnNewToken(string! token) -> void
+virtual Firebase.Messaging.FirebaseMessagingService.OnRegistered(string! installationId) -> void
 virtual Firebase.Messaging.FirebaseMessagingService.OnSendError(string! msgId, Java.Lang.Exception! exception) -> void
+virtual Firebase.Messaging.FirebaseMessagingService.OnUnregistered(string! installationId) -> void
 virtual Firebase.Messaging.ImageDownload.BlockingDownload() -> Android.Graphics.Bitmap?
 virtual Firebase.Messaging.ImageDownload.Close() -> void
 virtual Firebase.Messaging.ImageDownload.GetTask() -> Android.Gms.Tasks.Task?
