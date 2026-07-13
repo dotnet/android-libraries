@@ -8,4 +8,20 @@
         >
         PredictionSelectionEventArgs
     </attr>
+
+    <!-- Fix duplicate EventArgs: PlaceListFragmentListener and PlaceSearchFragmentListener both have
+         onLoad/onPlaceSelected/onRequestError with the same signatures, causing CS0111/CS0102 collisions.
+         Assign distinct argsType names to PlaceListFragmentListener's methods. -->
+    <attr
+        path="/api/package[@name='com.google.android.libraries.places.widget']/interface[@name='PlaceListFragmentListener']/method[@name='onLoad']"
+        name="argsType"
+        >PlaceListLoadEventArgs</attr>
+    <attr
+        path="/api/package[@name='com.google.android.libraries.places.widget']/interface[@name='PlaceListFragmentListener']/method[@name='onPlaceSelected']"
+        name="argsType"
+        >PlaceListPlaceSelectedEventArgs</attr>
+    <attr
+        path="/api/package[@name='com.google.android.libraries.places.widget']/interface[@name='PlaceListFragmentListener']/method[@name='onRequestError']"
+        name="argsType"
+        >PlaceListRequestErrorEventArgs</attr>
 </metadata>
