@@ -24,6 +24,57 @@
         public
     </attr>
 
+    <!--
+        ServerListener.transportCreated(ServerTransport) is automatically dropped
+        from the bindings because its parameter type io.grpc.internal.ServerTransport
+        is unbound: ServerTransport implements io.grpc.InternalInstrumented, which is
+        dropped because its getStats() returns an unbound Guava ListenableFuture, and
+        the unresolved base makes the whole ServerTransport interface disappear during
+        the class-parse -> api.xml conversion. Dropping transportCreated left the
+        generated ServerListenerImplementor.java without an override for that abstract
+        method, breaking the Java build of any app referencing this binding (e.g. via
+        Xamarin.Firebase.Firestore).
+
+        Re-introduce a minimal ServerTransport interface (without the unbound
+        InternalInstrumented base) so the parameter type resolves, then re-add the
+        transportCreated method to ServerListener so the managed binding and the
+        generated Java implementor stay in sync.
+    -->
+    <add-node
+        path="/api/package[@name='io.grpc.internal']">
+        <interface abstract="true" deprecated="not deprecated" final="false" name="ServerTransport"
+            static="false" visibility="public" jni-signature="Lio/grpc/internal/ServerTransport;">
+            <method abstract="true" deprecated="not deprecated" final="false"
+                name="getScheduledExecutorService" native="false"
+                return="java.util.concurrent.ScheduledExecutorService"
+                jni-return="Ljava/util/concurrent/ScheduledExecutorService;" static="false"
+                synchronized="false" visibility="public" bridge="false" synthetic="false"
+                jni-signature="()Ljava/util/concurrent/ScheduledExecutorService;" />
+            <method abstract="true" deprecated="not deprecated" final="false" name="shutdown"
+                native="false" return="void" jni-return="V" static="false" synchronized="false"
+                visibility="public" bridge="false" synthetic="false" jni-signature="()V" />
+            <method abstract="true" deprecated="not deprecated" final="false" name="shutdownNow"
+                native="false" return="void" jni-return="V" static="false" synchronized="false"
+                visibility="public" bridge="false" synthetic="false"
+                jni-signature="(Lio/grpc/Status;)V">
+                <parameter name="p0" type="io.grpc.Status" jni-type="Lio/grpc/Status;" />
+            </method>
+        </interface>
+    </add-node>
+
+    <add-node
+        path="/api/package[@name='io.grpc.internal']/interface[@name='ServerListener']">
+        <method
+            abstract="true" deprecated="not deprecated" final="false" name="transportCreated"
+            native="false" return="io.grpc.internal.ServerTransportListener"
+            jni-return="Lio/grpc/internal/ServerTransportListener;" static="false"
+            synchronized="false" visibility="public" bridge="false" synthetic="false"
+            jni-signature="(Lio/grpc/internal/ServerTransport;)Lio/grpc/internal/ServerTransportListener;">
+            <parameter name="p0" type="io.grpc.internal.ServerTransport"
+                jni-type="Lio/grpc/internal/ServerTransport;" />
+        </method>
+    </add-node>
+
     <remove-node
         path="/api/package[@name='io.grpc.internal']/class[@name='AbstractServerStream']"    
         />
