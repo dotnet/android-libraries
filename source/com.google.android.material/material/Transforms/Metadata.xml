@@ -319,35 +319,55 @@
       com.google.android.material.appbar.AppBarLayout
     </attr>
 
-    <!-- Remove deprecated BaseOnChangeListener and BaseOnSliderTouchListener interfaces entirely.
-         These base interfaces use erased generics that cause ACW type erasure clashes when
-         implemented alongside their typed sub-interfaces (Slider.OnChangeListener, etc.).
-         The binding generator creates Implementor Java classes for any interface referenced in
-         add/removeListener pairs, but these implementors cannot satisfy the Java abstract method
-         contracts because of the erasure. Removing the base interfaces eliminates the
-         implementor generation (no interface type → no implementor). -->
-    <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnChangeListener']" />
-    <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='BaseOnSliderTouchListener']" />
+    <!-- Fix BaseSlider addOnChangeListener and removeOnChangeListener methods -->
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnChangeListener
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnChangeListener' and count(parameter)=1 and parameter[1][@type='L']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnChangeListener
+    </attr>
+    
+    <!-- Fix BaseSlider addOnSliderTouchListener and removeOnSliderTouchListener methods -->
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnSliderTouchListener
+    </attr>
+    <attr
+      path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='removeOnSliderTouchListener' and count(parameter)=1 and parameter[1][@type='T']]/parameter[1]"
+      name="type"
+      >
+      com.google.android.material.slider.BaseOnSliderTouchListener
+    </attr>
 
-    <!-- Remove the 'implements BaseOnChangeListener/BaseOnSliderTouchListener' from the typed
-         sub-interfaces so they don't reference the now-removed base types.
-         This makes them standalone interfaces with just their typed methods. -->
+    <!-- Break the implements chain from typed sub-interfaces to the @RestrictTo base interfaces.
+         This prevents ACW erasure clash when users implement Slider.IOnChangeListener or
+         Slider.IOnSliderTouchListener — without this, the ACW generates both onValueChange(Object)
+         and onValueChange(Slider), which have the same Java erasure. (#1482)
+         The base interfaces and their methods remain intact, so the Implementor ACWs compile
+         and their Java references keep the types alive for R8. -->
     <remove-node
       path="/api/package[@name='com.google.android.material.slider']/interface[@name='Slider.OnChangeListener']/implements[@name='com.google.android.material.slider.BaseOnChangeListener']" />
     <remove-node
-      path="/api/package[@name='com.google.android.material.slider']/interface[@name='Slider.OnSliderTouchListener']/implements[@name='com.google.android.material.slider.BaseOnSliderTouchListener']" />
-    <remove-node
       path="/api/package[@name='com.google.android.material.slider']/interface[@name='RangeSlider.OnChangeListener']/implements[@name='com.google.android.material.slider.BaseOnChangeListener']" />
+    <remove-node
+      path="/api/package[@name='com.google.android.material.slider']/interface[@name='Slider.OnSliderTouchListener']/implements[@name='com.google.android.material.slider.BaseOnSliderTouchListener']" />
     <remove-node
       path="/api/package[@name='com.google.android.material.slider']/interface[@name='RangeSlider.OnSliderTouchListener']/implements[@name='com.google.android.material.slider.BaseOnSliderTouchListener']" />
 
-    <!-- Remove the add/remove listener methods from BaseSlider to prevent implementor generation.
-         These methods reference the removed base interfaces as parameter types. We re-implement
-         them manually in Additions with typed overloads (Slider.IOnChangeListener, etc.) that
-         use the correct JNI signatures. This is a standard binding pattern: remove problematic
-         auto-generated method, replace with hand-written Additions code. -->
+    <!-- Remove the auto-generated add/remove listener methods from BaseSlider (which accept
+         IBaseOnChangeListener/IBaseOnSliderTouchListener) and re-add them via hand-written
+         Additions with typed params (Slider.IOnChangeListener etc.) for the Android-recommended API.
+         Keeping the base interfaces intact ensures their Implementor ACWs generate Java code that
+         references BaseOnChangeListener/BaseOnSliderTouchListener, preventing R8 from stripping
+         the types at link time. -->
     <remove-node
       path="/api/package[@name='com.google.android.material.slider']/class[@name='BaseSlider']/method[@name='addOnChangeListener']" />
     <remove-node
