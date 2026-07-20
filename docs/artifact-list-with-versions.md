@@ -368,8 +368,8 @@
 | 361|com.google.accompanist:accompanist-systemuicontroller                 |0.36.0              |Xamarin.Google.Accompanist.SystemUIController                         |0.36.0.9            |
 | 362|com.google.ads.interactivemedia.v3:interactivemedia                   |3.39.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.39.0.2            |
 | 363|com.google.ai.edge.aicore:aicore                                      |0.0.1-exp02         |Xamarin.Google.AI.Edge.AICore                                         |0.0.1.3-exp02       |
-| 364|com.google.ai.edge.litert:litert                                      |2.1.6               |Xamarin.Google.AI.Edge.LiteRT                                         |2.1.6               |
-| 365|com.google.ai.edge.litert:litert-api                                  |2.1.6               |Xamarin.Google.AI.Edge.LiteRT.API                                     |2.1.6               |
+| 364|com.google.ai.edge.litert:litert                                      |2.1.5               |Xamarin.Google.AI.Edge.LiteRT                                         |2.1.5.1             |
+| 365|com.google.ai.edge.litert:litert-api                                  |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.API                                     |1.4.2.1             |
 | 366|com.google.ai.edge.litert:litert-gpu                                  |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.GPU                                     |1.4.2.1             |
 | 367|com.google.ai.edge.litert:litert-gpu-api                              |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.GPU.API                                 |1.4.2.1             |
 | 368|com.google.ai.edge.litert:litert-metadata                             |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.Metadata                                |1.4.2.1             |
