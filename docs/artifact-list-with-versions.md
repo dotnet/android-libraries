@@ -123,10 +123,10 @@
 | 116|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.37            |
 | 117|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0.4             |
 | 118|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0.4             |
-| 119|androidx.databinding:databinding-adapters                             |9.2.1               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.2.1.1             |
-| 120|androidx.databinding:databinding-common                               |9.2.1               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.2.1.1             |
-| 121|androidx.databinding:databinding-runtime                              |9.2.1               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.2.1.1             |
-| 122|androidx.databinding:viewbinding                                      |9.2.1               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.2.1.1             |
+| 119|androidx.databinding:databinding-adapters                             |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.3.0               |
+| 120|androidx.databinding:databinding-common                               |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.3.0               |
+| 121|androidx.databinding:databinding-runtime                              |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.3.0               |
+| 122|androidx.databinding:viewbinding                                      |9.3.0               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.3.0               |
 | 123|androidx.datastore:datastore                                          |1.2.1               |Xamarin.AndroidX.DataStore                                            |1.2.1.1             |
 | 124|androidx.datastore:datastore-android                                  |1.2.1               |Xamarin.AndroidX.DataStore.Android                                    |1.2.1.1             |
 | 125|androidx.datastore:datastore-core                                     |1.2.1               |Xamarin.AndroidX.DataStore.Core                                       |1.2.1.1             |
@@ -302,7 +302,7 @@
 | 295|androidx.wear:wear-core                                               |1.1.0               |Xamarin.AndroidX.Wear.Core                                            |1.1.0.1             |
 | 296|androidx.wear:wear-input                                              |1.2.0               |Xamarin.AndroidX.Wear.Input                                           |1.2.0.3             |
 | 297|androidx.wear:wear-ongoing                                            |1.1.0               |Xamarin.AndroidX.Wear.Ongoing                                         |1.1.0.3             |
-| 298|androidx.wear:wear-phone-interactions                                 |1.1.0               |Xamarin.AndroidX.Wear.PhoneInteractions                               |1.1.0.6             |
+| 298|androidx.wear:wear-phone-interactions                                 |1.1.1               |Xamarin.AndroidX.Wear.PhoneInteractions                               |1.1.1               |
 | 299|androidx.wear:wear-remote-interactions                                |1.2.0               |Xamarin.AndroidX.Wear.RemoteInteractions                              |1.2.0.2             |
 | 300|androidx.wear.compose:compose-foundation                              |1.6.2               |Xamarin.AndroidX.Wear.Compose.Foundation                              |1.6.2.1             |
 | 301|androidx.wear.compose:compose-material                                |1.6.2               |Xamarin.AndroidX.Wear.Compose.Material                                |1.6.2.1             |
@@ -477,7 +477,7 @@
 | 470|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.Google.Android.Libraries.Places.Compat                        |2.6.0.19            |
 | 471|com.google.android.material:compose-theme-adapter                     |1.1.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter                 |1.1.18.23           |
 | 472|com.google.android.material:compose-theme-adapter-3                   |1.0.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter3                |1.0.18.22           |
-| 473|com.google.android.material:material                                  |1.14.0              |Xamarin.Google.Android.Material                                       |1.14.0.5            |
+| 473|com.google.android.material:material                                  |1.14.0              |Xamarin.Google.Android.Material                                       |1.14.0.6            |
 | 474|com.google.android.odml:image                                         |1.0.0-beta1         |Xamarin.Google.Android.ODML.Image                                     |1.0.0.20-beta1      |
 | 475|com.google.android.play:age-signals                                   |0.0.3               |Xamarin.Google.Android.Play.Age.Signals                               |0.0.3.2             |
 | 476|com.google.android.play:ai-delivery                                   |0.1.1-alpha01       |Xamarin.Google.Android.Play.AI.Delivery                               |0.1.1.3-alpha01     |
@@ -492,7 +492,7 @@
 | 485|com.google.android.play:integrity                                     |1.6.0               |Xamarin.Google.Android.Play.Integrity                                 |1.6.0.3             |
 | 486|com.google.android.play:review                                        |2.0.2               |Xamarin.Google.Android.Play.Review                                    |2.0.2.9             |
 | 487|com.google.android.play:review-ktx                                    |2.0.2               |Xamarin.Google.Android.Play.Review.Ktx                                |2.0.2.9             |
-| 488|com.google.android.recaptcha:recaptcha                                |18.9.1              |Xamarin.Google.Android.Recaptcha                                      |18.9.1.1            |
+| 488|com.google.android.recaptcha:recaptcha                                |18.9.2              |Xamarin.Google.Android.Recaptcha                                      |18.9.2              |
 | 489|com.google.android.tv:tv-ads                                          |1.0.1               |Xamarin.Google.Android.TV.Ads                                         |1.0.1.8             |
 | 490|com.google.android.ump:user-messaging-platform                        |4.0.0               |Xamarin.Google.UserMessagingPlatform                                  |4.0.0.3             |
 | 491|com.google.assistant.appactions:suggestions                           |1.0.0               |Xamarin.Google.Assistant.AppActions.Suggestions                       |1.0.0.23            |
@@ -635,7 +635,7 @@
 | 628|io.grpc:grpc-android                                                  |1.82.0              |Xamarin.Grpc.Android                                                  |1.82.0.1            |
 | 629|io.grpc:grpc-api                                                      |1.82.0              |Xamarin.Grpc.Api                                                      |1.82.0.1            |
 | 630|io.grpc:grpc-context                                                  |1.82.0              |Xamarin.Grpc.Context                                                  |1.82.0.1            |
-| 631|io.grpc:grpc-core                                                     |1.82.0              |Xamarin.Grpc.Core                                                     |1.82.0.1            |
+| 631|io.grpc:grpc-core                                                     |1.82.0              |Xamarin.Grpc.Core                                                     |1.82.0.2            |
 | 632|io.grpc:grpc-okhttp                                                   |1.82.0              |Xamarin.Grpc.OkHttp                                                   |1.82.0.1            |
 | 633|io.grpc:grpc-protobuf-lite                                            |1.82.0              |Xamarin.Grpc.Protobuf.Lite                                            |1.82.0.1            |
 | 634|io.grpc:grpc-stub                                                     |1.82.0              |Xamarin.Grpc.Stub                                                     |1.82.0.1            |
