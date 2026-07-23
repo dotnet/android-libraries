@@ -164,7 +164,9 @@ namespace NativeLibraryDownloaderTests
 			var method = typeof (Xamarin.Build.Download.XamarinDownloadArchives).GetMethod (
 				"Build7ZipExtractionArgs",
 				BindingFlags.NonPublic | BindingFlags.Static);
-			var sevenZipPath = Path.GetTempFileName ();
+			Assert.True (method != null, "Could not find XamarinDownloadArchives.Build7ZipExtractionArgs via reflection.");
+			var sevenZipPath = Path.Combine (TempDir, "7z.exe");
+			File.WriteAllText (sevenZipPath, string.Empty);
 
 			var args = method.Invoke (null, new object [] {
 				"archive.tgz",
