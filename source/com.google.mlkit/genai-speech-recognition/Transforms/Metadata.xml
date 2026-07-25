@@ -10,18 +10,12 @@
   <!-- remove all companions for now -->
   <remove-node path="/api/package/class[substring(@name,string-length(@name)-9)='.Companion']" />
 
-  <!-- remove unused Kotlin file-facade helper classes (*Kt) -->
-  <remove-node path="/api/package/class[substring(@name, string-length(@name)-1)='Kt']" />
+  <!-- remove unused Kotlin helpers -->
+  <remove-node path="/api/package/class[@name='SpeechRecognizerOptionsKt']" />
+  <remove-node path="/api/package/class[@name='SpeechRecognizerRequestKt']" />
 
-  <!-- Remove the nested FinishReason interface to avoid conflict with the FinishReason property -->
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='Candidate.FinishReason']" />
-
-  <!-- Remove IntDef annotation interfaces (enumified via EnumFields/EnumMethods).
-       These also collide with the 'Google.MLKit.GenAI.Prompt.Java' namespace, so
-       leaving them causes CS0234 on the generated 'Java.Lang.Object' references. -->
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='ModelPreference']" />
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='ModelReleaseStage']" />
-  <remove-node path="/api/package[@name='com.google.mlkit.genai.prompt']/interface[@name='TypedCandidate.TypedFinishReason']" />
+  <!-- Remove the nested Mode interface (enumified as SpeechRecognizerOptionsMode) -->
+  <remove-node path="/api/package[@name='com.google.mlkit.genai.speechrecognition']/interface[@name='SpeechRecognizerOptions.Mode']" />
 
   <!-- Remove Kotlin data class synthetic methods -->
   <remove-node path="/api/package/class/method[@name='component1']" />

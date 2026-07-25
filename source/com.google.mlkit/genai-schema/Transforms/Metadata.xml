@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+  <!-- Remove Kotlin data class synthetic methods -->
+  <remove-node path="/api/package/class/method[starts-with(@name,'component')]" />
+  <remove-node path="/api/package/class/method[@name='copy']" />
+
+  <!-- Remove obfuscated internal methods -->
+  <remove-node path="/api/package/interface/method[starts-with(@name,'zz')]" />
+  <remove-node path="/api/package/class/method[starts-with(@name,'zz')]" />
+
+</metadata>
