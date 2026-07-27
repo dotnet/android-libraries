@@ -167,4 +167,26 @@
     <remove-node
         path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.banner']/interface[@name='BannerAd']/method[@name='a' and count(parameter)=1 and parameter[1][@type='com.google.android.libraries.ads.mobile.sdk.banner.AdSize']]"
         />
+    <!-- MediaContent exposes an obfuscated accessor 'a()' returning a type from the (removed)
+         'com.google.android.libraries.ads.mobile.sdk.internal' package. Because it is an abstract
+         interface method with an unresolvable return type, the whole MediaContent interface fails
+         to generate, which cascades: NativeAd.getMediaContent() and CustomNativeAd.getMediaContent()
+         then reference an unbound type, so NativeAd and CustomNativeAd are dropped too. That in turn
+         silently removes NativeAdLoaderCallback.onNativeAdLoaded / onCustomNativeAdLoaded and
+         NativeAdView.registerNativeAd, leaving native ads unusable. Removing this internal accessor
+         (same approach as the BannerAd fix above) lets the whole native-ad surface bind. -->
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.nativead']/interface[@name='MediaContent']/method[@name='a' and count(parameter)=0]"
+        />
+    <!-- Java generics erasure: NativeRequest declares getCustomFormatIds()/getNativeAdTypes() with a
+         raw java.util.List return, while its implementors (NativeAdRequest, NativeSignalRequest) expose
+         the reified List<String> / List<NativeAd.NativeAdType>. That maps to IList vs IList<T> in C#,
+         which cannot satisfy the interface (CS0738). Drop the raw interface members so the concrete,
+         generic properties on the request classes bind. Same fix already applied to BannerRequest.getAdSizes above. -->
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.nativead']/interface[@name='NativeRequest']/method[@name='getCustomFormatIds' and count(parameter)=0]"
+        />
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.nativead']/interface[@name='NativeRequest']/method[@name='getNativeAdTypes' and count(parameter)=0]"
+        />
 </metadata>
