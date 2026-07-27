@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Linq;
 using Microsoft.Build.Construction;
@@ -155,6 +156,27 @@ namespace NativeLibraryDownloaderTests
 			Assert.True (success);
 
 			Assert.True (File.Exists (Path.Combine (unpackDir, "GoogleSymbolUtilities-1.0.3", "Libraries", "libGSDK_Overload.a")));
+		}
+
+		[Fact]
+		public void Test7ZipExtractionIsNonInteractive ()
+		{
+			var method = typeof (Xamarin.Build.Download.XamarinDownloadArchives).GetMethod (
+				"Build7ZipExtractionArgs",
+				BindingFlags.NonPublic | BindingFlags.Static);
+			Assert.True (method != null, "Could not find XamarinDownloadArchives.Build7ZipExtractionArgs via reflection.");
+			var sevenZipPath = Path.Combine (TempDir, "7z.exe");
+			File.WriteAllText (sevenZipPath, string.Empty);
+
+			var args = method.Invoke (null, new object [] {
+				"archive.tgz",
+				TempDir,
+				sevenZipPath,
+				false,
+				null,
+			});
+
+			Assert.Contains ("-y", args.ToString ());
 		}
 
 		[Fact]
