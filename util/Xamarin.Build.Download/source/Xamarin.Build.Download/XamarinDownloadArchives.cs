@@ -319,6 +319,9 @@ namespace Xamarin.Build.Download
 			if (ignoreTarSymLinks)
 				args.Add ("-snl-");
 
+			// Never let 7-Zip wait for input from a non-interactive MSBuild task.
+			// https://7-zip.opensource.jp/chm/cmdline/switches/yes.htm
+			args.Add ("-y");
 			args.AddQuoted ("-o" + contentDir);
 			args.AddQuoted (file);
 			return args;
