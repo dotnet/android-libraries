@@ -123,10 +123,10 @@
 | 116|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.37            |
 | 117|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0.4             |
 | 118|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0.4             |
-| 119|androidx.databinding:databinding-adapters                             |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.3.0               |
-| 120|androidx.databinding:databinding-common                               |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.3.0               |
-| 121|androidx.databinding:databinding-runtime                              |9.3.0               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.3.0               |
-| 122|androidx.databinding:viewbinding                                      |9.3.0               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.3.0               |
+| 119|androidx.databinding:databinding-adapters                             |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.3.1               |
+| 120|androidx.databinding:databinding-common                               |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.3.1               |
+| 121|androidx.databinding:databinding-runtime                              |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.3.1               |
+| 122|androidx.databinding:viewbinding                                      |9.3.1               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.3.1               |
 | 123|androidx.datastore:datastore                                          |1.2.1               |Xamarin.AndroidX.DataStore                                            |1.2.1.1             |
 | 124|androidx.datastore:datastore-android                                  |1.2.1               |Xamarin.AndroidX.DataStore.Android                                    |1.2.1.1             |
 | 125|androidx.datastore:datastore-core                                     |1.2.1               |Xamarin.AndroidX.DataStore.Core                                       |1.2.1.1             |
@@ -471,7 +471,7 @@
 | 464|com.google.android.gms:play-services-vision-image-labeling-internal   |16.1.0              |Xamarin.GooglePlayServices.Vision.ImageLabelingInternal               |116.1.0.26          |
 | 465|com.google.android.gms:play-services-wallet                           |20.0.0              |Xamarin.GooglePlayServices.Wallet                                     |120.0.0.1           |
 | 466|com.google.android.gms:play-services-wearable                         |20.0.1              |Xamarin.GooglePlayServices.Wearable                                   |120.0.1.1           |
-| 467|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.2.1               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.2.1.1             |
+| 467|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.3.0               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.3.0               |
 | 468|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.Google.Android.Libraries.Identity.GoogleId                    |1.1.0.15            |
 | 469|com.google.android.libraries.places:places                            |5.3.0               |Xamarin.Google.Android.Libraries.Places                               |5.3.0               |
 | 470|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.Google.Android.Libraries.Places.Compat                        |2.6.0.19            |
@@ -479,7 +479,7 @@
 | 472|com.google.android.material:compose-theme-adapter-3                   |1.0.18              |Xamarin.Google.Android.Material.Compose.Theme.Adapter3                |1.0.18.22           |
 | 473|com.google.android.material:material                                  |1.14.0              |Xamarin.Google.Android.Material                                       |1.14.0.6            |
 | 474|com.google.android.odml:image                                         |1.0.0-beta1         |Xamarin.Google.Android.ODML.Image                                     |1.0.0.20-beta1      |
-| 475|com.google.android.play:age-signals                                   |0.0.3               |Xamarin.Google.Android.Play.Age.Signals                               |0.0.3.2             |
+| 475|com.google.android.play:age-signals                                   |0.0.4               |Xamarin.Google.Android.Play.Age.Signals                               |0.0.4               |
 | 476|com.google.android.play:ai-delivery                                   |0.1.1-alpha01       |Xamarin.Google.Android.Play.AI.Delivery                               |0.1.1.3-alpha01     |
 | 477|com.google.android.play:app-update                                    |2.1.0               |Xamarin.Google.Android.Play.App.Update                                |2.1.0.19            |
 | 478|com.google.android.play:app-update-ktx                                |2.1.0               |Xamarin.Google.Android.Play.App.Update.Ktx                            |2.1.0.19            |
@@ -621,8 +621,8 @@
 | 614|com.squareup.okhttp3:okhttp-jvm                                       |5.4.0               |Square.OkHttp3.JVM                                                    |5.4.0.1             |
 | 615|com.squareup.okhttp3:okhttp-tls                                       |5.4.0               |Square.OkHttp3.OkHttp.TLS                                             |5.4.0.1             |
 | 616|com.squareup.okhttp3:okhttp-urlconnection                             |5.4.0               |Square.OkHttp3.UrlConnection                                          |5.4.0.1             |
-| 617|com.squareup.okio:okio                                                |3.17.0              |Square.OkIO                                                           |3.17.0.1            |
-| 618|com.squareup.okio:okio-jvm                                            |3.17.0              |Square.OkIO.JVM                                                       |3.17.0.1            |
+| 617|com.squareup.okio:okio                                                |3.18.0              |Square.OkIO                                                           |3.18.0              |
+| 618|com.squareup.okio:okio-jvm                                            |3.18.0              |Square.OkIO.JVM                                                       |3.18.0              |
 | 619|com.squareup.picasso:picasso                                          |2.8                 |Square.Picasso                                                        |2.8.0.23            |
 | 620|com.squareup.retrofit:retrofit                                        |1.9.0               |Square.Retrofit                                                       |1.9.0.24            |
 | 621|com.squareup.retrofit2:adapter-rxjava2                                |3.0.0               |Square.Retrofit2.AdapterRxJava2                                       |3.0.0.4             |

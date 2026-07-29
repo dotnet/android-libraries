@@ -538,6 +538,13 @@ Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloader
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloaderCompanion
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloaderCompanion.PollAd(string! preloadId) -> Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.IAppOpenAd?
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloaderConsts
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.AdPersistenceEnabled.get -> bool
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.AppOpenAdRequest(string? p0, Java.Util.LinkedHashSet? p1, string? p2, Java.Util.LinkedHashMap? p3, Android.OS.Bundle? p4, Java.Util.HashSet? p5, Java.Util.HashSet? p6, Java.Util.LinkedHashMap? p7, string? p8, string? p9, long p10, bool p11, bool p12, bool p13, int p14) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest!
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder.Builder(string! adUnitId) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder.SetAdPersistenceEnabled() -> Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenSignalRequest
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenSignalRequest.AppOpenSignalRequest(string? p0, string? p1, Java.Util.LinkedHashSet? p2, string? p3, Java.Util.LinkedHashMap? p4, Android.OS.Bundle? p5, Java.Util.HashSet? p6, Java.Util.HashSet? p7, Java.Util.LinkedHashMap? p8, string? p9, string? p10, int p11) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenSignalRequest.Builder
@@ -830,6 +837,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.Common.FullScreenContentError.ErrorCode.
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.FullScreenContentError.FullScreenContentError(Google.Android.Libraries.Ads.Mobile.Sdk.Common.FullScreenContentError.ErrorCode! code, string! message, Google.Android.Libraries.Ads.Mobile.Sdk.Common.MediationAdError? mediationAdError) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.FullScreenContentError.MediationAdError.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.MediationAdError?
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAd
+Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAd.AdUnitId.get -> string!
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAd.Destroy() -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAd.PlacementId.get -> long
 Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAd.PlacementId.set -> void
@@ -1082,6 +1090,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Buil
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig!
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.Builder(string! applicationId) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.DisableMediationAdapterInitialization() -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder!
+Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.DisableSdkCrashReporting() -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.SetAdapterInitializationConfig(Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.AdapterInitializationConfig! adapterInitializationConfig) -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.SetExtras(Android.OS.Bundle! extras) -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder!
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder.SetNativeValidatorDisabled() -> Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Builder!
@@ -1089,10 +1098,11 @@ Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Buil
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Companion
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Companion.Companion(int p0) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.Extras.get -> Android.OS.Bundle!
-Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.InitializationConfig(string? p0, bool p1, bool p2, Google.Android.Libraries.Ads.Mobile.Sdk.Common.RequestConfiguration? p3, Android.OS.Bundle? p4, Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.AdapterInitializationConfig? p5, int p6) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.InitializationConfig(string? p0, bool p1, bool p2, Google.Android.Libraries.Ads.Mobile.Sdk.Common.RequestConfiguration? p3, Android.OS.Bundle? p4, Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.AdapterInitializationConfig? p5, string? p6, bool p7, int p8) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.MediationAdapterInitializationDisabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.NativeAdDebuggerDisabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.RequestConfiguration.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.RequestConfiguration!
+Google.Android.Libraries.Ads.Mobile.Sdk.Initialization.InitializationConfig.SdkCrashReportingDisabled.get -> bool
 Google.Android.Libraries.Ads.Mobile.Sdk.Interstitial.IInterstitialAd
 Google.Android.Libraries.Ads.Mobile.Sdk.Interstitial.IInterstitialAd.AdEventCallback.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Interstitial.IInterstitialAdEventCallback?
 Google.Android.Libraries.Ads.Mobile.Sdk.Interstitial.IInterstitialAd.AdEventCallback.set -> void
@@ -1188,6 +1198,7 @@ Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.AdEventCallback.set -
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.Advertiser.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.Body.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.CallToAction.get -> string?
+Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.CreativeSummary.get -> string?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.EnableCustomClickGesture() -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.Extras.get -> Android.OS.Bundle!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.INativeAd.Headline.get -> string?
@@ -1313,6 +1324,8 @@ Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.AdvertiserView.get
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.AdvertiserView.set -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.BodyView.get -> Android.Views.View?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.BodyView.set -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.CreativeSummaryView.get -> Android.Views.View?
+Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.CreativeSummaryView.set -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.MediaView.get -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.MediaView?
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.NativeAdView(Android.Content.Context! context) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.NativeAdView(Android.Content.Context! context, Android.Util.IAttributeSet! attrs) -> void
@@ -1685,6 +1698,7 @@ const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetA
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetAdvertiser = "3005" -> string!
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetBody = "3004" -> string!
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetCallToAction = "3002" -> string!
+const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetCreativeSummary = "3014" -> string!
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetHeadline = "3001" -> string!
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetIcon = "3003" -> string!
 const Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdAssetNames.AssetMediaContent = "3010" -> string!
@@ -1777,6 +1791,8 @@ override Google.Android.Gms.Ads.VideoOptions.JniPeerMembers.get -> Java.Interop.
 override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloaderCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdPreloaderCompanion.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration) -> bool
+override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenAdRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenSignalRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.AppOpen.AppOpenSignalRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2018,6 +2034,7 @@ static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdFormat.Rewarded.get -> G
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdFormat.RewardedInterstitial.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdFormat?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdFormat.Values() -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdFormat![]?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode.AlreadyOpen.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode.Disabled.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode.FailedToLoad.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode.InternalError.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode.NotInTestMode.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdInspectorError.ErrorCode?
