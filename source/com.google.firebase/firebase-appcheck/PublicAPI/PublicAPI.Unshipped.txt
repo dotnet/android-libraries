@@ -79,7 +79,7 @@ abstract Firebase.AppCheck.FirebaseAppCheck.SetTokenAutoRefreshEnabled(bool p0) 
 const Firebase.AppCheck.BuildConfig.BuildType = "release" -> string!
 const Firebase.AppCheck.BuildConfig.Debug = false -> bool
 const Firebase.AppCheck.BuildConfig.LibraryPackageName = "com.google.firebase.appcheck" -> string!
-const Firebase.AppCheck.BuildConfig.VersionName = "19.3.0" -> string!
+const Firebase.AppCheck.BuildConfig.VersionName = "19.4.0" -> string!
 const Firebase.AppCheck.Internal.NetworkClient.Debug = 2 -> int
 const Firebase.AppCheck.Internal.NetworkClient.PlayIntegrity = 3 -> int
 const Firebase.AppCheck.Internal.NetworkClient.Recaptcha = 4 -> int
@@ -169,8 +169,10 @@ virtual Firebase.AppCheck.Internal.DefaultTokenRefresher.Cancel() -> void
 virtual Firebase.AppCheck.Internal.DefaultTokenRefresher.ScheduleRefresh(long timeToRefreshMillis) -> void
 virtual Firebase.AppCheck.Internal.HttpErrorResponse.ErrorCode.get -> int
 virtual Firebase.AppCheck.Internal.HttpErrorResponse.ErrorMessage.get -> string!
+virtual Firebase.AppCheck.Internal.NetworkClient.AppId.get -> string!
 virtual Firebase.AppCheck.Internal.NetworkClient.ExchangeAttestationForAppCheckToken(byte[]! requestBytes, int tokenType, Firebase.AppCheck.Internal.RetryManager! retryManager) -> Firebase.AppCheck.Internal.AppCheckTokenResponse!
 virtual Firebase.AppCheck.Internal.NetworkClient.GeneratePlayIntegrityChallenge(byte[]! requestBytes, Firebase.AppCheck.Internal.RetryManager! retryManager) -> string!
+virtual Firebase.AppCheck.Internal.NetworkClient.ProjectId.get -> string!
 virtual Firebase.AppCheck.Internal.RetryManager.CanRetry() -> bool
 virtual Firebase.AppCheck.Internal.RetryManager.ResetBackoffOnSuccess() -> void
 virtual Firebase.AppCheck.Internal.RetryManager.UpdateBackoffOnFailure(int errorCode) -> void
