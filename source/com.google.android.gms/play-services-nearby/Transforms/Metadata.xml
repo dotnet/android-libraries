@@ -63,8 +63,19 @@
 	<attr path="/api/package/*[@extends='com.google.android.gms.common.internal.safeparcel.zza']" name="extends-generic-aware">java.lang.Object</attr>
 	<remove-node path="/api/package/*/implements[@name='com.google.android.gms.common.internal.ReflectedParcelable']" />
 
+	<!-- New in 19.4.0: ConnectionLifecycleCallback now extends an internal zza type that is stripped from the
+	     binding, leaving an unresolvable base type that would otherwise invalidate ConnectionLifecycleCallback
+	     and everything referencing it (IConnections, IConnectionsClient, Nearby.GetConnectionsClient). -->
+	<attr path="/api/package/*[@extends='com.google.android.gms.nearby.connection.zza']" name="extends">java.lang.Object</attr>
+	<attr path="/api/package/*[@extends='com.google.android.gms.nearby.connection.zza']" name="extends-generic-aware">java.lang.Object</attr>
+
 	<attr path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='Payload']/method[@name='getType' and count(parameter)=0]" name="propertyName">PayloadType</attr>
 	<attr path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='PayloadTransferUpdate']/method[@name='getStatus' and count(parameter)=0]" name="propertyName">TransferStatus</attr>
+
+	<!-- New in 19.4.0: PreciseEstimateInfo's getEstimateFailureReason/getEstimateKind properties collide with the
+	     nested IntDef-derived "EstimateFailureReason"/"EstimateKind" constants classes of the same name. -->
+	<attr path="/api/package[@name='com.google.android.gms.nearby.uwb']/class[@name='PreciseEstimateInfo']/method[@name='getEstimateFailureReason' and count(parameter)=0]" name="propertyName">EstimateFailureReasonValue</attr>
+	<attr path="/api/package[@name='com.google.android.gms.nearby.uwb']/class[@name='PreciseEstimateInfo']/method[@name='getEstimateKind' and count(parameter)=0]" name="propertyName">EstimateKindValue</attr>
 
 	<attr
 		path="/api/package[@name='com.google.android.gms.nearby.exposurenotification']"

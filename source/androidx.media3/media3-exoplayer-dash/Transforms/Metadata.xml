@@ -68,5 +68,16 @@
     <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setMaxMergedSegmentStartTimeDiffMs' and count(parameter)=1 and parameter[1][@type='long']]" />
     <remove-node path="/api/package[@name='androidx.media3.exoplayer.dash.offline']/class[@name='DashDownloader.Factory']/method[@name='setStartPositionUs' and count(parameter)=1 and parameter[1][@type='long']]" />
 
+    <!-- New in 1.11.0: SegmentBase.SegmentList/SegmentTemplate/SingleSegmentBase override copyWithPresentationTimeOffset
+         with a covariant (subclass) return type, which Java allows but C# cannot satisfy with a plain "override" of
+         the abstract SegmentBase.CopyWithPresentationTimeOffset(long) -> SegmentBase declaration (return types must
+         match exactly). Rename the abstract base declaration so the covariant-returning subclass methods keep their
+         natural name, then provide the real override via Additions (see Additions/SegmentBase.cs). -->
+    <attr
+        path="/api/package[@name='androidx.media3.exoplayer.dash.manifest']/class[@name='SegmentBase']/method[@name='copyWithPresentationTimeOffset' and count(parameter)=1 and parameter[1][@type='long']]"
+        name="managedName"
+        >
+        CopyWithPresentationTimeOffsetCore
+    </attr>
 
 </metadata>

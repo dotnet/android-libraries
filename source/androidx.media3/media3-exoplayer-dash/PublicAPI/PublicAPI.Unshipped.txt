@@ -114,6 +114,7 @@ AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.AvailabilityStartTimeMs.get
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.AvailabilityStartTimeMs.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.Copy(System.Collections.Generic.IList<AndroidX.Media3.Common.StreamKey!>? streamKeys) -> Java.Lang.Object?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.DashManifest(long availabilityStartTimeMs, long durationMs, long minBufferTimeMs, bool dynamic, long minUpdatePeriodMs, long timeShiftBufferDepthMs, long suggestedPresentationDelayMs, long publishTimeMs, AndroidX.Media3.ExoPlayer.Dash.Manifest.ProgramInformation? programInformation, AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement? utcTiming, AndroidX.Media3.ExoPlayer.Dash.Manifest.ServiceDescriptionElement? serviceDescription, Android.Net.Uri? location, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Period!>? periods) -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.DashManifest(long availabilityStartTimeMs, long durationMs, long minBufferTimeMs, bool dynamic, long minUpdatePeriodMs, long timeShiftBufferDepthMs, long suggestedPresentationDelayMs, long publishTimeMs, AndroidX.Media3.ExoPlayer.Dash.Manifest.ProgramInformation? programInformation, AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement? utcTiming, AndroidX.Media3.ExoPlayer.Dash.Manifest.ServiceDescriptionElement? serviceDescription, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Period!>? periods, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Location!>? locations) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.DashManifest(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.DurationMs.get -> long
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.DurationMs.set -> void
@@ -124,6 +125,8 @@ AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.GetPeriodDurationMs(int ind
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.GetPeriodDurationUs(int index) -> long
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.Location.get -> Android.Net.Uri?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.Location.set -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.Locations.get -> Google.Common.Collect.ImmutableList?
+AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.Locations.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.MinBufferTimeMs.get -> long
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.MinBufferTimeMs.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest.MinUpdatePeriodMs.get -> long
@@ -185,6 +188,13 @@ AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream.Timescale.get -> long
 AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream.Timescale.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream.Value.get -> string?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream.Value.set -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.Location(Android.Net.Uri? url) -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.Location(Android.Net.Uri? url, string? serviceLocation) -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.ServiceLocation.get -> string?
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.ServiceLocation.set -> void
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.Url.get -> Android.Net.Uri?
+AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.Url.set -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.Period
 AndroidX.Media3.ExoPlayer.Dash.Manifest.Period.AdaptationSets.get -> System.Collections.IList?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.Period.AdaptationSets.set -> void
@@ -257,8 +267,10 @@ AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.MultiSegmen
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentBase(AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri? initialization, long timescale, long presentationTimeOffset) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList
+AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.CopyWithPresentationTimeOffset(long newPresentationTimeOffset) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.SegmentList(AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri? initialization, long timescale, long presentationTimeOffset, long startNumber, long duration, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTimelineElement!>? segmentTimeline, long availabilityTimeOffsetUs, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri!>? mediaSegments, long timeShiftBufferDepthUs, long periodStartUnixTimeUs) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate
+AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.CopyWithPresentationTimeOffset(long newPresentationTimeOffset) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate?
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.SegmentTemplate(AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri? initialization, long timescale, long presentationTimeOffset, long startNumber, long endNumber, long duration, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTimelineElement!>? segmentTimeline, long availabilityTimeOffsetUs, AndroidX.Media3.ExoPlayer.Dash.Manifest.UrlTemplate? initializationTemplate, AndroidX.Media3.ExoPlayer.Dash.Manifest.UrlTemplate? mediaTemplate, long timeShiftBufferDepthUs, long periodStartUnixTimeUs) -> void
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTimelineElement
 AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTimelineElement.SegmentTimelineElement(long startTime, long duration) -> void
@@ -317,6 +329,7 @@ AndroidX.Media3.ExoPlayer.Dash.PlayerEmsgHandler.UpdateManifest(AndroidX.Media3.
 abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation.CacheKey.get -> string?
 abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation.Index.get -> AndroidX.Media3.ExoPlayer.Dash.IDashSegmentIndex?
 abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation.IndexUri.get -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
+abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.CopyWithPresentationTimeOffsetCore(long p0) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase?
 abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.GetSegmentCount(long p0) -> long
 abstract AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.GetSegmentUrl(AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation? p0, long p1) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
 const AndroidX.Media3.ExoPlayer.Dash.DashMediaSource.DefaultFallbackTargetLiveOffsetMs = 30000 -> long
@@ -361,6 +374,7 @@ override AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.ThresholdCla
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.ThresholdType.get -> System.Type!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Dash.Manifest.Location.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.Period.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.Period.ThresholdClass.get -> nint
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.Period.ThresholdType.get -> System.Type!
@@ -385,13 +399,16 @@ override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.JniPeerMembers.get 
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.ThresholdClass.get -> nint
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.ThresholdType.get -> System.Type!
+override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.CopyWithPresentationTimeOffsetCore(long p0) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase?
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.GetSegmentCount(long periodDurationUs) -> long
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.GetSegmentUrl(AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation? representation, long sequenceNumber) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentList.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.CopyWithPresentationTimeOffsetCore(long p0) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase?
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.GetSegmentCount(long periodDurationUs) -> long
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.GetSegmentUrl(AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation? representation, long sequenceNumber) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTemplate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SegmentTimelineElement.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.CopyWithPresentationTimeOffsetCore(long p0) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase?
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.ThresholdClass.get -> nint
 override AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.ThresholdType.get -> System.Type!
@@ -456,6 +473,7 @@ virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildEvent(st
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildEventStream(string? schemeIdUri, string? value, long timescale, long[]? presentationTimesUs, AndroidX.Media3.Extractor.Metadata.Emsg.EventMessage![]? events) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildFormat(string? id, string? containerMimeType, int width, int height, float frameRate, int audioChannels, int audioSamplingRate, int bitrate, string? language, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor!>? roleDescriptors, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor!>? accessibilityDescriptors, string? codecs, string? supplementalCodecs, string? supplementalProfiles, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor!>? essentialProperties, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor!>? supplementalProperties) -> AndroidX.Media3.Common.Format?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildMediaPresentationDescription(long availabilityStartTime, long durationMs, long minBufferTimeMs, bool dynamic, long minUpdateTimeMs, long timeShiftBufferDepthMs, long suggestedPresentationDelayMs, long publishTimeMs, AndroidX.Media3.ExoPlayer.Dash.Manifest.ProgramInformation? programInformation, AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement? utcTiming, AndroidX.Media3.ExoPlayer.Dash.Manifest.ServiceDescriptionElement? serviceDescription, Android.Net.Uri? location, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Period!>? periods) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest?
+virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildMediaPresentationDescription(long availabilityStartTime, long durationMs, long minBufferTimeMs, bool dynamic, long minUpdateTimeMs, long timeShiftBufferDepthMs, long suggestedPresentationDelayMs, long publishTimeMs, AndroidX.Media3.ExoPlayer.Dash.Manifest.ProgramInformation? programInformation, AndroidX.Media3.ExoPlayer.Dash.Manifest.UtcTimingElement? utcTiming, AndroidX.Media3.ExoPlayer.Dash.Manifest.ServiceDescriptionElement? serviceDescription, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Period!>? periods, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Location!>? locations) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifest?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildPeriod(string? id, long startMs, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.AdaptationSet!>? adaptationSets, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.EventStream!>? eventStreams, AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor? assetIdentifier) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.Period?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildRangedUri(string? urlText, long rangeStart, long rangeLength) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.BuildRepresentation(AndroidX.Media3.ExoPlayer.Dash.Manifest.DashManifestParser.RepresentationInfo? representationInfo, string? label, System.Collections.Generic.IList<AndroidX.Media3.Common.Label!>? labels, string? extraDrmSchemeType, System.Collections.Generic.IList<AndroidX.Media3.Common.DrmInitData.SchemeData!>? extraDrmSchemeDatas, System.Collections.Generic.IList<AndroidX.Media3.ExoPlayer.Dash.Manifest.Descriptor!>? extraInbandEventStreams) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.Representation?
@@ -519,4 +537,5 @@ virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.Get
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.GetSegmentNum(long timeUs, long periodDurationUs) -> long
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.MultiSegmentBase.IsExplicit.get -> bool
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.PresentationTimeOffsetUs.get -> long
+virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.CopyWithPresentationTimeOffset(long newPresentationTimeOffset) -> AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase?
 virtual AndroidX.Media3.ExoPlayer.Dash.Manifest.SegmentBase.SingleSegmentBase.Index.get -> AndroidX.Media3.ExoPlayer.Dash.Manifest.RangedUri?
