@@ -64,10 +64,16 @@
 	<remove-node path="/api/package/*/implements[@name='com.google.android.gms.common.internal.ReflectedParcelable']" />
 
 	<!-- New in 19.4.0: ConnectionLifecycleCallback now extends an internal zza type that is stripped from the
-	     binding, leaving an unresolvable base type that would otherwise invalidate ConnectionLifecycleCallback
-	     and everything referencing it (IConnections, IConnectionsClient, Nearby.GetConnectionsClient). -->
-	<attr path="/api/package/*[@extends='com.google.android.gms.nearby.connection.zza']" name="extends">java.lang.Object</attr>
+	     binding. Rebase both representations before removing the obfuscated method introduced on the callback. -->
 	<attr path="/api/package/*[@extends='com.google.android.gms.nearby.connection.zza']" name="extends-generic-aware">java.lang.Object</attr>
+	<attr path="/api/package/*[@extends='com.google.android.gms.nearby.connection.zza']" name="extends">java.lang.Object</attr>
+	<remove-node path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='ConnectionLifecycleCallback']/method[@name='zza']" />
+	<add-node path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='ConnectionLifecycleCallback']">
+		<method abstract="false" deprecated="not deprecated" final="false" name="onBandwidthChanged" native="false" return="void" jni-return="V" static="false" synchronized="false" visibility="public" bridge="false" synthetic="false" jni-signature="(Ljava/lang/String;Lcom/google/android/gms/nearby/connection/BandwidthInfo;)V">
+			<parameter name="p0" type="java.lang.String" jni-type="Ljava/lang/String;" not-null="true" />
+			<parameter name="p1" type="com.google.android.gms.nearby.connection.BandwidthInfo" jni-type="Lcom/google/android/gms/nearby/connection/BandwidthInfo;" not-null="true" />
+		</method>
+	</add-node>
 
 	<attr path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='Payload']/method[@name='getType' and count(parameter)=0]" name="propertyName">PayloadType</attr>
 	<attr path="/api/package[@name='com.google.android.gms.nearby.connection']/class[@name='PayloadTransferUpdate']/method[@name='getStatus' and count(parameter)=0]" name="propertyName">TransferStatus</attr>
