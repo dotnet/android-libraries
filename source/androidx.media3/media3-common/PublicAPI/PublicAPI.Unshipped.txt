@@ -59,10 +59,12 @@ AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithAdState(int state, int index)
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithAdUri(Android.Net.Uri? uri, int index) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithAllAdsReset() -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithAllAdsSkipped() -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
+AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithAllAdsUnavailable() -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithContentResumeOffsetUs(long contentResumeOffsetUs) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithIsServerSideInserted(bool isServerSideInserted) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithLastAdRemoved() -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithOriginalAdCount(int originalCount) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
+AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithRemovedAdsAfterIndex(int adIndexInAdGroup) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroup.WithTimeUs(long timeUs) -> AndroidX.Media3.Common.AdPlaybackState.AdGroup?
 AndroidX.Media3.Common.AdPlaybackState.AdGroupCount.get -> int
 AndroidX.Media3.Common.AdPlaybackState.AdGroupCount.set -> void
@@ -120,9 +122,11 @@ AndroidX.Media3.Common.AdPlaybackState.WithOriginalAdCount(int adGroupIndex, int
 AndroidX.Media3.Common.AdPlaybackState.WithPlayedAd(int adGroupIndex, int adIndexInAdGroup) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.AdPlaybackState.WithRemovedAdGroupCount(int removedAdGroupCount) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.AdPlaybackState.WithRemovedAdGroupCountBefore(long timeUs) -> AndroidX.Media3.Common.AdPlaybackState?
+AndroidX.Media3.Common.AdPlaybackState.WithRemovedAdsAfterIndex(int adGroupIndex, int adIndexInAdGroup) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.AdPlaybackState.WithResetAdGroup(int adGroupIndex) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.AdPlaybackState.WithSkippedAd(int adGroupIndex, int adIndexInAdGroup) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.AdPlaybackState.WithSkippedAdGroup(int adGroupIndex) -> AndroidX.Media3.Common.AdPlaybackState?
+AndroidX.Media3.Common.AdPlaybackState.WithUnavailableAdGroup(int adGroupIndex) -> AndroidX.Media3.Common.AdPlaybackState?
 AndroidX.Media3.Common.Audio.AudioBecomingNoisyManager
 AndroidX.Media3.Common.Audio.AudioBecomingNoisyManager.AudioBecomingNoisyManager(Android.Content.Context? context, Android.OS.Looper? backgroundLooper, Android.OS.Looper? eventLooper, AndroidX.Media3.Common.Audio.AudioBecomingNoisyManager.IListener? listener, AndroidX.Media3.Common.Util.IClock? clock) -> void
 AndroidX.Media3.Common.Audio.AudioBecomingNoisyManager.IListener
@@ -183,8 +187,19 @@ AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat.SampleRate.get -> int
 AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat.SampleRate.set -> void
 AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata
 AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.AudioProcessorStreamMetadata(long positionOffsetUs) -> void
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.BuildUpon() -> AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.Build() -> AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.Builder() -> void
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.SetPeriodUid(Java.Lang.Object? periodUid) -> AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.SetPositionOffsetUs(long positionOffsetUs) -> AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.SetTimeline(AndroidX.Media3.Common.Timeline? timeline) -> AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.PeriodUid.get -> Java.Lang.Object?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.PeriodUid.set -> void
 AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.PositionOffsetUs.get -> long
 AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.PositionOffsetUs.set -> void
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Timeline.get -> AndroidX.Media3.Common.Timeline?
+AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Timeline.set -> void
 AndroidX.Media3.Common.Audio.AudioProcessorUnhandledAudioFormatException
 AndroidX.Media3.Common.Audio.AudioProcessorUnhandledAudioFormatException.AudioProcessorUnhandledAudioFormatException(AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat? inputAudioFormat) -> void
 AndroidX.Media3.Common.Audio.AudioProcessorUnhandledAudioFormatException.AudioProcessorUnhandledAudioFormatException(string? message, AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat? audioFormat) -> void
@@ -289,7 +304,7 @@ AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.QueueEndOfStream() -> v
 AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.QueueInput(Java.Nio.ByteBuffer? inputBuffer) -> void
 AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.Reset() -> void
 AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.SpeedChangingAudioProcessor(AndroidX.Media3.Common.Audio.ISpeedProvider? speedProvider) -> void
-AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.SpeedChangingAudioProcessor(AndroidX.Media3.Common.Audio.ISpeedProvider? speedProvider, bool areInputTimestampsAdjusted) -> void
+AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.SpeedChangingAudioProcessor(AndroidX.Media3.Common.Audio.ISpeedProvider? speedProvider, bool areInputTimestampsAdjusted, bool shouldMaintainPitch) -> void
 AndroidX.Media3.Common.Audio.SpeedChangingAudioProcessor.SpeedProvider.get -> AndroidX.Media3.Common.Audio.ISpeedProvider?
 AndroidX.Media3.Common.Audio.ToInt16PcmAudioProcessor
 AndroidX.Media3.Common.Audio.ToInt16PcmAudioProcessor.OnConfigure(AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat? inputAudioFormat) -> AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat?
@@ -300,6 +315,7 @@ AndroidX.Media3.Common.AudioAttributes.AllowedCapturePolicy.set -> void
 AndroidX.Media3.Common.AudioAttributes.AudioAttributesV21
 AndroidX.Media3.Common.AudioAttributes.AudioAttributesV21.AudioAttributes.get -> Android.Media.AudioAttributes?
 AndroidX.Media3.Common.AudioAttributes.AudioAttributesV21.AudioAttributes.set -> void
+AndroidX.Media3.Common.AudioAttributes.BuildUpon() -> AndroidX.Media3.Common.AudioAttributes.Builder?
 AndroidX.Media3.Common.AudioAttributes.Builder
 AndroidX.Media3.Common.AudioAttributes.Builder.Build() -> AndroidX.Media3.Common.AudioAttributes?
 AndroidX.Media3.Common.AudioAttributes.Builder.Builder() -> void
@@ -572,6 +588,7 @@ AndroidX.Media3.Common.Format.Builder.SetAccessibilityChannel(int accessibilityC
 AndroidX.Media3.Common.Format.Builder.SetAuxiliaryTrackType(int auxiliaryTrackType) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetAverageBitrate(int averageBitrate) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetChannelCount(int channelCount) -> AndroidX.Media3.Common.Format.Builder?
+AndroidX.Media3.Common.Format.Builder.SetChannelMask(int channelMask) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetCodecs(string? codecs) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetColorInfo(AndroidX.Media3.Common.ColorInfo? colorInfo) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetContainerMimeType(string? containerMimeType) -> AndroidX.Media3.Common.Format.Builder?
@@ -596,8 +613,10 @@ AndroidX.Media3.Common.Format.Builder.SetMaxInputSize(int maxInputSize) -> Andro
 AndroidX.Media3.Common.Format.Builder.SetMaxNumReorderSamples(int maxNumReorderSamples) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetMaxSubLayers(int maxSubLayers) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetMetadata(AndroidX.Media3.Common.Metadata? metadata) -> AndroidX.Media3.Common.Format.Builder?
+AndroidX.Media3.Common.Format.Builder.SetMirrorHorizontal(bool mirrorHorizontal) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetPcmEncoding(int pcmEncoding) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetPeakBitrate(int peakBitrate) -> AndroidX.Media3.Common.Format.Builder?
+AndroidX.Media3.Common.Format.Builder.SetPixelFormat(int pixelFormat) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetPixelWidthHeightRatio(float pixelWidthHeightRatio) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetPrimaryTrackGroupId(string? primaryTrackGroupId) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetProjectionData(byte[]? projectionData) -> AndroidX.Media3.Common.Format.Builder?
@@ -606,6 +625,7 @@ AndroidX.Media3.Common.Format.Builder.SetRotationDegrees(int rotationDegrees) ->
 AndroidX.Media3.Common.Format.Builder.SetSampleMimeType(string? sampleMimeType) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetSampleRate(int sampleRate) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetSelectionFlags(int selectionFlags) -> AndroidX.Media3.Common.Format.Builder?
+AndroidX.Media3.Common.Format.Builder.SetSelectionPriority(float selectionPriority) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetStereoMode(int stereoMode) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetSubsampleOffsetUs(long subsampleOffsetUs) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.Builder.SetTileCountHorizontal(int tileCountHorizontal) -> AndroidX.Media3.Common.Format.Builder?
@@ -613,6 +633,8 @@ AndroidX.Media3.Common.Format.Builder.SetTileCountVertical(int tileCountVertical
 AndroidX.Media3.Common.Format.Builder.SetWidth(int width) -> AndroidX.Media3.Common.Format.Builder?
 AndroidX.Media3.Common.Format.ChannelCount.get -> int
 AndroidX.Media3.Common.Format.ChannelCount.set -> void
+AndroidX.Media3.Common.Format.ChannelMask.get -> int
+AndroidX.Media3.Common.Format.ChannelMask.set -> void
 AndroidX.Media3.Common.Format.Codecs.get -> string?
 AndroidX.Media3.Common.Format.Codecs.set -> void
 AndroidX.Media3.Common.Format.ColorInfo.get -> AndroidX.Media3.Common.ColorInfo?
@@ -662,11 +684,15 @@ AndroidX.Media3.Common.Format.MaxSubLayers.get -> int
 AndroidX.Media3.Common.Format.MaxSubLayers.set -> void
 AndroidX.Media3.Common.Format.Metadata.get -> AndroidX.Media3.Common.Metadata?
 AndroidX.Media3.Common.Format.Metadata.set -> void
+AndroidX.Media3.Common.Format.MirrorHorizontal.get -> bool
+AndroidX.Media3.Common.Format.MirrorHorizontal.set -> void
 AndroidX.Media3.Common.Format.PcmEncoding.get -> int
 AndroidX.Media3.Common.Format.PcmEncoding.set -> void
 AndroidX.Media3.Common.Format.PeakBitrate.get -> int
 AndroidX.Media3.Common.Format.PeakBitrate.set -> void
 AndroidX.Media3.Common.Format.PixelCount.get -> int
+AndroidX.Media3.Common.Format.PixelFormat.get -> int
+AndroidX.Media3.Common.Format.PixelFormat.set -> void
 AndroidX.Media3.Common.Format.PixelWidthHeightRatio.get -> float
 AndroidX.Media3.Common.Format.PixelWidthHeightRatio.set -> void
 AndroidX.Media3.Common.Format.PrimaryTrackGroupId.get -> string?
@@ -683,6 +709,8 @@ AndroidX.Media3.Common.Format.SampleRate.get -> int
 AndroidX.Media3.Common.Format.SampleRate.set -> void
 AndroidX.Media3.Common.Format.SelectionFlags.get -> int
 AndroidX.Media3.Common.Format.SelectionFlags.set -> void
+AndroidX.Media3.Common.Format.SelectionPriority.get -> float
+AndroidX.Media3.Common.Format.SelectionPriority.set -> void
 AndroidX.Media3.Common.Format.StereoMode.get -> int
 AndroidX.Media3.Common.Format.StereoMode.set -> void
 AndroidX.Media3.Common.Format.SubsampleOffsetUs.get -> long
@@ -1295,6 +1323,8 @@ AndroidX.Media3.Common.MediaMetadata.Builder.SetConductor(string? conductor) -> 
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDescription(Java.Lang.ICharSequence? description) -> AndroidX.Media3.Common.MediaMetadata.Builder?
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDescription(string? description) -> AndroidX.Media3.Common.MediaMetadata.Builder?
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDiscNumber(Java.Lang.Integer? discNumber) -> AndroidX.Media3.Common.MediaMetadata.Builder?
+AndroidX.Media3.Common.MediaMetadata.Builder.SetDiscSubtitle(Java.Lang.ICharSequence? discSubtitle) -> AndroidX.Media3.Common.MediaMetadata.Builder?
+AndroidX.Media3.Common.MediaMetadata.Builder.SetDiscSubtitle(string? discSubtitle) -> AndroidX.Media3.Common.MediaMetadata.Builder?
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDisplayTitle(Java.Lang.ICharSequence? displayTitle) -> AndroidX.Media3.Common.MediaMetadata.Builder?
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDisplayTitle(string? displayTitle) -> AndroidX.Media3.Common.MediaMetadata.Builder?
 AndroidX.Media3.Common.MediaMetadata.Builder.SetDurationMs(Java.Lang.Long? durationMs) -> AndroidX.Media3.Common.MediaMetadata.Builder?
@@ -1336,6 +1366,8 @@ AndroidX.Media3.Common.MediaMetadata.Description.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Common.MediaMetadata.Description.set -> void
 AndroidX.Media3.Common.MediaMetadata.DiscNumber.get -> Java.Lang.Integer?
 AndroidX.Media3.Common.MediaMetadata.DiscNumber.set -> void
+AndroidX.Media3.Common.MediaMetadata.DiscSubtitle.get -> Java.Lang.ICharSequence?
+AndroidX.Media3.Common.MediaMetadata.DiscSubtitle.set -> void
 AndroidX.Media3.Common.MediaMetadata.DisplayTitle.get -> Java.Lang.ICharSequence?
 AndroidX.Media3.Common.MediaMetadata.DisplayTitle.set -> void
 AndroidX.Media3.Common.MediaMetadata.DurationMs.get -> Java.Lang.Long?
@@ -1487,6 +1519,7 @@ AndroidX.Media3.Common.PlayerCommands.Builder.Add(int command) -> AndroidX.Media
 AndroidX.Media3.Common.PlayerCommands.Builder.AddAll(AndroidX.Media3.Common.PlayerCommands? commands) -> AndroidX.Media3.Common.PlayerCommands.Builder?
 AndroidX.Media3.Common.PlayerCommands.Builder.AddAll(params int[]? commands) -> AndroidX.Media3.Common.PlayerCommands.Builder?
 AndroidX.Media3.Common.PlayerCommands.Builder.AddAllCommands() -> AndroidX.Media3.Common.PlayerCommands.Builder?
+AndroidX.Media3.Common.PlayerCommands.Builder.AddAllReadOnlyCommands() -> AndroidX.Media3.Common.PlayerCommands.Builder?
 AndroidX.Media3.Common.PlayerCommands.Builder.AddIf(int command, bool condition) -> AndroidX.Media3.Common.PlayerCommands.Builder?
 AndroidX.Media3.Common.PlayerCommands.Builder.Build() -> AndroidX.Media3.Common.PlayerCommands?
 AndroidX.Media3.Common.PlayerCommands.Builder.Builder() -> void
@@ -1779,6 +1812,12 @@ AndroidX.Media3.Common.SimpleBasePlayer.VerifyApplicationThread() -> void
 AndroidX.Media3.Common.SkipSilenceEnabledChangedEventArgs
 AndroidX.Media3.Common.SkipSilenceEnabledChangedEventArgs.SkipSilenceEnabled.get -> bool
 AndroidX.Media3.Common.SkipSilenceEnabledChangedEventArgs.SkipSilenceEnabledChangedEventArgs(bool skipSilenceEnabled) -> void
+AndroidX.Media3.Common.SpeedParameters
+AndroidX.Media3.Common.SpeedParameters.ShouldMaintainPitch.get -> bool
+AndroidX.Media3.Common.SpeedParameters.ShouldMaintainPitch.set -> void
+AndroidX.Media3.Common.SpeedParameters.SpeedParameters(AndroidX.Media3.Common.Audio.ISpeedProvider? speedProvider, bool shouldMaintainPitch) -> void
+AndroidX.Media3.Common.SpeedParameters.SpeedProvider.get -> AndroidX.Media3.Common.Audio.ISpeedProvider?
+AndroidX.Media3.Common.SpeedParameters.SpeedProvider.set -> void
 AndroidX.Media3.Common.StarRating
 AndroidX.Media3.Common.StarRating.GetStarRating() -> float
 AndroidX.Media3.Common.StarRating.MaxStars.get -> int
@@ -2211,6 +2250,11 @@ AndroidX.Media3.Common.Util.CircularIntArray.Clear() -> void
 AndroidX.Media3.Common.Util.CircularIntArray.IsEmpty.get -> bool
 AndroidX.Media3.Common.Util.CircularIntArray.PopFirst() -> int
 AndroidX.Media3.Common.Util.CodecSpecificDataUtil
+AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel
+AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.IsSupportableByMediaCodec.get -> bool
+AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.Level.get -> int
+AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.MediaCodecProfileAndLevel(int profile, int level) -> void
+AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.Profile.get -> int
 AndroidX.Media3.Common.Util.ColorParser
 AndroidX.Media3.Common.Util.ConditionVariable
 AndroidX.Media3.Common.Util.ConditionVariable.ConditionVariable() -> void
@@ -2550,11 +2594,114 @@ AndroidX.Media3.Common.Util.WakeLockManager
 AndroidX.Media3.Common.Util.WakeLockManager.SetEnabled(bool enabled) -> void
 AndroidX.Media3.Common.Util.WakeLockManager.SetStayAwake(bool stayAwake) -> void
 AndroidX.Media3.Common.Util.WakeLockManager.WakeLockManager(Android.Content.Context? context, Android.OS.Looper? wakeLockLooper, AndroidX.Media3.Common.Util.IClock? clock) -> void
+AndroidX.Media3.Common.Util.WavUtil
 AndroidX.Media3.Common.Util.WifiLockManager
 AndroidX.Media3.Common.Util.WifiLockManager.SetEnabled(bool enabled) -> void
 AndroidX.Media3.Common.Util.WifiLockManager.SetStayAwake(bool stayAwake) -> void
 AndroidX.Media3.Common.Util.WifiLockManager.WifiLockManager(Android.Content.Context? context, Android.OS.Looper? wifiLockLooper, AndroidX.Media3.Common.Util.IClock? clock) -> void
 AndroidX.Media3.Common.Util.XmlPullParserUtil
+AndroidX.Media3.Common.Video.AsyncFrame
+AndroidX.Media3.Common.Video.AsyncFrame.AcquireFence.get -> AndroidX.Media3.Common.Video.SyncFenceWrapper?
+AndroidX.Media3.Common.Video.AsyncFrame.AcquireFence.set -> void
+AndroidX.Media3.Common.Video.AsyncFrame.AsyncFrame(AndroidX.Media3.Common.Video.IFrame? frame, AndroidX.Media3.Common.Video.SyncFenceWrapper? acquireFence) -> void
+AndroidX.Media3.Common.Video.AsyncFrame.Frame.get -> AndroidX.Media3.Common.Video.IFrame?
+AndroidX.Media3.Common.Video.AsyncFrame.Frame.set -> void
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.BuildUpon() -> AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.Build() -> AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.Builder(Android.Hardware.HardwareBuffer? hardwareBuffer) -> void
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.SetContentTimeUs(long contentTimeUs) -> AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.SetFormat(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.SetInternalImage(Java.Lang.Object? internalImage) -> AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.SetMetadata(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? metadata) -> AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.ContentTimeUs.get -> long
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Format.get -> AndroidX.Media3.Common.Format?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.HardwareBuffer.get -> Android.Hardware.HardwareBuffer?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InternalImage.get -> Java.Lang.Object?
+AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Metadata.get -> Google.Common.Collect.ImmutableMap?
+AndroidX.Media3.Common.Video.ErrorEventArgs
+AndroidX.Media3.Common.Video.ErrorEventArgs.ErrorEventArgs(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
+AndroidX.Media3.Common.Video.ErrorEventArgs.P0.get -> AndroidX.Media3.Common.VideoFrameProcessingException?
+AndroidX.Media3.Common.Video.FrameProcessedEventArgs
+AndroidX.Media3.Common.Video.FrameProcessedEventArgs.FrameProcessedEventArgs(AndroidX.Media3.Common.Video.IFrame? p0, AndroidX.Media3.Common.Video.SyncFenceWrapper? p1) -> void
+AndroidX.Media3.Common.Video.FrameProcessedEventArgs.P0.get -> AndroidX.Media3.Common.Video.IFrame?
+AndroidX.Media3.Common.Video.FrameProcessedEventArgs.P1.get -> AndroidX.Media3.Common.Video.SyncFenceWrapper?
+AndroidX.Media3.Common.Video.HardwareBufferPool
+AndroidX.Media3.Common.Video.HardwareBufferPool.Get(AndroidX.Media3.Common.Format? format, long usageFlags, Java.Lang.IRunnable? wakeupListener) -> AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence?
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferPool(int capacity) -> void
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.AcquireFence.get -> AndroidX.Media3.Common.Video.SyncFenceWrapper?
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.AcquireFence.set -> void
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.HardwareBuffer.get -> Android.Hardware.HardwareBuffer?
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.HardwareBuffer.set -> void
+AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.HardwareBufferWithFence(Android.Hardware.HardwareBuffer? hardwareBuffer, AndroidX.Media3.Common.Video.SyncFenceWrapper? acquireFence) -> void
+AndroidX.Media3.Common.Video.HardwareBufferPool.Recycle(Android.Hardware.HardwareBuffer? buffer, AndroidX.Media3.Common.Video.SyncFenceWrapper? fence) -> void
+AndroidX.Media3.Common.Video.HardwareBufferPool.Release() -> void
+AndroidX.Media3.Common.Video.IFrame
+AndroidX.Media3.Common.Video.IFrame.ContentTimeUs.get -> long
+AndroidX.Media3.Common.Video.IFrame.Format.get -> AndroidX.Media3.Common.Format?
+AndroidX.Media3.Common.Video.IFrame.Metadata.get -> Google.Common.Collect.ImmutableMap?
+AndroidX.Media3.Common.Video.IFrameProcessor
+AndroidX.Media3.Common.Video.IFrameProcessor.Close() -> void
+AndroidX.Media3.Common.Video.IFrameProcessor.Queue(System.Collections.Generic.IList<AndroidX.Media3.Common.Video.AsyncFrame!>? p0) -> bool
+AndroidX.Media3.Common.Video.IFrameProcessor.SignalEndOfStream() -> void
+AndroidX.Media3.Common.Video.IFrameProcessorFactory
+AndroidX.Media3.Common.Video.IFrameProcessorFactory.Create(AndroidX.Media3.Common.Video.IFrameWriter? p0, Java.Util.Concurrent.IExecutor? p1, AndroidX.Media3.Common.Video.IFrameProcessorListener? p2) -> AndroidX.Media3.Common.Video.IFrameProcessor?
+AndroidX.Media3.Common.Video.IFrameProcessorListener
+AndroidX.Media3.Common.Video.IFrameProcessorListener.OnError(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
+AndroidX.Media3.Common.Video.IFrameProcessorListener.OnFrameProcessed(AndroidX.Media3.Common.Video.IFrame? p0, AndroidX.Media3.Common.Video.SyncFenceWrapper? p1) -> void
+AndroidX.Media3.Common.Video.IFrameProcessorListener.OnWakeup() -> void
+AndroidX.Media3.Common.Video.IFrameUsage
+AndroidX.Media3.Common.Video.IFrameWriter
+AndroidX.Media3.Common.Video.IFrameWriter.Close() -> void
+AndroidX.Media3.Common.Video.IFrameWriter.Configure(AndroidX.Media3.Common.Format? p0, long p1) -> void
+AndroidX.Media3.Common.Video.IFrameWriter.DequeueInputFrame(Java.Util.Concurrent.IExecutor? p0, Java.Lang.IRunnable? p1) -> AndroidX.Media3.Common.Video.AsyncFrame?
+AndroidX.Media3.Common.Video.IFrameWriter.Info.get -> AndroidX.Media3.Common.Video.IFrameWriterInfo?
+AndroidX.Media3.Common.Video.IFrameWriter.QueueInputFrame(AndroidX.Media3.Common.Video.IFrame? p0, AndroidX.Media3.Common.Video.SyncFenceWrapper? p1) -> void
+AndroidX.Media3.Common.Video.IFrameWriter.SignalEndOfStream() -> void
+AndroidX.Media3.Common.Video.IFrameWriterInfo
+AndroidX.Media3.Common.Video.IFrameWriterInfo.IsSupported(AndroidX.Media3.Common.Format? p0, long p1) -> bool
+AndroidX.Media3.Common.Video.IHardwareBufferFrame
+AndroidX.Media3.Common.Video.IHardwareBufferFrame.BuildUpon() -> AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder?
+AndroidX.Media3.Common.Video.IHardwareBufferFrame.HardwareBuffer.get -> Android.Hardware.HardwareBuffer?
+AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder
+AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder.Build() -> AndroidX.Media3.Common.Video.IHardwareBufferFrame?
+AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder.SetContentTimeUs(long p0) -> AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder?
+AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder.SetMetadata(System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>? p0) -> AndroidX.Media3.Common.Video.IHardwareBufferFrameBuilder?
+AndroidX.Media3.Common.Video.IHardwareBufferNativeHelpers
+AndroidX.Media3.Common.Video.IHardwareBufferNativeHelpers.NativeCopyBitmapToHardwareBuffer(Android.Graphics.Bitmap? p0, Android.Hardware.HardwareBuffer? p1) -> bool
+AndroidX.Media3.Common.Video.IHardwareBufferNativeHelpers.NativeCopyHardwareBufferToHardwareBuffer(Android.Hardware.HardwareBuffer? p0, Android.Hardware.HardwareBuffer? p1) -> bool
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.Close() -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.Configure(AndroidX.Media3.Common.Format? format, long usage) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.DequeueInputFrame(Java.Util.Concurrent.IExecutor? wakeupExecutor, Java.Lang.IRunnable? wakeupListener) -> AndroidX.Media3.Common.Video.AsyncFrame?
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.ErrorEventArgs
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.ErrorEventArgs.ErrorEventArgs(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.ErrorEventArgs.P0.get -> AndroidX.Media3.Common.VideoFrameProcessingException?
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.FrameAboutToBeRenderedEventArgs
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.FrameAboutToBeRenderedEventArgs.FrameAboutToBeRenderedEventArgs(long p0, long p1, AndroidX.Media3.Common.Format? p2) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.FrameAboutToBeRenderedEventArgs.P0.get -> long
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.FrameAboutToBeRenderedEventArgs.P1.get -> long
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.FrameAboutToBeRenderedEventArgs.P2.get -> AndroidX.Media3.Common.Format?
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener.OnEnded() -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener.OnError(AndroidX.Media3.Common.VideoFrameProcessingException? p0) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener.OnFrameAboutToBeRendered(long p0, long p1, AndroidX.Media3.Common.Format? p2) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.Info.get -> AndroidX.Media3.Common.Video.IFrameWriterInfo?
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.QueueInputFrame(AndroidX.Media3.Common.Video.IFrame? frame, AndroidX.Media3.Common.Video.SyncFenceWrapper? writeCompleteFence) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.SetSurfaceHolder(Android.Views.ISurfaceHolder? surfaceHolder) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.SignalEndOfStream() -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.SurfaceChanged(Android.Views.ISurfaceHolder? holder, Android.Graphics.Format format, int width, int height) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.SurfaceCreated(Android.Views.ISurfaceHolder? holder) -> void
+AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.SurfaceDestroyed(Android.Views.ISurfaceHolder? holder) -> void
+AndroidX.Media3.Common.Video.SyncFenceWrapper
+AndroidX.Media3.Common.Video.SyncFenceWrapper.AsSyncFence() -> Android.Hardware.SyncFence?
+AndroidX.Media3.Common.Video.SyncFenceWrapper.Await(Java.Time.Duration? timeout) -> bool
+AndroidX.Media3.Common.Video.SyncFenceWrapper.AwaitForever() -> void
+AndroidX.Media3.Common.Video.SyncFenceWrapper.AwaitMs(long timeoutMs) -> bool
+AndroidX.Media3.Common.Video.SyncFenceWrapper.Close() -> void
 AndroidX.Media3.Common.VideoFrameProcessingException
 AndroidX.Media3.Common.VideoFrameProcessingException.PresentationTimeUs.get -> long
 AndroidX.Media3.Common.VideoFrameProcessingException.PresentationTimeUs.set -> void
@@ -2897,7 +3044,9 @@ const AndroidX.Media3.Common.C.EncodingPcm32bit = 22 -> int
 const AndroidX.Media3.Common.C.EncodingPcm32bitBigEndian = 1610612736 -> int
 const AndroidX.Media3.Common.C.EncodingPcm8bit = 3 -> int
 const AndroidX.Media3.Common.C.EncodingPcmDouble = 1879048192 -> int
+const AndroidX.Media3.Common.C.EncodingPcmDoubleBigEndian = 1912602624 -> int
 const AndroidX.Media3.Common.C.EncodingPcmFloat = 4 -> int
+const AndroidX.Media3.Common.C.EncodingPcmFloatBigEndian = 1895825408 -> int
 const AndroidX.Media3.Common.C.FirstFrameNotRendered = 1 -> int
 const AndroidX.Media3.Common.C.FirstFrameNotRenderedAfterStreamChange = 2 -> int
 const AndroidX.Media3.Common.C.FirstFrameNotRenderedOnlyAllowedIfStarted = 0 -> int
@@ -3181,12 +3330,12 @@ const AndroidX.Media3.Common.ForwardingPlayer.InterfaceConsts.StateReady = 3 -> 
 const AndroidX.Media3.Common.ForwardingPlayer.InterfaceConsts.TimelineChangeReasonPlaylistChanged = 0 -> int
 const AndroidX.Media3.Common.ForwardingPlayer.InterfaceConsts.TimelineChangeReasonSourceUpdate = 1 -> int
 const AndroidX.Media3.Common.MediaItem.DefaultMediaId = "" -> string!
-const AndroidX.Media3.Common.MediaLibraryInfo.InterfaceVersion = 9 -> int
+const AndroidX.Media3.Common.MediaLibraryInfo.InterfaceVersion = 10 -> int
 const AndroidX.Media3.Common.MediaLibraryInfo.Tag = "AndroidXMedia3" -> string!
 const AndroidX.Media3.Common.MediaLibraryInfo.TraceEnabled = true -> bool
-const AndroidX.Media3.Common.MediaLibraryInfo.Version = "1.10.1" -> string!
-const AndroidX.Media3.Common.MediaLibraryInfo.VersionInt = 1010001300 -> int
-const AndroidX.Media3.Common.MediaLibraryInfo.VersionSlashy = "AndroidXMedia3/1.10.1" -> string!
+const AndroidX.Media3.Common.MediaLibraryInfo.Version = "1.11.0" -> string!
+const AndroidX.Media3.Common.MediaLibraryInfo.VersionInt = 1011000300 -> int
+const AndroidX.Media3.Common.MediaLibraryInfo.VersionSlashy = "AndroidXMedia3/1.11.0" -> string!
 const AndroidX.Media3.Common.MediaMetadata.FolderTypeAlbums = 2 -> int
 const AndroidX.Media3.Common.MediaMetadata.FolderTypeArtists = 3 -> int
 const AndroidX.Media3.Common.MediaMetadata.FolderTypeGenres = 4 -> int
@@ -3295,6 +3444,7 @@ const AndroidX.Media3.Common.MimeTypes.AudioDsd = "audio/dsd" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioDts = "audio/vnd.dts" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioDtsExpress = "audio/vnd.dts.hd;profile=lbr" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioDtsHd = "audio/vnd.dts.hd" -> string!
+const AndroidX.Media3.Common.MimeTypes.AudioDtsUhdP2 = "audio/vnd.dts.uhd;profile=p2" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioDtsX = "audio/vnd.dts.uhd;profile=p2" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioEAc3 = "audio/eac3" -> string!
 const AndroidX.Media3.Common.MimeTypes.AudioEAc3Joc = "audio/eac3-joc" -> string!
@@ -3480,6 +3630,29 @@ const AndroidX.Media3.Common.Util.StuckPlayerException.StuckPlayingNotEnding = 3
 const AndroidX.Media3.Common.Util.StuckPlayerException.StuckSuppressed = 4 -> int
 const AndroidX.Media3.Common.Util.TimestampAdjuster.ModeNoOffset = 9223372036854775807 -> long
 const AndroidX.Media3.Common.Util.TimestampAdjuster.ModeShared = 9223372036854775806 -> long
+const AndroidX.Media3.Common.Util.WavUtil.DataFourcc = 1684108385 -> int
+const AndroidX.Media3.Common.Util.WavUtil.Ds64Fourcc = 1685272116 -> int
+const AndroidX.Media3.Common.Util.WavUtil.FactFourcc = 1717658484 -> int
+const AndroidX.Media3.Common.Util.WavUtil.FmtFourcc = 1718449184 -> int
+const AndroidX.Media3.Common.Util.WavUtil.Rf64Fourcc = 1380333108 -> int
+const AndroidX.Media3.Common.Util.WavUtil.RiffFourcc = 1380533830 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypeAlaw = 6 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypeFloat = 3 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypeImaAdpcm = 17 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypeMlaw = 7 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypePcm = 1 -> int
+const AndroidX.Media3.Common.Util.WavUtil.TypeWaveFormatExtensible = 65534 -> int
+const AndroidX.Media3.Common.Util.WavUtil.WaveFourcc = 1463899717 -> int
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.KeyDisplayTimeNs = "KEY_DISPLAY_TIME_NS" -> string!
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.KeyPresentationTimeUs = "KEY_PRESENTATION_TIME_US" -> string!
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageComposerOverlay = 2048 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageCpuReadOften = 3 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageCpuReadRarely = 2 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageCpuWriteOften = 48 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageCpuWriteRarely = 32 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageGpuColorOutput = 512 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageGpuSampledImage = 256 -> long
+const AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.InterfaceConsts.UsageVideoEncode = 65536 -> long
 override AndroidX.Media3.Common.AdOverlayInfo.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.AdOverlayInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.AdPlaybackState.AdGroup.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3493,6 +3666,7 @@ override AndroidX.Media3.Common.Audio.AudioManagerCompat.JniPeerMembers.get -> J
 override AndroidX.Media3.Common.Audio.AudioMixingUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Audio.AudioProcessingPipeline.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Audio.AudioProcessorAudioFormat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Audio.AudioProcessorStreamMetadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Audio.AudioProcessorUnhandledAudioFormatException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Audio.BaseAudioProcessor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -3652,6 +3826,7 @@ override AndroidX.Media3.Common.SimpleBasePlayer.TrackSelectionParameters.set ->
 override AndroidX.Media3.Common.SimpleBasePlayer.VideoSize.get -> AndroidX.Media3.Common.VideoSize?
 override AndroidX.Media3.Common.SimpleBasePlayer.Volume.get -> float
 override AndroidX.Media3.Common.SimpleBasePlayer.Volume.set -> void
+override AndroidX.Media3.Common.SpeedParameters.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.StarRating.IsRated.get -> bool
 override AndroidX.Media3.Common.StarRating.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.StarRating.ToBundle() -> Android.OS.Bundle?
@@ -3700,6 +3875,7 @@ override AndroidX.Media3.Common.Util.BackgroundThreadStateHandler.JniPeerMembers
 override AndroidX.Media3.Common.Util.BundleCollectionUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.CircularIntArray.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.CodecSpecificDataUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.ColorParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.ConditionVariable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.ConditionVariable.ThresholdClass.get -> nint
@@ -3744,8 +3920,16 @@ override AndroidX.Media3.Common.Util.TraceUtil.JniPeerMembers.get -> Java.Intero
 override AndroidX.Media3.Common.Util.UriUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.Util.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.WakeLockManager.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Util.WavUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.WifiLockManager.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.Util.XmlPullParserUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.AsyncFrame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.DefaultHardwareBufferFrame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.HardwareBufferPool.HardwareBufferWithFence.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.HardwareBufferPool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Common.Video.SyncFenceWrapper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.VideoFrameProcessingException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Common.VideoSize.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed AndroidX.Media3.Common.ForwardingSimpleBasePlayer.HandleSetVolume(float volume) -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -3786,6 +3970,7 @@ static AndroidX.Media3.Common.AdPlaybackState.FromBundle(Android.OS.Bundle? bund
 static AndroidX.Media3.Common.AdPlaybackState.FromBundle(Android.OS.Bundle? bundle, int interfaceVersion) -> AndroidX.Media3.Common.AdPlaybackState?
 static AndroidX.Media3.Common.AdPlaybackState.None.get -> AndroidX.Media3.Common.AdPlaybackState?
 static AndroidX.Media3.Common.AdPlaybackState.SkipInfo.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.AdPlaybackState.SkipInfo?
+static AndroidX.Media3.Common.AdPlaybackState.SumOfDurations(params long[]? durations) -> long
 static AndroidX.Media3.Common.Audio.AudioManagerCompat.AbandonAudioFocusRequest(Android.Media.AudioManager? audioManager, AndroidX.Media3.Common.Audio.AudioFocusRequestCompat? focusRequest) -> int
 static AndroidX.Media3.Common.Audio.AudioManagerCompat.GetAudioManager(Android.Content.Context? context) -> Android.Media.AudioManager?
 static AndroidX.Media3.Common.Audio.AudioManagerCompat.GetStreamMaxVolume(Android.Media.AudioManager? audioManager, int streamType) -> int
@@ -3815,7 +4000,6 @@ static AndroidX.Media3.Common.BundleListRetriever.GetList(Android.OS.IBinder? bi
 static AndroidX.Media3.Common.BundleableByteArray.FromBundle(Android.OS.Bundle? bundle) -> byte[]?
 static AndroidX.Media3.Common.C.ClearkeyUuid.get -> Java.Util.UUID?
 static AndroidX.Media3.Common.C.CommonPsshUuid.get -> Java.Util.UUID?
-static AndroidX.Media3.Common.C.GenerateAudioSessionIdV21(Android.Content.Context? context) -> int
 static AndroidX.Media3.Common.C.GetErrorCodeForMediaDrmErrorCode(int mediaDrmErrorCode) -> int
 static AndroidX.Media3.Common.C.GetFormatSupportString(int formatSupport) -> string?
 static AndroidX.Media3.Common.C.MsToUs(long timeMs) -> long
@@ -3863,8 +4047,10 @@ static AndroidX.Media3.Common.MediaItem.LocalConfiguration.FromBundle(Android.OS
 static AndroidX.Media3.Common.MediaItem.RequestMetadata.Empty.get -> AndroidX.Media3.Common.MediaItem.RequestMetadata?
 static AndroidX.Media3.Common.MediaItem.RequestMetadata.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.MediaItem.RequestMetadata?
 static AndroidX.Media3.Common.MediaItem.SubtitleConfiguration.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.MediaItem.SubtitleConfiguration?
+static AndroidX.Media3.Common.MediaLibraryInfo.EnableWorkarounds() -> bool
 static AndroidX.Media3.Common.MediaLibraryInfo.RegisterModule(string? name) -> void
 static AndroidX.Media3.Common.MediaLibraryInfo.RegisteredModules() -> string?
+static AndroidX.Media3.Common.MediaLibraryInfo.SetEnableWorkarounds(bool enable) -> void
 static AndroidX.Media3.Common.MediaMetadata.Empty.get -> AndroidX.Media3.Common.MediaMetadata?
 static AndroidX.Media3.Common.MediaMetadata.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.MediaMetadata?
 static AndroidX.Media3.Common.MediaMetadata.FromBundle(Android.OS.Bundle? bundle, int interfaceVersion) -> AndroidX.Media3.Common.MediaMetadata?
@@ -3908,6 +4094,7 @@ static AndroidX.Media3.Common.PlayerPositionInfo.FromBundle(Android.OS.Bundle? b
 static AndroidX.Media3.Common.PlayerTransferState.BuilderFromPlayer(AndroidX.Media3.Common.IPlayer? player) -> AndroidX.Media3.Common.PlayerTransferState.Builder?
 static AndroidX.Media3.Common.PlayerTransferState.FromPlayer(AndroidX.Media3.Common.IPlayer? player) -> AndroidX.Media3.Common.PlayerTransferState?
 static AndroidX.Media3.Common.Rating.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.Rating?
+static AndroidX.Media3.Common.SpeedParameters.Default.get -> AndroidX.Media3.Common.SpeedParameters?
 static AndroidX.Media3.Common.StarRating.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.StarRating?
 static AndroidX.Media3.Common.StreamKey.Creator.get -> Android.OS.IParcelableCreator?
 static AndroidX.Media3.Common.StreamKey.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.StreamKey?
@@ -3969,15 +4156,21 @@ static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildH263CodecString(in
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildHevcCodecString(int generalProfileSpace, bool generalTierFlag, int generalProfileIdc, int generalProfileCompatibilityFlags, int[]? constraintBytes, int generalLevelIdc) -> string?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildIamfCodecString(byte[]? initializationData) -> string?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildNalUnit(byte[]? data, int offset, int length) -> byte[]?
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildVp9CodecPrivateFromUncompressedHeader(Java.Nio.ByteBuffer? sample) -> byte[]?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.BuildVp9CodecPrivateInitializationData(sbyte profile, sbyte level, sbyte bitDepth, sbyte chromaSubsampling) -> Google.Common.Collect.ImmutableList?
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.CalculateMediaCodecDolbyVisionLevel(int width, int height, float frameRate) -> int
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.DolbyVisionConstantToLevelNumber(int levelConstant) -> int
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.DolbyVisionConstantToProfileNumber(int profileConstant) -> int
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetCodecProfileAndLevel(AndroidX.Media3.Common.Format? format) -> Android.Util.Pair?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetDolbyVisionBaseLayerMimeType(AndroidX.Media3.Common.Format? format) -> string?
-static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetHevcProfileAndLevel(string? codec, string![]? parts, AndroidX.Media3.Common.ColorInfo? colorInfo) -> Android.Util.Pair?
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetHevcProfileAndLevel(string? codec, string![]? parts, AndroidX.Media3.Common.ColorInfo? colorInfo) -> AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel?
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetMediaCodecProfileAndLevel(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetOpusInitializationData(AndroidX.Media3.Common.Format? format) -> byte[]?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetVideoResolutionFromMpeg4VideoConfig(byte[]? videoSpecificConfig) -> Android.Util.Pair?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.GetVorbisInitializationData(AndroidX.Media3.Common.Format? format) -> Java.Nio.ByteBuffer?
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.H263ConstToLevelNumber(int levelConst) -> int
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.H263ConstToProfileNumber(int profileConst) -> int
+static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel.Unsupportable.get -> AndroidX.Media3.Common.Util.CodecSpecificDataUtil.MediaCodecProfileAndLevel?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.ParseAlacAudioSpecificConfig(byte[]? audioSpecificConfig) -> int[]?
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.ParseCea708InitializationData(System.Collections.Generic.IList<byte[]!>? initializationData) -> bool
 static AndroidX.Media3.Common.Util.CodecSpecificDataUtil.SplitNalUnits(byte[]? data) -> byte[]![]?
@@ -3990,6 +4183,7 @@ static AndroidX.Media3.Common.Util.GlUtil.CheckEglException(string? errorMessage
 static AndroidX.Media3.Common.Util.GlUtil.CheckGlError() -> void
 static AndroidX.Media3.Common.Util.GlUtil.CheckGlException(bool expression, string? errorMessage) -> void
 static AndroidX.Media3.Common.Util.GlUtil.ClearFocusedBuffers() -> void
+static AndroidX.Media3.Common.Util.GlUtil.ClearFocusedBuffersOpaque() -> void
 static AndroidX.Media3.Common.Util.GlUtil.ContextMajorVersion.get -> long
 static AndroidX.Media3.Common.Util.GlUtil.Create4x4IdentityMatrix() -> float[]?
 static AndroidX.Media3.Common.Util.GlUtil.CreateBuffer(float[]? data) -> Java.Nio.FloatBuffer?
@@ -4070,7 +4264,7 @@ static AndroidX.Media3.Common.Util.NetworkTypeObserver.GetInstance(Android.Conte
 static AndroidX.Media3.Common.Util.NetworkTypeObserver.ResetForTests() -> void
 static AndroidX.Media3.Common.Util.NotificationUtil.CreateNotificationChannel(Android.Content.Context? context, string? id, int nameResourceId, int descriptionResourceId, int importance) -> void
 static AndroidX.Media3.Common.Util.NotificationUtil.SetNotification(Android.Content.Context? context, int id, Android.App.Notification? notification) -> void
-static AndroidX.Media3.Common.Util.ParsableByteArray.SetShouldEnforceLimitOnLegacyMethods(bool enforceLimit) -> void
+static AndroidX.Media3.Common.Util.ParsableByteArray.SetShouldEnforceLimitOnLegacyMethods(Java.Lang.Boolean? enforceLimit) -> void
 static AndroidX.Media3.Common.Util.RepeatModeUtil.GetNextRepeatMode(int currentMode, int enabledModes) -> int
 static AndroidX.Media3.Common.Util.RepeatModeUtil.IsRepeatModeEnabled(int repeatMode, int enabledModes) -> bool
 static AndroidX.Media3.Common.Util.Size.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.Util.Size?
@@ -4111,6 +4305,8 @@ static AndroidX.Media3.Common.Util.Util.ConstrainValue(float value, float min, f
 static AndroidX.Media3.Common.Util.Util.ConstrainValue(int value, int min, int max) -> int
 static AndroidX.Media3.Common.Util.Util.ConstrainValue(long value, long min, long max) -> long
 static AndroidX.Media3.Common.Util.Util.Contains(Android.Util.SparseArray? sparseArray, int key) -> bool
+static AndroidX.Media3.Common.Util.Util.Contains(Android.Util.SparseBooleanArray? sparseArray, int key) -> bool
+static AndroidX.Media3.Common.Util.Util.Contains(Android.Util.SparseIntArray? sparseArray, int key) -> bool
 static AndroidX.Media3.Common.Util.Util.Contains(Java.Lang.Object![]? items, Java.Lang.Object? item) -> bool
 static AndroidX.Media3.Common.Util.Util.ContentEquals(Android.Util.SparseArray? sparseArray1, Android.Util.SparseArray? sparseArray2) -> bool
 static AndroidX.Media3.Common.Util.Util.ContentHashCode(Android.Util.SparseArray? sparseArray) -> int
@@ -4139,11 +4335,13 @@ static AndroidX.Media3.Common.Util.Util.FixSmoothStreamingIsmManifestUri(Android
 static AndroidX.Media3.Common.Util.Util.FormatInvariant(string? format, params Java.Lang.Object![]? args) -> string?
 static AndroidX.Media3.Common.Util.Util.FromUtf8Bytes(byte[]? bytes) -> string?
 static AndroidX.Media3.Common.Util.Util.FromUtf8Bytes(byte[]? bytes, int offset, int length) -> string?
+static AndroidX.Media3.Common.Util.Util.GenerateAudioSessionId(Android.Content.Context? context) -> int
 static AndroidX.Media3.Common.Util.Util.GenerateAudioSessionIdV21(Android.Content.Context? context) -> int
 static AndroidX.Media3.Common.Util.Util.GetAdaptiveMimeTypeForContentType(int contentType) -> string?
 static AndroidX.Media3.Common.Util.Util.GetApiLevelThatAudioFormatIntroducedAudioEncoding(int encoding) -> int
 static AndroidX.Media3.Common.Util.Util.GetAudioContentTypeForStreamType(int streamType) -> int
 static AndroidX.Media3.Common.Util.Util.GetAudioFormat(int sampleRate, int channelConfig, int encoding) -> Android.Media.AudioFormat?
+static AndroidX.Media3.Common.Util.Util.GetAudioTrackChannelConfig(AndroidX.Media3.Common.Format? format) -> int
 static AndroidX.Media3.Common.Util.Util.GetAudioTrackChannelConfig(int channelCount) -> int
 static AndroidX.Media3.Common.Util.Util.GetAudioUsageForStreamType(int streamType) -> int
 static AndroidX.Media3.Common.Util.Util.GetAuxiliaryTrackTypeString(int auxiliaryTrackType) -> string?
@@ -4162,8 +4360,11 @@ static AndroidX.Media3.Common.Util.Util.GetCurrentDisplayModeSize(Android.Conten
 static AndroidX.Media3.Common.Util.Util.GetDataUriForString(string? mimeType, string? data) -> Android.Net.Uri?
 static AndroidX.Media3.Common.Util.Util.GetDrawable(Android.Content.Context? context, Android.Content.Res.Resources? resources, int drawableRes) -> Android.Graphics.Drawables.Drawable?
 static AndroidX.Media3.Common.Util.Util.GetDrmUuid(string? drmScheme) -> Java.Util.UUID?
+static AndroidX.Media3.Common.Util.Util.GetEncodingString(int encoding) -> string?
 static AndroidX.Media3.Common.Util.Util.GetErrorCodeForMediaDrmErrorCode(int mediaDrmErrorCode) -> int
 static AndroidX.Media3.Common.Util.Util.GetErrorCodeFromPlatformDiagnosticsInfo(string? diagnosticsInfo) -> int
+static AndroidX.Media3.Common.Util.Util.GetFloatPcmEncoding(int bitDepth) -> int
+static AndroidX.Media3.Common.Util.Util.GetFloatPcmEncoding(int bitDepth, Java.Nio.ByteOrder? byteOrder) -> int
 static AndroidX.Media3.Common.Util.Util.GetFormatSupportString(int formatSupport) -> string?
 static AndroidX.Media3.Common.Util.Util.GetInt24(Java.Nio.ByteBuffer? buffer, int index) -> int
 static AndroidX.Media3.Common.Util.Util.GetIntegerCodeForString(string? string) -> int
@@ -4183,6 +4384,7 @@ static AndroidX.Media3.Common.Util.Util.GetStreamTypeForAudioUsage(int usage) ->
 static AndroidX.Media3.Common.Util.Util.GetStringForTime(Java.Lang.StringBuilder? builder, Java.Util.Formatter? formatter, long timeMs) -> string?
 static AndroidX.Media3.Common.Util.Util.GetStringForTime(long timeMs) -> string?
 static AndroidX.Media3.Common.Util.Util.GetSystemLanguageCodes() -> string![]?
+static AndroidX.Media3.Common.Util.Util.GetSystemProperty(string? name) -> string?
 static AndroidX.Media3.Common.Util.Util.GetTrackTypeString(int trackType) -> string?
 static AndroidX.Media3.Common.Util.Util.GetUserAgent(Android.Content.Context? context, string? applicationName) -> string?
 static AndroidX.Media3.Common.Util.Util.GetUtf8Bytes(string? value) -> byte[]?
@@ -4191,6 +4393,7 @@ static AndroidX.Media3.Common.Util.Util.HandlePauseButtonAction(AndroidX.Media3.
 static AndroidX.Media3.Common.Util.Util.HandlePlayButtonAction(AndroidX.Media3.Common.IPlayer? player) -> bool
 static AndroidX.Media3.Common.Util.Util.HandlePlayPauseButtonAction(AndroidX.Media3.Common.IPlayer? player) -> bool
 static AndroidX.Media3.Common.Util.Util.HandlePlayPauseButtonAction(AndroidX.Media3.Common.IPlayer? player, bool playIfSuppressed) -> bool
+static AndroidX.Media3.Common.Util.Util.IgnoreFuture(Java.Util.Concurrent.IFuture? unused) -> void
 static AndroidX.Media3.Common.Util.Util.InferContentType(Android.Net.Uri? uri) -> int
 static AndroidX.Media3.Common.Util.Util.InferContentType(Android.Net.Uri? uri, string? overrideExtension) -> int
 static AndroidX.Media3.Common.Util.Util.InferContentType(string? fileName) -> int
@@ -4226,6 +4429,7 @@ static AndroidX.Media3.Common.Util.Util.MsToUs(long timeMs) -> long
 static AndroidX.Media3.Common.Util.Util.NewSingleThreadExecutor(string? threadName) -> Java.Util.Concurrent.IExecutorService?
 static AndroidX.Media3.Common.Util.Util.NewSingleThreadScheduledExecutor(string? threadName) -> Java.Util.Concurrent.IScheduledExecutorService?
 static AndroidX.Media3.Common.Util.Util.NormalizeLanguageCode(string? language) -> string?
+static AndroidX.Media3.Common.Util.Util.NsToMs(long timeNs) -> long
 static AndroidX.Media3.Common.Util.Util.NullSafeArrayAppend(Java.Lang.Object![]? original, Java.Lang.Object? newElement) -> Java.Lang.Object![]?
 static AndroidX.Media3.Common.Util.Util.NullSafeArrayConcatenation(Java.Lang.Object![]? first, Java.Lang.Object![]? second) -> Java.Lang.Object![]?
 static AndroidX.Media3.Common.Util.Util.NullSafeArrayCopy(Java.Lang.Object![]? input, int length) -> Java.Lang.Object![]?
@@ -4269,11 +4473,17 @@ static AndroidX.Media3.Common.Util.Util.ToByteArray(float value) -> byte[]?
 static AndroidX.Media3.Common.Util.Util.ToByteArray(params int[]? values) -> byte[]?
 static AndroidX.Media3.Common.Util.Util.ToFourccString(int fourcc) -> string?
 static AndroidX.Media3.Common.Util.Util.ToHexString(byte[]? bytes) -> string?
+static AndroidX.Media3.Common.Util.Util.ToHexString(byte[]? bytes, int offset, int length) -> string?
 static AndroidX.Media3.Common.Util.Util.ToLong(int mostSignificantBits, int leastSignificantBits) -> long
+static AndroidX.Media3.Common.Util.Util.ToUnsignedInt(long x) -> int
 static AndroidX.Media3.Common.Util.Util.ToUnsignedLong(int x) -> long
 static AndroidX.Media3.Common.Util.Util.UnescapeFileName(string? fileName) -> string?
 static AndroidX.Media3.Common.Util.Util.UsToMs(long timeUs) -> long
 static AndroidX.Media3.Common.Util.Util.WriteBoolean(Android.OS.Parcel? parcel, bool value) -> void
+static AndroidX.Media3.Common.Util.WavUtil.GetPcmEncodingForType(int type, int bitsPerSample) -> int
+static AndroidX.Media3.Common.Util.WavUtil.GetTypeForPcmEncoding(int pcmEncoding) -> int
+static AndroidX.Media3.Common.Util.WavUtil.IsChannelMaskValid(int channelMask, int channelCount) -> bool
+static AndroidX.Media3.Common.Util.WavUtil.MapToAudioFormatChannelMask(int wavChannelMask) -> int
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.GetAttributeValue(System.Xml.XmlReader? xpp, string? attributeName) -> string?
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.GetAttributeValueIgnorePrefix(System.Xml.XmlReader? xpp, string? attributeName) -> string?
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.IsEndTag(System.Xml.XmlReader? xpp) -> bool
@@ -4281,6 +4491,9 @@ static AndroidX.Media3.Common.Util.XmlPullParserUtil.IsEndTag(System.Xml.XmlRead
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.IsStartTag(System.Xml.XmlReader? xpp) -> bool
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.IsStartTag(System.Xml.XmlReader? xpp, string? name) -> bool
 static AndroidX.Media3.Common.Util.XmlPullParserUtil.IsStartTagIgnorePrefix(System.Xml.XmlReader? xpp, string? name) -> bool
+static AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.Create(Android.Views.ISurfaceHolder? surfaceHolder, Java.Util.Concurrent.IExecutor? surfaceHolderExecutor, AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor) -> AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter?
+static AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.Create(Android.Views.ISurfaceHolder? surfaceHolder, Java.Util.Concurrent.IExecutor? surfaceHolderExecutor, AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter.IListener? listener, Java.Util.Concurrent.IExecutor? listenerExecutor, AndroidX.Media3.Common.Video.IHardwareBufferNativeHelpers? hardwareBufferNativeHelpers) -> AndroidX.Media3.Common.Video.SurfaceHolderFrameWriter?
+static AndroidX.Media3.Common.Video.SyncFenceWrapper.Of(Android.Hardware.SyncFence? syncFence) -> AndroidX.Media3.Common.Video.SyncFenceWrapper?
 static AndroidX.Media3.Common.VideoFrameProcessingException.From(Java.Lang.Exception? exception) -> AndroidX.Media3.Common.VideoFrameProcessingException?
 static AndroidX.Media3.Common.VideoFrameProcessingException.From(Java.Lang.Exception? exception, long presentationTimeUs) -> AndroidX.Media3.Common.VideoFrameProcessingException?
 static AndroidX.Media3.Common.VideoSize.FromBundle(Android.OS.Bundle? bundle) -> AndroidX.Media3.Common.VideoSize?

@@ -71,6 +71,7 @@ AndroidX.Media3.Muxer.Mp4Muxer
 AndroidX.Media3.Muxer.Mp4Muxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
 AndroidX.Media3.Muxer.Mp4Muxer.AddTrack(int sortKey, AndroidX.Media3.Common.Format? format) -> int
+AndroidX.Media3.Muxer.Mp4Muxer.AddTrackReference(int trackId, int referenceType, System.Collections.Generic.IList<Java.Lang.Integer!>? referencedTrackIds) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.Builder
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.Build() -> AndroidX.Media3.Muxer.Mp4Muxer?
 AndroidX.Media3.Muxer.Mp4Muxer.Builder.Builder(AndroidX.Media3.Muxer.ISeekableMuxerOutput? seekableMuxerOutput) -> void
@@ -86,6 +87,7 @@ AndroidX.Media3.Muxer.Mp4Muxer.Builder.SetSampleCopyingEnabled(bool enabled) -> 
 AndroidX.Media3.Muxer.Mp4Muxer.Close() -> void
 AndroidX.Media3.Muxer.Mp4Muxer.IFileFormat
 AndroidX.Media3.Muxer.Mp4Muxer.ILastSampleDurationBehavior
+AndroidX.Media3.Muxer.Mp4Muxer.ITrackReferenceType
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.Mp4AtFileParameters(bool shouldInterleaveSamples) -> void
 AndroidX.Media3.Muxer.Mp4Muxer.Mp4AtFileParameters.ShouldInterleaveSamples.get -> bool
@@ -103,6 +105,12 @@ AndroidX.Media3.Muxer.OggMuxer.Builder.Builder(Java.Nio.Channels.IWritableByteCh
 AndroidX.Media3.Muxer.OggMuxer.Builder.SetVendorString(string? vendorString) -> AndroidX.Media3.Muxer.OggMuxer.Builder?
 AndroidX.Media3.Muxer.OggMuxer.Close() -> void
 AndroidX.Media3.Muxer.OggMuxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, AndroidX.Media3.Muxer.BufferInfo? bufferInfo) -> void
+AndroidX.Media3.Muxer.WavMuxer
+AndroidX.Media3.Muxer.WavMuxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
+AndroidX.Media3.Muxer.WavMuxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
+AndroidX.Media3.Muxer.WavMuxer.Close() -> void
+AndroidX.Media3.Muxer.WavMuxer.WavMuxer(AndroidX.Media3.Muxer.ISeekableMuxerOutput? seekableMuxerOutput) -> void
+AndroidX.Media3.Muxer.WavMuxer.WriteSampleData(int trackId, Java.Nio.ByteBuffer? byteBuffer, AndroidX.Media3.Muxer.BufferInfo? bufferInfo) -> void
 AndroidX.Media3.Muxer.WebmMuxer
 AndroidX.Media3.Muxer.WebmMuxer.AddMetadataEntry(AndroidX.Media3.Common.Metadata.IEntry? metadataEntry) -> void
 AndroidX.Media3.Muxer.WebmMuxer.AddTrack(AndroidX.Media3.Common.Format? format) -> int
@@ -118,6 +126,7 @@ const AndroidX.Media3.Muxer.Mp4Muxer.FileFormatDefault = 0 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.FileFormatMp4WithAuxiliaryTracksExtension = 1 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.LastSampleDurationBehaviorSetFromEndOfStreamBufferOrDuplicatePrevious = 1 -> int
 const AndroidX.Media3.Muxer.Mp4Muxer.LastSampleDurationBehaviorSetToZero = 0 -> int
+const AndroidX.Media3.Muxer.Mp4Muxer.TrackReferenceTypeCdsc = 1667527523 -> int
 const AndroidX.Media3.Muxer.MuxerUtil.UnsignedIntMaxValue = 4294967295 -> long
 override AndroidX.Media3.Muxer.AacMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.BufferInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -132,6 +141,7 @@ override AndroidX.Media3.Muxer.MuxerException.JniPeerMembers.get -> Java.Interop
 override AndroidX.Media3.Muxer.MuxerUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.OggMuxer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.OggMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Muxer.WavMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.WebmMuxer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Muxer.WebmMuxer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Media3.Muxer.FragmentedMp4Muxer.SupportedAudioSampleMimeTypes.get -> Google.Common.Collect.ImmutableList?

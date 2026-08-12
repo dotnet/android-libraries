@@ -47,6 +47,17 @@ AndroidX.Media3.Extractor.Amr.AmrExtractor.Read(AndroidX.Media3.Extractor.IExtra
 AndroidX.Media3.Extractor.Amr.AmrExtractor.Release() -> void
 AndroidX.Media3.Extractor.Amr.AmrExtractor.Seek(long position, long timeUs) -> void
 AndroidX.Media3.Extractor.Amr.AmrExtractor.Sniff(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
+AndroidX.Media3.Extractor.Av1Config
+AndroidX.Media3.Extractor.Av1Config.Bitdepth.get -> int
+AndroidX.Media3.Extractor.Av1Config.Bitdepth.set -> void
+AndroidX.Media3.Extractor.Av1Config.Codecs.get -> string?
+AndroidX.Media3.Extractor.Av1Config.Codecs.set -> void
+AndroidX.Media3.Extractor.Av1Config.ColorRange.get -> int
+AndroidX.Media3.Extractor.Av1Config.ColorRange.set -> void
+AndroidX.Media3.Extractor.Av1Config.ColorSpace.get -> int
+AndroidX.Media3.Extractor.Av1Config.ColorSpace.set -> void
+AndroidX.Media3.Extractor.Av1Config.ColorTransfer.get -> int
+AndroidX.Media3.Extractor.Av1Config.ColorTransfer.set -> void
 AndroidX.Media3.Extractor.AvcConfig
 AndroidX.Media3.Extractor.AvcConfig.BitdepthChroma.get -> int
 AndroidX.Media3.Extractor.AvcConfig.BitdepthChroma.set -> void
@@ -144,10 +155,14 @@ AndroidX.Media3.Extractor.ChunkIndexMerger.Clear() -> void
 AndroidX.Media3.Extractor.ChunkIndexMerger.Merge() -> AndroidX.Media3.Extractor.ChunkIndex?
 AndroidX.Media3.Extractor.ChunkIndexMerger.Size() -> int
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap
+AndroidX.Media3.Extractor.ConstantBitrateSeekMap.Bitrate.get -> int
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize, bool allowSeeksIfLengthUnknown) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(long inputLength, long firstFrameBytePosition, int bitrate, int frameSize, bool allowSeeksIfLengthUnknown, bool isEstimated) -> void
 AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ConstantBitrateSeekMap(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Extractor.ConstantBitrateSeekMap.FirstFramePosition.get -> long
+AndroidX.Media3.Extractor.ConstantBitrateSeekMap.FrameSize.get -> int
+AndroidX.Media3.Extractor.ConstantBitrateSeekMap.ShouldAllowSeeksIfLengthUnknown() -> bool
 AndroidX.Media3.Extractor.DefaultExtractorInput
 AndroidX.Media3.Extractor.DefaultExtractorInput.AdvancePeekPosition(int length) -> void
 AndroidX.Media3.Extractor.DefaultExtractorInput.AdvancePeekPosition(int length, bool allowEndOfInput) -> bool
@@ -178,6 +193,7 @@ AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetAdtsExtractorFlags(int fla
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetAmrExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetConstantBitrateSeekingAlwaysEnabled(bool constantBitrateSeekingAlwaysEnabled) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetConstantBitrateSeekingEnabled(bool constantBitrateSeekingEnabled) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
+AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetDisableArtworkMetadata(bool disableArtworkMetadata) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetFlacExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetFragmentedMp4ExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetHeifExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
@@ -214,21 +230,6 @@ AndroidX.Media3.Extractor.DtsUtil.DtsHeader.SampleRate.get -> int
 AndroidX.Media3.Extractor.DtsUtil.DtsHeader.SampleRate.set -> void
 AndroidX.Media3.Extractor.DtsUtil.IDtsAudioMimeType
 AndroidX.Media3.Extractor.DtsUtil.IFrameType
-AndroidX.Media3.Extractor.DummyExtractorOutput
-AndroidX.Media3.Extractor.DummyExtractorOutput.DummyExtractorOutput() -> void
-AndroidX.Media3.Extractor.DummyExtractorOutput.EndTracks() -> void
-AndroidX.Media3.Extractor.DummyExtractorOutput.InterfaceConsts
-AndroidX.Media3.Extractor.DummyExtractorOutput.SeekMap(AndroidX.Media3.Extractor.ISeekMap? seekMap) -> void
-AndroidX.Media3.Extractor.DummyExtractorOutput.Track(int id, int type) -> AndroidX.Media3.Extractor.ITrackOutput?
-AndroidX.Media3.Extractor.DummyTrackOutput
-AndroidX.Media3.Extractor.DummyTrackOutput.DummyTrackOutput() -> void
-AndroidX.Media3.Extractor.DummyTrackOutput.Format(AndroidX.Media3.Common.Format? format) -> void
-AndroidX.Media3.Extractor.DummyTrackOutput.InterfaceConsts
-AndroidX.Media3.Extractor.DummyTrackOutput.SampleData(AndroidX.Media3.Common.IDataReader? input, int length, bool allowEndOfInput) -> int
-AndroidX.Media3.Extractor.DummyTrackOutput.SampleData(AndroidX.Media3.Common.IDataReader? input, int length, bool allowEndOfInput, int sampleDataPart) -> int
-AndroidX.Media3.Extractor.DummyTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length) -> void
-AndroidX.Media3.Extractor.DummyTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length, int sampleDataPart) -> void
-AndroidX.Media3.Extractor.DummyTrackOutput.SampleMetadata(long timeUs, int flags, int size, int offset, AndroidX.Media3.Extractor.TrackOutputCryptoData? cryptoData) -> void
 AndroidX.Media3.Extractor.ExtractorUtil
 AndroidX.Media3.Extractor.Flac.FlacConstants
 AndroidX.Media3.Extractor.Flac.FlacExtractor
@@ -460,6 +461,9 @@ AndroidX.Media3.Extractor.Jpeg.JpegExtractor.Read(AndroidX.Media3.Extractor.IExt
 AndroidX.Media3.Extractor.Jpeg.JpegExtractor.Release() -> void
 AndroidX.Media3.Extractor.Jpeg.JpegExtractor.Seek(long position, long timeUs) -> void
 AndroidX.Media3.Extractor.Jpeg.JpegExtractor.Sniff(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
+AndroidX.Media3.Extractor.Metadata.ChapterBuilder
+AndroidX.Media3.Extractor.Metadata.ChapterBuilder.ChapterBuilder() -> void
+AndroidX.Media3.Extractor.Metadata.ChapterBuilder.ChapterBuilder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Media3.Extractor.Metadata.Dvbsi.AppInfoTable
 AndroidX.Media3.Extractor.Metadata.Dvbsi.AppInfoTable.AppInfoTable(int controlCode, string? url) -> void
 AndroidX.Media3.Extractor.Metadata.Dvbsi.AppInfoTable.ControlCode.get -> int
@@ -507,6 +511,11 @@ AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.PictureType.set -> void
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.PopulateMediaMetadata(AndroidX.Media3.Common.MediaMetadata.Builder? builder) -> void
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.Width.get -> int
 AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.Width.set -> void
+AndroidX.Media3.Extractor.Metadata.IChapter
+AndroidX.Media3.Extractor.Metadata.IChapter.EndTimeMs.get -> long
+AndroidX.Media3.Extractor.Metadata.IChapter.IsHidden.get -> bool
+AndroidX.Media3.Extractor.Metadata.IChapter.StartTimeMs.get -> long
+AndroidX.Media3.Extractor.Metadata.IChapter.Title.get -> AndroidX.Media3.Common.Label?
 AndroidX.Media3.Extractor.Metadata.IMetadataDecoder
 AndroidX.Media3.Extractor.Metadata.IMetadataDecoder.Decode(AndroidX.Media3.Extractor.Metadata.MetadataInputBuffer? p0) -> AndroidX.Media3.Common.Metadata?
 AndroidX.Media3.Extractor.Metadata.Icy.IcyDecoder
@@ -556,14 +565,14 @@ AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.ChapterId.get -> string?
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.ChapterId.set -> void
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.EndOffset.get -> long
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.EndOffset.set -> void
-AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.EndTimeMs.get -> int
-AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.EndTimeMs.set -> void
+AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.EndTimeMs.get -> long
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.GetSubFrame(int index) -> AndroidX.Media3.Extractor.Metadata.Id3.Id3Frame?
+AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.IsHidden.get -> bool
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.StartOffset.get -> long
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.StartOffset.set -> void
-AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.StartTimeMs.get -> int
-AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.StartTimeMs.set -> void
+AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.StartTimeMs.get -> long
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.SubFrameCount.get -> int
+AndroidX.Media3.Extractor.Metadata.Id3.ChapterFrame.Title.get -> AndroidX.Media3.Common.Label?
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterTocFrame
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterTocFrame.ChapterTocFrame(string? elementId, bool isRoot, bool isOrdered, string![]? children, AndroidX.Media3.Extractor.Metadata.Id3.Id3Frame![]? subFrames) -> void
 AndroidX.Media3.Extractor.Metadata.Id3.ChapterTocFrame.Children.get -> System.Collections.Generic.IList<string!>?
@@ -654,19 +663,16 @@ AndroidX.Media3.Extractor.Metadata.MetadataInputBuffer.SubsampleOffsetUs.get -> 
 AndroidX.Media3.Extractor.Metadata.MetadataInputBuffer.SubsampleOffsetUs.set -> void
 AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata
 AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.MotionPhotoMetadata(long photoStartPosition, long photoSize, long photoPresentationTimestampUs, long videoStartPosition, long videoSize) -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.MotionPhotoMetadata(long photoStartPosition, long photoSize, long photoPresentationTimestampUs, long videoStartPosition, long videoSize) -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.MotionPhotoMetadata(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoPresentationTimestampUs.get -> long
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoPresentationTimestampUs.set -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoSize.get -> long
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoSize.set -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoStartPosition.get -> long
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.PhotoStartPosition.set -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.VideoSize.get -> long
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.VideoSize.set -> void
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.VideoStartPosition.get -> long
-AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.VideoStartPosition.set -> void
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoPresentationTimestampUs.get -> long
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoPresentationTimestampUs.set -> void
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoSize.get -> long
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoSize.set -> void
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoStartPosition.get -> long
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.PhotoStartPosition.set -> void
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.VideoSize.get -> long
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.VideoSize.set -> void
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.VideoStartPosition.get -> long
+AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.VideoStartPosition.set -> void
 AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData
 AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData.Segment
 AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData.Segment.EndTimeMs.get -> long
@@ -795,6 +801,26 @@ AndroidX.Media3.Extractor.Mkv.IEbmlProcessor.StartMasterElement(int p0, long p1,
 AndroidX.Media3.Extractor.Mkv.IEbmlProcessor.StringElement(int p0, string? p1) -> void
 AndroidX.Media3.Extractor.Mkv.IEbmlProcessorElementType
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.ChapLanguage.get -> string?
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.ChapLanguage.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.ChapString.get -> string?
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.ChapString.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.ChapterEntry() -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.CurrentDisplayLanguage.get -> string?
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.CurrentDisplayLanguage.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.CurrentDisplayString.get -> string?
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.CurrentDisplayString.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.FlagHidden.get -> bool
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.FlagHidden.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TimeEndNs.get -> long
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TimeEndNs.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TimeStartNs.get -> long
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TimeStartNs.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TrackUid.get -> long
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.TrackUid.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.Uid.get -> long
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.Uid.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.IFlags
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.InterfaceConsts
@@ -813,18 +839,20 @@ AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.BitsPerChannel.get -> int
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.BitsPerChannel.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ChannelCount.get -> int
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ChannelCount.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ChannelMask.get -> int
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ChannelMask.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecDelayNs.get -> long
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecDelayNs.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecId.get -> string?
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecId.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecPrivate.get -> System.Collections.Generic.IList<byte>?
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CodecPrivate.set -> void
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorRange.get -> int
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorRange.set -> void
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorSpace.get -> int
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorSpace.set -> void
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorTransfer.get -> int
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ColorTransfer.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorRange.get -> int
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorRange.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorSpace.get -> int
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorSpace.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorTransfer.get -> int
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.ContainerColorTransfer.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CryptoData.get -> AndroidX.Media3.Extractor.TrackOutputCryptoData?
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.CryptoData.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.DefaultSampleDurationNs.get -> int
@@ -845,8 +873,6 @@ AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.FlagForced.get -> bool
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.FlagForced.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Format.get -> AndroidX.Media3.Common.Format?
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Format.set -> void
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.HasColorInfo.get -> bool
-AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.HasColorInfo.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.HasContentEncryption.get -> bool
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.HasContentEncryption.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Height.get -> int
@@ -908,6 +934,8 @@ AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.TrueHdSampleRechunker.get 
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.TrueHdSampleRechunker.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Type.get -> int
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Type.set -> void
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Uid.get -> long
+AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.Uid.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.WaitingForDtsAnalysis.get -> bool
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.WaitingForDtsAnalysis.set -> void
 AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track.WhitePointChromaticityX.get -> float
@@ -997,14 +1025,28 @@ AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.PsshAtom.Version.set -> void
 AndroidX.Media3.Extractor.Mp4.SmtaAtomUtil
 AndroidX.Media3.Extractor.Mp4.Sniffer
 AndroidX.Media3.Extractor.Mp4.Track
+AndroidX.Media3.Extractor.Mp4.Track.BuildUpon() -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder
+AndroidX.Media3.Extractor.Mp4.Track.Builder.Build() -> AndroidX.Media3.Extractor.Mp4.Track?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.Builder() -> void
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetChapterTrackId(int chapterTrackId) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetDurationUs(long durationUs) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetFormat(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetId(int id) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetMediaDurationUs(long mediaDurationUs) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetMovieTimescale(long movieTimescale) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetNalUnitLengthFieldLength(int nalUnitLengthFieldLength) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetSampleDescriptionEncryptionBoxes(AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox![]? sampleDescriptionEncryptionBoxes) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetSampleTransformation(int sampleTransformation) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetShouldBeExposed(bool shouldBeExposed) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetTimescale(long timescale) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.Builder.SetType(int type) -> AndroidX.Media3.Extractor.Mp4.Track.Builder?
+AndroidX.Media3.Extractor.Mp4.Track.ChapterTrackId.get -> int
+AndroidX.Media3.Extractor.Mp4.Track.ChapterTrackId.set -> void
 AndroidX.Media3.Extractor.Mp4.Track.CopyWithFormat(AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Extractor.Mp4.Track?
 AndroidX.Media3.Extractor.Mp4.Track.CopyWithoutEditLists() -> AndroidX.Media3.Extractor.Mp4.Track?
 AndroidX.Media3.Extractor.Mp4.Track.DurationUs.get -> long
 AndroidX.Media3.Extractor.Mp4.Track.DurationUs.set -> void
-AndroidX.Media3.Extractor.Mp4.Track.EditListDurations.get -> System.Collections.Generic.IList<long>?
-AndroidX.Media3.Extractor.Mp4.Track.EditListDurations.set -> void
-AndroidX.Media3.Extractor.Mp4.Track.EditListMediaTimes.get -> System.Collections.Generic.IList<long>?
-AndroidX.Media3.Extractor.Mp4.Track.EditListMediaTimes.set -> void
 AndroidX.Media3.Extractor.Mp4.Track.Format.get -> AndroidX.Media3.Common.Format?
 AndroidX.Media3.Extractor.Mp4.Track.Format.set -> void
 AndroidX.Media3.Extractor.Mp4.Track.GetSampleDescriptionEncryptionBox(int sampleDescriptionIndex) -> AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox?
@@ -1019,9 +1061,11 @@ AndroidX.Media3.Extractor.Mp4.Track.NalUnitLengthFieldLength.get -> int
 AndroidX.Media3.Extractor.Mp4.Track.NalUnitLengthFieldLength.set -> void
 AndroidX.Media3.Extractor.Mp4.Track.SampleTransformation.get -> int
 AndroidX.Media3.Extractor.Mp4.Track.SampleTransformation.set -> void
+AndroidX.Media3.Extractor.Mp4.Track.ShouldBeExposed.get -> bool
+AndroidX.Media3.Extractor.Mp4.Track.ShouldBeExposed.set -> void
 AndroidX.Media3.Extractor.Mp4.Track.Timescale.get -> long
 AndroidX.Media3.Extractor.Mp4.Track.Timescale.set -> void
-AndroidX.Media3.Extractor.Mp4.Track.Track(int id, int type, long timescale, long movieTimescale, long durationUs, long mediaDurationUs, AndroidX.Media3.Common.Format? format, int sampleTransformation, AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox![]? sampleDescriptionEncryptionBoxes, int nalUnitLengthFieldLength, long[]? editListDurations, long[]? editListMediaTimes) -> void
+AndroidX.Media3.Extractor.Mp4.Track.Track(int id, int type, long timescale, long movieTimescale, long durationUs, long mediaDurationUs, AndroidX.Media3.Common.Format? format, int sampleTransformation, AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox![]? sampleDescriptionEncryptionBoxes, int nalUnitLengthFieldLength, long[]? editListDurations, long[]? editListMediaTimes, bool shouldBeExposed, int chapterTrackId) -> void
 AndroidX.Media3.Extractor.Mp4.Track.Type.get -> int
 AndroidX.Media3.Extractor.Mp4.Track.Type.set -> void
 AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox
@@ -1158,7 +1202,6 @@ AndroidX.Media3.Extractor.TS.Ac3Reader.Ac3Reader(string? containerMimeType) -> v
 AndroidX.Media3.Extractor.TS.Ac3Reader.Ac3Reader(string? language, int roleFlags, string? containerMimeType) -> void
 AndroidX.Media3.Extractor.TS.Ac3Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.Ac3Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
-AndroidX.Media3.Extractor.TS.Ac3Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.Ac3Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.Ac3Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.Ac4Extractor
@@ -1174,7 +1217,6 @@ AndroidX.Media3.Extractor.TS.Ac4Reader.Ac4Reader(string? containerMimeType) -> v
 AndroidX.Media3.Extractor.TS.Ac4Reader.Ac4Reader(string? language, int roleFlags, string? containerMimeType) -> void
 AndroidX.Media3.Extractor.TS.Ac4Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.Ac4Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
-AndroidX.Media3.Extractor.TS.Ac4Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.Ac4Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.Ac4Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.AdtsExtractor
@@ -1192,7 +1234,6 @@ AndroidX.Media3.Extractor.TS.AdtsReader.AdtsReader(bool exposeId3, string? conta
 AndroidX.Media3.Extractor.TS.AdtsReader.AdtsReader(bool exposeId3, string? language, int roleFlags, string? containerMimeType) -> void
 AndroidX.Media3.Extractor.TS.AdtsReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.AdtsReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
-AndroidX.Media3.Extractor.TS.AdtsReader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.AdtsReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.AdtsReader.SampleDurationUs.get -> long
 AndroidX.Media3.Extractor.TS.AdtsReader.Seek() -> void
@@ -1207,48 +1248,49 @@ AndroidX.Media3.Extractor.TS.DtsReader
 AndroidX.Media3.Extractor.TS.DtsReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.DtsReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.DtsReader.DtsReader(string? language, int roleFlags, int maxHeaderSize, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.DtsReader.PacketFinished(bool isEndOfInput) -> void
+AndroidX.Media3.Extractor.TS.DtsReader.EndOfInputReached() -> void
 AndroidX.Media3.Extractor.TS.DtsReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.DtsReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader.DvbSubtitleReader(System.Collections.Generic.IList<AndroidX.Media3.Extractor.TS.TsPayloadReaderDvbSubtitleInfo!>? subtitleInfos, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.DvbSubtitleReader.PacketFinished(bool isEndOfInput) -> void
+AndroidX.Media3.Extractor.TS.DvbSubtitleReader.PacketFinished() -> void
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.DvbSubtitleReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.H262Reader
 AndroidX.Media3.Extractor.TS.H262Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.H262Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
+AndroidX.Media3.Extractor.TS.H262Reader.EndOfInputReached() -> void
 AndroidX.Media3.Extractor.TS.H262Reader.H262Reader(string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.H262Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.H262Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.H262Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.H263Reader
 AndroidX.Media3.Extractor.TS.H263Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.H263Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
+AndroidX.Media3.Extractor.TS.H263Reader.EndOfInputReached() -> void
 AndroidX.Media3.Extractor.TS.H263Reader.H263Reader(string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.H263Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.H263Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.H263Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.H264Reader
 AndroidX.Media3.Extractor.TS.H264Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.H264Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
+AndroidX.Media3.Extractor.TS.H264Reader.EndOfInputReached() -> void
 AndroidX.Media3.Extractor.TS.H264Reader.H264Reader(AndroidX.Media3.Extractor.TS.SeiReader? seiReader, bool allowNonIdrKeyframes, bool detectAccessUnits, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.H264Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.H264Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.H264Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.H265Reader
 AndroidX.Media3.Extractor.TS.H265Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.H265Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
+AndroidX.Media3.Extractor.TS.H265Reader.EndOfInputReached() -> void
 AndroidX.Media3.Extractor.TS.H265Reader.H265Reader(AndroidX.Media3.Extractor.TS.SeiReader? seiReader, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.H265Reader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.H265Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.H265Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.IElementaryStreamReader
 AndroidX.Media3.Extractor.TS.IElementaryStreamReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? p0) -> void
 AndroidX.Media3.Extractor.TS.IElementaryStreamReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? p0, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? p1) -> void
-AndroidX.Media3.Extractor.TS.IElementaryStreamReader.PacketFinished(bool p0) -> void
+AndroidX.Media3.Extractor.TS.IElementaryStreamReader.EndOfInputReached() -> void
+AndroidX.Media3.Extractor.TS.IElementaryStreamReader.PacketFinished() -> void
 AndroidX.Media3.Extractor.TS.IElementaryStreamReader.PacketStarted(long p0, int p1) -> void
 AndroidX.Media3.Extractor.TS.IElementaryStreamReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.ISectionPayloadReader
@@ -1266,14 +1308,13 @@ AndroidX.Media3.Extractor.TS.Id3Reader
 AndroidX.Media3.Extractor.TS.Id3Reader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.Id3Reader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.Id3Reader.Id3Reader(string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.Id3Reader.PacketFinished(bool isEndOfInput) -> void
+AndroidX.Media3.Extractor.TS.Id3Reader.PacketFinished() -> void
 AndroidX.Media3.Extractor.TS.Id3Reader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.Id3Reader.Seek() -> void
 AndroidX.Media3.Extractor.TS.LatmReader
 AndroidX.Media3.Extractor.TS.LatmReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.LatmReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.LatmReader.LatmReader(string? language, int roleFlags, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.LatmReader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.LatmReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.LatmReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.MpegAudioReader
@@ -1281,14 +1322,12 @@ AndroidX.Media3.Extractor.TS.MpegAudioReader.Consume(AndroidX.Media3.Common.Util
 AndroidX.Media3.Extractor.TS.MpegAudioReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.MpegAudioReader.MpegAudioReader(string? containerMimeType) -> void
 AndroidX.Media3.Extractor.TS.MpegAudioReader.MpegAudioReader(string? language, int roleFlags, string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.MpegAudioReader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.MpegAudioReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.MpegAudioReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.MpeghReader
 AndroidX.Media3.Extractor.TS.MpeghReader.Consume(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> void
 AndroidX.Media3.Extractor.TS.MpeghReader.CreateTracks(AndroidX.Media3.Extractor.IExtractorOutput? extractorOutput, AndroidX.Media3.Extractor.TS.TsPayloadReaderTrackIdGenerator? idGenerator) -> void
 AndroidX.Media3.Extractor.TS.MpeghReader.MpeghReader(string? containerMimeType) -> void
-AndroidX.Media3.Extractor.TS.MpeghReader.PacketFinished(bool isEndOfInput) -> void
 AndroidX.Media3.Extractor.TS.MpeghReader.PacketStarted(long pesTimeUs, int flags) -> void
 AndroidX.Media3.Extractor.TS.MpeghReader.Seek() -> void
 AndroidX.Media3.Extractor.TS.NalUnitTargetBuffer
@@ -1582,56 +1621,7 @@ AndroidX.Media3.Extractor.TrueHdSampleRechunker.Reset() -> void
 AndroidX.Media3.Extractor.TrueHdSampleRechunker.SampleMetadata(AndroidX.Media3.Extractor.ITrackOutput? trackOutput, long timeUs, int flags, int size, int offset, AndroidX.Media3.Extractor.TrackOutputCryptoData? cryptoData) -> void
 AndroidX.Media3.Extractor.TrueHdSampleRechunker.StartSample(AndroidX.Media3.Extractor.IExtractorInput? input) -> void
 AndroidX.Media3.Extractor.TrueHdSampleRechunker.TrueHdSampleRechunker() -> void
-AndroidX.Media3.Extractor.VorbisBitArray
-AndroidX.Media3.Extractor.VorbisBitArray.BitsLeft() -> int
-AndroidX.Media3.Extractor.VorbisBitArray.Position.get -> int
-AndroidX.Media3.Extractor.VorbisBitArray.Position.set -> void
-AndroidX.Media3.Extractor.VorbisBitArray.ReadBit() -> bool
-AndroidX.Media3.Extractor.VorbisBitArray.ReadBits(int numBits) -> int
-AndroidX.Media3.Extractor.VorbisBitArray.Reset() -> void
-AndroidX.Media3.Extractor.VorbisBitArray.SkipBits(int numBits) -> void
-AndroidX.Media3.Extractor.VorbisBitArray.VorbisBitArray(byte[]? data) -> void
 AndroidX.Media3.Extractor.VorbisUtil
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.CommentHeader(string? vendor, string![]? comments, int length) -> void
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Comments.get -> System.Collections.Generic.IList<string!>?
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Comments.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Length.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Length.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Vendor.get -> string?
-AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.Vendor.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.Mode
-AndroidX.Media3.Extractor.VorbisUtil.Mode.BlockFlag.get -> bool
-AndroidX.Media3.Extractor.VorbisUtil.Mode.BlockFlag.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.Mode.Mapping.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.Mode.Mapping.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.Mode.Mode(bool blockFlag, int windowType, int transformType, int mapping) -> void
-AndroidX.Media3.Extractor.VorbisUtil.Mode.TransformType.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.Mode.TransformType.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.Mode.WindowType.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.Mode.WindowType.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateMaximum.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateMaximum.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateMinimum.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateMinimum.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateNominal.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BitrateNominal.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BlockSize0.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BlockSize0.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BlockSize1.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.BlockSize1.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Channels.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Channels.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Data.get -> System.Collections.Generic.IList<byte>?
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Data.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.FramingFlag.get -> bool
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.FramingFlag.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.SampleRate.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.SampleRate.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Version.get -> int
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.Version.set -> void
-AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.VorbisIdHeader(int version, int channels, int sampleRate, int bitrateMaximum, int bitrateNominal, int bitrateMinimum, int blockSize0, int blockSize1, bool framingFlag, byte[]? data) -> void
 AndroidX.Media3.Extractor.VvcConfig
 AndroidX.Media3.Extractor.VvcConfig.BitdepthLuma.get -> int
 AndroidX.Media3.Extractor.VvcConfig.BitdepthLuma.set -> void
@@ -1649,7 +1639,6 @@ AndroidX.Media3.Extractor.Wav.WavExtractor.Release() -> void
 AndroidX.Media3.Extractor.Wav.WavExtractor.Seek(long position, long timeUs) -> void
 AndroidX.Media3.Extractor.Wav.WavExtractor.Sniff(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
 AndroidX.Media3.Extractor.Wav.WavExtractor.WavExtractor() -> void
-AndroidX.Media3.Extractor.WavUtil
 AndroidX.Media3.Extractor.Webp.WebpExtractor
 AndroidX.Media3.Extractor.Webp.WebpExtractor.Init(AndroidX.Media3.Extractor.IExtractorOutput? output) -> void
 AndroidX.Media3.Extractor.Webp.WebpExtractor.InterfaceConsts
@@ -1737,9 +1726,6 @@ const AndroidX.Media3.Extractor.DtsUtil.FrameTypeExtensionSubstream = 2 -> int
 const AndroidX.Media3.Extractor.DtsUtil.FrameTypeUhdNonSync = 4 -> int
 const AndroidX.Media3.Extractor.DtsUtil.FrameTypeUhdSync = 3 -> int
 const AndroidX.Media3.Extractor.DtsUtil.FrameTypeUnknown = 0 -> int
-const AndroidX.Media3.Extractor.DummyTrackOutput.InterfaceConsts.SampleDataPartEncryption = 1 -> int
-const AndroidX.Media3.Extractor.DummyTrackOutput.InterfaceConsts.SampleDataPartMain = 0 -> int
-const AndroidX.Media3.Extractor.DummyTrackOutput.InterfaceConsts.SampleDataPartSupplemental = 2 -> int
 const AndroidX.Media3.Extractor.Flac.FlacConstants.MaxFrameHeaderSize = 16 -> int
 const AndroidX.Media3.Extractor.Flac.FlacConstants.MetadataBlockHeaderSize = 4 -> int
 const AndroidX.Media3.Extractor.Flac.FlacConstants.MetadataTypePicture = 6 -> int
@@ -1749,6 +1735,7 @@ const AndroidX.Media3.Extractor.Flac.FlacConstants.MetadataTypeVorbisComment = 4
 const AndroidX.Media3.Extractor.Flac.FlacConstants.MinFrameHeaderSize = 6 -> int
 const AndroidX.Media3.Extractor.Flac.FlacConstants.StreamInfoBlockSize = 38 -> int
 const AndroidX.Media3.Extractor.Flac.FlacConstants.StreamMarkerSize = 4 -> int
+const AndroidX.Media3.Extractor.Flac.FlacExtractor.FlagDisableArtworkMetadata = 2 -> int
 const AndroidX.Media3.Extractor.Flac.FlacExtractor.FlagDisableId3Metadata = 1 -> int
 const AndroidX.Media3.Extractor.Flac.FlacExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Flac.FlacExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
@@ -1793,6 +1780,7 @@ const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FlagEmitRawSubtitleData = 
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.InterfaceConsts.ResultSeek = 1 -> int
+const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.FlagDisableArtworkMetadata = 16 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.FlagDisableId3Metadata = 8 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.FlagEnableConstantBitrateSeeking = 1 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3Extractor.FlagEnableConstantBitrateSeekingAlways = 2 -> int
@@ -1807,9 +1795,11 @@ const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorReplay
 const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorSimpleRms = 4 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorUnset = 0 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorUser = 2 -> int
+const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagDisableArtworkMetadata = 1024 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEmitRawSubtitleData = 32 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEnableEmsgTrack = 4 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagMergeFragmentedSidx = 256 -> int
+const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagReadMfraForSeekMap = 512 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagReadWithinGopSampleDependencies = 64 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagReadWithinGopSampleDependenciesH265 = 128 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagWorkaroundEveryVideoFrameIsSyncFrame = 1 -> int
@@ -1818,11 +1808,11 @@ const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagWorkaroundIgnoreT
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.ResultSeek = 1 -> int
+const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagDisableArtworkMetadata = 512 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagEmitRawSubtitleData = 16 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagMarkFirstVideoTrackWithMainRole = 8 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagOmitTrackSampleTable = 256 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagReadAuxiliaryTracks = 64 -> int
-const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagReadMotionPhotoMetadata = 2 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagReadSefData = 4 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagReadWithinGopSampleDependencies = 32 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagReadWithinGopSampleDependenciesH265 = 128 -> int
@@ -1830,8 +1820,8 @@ const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagWorkaroundIgnoreEditLists =
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.InterfaceConsts.ResultSeek = 1 -> int
-const AndroidX.Media3.Extractor.Mp4.Sniffer.BrandHeic = 1751476579 -> int
 const AndroidX.Media3.Extractor.Mp4.Sniffer.BrandQuicktime = 1903435808 -> int
+const AndroidX.Media3.Extractor.Mp4.Track.TimescaleUnset = -1 -> long
 const AndroidX.Media3.Extractor.Mp4.Track.TransformationCea608Cdat = 1 -> int
 const AndroidX.Media3.Extractor.Mp4.Track.TransformationNone = 0 -> int
 const AndroidX.Media3.Extractor.MpegAudioUtil.MaxFrameSizeBytes = 4096 -> int
@@ -1932,18 +1922,6 @@ const AndroidX.Media3.Extractor.Text.Webvtt.WebvttCssStyle.Unspecified = -1 -> i
 const AndroidX.Media3.Extractor.Wav.WavExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Wav.WavExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Wav.WavExtractor.InterfaceConsts.ResultSeek = 1 -> int
-const AndroidX.Media3.Extractor.WavUtil.DataFourcc = 1684108385 -> int
-const AndroidX.Media3.Extractor.WavUtil.Ds64Fourcc = 1685272116 -> int
-const AndroidX.Media3.Extractor.WavUtil.FmtFourcc = 1718449184 -> int
-const AndroidX.Media3.Extractor.WavUtil.Rf64Fourcc = 1380333108 -> int
-const AndroidX.Media3.Extractor.WavUtil.RiffFourcc = 1380533830 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypeAlaw = 6 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypeFloat = 3 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypeImaAdpcm = 17 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypeMlaw = 7 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypePcm = 1 -> int
-const AndroidX.Media3.Extractor.WavUtil.TypeWaveFormatExtensible = 65534 -> int
-const AndroidX.Media3.Extractor.WavUtil.WaveFourcc = 1463899717 -> int
 const AndroidX.Media3.Extractor.Webp.WebpExtractor.InterfaceConsts.ResultContinue = 0 -> int
 const AndroidX.Media3.Extractor.Webp.WebpExtractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Webp.WebpExtractor.InterfaceConsts.ResultSeek = 1 -> int
@@ -1954,6 +1932,7 @@ override AndroidX.Media3.Extractor.Ac3Util.SyncFrameInfo.JniPeerMembers.get -> J
 override AndroidX.Media3.Extractor.Ac4Util.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Ac4Util.SyncFrameInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Amr.AmrExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.Av1Config.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.AvcConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Avi.AviExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Avif.AvifExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1980,8 +1959,6 @@ override AndroidX.Media3.Extractor.DefaultExtractorsFactory.JniPeerMembers.get -
 override AndroidX.Media3.Extractor.DiscardingTrackOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DtsUtil.DtsHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.DtsUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.DummyExtractorOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.DummyTrackOutput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.ExtractorUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Flac.FlacConstants.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Flac.FlacExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2019,6 +1996,9 @@ override AndroidX.Media3.Extractor.HevcConfig.JniPeerMembers.get -> Java.Interop
 override AndroidX.Media3.Extractor.Id3Peeker.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.IndexSeekMap.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Jpeg.JpegExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.Metadata.ChapterBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.Metadata.ChapterBuilder.ThresholdClass.get -> nint
+override AndroidX.Media3.Extractor.Metadata.ChapterBuilder.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.Metadata.Dvbsi.AppInfoTable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Dvbsi.AppInfoTableDecoder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Emsg.EventMessage.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2046,9 +2026,6 @@ override AndroidX.Media3.Extractor.Metadata.Id3.TextInformationFrame.JniPeerMemb
 override AndroidX.Media3.Extractor.Metadata.Id3.UrlLinkFrame.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.MetadataInputBuffer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.MotionPhotoMetadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.ThresholdClass.get -> nint
-override AndroidX.Media3.Extractor.Metadata.Mp4.MotionPhotoMetadata.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData.Segment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Mp4.SmtaMetadataEntry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2069,6 +2046,7 @@ override AndroidX.Media3.Extractor.Metadata.SimpleMetadataDecoder.ThresholdClass
 override AndroidX.Media3.Extractor.Metadata.SimpleMetadataDecoder.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Extractor.Metadata.ThumbnailMetadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Metadata.Vorbis.VorbisComment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ThresholdClass.get -> nint
 override AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ThresholdType.get -> System.Type!
@@ -2088,6 +2066,7 @@ override AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.JniPeerMembers.get -> Java.I
 override AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.PsshAtom.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mp4.SmtaAtomUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mp4.Sniffer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Extractor.Mp4.Track.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mp4.Track.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mp4.TrackEncryptionBox.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Mp4.TrackSampleTable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2186,14 +2165,9 @@ override AndroidX.Media3.Extractor.Text.Webvtt.WebvttParser.JniPeerMembers.get -
 override AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.TrackOutputCryptoData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.TrueHdSampleRechunker.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.VorbisBitArray.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.VorbisUtil.CommentHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.VorbisUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.VorbisUtil.Mode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.VvcConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Wav.WavExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Media3.Extractor.WavUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Extractor.Webp.WebpExtractor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Media3.Extractor.AacUtil.BuildAacLcAudioSpecificConfig(int sampleRate, int channelCount) -> byte[]?
 static AndroidX.Media3.Extractor.AacUtil.BuildAudioSpecificConfig(int audioObjectType, int sampleRateIndex, int channelConfig) -> byte[]?
@@ -2213,6 +2187,7 @@ static AndroidX.Media3.Extractor.Ac4Util.ParseAc4SyncframeAudioSampleCount(Java.
 static AndroidX.Media3.Extractor.Ac4Util.ParseAc4SyncframeInfo(AndroidX.Media3.Common.Util.ParsableBitArray? data) -> AndroidX.Media3.Extractor.Ac4Util.SyncFrameInfo?
 static AndroidX.Media3.Extractor.Ac4Util.ParseAc4SyncframeSize(byte[]? data, int syncword) -> int
 static AndroidX.Media3.Extractor.Amr.AmrExtractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
+static AndroidX.Media3.Extractor.Av1Config.Parse(byte[]? initializationData) -> AndroidX.Media3.Extractor.Av1Config?
 static AndroidX.Media3.Extractor.AvcConfig.Parse(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Extractor.AvcConfig?
 static AndroidX.Media3.Extractor.BinarySearchSeeker.SeekOperationParams.CalculateNextSearchBytePosition(long targetTimePosition, long floorTimePosition, long ceilingTimePosition, long floorBytePosition, long ceilingBytePosition, long approxBytesPerFrame) -> long
 static AndroidX.Media3.Extractor.BinarySearchSeeker.TimestampSearchResult.NoTimestampInRangeResult.get -> AndroidX.Media3.Extractor.BinarySearchSeeker.TimestampSearchResult?
@@ -2224,7 +2199,7 @@ static AndroidX.Media3.Extractor.CeaUtil.ConsumeCcData(long presentationTimeUs, 
 static AndroidX.Media3.Extractor.DefaultExtractorsFactory.InterfaceConsts.Empty.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
 static AndroidX.Media3.Extractor.DtsUtil.GetDtsFrameSize(byte[]? data) -> int
 static AndroidX.Media3.Extractor.DtsUtil.GetFrameType(int word) -> int
-static AndroidX.Media3.Extractor.DtsUtil.IsSampleDtsHd(AndroidX.Media3.Extractor.IExtractorInput? input, int sampleSize) -> bool
+static AndroidX.Media3.Extractor.DtsUtil.IsDtsBaseAudioMimeType(string? mimeType) -> bool
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsAudioSampleCount(byte[]? data) -> int
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsFormat(byte[]? frame, string? trackId, string? language, int roleFlags, string? containerMimeType, AndroidX.Media3.Common.DrmInitData? drmInitData) -> AndroidX.Media3.Common.Format?
@@ -2232,7 +2207,7 @@ static AndroidX.Media3.Extractor.DtsUtil.ParseDtsHdHeader(byte[]? header) -> And
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsHdHeaderSize(byte[]? headerPrefix) -> int
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsUhdHeader(byte[]? header, Java.Util.Concurrent.Atomic.AtomicInteger? uhdAudioChunkId) -> AndroidX.Media3.Extractor.DtsUtil.DtsHeader?
 static AndroidX.Media3.Extractor.DtsUtil.ParseDtsUhdHeaderSize(byte[]? headerPrefix) -> int
-static AndroidX.Media3.Extractor.DummyExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
+static AndroidX.Media3.Extractor.DtsUtil.UpdateFormatWithDtsHdInfo(AndroidX.Media3.Extractor.IExtractorInput? input, int sampleSize, AndroidX.Media3.Common.Format? format) -> AndroidX.Media3.Common.Format?
 static AndroidX.Media3.Extractor.ExtractorUtil.CheckContainerInput(bool expression, string? message) -> void
 static AndroidX.Media3.Extractor.ExtractorUtil.GetMaximumEncodedRateBytesPerSecond(int encoding) -> int
 static AndroidX.Media3.Extractor.ExtractorUtil.PeekFullyQuietly(AndroidX.Media3.Extractor.IExtractorInput? input, byte[]? output, int offset, int length, bool allowEndOfInput) -> bool
@@ -2246,9 +2221,9 @@ static AndroidX.Media3.Extractor.FlacFrameReader.GetFirstSampleNumber(AndroidX.M
 static AndroidX.Media3.Extractor.FlacFrameReader.ReadFrameBlockSizeSamplesFromKey(AndroidX.Media3.Common.Util.ParsableByteArray? data, int blockSizeKey) -> int
 static AndroidX.Media3.Extractor.FlacMetadataReader.CheckAndPeekStreamMarker(AndroidX.Media3.Extractor.IExtractorInput? input) -> bool
 static AndroidX.Media3.Extractor.FlacMetadataReader.GetFrameStartMarker(AndroidX.Media3.Extractor.IExtractorInput? input) -> int
-static AndroidX.Media3.Extractor.FlacMetadataReader.PeekId3Metadata(AndroidX.Media3.Extractor.IExtractorInput? input, bool parseData) -> AndroidX.Media3.Common.Metadata?
-static AndroidX.Media3.Extractor.FlacMetadataReader.ReadId3Metadata(AndroidX.Media3.Extractor.IExtractorInput? input, bool parseData) -> AndroidX.Media3.Common.Metadata?
-static AndroidX.Media3.Extractor.FlacMetadataReader.ReadMetadataBlock(AndroidX.Media3.Extractor.IExtractorInput? input, AndroidX.Media3.Extractor.FlacMetadataReader.FlacStreamMetadataHolder? metadataHolder) -> bool
+static AndroidX.Media3.Extractor.FlacMetadataReader.PeekId3Metadata(AndroidX.Media3.Extractor.IExtractorInput? input, bool parseData, bool ignoreArtwork) -> AndroidX.Media3.Common.Metadata?
+static AndroidX.Media3.Extractor.FlacMetadataReader.ReadId3Metadata(AndroidX.Media3.Extractor.IExtractorInput? input, bool parseData, bool ignoreArtwork) -> AndroidX.Media3.Common.Metadata?
+static AndroidX.Media3.Extractor.FlacMetadataReader.ReadMetadataBlock(AndroidX.Media3.Extractor.IExtractorInput? input, AndroidX.Media3.Extractor.FlacMetadataReader.FlacStreamMetadataHolder? metadataHolder, bool ignoreArtwork) -> bool
 static AndroidX.Media3.Extractor.FlacMetadataReader.ReadSeekTableMetadataBlock(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Extractor.FlacStreamMetadata.SeekTable?
 static AndroidX.Media3.Extractor.FlacMetadataReader.ReadStreamMarker(AndroidX.Media3.Extractor.IExtractorInput? input) -> void
 static AndroidX.Media3.Extractor.Flv.FlvExtractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
@@ -2258,6 +2233,7 @@ static AndroidX.Media3.Extractor.HevcConfig.Parse(AndroidX.Media3.Common.Util.Pa
 static AndroidX.Media3.Extractor.HevcConfig.ParseLayered(AndroidX.Media3.Common.Util.ParsableByteArray? data, AndroidX.Media3.Container.NalUnitUtil.H265VpsData? vpsData) -> AndroidX.Media3.Extractor.HevcConfig?
 static AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.FromPictureBlock(AndroidX.Media3.Common.Util.ParsableByteArray? pictureBlock) -> AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame?
 static AndroidX.Media3.Extractor.Metadata.Icy.IcyHeaders.Parse(System.Collections.Generic.IDictionary<string!, System.Collections.Generic.IList<string!>!>? responseHeaders) -> AndroidX.Media3.Extractor.Metadata.Icy.IcyHeaders?
+static AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.NoArtworkPredicate.get -> AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.IFramePredicate?
 static AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.NoFramesPredicate.get -> AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.IFramePredicate?
 static AndroidX.Media3.Extractor.Metadata.Id3.Id3Util.ResolveV1Genre(int id3v1GenreCode) -> string?
 static AndroidX.Media3.Extractor.Metadata.Mp4.SlowMotionData.Segment.ByStartThenEndThenDivisor.get -> Java.Util.IComparator?
@@ -2272,7 +2248,7 @@ static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseMdtaFromMeta(AndroidX.Media3
 static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseMvhd(AndroidX.Media3.Common.Util.ParsableByteArray? mvhd) -> AndroidX.Media3.Container.Mp4TimestampData?
 static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseStbl(AndroidX.Media3.Extractor.Mp4.Track? track, AndroidX.Media3.Container.Mp4Box.ContainerBox? stblBox, AndroidX.Media3.Extractor.GaplessInfoHolder? gaplessInfoHolder, bool omitTrackSampleTable) -> AndroidX.Media3.Extractor.Mp4.TrackSampleTable?
 static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseTrak(AndroidX.Media3.Container.Mp4Box.ContainerBox? trak, AndroidX.Media3.Container.Mp4Box.LeafBox? mvhd, long duration, AndroidX.Media3.Common.DrmInitData? drmInitData, bool ignoreEditLists, bool isQuickTime) -> AndroidX.Media3.Extractor.Mp4.Track?
-static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseUdta(AndroidX.Media3.Container.Mp4Box.LeafBox? udtaBox) -> AndroidX.Media3.Common.Metadata?
+static AndroidX.Media3.Extractor.Mp4.BoxParser.ParseUdta(AndroidX.Media3.Container.Mp4Box.LeafBox? udtaBox, bool ignoreArtwork) -> AndroidX.Media3.Common.Metadata?
 static AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.CodecsToParseWithinGopSampleDependenciesAsFlags(int videoCodecFlags) -> int
 static AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
 static AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.NewFactory(AndroidX.Media3.Extractor.Text.ISubtitleParserFactory? subtitleParserFactory) -> AndroidX.Media3.Extractor.IExtractorsFactory?
@@ -2291,7 +2267,7 @@ static AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.ParseUuid(byte[]? atom) -> Jav
 static AndroidX.Media3.Extractor.Mp4.PsshAtomUtil.ParseVersion(byte[]? atom) -> int
 static AndroidX.Media3.Extractor.Mp4.SmtaAtomUtil.ParseSmta(AndroidX.Media3.Common.Util.ParsableByteArray? smta, int limit) -> AndroidX.Media3.Common.Metadata?
 static AndroidX.Media3.Extractor.Mp4.Sniffer.SniffFragmented(AndroidX.Media3.Extractor.IExtractorInput? input) -> AndroidX.Media3.Extractor.ISniffFailure?
-static AndroidX.Media3.Extractor.Mp4.Sniffer.SniffUnfragmented(AndroidX.Media3.Extractor.IExtractorInput? input, bool acceptHeic) -> AndroidX.Media3.Extractor.ISniffFailure?
+static AndroidX.Media3.Extractor.Mp4.Sniffer.SniffUnfragmented(AndroidX.Media3.Extractor.IExtractorInput? input) -> AndroidX.Media3.Extractor.ISniffFailure?
 static AndroidX.Media3.Extractor.MpegAudioUtil.GetFrameSize(int headerData) -> int
 static AndroidX.Media3.Extractor.MpegAudioUtil.ParseMpegAudioFrameSampleCount(int headerData) -> int
 static AndroidX.Media3.Extractor.NoOpExtractorOutput.InterfaceConsts.Placeholder.get -> AndroidX.Media3.Extractor.IExtractorOutput?
@@ -2325,19 +2301,10 @@ static AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.IsWebvttHeaderLine
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.ParsePercentage(string? s) -> float
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.ParseTimestampUs(string? timestamp) -> long
 static AndroidX.Media3.Extractor.Text.Webvtt.WebvttParserUtil.ValidateWebvttHeaderLine(AndroidX.Media3.Common.Util.ParsableByteArray? input) -> void
-static AndroidX.Media3.Extractor.VorbisUtil.GetVorbisToAndroidChannelLayoutMapping(int channelCount) -> int[]?
-static AndroidX.Media3.Extractor.VorbisUtil.ILog(int x) -> int
 static AndroidX.Media3.Extractor.VorbisUtil.ParseVorbisComments(System.Collections.Generic.IList<string!>? vorbisComments) -> AndroidX.Media3.Common.Metadata?
 static AndroidX.Media3.Extractor.VorbisUtil.ParseVorbisCsdFromEsdsInitializationData(byte[]? initializationData) -> Google.Common.Collect.ImmutableList?
-static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Extractor.VorbisUtil.CommentHeader?
-static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, bool hasMetadataHeader, bool hasFramingBit) -> AndroidX.Media3.Extractor.VorbisUtil.CommentHeader?
-static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisIdentificationHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Extractor.VorbisUtil.VorbisIdHeader?
-static AndroidX.Media3.Extractor.VorbisUtil.ReadVorbisModes(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, int channels) -> AndroidX.Media3.Extractor.VorbisUtil.Mode![]?
-static AndroidX.Media3.Extractor.VorbisUtil.VerifyVorbisHeaderCapturePattern(int headerType, AndroidX.Media3.Common.Util.ParsableByteArray? header, bool quiet) -> bool
 static AndroidX.Media3.Extractor.VvcConfig.Parse(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Extractor.VvcConfig?
 static AndroidX.Media3.Extractor.Wav.WavExtractor.Factory.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
-static AndroidX.Media3.Extractor.WavUtil.GetPcmEncodingForType(int type, int bitsPerSample) -> int
-static AndroidX.Media3.Extractor.WavUtil.GetTypeForPcmEncoding(int pcmEncoding) -> int
 virtual AndroidX.Media3.Extractor.BinarySearchSeeker.BinarySearchSeekMap.DurationUs.get -> long
 virtual AndroidX.Media3.Extractor.BinarySearchSeeker.BinarySearchSeekMap.GetSeekPoints(long timeUs) -> AndroidX.Media3.Extractor.SeekMapSeekPoints?
 virtual AndroidX.Media3.Extractor.BinarySearchSeeker.BinarySearchSeekMap.IsSeekable.get -> bool
@@ -2392,9 +2359,15 @@ virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Medi
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length) -> void
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleData(AndroidX.Media3.Common.Util.ParsableByteArray? data, int length, int sampleDataPart) -> void
 virtual AndroidX.Media3.Extractor.ForwardingTrackOutput.SampleMetadata(long timeUs, int flags, int size, int offset, AndroidX.Media3.Extractor.TrackOutputCryptoData? cryptoData) -> void
+virtual AndroidX.Media3.Extractor.Metadata.ChapterBuilder.Build() -> AndroidX.Media3.Extractor.Metadata.IChapter?
+virtual AndroidX.Media3.Extractor.Metadata.ChapterBuilder.SetEndTimeMs(long endTimeMs) -> AndroidX.Media3.Extractor.Metadata.ChapterBuilder?
+virtual AndroidX.Media3.Extractor.Metadata.ChapterBuilder.SetHidden(bool isHidden) -> AndroidX.Media3.Extractor.Metadata.ChapterBuilder?
+virtual AndroidX.Media3.Extractor.Metadata.ChapterBuilder.SetStartTimeMs(long startTimeMs) -> AndroidX.Media3.Extractor.Metadata.ChapterBuilder?
+virtual AndroidX.Media3.Extractor.Metadata.ChapterBuilder.SetTitle(AndroidX.Media3.Common.Label? title) -> AndroidX.Media3.Extractor.Metadata.ChapterBuilder?
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.BinaryElement(int id, int contentSize, AndroidX.Media3.Extractor.IExtractorInput? input) -> void
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.EndMasterElement(int id) -> void
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FloatElement(int id, double value) -> void
+virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.GetCurrentChapter(int currentElementId) -> AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.ChapterEntry?
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.GetCurrentTrack(int currentElementId) -> AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track?
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.GetElementType(int id) -> int
 virtual AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.HandleBlockAddIDExtraData(AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.Track? track, AndroidX.Media3.Extractor.IExtractorInput? input, int contentSize) -> void

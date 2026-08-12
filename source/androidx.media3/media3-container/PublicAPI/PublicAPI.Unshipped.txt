@@ -247,7 +247,14 @@ AndroidX.Media3.Container.NalUnitUtil.SpsData.Width.set -> void
 AndroidX.Media3.Container.ObuParser
 AndroidX.Media3.Container.ObuParser.FrameHeader
 AndroidX.Media3.Container.ObuParser.FrameHeader.IsDependedOn.get -> bool
+AndroidX.Media3.Container.ObuParser.Metadata
+AndroidX.Media3.Container.ObuParser.Metadata.Payload.get -> Java.Nio.ByteBuffer?
+AndroidX.Media3.Container.ObuParser.Metadata.Payload.set -> void
+AndroidX.Media3.Container.ObuParser.Metadata.Type.get -> int
+AndroidX.Media3.Container.ObuParser.Metadata.Type.set -> void
 AndroidX.Media3.Container.ObuParser.Obu
+AndroidX.Media3.Container.ObuParser.Obu.Header.get -> Java.Nio.ByteBuffer?
+AndroidX.Media3.Container.ObuParser.Obu.Header.set -> void
 AndroidX.Media3.Container.ObuParser.Obu.Payload.get -> Java.Nio.ByteBuffer?
 AndroidX.Media3.Container.ObuParser.Obu.Payload.set -> void
 AndroidX.Media3.Container.ObuParser.Obu.Type.get -> int
@@ -316,6 +323,56 @@ AndroidX.Media3.Container.ReorderingBufferQueue.IOutputConsumer.Consume(long p0,
 AndroidX.Media3.Container.ReorderingBufferQueue.MaxSize.get -> int
 AndroidX.Media3.Container.ReorderingBufferQueue.MaxSize.set -> void
 AndroidX.Media3.Container.ReorderingBufferQueue.ReorderingBufferQueue(AndroidX.Media3.Container.ReorderingBufferQueue.IOutputConsumer? outputConsumer) -> void
+AndroidX.Media3.Container.VorbisBitArray
+AndroidX.Media3.Container.VorbisBitArray.BitsLeft() -> int
+AndroidX.Media3.Container.VorbisBitArray.Position.get -> int
+AndroidX.Media3.Container.VorbisBitArray.Position.set -> void
+AndroidX.Media3.Container.VorbisBitArray.ReadBit() -> bool
+AndroidX.Media3.Container.VorbisBitArray.ReadBits(int numBits) -> int
+AndroidX.Media3.Container.VorbisBitArray.Reset() -> void
+AndroidX.Media3.Container.VorbisBitArray.SkipBits(int numBits) -> void
+AndroidX.Media3.Container.VorbisBitArray.VorbisBitArray(byte[]? data) -> void
+AndroidX.Media3.Container.VorbisUtil
+AndroidX.Media3.Container.VorbisUtil.CommentHeader
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.CommentHeader(string? vendor, string![]? comments, int length) -> void
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Comments.get -> System.Collections.Generic.IList<string!>?
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Comments.set -> void
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Length.get -> int
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Length.set -> void
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Vendor.get -> string?
+AndroidX.Media3.Container.VorbisUtil.CommentHeader.Vendor.set -> void
+AndroidX.Media3.Container.VorbisUtil.Mode
+AndroidX.Media3.Container.VorbisUtil.Mode.BlockFlag.get -> bool
+AndroidX.Media3.Container.VorbisUtil.Mode.BlockFlag.set -> void
+AndroidX.Media3.Container.VorbisUtil.Mode.Mapping.get -> int
+AndroidX.Media3.Container.VorbisUtil.Mode.Mapping.set -> void
+AndroidX.Media3.Container.VorbisUtil.Mode.Mode(bool blockFlag, int windowType, int transformType, int mapping) -> void
+AndroidX.Media3.Container.VorbisUtil.Mode.TransformType.get -> int
+AndroidX.Media3.Container.VorbisUtil.Mode.TransformType.set -> void
+AndroidX.Media3.Container.VorbisUtil.Mode.WindowType.get -> int
+AndroidX.Media3.Container.VorbisUtil.Mode.WindowType.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateMaximum.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateMaximum.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateMinimum.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateMinimum.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateNominal.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BitrateNominal.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BlockSize0.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BlockSize0.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BlockSize1.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.BlockSize1.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Channels.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Channels.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Data.get -> System.Collections.Generic.IList<byte>?
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Data.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.FramingFlag.get -> bool
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.FramingFlag.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.SampleRate.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.SampleRate.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Version.get -> int
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.Version.set -> void
+AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.VorbisIdHeader(int version, int channels, int sampleRate, int bitrateMaximum, int bitrateNominal, int bitrateMinimum, int blockSize0, int blockSize1, bool framingFlag, byte[]? data) -> void
 AndroidX.Media3.Container.XmpData
 AndroidX.Media3.Container.XmpData.Data.get -> System.Collections.Generic.IList<byte>?
 AndroidX.Media3.Container.XmpData.Data.set -> void
@@ -354,6 +411,8 @@ const AndroidX.Media3.Container.Mp4Box.TYPEAxte = 1635284069 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEBtrt = 1651798644 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEC608 = 1664495672 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPECamm = 1667329389 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPEChap = 1667785072 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPEChpl = 1667788908 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEClli = 1668050025 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPECo64 = 1668232756 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEColr = 1668246642 -> int
@@ -402,6 +461,7 @@ const AndroidX.Media3.Container.Mp4Box.TYPEIacb = 1767990114 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEIamf = 1767992678 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEIlst = 1768715124 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEIpcm = 1768973165 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPEIt35 = 1769222965 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEKeys = 1801812339 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPELhvC = 1818785347 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPELpcm = 1819304813 -> int
@@ -414,6 +474,8 @@ const AndroidX.Media3.Container.Mp4Box.TYPEMean = 1835360622 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMehd = 1835362404 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMeta = 1835365473 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMett = 1835365492 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPEMfra = 1835430497 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPEMfro = 1835430511 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMha1 = 1835557169 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMhaC = 1835557187 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPEMhaP = 1835557200 -> int
@@ -467,9 +529,11 @@ const AndroidX.Media3.Container.Mp4Box.TYPESv3d = 1937126244 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETenc = 1952804451 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETfdt = 1952867444 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETfhd = 1952868452 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPETfra = 1952871009 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETkhd = 1953196132 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETraf = 1953653094 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETrak = 1953653099 -> int
+const AndroidX.Media3.Container.Mp4Box.TYPETref = 1953654118 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETrex = 1953654136 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETrun = 1953658222 -> int
 const AndroidX.Media3.Container.Mp4Box.TYPETwos = 1953984371 -> int
@@ -522,6 +586,11 @@ const AndroidX.Media3.Container.NalUnitUtil.NalUnitTypeSps = 7 -> int
 const AndroidX.Media3.Container.NalUnitUtil.VvcNalUnitTypeDci = 13 -> int
 const AndroidX.Media3.Container.NalUnitUtil.VvcNalUnitTypeOpi = 12 -> int
 const AndroidX.Media3.Container.NalUnitUtil.VvcNalUnitTypePrefixSei = 23 -> int
+const AndroidX.Media3.Container.ObuParser.Metadata.MetadataTypeHdrCll = 1 -> int
+const AndroidX.Media3.Container.ObuParser.Metadata.MetadataTypeHdrMdcv = 2 -> int
+const AndroidX.Media3.Container.ObuParser.Metadata.MetadataTypeItutT35 = 4 -> int
+const AndroidX.Media3.Container.ObuParser.Metadata.MetadataTypeScalability = 3 -> int
+const AndroidX.Media3.Container.ObuParser.Metadata.MetadataTypeTimecode = 5 -> int
 const AndroidX.Media3.Container.ObuParser.ObuFrame = 6 -> int
 const AndroidX.Media3.Container.ObuParser.ObuFrameHeader = 3 -> int
 const AndroidX.Media3.Container.ObuParser.ObuMetadata = 5 -> int
@@ -557,6 +626,7 @@ override AndroidX.Media3.Container.NalUnitUtil.PpsData.JniPeerMembers.get -> Jav
 override AndroidX.Media3.Container.NalUnitUtil.SpsData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.ObuParser.FrameHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.ObuParser.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.ObuParser.Metadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.ObuParser.Obu.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.ObuParser.SequenceHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.OpusUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -564,6 +634,11 @@ override AndroidX.Media3.Container.OpusUtil.ThresholdClass.get -> nint
 override AndroidX.Media3.Container.OpusUtil.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Container.ParsableNalUnitBitArray.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.ReorderingBufferQueue.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.VorbisBitArray.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.VorbisUtil.CommentHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.VorbisUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.VorbisUtil.Mode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Container.XmpData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Media3.Container.DolbyVisionConfig.Parse(AndroidX.Media3.Common.Util.ParsableByteArray? data) -> AndroidX.Media3.Container.DolbyVisionConfig?
 static AndroidX.Media3.Container.Mp4Box.GetBoxTypeString(int type) -> string?
@@ -592,6 +667,7 @@ static AndroidX.Media3.Container.NalUnitUtil.ParseSpsNalUnit(byte[]? nalData, in
 static AndroidX.Media3.Container.NalUnitUtil.ParseSpsNalUnitPayload(byte[]? nalData, int nalOffset, int nalLimit) -> AndroidX.Media3.Container.NalUnitUtil.SpsData?
 static AndroidX.Media3.Container.NalUnitUtil.UnescapeStream(byte[]? data, int limit) -> int
 static AndroidX.Media3.Container.ObuParser.FrameHeader.Parse(AndroidX.Media3.Container.ObuParser.SequenceHeader? sequenceHeader, AndroidX.Media3.Container.ObuParser.Obu? obu) -> AndroidX.Media3.Container.ObuParser.FrameHeader?
+static AndroidX.Media3.Container.ObuParser.Metadata.Parse(AndroidX.Media3.Container.ObuParser.Obu? obu) -> AndroidX.Media3.Container.ObuParser.Metadata?
 static AndroidX.Media3.Container.ObuParser.SequenceHeader.Parse(AndroidX.Media3.Container.ObuParser.Obu? obu) -> AndroidX.Media3.Container.ObuParser.SequenceHeader?
 static AndroidX.Media3.Container.ObuParser.Split(Java.Nio.ByteBuffer? sample) -> System.Collections.Generic.IList<AndroidX.Media3.Container.ObuParser.Obu!>?
 static AndroidX.Media3.Container.OpusUtil.BuildInitializationData(byte[]? header) -> System.Collections.Generic.IList<byte[]!>?
@@ -602,3 +678,11 @@ static AndroidX.Media3.Container.OpusUtil.NeedToDecodeOpusFrame(long startTimeUs
 static AndroidX.Media3.Container.OpusUtil.ParseOggPacketAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
 static AndroidX.Media3.Container.OpusUtil.ParseOggPacketForPreAudioSampleByteCount(Java.Nio.ByteBuffer? buffer) -> int
 static AndroidX.Media3.Container.OpusUtil.ParsePacketAudioSampleCount(Java.Nio.ByteBuffer? buffer) -> int
+static AndroidX.Media3.Container.VorbisUtil.GetPacketBlockSize(sbyte firstByteOfAudioPacket, AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader? idHeader, AndroidX.Media3.Container.VorbisUtil.Mode![]? modes) -> int
+static AndroidX.Media3.Container.VorbisUtil.GetSampleCountInPacket(int packetBlockSize, int previousPacketBlockSize, bool seenFirstAudioPacket) -> int
+static AndroidX.Media3.Container.VorbisUtil.ILog(int x) -> int
+static AndroidX.Media3.Container.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Container.VorbisUtil.CommentHeader?
+static AndroidX.Media3.Container.VorbisUtil.ReadVorbisCommentHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, bool hasMetadataHeader, bool hasFramingBit) -> AndroidX.Media3.Container.VorbisUtil.CommentHeader?
+static AndroidX.Media3.Container.VorbisUtil.ReadVorbisIdentificationHeader(AndroidX.Media3.Common.Util.ParsableByteArray? headerData) -> AndroidX.Media3.Container.VorbisUtil.VorbisIdHeader?
+static AndroidX.Media3.Container.VorbisUtil.ReadVorbisModes(AndroidX.Media3.Common.Util.ParsableByteArray? headerData, int channels) -> AndroidX.Media3.Container.VorbisUtil.Mode![]?
+static AndroidX.Media3.Container.VorbisUtil.VerifyVorbisHeaderCapturePattern(int headerType, AndroidX.Media3.Common.Util.ParsableByteArray? header, bool quiet) -> bool

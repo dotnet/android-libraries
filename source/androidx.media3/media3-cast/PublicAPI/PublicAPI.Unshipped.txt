@@ -1,6 +1,16 @@
 ﻿#nullable enable
 AndroidX.Media3.Cast.Cast
 AndroidX.Media3.Cast.Cast.Cast(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Media3.Cast.CastParams
+AndroidX.Media3.Cast.CastParams.Builder
+AndroidX.Media3.Cast.CastParams.Builder.Build() -> AndroidX.Media3.Cast.CastParams?
+AndroidX.Media3.Cast.CastParams.Builder.Builder() -> void
+AndroidX.Media3.Cast.CastParams.Builder.SetReceiverApplicationId(string? receiverApplicationId) -> AndroidX.Media3.Cast.CastParams.Builder?
+AndroidX.Media3.Cast.CastParams.Builder.SetRemoteToLocalEnabled(bool remoteToLocalEnabled) -> AndroidX.Media3.Cast.CastParams.Builder?
+AndroidX.Media3.Cast.CastParams.Builder.SetShowSystemOutputSwitcherOnCastButtonClick(bool showSystemOutputSwitcherOnCastButtonClick) -> AndroidX.Media3.Cast.CastParams.Builder?
+AndroidX.Media3.Cast.CastParams.ReceiverApplicationId.get -> string?
+AndroidX.Media3.Cast.CastParams.RemoteToLocalEnabled.get -> Java.Lang.Boolean?
+AndroidX.Media3.Cast.CastParams.ShowSystemOutputSwitcherOnCastButtonClick.get -> Java.Lang.Boolean?
 AndroidX.Media3.Cast.CastPlayer
 AndroidX.Media3.Cast.CastPlayer.Builder
 AndroidX.Media3.Cast.CastPlayer.Builder.Build() -> AndroidX.Media3.Cast.CastPlayer?
@@ -53,6 +63,10 @@ AndroidX.Media3.Cast.DefaultCastOptionsProvider
 AndroidX.Media3.Cast.DefaultCastOptionsProvider.DefaultCastOptionsProvider() -> void
 AndroidX.Media3.Cast.DefaultCastOptionsProvider.GetAdditionalSessionProviders(Android.Content.Context? context) -> System.Collections.Generic.IList<Android.Gms.Cast.Framework.SessionProvider!>?
 AndroidX.Media3.Cast.DefaultCastOptionsProvider.GetCastOptions(Android.Content.Context? context) -> Android.Gms.Cast.Framework.CastOptions?
+AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback
+AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback.DefaultCastPlayerTransferCallback() -> void
+AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback.InterfaceConsts
+AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback.TransferState(AndroidX.Media3.Common.IPlayer? sourcePlayer, AndroidX.Media3.Common.IPlayer? targetPlayer) -> void
 AndroidX.Media3.Cast.DefaultMediaItemConverter
 AndroidX.Media3.Cast.DefaultMediaItemConverter.DefaultMediaItemConverter() -> void
 AndroidX.Media3.Cast.DefaultMediaItemConverter.ToMediaItem(Android.Gms.Cast.MediaQueueItem? mediaQueueItem) -> AndroidX.Media3.Common.MediaItem?
@@ -65,11 +79,15 @@ AndroidX.Media3.Cast.ISessionAvailabilityListener.OnCastSessionAvailable() -> vo
 AndroidX.Media3.Cast.ISessionAvailabilityListener.OnCastSessionUnavailable() -> void
 AndroidX.Media3.Cast.MediaRouteButtonFactory
 AndroidX.Media3.Cast.MediaRouteButtonKt
+AndroidX.Media3.Cast.MediaRouteButtonState
+AndroidX.Media3.Cast.MediaRouteButtonState.IsPickerVisible.get -> bool
+AndroidX.Media3.Cast.MediaRouteButtonState.MediaRouteButtonState() -> void
 AndroidX.Media3.Cast.MediaRouteButtonStateKt
 AndroidX.Media3.Cast.MediaRouteButtonViewProvider
 AndroidX.Media3.Cast.MediaRouteButtonViewProvider.GetView(Android.Views.ViewGroup? viewGroup) -> Google.Common.Util.Concurrent.IListenableFuture?
 AndroidX.Media3.Cast.MediaRouteButtonViewProvider.MediaRouteButtonViewProvider() -> void
 AndroidX.Media3.Cast.MediaRouterCallbackKt
+AndroidX.Media3.Cast.MediaRouterStateKt
 AndroidX.Media3.Cast.RemoteCastPlayer
 AndroidX.Media3.Cast.RemoteCastPlayer.Builder
 AndroidX.Media3.Cast.RemoteCastPlayer.Builder.Build() -> AndroidX.Media3.Cast.RemoteCastPlayer?
@@ -94,6 +112,8 @@ const AndroidX.Media3.Cast.RemoteCastPlayer.MinSpeedSupported = 0.5 -> float
 override AndroidX.Media3.Cast.Cast.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.Cast.ThresholdClass.get -> nint
 override AndroidX.Media3.Cast.Cast.ThresholdType.get -> System.Type!
+override AndroidX.Media3.Cast.CastParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Cast.CastParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.CastPlayer.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.CastPlayer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.CastTrackSelector.CastTrackSelectorRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -103,12 +123,15 @@ override AndroidX.Media3.Cast.CastTrackSelector.JniPeerMembers.get -> Java.Inter
 override AndroidX.Media3.Cast.CastTrackSelector.ThresholdClass.get -> nint
 override AndroidX.Media3.Cast.CastTrackSelector.ThresholdType.get -> System.Type!
 override AndroidX.Media3.Cast.DefaultCastOptionsProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.DefaultMediaItemConverter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.MediaRouteButtonFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.MediaRouteButtonKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Cast.MediaRouteButtonState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.MediaRouteButtonStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.MediaRouteButtonViewProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.MediaRouterCallbackKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Media3.Cast.MediaRouterStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Media3.Cast.RemoteCastPlayer.AddListener(AndroidX.Media3.Common.IPlayerListener? listener) -> void
 override AndroidX.Media3.Cast.RemoteCastPlayer.AddMediaItems(int index, System.Collections.Generic.IList<AndroidX.Media3.Common.MediaItem!>? mediaItems) -> void
 override AndroidX.Media3.Cast.RemoteCastPlayer.ApplicationLooper.get -> Android.OS.Looper?
@@ -187,7 +210,9 @@ override AndroidX.Media3.Cast.RemoteCastPlayer.VideoSize.get -> AndroidX.Media3.
 override AndroidX.Media3.Cast.RemoteCastPlayer.Volume.get -> float
 override AndroidX.Media3.Cast.RemoteCastPlayer.Volume.set -> void
 static AndroidX.Media3.Cast.Cast.GetSingletonInstance(Android.Content.Context? context) -> AndroidX.Media3.Cast.Cast?
+static AndroidX.Media3.Cast.CastParams.Default.get -> AndroidX.Media3.Cast.CastParams?
 static AndroidX.Media3.Cast.CastPlayer.DeviceInfoRemoteEmpty.get -> AndroidX.Media3.Common.DeviceInfo?
+static AndroidX.Media3.Cast.DefaultCastPlayerTransferCallback.InterfaceConsts.Default.get -> AndroidX.Media3.Cast.CastPlayer.ITransferCallback?
 static AndroidX.Media3.Cast.MediaRouteButtonFactory.SetUpMediaRouteButton(Android.Content.Context? context, Android.Views.IMenu? menu, int menuResourceId) -> Google.Common.Util.Concurrent.IListenableFuture?
 static AndroidX.Media3.Cast.MediaRouteButtonFactory.SetUpMediaRouteButton(Android.Content.Context? context, AndroidX.MediaRouter.App.MediaRouteButton? button) -> Google.Common.Util.Concurrent.IListenableFuture?
 static AndroidX.Media3.Cast.RemoteCastPlayer.DeviceInfoRemoteEmpty.get -> AndroidX.Media3.Common.DeviceInfo?
@@ -196,5 +221,6 @@ virtual AndroidX.Media3.Cast.Cast.CastContextLoadFailure.get -> Java.Lang.Throwa
 virtual AndroidX.Media3.Cast.Cast.CurrentCastSession.get -> Android.Gms.Cast.Framework.CastSession?
 virtual AndroidX.Media3.Cast.Cast.EndCurrentSession(bool stopCasting) -> void
 virtual AndroidX.Media3.Cast.Cast.Initialize() -> void
+virtual AndroidX.Media3.Cast.Cast.Initialize(AndroidX.Media3.Cast.CastParams? castParams) -> void
 virtual AndroidX.Media3.Cast.Cast.NeedsInitialization() -> bool
 virtual AndroidX.Media3.Cast.Cast.RemoveSessionManagerListener(Android.Gms.Cast.Framework.ISessionManagerListener? listener) -> void
