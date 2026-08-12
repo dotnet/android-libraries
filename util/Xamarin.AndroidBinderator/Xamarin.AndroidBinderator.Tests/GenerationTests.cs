@@ -10,6 +10,24 @@ namespace Xamarin.AndroidBinderator.Tests
 	public class GenerationTests : BaseTest
 	{
 		[Theory]
+		[InlineData (false, MavenRepoType.MavenCentral, "", MavenRepoType.MavenCentral, "")]
+		[InlineData (true, MavenRepoType.MavenCentral, "", MavenRepoType.Url, MavenRepositoryResolver.DotNetPublicMaven)]
+		[InlineData (true, MavenRepoType.Google, "", MavenRepoType.Google, "")]
+		[InlineData (true, MavenRepoType.Url, "https://example.com/maven", MavenRepoType.Url, "https://example.com/maven")]
+		public void MavenCentralUsesMirrorOnlyOnCI (
+			bool runningOnCI,
+			MavenRepoType type,
+			string location,
+			MavenRepoType expectedType,
+			string expectedLocation)
+		{
+			var actual = MavenRepositoryResolver.Resolve (type, location, runningOnCI);
+
+			Assert.Equal (expectedType, actual.type);
+			Assert.Equal (expectedLocation, actual.location);
+		}
+
+		[Theory]
 		[InlineData(true)]
 		[InlineData(false)]
 		public async Task ExternalsAreNotDownloadedOnlyWhenRequested(bool shouldDownload)
