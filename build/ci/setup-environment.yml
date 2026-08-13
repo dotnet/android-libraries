@@ -32,6 +32,25 @@ steps:
           Write-Host "##vso[task.complete result=Failed;]"
           exit 0
       }
+
+      $workloadList = dotnet workload list
+      $androidMatch = [regex]::Match(
+          ($workloadList -join "`n"),
+          '(?m)^\s*android\s+([^/\s]+)'
+      )
+      $androidVersion = $null
+      if (
+          !$androidMatch.Success -or
+          ![System.Management.Automation.SemanticVersion]::TryParse(
+              $androidMatch.Groups[1].Value,
+              [ref]$androidVersion
+          ) -or
+          $androidVersion -lt [System.Management.Automation.SemanticVersion]'36.1.69'
+      ) {
+          Write-Host "##vso[task.logissue type=error]Android workload version must be 36.1.69 or newer."
+          Write-Host "##vso[task.complete result=Failed;]"
+          exit 0
+      }
     displayName: Install .NET Workloads
 
   - template: install-java.yml
