@@ -130,3 +130,4 @@ TaskTeardown
             TimingDataCake.Add( (DateTime.Now, context.Task.Name, context.Duration) );
         }
     );
+
