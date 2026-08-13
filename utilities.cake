@@ -6,15 +6,15 @@ debugging prerequisity
      dotnet cake spell-check.cake
     dotnet cake spell-check.cake -t=spell-check
  */
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=WeCantSpell.Hunspell&version=6.0.0
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Newtonsoft.Json&version=13.0.3
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Cake.FileHelpers&version=4.0.1
+#addin nuget:?package=WeCantSpell.Hunspell&version=6.0.0
+#addin nuget:?package=Newtonsoft.Json&version=13.0.3
+#addin nuget:?package=Cake.FileHelpers&version=4.0.1
 
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Mono.Cecil&version=0.11.6
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=HolisticWare.Core.Net.HTTP&version=0.0.4
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=HolisticWare.Core.IO&version=0.0.4
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=CliWrap&version=3.8.2
+#addin nuget:?package=Mono.Cecil&version=0.11.6
+#addin nuget:?package=HolisticWare.Xamarin.Tools.ComponentGovernance&version=0.0.1.4
+#addin nuget:?package=HolisticWare.Core.Net.HTTP&version=0.0.4
+#addin nuget:?package=HolisticWare.Core.IO&version=0.0.4
+#addin nuget:?package=CliWrap&version=3.8.2
 
 #load "build/cake/performance-timings.cake"
 

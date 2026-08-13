@@ -1,4 +1,4 @@
-#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Xamarin.Nuget.Validator&version=1.1.1
+#addin nuget:?package=Xamarin.Nuget.Validator&version=1.1.1
 
 
 using Xamarin.Nuget.Validator;
