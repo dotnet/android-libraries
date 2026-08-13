@@ -432,7 +432,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});
@@ -471,7 +471,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadAllowUnsecure", "true");
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});
@@ -510,7 +510,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});

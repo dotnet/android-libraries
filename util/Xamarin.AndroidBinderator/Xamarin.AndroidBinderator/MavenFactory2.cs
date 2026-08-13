@@ -71,7 +71,9 @@ public static class MavenFactory2
 		if (type == MavenRepoType.Directory)
 			throw new ArgumentException ("Directory repository type not supported");
 		else if (type == MavenRepoType.Url)
-			maven = new MavenRepository (location, location);
+			maven = new MavenRepository (
+				location,
+				location == MavenRepositoryResolver.DotNetPublicMaven ? "dotnet-public-maven" : location);
 		else if (type == MavenRepoType.MavenCentral)
 			maven = MavenRepository.Central;
 		else
