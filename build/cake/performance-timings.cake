@@ -1,5 +1,5 @@
-#addin nuget:?package=ZString&version=2.6.0
-#addin nuget:?package=ZString&version=2.6.0
+#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=ZString&version=2.6.0
+#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=ZString&version=2.6.0
 
 using Cysharp.Text;
 
@@ -130,4 +130,3 @@ TaskTeardown
             TimingDataCake.Add( (DateTime.Now, context.Task.Name, context.Duration) );
         }
     );
-

@@ -1,10 +1,10 @@
 // Used by binderator, "Windows" is fine because we only use managed code from it
-#tool nuget:?package=Microsoft.Android.Sdk.Windows&version=35.0.61
+#tool nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Microsoft.Android.Sdk.Windows&version=35.0.61
 
 // Cake Addins
-#addin nuget:?package=Cake.FileHelpers&version=4.0.1
-#addin nuget:?package=Newtonsoft.Json&version=13.0.3
-#addin nuget:?package=SharpZipLib&version=1.4.2
+#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Cake.FileHelpers&version=4.0.1
+#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=Newtonsoft.Json&version=13.0.3
+#addin nuget:https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json?package=SharpZipLib&version=1.4.2
 
 // Imported scripts
 #load "build/cake/setup-environment.cake"
