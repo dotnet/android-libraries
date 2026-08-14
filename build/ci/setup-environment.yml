@@ -26,10 +26,28 @@ steps:
     ignoreLASTEXITCODE: true
 
   - pwsh: |    
-      dotnet workload update --verbosity diag --source https://api.nuget.org/v3/index.json
-      dotnet workload install maui-android android --verbosity diag --source https://api.nuget.org/v3/index.json
+      dotnet workload install maui-android android --verbosity diag --source $(dotnetWorkloadSource)
       if ($LASTEXITCODE -ne 0) {
           Write-Host "##vso[task.logissue type=error]Failed to install workloads."
+          Write-Host "##vso[task.complete result=Failed;]"
+          exit 0
+      }
+
+      $workloadList = dotnet workload list
+      $androidMatch = [regex]::Match(
+          ($workloadList -join "`n"),
+          '(?m)^\s*android\s+([^/\s]+)'
+      )
+      $androidVersion = $null
+      if (
+          !$androidMatch.Success -or
+          ![System.Management.Automation.SemanticVersion]::TryParse(
+              $androidMatch.Groups[1].Value,
+              [ref]$androidVersion
+          ) -or
+          $androidVersion -lt [System.Management.Automation.SemanticVersion]'36.1.69'
+      ) {
+          Write-Host "##vso[task.logissue type=error]Android workload version must be 36.1.69 or newer."
           Write-Host "##vso[task.complete result=Failed;]"
           exit 0
       }
@@ -95,5 +113,3 @@ steps:
     displayName: Clean Android SDK package.xml files
     condition: eq(variables['Agent.OS'], 'Windows_NT')
     continueOnError: true
-
-
