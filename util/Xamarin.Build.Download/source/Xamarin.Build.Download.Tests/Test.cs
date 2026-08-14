@@ -113,7 +113,7 @@ namespace NativeLibraryDownloaderTests
 
 			prel.AddItem (
 				"XamarinBuildDownload", "ILRepack-2.0.10", new Dictionary<string, string> {
-					{ "Url", "https://www.nuget.org/api/v2/package/ILRepack/2.0.10" },
+					{ "Url", "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/flat2/ilrepack/2.0.10/ilrepack.2.0.10.nupkg" },
 					{ "Kind", "Zip" }
 				});
 

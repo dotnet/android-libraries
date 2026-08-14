@@ -157,7 +157,9 @@ public class ConfigUpdater
 
 	public static async Task<bool> DoesNuGetPackageAlreadyExist (string package, string version)
 	{
-		var url = $"https://www.nuget.org/api/v2/package/{package}/{version}";
+		var packagePath = package.ToLowerInvariant ();
+		var versionPath = version.ToLowerInvariant ();
+		var url = $"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/flat2/{packagePath}/{versionPath}/{packagePath}.{versionPath}.nupkg";
 
 		client ??= new HttpClient ();
 
