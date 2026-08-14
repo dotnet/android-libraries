@@ -49,14 +49,14 @@ public static class MavenFactory2
 	{
 		// Precendence: Artifact > TemplateSet > Config
 		if (artifact.MavenRepositoryType.HasValue)
-			return (artifact.MavenRepositoryType.Value, artifact.MavenRepositoryLocation!);
+			return MavenRepositoryResolver.Resolve (artifact.MavenRepositoryType.Value, artifact.MavenRepositoryLocation!);
 
 		var template = config.GetTemplateSet (artifact.TemplateSet);
 
 		if (template.MavenRepositoryType.HasValue)
-			return (template.MavenRepositoryType.Value, template.MavenRepositoryLocation!);
+			return MavenRepositoryResolver.Resolve (template.MavenRepositoryType.Value, template.MavenRepositoryLocation!);
 
-		return (config.MavenRepositoryType, config.MavenRepositoryLocation!);
+		return MavenRepositoryResolver.Resolve (config.MavenRepositoryType, config.MavenRepositoryLocation!);
 	}
 
 	static CachedMavenRepository GetOrCreateRepository (MavenRepoType type, string location)
@@ -71,7 +71,9 @@ public static class MavenFactory2
 		if (type == MavenRepoType.Directory)
 			throw new ArgumentException ("Directory repository type not supported");
 		else if (type == MavenRepoType.Url)
-			maven = new MavenRepository (location, location);
+			maven = new MavenRepository (
+				location,
+				location == MavenRepositoryResolver.DotNetPublicMaven ? "dotnet-public-maven" : location);
 		else if (type == MavenRepoType.MavenCentral)
 			maven = MavenRepository.Central;
 		else

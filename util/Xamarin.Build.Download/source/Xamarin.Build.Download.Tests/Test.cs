@@ -22,6 +22,7 @@ namespace NativeLibraryDownloaderTests
 	{
 		public static string Configuration = "Release";
 		public static readonly string[] DEFAULT_IGNORE_PATTERNS = { "*.overridetasks", "*.tasks" };
+		const string DotNetPublicMavenGson = "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public-maven/maven/v1/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar";
 
 		void AddCoreTargets (ProjectRootElement el)
 		{
@@ -189,10 +190,10 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
-					{ "Url", "https://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar" },
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
+					{ "Url", DotNetPublicMavenGson },
 					{ "Kind", "Uncompressed" },
-					{ "ToFile", "facebook-android-sdk.aar" }
+					{ "ToFile", "gson.jar" }
 				});
 
 			AddCoreTargets (prel);
@@ -205,7 +206,7 @@ namespace NativeLibraryDownloaderTests
 			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
 			Assert.True (success);
 
-			Assert.True (File.Exists (Path.Combine (unpackDir, "FacebookAndroid-4.17.0", "facebook-android-sdk.aar")));
+			Assert.True (File.Exists (Path.Combine (unpackDir, "Gson-2.11.0", "gson.jar")));
 		}
 
 		[Fact]
@@ -218,8 +219,8 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
-					{ "Url", "https://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar" },
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
+					{ "Url", DotNetPublicMavenGson },
 					{ "Kind", "Uncompressed" },
 				});
 
@@ -233,7 +234,7 @@ namespace NativeLibraryDownloaderTests
 			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
 			Assert.True (success);
 
-			Assert.True (File.Exists (Path.Combine (unpackDir, "FacebookAndroid-4.17.0", "FacebookAndroid-4.17.0.uncompressed")));
+			Assert.True (File.Exists (Path.Combine (unpackDir, "Gson-2.11.0", "Gson-2.11.0.uncompressed")));
 		}
 
 		//in google maps, the tar inside the tgz doesn't match the tgz name
@@ -421,7 +422,7 @@ namespace NativeLibraryDownloaderTests
 		[Fact]
 		public void TestDisallowUnsafeGetItemsToDownload ()
 		{
-			var itemUrl = "http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar";
+			var itemUrl = "http://example.com/artifact.aar";
 			var zipUrl = "http://dl-ssl.google.com/android/repository/android_m2repository_r40.zip";
 
 			var engine = new ProjectCollection ();
@@ -431,7 +432,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});
@@ -459,7 +460,7 @@ namespace NativeLibraryDownloaderTests
 		[Fact]
 		public void TestAllowUnsafeGetItemsToDownload ()
 		{
-			var itemUrl = "http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar";
+			var itemUrl = "http://example.com/artifact.aar";
 			var zipUrl = "http://dl-ssl.google.com/android/repository/android_m2repository_r40.zip";
 
 			var engine = new ProjectCollection ();
@@ -470,7 +471,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadAllowUnsecure", "true");
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});
@@ -500,7 +501,7 @@ namespace NativeLibraryDownloaderTests
 		[Fact]
 		public void TestGetItemsToDownload ()
 		{
-			var itemUrl = "https://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar";
+			var itemUrl = DotNetPublicMavenGson;
 
 			var engine = new ProjectCollection ();
 			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
@@ -509,7 +510,7 @@ namespace NativeLibraryDownloaderTests
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
 
 			prel.AddItem (
-				"XamarinBuildDownload", "FacebookAndroid-4.17.0", new Dictionary<string, string> {
+				"XamarinBuildDownload", "Gson-2.11.0", new Dictionary<string, string> {
 					{ "Url", itemUrl },
 					{ "Kind", "Uncompressed" },
 				});
@@ -533,7 +534,7 @@ namespace NativeLibraryDownloaderTests
 		[Fact]
 		public void TestDeduplicateGetItemsToDownload ()
 		{
-			var itemUrl = "https://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/4.17.0/facebook-android-sdk-4.17.0.aar";
+			var itemUrl = DotNetPublicMavenGson;
 
 			var engine = new ProjectCollection ();
 			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);

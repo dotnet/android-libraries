@@ -3,9 +3,15 @@
 buildscript {
     
     repositories {
-        google()
-        mavenCentral()
-        
+        if ('true'.equalsIgnoreCase(System.getenv('RUNNINGONCI'))) {
+            maven {
+                url = 'https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public-maven/maven/v1'
+                name = 'dotnet-public-maven'
+            }
+        } else {
+            google()
+            mavenCentral()
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.12.0'
@@ -18,9 +24,15 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        mavenCentral()
-        
+        if ('true'.equalsIgnoreCase(System.getenv('RUNNINGONCI'))) {
+            maven {
+                url = 'https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public-maven/maven/v1'
+                name = 'dotnet-public-maven'
+            }
+        } else {
+            google()
+            mavenCentral()
+        }
     }
 }
 
