@@ -8,8 +8,42 @@ stages:
   lockBehavior: sequential
 
   jobs:
+  - job: prepare_publish_tooling
+    displayName: Prepare signed package publishing tooling
+    pool:
+      name: AzurePipelines-EO
+      image: 1ESPT-Windows2025
+      demands: Cmd
+      os: windows
+    steps:
+    - checkout: self
+      clean: true
+      fetchDepth: 3
+
+    - task: CopyFiles@2
+      displayName: Stage signed package publishing tooling
+      inputs:
+        SourceFolder: $(Build.SourcesDirectory)
+        Contents: |
+          global.json
+          build/publishing/NuGet.config
+          build/publishing/SignedPackagePublisher/**
+          build/publishing/promote-build.ps1
+          eng/common/**
+        TargetFolder: $(Build.ArtifactStagingDirectory)\SignedPackagePublishingTooling
+
+    - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+      parameters:
+        is1ESPipeline: true
+        args:
+          displayName: Publish signed package publishing tooling
+          targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishingTooling
+          artifactName: SignedPackagePublishingTooling
+          isProduction: false
+
   - job: publish_signed_packages
     displayName: Filter, register, and promote signed packages
+    dependsOn: prepare_publish_tooling
     timeoutInMinutes: 240
     pool:
       name: AzurePipelines-EO
@@ -23,11 +57,10 @@ stages:
       - input: pipelineArtifact
         artifactName: nuget-signed
         targetPath: $(Pipeline.Workspace)\nuget-signed
+      - input: pipelineArtifact
+        artifactName: SignedPackagePublishingTooling
+        targetPath: $(Pipeline.Workspace)\publishing-tooling
     steps:
-          - checkout: self
-            clean: true
-            fetchDepth: 3
-
           - task: UseDotNet@2
             displayName: Install .NET SDK
             inputs:
@@ -41,10 +74,10 @@ stages:
             inputs:
               targetType: inline
               script: |
-                $toolsetDirectory = '$(System.DefaultWorkingDirectory)\artifacts\toolset'
+                $toolsetDirectory = '$(Pipeline.Workspace)\publishing-tooling\artifacts\toolset'
                 New-Item -ItemType Directory -Force -Path $toolsetDirectory | Out-Null
                 Copy-Item `
-                  '$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config' `
+                  '$(Pipeline.Workspace)\publishing-tooling\build\publishing\NuGet.config' `
                   "$toolsetDirectory\NuGet.config" `
                   -Force
 
@@ -61,7 +94,7 @@ stages:
                   "$outputRoot\AssetManifests" | Out-Null
 
                 dotnet run `
-                  --project '$(System.DefaultWorkingDirectory)\build\publishing\SignedPackagePublisher\SignedPackagePublisher.csproj' `
+                  --project '$(Pipeline.Workspace)\publishing-tooling\build\publishing\SignedPackagePublisher\SignedPackagePublisher.csproj' `
                   --configuration Release `
                   -- `
                   --packages '$(Pipeline.Workspace)\nuget-signed' `
@@ -121,7 +154,7 @@ stages:
               azureSubscription: "Darc: Maestro Production"
               scriptType: ps
               scriptLocation: scriptPath
-              scriptPath: $(System.DefaultWorkingDirectory)\eng\common\sdk-task.ps1
+              scriptPath: $(Pipeline.Workspace)\publishing-tooling\eng\common\sdk-task.ps1
               arguments: >
                 -task PublishBuildAssets
                 -restore
@@ -130,9 +163,9 @@ stages:
                 /p:IsAssetlessBuild=false
                 /p:MaestroApiEndpoint=https://maestro.dot.net
                 /p:OfficialBuildId=$(Build.BuildNumber)
-                /p:RestoreConfigFile='$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config'
+                /p:RestoreConfigFile='$(Pipeline.Workspace)\publishing-tooling\build\publishing\NuGet.config'
             env:
-              NUGET_CONFIG: $(System.DefaultWorkingDirectory)\build\publishing\NuGet.config
+              NUGET_CONFIG: $(Pipeline.Workspace)\publishing-tooling\build\publishing\NuGet.config
 
           - task: AzureCLI@2
             displayName: Promote BAR build to $(barTargetChannelName)
@@ -141,7 +174,7 @@ stages:
               azureSubscription: "Darc: Maestro Production"
               scriptType: ps
               scriptLocation: scriptPath
-              scriptPath: $(System.DefaultWorkingDirectory)\build\publishing\promote-build.ps1
+              scriptPath: $(Pipeline.Workspace)\publishing-tooling\build\publishing\promote-build.ps1
               arguments: >
                 -BuildId $(BARBuildId)
                 -ChannelName '$(barTargetChannelName)'
