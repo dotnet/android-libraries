@@ -21,6 +21,8 @@ stages:
       runOnce:
         deploy:
           steps:
+          - download: none
+
           - checkout: self
             clean: true
             fetchDepth: 3
@@ -38,6 +40,18 @@ stages:
 
           - task: NuGetAuthenticate@1
             displayName: Authenticate to Azure Artifacts
+
+          - task: PowerShell@2
+            displayName: Configure scoped Arcade restore
+            inputs:
+              targetType: inline
+              script: |
+                $toolsetDirectory = '$(System.DefaultWorkingDirectory)\artifacts\toolset'
+                New-Item -ItemType Directory -Force -Path $toolsetDirectory | Out-Null
+                Copy-Item `
+                  '$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config' `
+                  "$toolsetDirectory\NuGet.config" `
+                  -Force
 
           - task: PowerShell@2
             displayName: Filter signed packages and create Arcade V3 manifest
@@ -121,6 +135,9 @@ stages:
                 /p:IsAssetlessBuild=false
                 /p:MaestroApiEndpoint=https://maestro.dot.net
                 /p:OfficialBuildId=$(Build.BuildNumber)
+                /p:RestoreConfigFile='$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config'
+            env:
+              NUGET_CONFIG: $(System.DefaultWorkingDirectory)\build\publishing\NuGet.config
 
           - task: AzureCLI@2
             displayName: Promote BAR build to $(barTargetChannelName)

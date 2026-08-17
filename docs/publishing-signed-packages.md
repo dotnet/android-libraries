@@ -17,3 +17,5 @@ Publishing is intentionally disabled by `barPublishingEnabled: false` until all 
 The public `dotnet10` feed currently permits anonymous reads. If that policy changes, supply a read token through a secret environment variable and pass its name with `--feed-token-env`; the tool never accepts a token value on its command line.
 
 The stage uses the same real-sign condition as `build/ci/stage-sign-artifacts.yml`: non-PR `release/*` builds and non-scheduled `main` builds. PRs, scheduled builds, public validation, and all test-signed artifacts are excluded.
+
+Publishing tools restore through `build/publishing/NuGet.config`, which adds `dotnet-eng` only for this isolated publishing surface. The repository-wide `NuGet.config` and normal Cake restore sources remain unchanged.
