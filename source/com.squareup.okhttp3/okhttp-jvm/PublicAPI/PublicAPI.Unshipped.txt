@@ -202,7 +202,34 @@ Square.OkHttp3.Dispatcher.RunningCallsCount() -> int
 Square.OkHttp3.Dispatcher.SetIdleCallback(Java.Lang.IRunnable! idleCallback) -> void
 Square.OkHttp3.Dispatcher._deprecated_executorService() -> Java.Util.Concurrent.IExecutorService!
 Square.OkHttp3.Dns
+Square.OkHttp3.DnsCache
+Square.OkHttp3.DnsCache.EvictAll() -> void
+Square.OkHttp3.DnsCache.FailureTimeToLive() -> long
+Square.OkHttp3.DnsCache.HitCount() -> int
+Square.OkHttp3.DnsCache.MaxSize() -> int
+Square.OkHttp3.DnsCache.MaximumTimeToLive() -> long
+Square.OkHttp3.DnsCache.MinimumTimeToLive() -> long
+Square.OkHttp3.DnsCache.NetworkCount() -> int
+Square.OkHttp3.DnsCache.RequestCount() -> int
+Square.OkHttp3.DnsCache.RevalidateBeforeExpire() -> long
+Square.OkHttp3.DnsCache.Size() -> int
 Square.OkHttp3.DnsConsts
+Square.OkHttp3.DnsRecord
+Square.OkHttp3.DnsRecord.DnsRecord(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Square.OkHttp3.DnsRecord.IpAddress
+Square.OkHttp3.DnsRecord.IpAddress.Address() -> Java.Net.InetAddress!
+Square.OkHttp3.DnsRecord.IpAddress.IpAddress(string! hostname, Java.Net.InetAddress! address) -> void
+Square.OkHttp3.DnsRecord.ServiceMetadata
+Square.OkHttp3.DnsRecord.ServiceMetadata.AlpnIds() -> System.Collections.Generic.IList<Square.OkHttp3.Protocol!>?
+Square.OkHttp3.DnsRecord.ServiceMetadata.EchConfigList() -> Square.OkIO.ByteString?
+Square.OkHttp3.DnsRecord.ServiceMetadata.IpAddressHints() -> System.Collections.Generic.IList<Java.Net.InetAddress!>!
+Square.OkHttp3.DnsRecord.ServiceMetadata.Port() -> int
+Square.OkHttp3.DnsRecord.ServiceMetadata.ServiceMetadata(string! hostname, System.Collections.Generic.IList<Square.OkHttp3.Protocol!>? alpnIds, int port, System.Collections.Generic.IList<Java.Net.InetAddress!>! ipAddressHints, Square.OkIO.ByteString? echConfigList) -> void
+Square.OkHttp3.DnsRequest
+Square.OkHttp3.DnsRequest.DnsRequest(string! hostname) -> void
+Square.OkHttp3.DnsRequest.DnsRequest(string! hostname, int port) -> void
+Square.OkHttp3.DnsRequest.Hostname() -> string!
+Square.OkHttp3.DnsRequest.Port() -> int
 Square.OkHttp3.EventListener
 Square.OkHttp3.EventListener.EventListener() -> void
 Square.OkHttp3.EventListener.EventListener(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -377,7 +404,16 @@ Square.OkHttp3.ICookieJar.NoCookies.get -> Square.OkHttp3.ICookieJar!
 Square.OkHttp3.ICookieJar.SaveFromResponse(Square.OkHttp3.HttpUrl! url, System.Collections.Generic.IList<Square.OkHttp3.Cookie!>! cookies) -> void
 Square.OkHttp3.IDns
 Square.OkHttp3.IDns.Lookup(string! hostname) -> System.Collections.Generic.IList<Java.Net.InetAddress!>!
+Square.OkHttp3.IDns.NewCall(Square.OkHttp3.DnsRequest! request) -> Square.OkHttp3.IDnsCall!
 Square.OkHttp3.IDns.System.get -> Square.OkHttp3.IDns!
+Square.OkHttp3.IDnsCall
+Square.OkHttp3.IDnsCall.Cancel() -> void
+Square.OkHttp3.IDnsCall.Enqueue(Square.OkHttp3.IDnsCallback! callback) -> void
+Square.OkHttp3.IDnsCall.IsCanceled.get -> bool
+Square.OkHttp3.IDnsCall.Request.get -> Square.OkHttp3.DnsRequest!
+Square.OkHttp3.IDnsCallback
+Square.OkHttp3.IDnsCallback.OnFailure(Square.OkHttp3.IDnsCall! call, Java.IO.IOException! e) -> void
+Square.OkHttp3.IDnsCallback.OnRecords(Square.OkHttp3.IDnsCall! call, bool last, System.Collections.Generic.IList<Square.OkHttp3.DnsRecord!>! records) -> void
 Square.OkHttp3.IInterceptor
 Square.OkHttp3.IInterceptor.Intercept(Square.OkHttp3.IInterceptorChain! chain) -> Square.OkHttp3.Response!
 Square.OkHttp3.IInterceptorChain
@@ -683,9 +719,11 @@ Square.OkHttp3.ResponseBody.String() -> string!
 Square.OkHttp3.ResponseBody.StringAsync() -> System.Threading.Tasks.Task<string!>!
 Square.OkHttp3.Route
 Square.OkHttp3.Route.Address() -> Square.OkHttp3.Address!
+Square.OkHttp3.Route.EchConfigList() -> Square.OkIO.ByteString?
 Square.OkHttp3.Route.Proxy() -> Java.Net.Proxy!
 Square.OkHttp3.Route.RequiresTunnel() -> bool
 Square.OkHttp3.Route.Route(Square.OkHttp3.Address! address, Java.Net.Proxy! proxy, Java.Net.InetSocketAddress! socketAddress) -> void
+Square.OkHttp3.Route.Route(Square.OkHttp3.Address! address, Java.Net.Proxy! proxy, Java.Net.InetSocketAddress! socketAddress, Square.OkIO.ByteString? echConfigList) -> void
 Square.OkHttp3.Route.SocketAddress() -> Java.Net.InetSocketAddress!
 Square.OkHttp3.Route._deprecated_address() -> Square.OkHttp3.Address!
 Square.OkHttp3.Route._deprecated_proxy() -> Java.Net.Proxy!
@@ -698,6 +736,7 @@ Square.OkHttp3.TrailersSourceConsts
 Square.OkHttp3.WebSocketListener
 Square.OkHttp3.WebSocketListener.WebSocketListener() -> void
 Square.OkHttp3.WebSocketListener.WebSocketListener(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+abstract Square.OkHttp3.DnsRecord.InvokeHostname() -> string!
 abstract Square.OkHttp3.RequestBody.ContentType() -> Square.OkHttp3.MediaType?
 abstract Square.OkHttp3.RequestBody.WriteTo(Square.OkIO.IBufferedSink! sink) -> void
 abstract Square.OkHttp3.ResponseBody.ContentLength() -> long
@@ -722,6 +761,15 @@ override Square.OkHttp3.Cookie.Builder.JniPeerMembers.get -> Java.Interop.JniPee
 override Square.OkHttp3.Cookie.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.Credentials.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.Dispatcher.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp3.DnsCache.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp3.DnsRecord.IpAddress.InvokeHostname() -> string!
+override Square.OkHttp3.DnsRecord.IpAddress.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp3.DnsRecord.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp3.DnsRecord.ServiceMetadata.InvokeHostname() -> string!
+override Square.OkHttp3.DnsRecord.ServiceMetadata.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Square.OkHttp3.DnsRecord.ThresholdClass.get -> nint
+override Square.OkHttp3.DnsRecord.ThresholdType.get -> System.Type!
+override Square.OkHttp3.DnsRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.EventListener.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Square.OkHttp3.EventListener.ThresholdClass.get -> nint
 override Square.OkHttp3.EventListener.ThresholdType.get -> System.Type!

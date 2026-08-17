@@ -23,6 +23,7 @@ AndroidX.Compose.UI.Text.Android.Style.LineHeightStyleSpan_androidKt
 AndroidX.Compose.UI.Text.Android.Style.PlaceholderSpan_androidKt
 AndroidX.Compose.UI.Text.Android.TextLayoutGetRangeForRectExtensions_androidKt
 AndroidX.Compose.UI.Text.Android.TextLayout_androidKt
+AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags
 AndroidX.Compose.UI.Text.AndroidParagraph_androidKt
 AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt
 AndroidX.Compose.UI.Text.AnnotatedString
@@ -114,7 +115,6 @@ AndroidX.Compose.UI.Text.Bullet.Padding.get -> long
 AndroidX.Compose.UI.Text.Bullet.Shape.get -> AndroidX.Compose.UI.Graphics.IShape!
 AndroidX.Compose.UI.Text.Bullet.Width.get -> long
 AndroidX.Compose.UI.Text.CharHelpers_androidKt
-AndroidX.Compose.UI.Text.ComposeUiTextFlags
 AndroidX.Compose.UI.Text.EmojiSupportMatch
 AndroidX.Compose.UI.Text.EmojiSupportMatch.Companion
 AndroidX.Compose.UI.Text.EmojiSupportMatch.Companion.All__3YsG6Y.get -> int
@@ -415,13 +415,29 @@ AndroidX.Compose.UI.Text.Input.KeyboardCapitalization.Companion.Words_IUNYP9k.ge
 AndroidX.Compose.UI.Text.Input.KeyboardType
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Ascii_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.DateTime_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Date_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.DecimalPasswordSigned_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.DecimalPassword_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.DecimalSigned_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Decimal_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.EmailSubject_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Email_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Filter_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.LongMessage_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.NumberPasswordSigned_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.NumberPassword_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.NumberSigned_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Number_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.PasswordVisible_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Password_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.PersonName_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Phone_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Phonetic_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.PostalAddress_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.ShortMessage_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Text_PjHm6EE.get -> int
+AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Time_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Unspecified_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.KeyboardType.Companion.Uri_PjHm6EE.get -> int
 AndroidX.Compose.UI.Text.Input.MathUtilsKt
@@ -595,6 +611,7 @@ AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.HasStaleResolvedFonts.get -> b
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MaxIntrinsicWidth.get -> float
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MinIntrinsicWidth.get -> float
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver) -> void
+AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool softWrap) -> void
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader) -> void
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.Placeholders.get -> System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>!
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsicsKt
@@ -637,8 +654,6 @@ AndroidX.Compose.UI.Text.PlaceholderVerticalAlign.Companion.Top_J6kI3mc.get -> i
 AndroidX.Compose.UI.Text.Platform.AndroidAccessibilitySpannableString_androidKt
 AndroidX.Compose.UI.Text.Platform.AndroidMultiParagraphDraw_androidKt
 AndroidX.Compose.UI.Text.Platform.AndroidParagraphHelper_androidKt
-AndroidX.Compose.UI.Text.Platform.AndroidParagraphIntrinsics_androidKt
-AndroidX.Compose.UI.Text.Platform.AndroidParagraph_androidKt
 AndroidX.Compose.UI.Text.Platform.AndroidStringDelegate_androidKt
 AndroidX.Compose.UI.Text.Platform.AndroidTextPaint_androidKt
 AndroidX.Compose.UI.Text.Platform.DispatcherKt
@@ -969,6 +984,7 @@ const AndroidX.Compose.UI.Text.Input.EditingBuffer.Nowhere = -1 -> int
 const AndroidX.Compose.UI.Text.Input.PartialGapBuffer.BufSize = 255 -> int
 const AndroidX.Compose.UI.Text.Input.PartialGapBuffer.Nowhere = -1 -> int
 const AndroidX.Compose.UI.Text.Input.PartialGapBuffer.SurroundingSize = 64 -> int
+const AndroidX.Compose.UI.Text.ParagraphKt.DefaultMaxLines = 2147483647 -> int
 override AndroidX.Compose.UI.Text.ActualAtomicReferenceJvm_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Android.InlineClassUtils_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Android.LayoutCompat_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -987,6 +1003,7 @@ override AndroidX.Compose.UI.Text.Android.Style.LineHeightStyleSpan_androidKt.Jn
 override AndroidX.Compose.UI.Text.Android.Style.PlaceholderSpan_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Android.TextLayoutGetRangeForRectExtensions_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Android.TextLayout_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AndroidParagraph_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AnnotatedString.Builder.BulletScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -998,7 +1015,6 @@ override AndroidX.Compose.UI.Text.AnnotatedStringKt.JniPeerMembers.get -> Java.I
 override AndroidX.Compose.UI.Text.Bullet.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Bullet.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.CharHelpers_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Text.ComposeUiTextFlags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.EmojiSupportMatch.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.EmojiSupportMatch.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Font.AndroidFont.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1121,8 +1137,6 @@ override AndroidX.Compose.UI.Text.PlaceholderVerticalAlign.JniPeerMembers.get ->
 override AndroidX.Compose.UI.Text.Platform.AndroidAccessibilitySpannableString_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Platform.AndroidMultiParagraphDraw_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Platform.AndroidParagraphHelper_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Text.Platform.AndroidParagraphIntrinsics_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Text.Platform.AndroidParagraph_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Platform.AndroidStringDelegate_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Platform.AndroidTextPaint_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Platform.DispatcherKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1216,6 +1230,9 @@ override AndroidX.Compose.UI.Text.UrlAnnotation.JniPeerMembers.get -> Java.Inter
 override AndroidX.Compose.UI.Text.VerbatimTtsAnnotation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Compose.UI.Text.Android.StaticLayoutFactory.Instance.get -> AndroidX.Compose.UI.Text.Android.StaticLayoutFactory!
 static AndroidX.Compose.UI.Text.Android.TextLayout_androidKt.SharedTextAndroidCanvas.get -> Java.Lang.ThreadLocal!
+static AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.Instance.get -> AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags!
+static AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.IsSingleLineLineHeightOptimizationEnabled.get -> bool
+static AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.IsSingleLineLineHeightOptimizationEnabled.set -> void
 static AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.Lerp(AndroidX.Compose.UI.Text.PlatformParagraphStyle! start, AndroidX.Compose.UI.Text.PlatformParagraphStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.PlatformParagraphStyle!
 static AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.Lerp(AndroidX.Compose.UI.Text.PlatformSpanStyle! start, AndroidX.Compose.UI.Text.PlatformSpanStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.PlatformSpanStyle!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.AnnotatedString(string! text, AndroidX.Compose.UI.Text.ParagraphStyle! paragraphStyle) -> AndroidX.Compose.UI.Text.AnnotatedString!
@@ -1231,9 +1248,6 @@ static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithAnnotation(AndroidX.Compos
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithLink(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.LinkAnnotation! link, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithStyle(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.ParagraphStyle! style, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithStyle(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.SpanStyle! style, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
-static AndroidX.Compose.UI.Text.ComposeUiTextFlags.Instance.get -> AndroidX.Compose.UI.Text.ComposeUiTextFlags!
-static AndroidX.Compose.UI.Text.ComposeUiTextFlags.IsCorrectShadowLerpWithNullsEnabled.get -> bool
-static AndroidX.Compose.UI.Text.ComposeUiTextFlags.IsCorrectShadowLerpWithNullsEnabled.set -> void
 static AndroidX.Compose.UI.Text.Font.AndroidFont.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.Font.FontCompanion!
 static AndroidX.Compose.UI.Text.Font.AndroidFontKt.Font(Android.OS.ParcelFileDescriptor! fileDescriptor, AndroidX.Compose.UI.Text.Font.FontWeight! weight, int style, AndroidX.Compose.UI.Text.Font.FontVariation.Settings! variationSettings) -> AndroidX.Compose.UI.Text.Font.IFont!
 static AndroidX.Compose.UI.Text.Font.AndroidFontKt.Font(Java.IO.File! file, AndroidX.Compose.UI.Text.Font.FontWeight! weight, int style, AndroidX.Compose.UI.Text.Font.FontVariation.Settings! variationSettings) -> AndroidX.Compose.UI.Text.Font.IFont!
@@ -1268,6 +1282,7 @@ static AndroidX.Compose.UI.Text.Input.TextFieldValueKt.GetTextAfterSelection(And
 static AndroidX.Compose.UI.Text.Input.TextFieldValueKt.GetTextBeforeSelection(AndroidX.Compose.UI.Text.Input.TextFieldValue! obj, int maxChars) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.Input.VisualTransformation.Companion.get -> AndroidX.Compose.UI.Text.Input.VisualTransformationCompanion!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
+static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, bool softWrap) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(AndroidX.Compose.UI.Text.IParagraphIntrinsics! paragraphIntrinsics, int maxLines, bool ellipsis, float width) -> AndroidX.Compose.UI.Text.IParagraph!

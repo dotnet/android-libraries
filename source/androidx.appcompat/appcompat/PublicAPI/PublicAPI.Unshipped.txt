@@ -15,7 +15,7 @@ AndroidX.AppCompat.App.ActionBar.ITabListener.OnTabUnselected(AndroidX.AppCompat
 AndroidX.AppCompat.App.ActionBar.LayoutParams
 AndroidX.AppCompat.App.ActionBar.LayoutParams.Gravity.get -> int
 AndroidX.AppCompat.App.ActionBar.LayoutParams.Gravity.set -> void
-AndroidX.AppCompat.App.ActionBar.LayoutParams.LayoutParams(Android.Content.Context! c, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.App.ActionBar.LayoutParams.LayoutParams(Android.Content.Context? c, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.App.ActionBar.LayoutParams.LayoutParams(Android.Views.ViewGroup.LayoutParams? source) -> void
 AndroidX.AppCompat.App.ActionBar.LayoutParams.LayoutParams(AndroidX.AppCompat.App.ActionBar.LayoutParams? source) -> void
 AndroidX.AppCompat.App.ActionBar.LayoutParams.LayoutParams(int gravity) -> void
@@ -70,14 +70,14 @@ AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegate.ThemeUpIndicator.get -> A
 AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegateProvider
 AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegateProvider.DrawerToggleDelegate.get -> AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegate?
 AndroidX.AppCompat.App.AlertDialog
-AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context! context) -> void
-AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context! context, bool cancelable, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> void
 AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context! context, bool cancelable, System.EventHandler! cancelHandler) -> void
-AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context! context, int themeResId) -> void
+AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context? context) -> void
+AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context? context, bool cancelable, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> void
+AndroidX.AppCompat.App.AlertDialog.AlertDialog(Android.Content.Context? context, int themeResId) -> void
 AndroidX.AppCompat.App.AlertDialog.AlertDialog(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.App.AlertDialog.Builder
-AndroidX.AppCompat.App.AlertDialog.Builder.Builder(Android.Content.Context! context) -> void
-AndroidX.AppCompat.App.AlertDialog.Builder.Builder(Android.Content.Context! context, int themeResId) -> void
+AndroidX.AppCompat.App.AlertDialog.Builder.Builder(Android.Content.Context? context) -> void
+AndroidX.AppCompat.App.AlertDialog.Builder.Builder(Android.Content.Context? context, int themeResId) -> void
 AndroidX.AppCompat.App.AlertDialog.Builder.Builder(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.App.AlertDialog.Builder.SetAdapter(Android.Widget.IListAdapter! adapter, System.EventHandler<Android.Content.DialogClickEventArgs!>! handler) -> AndroidX.AppCompat.App.AlertDialog.Builder!
 AndroidX.AppCompat.App.AlertDialog.Builder.SetCursor(Android.Database.ICursor! cursor, System.EventHandler<Android.Content.DialogClickEventArgs!>! handler, string! labelColumn) -> AndroidX.AppCompat.App.AlertDialog.Builder!
@@ -125,9 +125,9 @@ AndroidX.AppCompat.App.AppCompatDelegate.AppCompatDelegate(nint javaReference, A
 AndroidX.AppCompat.App.AppCompatDelegate.INightMode
 AndroidX.AppCompat.App.AppCompatDelegate.SetTitle(string? title) -> void
 AndroidX.AppCompat.App.AppCompatDialog
-AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context! context) -> void
-AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context! context, bool cancelable, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> void
-AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context! context, int theme) -> void
+AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context? context) -> void
+AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context? context, bool cancelable, Android.Content.IDialogInterfaceOnCancelListener? cancelListener) -> void
+AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(Android.Content.Context? context, int theme) -> void
 AndroidX.AppCompat.App.AppCompatDialog.AppCompatDialog(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.App.AppCompatDialogFragment
 AndroidX.AppCompat.App.AppCompatDialogFragment.AppCompatDialogFragment() -> void
@@ -136,7 +136,7 @@ AndroidX.AppCompat.App.AppCompatDialogFragment.AppCompatDialogFragment(nint java
 AndroidX.AppCompat.App.AppCompatViewInflater
 AndroidX.AppCompat.App.AppCompatViewInflater.AppCompatViewInflater() -> void
 AndroidX.AppCompat.App.AppCompatViewInflater.AppCompatViewInflater(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.AppCompat.App.AppCompatViewInflater.CreateView(Android.Views.View? parent, string! name, Android.Content.Context! context, Android.Util.IAttributeSet! attrs, bool inheritContext, bool readAndroidTheme, bool readAppTheme, bool wrapContext) -> Android.Views.View?
+AndroidX.AppCompat.App.AppCompatViewInflater.CreateView(Android.Views.View? parent, string? name, Android.Content.Context? context, Android.Util.IAttributeSet? attrs, bool inheritContext, bool readAndroidTheme, bool readAppTheme, bool wrapContext) -> Android.Views.View?
 AndroidX.AppCompat.App.AppLocalesMetadataHolderService
 AndroidX.AppCompat.App.AppLocalesMetadataHolderService.AppLocalesMetadataHolderService() -> void
 AndroidX.AppCompat.App.IAppCompatCallback
@@ -165,6 +165,12 @@ AndroidX.AppCompat.Text.AllCapsTransformationMethod.AllCapsTransformationMethod(
 AndroidX.AppCompat.Text.AllCapsTransformationMethod.AllCapsTransformationMethod(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Text.AllCapsTransformationMethod.GetTransformation(string? source, Android.Views.View? view) -> string?
 AndroidX.AppCompat.Text.AllCapsTransformationMethod.OnFocusChanged(Android.Views.View? view, string? sourceText, bool focused, Android.Views.FocusSearchDirection direction, Android.Graphics.Rect? previouslyFocusedRect) -> void
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion.Create(Android.Content.Context! context, int appearance, int colorList, Java.Util.Concurrent.IExecutor! executor, Java.Lang.IRunnable! onComplete) -> AndroidX.AppCompat.Text.TextAppearanceSpanCompat!
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion.IFontFetcher
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion.IFontFetcher.GetCachedFont(Android.Content.Context! p0, int p1) -> Android.Graphics.Typeface?
+AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion.IFontFetcher.GetFont(Android.Content.Context! p0, int p1) -> Android.Graphics.Typeface?
 AndroidX.AppCompat.View.ActionBarPolicy
 AndroidX.AppCompat.View.ActionBarPolicy.ActionBarPolicy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.View.ActionMode
@@ -192,10 +198,10 @@ AndroidX.AppCompat.View.Menu.ActionMenuItem.ActionMenuItem(Android.Content.Conte
 AndroidX.AppCompat.View.Menu.ActionMenuItem.ActionMenuItem(Android.Content.Context? context, int group, int id, int categoryOrder, int ordering, string? title) -> void
 AndroidX.AppCompat.View.Menu.ActionMenuItem.ActionMenuItem(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.View.Menu.ActionMenuItem.ContentDescription.get -> string?
-AndroidX.AppCompat.View.Menu.ActionMenuItem.SetContentDescription(string? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+AndroidX.AppCompat.View.Menu.ActionMenuItem.SetContentDescription(string? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTitle(string? title) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTitleCondensed(string? title) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTooltipText(string? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTooltipText(string? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 AndroidX.AppCompat.View.Menu.ActionMenuItem.Title.get -> string?
 AndroidX.AppCompat.View.Menu.ActionMenuItem.TitleCondensed.get -> string?
 AndroidX.AppCompat.View.Menu.ActionMenuItem.TooltipText.get -> string?
@@ -246,8 +252,8 @@ AndroidX.AppCompat.View.Menu.IMenuPresenter.OnSubMenuSelected(AndroidX.AppCompat
 AndroidX.AppCompat.View.Menu.IMenuPresenter.SetCallback(AndroidX.AppCompat.View.Menu.IMenuPresenterCallback? p0) -> void
 AndroidX.AppCompat.View.Menu.IMenuPresenter.UpdateMenuView(bool p0) -> void
 AndroidX.AppCompat.View.Menu.IMenuPresenterCallback
-AndroidX.AppCompat.View.Menu.IMenuPresenterCallback.OnCloseMenu(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, bool p1) -> void
-AndroidX.AppCompat.View.Menu.IMenuPresenterCallback.OnOpenSubMenu(AndroidX.AppCompat.View.Menu.MenuBuilder! p0) -> bool
+AndroidX.AppCompat.View.Menu.IMenuPresenterCallback.OnCloseMenu(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, bool p1) -> void
+AndroidX.AppCompat.View.Menu.IMenuPresenterCallback.OnOpenSubMenu(AndroidX.AppCompat.View.Menu.MenuBuilder? p0) -> bool
 AndroidX.AppCompat.View.Menu.IMenuView
 AndroidX.AppCompat.View.Menu.IMenuView.Initialize(AndroidX.AppCompat.View.Menu.MenuBuilder? p0) -> void
 AndroidX.AppCompat.View.Menu.IMenuView.WindowAnimations.get -> int
@@ -290,8 +296,8 @@ AndroidX.AppCompat.View.Menu.MenuBuilder.AddSubMenu(string? title) -> Android.Vi
 AndroidX.AppCompat.View.Menu.MenuBuilder.Close(bool closeAllMenus) -> void
 AndroidX.AppCompat.View.Menu.MenuBuilder.HeaderTitle.get -> string?
 AndroidX.AppCompat.View.Menu.MenuBuilder.ICallback
-AndroidX.AppCompat.View.Menu.MenuBuilder.ICallback.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, Android.Views.IMenuItem! p1) -> bool
-AndroidX.AppCompat.View.Menu.MenuBuilder.ICallback.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder! p0) -> void
+AndroidX.AppCompat.View.Menu.MenuBuilder.ICallback.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, Android.Views.IMenuItem? p1) -> bool
+AndroidX.AppCompat.View.Menu.MenuBuilder.ICallback.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder? p0) -> void
 AndroidX.AppCompat.View.Menu.MenuBuilder.IItemInvoker
 AndroidX.AppCompat.View.Menu.MenuBuilder.IItemInvoker.InvokeItem(AndroidX.AppCompat.View.Menu.MenuItemImpl? p0) -> bool
 AndroidX.AppCompat.View.Menu.MenuBuilder.MenuBuilder(Android.Content.Context? context) -> void
@@ -335,39 +341,39 @@ AndroidX.AppCompat.View.Menu.MenuItemImpl.RequestsActionButton() -> bool
 AndroidX.AppCompat.View.Menu.MenuItemImpl.RequiresActionButton() -> bool
 AndroidX.AppCompat.View.Menu.MenuItemImpl.RequiresOverflow() -> bool
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionProvider(Android.Views.ActionProvider? actionProvider) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionView(Android.Views.View? view) -> Android.Views.IMenuItem!
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionView(int resId) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionView(Android.Views.View? view) -> Android.Views.IMenuItem?
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionView(int resId) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetActionViewExpanded(bool isExpanded) -> void
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetAlphabeticShortcut(char alphaChar) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetAlphabeticShortcut(char alphaChar, int alphaModifiers) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetAlphabeticShortcut(char alphaChar, int alphaModifiers) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetCallback(Java.Lang.IRunnable? callback) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetCheckable(bool checkable) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetChecked(bool checked) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetContentDescription(Java.Lang.ICharSequence? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem!
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetContentDescription(string? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetContentDescription(Java.Lang.ICharSequence? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem?
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetContentDescription(string? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetEnabled(bool enabled) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIcon(Android.Graphics.Drawables.Drawable? icon) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIcon(int iconResId) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIconTintList(Android.Content.Res.ColorStateList? iconTintList) -> Android.Views.IMenuItem!
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIconTintMode(Android.Graphics.PorterDuff.Mode? iconTintMode) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIconTintList(Android.Content.Res.ColorStateList? iconTintList) -> Android.Views.IMenuItem?
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIconTintMode(Android.Graphics.PorterDuff.Mode? iconTintMode) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetIntent(Android.Content.Intent? intent) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetNumericShortcut(char numericChar) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetNumericShortcut(char numericChar, int numericModifiers) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetNumericShortcut(char numericChar, int numericModifiers) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetOnActionExpandListener(Android.Views.IMenuItemOnActionExpandListener? listener) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetOnMenuItemClickListener(Android.Views.IMenuItemOnMenuItemClickListener? clickListener) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShortcut(char numericChar, char alphaChar) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShortcut(char numericChar, char alphaChar, int numericModifiers, int alphaModifiers) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShortcut(char numericChar, char alphaChar, int numericModifiers, int alphaModifiers) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShowAsAction(Android.Views.ShowAsAction actionEnum) -> void
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShowAsActionFlags(Android.Views.ShowAsAction actionEnum) -> Android.Views.IMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetShowAsActionFlags(Android.Views.ShowAsAction actionEnum) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetSubMenu(AndroidX.AppCompat.View.Menu.SubMenuBuilder? subMenu) -> void
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetSupportActionProvider(AndroidX.Core.View.ActionProvider? actionProvider) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetSupportActionProvider(AndroidX.Core.View.ActionProvider? actionProvider) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTitle(Java.Lang.ICharSequence? title) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTitle(int title) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTitle(string? title) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTitleCondensed(Java.Lang.ICharSequence? title) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTitleCondensed(string? title) -> Android.Views.IMenuItem?
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTooltipText(Java.Lang.ICharSequence? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem!
-AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTooltipText(string? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTooltipText(Java.Lang.ICharSequence? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem?
+AndroidX.AppCompat.View.Menu.MenuItemImpl.SetTooltipText(string? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.SetVisible(bool shown) -> Android.Views.IMenuItem?
 AndroidX.AppCompat.View.Menu.MenuItemImpl.ShouldShowIcon() -> bool
 AndroidX.AppCompat.View.Menu.MenuItemImpl.ShowsTextAsAction() -> bool
@@ -393,10 +399,10 @@ AndroidX.AppCompat.View.Menu.MenuItemWrapperICS.TooltipText.get -> string?
 AndroidX.AppCompat.View.Menu.MenuPopup
 AndroidX.AppCompat.View.Menu.MenuPopup.MenuPopup(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.View.Menu.MenuPopupHelper
-AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context! context, AndroidX.AppCompat.View.Menu.MenuBuilder! menu) -> void
-AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context! context, AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.View! anchorView) -> void
-AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context! context, AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.View! anchorView, bool overflowOnly, int popupStyleAttr) -> void
-AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context! context, AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.View! anchorView, bool overflowOnly, int popupStyleAttr, int popupStyleRes) -> void
+AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context? context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu) -> void
+AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context? context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.View? anchorView) -> void
+AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context? context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.View? anchorView, bool overflowOnly, int popupStyleAttr) -> void
+AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(Android.Content.Context? context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.View? anchorView, bool overflowOnly, int popupStyleAttr, int popupStyleRes) -> void
 AndroidX.AppCompat.View.Menu.MenuPopupHelper.MenuPopupHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.View.Menu.MenuWrapperICS
 AndroidX.AppCompat.View.Menu.MenuWrapperICS.Add(int groupId, int itemId, int order, string? title) -> Android.Views.IMenuItem?
@@ -450,17 +456,17 @@ AndroidX.AppCompat.Widget.ActionBarContainer.ActionBarContainer(Android.Content.
 AndroidX.AppCompat.Widget.ActionBarContainer.ActionBarContainer(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.ActionBarContainer.ActionBarContainer(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActionBarContextView
-AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
+AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
 AndroidX.AppCompat.Widget.ActionBarContextView.ActionBarContextView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActionBarContextView.Subtitle.get -> string?
 AndroidX.AppCompat.Widget.ActionBarContextView.Subtitle.set -> void
 AndroidX.AppCompat.Widget.ActionBarContextView.Title.get -> string?
 AndroidX.AppCompat.Widget.ActionBarContextView.Title.set -> void
 AndroidX.AppCompat.Widget.ActionBarOverlayLayout
-AndroidX.AppCompat.Widget.ActionBarOverlayLayout.ActionBarOverlayLayout(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ActionBarOverlayLayout.ActionBarOverlayLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ActionBarOverlayLayout.ActionBarOverlayLayout(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ActionBarOverlayLayout.ActionBarOverlayLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.ActionBarOverlayLayout.ActionBarOverlayLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActionBarOverlayLayout.IActionBarVisibilityCallback
 AndroidX.AppCompat.Widget.ActionBarOverlayLayout.IActionBarVisibilityCallback.EnableContentAnimations(bool p0) -> void
@@ -481,8 +487,8 @@ AndroidX.AppCompat.Widget.ActionMenuPresenter
 AndroidX.AppCompat.Widget.ActionMenuPresenter.ActionMenuPresenter(Android.Content.Context? context) -> void
 AndroidX.AppCompat.Widget.ActionMenuPresenter.ActionMenuPresenter(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActionMenuView
-AndroidX.AppCompat.Widget.ActionMenuView.ActionMenuView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ActionMenuView.ActionMenuView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ActionMenuView.ActionMenuView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ActionMenuView.ActionMenuView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.ActionMenuView.ActionMenuView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActionMenuView.IActionMenuChildView
 AndroidX.AppCompat.Widget.ActionMenuView.IActionMenuChildView.NeedsDividerAfter() -> bool
@@ -530,9 +536,9 @@ AndroidX.AppCompat.Widget.ActivityChooserModel.HistoricalRecord.Time.set -> void
 AndroidX.AppCompat.Widget.ActivityChooserModel.HistoricalRecord.Weight.get -> float
 AndroidX.AppCompat.Widget.ActivityChooserModel.HistoricalRecord.Weight.set -> void
 AndroidX.AppCompat.Widget.ActivityChooserView
-AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
+AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
 AndroidX.AppCompat.Widget.ActivityChooserView.ActivityChooserView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ActivityChooserView.InnerLayout
 AndroidX.AppCompat.Widget.ActivityChooserView.InnerLayout.InnerLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
@@ -542,36 +548,36 @@ AndroidX.AppCompat.Widget.AlertDialogLayout.AlertDialogLayout(Android.Content.Co
 AndroidX.AppCompat.Widget.AlertDialogLayout.AlertDialogLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.AlertDialogLayout.AlertDialogLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView
-AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.AppCompatAutoCompleteTextView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatAutoCompleteTextView, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatButton
-AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatButton.AppCompatButton(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatButton.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatButton.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatButton? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatButton.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatButton.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatButton, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckBox
-AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckBox.AppCompatCheckBox(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckBox.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatCheckBox.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatCheckBox? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckBox.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckBox.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatCheckBox, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckedTextView
-AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckedTextView.AppCompatCheckedTextView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatCheckedTextView.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatCheckedTextView.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatCheckedTextView? __self) -> void
@@ -579,42 +585,42 @@ AndroidX.AppCompat.Widget.AppCompatCheckedTextView.InspectionCompanion.MapProper
 AndroidX.AppCompat.Widget.AppCompatCheckedTextView.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatCheckedTextView, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatDrawableManager
 AndroidX.AppCompat.Widget.AppCompatDrawableManager.AppCompatDrawableManager() -> void
-AndroidX.AppCompat.Widget.AppCompatDrawableManager.GetDrawable(Android.Content.Context! context, int resId) -> Android.Graphics.Drawables.Drawable?
-AndroidX.AppCompat.Widget.AppCompatDrawableManager.OnConfigurationChanged(Android.Content.Context! context) -> void
+AndroidX.AppCompat.Widget.AppCompatDrawableManager.GetDrawable(Android.Content.Context? context, int resId) -> Android.Graphics.Drawables.Drawable?
+AndroidX.AppCompat.Widget.AppCompatDrawableManager.OnConfigurationChanged(Android.Content.Context? context) -> void
 AndroidX.AppCompat.Widget.AppCompatEditText
-AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatEditText.AppCompatEditText(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatEditText.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatEditText.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatEditText? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatEditText.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatEditText.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatEditText, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatImageButton
-AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatImageButton.AppCompatImageButton(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatImageButton.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatImageButton.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatImageButton? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatImageButton.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatImageButton.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatImageButton, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatImageHelper
-AndroidX.AppCompat.Widget.AppCompatImageHelper.AppCompatImageHelper(Android.Widget.ImageView! view) -> void
+AndroidX.AppCompat.Widget.AppCompatImageHelper.AppCompatImageHelper(Android.Widget.ImageView? view) -> void
 AndroidX.AppCompat.Widget.AppCompatImageHelper.AppCompatImageHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatImageView
-AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatImageView.AppCompatImageView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatImageView.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatImageView.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatImageView? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatImageView.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatImageView.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatImageView, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView
-AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.AppCompatMultiAutoCompleteTextView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView? __self) -> void
@@ -630,74 +636,74 @@ AndroidX.AppCompat.Widget.AppCompatRadioButton.InspectionCompanion.InspectionCom
 AndroidX.AppCompat.Widget.AppCompatRadioButton.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatRadioButton.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatRadioButton, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatRatingBar
-AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatRatingBar.AppCompatRatingBar(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatSeekBar
-AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatSeekBar.AppCompatSeekBar(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatSpinner
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int mode) -> void
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int mode, Android.Content.Res.Resources.Theme? popupTheme) -> void
-AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context! context, int mode) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int mode) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int mode, Android.Content.Res.Resources.Theme? popupTheme) -> void
+AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(Android.Content.Context? context, int mode) -> void
 AndroidX.AppCompat.Widget.AppCompatSpinner.AppCompatSpinner(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatSpinner.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatSpinner.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatSpinner? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatSpinner.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatSpinner.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatSpinner, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatTextView
-AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatTextView.AppCompatTextView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatTextView.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatTextView.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatTextView? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatTextView.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatTextView.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatTextView, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.AppCompatToggleButton
-AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.AppCompatToggleButton.AppCompatToggleButton(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.AppCompatToggleButton.InspectionCompanion
 AndroidX.AppCompat.Widget.AppCompatToggleButton.InspectionCompanion.InspectionCompanion(AndroidX.AppCompat.Widget.AppCompatToggleButton? __self) -> void
 AndroidX.AppCompat.Widget.AppCompatToggleButton.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.AppCompatToggleButton.InspectionCompanion.ReadProperties(Java.Lang.Object! appCompatToggleButton, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.ButtonBarLayout
-AndroidX.AppCompat.Widget.ButtonBarLayout.ButtonBarLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ButtonBarLayout.ButtonBarLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.ButtonBarLayout.ButtonBarLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ContentFrameLayout
 AndroidX.AppCompat.Widget.ContentFrameLayout.AttachedFromWindow -> System.EventHandler!
-AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.ContentFrameLayout.ContentFrameLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ContentFrameLayout.DetachedFromWindow -> System.EventHandler!
 AndroidX.AppCompat.Widget.ContentFrameLayout.IOnAttachListener
 AndroidX.AppCompat.Widget.ContentFrameLayout.IOnAttachListener.OnAttachedFromWindow() -> void
 AndroidX.AppCompat.Widget.ContentFrameLayout.IOnAttachListener.OnDetachedFromWindow() -> void
 AndroidX.AppCompat.Widget.DialogTitle
-AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.DialogTitle.DialogTitle(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.DropDownListView
 AndroidX.AppCompat.Widget.DropDownListView.DropDownListView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.FitWindowsFrameLayout
 AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitSystemWindows -> System.EventHandler<AndroidX.AppCompat.Widget.FitWindowsViewGroupOnFitSystemWindowsEventArgs!>!
-AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitWindowsFrameLayout(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitWindowsFrameLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitWindowsFrameLayout(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitWindowsFrameLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.FitWindowsFrameLayout.FitWindowsFrameLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.FitWindowsLinearLayout
 AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitSystemWindows -> System.EventHandler<AndroidX.AppCompat.Widget.FitWindowsViewGroupOnFitSystemWindowsEventArgs!>!
-AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitWindowsLinearLayout(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitWindowsLinearLayout(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitWindowsLinearLayout(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitWindowsLinearLayout(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.FitWindowsLinearLayout.FitWindowsLinearLayout(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.FitWindowsViewGroupOnFitSystemWindowsEventArgs
 AndroidX.AppCompat.Widget.FitWindowsViewGroupOnFitSystemWindowsEventArgs.FitWindowsViewGroupOnFitSystemWindowsEventArgs(Android.Graphics.Rect? insets) -> void
@@ -794,21 +800,21 @@ AndroidX.AppCompat.Widget.IFitWindowsViewGroup.SetOnFitSystemWindowsListener(And
 AndroidX.AppCompat.Widget.IFitWindowsViewGroupOnFitSystemWindowsListener
 AndroidX.AppCompat.Widget.IFitWindowsViewGroupOnFitSystemWindowsListener.OnFitSystemWindows(Android.Graphics.Rect? insets) -> void
 AndroidX.AppCompat.Widget.IMenuItemHoverListener
-AndroidX.AppCompat.Widget.IMenuItemHoverListener.OnItemHoverEnter(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, Android.Views.IMenuItem! p1) -> void
-AndroidX.AppCompat.Widget.IMenuItemHoverListener.OnItemHoverExit(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, Android.Views.IMenuItem! p1) -> void
+AndroidX.AppCompat.Widget.IMenuItemHoverListener.OnItemHoverEnter(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, Android.Views.IMenuItem? p1) -> void
+AndroidX.AppCompat.Widget.IMenuItemHoverListener.OnItemHoverExit(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, Android.Views.IMenuItem? p1) -> void
 AndroidX.AppCompat.Widget.IThemedSpinnerAdapter
 AndroidX.AppCompat.Widget.IThemedSpinnerAdapter.DropDownViewTheme.get -> Android.Content.Res.Resources.Theme?
 AndroidX.AppCompat.Widget.IThemedSpinnerAdapter.DropDownViewTheme.set -> void
 AndroidX.AppCompat.Widget.IWithHint
 AndroidX.AppCompat.Widget.IWithHint.HintFormatted.get -> Java.Lang.ICharSequence?
 AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs
-AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.ItemHoverEnterEventArgs(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, Android.Views.IMenuItem! p1) -> void
-AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.P0.get -> AndroidX.AppCompat.View.Menu.MenuBuilder!
-AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.P1.get -> Android.Views.IMenuItem!
+AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.ItemHoverEnterEventArgs(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, Android.Views.IMenuItem? p1) -> void
+AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.P0.get -> AndroidX.AppCompat.View.Menu.MenuBuilder?
+AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs.P1.get -> Android.Views.IMenuItem?
 AndroidX.AppCompat.Widget.ItemHoverExitEventArgs
-AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.ItemHoverExitEventArgs(AndroidX.AppCompat.View.Menu.MenuBuilder! p0, Android.Views.IMenuItem! p1) -> void
-AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.P0.get -> AndroidX.AppCompat.View.Menu.MenuBuilder!
-AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.P1.get -> Android.Views.IMenuItem!
+AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.ItemHoverExitEventArgs(AndroidX.AppCompat.View.Menu.MenuBuilder? p0, Android.Views.IMenuItem? p1) -> void
+AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.P0.get -> AndroidX.AppCompat.View.Menu.MenuBuilder?
+AndroidX.AppCompat.Widget.ItemHoverExitEventArgs.P1.get -> Android.Views.IMenuItem?
 AndroidX.AppCompat.Widget.LinearLayoutCompat
 AndroidX.AppCompat.Widget.LinearLayoutCompat.IDividerMode
 AndroidX.AppCompat.Widget.LinearLayoutCompat.IOrientationMode
@@ -823,15 +829,15 @@ AndroidX.AppCompat.Widget.LinearLayoutCompat.LayoutParams.LayoutParams(Android.V
 AndroidX.AppCompat.Widget.LinearLayoutCompat.LayoutParams.LayoutParams(int width, int height) -> void
 AndroidX.AppCompat.Widget.LinearLayoutCompat.LayoutParams.LayoutParams(int width, int height, float weight) -> void
 AndroidX.AppCompat.Widget.LinearLayoutCompat.LayoutParams.LayoutParams(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.LinearLayoutCompat.LinearLayoutCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ListPopupWindow
-AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
-AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int defStyleRes) -> void
+AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int defStyleRes) -> void
 AndroidX.AppCompat.Widget.ListPopupWindow.ListPopupWindow(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.MenuPopupWindow
 AndroidX.AppCompat.Widget.MenuPopupWindow.ItemHoverEnter -> System.EventHandler<AndroidX.AppCompat.Widget.ItemHoverEnterEventArgs!>!
@@ -841,7 +847,7 @@ AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.ItemHoverEnter ->
 AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.ItemHoverExit -> System.EventHandler<AndroidX.AppCompat.Widget.ItemHoverExitEventArgs!>!
 AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.MenuDropDownListView(Android.Content.Context? context, bool hijackFocus) -> void
 AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.MenuDropDownListView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.AppCompat.Widget.MenuPopupWindow.MenuPopupWindow(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int defStyleRes) -> void
+AndroidX.AppCompat.Widget.MenuPopupWindow.MenuPopupWindow(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr, int defStyleRes) -> void
 AndroidX.AppCompat.Widget.MenuPopupWindow.MenuPopupWindow(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.PopupMenu
 AndroidX.AppCompat.Widget.PopupMenu.DismissEvent -> System.EventHandler<AndroidX.AppCompat.Widget.PopupMenu.DismissEventArgs!>!
@@ -858,16 +864,16 @@ AndroidX.AppCompat.Widget.PopupMenu.MenuItemClickEventArgs.Handled.get -> bool
 AndroidX.AppCompat.Widget.PopupMenu.MenuItemClickEventArgs.Handled.set -> void
 AndroidX.AppCompat.Widget.PopupMenu.MenuItemClickEventArgs.Item.get -> Android.Views.IMenuItem?
 AndroidX.AppCompat.Widget.PopupMenu.MenuItemClickEventArgs.MenuItemClickEventArgs(bool handled, Android.Views.IMenuItem? item) -> void
-AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context! context, Android.Views.View! anchor) -> void
-AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context! context, Android.Views.View! anchor, int gravity) -> void
-AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context! context, Android.Views.View! anchor, int gravity, int popupStyleAttr, int popupStyleRes) -> void
+AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context? context, Android.Views.View? anchor) -> void
+AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context? context, Android.Views.View? anchor, int gravity) -> void
+AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(Android.Content.Context? context, Android.Views.View? anchor, int gravity, int popupStyleAttr, int popupStyleRes) -> void
 AndroidX.AppCompat.Widget.PopupMenu.PopupMenu(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ScrollingTabContainerView
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.MVisAnimListener.get -> AndroidX.AppCompat.Widget.ScrollingTabContainerView.VisibilityAnimListener?
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.MVisAnimListener.set -> void
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.MVisibilityAnim.get -> Android.Views.ViewPropertyAnimator?
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.MVisibilityAnim.set -> void
-AndroidX.AppCompat.Widget.ScrollingTabContainerView.ScrollingTabContainerView(Android.Content.Context! context) -> void
+AndroidX.AppCompat.Widget.ScrollingTabContainerView.ScrollingTabContainerView(Android.Content.Context? context) -> void
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.ScrollingTabContainerView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.VisibilityAnimListener
 AndroidX.AppCompat.Widget.ScrollingTabContainerView.VisibilityAnimListener.VisibilityAnimListener(AndroidX.AppCompat.Widget.ScrollingTabContainerView? __self) -> void
@@ -911,9 +917,9 @@ AndroidX.AppCompat.Widget.SearchView.SearchAutoComplete.SearchAutoComplete(Andro
 AndroidX.AppCompat.Widget.SearchView.SearchAutoComplete.SearchAutoComplete(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.SearchView.SearchAutoComplete.SearchAutoComplete(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
 AndroidX.AppCompat.Widget.SearchView.SearchAutoComplete.SearchAutoComplete(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.SearchView.SearchView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.SearchView.SearchView(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.SearchView.SetQuery(string? query, bool submit) -> void
 AndroidX.AppCompat.Widget.SearchView.SuggestionClick -> System.EventHandler<AndroidX.AppCompat.Widget.SearchView.SuggestionClickEventArgs!>!
@@ -946,9 +952,9 @@ AndroidX.AppCompat.Widget.SwitchCompat.InspectionCompanion.InspectionCompanion(A
 AndroidX.AppCompat.Widget.SwitchCompat.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.SwitchCompat.InspectionCompanion.ReadProperties(Java.Lang.Object! switchCompat, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.SwitchCompat.SetEnforceSwitchWidth(bool enforceSwitchWidth) -> void
-AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.SwitchCompat.SwitchCompat(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.SwitchCompat.TextOff.get -> string?
 AndroidX.AppCompat.Widget.SwitchCompat.TextOff.set -> void
@@ -958,10 +964,10 @@ AndroidX.AppCompat.Widget.SwitchCompat.ThumbPosition.get -> float
 AndroidX.AppCompat.Widget.ThemeUtils
 AndroidX.AppCompat.Widget.ThemeUtils.ThemeUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper
-AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.DropDownViewInflater.get -> Android.Views.LayoutInflater!
+AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.DropDownViewInflater.get -> Android.Views.LayoutInflater?
 AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.DropDownViewTheme.get -> Android.Content.Res.Resources.Theme?
 AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.DropDownViewTheme.set -> void
-AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.ThemedSpinnerAdapterHelper(Android.Content.Context! context) -> void
+AndroidX.AppCompat.Widget.ThemedSpinnerAdapterHelper.ThemedSpinnerAdapterHelper(Android.Content.Context? context) -> void
 AndroidX.AppCompat.Widget.TintTypedArray
 AndroidX.AppCompat.Widget.TintTypedArray.GetText(int index) -> string?
 AndroidX.AppCompat.Widget.TintTypedArray.GetTextArray(int index) -> string![]?
@@ -976,7 +982,7 @@ AndroidX.AppCompat.Widget.Toolbar.InspectionCompanion.InspectionCompanion(Androi
 AndroidX.AppCompat.Widget.Toolbar.InspectionCompanion.MapProperties(Android.Views.Inspectors.IPropertyMapper! propertyMapper) -> void
 AndroidX.AppCompat.Widget.Toolbar.InspectionCompanion.ReadProperties(Java.Lang.Object! toolbar, Android.Views.Inspectors.IPropertyReader! propertyReader) -> void
 AndroidX.AppCompat.Widget.Toolbar.LayoutParams
-AndroidX.AppCompat.Widget.Toolbar.LayoutParams.LayoutParams(Android.Content.Context! c, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.Toolbar.LayoutParams.LayoutParams(Android.Content.Context? c, Android.Util.IAttributeSet? attrs) -> void
 AndroidX.AppCompat.Widget.Toolbar.LayoutParams.LayoutParams(Android.Views.ViewGroup.LayoutParams? source) -> void
 AndroidX.AppCompat.Widget.Toolbar.LayoutParams.LayoutParams(Android.Views.ViewGroup.MarginLayoutParams? source) -> void
 AndroidX.AppCompat.Widget.Toolbar.LayoutParams.LayoutParams(AndroidX.AppCompat.App.ActionBar.LayoutParams? source) -> void
@@ -1008,9 +1014,9 @@ AndroidX.AppCompat.Widget.Toolbar.Subtitle.get -> string?
 AndroidX.AppCompat.Widget.Toolbar.Subtitle.set -> void
 AndroidX.AppCompat.Widget.Toolbar.Title.get -> string?
 AndroidX.AppCompat.Widget.Toolbar.Title.set -> void
-AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context! context) -> void
-AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
+AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context? context) -> void
+AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.Toolbar.Toolbar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyleAttr) -> void
 AndroidX.AppCompat.Widget.Toolbar.Toolbar(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.AppCompat.Widget.ToolbarWidgetWrapper
 AndroidX.AppCompat.Widget.ToolbarWidgetWrapper.SetNavigationContentDescription(string? description) -> void
@@ -1040,8 +1046,8 @@ AndroidX.AppCompat.Widget.ViewStubCompat.LayoutInflater.set -> void
 AndroidX.AppCompat.Widget.ViewStubCompat.LayoutResource.get -> int
 AndroidX.AppCompat.Widget.ViewStubCompat.LayoutResource.set -> void
 AndroidX.AppCompat.Widget.ViewStubCompat.SetOnInflateListener(AndroidX.AppCompat.Widget.ViewStubCompat.IOnInflateListener? inflateListener) -> void
-AndroidX.AppCompat.Widget.ViewStubCompat.ViewStubCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs) -> void
-AndroidX.AppCompat.Widget.ViewStubCompat.ViewStubCompat(Android.Content.Context! context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
+AndroidX.AppCompat.Widget.ViewStubCompat.ViewStubCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> void
+AndroidX.AppCompat.Widget.ViewStubCompat.ViewStubCompat(Android.Content.Context? context, Android.Util.IAttributeSet? attrs, int defStyle) -> void
 AndroidX.AppCompat.Widget.ViewUtils
 AndroidX.AppCompat.Widget.ViewUtils.ViewUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 abstract AndroidX.AppCompat.App.ActionBar.AddOnMenuVisibilityListener(AndroidX.AppCompat.App.ActionBar.IOnMenuVisibilityListener? listener) -> void
@@ -1110,7 +1116,7 @@ abstract AndroidX.AppCompat.App.ActionBar.TitleFormatted.get -> Java.Lang.ICharS
 abstract AndroidX.AppCompat.App.ActionBar.TitleFormatted.set -> void
 abstract AndroidX.AppCompat.App.AppCompatDelegate.AddContentView(Android.Views.View? v, Android.Views.ViewGroup.LayoutParams? lp) -> void
 abstract AndroidX.AppCompat.App.AppCompatDelegate.ApplyDayNight() -> bool
-abstract AndroidX.AppCompat.App.AppCompatDelegate.CreateView(Android.Views.View? parent, string? name, Android.Content.Context! context, Android.Util.IAttributeSet! attrs) -> Android.Views.View?
+abstract AndroidX.AppCompat.App.AppCompatDelegate.CreateView(Android.Views.View? parent, string? name, Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> Android.Views.View?
 abstract AndroidX.AppCompat.App.AppCompatDelegate.DrawerToggleDelegate.get -> AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegate?
 abstract AndroidX.AppCompat.App.AppCompatDelegate.FindViewById(int id) -> Java.Lang.Object?
 abstract AndroidX.AppCompat.App.AppCompatDelegate.HandleNativeActionModesEnabled.get -> bool
@@ -1134,7 +1140,7 @@ abstract AndroidX.AppCompat.App.AppCompatDelegate.SetContentView(int resId) -> v
 abstract AndroidX.AppCompat.App.AppCompatDelegate.SetLocalNightMode(int mode) -> void
 abstract AndroidX.AppCompat.App.AppCompatDelegate.SetSupportActionBar(AndroidX.AppCompat.Widget.Toolbar? toolbar) -> void
 abstract AndroidX.AppCompat.App.AppCompatDelegate.SetTitle(Java.Lang.ICharSequence? title) -> void
-abstract AndroidX.AppCompat.App.AppCompatDelegate.StartSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback! callback_) -> AndroidX.AppCompat.View.ActionMode?
+abstract AndroidX.AppCompat.App.AppCompatDelegate.StartSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback? callback_) -> AndroidX.AppCompat.View.ActionMode?
 abstract AndroidX.AppCompat.App.AppCompatDelegate.SupportActionBar.get -> AndroidX.AppCompat.App.ActionBar?
 abstract AndroidX.AppCompat.View.ActionMode.CustomView.get -> Android.Views.View?
 abstract AndroidX.AppCompat.View.ActionMode.CustomView.set -> void
@@ -1248,7 +1254,7 @@ override AndroidX.AppCompat.App.AppCompatViewInflater.JniPeerMembers.get -> Java
 override AndroidX.AppCompat.App.AppCompatViewInflater.ThresholdClass.get -> nint
 override AndroidX.AppCompat.App.AppCompatViewInflater.ThresholdType.get -> System.Type!
 override AndroidX.AppCompat.App.AppLocalesMetadataHolderService.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.AppCompat.App.AppLocalesMetadataHolderService.OnBind(Android.Content.Intent! intent) -> Android.OS.IBinder!
+override AndroidX.AppCompat.App.AppLocalesMetadataHolderService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder?
 override AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.CustomView.get -> Android.Views.View?
 override AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.CustomView.set -> void
 override AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.Finish() -> void
@@ -1334,7 +1340,7 @@ override AndroidX.AppCompat.App.WindowDecorActionBar.ThresholdClass.get -> nint
 override AndroidX.AppCompat.App.WindowDecorActionBar.ThresholdType.get -> System.Type!
 override AndroidX.AppCompat.App.WindowDecorActionBar.TitleFormatted.get -> Java.Lang.ICharSequence?
 override AndroidX.AppCompat.App.WindowDecorActionBar.TitleFormatted.set -> void
-override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.Draw(Android.Graphics.Canvas! canvas) -> void
+override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.Draw(Android.Graphics.Canvas? canvas) -> void
 override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.Opacity.get -> int
 override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.SetAlpha(int alpha) -> void
@@ -1344,6 +1350,10 @@ override AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable.ThresholdType.
 override AndroidX.AppCompat.Text.AllCapsTransformationMethod.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.AppCompat.Text.AllCapsTransformationMethod.ThresholdClass.get -> nint
 override AndroidX.AppCompat.Text.AllCapsTransformationMethod.ThresholdType.get -> System.Type!
+override AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.AppCompat.Text.TextAppearanceSpanCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.AppCompat.Text.TextAppearanceSpanCompat.UpdateDrawState(Android.Text.TextPaint? ds) -> void
+override AndroidX.AppCompat.Text.TextAppearanceSpanCompat.UpdateMeasureState(Android.Text.TextPaint! ds) -> void
 override AndroidX.AppCompat.View.ActionBarPolicy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.AppCompat.View.ActionBarPolicy.ThresholdClass.get -> nint
 override AndroidX.AppCompat.View.ActionBarPolicy.ThresholdType.get -> System.Type!
@@ -1444,6 +1454,7 @@ override AndroidX.AppCompat.Widget.ActionBarContextView.IsOverflowMenuShowPendin
 override AndroidX.AppCompat.Widget.ActionBarContextView.IsOverflowMenuShowing.get -> bool
 override AndroidX.AppCompat.Widget.ActionBarContextView.IsOverflowReserved.get -> bool
 override AndroidX.AppCompat.Widget.ActionBarContextView.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.AppCompat.Widget.ActionBarContextView.OnConfigurationChanged(Android.Content.Res.Configuration? newConfig) -> void
 override AndroidX.AppCompat.Widget.ActionBarContextView.OnHoverEvent(Android.Views.MotionEvent? p0) -> bool
 override AndroidX.AppCompat.Widget.ActionBarContextView.OnLayout(bool changed, int l, int t, int r, int b) -> void
 override AndroidX.AppCompat.Widget.ActionBarContextView.OnTouchEvent(Android.Views.MotionEvent? p0) -> bool
@@ -1643,18 +1654,19 @@ override AndroidX.AppCompat.Widget.ViewStubCompat.JniPeerMembers.get -> Java.Int
 override AndroidX.AppCompat.Widget.ViewUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.AppCompat.Widget.ViewUtils.ThresholdClass.get -> nint
 override AndroidX.AppCompat.Widget.ViewUtils.ThresholdType.get -> System.Type!
-override sealed AndroidX.AppCompat.App.AppCompatActivity.OnMenuItemSelected(int featureId, Android.Views.IMenuItem! item) -> bool
-static AndroidX.AppCompat.App.AppCompatDelegate.ApplicationLocales.get -> AndroidX.Core.OS.LocaleListCompat!
+override sealed AndroidX.AppCompat.App.AppCompatActivity.OnMenuItemSelected(int featureId, Android.Views.IMenuItem? item) -> bool
+static AndroidX.AppCompat.App.AppCompatDelegate.ApplicationLocales.get -> AndroidX.Core.OS.LocaleListCompat?
 static AndroidX.AppCompat.App.AppCompatDelegate.ApplicationLocales.set -> void
 static AndroidX.AppCompat.App.AppCompatDelegate.CompatVectorFromResourcesEnabled.get -> bool
 static AndroidX.AppCompat.App.AppCompatDelegate.CompatVectorFromResourcesEnabled.set -> void
-static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.App.Activity! activity, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate!
-static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.App.Dialog! dialog, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate!
-static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.Content.Context! context, Android.App.Activity! activity, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate!
-static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.Content.Context! context, Android.Views.Window! window, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate!
+static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.App.Activity? activity, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate?
+static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.App.Dialog? dialog, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate?
+static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.Content.Context? context, Android.App.Activity? activity, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate?
+static AndroidX.AppCompat.App.AppCompatDelegate.Create(Android.Content.Context? context, Android.Views.Window? window, AndroidX.AppCompat.App.IAppCompatCallback? callback) -> AndroidX.AppCompat.App.AppCompatDelegate?
 static AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode.get -> int
 static AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode.set -> void
-static AndroidX.AppCompat.App.AppLocalesMetadataHolderService.GetServiceInfo(Android.Content.Context! context) -> Android.Content.PM.ServiceInfo!
+static AndroidX.AppCompat.App.AppLocalesMetadataHolderService.GetServiceInfo(Android.Content.Context? context) -> Android.Content.PM.ServiceInfo?
+static AndroidX.AppCompat.Text.TextAppearanceSpanCompat.Create(Android.Content.Context! context, int appearance, int colorList, Java.Util.Concurrent.IExecutor! executor, Java.Lang.IRunnable! onComplete) -> AndroidX.AppCompat.Text.TextAppearanceSpanCompat!
 static AndroidX.AppCompat.View.ActionBarPolicy.Get(Android.Content.Context? context) -> AndroidX.AppCompat.View.ActionBarPolicy?
 static AndroidX.AppCompat.View.Menu.IMenuViewItemViewExtensions.SetTitle(this AndroidX.AppCompat.View.Menu.IMenuViewItemView! self, string? p0) -> void
 static AndroidX.AppCompat.View.Menu.MenuPopup.MeasureIndividualMenuWidth(Android.Widget.IListAdapter? adapter, Android.Views.ViewGroup? parent, Android.Content.Context? context, int maxAllowedWidth) -> int
@@ -1668,18 +1680,18 @@ static AndroidX.AppCompat.Widget.AppCompatDrawableManager.Preload() -> void
 static AndroidX.AppCompat.Widget.IDecorContentParentExtensions.SetWindowTitle(this AndroidX.AppCompat.Widget.IDecorContentParent! self, string? p0) -> void
 static AndroidX.AppCompat.Widget.IDecorToolbarExtensions.SetNavigationContentDescription(this AndroidX.AppCompat.Widget.IDecorToolbar! self, string? p0) -> void
 static AndroidX.AppCompat.Widget.IDecorToolbarExtensions.SetWindowTitle(this AndroidX.AppCompat.Widget.IDecorToolbar! self, string? p0) -> void
-static AndroidX.AppCompat.Widget.ThemeUtils.CheckAppCompatTheme(Android.Views.View! view, Android.Content.Context! context) -> void
-static AndroidX.AppCompat.Widget.ThemeUtils.CreateDisabledStateList(int textColor, int disabledTextColor) -> Android.Content.Res.ColorStateList!
-static AndroidX.AppCompat.Widget.ThemeUtils.GetDisabledThemeAttrColor(Android.Content.Context! context, int attr) -> int
-static AndroidX.AppCompat.Widget.ThemeUtils.GetThemeAttrColor(Android.Content.Context! context, int attr) -> int
-static AndroidX.AppCompat.Widget.ThemeUtils.GetThemeAttrColorStateList(Android.Content.Context! context, int attr) -> Android.Content.Res.ColorStateList?
+static AndroidX.AppCompat.Widget.ThemeUtils.CheckAppCompatTheme(Android.Views.View? view, Android.Content.Context? context) -> void
+static AndroidX.AppCompat.Widget.ThemeUtils.CreateDisabledStateList(int textColor, int disabledTextColor) -> Android.Content.Res.ColorStateList?
+static AndroidX.AppCompat.Widget.ThemeUtils.GetDisabledThemeAttrColor(Android.Content.Context? context, int attr) -> int
+static AndroidX.AppCompat.Widget.ThemeUtils.GetThemeAttrColor(Android.Content.Context? context, int attr) -> int
+static AndroidX.AppCompat.Widget.ThemeUtils.GetThemeAttrColorStateList(Android.Content.Context? context, int attr) -> Android.Content.Res.ColorStateList?
 static AndroidX.AppCompat.Widget.TintTypedArray.ObtainStyledAttributes(Android.Content.Context? context, Android.Util.IAttributeSet? set, int[]? attrs) -> AndroidX.AppCompat.Widget.TintTypedArray?
 static AndroidX.AppCompat.Widget.TintTypedArray.ObtainStyledAttributes(Android.Content.Context? context, Android.Util.IAttributeSet? set, int[]? attrs, int defStyleAttr, int defStyleRes) -> AndroidX.AppCompat.Widget.TintTypedArray?
 static AndroidX.AppCompat.Widget.TintTypedArray.ObtainStyledAttributes(Android.Content.Context? context, int resid, int[]? attrs) -> AndroidX.AppCompat.Widget.TintTypedArray?
 static AndroidX.AppCompat.Widget.Toolbar.SavedState.Creator.get -> Android.OS.IParcelableCreator?
-static AndroidX.AppCompat.Widget.TooltipCompat.SetTooltipText(Android.Views.View! view, Java.Lang.ICharSequence? tooltipText) -> void
-static AndroidX.AppCompat.Widget.TooltipCompat.SetTooltipText(Android.Views.View! view, string? tooltipText) -> void
-static AndroidX.AppCompat.Widget.ViewUtils.ComputeFitSystemWindows(Android.Views.View! view, Android.Graphics.Rect! inoutInsets, Android.Graphics.Rect! outLocalInsets) -> void
+static AndroidX.AppCompat.Widget.TooltipCompat.SetTooltipText(Android.Views.View? view, Java.Lang.ICharSequence? tooltipText) -> void
+static AndroidX.AppCompat.Widget.TooltipCompat.SetTooltipText(Android.Views.View? view, string? tooltipText) -> void
+static AndroidX.AppCompat.Widget.ViewUtils.ComputeFitSystemWindows(Android.Views.View? view, Android.Graphics.Rect? inoutInsets, Android.Graphics.Rect? outLocalInsets) -> void
 static AndroidX.AppCompat.Widget.ViewUtils.IsLayoutRtl(Android.Views.View? view) -> bool
 static AndroidX.AppCompat.Widget.ViewUtils.MakeOptionalFitsSystemWindows(Android.Views.View? view) -> void
 virtual AndroidX.AppCompat.App.ActionBar.CloseOptionsMenu() -> bool
@@ -1709,7 +1721,7 @@ virtual AndroidX.AppCompat.App.ActionBar.SetStackedBackgroundDrawable(Android.Gr
 virtual AndroidX.AppCompat.App.ActionBar.SetWindowTitle(Java.Lang.ICharSequence? title) -> void
 virtual AndroidX.AppCompat.App.ActionBar.StartActionMode(AndroidX.AppCompat.View.ActionMode.ICallback? callback) -> AndroidX.AppCompat.View.ActionMode?
 virtual AndroidX.AppCompat.App.ActionBar.ThemedContext.get -> Android.Content.Context?
-virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.DrawerArrowDrawable.get -> AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable!
+virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.DrawerArrowDrawable.get -> AndroidX.AppCompat.Graphics.Drawable.DrawerArrowDrawable?
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.DrawerArrowDrawable.set -> void
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.DrawerIndicatorEnabled.get -> bool
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.DrawerIndicatorEnabled.set -> void
@@ -1726,8 +1738,8 @@ virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.SetHomeAsUpIndicator(int re
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.SyncState() -> void
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.ToolbarNavigationClickListener.get -> Android.Views.View.IOnClickListener?
 virtual AndroidX.AppCompat.App.ActionBarDrawerToggle.ToolbarNavigationClickListener.set -> void
-virtual AndroidX.AppCompat.App.AlertDialog.Builder.Context.get -> Android.Content.Context!
-virtual AndroidX.AppCompat.App.AlertDialog.Builder.Create() -> AndroidX.AppCompat.App.AlertDialog!
+virtual AndroidX.AppCompat.App.AlertDialog.Builder.Context.get -> Android.Content.Context?
+virtual AndroidX.AppCompat.App.AlertDialog.Builder.Create() -> AndroidX.AppCompat.App.AlertDialog?
 virtual AndroidX.AppCompat.App.AlertDialog.Builder.SetAdapter(Android.Widget.IListAdapter? adapter, Android.Content.IDialogInterfaceOnClickListener? listener) -> AndroidX.AppCompat.App.AlertDialog.Builder?
 virtual AndroidX.AppCompat.App.AlertDialog.Builder.SetCancelable(bool cancelable) -> AndroidX.AppCompat.App.AlertDialog.Builder?
 virtual AndroidX.AppCompat.App.AlertDialog.Builder.SetCursor(Android.Database.ICursor? cursor, Android.Content.IDialogInterfaceOnClickListener? listener, string? labelColumn) -> AndroidX.AppCompat.App.AlertDialog.Builder?
@@ -1779,60 +1791,60 @@ virtual AndroidX.AppCompat.App.AlertDialog.SetIconAttribute(int attrId) -> void
 virtual AndroidX.AppCompat.App.AlertDialog.SetMessage(Java.Lang.ICharSequence? message) -> void
 virtual AndroidX.AppCompat.App.AlertDialog.SetView(Android.Views.View? view) -> void
 virtual AndroidX.AppCompat.App.AlertDialog.SetView(Android.Views.View? view, int viewSpacingLeft, int viewSpacingTop, int viewSpacingRight, int viewSpacingBottom) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.Delegate.get -> AndroidX.AppCompat.App.AppCompatDelegate!
+virtual AndroidX.AppCompat.App.AppCompatActivity.Delegate.get -> AndroidX.AppCompat.App.AppCompatDelegate?
 virtual AndroidX.AppCompat.App.AppCompatActivity.DrawerToggleDelegate.get -> AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegate?
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnCreateSupportNavigateUpTaskStack(AndroidX.Core.App.TaskStackBuilder! builder) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnLocalesChanged(AndroidX.Core.OS.LocaleListCompat! locales) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnCreateSupportNavigateUpTaskStack(AndroidX.Core.App.TaskStackBuilder? builder) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnLocalesChanged(AndroidX.Core.OS.LocaleListCompat? locales) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.OnNightModeChanged(int mode) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnPrepareSupportNavigateUpTaskStack(AndroidX.Core.App.TaskStackBuilder! builder) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportActionModeFinished(AndroidX.AppCompat.View.ActionMode! mode) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportActionModeStarted(AndroidX.AppCompat.View.ActionMode! mode) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnPrepareSupportNavigateUpTaskStack(AndroidX.Core.App.TaskStackBuilder? builder) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportActionModeFinished(AndroidX.AppCompat.View.ActionMode? mode) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportActionModeStarted(AndroidX.AppCompat.View.ActionMode? mode) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportContentChanged() -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.OnSupportNavigateUp() -> bool
-virtual AndroidX.AppCompat.App.AppCompatActivity.OnWindowStartingSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback! callback) -> AndroidX.AppCompat.View.ActionMode?
+virtual AndroidX.AppCompat.App.AppCompatActivity.OnWindowStartingSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback? callback) -> AndroidX.AppCompat.View.ActionMode?
 virtual AndroidX.AppCompat.App.AppCompatActivity.SetSupportActionBar(AndroidX.AppCompat.Widget.Toolbar? toolbar) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.SetSupportProgress(int progress) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.SetSupportProgressBarIndeterminate(bool indeterminate) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.SetSupportProgressBarIndeterminateVisibility(bool visible) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.SetSupportProgressBarVisibility(bool visible) -> void
-virtual AndroidX.AppCompat.App.AppCompatActivity.StartSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback! callback) -> AndroidX.AppCompat.View.ActionMode?
+virtual AndroidX.AppCompat.App.AppCompatActivity.StartSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback? callback) -> AndroidX.AppCompat.View.ActionMode?
 virtual AndroidX.AppCompat.App.AppCompatActivity.SupportActionBar.get -> AndroidX.AppCompat.App.ActionBar?
-virtual AndroidX.AppCompat.App.AppCompatActivity.SupportNavigateUpTo(Android.Content.Intent! upIntent) -> void
+virtual AndroidX.AppCompat.App.AppCompatActivity.SupportNavigateUpTo(Android.Content.Intent? upIntent) -> void
 virtual AndroidX.AppCompat.App.AppCompatActivity.SupportParentActivityIntent.get -> Android.Content.Intent?
 virtual AndroidX.AppCompat.App.AppCompatActivity.SupportRequestWindowFeature(int featureId) -> bool
-virtual AndroidX.AppCompat.App.AppCompatActivity.SupportShouldUpRecreateTask(Android.Content.Intent! targetIntent) -> bool
+virtual AndroidX.AppCompat.App.AppCompatActivity.SupportShouldUpRecreateTask(Android.Content.Intent? targetIntent) -> bool
 virtual AndroidX.AppCompat.App.AppCompatDelegate.AttachBaseContext(Android.Content.Context? context) -> void
-virtual AndroidX.AppCompat.App.AppCompatDelegate.AttachBaseContext2(Android.Content.Context! context) -> Android.Content.Context!
+virtual AndroidX.AppCompat.App.AppCompatDelegate.AttachBaseContext2(Android.Content.Context? context) -> Android.Content.Context?
 virtual AndroidX.AppCompat.App.AppCompatDelegate.ContextForDelegate.get -> Android.Content.Context?
 virtual AndroidX.AppCompat.App.AppCompatDelegate.LocalNightMode.get -> int
 virtual AndroidX.AppCompat.App.AppCompatDelegate.SetOnBackInvokedDispatcher(Android.Window.IOnBackInvokedDispatcher? dispatcher) -> void
 virtual AndroidX.AppCompat.App.AppCompatDelegate.SetTheme(int themeResId) -> void
-virtual AndroidX.AppCompat.App.AppCompatDialog.Delegate.get -> AndroidX.AppCompat.App.AppCompatDelegate!
+virtual AndroidX.AppCompat.App.AppCompatDialog.Delegate.get -> AndroidX.AppCompat.App.AppCompatDelegate?
 virtual AndroidX.AppCompat.App.AppCompatDialog.OnSupportActionModeFinished(AndroidX.AppCompat.View.ActionMode? mode) -> void
 virtual AndroidX.AppCompat.App.AppCompatDialog.OnSupportActionModeStarted(AndroidX.AppCompat.View.ActionMode? mode) -> void
 virtual AndroidX.AppCompat.App.AppCompatDialog.OnWindowStartingSupportActionMode(AndroidX.AppCompat.View.ActionMode.ICallback? callback) -> AndroidX.AppCompat.View.ActionMode?
 virtual AndroidX.AppCompat.App.AppCompatDialog.SupportActionBar.get -> AndroidX.AppCompat.App.ActionBar?
 virtual AndroidX.AppCompat.App.AppCompatDialog.SupportRequestWindowFeature(int featureId) -> bool
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatButton!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateCheckBox(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatCheckBox!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateCheckedTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatCheckedTextView!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateEditText(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatEditText!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateImageButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatImageButton!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateImageView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatImageView!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateMultiAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateRadioButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatRadioButton!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateRatingBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatRatingBar!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateSeekBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatSeekBar!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatSpinner!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatTextView!
-virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateToggleButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatToggleButton!
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatAutoCompleteTextView?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatButton?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateCheckBox(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatCheckBox?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateCheckedTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatCheckedTextView?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateEditText(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatEditText?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateImageButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatImageButton?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateImageView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatImageView?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateMultiAutoCompleteTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatMultiAutoCompleteTextView?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateRadioButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatRadioButton?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateRatingBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatRatingBar?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateSeekBar(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatSeekBar?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateSpinner(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatSpinner?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateTextView(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatTextView?
+virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateToggleButton(Android.Content.Context? context, Android.Util.IAttributeSet? attrs) -> AndroidX.AppCompat.Widget.AppCompatToggleButton?
 virtual AndroidX.AppCompat.App.AppCompatViewInflater.CreateView(Android.Content.Context? context, string? name, Android.Util.IAttributeSet? attrs) -> Android.Views.View?
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.DispatchOnCreate() -> bool
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnCloseMenu(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, bool allMenusAreClosing) -> void
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnCloseSubMenu(AndroidX.AppCompat.View.Menu.SubMenuBuilder? menu) -> void
-virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.IMenuItem! item) -> bool
-virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder! menu) -> void
+virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.IMenuItem? item) -> bool
+virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder? menu) -> void
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.ActionModeImpl.OnSubMenuSelected(AndroidX.AppCompat.View.Menu.SubMenuBuilder? subMenu) -> bool
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.AnimateToMode(bool toActionMode) -> void
 virtual AndroidX.AppCompat.App.WindowDecorActionBar.DoHide(bool fromSystem) -> void
@@ -1912,33 +1924,33 @@ virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.Order.get -> int
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.RequiresActionButton() -> bool
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.RequiresOverflow() -> bool
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetActionProvider(Android.Views.ActionProvider? actionProvider) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetActionView(Android.Views.View? actionView) -> Android.Views.IMenuItem!
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetActionView(int resId) -> Android.Views.IMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetActionView(Android.Views.View? actionView) -> Android.Views.IMenuItem?
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetActionView(int resId) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetAlphabeticShortcut(char alphaChar) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetAlphabeticShortcut(char alphaChar, int alphaModifiers) -> Android.Views.IMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetAlphabeticShortcut(char alphaChar, int alphaModifiers) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetCheckable(bool checkable) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetChecked(bool checked) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetContentDescription(Java.Lang.ICharSequence? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetContentDescription(Java.Lang.ICharSequence? contentDescription) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetEnabled(bool enabled) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetExclusiveCheckable(bool exclusive) -> AndroidX.AppCompat.View.Menu.ActionMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIcon(Android.Graphics.Drawables.Drawable? icon) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIcon(int iconRes) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIconTintList(Android.Content.Res.ColorStateList? iconTintList) -> Android.Views.IMenuItem!
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIconTintMode(Android.Graphics.PorterDuff.Mode? iconTintMode) -> Android.Views.IMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIconTintList(Android.Content.Res.ColorStateList? iconTintList) -> Android.Views.IMenuItem?
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIconTintMode(Android.Graphics.PorterDuff.Mode? iconTintMode) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetIntent(Android.Content.Intent? intent) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetNumericShortcut(char numericChar) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetNumericShortcut(char numericChar, int numericModifiers) -> Android.Views.IMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetNumericShortcut(char numericChar, int numericModifiers) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetOnActionExpandListener(Android.Views.IMenuItemOnActionExpandListener? listener) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetOnMenuItemClickListener(Android.Views.IMenuItemOnMenuItemClickListener? menuItemClickListener) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShortcut(char numericChar, char alphaChar) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShortcut(char numericChar, char alphaChar, int numericModifiers, int alphaModifiers) -> Android.Views.IMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShortcut(char numericChar, char alphaChar, int numericModifiers, int alphaModifiers) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShowAsAction(Android.Views.ShowAsAction show) -> void
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShowAsActionFlags(Android.Views.ShowAsAction actionEnum) -> Android.Views.IMenuItem!
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetSupportActionProvider(AndroidX.Core.View.ActionProvider? actionProvider) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetShowAsActionFlags(Android.Views.ShowAsAction actionEnum) -> Android.Views.IMenuItem?
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetSupportActionProvider(AndroidX.Core.View.ActionProvider? actionProvider) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTitle(Java.Lang.ICharSequence? title) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTitle(int title) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTitleCondensed(Java.Lang.ICharSequence? title) -> Android.Views.IMenuItem?
-virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTooltipText(Java.Lang.ICharSequence? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem!
+virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetTooltipText(Java.Lang.ICharSequence? tooltipText) -> AndroidX.Core.Internal.View.ISupportMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SetVisible(bool visible) -> Android.Views.IMenuItem?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SubMenu.get -> Android.Views.ISubMenu?
 virtual AndroidX.AppCompat.View.Menu.ActionMenuItem.SupportActionProvider.get -> AndroidX.Core.View.ActionProvider?
@@ -2083,7 +2095,7 @@ virtual AndroidX.AppCompat.View.Menu.MenuBuilder.ShortcutsVisible.set -> void
 virtual AndroidX.AppCompat.View.Menu.MenuBuilder.Size() -> int
 virtual AndroidX.AppCompat.View.Menu.MenuBuilder.StartDispatchingItemsChanged() -> void
 virtual AndroidX.AppCompat.View.Menu.MenuBuilder.StopDispatchingItemsChanged() -> void
-virtual AndroidX.AppCompat.View.Menu.MenuBuilder.VisibleItems.get -> System.Collections.Generic.IList<AndroidX.AppCompat.View.Menu.MenuItemImpl!>!
+virtual AndroidX.AppCompat.View.Menu.MenuBuilder.VisibleItems.get -> System.Collections.Generic.IList<AndroidX.AppCompat.View.Menu.MenuItemImpl!>?
 virtual AndroidX.AppCompat.View.Menu.MenuItemWrapperICS.ActionProvider.get -> Android.Views.ActionProvider?
 virtual AndroidX.AppCompat.View.Menu.MenuItemWrapperICS.ActionView.get -> Android.Views.View?
 virtual AndroidX.AppCompat.View.Menu.MenuItemWrapperICS.AlphabeticModifiers.get -> int
@@ -2146,7 +2158,7 @@ virtual AndroidX.AppCompat.View.Menu.MenuPopup.EpicenterBounds.set -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopup.ExpandItemActionView(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, AndroidX.AppCompat.View.Menu.MenuItemImpl? item) -> bool
 virtual AndroidX.AppCompat.View.Menu.MenuPopup.GetMenuView(Android.Views.ViewGroup? root) -> AndroidX.AppCompat.View.Menu.IMenuView?
 virtual AndroidX.AppCompat.View.Menu.MenuPopup.Id.get -> int
-virtual AndroidX.AppCompat.View.Menu.MenuPopup.InitForMenu(Android.Content.Context! context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu) -> void
+virtual AndroidX.AppCompat.View.Menu.MenuPopup.InitForMenu(Android.Content.Context? context, AndroidX.AppCompat.View.Menu.MenuBuilder? menu) -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopup.OnItemClick(Android.Widget.AdapterView? parent, Android.Views.View? view, int position, long id) -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.Dismiss() -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.Gravity.get -> int
@@ -2154,8 +2166,8 @@ virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.Gravity.set -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.IsShowing.get -> bool
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.ListView.get -> Android.Widget.ListView?
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.OnDismiss() -> void
-virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.Popup.get -> Java.Lang.Object!
-virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.SetAnchorView(Android.Views.View! anchor) -> void
+virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.Popup.get -> Java.Lang.Object?
+virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.SetAnchorView(Android.Views.View? anchor) -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.SetForceShowIcon(bool forceShowIcon) -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.SetOnDismissListener(Android.Widget.PopupWindow.IOnDismissListener? listener) -> void
 virtual AndroidX.AppCompat.View.Menu.MenuPopupHelper.SetPresenterCallback(AndroidX.AppCompat.View.Menu.IMenuPresenterCallback? cb) -> void
@@ -2199,8 +2211,8 @@ virtual AndroidX.AppCompat.View.Menu.SubMenuBuilder.SetIcon(Android.Graphics.Dra
 virtual AndroidX.AppCompat.View.Menu.SubMenuBuilder.SetIcon(int iconRes) -> Android.Views.ISubMenu?
 virtual AndroidX.AppCompat.View.StandaloneActionMode.OnCloseMenu(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, bool allMenusAreClosing) -> void
 virtual AndroidX.AppCompat.View.StandaloneActionMode.OnCloseSubMenu(AndroidX.AppCompat.View.Menu.SubMenuBuilder? menu) -> void
-virtual AndroidX.AppCompat.View.StandaloneActionMode.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.IMenuItem! item) -> bool
-virtual AndroidX.AppCompat.View.StandaloneActionMode.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder! menu) -> void
+virtual AndroidX.AppCompat.View.StandaloneActionMode.OnMenuItemSelected(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.IMenuItem? item) -> bool
+virtual AndroidX.AppCompat.View.StandaloneActionMode.OnMenuModeChange(AndroidX.AppCompat.View.Menu.MenuBuilder? menu) -> void
 virtual AndroidX.AppCompat.View.StandaloneActionMode.OnSubMenuSelected(AndroidX.AppCompat.View.Menu.SubMenuBuilder? subMenu) -> bool
 virtual AndroidX.AppCompat.View.ViewPropertyAnimatorCompatSet.Cancel() -> void
 virtual AndroidX.AppCompat.View.ViewPropertyAnimatorCompatSet.Play(AndroidX.Core.View.ViewPropertyAnimatorCompat? animator) -> AndroidX.AppCompat.View.ViewPropertyAnimatorCompatSet?
@@ -2266,6 +2278,7 @@ virtual AndroidX.AppCompat.Widget.ActionBarContextView.InitForMode(AndroidX.AppC
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.KillMode() -> void
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.OnDetachedFromWindow() -> void
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.SetCustomView(Android.Views.View? view) -> void
+virtual AndroidX.AppCompat.Widget.ActionBarContextView.SetPaddingForInsets(int left, int top, int right, int bottom) -> void
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.SubtitleFormatted.get -> Java.Lang.ICharSequence?
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.SubtitleFormatted.set -> void
 virtual AndroidX.AppCompat.Widget.ActionBarContextView.TitleFormatted.get -> Java.Lang.ICharSequence?
@@ -2421,7 +2434,7 @@ virtual AndroidX.AppCompat.Widget.AppCompatCheckedTextView.SupportCompoundDrawab
 virtual AndroidX.AppCompat.Widget.AppCompatCheckedTextView.SupportCompoundDrawablesTintMode.set -> void
 virtual AndroidX.AppCompat.Widget.AppCompatEditText.EmojiCompatEnabled.get -> bool
 virtual AndroidX.AppCompat.Widget.AppCompatEditText.EmojiCompatEnabled.set -> void
-virtual AndroidX.AppCompat.Widget.AppCompatEditText.OnReceiveContent(AndroidX.Core.View.ContentInfoCompat! payload) -> AndroidX.Core.View.ContentInfoCompat?
+virtual AndroidX.AppCompat.Widget.AppCompatEditText.OnReceiveContent(AndroidX.Core.View.ContentInfoCompat? payload) -> AndroidX.Core.View.ContentInfoCompat?
 virtual AndroidX.AppCompat.Widget.AppCompatEditText.SupportBackgroundTintList.get -> Android.Content.Res.ColorStateList?
 virtual AndroidX.AppCompat.Widget.AppCompatEditText.SupportBackgroundTintList.set -> void
 virtual AndroidX.AppCompat.Widget.AppCompatEditText.SupportBackgroundTintMode.get -> Android.Graphics.PorterDuff.Mode?
@@ -2478,7 +2491,7 @@ virtual AndroidX.AppCompat.Widget.AppCompatSpinner.SupportBackgroundTintMode.get
 virtual AndroidX.AppCompat.Widget.AppCompatSpinner.SupportBackgroundTintMode.set -> void
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.EmojiCompatEnabled.get -> bool
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.EmojiCompatEnabled.set -> void
-virtual AndroidX.AppCompat.Widget.AppCompatTextView.SetPrecomputedText(AndroidX.Core.Text.PrecomputedTextCompat! precomputed) -> void
+virtual AndroidX.AppCompat.Widget.AppCompatTextView.SetPrecomputedText(AndroidX.Core.Text.PrecomputedTextCompat? precomputed) -> void
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SetTextFuture(Java.Util.Concurrent.IFuture? future) -> void
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportBackgroundTintList.get -> Android.Content.Res.ColorStateList?
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportBackgroundTintList.set -> void
@@ -2488,7 +2501,7 @@ virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportCompoundDrawablesTint
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportCompoundDrawablesTintList.set -> void
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportCompoundDrawablesTintMode.get -> Android.Graphics.PorterDuff.Mode?
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.SupportCompoundDrawablesTintMode.set -> void
-virtual AndroidX.AppCompat.Widget.AppCompatTextView.TextMetricsParamsCompat.get -> AndroidX.Core.Text.PrecomputedTextCompat.Params!
+virtual AndroidX.AppCompat.Widget.AppCompatTextView.TextMetricsParamsCompat.get -> AndroidX.Core.Text.PrecomputedTextCompat.Params?
 virtual AndroidX.AppCompat.Widget.AppCompatTextView.TextMetricsParamsCompat.set -> void
 virtual AndroidX.AppCompat.Widget.AppCompatToggleButton.EmojiCompatEnabled.get -> bool
 virtual AndroidX.AppCompat.Widget.AppCompatToggleButton.EmojiCompatEnabled.set -> void
@@ -2565,9 +2578,9 @@ virtual AndroidX.AppCompat.Widget.ListPopupWindow.IsShowing.get -> bool
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.ListView.get -> Android.Widget.ListView?
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.Modal.get -> bool
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.Modal.set -> void
-virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyDown(int keyCode, Android.Views.KeyEvent! e) -> bool
-virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyPreIme(int keyCode, Android.Views.KeyEvent! e) -> bool
-virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyUp(int keyCode, Android.Views.KeyEvent! e) -> bool
+virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyDown(int keyCode, Android.Views.KeyEvent? e) -> bool
+virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyPreIme(int keyCode, Android.Views.KeyEvent? e) -> bool
+virtual AndroidX.AppCompat.Widget.ListPopupWindow.OnKeyUp(int keyCode, Android.Views.KeyEvent? e) -> bool
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.PerformItemClick(int position) -> bool
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.PostShow() -> void
 virtual AndroidX.AppCompat.Widget.ListPopupWindow.PromptPosition.get -> int
@@ -2599,19 +2612,19 @@ virtual AndroidX.AppCompat.Widget.ListPopupWindow.Width.set -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.ClearSelection() -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.SetHoverListener(AndroidX.AppCompat.Widget.IMenuItemHoverListener? hoverListener) -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.MenuDropDownListView.SetSelector(Android.Graphics.Drawables.Drawable? p0) -> void
-virtual AndroidX.AppCompat.Widget.MenuPopupWindow.OnItemHoverEnter(AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.IMenuItem! item) -> void
-virtual AndroidX.AppCompat.Widget.MenuPopupWindow.OnItemHoverExit(AndroidX.AppCompat.View.Menu.MenuBuilder! menu, Android.Views.IMenuItem! item) -> void
+virtual AndroidX.AppCompat.Widget.MenuPopupWindow.OnItemHoverEnter(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.IMenuItem? item) -> void
+virtual AndroidX.AppCompat.Widget.MenuPopupWindow.OnItemHoverExit(AndroidX.AppCompat.View.Menu.MenuBuilder? menu, Android.Views.IMenuItem? item) -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.SetEnterTransition(Java.Lang.Object? enterTransition) -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.SetExitTransition(Java.Lang.Object? exitTransition) -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.SetHoverListener(AndroidX.AppCompat.Widget.IMenuItemHoverListener? hoverListener) -> void
 virtual AndroidX.AppCompat.Widget.MenuPopupWindow.SetTouchModal(bool touchModal) -> void
 virtual AndroidX.AppCompat.Widget.PopupMenu.Dismiss() -> void
-virtual AndroidX.AppCompat.Widget.PopupMenu.DragToOpenListener.get -> Android.Views.View.IOnTouchListener!
+virtual AndroidX.AppCompat.Widget.PopupMenu.DragToOpenListener.get -> Android.Views.View.IOnTouchListener?
 virtual AndroidX.AppCompat.Widget.PopupMenu.Gravity.get -> int
 virtual AndroidX.AppCompat.Widget.PopupMenu.Gravity.set -> void
 virtual AndroidX.AppCompat.Widget.PopupMenu.Inflate(int menuRes) -> void
-virtual AndroidX.AppCompat.Widget.PopupMenu.Menu.get -> Android.Views.IMenu!
-virtual AndroidX.AppCompat.Widget.PopupMenu.MenuInflater.get -> Android.Views.MenuInflater!
+virtual AndroidX.AppCompat.Widget.PopupMenu.Menu.get -> Android.Views.IMenu?
+virtual AndroidX.AppCompat.Widget.PopupMenu.MenuInflater.get -> Android.Views.MenuInflater?
 virtual AndroidX.AppCompat.Widget.PopupMenu.SetForceShowIcon(bool forceShowIcon) -> void
 virtual AndroidX.AppCompat.Widget.PopupMenu.SetOnDismissListener(AndroidX.AppCompat.Widget.PopupMenu.IOnDismissListener? listener) -> void
 virtual AndroidX.AppCompat.Widget.PopupMenu.SetOnMenuItemClickListener(AndroidX.AppCompat.Widget.PopupMenu.IOnMenuItemClickListener? listener) -> void
@@ -2731,9 +2744,9 @@ virtual AndroidX.AppCompat.Widget.TintTypedArray.PositionDescription.get -> stri
 virtual AndroidX.AppCompat.Widget.TintTypedArray.Recycle() -> void
 virtual AndroidX.AppCompat.Widget.TintTypedArray.Resources.get -> Android.Content.Res.Resources?
 virtual AndroidX.AppCompat.Widget.TintTypedArray.WrappedTypeArray.get -> Android.Content.Res.TypedArray?
-virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider) -> void
-virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider, AndroidX.Lifecycle.ILifecycleOwner! owner) -> void
-virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider! provider, AndroidX.Lifecycle.ILifecycleOwner! owner, AndroidX.Lifecycle.Lifecycle.State! state) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider, AndroidX.Lifecycle.ILifecycleOwner? owner) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.AddMenuProvider(AndroidX.Core.View.IMenuProvider? provider, AndroidX.Lifecycle.ILifecycleOwner? owner, AndroidX.Lifecycle.Lifecycle.State? state) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.BackInvokedCallbackEnabled.get -> bool
 virtual AndroidX.AppCompat.Widget.Toolbar.BackInvokedCallbackEnabled.set -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.CanShowOverflowMenu() -> bool
@@ -2775,7 +2788,7 @@ virtual AndroidX.AppCompat.Widget.Toolbar.OverflowIcon.get -> Android.Graphics.D
 virtual AndroidX.AppCompat.Widget.Toolbar.OverflowIcon.set -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.PopupTheme.get -> int
 virtual AndroidX.AppCompat.Widget.Toolbar.PopupTheme.set -> void
-virtual AndroidX.AppCompat.Widget.Toolbar.RemoveMenuProvider(AndroidX.Core.View.IMenuProvider! provider) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.RemoveMenuProvider(AndroidX.Core.View.IMenuProvider? provider) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetCollapseContentDescription(int resId) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetCollapseIcon(int resId) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetCollapsible(bool collapsible) -> void
@@ -2790,12 +2803,12 @@ virtual AndroidX.AppCompat.Widget.Toolbar.SetNavigationOnClickListener(Android.V
 virtual AndroidX.AppCompat.Widget.Toolbar.SetOnMenuItemClickListener(AndroidX.AppCompat.Widget.Toolbar.IOnMenuItemClickListener? listener) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetSubtitle(int resId) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetSubtitleTextAppearance(Android.Content.Context? context, int resId) -> void
-virtual AndroidX.AppCompat.Widget.Toolbar.SetSubtitleTextColor(Android.Content.Res.ColorStateList! color) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.SetSubtitleTextColor(Android.Content.Res.ColorStateList? color) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetSubtitleTextColor(int color) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetTitle(int resId) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetTitleMargin(int start, int top, int end, int bottom) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetTitleTextAppearance(Android.Content.Context? context, int resId) -> void
-virtual AndroidX.AppCompat.Widget.Toolbar.SetTitleTextColor(Android.Content.Res.ColorStateList! color) -> void
+virtual AndroidX.AppCompat.Widget.Toolbar.SetTitleTextColor(Android.Content.Res.ColorStateList? color) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.SetTitleTextColor(int color) -> void
 virtual AndroidX.AppCompat.Widget.Toolbar.ShowOverflowMenu() -> bool
 virtual AndroidX.AppCompat.Widget.Toolbar.SubtitleFormatted.get -> Java.Lang.ICharSequence?
