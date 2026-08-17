@@ -613,7 +613,7 @@
 | 606|com.google.protobuf:protobuf-lite                                     |3.0.1               |Xamarin.Protobuf.Lite                                                 |3.0.1.24            |
 | 607|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4.3             |
 | 608|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.20           |
-| 609|com.squareup.okhttp3:logging-interceptor                              |5.5.0               |Square.OkHttp3.LoggingInterceptor                                     |5.5.0               |
+| 609|com.squareup.okhttp3:logging-interceptor                              |5.4.0               |Square.OkHttp3.LoggingInterceptor                                     |5.4.0.2             |
 | 610|com.squareup.okhttp3:okhttp                                           |5.5.0               |Square.OkHttp3                                                        |5.5.0               |
 | 611|com.squareup.okhttp3:okhttp-android                                   |5.5.0               |Square.OkHttp3.Android                                                |5.5.0               |
 | 612|com.squareup.okhttp3:okhttp-brotli                                    |5.5.0               |Square.OkHttp3.OkHttp.Brotli                                          |5.5.0               |

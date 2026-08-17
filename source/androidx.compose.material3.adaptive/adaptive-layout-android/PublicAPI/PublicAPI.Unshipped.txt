@@ -5,7 +5,8 @@ AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyCompanion.Hide.get -> An
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyConsts
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.AdaptStrategyLevitate() -> void
-AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.AdaptStrategyLevitate(AndroidX.Compose.UI.IAlignment! alignment, Kotlin.Jvm.Functions.IFunction2? scrim) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.AdaptStrategyLevitate(AndroidX.Compose.UI.IAlignment! alignment, Kotlin.Jvm.Functions.IFunction2? scrim, AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState? dragToResizeState) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.AdaptStrategyLevitate(AndroidX.Compose.UI.IAlignment? alignment, Kotlin.Jvm.Functions.IFunction2? scrim) -> void
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.InterfaceConsts
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.OnlyIf(bool condition, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Material3.Adaptive.Layout.IAdaptStrategy!
 AndroidX.Compose.Material3.Adaptive.Layout.AdaptStrategyLevitate.OnlyIfSinglePane(AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective! scaffoldDirective, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Material3.Adaptive.Layout.IAdaptStrategy!
@@ -16,9 +17,10 @@ AndroidX.Compose.Material3.Adaptive.Layout.AnimateBoundsModifierKt
 AndroidX.Compose.Material3.Adaptive.Layout.AnimateModifierUtilsKt
 AndroidX.Compose.Material3.Adaptive.Layout.AnimateWithFadingModifierKt
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope
-AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.AnimatedPaneOverrideScope(AndroidX.Compose.Material3.Adaptive.Layout.IExtendedPaneScaffoldPaneScope! scope, AndroidX.Compose.UI.IModifier! modifier, AndroidX.Compose.Animation.EnterTransition! enterTransition, AndroidX.Compose.Animation.ExitTransition! exitTransition, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! boundsAnimationSpec, Kotlin.Jvm.Functions.IFunction3! content) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.AnimatedPaneOverrideScope(AndroidX.Compose.Material3.Adaptive.Layout.IExtendedPaneScaffoldPaneScope! scope, AndroidX.Compose.UI.IModifier! modifier, AndroidX.Compose.Animation.EnterTransition! enterTransition, AndroidX.Compose.Animation.ExitTransition! exitTransition, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! boundsAnimationSpec, Kotlin.Jvm.Functions.IFunction3? dragToResizeHandle, Kotlin.Jvm.Functions.IFunction3! content) -> void
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.BoundsAnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.Content.get -> Kotlin.Jvm.Functions.IFunction3!
+AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.DragToResizeHandle.get -> Kotlin.Jvm.Functions.IFunction3?
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.EnterTransition.get -> AndroidX.Compose.Animation.EnterTransition!
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.ExitTransition.get -> AndroidX.Compose.Animation.ExitTransition!
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.Modifier.get -> AndroidX.Compose.UI.IModifier!
@@ -27,6 +29,11 @@ AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScope
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScopeCompanion
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScopeCompanion.Create(AndroidX.Compose.Animation.IAnimatedVisibilityScope! animatedVisibilityScope) -> AndroidX.Compose.Material3.Adaptive.Layout.IAnimatedPaneScope!
 AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScopeConsts
+AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge
+AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState
+AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.Companion
+AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.DragToResizeState(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.WhenMappings
 AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeStateKt
 AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeStateKt.WhenMappings
 AndroidX.Compose.Material3.Adaptive.Layout.HingePolicy
@@ -51,6 +58,12 @@ AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKey
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKey.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKeyCompanion!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKeyProvider
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKeyProvider.PaneExpansionStateKey.get -> AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKey!
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsCompanion!
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins.GetPaneBottom(AndroidX.Compose.UI.Layout.Placeable.PlacementScope! _this_getPaneBottom, int measuredBottom, int parentBottom) -> int
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins.GetPaneLeft(AndroidX.Compose.UI.Layout.Placeable.PlacementScope! _this_getPaneLeft, int measuredLeft) -> int
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins.GetPaneRight(AndroidX.Compose.UI.Layout.Placeable.PlacementScope! _this_getPaneRight, int measuredRight, int parentRight) -> int
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins.GetPaneTop(AndroidX.Compose.UI.Layout.Placeable.PlacementScope! _this_getPaneTop, int measuredTop) -> int
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneMotion
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneMotion.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionCompanion!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneMotion.Type.get -> int
@@ -73,6 +86,7 @@ AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldPaneScope.PaneRole.get -
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.IsAnimatedPane.get -> bool
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.MinTouchTargetSize.get -> float
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.PaneMargins.get -> AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.PreferredHeight.get -> float
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.PreferredHeightInProportion.get -> float
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.PreferredWidth.get -> float
@@ -80,6 +94,8 @@ AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldParentData.PreferredWidt
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldRole
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PaneExpansionDraggable(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionState! state, float p2, AndroidX.Compose.Foundation.Interaction.IMutableInteractionSource! interactionSource, Kotlin.Jvm.Functions.IFunction1? semanticsProperties) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PaneMargins(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Foundation.Layout.IPaddingValues! p1, AndroidX.Compose.UI.Layout.IRectRulers![]! p2, AndroidX.Compose.Runtime.IComposer? p3, int p4) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PaneMargins(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.UI.Layout.IRectRulers![]! p1, AndroidX.Compose.Runtime.IComposer? p2, int p3) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PreferredHeight(AndroidX.Compose.UI.IModifier! p0, float proportion) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PreferredHeight2(AndroidX.Compose.UI.IModifier! p0, float p1) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldScope.PreferredWidth(AndroidX.Compose.UI.IModifier! p0, float proportion) -> AndroidX.Compose.UI.IModifier!
@@ -97,7 +113,7 @@ AndroidX.Compose.Material3.Adaptive.Layout.IThreePaneScaffoldScope
 AndroidX.Compose.Material3.Adaptive.Layout.Internal.DelegableModifierKt
 AndroidX.Compose.Material3.Adaptive.Layout.Internal.RememberUtilsKt
 AndroidX.Compose.Material3.Adaptive.Layout.Internal.Strings_androidKt
-AndroidX.Compose.Material3.Adaptive.Layout.Internal.System_jvmKt
+AndroidX.Compose.Material3.Adaptive.Layout.Internal.System_jvmAndAndroidKt
 AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimDefaults
 AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimDefaults.Color.get -> long
 AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimKt
@@ -120,7 +136,8 @@ AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueCompanion.Hidden.get 
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueConsts
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueLevitated
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueLevitated.InterfaceConsts
-AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueLevitated.PaneAdaptedValueLevitated(AndroidX.Compose.UI.IAlignment! alignment, Kotlin.Jvm.Functions.IFunction2? scrim) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueLevitated.PaneAdaptedValueLevitated(AndroidX.Compose.UI.IAlignment! alignment, Kotlin.Jvm.Functions.IFunction2? scrim, AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState? dragToResizeState) -> void
+AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueLevitated.PaneAdaptedValueLevitated(AndroidX.Compose.UI.IAlignment? alignment, Kotlin.Jvm.Functions.IFunction2? scrim) -> void
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueReflowed
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueReflowed.InterfaceConsts
 AndroidX.Compose.Material3.Adaptive.Layout.PaneAdaptedValueReflowed.PaneAdaptedValueReflowed(AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldRole! reflowUnder) -> void
@@ -158,7 +175,10 @@ AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKeyConsts
 AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKt
 AndroidX.Compose.Material3.Adaptive.Layout.PaneKt
 AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.WhenMappings
-AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsKt
+AndroidX.Compose.Material3.Adaptive.Layout.PaneMargins
+AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsCompanion
+AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsCompanion.Unspecified.get -> AndroidX.Compose.Material3.Adaptive.Layout.IPaneMargins!
+AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsConsts
 AndroidX.Compose.Material3.Adaptive.Layout.PaneMotion
 AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionCompanion
 AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionCompanion.AnimateBounds.get -> AndroidX.Compose.Material3.Adaptive.Layout.IPaneMotion!
@@ -206,9 +226,11 @@ AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.DefaultPanePref
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.HorizontalPartitionSpacerSize.get -> float
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.MaxHorizontalPartitions.get -> int
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.MaxVerticalPartitions.get -> int
+AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.ShouldAutoFocusCurrentDestination() -> bool
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.VerticalPartitionSpacerSize.get -> float
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirectiveKt
 AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldKt
+AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffold_jvmAndAndroidKt
 AndroidX.Compose.Material3.Adaptive.Layout.PredictiveBackScaleStateKt
 AndroidX.Compose.Material3.Adaptive.Layout.SupportingPaneScaffoldDefaults
 AndroidX.Compose.Material3.Adaptive.Layout.SupportingPaneScaffoldDefaults.AdaptStrategies(AndroidX.Compose.Material3.Adaptive.Layout.IAdaptStrategy! mainPaneAdaptStrategy, AndroidX.Compose.Material3.Adaptive.Layout.IAdaptStrategy! supportingPaneAdaptStrategy, AndroidX.Compose.Material3.Adaptive.Layout.IAdaptStrategy! extraPaneAdaptStrategy) -> AndroidX.Compose.Material3.Adaptive.Layout.ThreePaneScaffoldAdaptStrategies!
@@ -284,6 +306,12 @@ override AndroidX.Compose.Material3.Adaptive.Layout.AnimateModifierUtilsKt.JniPe
 override AndroidX.Compose.Material3.Adaptive.Layout.AnimateWithFadingModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneOverrideScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScopeCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.ThresholdClass.get -> nint
+override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.ThresholdType.get -> System.Type!
+override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeStateKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.HingePolicy.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -291,7 +319,7 @@ override AndroidX.Compose.Material3.Adaptive.Layout.HingePolicy.JniPeerMembers.g
 override AndroidX.Compose.Material3.Adaptive.Layout.Internal.DelegableModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.Internal.RememberUtilsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.Internal.Strings_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.Material3.Adaptive.Layout.Internal.System_jvmKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.Internal.System_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.ListDetailPaneScaffoldDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -324,7 +352,7 @@ override AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKeyCompani
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -335,6 +363,7 @@ override AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.Compan
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirective.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldDirectiveKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffoldKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Material3.Adaptive.Layout.PaneScaffold_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.PredictiveBackScaleStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.SupportingPaneScaffoldDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Material3.Adaptive.Layout.SupportingPaneScaffoldKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -370,6 +399,14 @@ static AndroidX.Compose.Material3.Adaptive.Layout.AnimateModifierUtilsKt.IsValid
 static AndroidX.Compose.Material3.Adaptive.Layout.AnimateModifierUtilsKt.IsValid(long obj) -> bool
 static AndroidX.Compose.Material3.Adaptive.Layout.AnimateModifierUtilsKt.IsValid2(long obj) -> bool
 static AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScope.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.AnimatedPaneScopeCompanion!
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.Bottom.get -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge?
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.End.get -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge?
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.Entries.get -> Kotlin.Enums.IEnumEntries!
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.Start.get -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge?
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.Top.get -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge?
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.ValueOf(string? value) -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge?
+static AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge.Values() -> AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge![]?
+static AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeStateKt.RememberDragToResizeState(AndroidX.Compose.Material3.Adaptive.Layout.DockedEdge! dockedEdge, float minSize, float maxSize, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState!
 static AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimDefaults.Instance.get -> AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimDefaults!
 static AndroidX.Compose.Material3.Adaptive.Layout.LevitatedPaneScrimKt.LevitatedPaneScrim(AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction0? onClick, long color, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> void
 static AndroidX.Compose.Material3.Adaptive.Layout.ListDetailPaneScaffoldDefaults.Instance.get -> AndroidX.Compose.Material3.Adaptive.Layout.ListDetailPaneScaffoldDefaults!
@@ -383,8 +420,9 @@ static AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionDraggableModifier
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKey.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKeyCompanion!
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKt.RememberPaneExpansionState(AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKey? key, System.Collections.Generic.IList<AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionAnchor!>? anchors, int p2, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? anchoringAnimationSpec, AndroidX.Compose.Foundation.Gestures.IFlingBehavior? flingBehavior, Kotlin.Jvm.Functions.IFunction1? consumeDragDelta, AndroidX.Compose.Runtime.IComposer? _composer, int initialAnchoredIndex, int _changed) -> AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionState!
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionStateKt.RememberPaneExpansionState(AndroidX.Compose.Material3.Adaptive.Layout.IPaneExpansionStateKeyProvider! keyProvider, System.Collections.Generic.IList<AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionAnchor!>? anchors, int p2, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? anchoringAnimationSpec, AndroidX.Compose.Foundation.Gestures.IFlingBehavior? flingBehavior, Kotlin.Jvm.Functions.IFunction1? consumeDragDelta, AndroidX.Compose.Runtime.IComposer? _composer, int initialAnchoredIndex, int _changed) -> AndroidX.Compose.Material3.Adaptive.Layout.PaneExpansionState!
-static AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.AnimatedPane(AndroidX.Compose.Material3.Adaptive.Layout.IExtendedPaneScaffoldPaneScope! obj, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enterTransition, AndroidX.Compose.Animation.ExitTransition? exitTransition, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? boundsAnimationSpec, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
+static AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.AnimatedPane(AndroidX.Compose.Material3.Adaptive.Layout.IExtendedPaneScaffoldPaneScope! obj, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enterTransition, AndroidX.Compose.Animation.ExitTransition? exitTransition, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? boundsAnimationSpec, Kotlin.Jvm.Functions.IFunction3? dragToResizeHandle, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneKt.LocalAnimatedPaneOverride.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.Material3.Adaptive.Layout.PaneMargins.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneMarginsCompanion!
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneMotion.Companion.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionCompanion!
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionDefaults.Instance.get -> AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionDefaults!
 static AndroidX.Compose.Material3.Adaptive.Layout.PaneMotionKt.CalculateDefaultEnterTransition(AndroidX.Compose.Material3.Adaptive.Layout.IPaneScaffoldMotionDataProvider! obj, Java.Lang.Object! role) -> AndroidX.Compose.Animation.EnterTransition!
@@ -422,3 +460,5 @@ static AndroidX.Compose.Material3.Adaptive.Layout.WindowSizeClassHelperKt.GetHei
 static AndroidX.Compose.Material3.Adaptive.Layout.WindowSizeClassHelperKt.GetMinHeight(AndroidX.Window.Core.Layout.WindowSizeClass! obj) -> float
 static AndroidX.Compose.Material3.Adaptive.Layout.WindowSizeClassHelperKt.GetMinWidth(AndroidX.Window.Core.Layout.WindowSizeClass! obj) -> float
 static AndroidX.Compose.Material3.Adaptive.Layout.WindowSizeClassHelperKt.GetWidthSizeClasses(AndroidX.Window.Core.Layout.WindowSizeClass.Companion! obj) -> Java.Lang.Object!
+virtual AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.DispatchRawDelta(float delta) -> void
+virtual AndroidX.Compose.Material3.Adaptive.Layout.DragToResizeState.Drag(AndroidX.Compose.Foundation.MutatePriority! dragPriority, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
