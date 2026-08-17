@@ -1,13 +1,13 @@
 namespace Square.OkHttp3
 {
-    public abstract partial class DnsRecord
+    partial class DnsRecord
     {
-        public sealed partial class IpAddress
+        partial class IpAddress
         {
             public override string InvokeHostname() => InvokeHostnameCore();
         }
 
-        public sealed partial class ServiceMetadata
+        partial class ServiceMetadata
         {
             public override string InvokeHostname() => InvokeHostnameCore();
         }
