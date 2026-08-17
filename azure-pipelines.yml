@@ -16,6 +16,16 @@ parameters:
   displayName: Run Extended Tests?
   type: boolean
   default: false
+
+- name: RunBarValidation
+  displayName: Register a BAR validation build without promotion?
+  type: boolean
+  default: false
+
+- name: BarValidationSignedBuildId
+  displayName: Official AndroidX build ID supplying nuget-signed
+  type: number
+  default: 0
   
 variables:
   # Variables used by both AndroidX/GPS go in the template
@@ -96,3 +106,6 @@ extends:
     - template: build/ci/stage-sign-artifacts.yml@self
 
     - template: build/ci/stage-publish-signed-artifacts.yml@self
+      parameters:
+        runValidation: ${{ parameters.RunBarValidation }}
+        validationSignedBuildId: ${{ parameters.BarValidationSignedBuildId }}
