@@ -8,30 +8,25 @@ stages:
   lockBehavior: sequential
 
   jobs:
-  - deployment: publish_signed_packages
+  - job: publish_signed_packages
     displayName: Filter, register, and promote signed packages
     timeoutInMinutes: 240
-    environment: $(barPublishingEnvironment)
     pool:
       name: AzurePipelines-EO
       image: 1ESPT-Windows2025
       demands: Cmd
       os: windows
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - download: none
-
+    templateContext:
+      type: releaseJob
+      isProduction: true
+      inputs:
+      - input: pipelineArtifact
+        artifactName: nuget-signed
+        targetPath: $(Pipeline.Workspace)\nuget-signed
+    steps:
           - checkout: self
             clean: true
             fetchDepth: 3
-
-          - task: DownloadPipelineArtifact@2
-            displayName: Download real-signed NuGet packages
-            inputs:
-              artifactName: nuget-signed
-              targetPath: $(Pipeline.Workspace)\nuget-signed
 
           - task: UseDotNet@2
             displayName: Install .NET SDK

@@ -8,11 +8,10 @@ The manifest uses Arcade's `PackageArtifactModel` with `Category=Package` and `N
 
 Publishing is intentionally disabled by `barPublishingEnabled: false` until all setup below is complete:
 
-1. In the DevDiv project, create the `android-libraries-dotnet10-publishing` environment.
-2. Add an **Exclusive lock** check to that environment with one concurrent deployment, and authorize the AndroidX pipeline to use it. The stage sets `lockBehavior: sequential`, so the feed check, BAR registration, and promotion remain in one serialized critical section.
-3. Authorize the pipeline to use the `Darc: Maestro Production` service connection.
-4. Confirm BAR channel `.NET 10` still has ID `5172` and maps shipping `Package` assets to `https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet10/nuget/v3/index.json`. The promotion script fails before promotion if the name and ID no longer match.
-5. Set `barPublishingEnabled` to `true` in `build/ci/variables.yml`.
+1. Authorize the AndroidX pipeline to use the `Darc: Maestro Production` service connection.
+2. Add an **Exclusive lock** check to that service connection. The stage sets `lockBehavior: sequential`, so the feed check, BAR registration, and promotion remain in one serialized critical section.
+3. Confirm BAR channel `.NET 10` still has ID `5172` and maps shipping `Package` assets to `https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet10/nuget/v3/index.json`. The promotion script fails before promotion if the name and ID no longer match.
+4. Set `barPublishingEnabled` to `true` in `build/ci/variables.yml`.
 
 The public `dotnet10` feed currently permits anonymous reads. If that policy changes, supply a read token through a secret environment variable and pass its name with `--feed-token-env`; the tool never accepts a token value on its command line.
 
