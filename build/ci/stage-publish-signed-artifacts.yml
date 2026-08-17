@@ -1,0 +1,137 @@
+# Filters and publishes only real-signed packages that are absent from the public dotnet10 feed.
+
+stages:
+- stage: publish_signed_packages
+  displayName: Publish Signed Packages
+  dependsOn: sign_artifacts
+  condition: and(succeeded(), eq(variables['barPublishingEnabled'], 'true'), or(and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'Schedule')), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), ne(variables['Build.Reason'], 'PullRequest'))
+  lockBehavior: sequential
+
+  jobs:
+  - deployment: publish_signed_packages
+    displayName: Filter, register, and promote signed packages
+    timeoutInMinutes: 240
+    environment: $(barPublishingEnvironment)
+    pool:
+      name: AzurePipelines-EO
+      image: 1ESPT-Windows2025
+      demands: Cmd
+      os: windows
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+            clean: true
+            fetchDepth: 3
+
+          - task: DownloadPipelineArtifact@2
+            displayName: Download real-signed NuGet packages
+            inputs:
+              artifactName: nuget-signed
+              targetPath: $(Pipeline.Workspace)\nuget-signed
+
+          - task: UseDotNet@2
+            displayName: Install .NET SDK
+            inputs:
+              version: 10.x
+
+          - task: NuGetAuthenticate@1
+            displayName: Authenticate to Azure Artifacts
+
+          - task: PowerShell@2
+            displayName: Filter signed packages and create Arcade V3 manifest
+            inputs:
+              targetType: inline
+              script: |
+                $ErrorActionPreference = 'Stop'
+                $outputRoot = '$(Build.ArtifactStagingDirectory)\SignedPackagePublishing'
+                New-Item -ItemType Directory -Force -Path `
+                  "$outputRoot\Audit", `
+                  "$outputRoot\PackageArtifacts", `
+                  "$outputRoot\AssetManifests" | Out-Null
+
+                dotnet run `
+                  --project '$(System.DefaultWorkingDirectory)\build\publishing\SignedPackagePublisher\SignedPackagePublisher.csproj' `
+                  --configuration Release `
+                  -- `
+                  --packages '$(Pipeline.Workspace)\nuget-signed' `
+                  --package-output "$outputRoot\PackageArtifacts" `
+                  --inventory "$outputRoot\Audit\signed-package-inventory.json" `
+                  --manifest "$outputRoot\AssetManifests\Manifest.xml" `
+                  --feed '$(barTargetFeed)' `
+                  --max-concurrency '$(barFeedQueryConcurrency)' `
+                  --max-attempts '$(barFeedQueryAttempts)' `
+                  --repository-name '$(Build.Repository.Name)' `
+                  --build-number '$(Build.BuildNumber)' `
+                  --branch '$(Build.SourceBranch)' `
+                  --commit '$(Build.SourceVersion)' `
+                  --azure-collection-uri '$(System.CollectionUri)' `
+                  --azure-project '$(System.TeamProject)' `
+                  --azure-build-id '$(Build.BuildId)' `
+                  --azure-definition-id '$(System.DefinitionId)' `
+                  --azure-repository-uri '$(Build.Repository.Uri)'
+                if ($LastExitCode -ne 0) {
+                  throw "Signed package filtering failed with exit code $LastExitCode."
+                }
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish signed package audit inventory
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\Audit
+                artifactName: SignedPackagePublishingInventory
+                condition: always()
+                isProduction: false
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish filtered signed packages
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\PackageArtifacts
+                artifactName: PackageArtifacts
+                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                isProduction: true
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish filtered Arcade asset manifest
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests
+                artifactName: AssetManifests
+                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                isProduction: false
+
+          - task: AzureCLI@2
+            displayName: Register filtered signed packages in BAR
+            condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+            inputs:
+              azureSubscription: "Darc: Maestro Production"
+              scriptType: ps
+              scriptLocation: scriptPath
+              scriptPath: $(System.DefaultWorkingDirectory)\eng\common\sdk-task.ps1
+              arguments: >
+                -task PublishBuildAssets
+                -restore
+                -msbuildEngine dotnet
+                /p:ManifestsPath='$(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests'
+                /p:IsAssetlessBuild=false
+                /p:MaestroApiEndpoint=https://maestro.dot.net
+                /p:OfficialBuildId=$(Build.BuildNumber)
+
+          - task: AzureCLI@2
+            displayName: Promote BAR build to $(barTargetChannelName)
+            condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+            inputs:
+              azureSubscription: "Darc: Maestro Production"
+              scriptType: ps
+              scriptLocation: scriptPath
+              scriptPath: $(System.DefaultWorkingDirectory)\build\publishing\promote-build.ps1
+              arguments: >
+                -BuildId $(BARBuildId)
+                -ChannelName '$(barTargetChannelName)'
+                -ExpectedChannelId $(barTargetChannelId)
+                -AzdoToken '$(System.AccessToken)'
