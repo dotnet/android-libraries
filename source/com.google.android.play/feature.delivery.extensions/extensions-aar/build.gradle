@@ -25,6 +25,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lint {
+        if ('true'.equalsIgnoreCase(System.getenv('RUNNINGONCI'))) {
+            // This check bypasses Gradle repositories and contacts Maven Central directly.
+            disable 'NewerVersionAvailable'
+        }
+    }
 }
 
 dependencies {
