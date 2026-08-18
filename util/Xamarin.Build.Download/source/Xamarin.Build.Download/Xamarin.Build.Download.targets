@@ -53,7 +53,7 @@
 		<ItemGroup Condition="'$(_XamarinBuildDownloadGoogleMavenRepository)' != ''">
 			<XamarinBuildDownload
 				Update="@(XamarinBuildDownload)"
-				Condition="$([System.String]::Copy('%(XamarinBuildDownload.Url)').StartsWith('$(_XamarinBuildDownloadGoogleMavenPrefix)'))">
+				Condition="$([System.String]::Copy('%(XamarinBuildDownload.Url)').StartsWith('$(_XamarinBuildDownloadGoogleMavenPrefix)', 'System.StringComparison.Ordinal'))">
 				<Url>$(_XamarinBuildDownloadGoogleMavenRepository)$([System.String]::Copy('%(XamarinBuildDownload.Url)').Substring($(_XamarinBuildDownloadGoogleMavenPrefixLength)))</Url>
 			</XamarinBuildDownload>
 		</ItemGroup>
