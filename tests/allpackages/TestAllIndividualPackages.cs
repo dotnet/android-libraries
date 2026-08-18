@@ -167,7 +167,7 @@ public class TestAllIndividualPackages
 		Directory.CreateDirectory (case_dir);
 
 		// Create new dotnet project
-		await RunAndAssertSuccess ($"new {template}", case_dir);
+		await RunAndAssertSuccess ($"new {template} --no-restore", case_dir);
 
 		// - Replace <SupportedOSPlatformVersion> with the maximum version some packages require
 		// - Remove the target frameworks that are not 'android'
