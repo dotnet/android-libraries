@@ -24,6 +24,7 @@ AndroidX.Compose.Animation.ContentTransform.TargetContentEnter.get -> AndroidX.C
 AndroidX.Compose.Animation.ContentTransform.TargetContentZIndex.get -> float
 AndroidX.Compose.Animation.ContentTransform.TargetContentZIndex.set -> void
 AndroidX.Compose.Animation.CrossfadeKt
+AndroidX.Compose.Animation.DeferredEnterExitTransitionKt
 AndroidX.Compose.Animation.EnterExitState
 AndroidX.Compose.Animation.EnterExitTransitionKt
 AndroidX.Compose.Animation.EnterTransition
@@ -65,6 +66,7 @@ AndroidX.Compose.Animation.ISharedTransitionScope.RememberSharedContentState(Jav
 AndroidX.Compose.Animation.ISharedTransitionScope.RenderInSharedTransitionScopeOverlay(AndroidX.Compose.UI.IModifier! p0, float zIndexInOverlay, Kotlin.Jvm.Functions.IFunction0! renderInOverlay) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Animation.ISharedTransitionScope.SharedBounds(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState! sharedContentState, AndroidX.Compose.Animation.IAnimatedVisibilityScope! animatedVisibilityScope, AndroidX.Compose.Animation.EnterTransition! enter, AndroidX.Compose.Animation.ExitTransition! exit, AndroidX.Compose.Animation.IBoundsTransform! boundsTransform, AndroidX.Compose.Animation.ISharedTransitionScopeResizeMode! resizeMode, AndroidX.Compose.Animation.ISharedTransitionScopePlaceholderSize! placeholderSize, bool renderInOverlayDuringTransition, float zIndexInOverlay, AndroidX.Compose.Animation.ISharedTransitionScopeOverlayClip! clipInOverlayDuringTransition) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Animation.ISharedTransitionScope.SharedContentConfig() -> AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig!
+AndroidX.Compose.Animation.ISharedTransitionScope.SharedContentConfig(bool permitTransformDuringDeferredTransition) -> AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig!
 AndroidX.Compose.Animation.ISharedTransitionScope.SharedElement(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState! sharedContentState, AndroidX.Compose.Animation.IAnimatedVisibilityScope! animatedVisibilityScope, AndroidX.Compose.Animation.IBoundsTransform! boundsTransform, AndroidX.Compose.Animation.ISharedTransitionScopePlaceholderSize! placeholderSize, bool renderInOverlayDuringTransition, float zIndexInOverlay, AndroidX.Compose.Animation.ISharedTransitionScopeOverlayClip! clipInOverlayDuringTransition) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Animation.ISharedTransitionScope.SharedElementWithCallerManagedVisibility(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState! sharedContentState, bool visible, AndroidX.Compose.Animation.IBoundsTransform! boundsTransform, AndroidX.Compose.Animation.ISharedTransitionScopePlaceholderSize! placeholderSize, bool renderInOverlayDuringTransition, float zIndexInOverlay, AndroidX.Compose.Animation.ISharedTransitionScopeOverlayClip! clipInOverlayDuringTransition) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Compose.Animation.ISharedTransitionScope.SkipToLookaheadPosition(AndroidX.Compose.UI.IModifier! _this_skipToLookaheadPosition, Kotlin.Jvm.Functions.IFunction0! enabled) -> AndroidX.Compose.UI.IModifier!
@@ -77,12 +79,30 @@ AndroidX.Compose.Animation.ISharedTransitionScopeResizeMode
 AndroidX.Compose.Animation.ISharedTransitionScopeResizeMode.Companion.get -> AndroidX.Compose.Animation.SharedTransitionScopeResizeModeCompanion!
 AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig
 AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig.IsEnabled(AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState! _this_isEnabled) -> bool
+AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig.PermitTransformDuringDeferredTransition.get -> bool
 AndroidX.Compose.Animation.ISharedTransitionScopeSharedContentConfig.ShouldKeepEnabledForOngoingAnimation.get -> bool
 AndroidX.Compose.Animation.ISizeTransform
 AndroidX.Compose.Animation.ISizeTransform.Clip.get -> bool
 AndroidX.Compose.Animation.ISizeTransform.CreateAnimationSpec(long p0, long p1) -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
+AndroidX.Compose.Animation.ITransformScope
+AndroidX.Compose.Animation.ITransformScope.Alpha.get -> float
+AndroidX.Compose.Animation.ITransformScope.Alpha.set -> void
+AndroidX.Compose.Animation.ITransformScope.Offset.get -> long
+AndroidX.Compose.Animation.ITransformScope.Offset.set -> void
+AndroidX.Compose.Animation.ITransformScope.Scale.get -> float
+AndroidX.Compose.Animation.ITransformScope.Scale.set -> void
+AndroidX.Compose.Animation.ITransformScope.TransformOrigin.get -> long
+AndroidX.Compose.Animation.ITransformScope.TransformOrigin.set -> void
+AndroidX.Compose.Animation.ITransformScope.Veil.get -> long
+AndroidX.Compose.Animation.ITransformScope.Veil.set -> void
 AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt
 AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt
+AndroidX.Compose.Animation.MutableContentTransform
+AndroidX.Compose.Animation.MutableContentTransform.InitialContentTransform(Kotlin.Jvm.Functions.IFunction2! block) -> void
+AndroidX.Compose.Animation.MutableContentTransform.TargetContentTransform(Kotlin.Jvm.Functions.IFunction2! block) -> void
+AndroidX.Compose.Animation.MutableTransform
+AndroidX.Compose.Animation.MutableTransform.MutableTransform() -> void
+AndroidX.Compose.Animation.MutableTransform.Update(Kotlin.Jvm.Functions.IFunction2! block) -> void
 AndroidX.Compose.Animation.SharedContentNodeKt
 AndroidX.Compose.Animation.SharedElementKt
 AndroidX.Compose.Animation.SharedTransitionDefaults
@@ -131,6 +151,7 @@ override AndroidX.Compose.Animation.ColorVectorConverterKt.JniPeerMembers.get ->
 override AndroidX.Compose.Animation.CompositionLocalsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.ContentTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.CrossfadeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.DeferredEnterExitTransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterExitState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterExitTransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterTransition.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -144,6 +165,8 @@ override AndroidX.Compose.Animation.ExitTransition.ThresholdType.get -> System.T
 override AndroidX.Compose.Animation.FlingCalculatorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.MutableContentTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.MutableTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedContentNodeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedElementKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedTransitionDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -163,6 +186,7 @@ static AndroidX.Compose.Animation.AndroidActualDefaultDecayAnimationSpec_android
 static AndroidX.Compose.Animation.AnimateBoundsModifierKt.AnimateBounds(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.UI.Layout.ILookaheadScope! lookaheadScope, AndroidX.Compose.UI.IModifier! modifier, AndroidX.Compose.Animation.IBoundsTransform! boundsTransform, bool animateMotionFrameOfReference) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.Animation.AnimatedContentKt.AnimatedContent(AndroidX.Compose.Animation.Core.Transition! obj, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction1? transitionSpec, AndroidX.Compose.UI.IAlignment? contentAlignment, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedContentKt.AnimatedContent(Java.Lang.Object? targetState, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction1? transitionSpec, AndroidX.Compose.UI.IAlignment? contentAlignment, string? label, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
+static AndroidX.Compose.Animation.AnimatedContentKt.DeferredAnimatedContent(AndroidX.Compose.Animation.Core.DeferredTransition! obj, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction1? transitionSpec, AndroidX.Compose.UI.IAlignment? contentAlignment, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction1? mutableTransformSpec, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedContentKt.SizeTransform(bool clip, Kotlin.Jvm.Functions.IFunction2! sizeAnimationSpec) -> AndroidX.Compose.Animation.ISizeTransform!
 static AndroidX.Compose.Animation.AnimatedContentKt.TogetherWith(AndroidX.Compose.Animation.EnterTransition! obj, AndroidX.Compose.Animation.ExitTransition! exit) -> AndroidX.Compose.Animation.ContentTransform!
 static AndroidX.Compose.Animation.AnimatedContentKt.With(AndroidX.Compose.Animation.EnterTransition! obj, AndroidX.Compose.Animation.ExitTransition! exit) -> AndroidX.Compose.Animation.ContentTransform!
@@ -173,6 +197,7 @@ static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(Androi
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(AndroidX.Compose.Foundation.Layout.IRowScope! obj, AndroidX.Compose.Animation.Core.MutableTransitionState! visibleState, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(AndroidX.Compose.Foundation.Layout.IRowScope! obj, bool visible, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(bool visible, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
+static AndroidX.Compose.Animation.AnimatedVisibilityKt.DeferredAnimatedVisibility(AndroidX.Compose.Animation.Core.DeferredTransition! obj, Kotlin.Jvm.Functions.IFunction1! visible, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, AndroidX.Compose.Animation.MutableTransform? mutableTransform, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedVisibilityScopeDefaultImpls.AnimateEnterExit(AndroidX.Compose.Animation.IAnimatedVisibilityScope! _this, AndroidX.Compose.UI.IModifier! _receiver, AndroidX.Compose.Animation.EnterTransition! enter, AndroidX.Compose.Animation.ExitTransition! exit, string! label) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.Animation.AnimationModifierKt.AnimateContentSize(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, AndroidX.Compose.UI.IAlignment! alignment, Kotlin.Jvm.Functions.IFunction2? finishedListener) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.Animation.AnimationModifierKt.AnimateContentSize(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction2? finishedListener) -> AndroidX.Compose.UI.IModifier!
@@ -183,6 +208,9 @@ static AndroidX.Compose.Animation.CompositionLocalsKt.LocalLookaheadAnimationVis
 static AndroidX.Compose.Animation.CompositionLocalsKt.LocalLookaheadAnimationVisualDebugConfig.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Animation.CrossfadeKt.Crossfade(AndroidX.Compose.Animation.Core.Transition! obj, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? animationSpec, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p6, int _changed) -> void
 static AndroidX.Compose.Animation.CrossfadeKt.Crossfade(Java.Lang.Object? targetState, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? animationSpec, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p6, int _changed) -> void
+static AndroidX.Compose.Animation.DeferredEnterExitTransitionKt.ModifierLocalSharedMutableTransformState.get -> AndroidX.Compose.UI.Modifier.ProvidableModifierLocal!
+static AndroidX.Compose.Animation.DeferredEnterExitTransitionKt.TestTimeSource.get -> Kotlin.Jvm.Functions.IFunction0?
+static AndroidX.Compose.Animation.DeferredEnterExitTransitionKt.TestTimeSource.set -> void
 static AndroidX.Compose.Animation.EnterExitState.Entries.get -> Kotlin.Enums.IEnumEntries!
 static AndroidX.Compose.Animation.EnterExitState.PostExit.get -> AndroidX.Compose.Animation.EnterExitState?
 static AndroidX.Compose.Animation.EnterExitState.PreEnter.get -> AndroidX.Compose.Animation.EnterExitState?
@@ -208,8 +236,10 @@ static AndroidX.Compose.Animation.EnterExitTransitionKt.SlideOutVertically(Andro
 static AndroidX.Compose.Animation.EnterExitTransitionKt.UnveilIn(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, long initialColor, bool matchParentSize) -> AndroidX.Compose.Animation.EnterTransition!
 static AndroidX.Compose.Animation.EnterExitTransitionKt.VeilOut(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, long targetColor, bool matchParentSize) -> AndroidX.Compose.Animation.ExitTransition!
 static AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.IsLookaheadAnimationVisualDebuggingEnabled.get -> bool
+static AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.IsLookaheadAnimationVisualDebuggingEnabledDefault.get -> bool
+static AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.IsLookaheadAnimationVisualDebuggingForceEnabled.get -> bool
 static AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt.CustomizedLookaheadAnimationVisualDebugging(long debugColor, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
-static AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt.LookaheadAnimationVisualDebugging(bool isEnabled, long overlayColor, long multipleMatchesColor, long unmatchedElementColor, bool isShowKeyLabelEnabled, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
+static AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt.LookaheadAnimationVisualDebugging(bool isEnabled, long overlayColor, long multipleMatchesColor, long unmatchedElementColor, long inactiveElementColor, bool isShowKeyLabelEnabled, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.SharedContentNodeKt.ModifierLocalSharedElementInternalState.get -> AndroidX.Compose.UI.Modifier.ProvidableModifierLocal!
 static AndroidX.Compose.Animation.SharedTransitionDefaults.Instance.get -> AndroidX.Compose.Animation.SharedTransitionDefaults!
 static AndroidX.Compose.Animation.SharedTransitionDefaults.SharedContentConfig.Instance.get -> AndroidX.Compose.Animation.SharedTransitionDefaults.SharedContentConfig!

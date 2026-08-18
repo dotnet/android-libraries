@@ -31,6 +31,8 @@ Google.Android.Play.Core.Hsdp.Service.ErrorEventArgs.P0.get -> string!
 Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkService
 Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceConsts
 Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory
+Google.Android.Play.Core.Hsdp.Service.HsdpFeature
+Google.Android.Play.Core.Hsdp.Service.HsdpFeatureHelper
 Google.Android.Play.Core.Hsdp.Service.HsdpLoadingPanelContainer
 Google.Android.Play.Core.Hsdp.Service.HsdpLoadingPanelContainer.HsdpLoadingPanelContainer(Android.Content.Context! context) -> void
 Google.Android.Play.Core.Hsdp.Service.HsdpLoadingPanelContainer.HsdpLoadingPanelContainer(Android.Content.Context! context, Android.Util.IAttributeSet! attrs) -> void
@@ -88,10 +90,12 @@ abstract Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.ExtraQueryPara
 abstract Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.Referrer() -> string!
 abstract Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.TargetAppPackageName() -> string!
 abstract Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.WindowToken() -> Android.OS.IBinder?
-const Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkService.SdkVersion = "2.0.0" -> string!
+const Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkService.SdkVersion = "2.1.0" -> string!
 override Google.Android.Play.Core.Hsdp.Protocol.PrewarmRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Play.Core.Hsdp.Protocol.ReportRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Play.Core.Hsdp.Service.HsdpFeature.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Play.Core.Hsdp.Service.HsdpFeatureHelper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Play.Core.Hsdp.Service.HsdpLoadingPanelContainer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.Builder.ThresholdClass.get -> nint
@@ -108,5 +112,12 @@ static Google.Android.Play.Core.Hsdp.Protocol.ReportRequest.Creator.get -> Andro
 static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.App.Activity! activity) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
 static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.App.Activity! activity, bool enableLoadingPanel) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
 static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.App.Activity! activity, bool enableLoadingPanel, bool useServiceBasedHsdp) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
+static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.App.Activity! activity, bool enableLoadingPanel, bool useServiceBasedHsdp, bool sdkManagedConfigurationChanges) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
+static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.App.Activity! activity, bool enableLoadingPanel, bool useServiceBasedHsdp, bool sdkManagedConfigurationChanges, bool enableHpoa) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
 static Google.Android.Play.Core.Hsdp.Service.HsdpDeepLinkServiceFactory.Create(Android.Content.Context! context) -> Google.Android.Play.Core.Hsdp.Service.IHsdpDeepLinkService!
+static Google.Android.Play.Core.Hsdp.Service.HsdpFeature.ServiceBasedHsdp.get -> Google.Android.Play.Core.Hsdp.Service.HsdpFeature!
+static Google.Android.Play.Core.Hsdp.Service.HsdpFeature.ServiceBasedHsdpPrewarm.get -> Google.Android.Play.Core.Hsdp.Service.HsdpFeature!
+static Google.Android.Play.Core.Hsdp.Service.HsdpFeature.ValueOf(string! name) -> Google.Android.Play.Core.Hsdp.Service.HsdpFeature!
+static Google.Android.Play.Core.Hsdp.Service.HsdpFeature.Values() -> Google.Android.Play.Core.Hsdp.Service.HsdpFeature![]!
+static Google.Android.Play.Core.Hsdp.Service.HsdpFeatureHelper.IsFeatureEnabled(Android.Content.Context! context, Google.Android.Play.Core.Hsdp.Service.HsdpFeature! feature) -> bool
 static Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.InvokeBuilder() -> Google.Android.Play.Core.Hsdp.Service.HsdpPrewarmRequest.Builder!

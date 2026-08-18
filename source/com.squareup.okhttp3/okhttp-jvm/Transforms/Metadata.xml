@@ -5,4 +5,9 @@
     <remove-node path="/api/package/class/field[@name='Companion']" />
 
     <remove-node path="/api/package/*/implements[starts-with(@name,'kotlin.jvm.internal')]" />
+
+    <attr path="/api/package[@name='okhttp3']/class[@name='Dns.Record']/method[@name='getHostname']" name="managedName">InvokeHostname</attr>
+    <attr path="/api/package[@name='okhttp3']/class[@name='Dns.Record']/method[@name='getHostname']" name="propertyName"></attr>
+    <attr path="/api/package[@name='okhttp3']/class[starts-with(@name, 'Dns.Record.')]/method[@name='hostname']" name="managedName">InvokeHostnameCore</attr>
+    <attr path="/api/package[@name='okhttp3']/class[starts-with(@name, 'Dns.Record.')]/method[@name='hostname']" name="visibility">private</attr>
 </metadata>

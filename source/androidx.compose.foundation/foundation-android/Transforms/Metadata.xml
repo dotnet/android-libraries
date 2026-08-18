@@ -12,6 +12,14 @@
   <remove-node path="/api/package[@name='androidx.compose.foundation.lazy.layout']/class[@name='LazyLayoutCacheWindowKt']/method[starts-with(@name,'LazyLayoutCacheWindow-')]" />
 
   <!--
+    SizeScope has fraction-based height/width methods and Dp inline-value
+    overloads. Both Dp overloads erase to float and otherwise collide with the
+    fraction overloads in C# (CS0111). Preserve both with distinct managed names.
+  -->
+  <attr path="/api/package[@name='androidx.compose.foundation.style']/interface[@name='SizeScope']/method[@name='height-0680j_4']" name="managedName">Height2</attr>
+  <attr path="/api/package[@name='androidx.compose.foundation.style']/interface[@name='SizeScope']/method[@name='width-0680j_4']" name="managedName">Width2</attr>
+
+  <!--
     LazyLayoutPinnedItemList: Kotlin MutableList that re-declares java.util.List
     operations; the full set of MutableList method signatures clashes with
     java.util.List on the auto-generated Invoker (CS0535, CS0738).
