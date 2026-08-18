@@ -41,9 +41,27 @@
 	-->
 	<Target Name="_XamarinBuildAddDownloadedItems" DependsOnTargets="@(XamarinBuildRestoreResources)" />
 
+	<Target Name="_XamarinBuildApplyRepositoryOverrides"
+			DependsOnTargets="_XamarinBuildAddDownloadedItems">
+		<PropertyGroup>
+			<_XamarinBuildDownloadGoogleMavenPrefix>https://dl.google.com/dl/android/maven2/</_XamarinBuildDownloadGoogleMavenPrefix>
+			<_XamarinBuildDownloadGoogleMavenPrefixLength>$([System.String]::Copy('$(_XamarinBuildDownloadGoogleMavenPrefix)').Length)</_XamarinBuildDownloadGoogleMavenPrefixLength>
+			<_XamarinBuildDownloadGoogleMavenRepository>$(XamarinBuildDownloadGoogleMavenRepository)</_XamarinBuildDownloadGoogleMavenRepository>
+			<_XamarinBuildDownloadGoogleMavenRepository
+				Condition="'$(_XamarinBuildDownloadGoogleMavenRepository)' != '' and !HasTrailingSlash('$(_XamarinBuildDownloadGoogleMavenRepository)')">$(_XamarinBuildDownloadGoogleMavenRepository)/</_XamarinBuildDownloadGoogleMavenRepository>
+		</PropertyGroup>
+		<ItemGroup Condition="'$(_XamarinBuildDownloadGoogleMavenRepository)' != ''">
+			<XamarinBuildDownload
+				Update="@(XamarinBuildDownload)"
+				Condition="$([System.String]::Copy('%(XamarinBuildDownload.Url)').StartsWith('$(_XamarinBuildDownloadGoogleMavenPrefix)', 'System.StringComparison.Ordinal'))">
+				<Url>$(_XamarinBuildDownloadGoogleMavenRepository)$([System.String]::Copy('%(XamarinBuildDownload.Url)').Substring($(_XamarinBuildDownloadGoogleMavenPrefixLength)))</Url>
+			</XamarinBuildDownload>
+		</ItemGroup>
+	</Target>
+
 	<Target
 			Name="_XamarinBuildDownload"
-			DependsOnTargets="_XamarinBuildAddDownloadedItems;_XamarinBuildDownloadCore;_XamarinBuildDownloadPartialZipsCore"
+			DependsOnTargets="_XamarinBuildApplyRepositoryOverrides;_XamarinBuildDownloadCore;_XamarinBuildDownloadPartialZipsCore"
 		/>
 
 	<Target Name="_XamarinBuildDownloadCore"
@@ -109,7 +127,10 @@
 			BeforeTargets="$(_XamarinBuildDownloadMasterBeforeTargets)"
 			DependsOnTargets="$(_XamarinBuildDownloadMasterDependsOnTargets)" />
 	
-	<Target Name="XamarinBuildDownloadGetItemsToDownload" Returns="@(XamarinBuildDownloadItemToDownload)">
+	<Target
+			Name="XamarinBuildDownloadGetItemsToDownload"
+			DependsOnTargets="_XamarinBuildApplyRepositoryOverrides"
+			Returns="@(XamarinBuildDownloadItemToDownload)">
 		<XamarinBuildGetArchivesToDownload
 			AllowUnsecureUrls="$(XamarinBuildDownloadAllowUnsecure)"
 			Archives="@(XamarinBuildDownload)"
