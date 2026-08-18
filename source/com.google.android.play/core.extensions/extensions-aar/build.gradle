@@ -28,6 +28,10 @@ android {
     
     lint {
         baseline = file("lint-baseline.xml")
+        if ('true'.equalsIgnoreCase(System.getenv('RUNNINGONCI'))) {
+            // This check bypasses Gradle repositories and contacts Maven Central directly.
+            disable 'NewerVersionAvailable'
+        }
     }
 }
 
