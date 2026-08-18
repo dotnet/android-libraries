@@ -532,6 +532,123 @@ namespace NativeLibraryDownloaderTests
 		}
 
 		[Fact]
+		public void TestGoogleMavenRepositoryOverride ()
+		{
+			const string googleMavenUrl = "https://dl.google.com/dl/android/maven2/com/google/android/gms/play-services-base/17.6.0/play-services-base-17.6.0.aar";
+			const string otherUrl = "https://example.com/com/example/library/1.0.0/library-1.0.0.aar";
+			const string repository = "https://packages.example.com/maven/v1";
+
+			var engine = new ProjectCollection ();
+			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
+			prel.SetProperty ("XamarinBuildDownloadGoogleMavenRepository", repository);
+			prel.AddItem ("XamarinBuildRestoreResources", "_AddRepositoryOverrideTestItems");
+
+			var restoreTarget = prel.AddTarget ("_AddRepositoryOverrideTestItems");
+			var itemGroup = restoreTarget.AddItemGroup ();
+			var googleItem = itemGroup.AddItem ("XamarinBuildDownload", "gpsbase-17.6.0");
+			googleItem.AddMetadata ("Url", googleMavenUrl);
+			googleItem.AddMetadata ("Kind", "Uncompressed");
+			googleItem.AddMetadata ("ToFile", "play-services-base.aar");
+			googleItem.AddMetadata ("Sha256", "0123456789abcdef");
+			googleItem.AddMetadata ("CustomErrorCode", "TEST001");
+			googleItem.AddMetadata ("CustomErrorMessage", "Test error");
+			var otherItem = itemGroup.AddItem ("XamarinBuildDownload", "other-1.0.0");
+			otherItem.AddMetadata ("Url", otherUrl);
+			otherItem.AddMetadata ("Kind", "Uncompressed");
+
+			AddCoreTargets (prel);
+
+			var project = new ProjectInstance (prel);
+			var log = new MSBuildTestLogger ();
+			var success = BuildProject (engine, project, "_XamarinBuildApplyRepositoryOverrides", log);
+
+			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
+			Assert.True (success);
+
+			var downloads = project.GetItems ("XamarinBuildDownload");
+			Assert.Equal (2, downloads.Count);
+
+			var rewritten = downloads.Single (item => item.EvaluatedInclude == "gpsbase-17.6.0");
+			Assert.Equal (
+				repository + "/com/google/android/gms/play-services-base/17.6.0/play-services-base-17.6.0.aar",
+				rewritten.GetMetadataValue ("Url"));
+			Assert.Equal ("Uncompressed", rewritten.GetMetadataValue ("Kind"));
+			Assert.Equal ("play-services-base.aar", rewritten.GetMetadataValue ("ToFile"));
+			Assert.Equal ("0123456789abcdef", rewritten.GetMetadataValue ("Sha256"));
+			Assert.Equal ("TEST001", rewritten.GetMetadataValue ("CustomErrorCode"));
+			Assert.Equal ("Test error", rewritten.GetMetadataValue ("CustomErrorMessage"));
+
+			var unchanged = downloads.Single (item => item.EvaluatedInclude == "other-1.0.0");
+			Assert.Equal (otherUrl, unchanged.GetMetadataValue ("Url"));
+		}
+
+		[Fact]
+		public void TestGoogleMavenRepositoryOverrideDefaultsToDisabled ()
+		{
+			const string googleMavenUrl = "https://dl.google.com/dl/android/maven2/com/google/android/gms/play-services-base/17.6.0/play-services-base-17.6.0.aar";
+
+			var engine = new ProjectCollection ();
+			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
+			prel.AddItem ("XamarinBuildRestoreResources", "_AddRepositoryOverrideTestItems");
+
+			var restoreTarget = prel.AddTarget ("_AddRepositoryOverrideTestItems");
+			var googleItem = restoreTarget.AddItemGroup ().AddItem ("XamarinBuildDownload", "gpsbase-17.6.0");
+			googleItem.AddMetadata ("Url", googleMavenUrl);
+			googleItem.AddMetadata ("Kind", "Uncompressed");
+
+			AddCoreTargets (prel);
+
+			var project = new ProjectInstance (prel);
+			var log = new MSBuildTestLogger ();
+			var success = BuildProject (engine, project, "_XamarinBuildApplyRepositoryOverrides", log);
+
+			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
+			Assert.True (success);
+			Assert.Equal (googleMavenUrl, project.GetItems ("XamarinBuildDownload").Single ().GetMetadataValue ("Url"));
+		}
+
+		[Fact]
+		public void TestGoogleMavenRepositoryOverrideGetItemsToDownload ()
+		{
+			const string googleMavenUrl = "https://dl.google.com/dl/android/maven2/com/google/android/gms/play-services-base/17.6.0/play-services-base-17.6.0.aar";
+			const string partialZipUrl = "https://dl-ssl.google.com/android/repository/android_m2repository_r40.zip";
+			const string repository = "https://packages.example.com/maven/v1/";
+
+			var engine = new ProjectCollection ();
+			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
+			prel.SetProperty ("XamarinBuildDownloadDir", GetTempPath ("unpacked"));
+			prel.SetProperty ("XamarinBuildDownloadGoogleMavenRepository", repository);
+			prel.AddItem ("XamarinBuildRestoreResources", "_AddRepositoryOverrideTestItems");
+
+			var restoreTarget = prel.AddTarget ("_AddRepositoryOverrideTestItems");
+			var itemGroup = restoreTarget.AddItemGroup ();
+			var googleItem = itemGroup.AddItem ("XamarinBuildDownload", "gpsbase-17.6.0");
+			googleItem.AddMetadata ("Url", googleMavenUrl);
+			googleItem.AddMetadata ("Kind", "Uncompressed");
+			var partialZipItem = itemGroup.AddItem ("XamarinBuildDownloadPartialZip", "androidsupport-25.0.1/cardview.v7");
+			partialZipItem.AddMetadata ("Url", partialZipUrl);
+			partialZipItem.AddMetadata ("ToFile", "cardview.v7.aar");
+			partialZipItem.AddMetadata ("RangeStart", "196438127");
+			partialZipItem.AddMetadata ("RangeEnd", "196460160");
+
+			AddCoreTargets (prel);
+
+			var project = new ProjectInstance (prel);
+			var log = new MSBuildTestLogger ();
+			var success = BuildProject (engine, project, "XamarinBuildDownloadGetItemsToDownload", log);
+
+			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
+			Assert.True (success);
+
+			var itemsToDownload = project.GetItems ("XamarinBuildDownloadItemToDownload");
+			Assert.Equal (2, itemsToDownload.Count);
+			Assert.Contains (
+				itemsToDownload,
+				item => item.GetMetadataValue ("Url") == repository + "com/google/android/gms/play-services-base/17.6.0/play-services-base-17.6.0.aar");
+			Assert.Contains (itemsToDownload, item => item.GetMetadataValue ("Url") == partialZipUrl);
+		}
+
+		[Fact]
 		public void TestDeduplicateGetItemsToDownload ()
 		{
 			var itemUrl = DotNetPublicMavenGson;

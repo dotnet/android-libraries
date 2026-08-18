@@ -26,6 +26,14 @@ be inferred from the filename. Valid values are `Zip` or `Tgz`.  Download Url's 
 </ItemGroup>
 ```
 
+Google Maven downloads whose URLs begin with `https://dl.google.com/dl/android/maven2/` can be redirected to another Maven repository by setting the `XamarinBuildDownloadGoogleMavenRepository` MSBuild property. The property is empty by default. When set, only that prefix is replaced; the Maven-relative path and all other item metadata remain unchanged. Other download URLs and partial ZIP downloads are not affected.
+
+```xml
+<PropertyGroup>
+	<XamarinBuildDownloadGoogleMavenRepository>https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public-maven/maven/v1</XamarinBuildDownloadGoogleMavenRepository>
+</PropertyGroup>
+```
+
 Other NuGets may download the same library, and should use the same key to prevent it being downloaded and
 unpacked multiple times.
 
@@ -95,4 +103,3 @@ In this example, the download is only performed if the project is a Xamarin.iOS 
 * Implement download cache pruning
 * Reference counting for cleaning up old unpacked archives
 * Remove iOSReferenceMerge once Xamarin.iOS supports all the NativeReference metadata
-
