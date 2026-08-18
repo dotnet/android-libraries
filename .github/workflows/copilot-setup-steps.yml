@@ -43,7 +43,7 @@ jobs:
       uses: ./.github/workflows/log-disk-space
 
     - name: Install Android workload
-      run: dotnet workload install android
+      run: dotnet workload install android --configfile NuGet.config
 
     - name: Log disk space (after Android workload)
       uses: ./.github/workflows/log-disk-space

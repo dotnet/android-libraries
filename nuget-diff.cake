@@ -5,6 +5,13 @@ var ROOT_DIR = MakeAbsolute((DirectoryPath)Argument("root", "."));
 var ARTIFACTS_DIR = MakeAbsolute((DirectoryPath)Argument("artifacts", ROOT_DIR.Combine("output").FullPath));
 var CACHE_DIR = MakeAbsolute((DirectoryPath)Argument("cache", ROOT_DIR.Combine("externals/api-diff").FullPath));
 var OUTPUT_DIR = MakeAbsolute((DirectoryPath)Argument("output", ROOT_DIR.Combine("output/api-diff").FullPath));
+var NUGET_SOURCE = XmlPeek(
+	ROOT_DIR.CombineWithFilePath("NuGet.config"),
+	"/configuration/packageSources/add[@key='dotnet-public']/@value");
+
+if (string.IsNullOrWhiteSpace(NUGET_SOURCE)) {
+	throw new Exception("The dotnet-public package source was not found in NuGet.config.");
+}
 
 
 // SECTION: Main Script
@@ -44,6 +51,7 @@ if (!nupkgs.Any()) {
 				.Append("--group-ids")
 				.Append("--ignore-unchanged")
 				.Append("--compare-nuget-structure")
+				.AppendSwitch("--source", "=", NUGET_SOURCE)
 				.AppendSwitchQuoted("--output", OUTPUT_DIR.FullPath)
 				.AppendSwitchQuoted("--cache", CACHE_DIR.Combine("package-cache").FullPath)
 		});
