@@ -7,6 +7,12 @@ variables:
   mainBranchName: main                                                                  # Name of Git "main" branch
   configuration: Release                                                                # Build configuration: 'Debug', 'Release'
   verbosity: 'normal'                                                                   # Build verbosity: 'minimal', 'normal', 'diagnostic'
+  DOTNET_SYSTEM_NET_SECURITY_NOREVOCATIONCHECKBYDEFAULT: true
+  DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE: true
+  DOTNET_SDK_VULNERABILITY_CHECK_DISABLE: true
+  NuGetAudit: false
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  RUNNINGONCI: true
 
   # Reporting variables
   areaPath: DevDiv\VS Client - Runtime SDKs\Android                                     # AzDo area path to log any issues
