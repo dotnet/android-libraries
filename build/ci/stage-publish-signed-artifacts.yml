@@ -12,7 +12,7 @@ stages:
 - stage: publish_signed_packages
   displayName: Publish Signed Packages
   dependsOn: sign_artifacts
-  condition: and(succeeded(), or(and(eq('${{ parameters.runValidation }}', 'true'), eq(variables['Build.Reason'], 'Manual'), ne('${{ parameters.validationSignedBuildId }}', '0')), and(eq(variables['barPublishingEnabled'], 'true'), or(and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'Schedule')), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), ne(variables['Build.Reason'], 'PullRequest'))))
+  condition: and(succeeded(), or(and(eq('${{ parameters.runValidation }}', 'true'), eq(variables['Build.Reason'], 'Manual'), ne('${{ parameters.validationSignedBuildId }}', '0')), and(or(and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'Schedule')), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), ne(variables['Build.Reason'], 'PullRequest'))))
   lockBehavior: sequential
 
   jobs:
@@ -217,7 +217,6 @@ stages:
                   -PublishingInfraVersion 3
                   -AzdoToken '$(System.AccessToken)'
                   -WaitPublishingFinish true
-                  -RequireDefaultChannels true
                   -SkipAssetsPublishing false
               env:
                 NUGET_CONFIG: $(System.DefaultWorkingDirectory)\build\publishing\NuGet.config
