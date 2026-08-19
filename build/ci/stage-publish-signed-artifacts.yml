@@ -1,0 +1,223 @@
+# Filters and publishes only real-signed packages that are absent from the public dotnet10 feed.
+
+parameters:
+- name: runValidation
+  type: boolean
+  default: false
+- name: validationSignedBuildId
+  type: number
+  default: 0
+
+stages:
+- stage: publish_signed_packages
+  displayName: Publish Signed Packages
+  dependsOn: sign_artifacts
+  condition: and(succeeded(), or(and(eq('${{ parameters.runValidation }}', 'true'), eq(variables['Build.Reason'], 'Manual'), ne('${{ parameters.validationSignedBuildId }}', '0')), and(eq(variables['barPublishingEnabled'], 'true'), or(and(eq(variables['Build.SourceBranch'], 'refs/heads/main'), ne(variables['Build.Reason'], 'Schedule')), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')), ne(variables['Build.Reason'], 'PullRequest'))))
+  lockBehavior: sequential
+
+  jobs:
+  - job: publish_signed_packages
+    displayName: Filter, register, and promote signed packages
+    timeoutInMinutes: 240
+    pool:
+      name: AzurePipelines-EO
+      image: 1ESPT-Windows2025
+      demands: Cmd
+      os: windows
+    steps:
+          - download: none
+
+          - checkout: self
+            clean: true
+            fetchDepth: 3
+
+          - ${{ if eq(parameters.runValidation, true) }}:
+            - task: PowerShell@2
+              displayName: Validate signed package source build
+              inputs:
+                targetType: inline
+                script: |
+                  $ErrorActionPreference = 'Stop'
+                  $buildId = [int]'${{ parameters.validationSignedBuildId }}'
+                  if ($buildId -le 0) {
+                    throw 'BarValidationSignedBuildId must be a positive Azure DevOps build ID.'
+                  }
+
+                  $headers = @{ Authorization = "Bearer $env:SYSTEM_ACCESSTOKEN" }
+                  $buildUri = "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$buildId`?api-version=7.1"
+                  $build = Invoke-RestMethod -Uri $buildUri -Headers $headers
+                  $isRealSigned = (
+                    ($build.sourceBranch -eq 'refs/heads/main' -and $build.reason -ne 'schedule') -or
+                    $build.sourceBranch.StartsWith('refs/heads/release/', [StringComparison]::Ordinal)
+                  ) -and $build.reason -ne 'pullRequest'
+
+                  if ($build.definition.id -ne [int]'$(System.DefinitionId)' -or
+                      $build.result -ne 'succeeded' -or
+                      -not $isRealSigned) {
+                    throw "Build $buildId is not a successful real-sign AndroidX build."
+                  }
+
+                  $artifactsUri = "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$buildId/artifacts?api-version=7.1"
+                  $artifacts = Invoke-RestMethod -Uri $artifactsUri -Headers $headers
+                  $signedArtifact = @($artifacts.value | Where-Object {
+                    $_.name -eq 'nuget-signed' -and $_.resource.type -eq 'PipelineArtifact'
+                  })
+                  if ($signedArtifact.Count -ne 1) {
+                    throw "Build $buildId must contain exactly one nuget-signed pipeline artifact."
+                  }
+
+                  Write-Host "Using real-signed packages from AndroidX build $($build.buildNumber) ($buildId)."
+              env:
+                SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+
+            - task: DownloadPipelineArtifact@2
+              displayName: Download validation real-signed NuGet packages
+              inputs:
+                buildType: specific
+                project: $(System.TeamProject)
+                definition: $(System.DefinitionId)
+                buildVersionToDownload: specific
+                pipelineId: ${{ parameters.validationSignedBuildId }}
+                artifactName: nuget-signed
+                targetPath: $(Pipeline.Workspace)\nuget-signed
+
+          - ${{ else }}:
+            - task: DownloadPipelineArtifact@2
+              displayName: Download real-signed NuGet packages
+              inputs:
+                artifactName: nuget-signed
+                targetPath: $(Pipeline.Workspace)\nuget-signed
+
+          - task: UseDotNet@2
+            displayName: Install .NET SDK
+            inputs:
+              version: 10.x
+
+          - task: NuGetAuthenticate@1
+            displayName: Authenticate to Azure Artifacts
+
+          - task: PowerShell@2
+            displayName: Configure scoped Arcade restore
+            inputs:
+              targetType: inline
+              script: |
+                $toolsetDirectory = '$(System.DefaultWorkingDirectory)\artifacts\toolset'
+                New-Item -ItemType Directory -Force -Path $toolsetDirectory | Out-Null
+                Copy-Item `
+                  '$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config' `
+                  "$toolsetDirectory\NuGet.config" `
+                  -Force
+
+          - task: PowerShell@2
+            displayName: Filter signed packages and create Arcade V3 manifest
+            inputs:
+              targetType: inline
+              script: |
+                $ErrorActionPreference = 'Stop'
+                $outputRoot = '$(Build.ArtifactStagingDirectory)\SignedPackagePublishing'
+                New-Item -ItemType Directory -Force -Path `
+                  "$outputRoot\Audit", `
+                  "$outputRoot\PackageArtifacts", `
+                  "$outputRoot\AssetManifests" | Out-Null
+
+                dotnet restore `
+                  '$(System.DefaultWorkingDirectory)\build\publishing\SignedPackagePublisher\SignedPackagePublisher.csproj' `
+                  --configfile '$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config' `
+                  --nologo
+                if ($LastExitCode -ne 0) {
+                  throw "Signed package publisher restore failed with exit code $LastExitCode."
+                }
+
+                dotnet run `
+                  --project '$(System.DefaultWorkingDirectory)\build\publishing\SignedPackagePublisher\SignedPackagePublisher.csproj' `
+                  --configuration Release `
+                  --no-restore `
+                  -- `
+                  --packages '$(Pipeline.Workspace)\nuget-signed' `
+                  --package-output "$outputRoot\PackageArtifacts" `
+                  --inventory "$outputRoot\Audit\signed-package-inventory.json" `
+                  --manifest "$outputRoot\AssetManifests\Manifest.xml" `
+                  --feed '$(barTargetFeed)' `
+                  --max-concurrency '$(barFeedQueryConcurrency)' `
+                  --max-attempts '$(barFeedQueryAttempts)' `
+                  --repository-name '$(Build.Repository.Name)' `
+                  --build-number '$(Build.BuildNumber)' `
+                  --branch '$(Build.SourceBranch)' `
+                  --commit '$(Build.SourceVersion)' `
+                  --azure-collection-uri '$(System.CollectionUri)' `
+                  --azure-project '$(System.TeamProject)' `
+                  --azure-build-id '$(Build.BuildId)' `
+                  --azure-definition-id '$(System.DefinitionId)' `
+                  --azure-repository-uri '$(Build.Repository.Uri)'
+                if ($LastExitCode -ne 0) {
+                  throw "Signed package filtering failed with exit code $LastExitCode."
+                }
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish signed package audit inventory
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\Audit
+                artifactName: SignedPackagePublishingInventory
+                condition: always()
+                isProduction: false
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish filtered signed packages
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\PackageArtifacts
+                artifactName: PackageArtifacts
+                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                isProduction: true
+
+          - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
+            parameters:
+              is1ESPipeline: true
+              args:
+                displayName: Publish filtered Arcade asset manifest
+                targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests
+                artifactName: AssetManifests
+                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                isProduction: false
+
+          - task: AzureCLI@2
+            displayName: Register filtered signed packages in BAR
+            condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+            inputs:
+              azureSubscription: "Darc: Maestro Production"
+              scriptType: ps
+              scriptLocation: scriptPath
+              scriptPath: $(System.DefaultWorkingDirectory)\eng\common\sdk-task.ps1
+              arguments: >
+                -task PublishBuildAssets
+                -restore
+                -msbuildEngine dotnet
+                /p:ManifestsPath='$(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests'
+                /p:IsAssetlessBuild=false
+                /p:MaestroApiEndpoint=https://maestro.dot.net
+                /p:OfficialBuildId=$(Build.BuildNumber)
+                /p:RestoreConfigFile='$(System.DefaultWorkingDirectory)\build\publishing\NuGet.config'
+            env:
+              NUGET_CONFIG: $(System.DefaultWorkingDirectory)\build\publishing\NuGet.config
+
+          - ${{ if ne(parameters.runValidation, true) }}:
+            - task: AzureCLI@2
+              displayName: Publish BAR build through Darc default channels
+              condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+              inputs:
+                azureSubscription: "Darc: Maestro Production"
+                scriptType: ps
+                scriptLocation: scriptPath
+                scriptPath: $(System.DefaultWorkingDirectory)\eng\common\post-build\publish-using-darc.ps1
+                arguments: >
+                  -BuildId $(BARBuildId)
+                  -PublishingInfraVersion 3
+                  -AzdoToken '$(System.AccessToken)'
+                  -WaitPublishingFinish true
+                  -RequireDefaultChannels true
+                  -SkipAssetsPublishing false
+              env:
+                NUGET_CONFIG: $(System.DefaultWorkingDirectory)\build\publishing\NuGet.config
