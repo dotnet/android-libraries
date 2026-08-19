@@ -10,7 +10,8 @@ Publishing requires the following external setup:
 
 1. Authorize the AndroidX pipeline to use the `Darc: Maestro Production` service connection.
 2. Add an **Exclusive lock** check to that service connection. The stage sets `lockBehavior: sequential`, so the feed check, BAR registration, and promotion remain in one serialized critical section.
-3. Configure the repository's `main` default channel in Darc to the intended public .NET 10 channel, and confirm that channel maps shipping `Package` assets to `https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet10/nuget/v3/index.json`. Publishing uses Arcade's vendored `publish-using-darc.ps1` with `--default-channels-required`, so it fails safely when no default channel is configured.
+3. Configure the repository's `main` default channel in Darc to the intended public .NET 10 channel, and confirm that channel maps shipping `Package` assets to `https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet10/nuget/v3/index.json`. Publishing uses Arcade's vendored `publish-using-darc.ps1` to publish through configured default channels. Until a default channel is configured, builds remain registered in BAR without publishing packages.
+
 The public `dotnet10` feed currently permits anonymous reads. If that policy changes, supply a read token through a secret environment variable and pass its name with `--feed-token-env`; the tool never accepts a token value on its command line.
 
 The stage uses the same real-sign condition as `build/ci/stage-sign-artifacts.yml`: non-PR `release/*` builds and non-scheduled `main` builds. PRs, scheduled builds, public validation, and all test-signed artifacts are excluded.
