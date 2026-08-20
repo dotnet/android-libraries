@@ -10,22 +10,14 @@ public static class Program
 			IReadOnlyList<SignedPackage> packages = await PackageInspector.InspectDirectoryAsync(
 				options.PackagesDirectory,
 				CancellationToken.None);
-			PublishingPlan plan = new PublishingPlanner().Create(packages);
 			await PublishingOutput.WriteInventoryAsync(
 				options.InventoryPath,
-				plan,
+				packages,
 				CancellationToken.None);
 
-			if (plan.HasErrors)
-			{
-				Console.Error.WriteLine("Package inventory validation failed. See the deterministic audit inventory for details.");
-				return 2;
-			}
-
-			PublishingOutput.StageIncludedPackages(options.PackageOutputDirectory, plan.IncludedPackages);
-			PublishingOutput.WriteManifest(options.ManifestPath, options.ManifestIdentity, plan.IncludedPackages);
-			Console.WriteLine($"Inspected {packages.Count} signed package files; prepared {plan.IncludedPackages.Count} unique packages.");
-			Console.WriteLine($"##vso[task.setvariable variable=IncludedPackageCount]{plan.IncludedPackages.Count}");
+			PublishingOutput.StagePackages(options.PackageOutputDirectory, packages);
+			PublishingOutput.WriteManifest(options.ManifestPath, options.ManifestIdentity, packages);
+			Console.WriteLine($"Inspected and prepared {packages.Count} signed packages.");
 			return 0;
 		}
 		catch (Exception exception)

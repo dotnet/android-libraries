@@ -167,7 +167,7 @@ stages:
                 displayName: Publish signed packages
                 targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\PackageArtifacts
                 artifactName: PackageArtifacts
-                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                condition: succeeded()
                 isProduction: true
 
           - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
@@ -177,12 +177,12 @@ stages:
                 displayName: Publish Arcade asset manifest
                 targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests
                 artifactName: AssetManifests
-                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                condition: succeeded()
                 isProduction: false
 
           - task: AzureCLI@2
             displayName: Register signed packages in BAR
-            condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+            condition: succeeded()
             inputs:
               azureSubscription: "Darc: Maestro Production"
               scriptType: ps
@@ -203,7 +203,7 @@ stages:
           - ${{ if ne(parameters.runValidation, true) }}:
             - task: AzureCLI@2
               displayName: Publish BAR build through Darc default channels
-              condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+              condition: succeeded()
               inputs:
                 azureSubscription: "Darc: Maestro Production"
                 scriptType: ps

@@ -1,6 +1,6 @@
 # Publishing signed packages through BAR
 
-The `publish_signed_packages` stage consumes only the `nuget-signed` pipeline artifact produced by the existing Xamarin signing job. It reads each signed `.nupkg` identity and normalized version, validates that duplicate identities and filenames have identical content, stages every unique package, and creates an Arcade V3 manifest. Every inspected package and its SHA-256 is recorded in the deterministic `SignedPackagePublishingInventory` pipeline artifact.
+The `publish_signed_packages` stage consumes only the `nuget-signed` pipeline artifact produced by the existing Xamarin signing job. It reads each signed `.nupkg` identity and normalized version, stages every package, and creates an Arcade V3 manifest. Every inspected package and its SHA-256 is recorded in the deterministic `SignedPackagePublishingInventory` pipeline artifact.
 
 The manifest sets `BuildIdentity.IsStable=true` and uses Arcade's `PackageArtifactModel` with `Category=Package` and `NonShipping=false`. Arcade V3 therefore creates a repository/commit-specific Azure DevOps feed for stable shipping packages, marks that feed as isolated, and skips the channel's shared shipping feed. Downstream release tooling can gather the resulting BAR drop and select packages for NuGet.org; this stage does not publish directly to NuGet.org. The stage does not consume or register `output-windows`.
 
