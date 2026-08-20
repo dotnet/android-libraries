@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Xml.Linq;
 
 namespace SignedPackagePublisher.Tests;
 
@@ -10,19 +11,22 @@ public sealed class PublishingOutputTests
 		using var directory = new TemporaryDirectory();
 		var plan = new PublishingPlan(
 			new[] {
-				new PackageInventoryEntry("a.nupkg", "a.nupkg", "aa", "A.Package", "1.0.0", PackageDecision.Include, "missing-from-feed"),
+				new PackageInventoryEntry("a.nupkg", "a.nupkg", "aa", "A.Package", "1.0.0", PackageDecision.Include, "included"),
 			},
 			Array.Empty<SignedPackage>());
 		string first = Path.Combine(directory.Path, "first.json");
 		string second = Path.Combine(directory.Path, "second.json");
-		var feed = new Uri("https://example.test/v3/index.json");
 
-		await PublishingOutput.WriteInventoryAsync(first, feed, plan, CancellationToken.None);
-		await PublishingOutput.WriteInventoryAsync(second, feed, plan, CancellationToken.None);
+		await PublishingOutput.WriteInventoryAsync(first, plan, CancellationToken.None);
+		await PublishingOutput.WriteInventoryAsync(second, plan, CancellationToken.None);
 
 		Assert.That(await File.ReadAllBytesAsync(first), Is.EqualTo(await File.ReadAllBytesAsync(second)));
 		using JsonDocument document = JsonDocument.Parse(await File.ReadAllTextAsync(first));
-		Assert.That(document.RootElement.GetProperty("packages").GetArrayLength(), Is.EqualTo(1));
+		Assert.Multiple(() => {
+			Assert.That(document.RootElement.GetProperty("schemaVersion").GetInt32(), Is.EqualTo(2));
+			Assert.That(document.RootElement.TryGetProperty("feed", out _), Is.False);
+			Assert.That(document.RootElement.GetProperty("packages").GetArrayLength(), Is.EqualTo(1));
+		});
 	}
 
 	[Test]
@@ -53,8 +57,11 @@ public sealed class PublishingOutputTests
 			new[] { package });
 
 		string xml = File.ReadAllText(manifestPath);
+		XElement root = XElement.Parse(xml);
+		XAttribute isStable = root.DescendantsAndSelf().Attributes("IsStable").Single();
 		Assert.Multiple(() => {
 			Assert.That(xml, Does.Contain("PublishingVersion=\"3\""));
+			Assert.That((bool?)isStable, Is.True);
 			Assert.That(xml, Does.Contain("Id=\"A.Package\""));
 			Assert.That(xml, Does.Contain("NonShipping=\"False\""));
 			Assert.That(xml, Does.Contain("Category=\"Package\""));

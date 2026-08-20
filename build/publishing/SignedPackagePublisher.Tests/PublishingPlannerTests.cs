@@ -5,33 +5,30 @@ namespace SignedPackagePublisher.Tests;
 public sealed class PublishingPlannerTests
 {
 	[Test]
-	public async Task FiltersExistingPackagesAndProducesDeterministicInventory()
+	public void IncludesEveryCanonicalPackageAndProducesDeterministicInventory()
 	{
 		var packages = new[] {
 			Package("z.nupkg", "Z.Package", "2.0.0", "bb"),
 			Package("a.nupkg", "A.Package", "1.0.0", "aa"),
 		};
-		var probe = new StubProbe(("A.Package", "1.0.0", true), ("Z.Package", "2.0.0", false));
 
-		PublishingPlan plan = await new PublishingPlanner(probe, 2).CreateAsync(packages, CancellationToken.None);
+		PublishingPlan plan = new PublishingPlanner().Create(packages);
 
 		Assert.Multiple(() => {
 			Assert.That(plan.Inventory.Select(entry => entry.Id), Is.EqualTo(new[] { "A.Package", "Z.Package" }));
-			Assert.That(plan.Inventory.Select(entry => entry.Reason), Is.EqualTo(new[] { "already-exists", "missing-from-feed" }));
-			Assert.That(plan.IncludedPackages.Select(package => package.Id), Is.EqualTo(new[] { "Z.Package" }));
+			Assert.That(plan.Inventory.Select(entry => entry.Reason), Is.All.EqualTo("included"));
+			Assert.That(plan.IncludedPackages.Select(package => package.Id), Is.EqualTo(new[] { "A.Package", "Z.Package" }));
 		});
 	}
 
 	[Test]
-	public async Task DeduplicatesIdenticalIdentityAndContent()
+	public void DeduplicatesIdenticalIdentityAndContent()
 	{
 		var packages = new[] {
 			Package("b/copy.nupkg", "Example.Package", "1.0.0", "aa"),
 			Package("a/original.nupkg", "Example.Package", "1.0.0", "aa"),
 		};
-		var probe = new StubProbe(("Example.Package", "1.0.0", false));
-
-		PublishingPlan plan = await new PublishingPlanner(probe, 1).CreateAsync(packages, CancellationToken.None);
+		PublishingPlan plan = new PublishingPlanner().Create(packages);
 
 		Assert.Multiple(() => {
 			Assert.That(plan.HasErrors, Is.False);
@@ -41,15 +38,14 @@ public sealed class PublishingPlannerTests
 	}
 
 	[Test]
-	public async Task RejectsDuplicateIdentityWithDifferentContent()
+	public void RejectsDuplicateIdentityWithDifferentContent()
 	{
 		var packages = new[] {
 			Package("a.nupkg", "Example.Package", "1.0.0", "aa"),
 			Package("b.nupkg", "Example.Package", "1.0.0", "bb"),
 		};
 
-		PublishingPlan plan = await new PublishingPlanner(new StubProbe(), 1)
-			.CreateAsync(packages, CancellationToken.None);
+		PublishingPlan plan = new PublishingPlanner().Create(packages);
 
 		Assert.Multiple(() => {
 			Assert.That(plan.HasErrors, Is.True);
@@ -58,21 +54,20 @@ public sealed class PublishingPlannerTests
 	}
 
 	[Test]
-	public async Task RejectsDuplicateFilenameWithDifferentIdentities()
+	public void RejectsDuplicateFilenameWithDifferentIdentities()
 	{
 		var packages = new[] {
 			Package("a/same.nupkg", "First.Package", "1.0.0", "aa"),
 			Package("b/same.nupkg", "Second.Package", "1.0.0", "bb"),
 		};
 
-		PublishingPlan plan = await new PublishingPlanner(new StubProbe(), 1)
-			.CreateAsync(packages, CancellationToken.None);
+		PublishingPlan plan = new PublishingPlanner().Create(packages);
 
 		Assert.That(plan.Inventory, Has.All.Property(nameof(PackageInventoryEntry.Reason)).EqualTo("duplicate-filename-different-identity"));
 	}
 
 	[Test]
-	public async Task AuditsIdentityDuplicatesRelatedToFilenameCollision()
+	public void AuditsIdentityDuplicatesRelatedToFilenameCollision()
 	{
 		var packages = new[] {
 			Package("a/same.nupkg", "First.Package", "1.0.0", "aa"),
@@ -80,8 +75,7 @@ public sealed class PublishingPlannerTests
 			Package("c/other.nupkg", "First.Package", "1.0.0", "aa"),
 		};
 
-		PublishingPlan plan = await new PublishingPlanner(new StubProbe(), 1)
-			.CreateAsync(packages, CancellationToken.None);
+		PublishingPlan plan = new PublishingPlanner().Create(packages);
 
 		Assert.Multiple(() => {
 			Assert.That(plan.Inventory, Has.Count.EqualTo(3));
@@ -91,44 +85,6 @@ public sealed class PublishingPlannerTests
 		});
 	}
 
-	[Test]
-	public async Task TreatsFeedFailuresAsErrorsNotExistingPackages()
-	{
-		var package = Package("a.nupkg", "Example.Package", "1.0.0", "aa");
-		var probe = new StubProbe(new FeedQueryException("auth failed", new UnauthorizedAccessException()));
-
-		PublishingPlan plan = await new PublishingPlanner(probe, 1)
-			.CreateAsync(new[] { package }, CancellationToken.None);
-
-		Assert.Multiple(() => {
-			Assert.That(plan.HasErrors, Is.True);
-			Assert.That(plan.Inventory.Single().Decision, Is.EqualTo(PackageDecision.Error));
-			Assert.That(plan.Inventory.Single().Reason, Does.StartWith("feed-query-failed:"));
-		});
-	}
-
 	private static SignedPackage Package(string relativePath, string id, string version, string hash)
 		=> new(relativePath, relativePath, Path.GetFileName(relativePath), hash, id, NuGetVersion.Parse(version));
-
-	private sealed class StubProbe : IPackageFeedProbe
-	{
-		private readonly Dictionary<(string Id, string Version), bool> results;
-		private readonly Exception? exception;
-
-		public StubProbe(params (string Id, string Version, bool Exists)[] results)
-			=> this.results = results.ToDictionary(
-				result => (result.Id, result.Version),
-				result => result.Exists);
-
-		public StubProbe(Exception exception)
-		{
-			results = [];
-			this.exception = exception;
-		}
-
-		public Task<bool> ExistsAsync(string id, NuGetVersion version, CancellationToken cancellationToken)
-			=> exception is null
-				? Task.FromResult(results[(id, version.ToNormalizedString())])
-				: Task.FromException<bool>(exception);
-	}
 }

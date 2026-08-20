@@ -1,20 +1,14 @@
 using NuGet.Packaging.Core;
-using System.Collections.Concurrent;
 
 namespace SignedPackagePublisher;
 
-public sealed class PublishingPlanner(IPackageFeedProbe feedProbe, int maxConcurrency)
+public sealed class PublishingPlanner
 {
 	private static readonly PackageIdentityComparer IdentityComparer = PackageIdentityComparer.Default;
 
-	public async Task<PublishingPlan> CreateAsync(
-		IReadOnlyList<SignedPackage> packages,
-		CancellationToken cancellationToken)
+	public PublishingPlan Create(IReadOnlyList<SignedPackage> packages)
 	{
-		if (maxConcurrency < 1)
-			throw new ArgumentOutOfRangeException(nameof(maxConcurrency));
-
-		var entries = new ConcurrentDictionary<string, PackageInventoryEntry>(StringComparer.Ordinal);
+		var entries = new Dictionary<string, PackageInventoryEntry>(StringComparer.Ordinal);
 		var canonicalPackages = new List<SignedPackage>();
 
 		foreach (IGrouping<string, SignedPackage> fileNameGroup in packages.GroupBy(
@@ -56,6 +50,7 @@ public sealed class PublishingPlanner(IPackageFeedProbe feedProbe, int maxConcur
 
 			SignedPackage canonical = ordered[0];
 			canonicalPackages.Add(canonical);
+			entries[canonical.RelativePath] = Entry(canonical, PackageDecision.Include, "included");
 			foreach (SignedPackage duplicate in ordered.Skip(1))
 			{
 				entries[duplicate.RelativePath] = Entry(
@@ -66,31 +61,6 @@ public sealed class PublishingPlanner(IPackageFeedProbe feedProbe, int maxConcur
 			}
 		}
 
-		using var gate = new SemaphoreSlim(maxConcurrency, maxConcurrency);
-		await Task.WhenAll(canonicalPackages.Select(async package => {
-			await gate.WaitAsync(cancellationToken);
-			try
-			{
-				bool exists = await feedProbe.ExistsAsync(package.Id, package.Version, cancellationToken);
-				entries[package.RelativePath] = Entry(
-					package,
-					exists ? PackageDecision.Exclude : PackageDecision.Include,
-					exists ? "already-exists" : "missing-from-feed");
-			}
-			catch (Exception exception) when (exception is not OperationCanceledException
-				|| !cancellationToken.IsCancellationRequested)
-			{
-				entries[package.RelativePath] = Entry(
-					package,
-					PackageDecision.Error,
-					$"feed-query-failed: {exception.Message}");
-			}
-			finally
-			{
-				gate.Release();
-			}
-		}));
-
 		PackageInventoryEntry[] inventory = entries.Values
 			.OrderBy(entry => entry.Id, StringComparer.OrdinalIgnoreCase)
 			.ThenBy(entry => entry.Version, StringComparer.OrdinalIgnoreCase)
@@ -98,7 +68,6 @@ public sealed class PublishingPlanner(IPackageFeedProbe feedProbe, int maxConcur
 			.ToArray();
 
 		SignedPackage[] included = canonicalPackages
-			.Where(package => entries[package.RelativePath].Decision == PackageDecision.Include)
 			.OrderBy(package => package.Id, StringComparer.OrdinalIgnoreCase)
 			.ThenBy(package => package.Version)
 			.ToArray();

@@ -18,7 +18,6 @@ public sealed record ManifestIdentity(
 
 public sealed record InventoryDocument(
 	int SchemaVersion,
-	string Feed,
 	IReadOnlyList<PackageInventoryEntry> Packages);
 
 [JsonSourceGenerationOptions(
@@ -32,12 +31,11 @@ public static class PublishingOutput
 {
 	public static async Task WriteInventoryAsync(
 		string path,
-		Uri feed,
 		PublishingPlan plan,
 		CancellationToken cancellationToken)
 	{
 		EnsureParentDirectory(path);
-		var document = new InventoryDocument(1, feed.AbsoluteUri, plan.Inventory);
+		var document = new InventoryDocument(2, plan.Inventory);
 		await using FileStream stream = File.Create(path);
 		await JsonSerializer.SerializeAsync(
 			stream,
@@ -70,7 +68,7 @@ public static class PublishingOutput
 			BuildId = identity.BuildNumber,
 			Branch = identity.Branch,
 			Commit = identity.Commit,
-			IsStable = false,
+			IsStable = true,
 			IsReleaseOnlyPackageVersion = false,
 			InitialAssetsLocation = $"{identity.AzureCollectionUri.TrimEnd('/')}/{identity.AzureProject}/_apis/build/builds/{identity.AzureBuildId}/artifacts",
 			AzureDevOpsAccount = GetAzureDevOpsAccount(identity.AzureCollectionUri),

@@ -33,13 +33,3 @@ public sealed record PublishingPlan(
 {
 	public bool HasErrors => Inventory.Any(entry => entry.Decision == PackageDecision.Error);
 }
-
-public enum FeedFailureKind
-{
-	Transient,
-	Authentication,
-	Unknown,
-}
-
-public sealed class FeedQueryException(string message, Exception innerException)
-	: Exception(message, innerException);
