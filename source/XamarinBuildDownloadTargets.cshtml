@@ -62,20 +62,8 @@
         <Sha256>@(xbdSha256)</Sha256>
       </XamarinBuildDownload>
     </ItemGroup>
-
-
     <ItemGroup>
-     <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)@(xbdAarPath)" />
-      @*
-      <!--
-      NOTE: 
-      Xamarin.Build.Download version set in GooglePlaySericesProjects.cshtml template is 
-      important for attributes in GooglePlaySericesTargets.cshtml template
-      
-      XamarinBuildDownloadAndroidAarLibrary   v >=  0.10.0
-      XamarinBuildDownloadRestoreAssemblyAar  v <   0.10.0
-      -->
-      *@
+      <XamarinBuildDownloadAndroidAarLibrary Include="$(XamarinBuildDownloadDir)@(xbdAarPath)" />
     </ItemGroup>
   </Target>
       }
