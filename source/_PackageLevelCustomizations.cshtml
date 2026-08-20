@@ -1,12 +1,33 @@
 @model AndroidBinderator.BindingProjectModel
 @using System
+@using System.Collections.Generic
 @using System.Linq
 
 @* 
    Ideally we don't want to maintain any package-specific customizations,
    but we don't always have a better option. 
 *@
-  
+
+@{
+  // Build-order-only edges for projects that contend for shared generated outputs.
+  var buildOrderProjectReferences = new Dictionary<string, string[]> {
+    ["Xamarin.Google.MLKit.PoseDetection"] = new [] {
+      "com.google.mlkit.pose-detection-accurate",
+    },
+  };
+}
+
+@if (buildOrderProjectReferences.TryGetValue(Model.NuGetPackageId, out var buildOrderDependencies))
+{
+  <ItemGroup>
+  @foreach (var dependency in buildOrderDependencies) {
+    <ProjectReference Include="..\..\generated\@(dependency)\@(dependency).csproj"
+                      ReferenceOutputAssembly="false"
+                      PrivateAssets="all" />
+  }
+  </ItemGroup>
+}
+
 @if(Model.NuGetPackageId == "Xamarin.Google.Guava") {
   <ItemGroup>
     <!-- Reference a version of ListenableFuture that does not contain 'listenablefuture.jar' -->
