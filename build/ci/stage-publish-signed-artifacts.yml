@@ -1,4 +1,4 @@
-# Filters and publishes only real-signed packages that are absent from the public dotnet10 feed.
+# Registers and publishes all real-signed packages through BAR as stable assets.
 
 parameters:
 - name: runValidation
@@ -17,7 +17,7 @@ stages:
 
   jobs:
   - job: publish_signed_packages
-    displayName: Filter, register, and promote signed packages
+    displayName: Prepare, register, and promote signed packages
     timeoutInMinutes: 240
     pool:
       name: AzurePipelines-EO
@@ -109,7 +109,7 @@ stages:
                   -Force
 
           - task: PowerShell@2
-            displayName: Filter signed packages and create Arcade V3 manifest
+            displayName: Prepare signed packages and create Arcade V3 manifest
             inputs:
               targetType: inline
               script: |
@@ -137,9 +137,6 @@ stages:
                   --package-output "$outputRoot\PackageArtifacts" `
                   --inventory "$outputRoot\Audit\signed-package-inventory.json" `
                   --manifest "$outputRoot\AssetManifests\Manifest.xml" `
-                  --feed '$(barTargetFeed)' `
-                  --max-concurrency '$(barFeedQueryConcurrency)' `
-                  --max-attempts '$(barFeedQueryAttempts)' `
                   --repository-name '$(Build.Repository.Name)' `
                   --build-number '$(Build.BuildNumber)' `
                   --branch '$(Build.SourceBranch)' `
@@ -150,7 +147,7 @@ stages:
                   --azure-definition-id '$(System.DefinitionId)' `
                   --azure-repository-uri '$(Build.Repository.Uri)'
                 if ($LastExitCode -ne 0) {
-                  throw "Signed package filtering failed with exit code $LastExitCode."
+                  throw "Signed package preparation failed with exit code $LastExitCode."
                 }
 
           - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
@@ -167,25 +164,25 @@ stages:
             parameters:
               is1ESPipeline: true
               args:
-                displayName: Publish filtered signed packages
+                displayName: Publish signed packages
                 targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\PackageArtifacts
                 artifactName: PackageArtifacts
-                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                condition: succeeded()
                 isProduction: true
 
           - template: /eng/common/templates-official/steps/publish-pipeline-artifacts.yml
             parameters:
               is1ESPipeline: true
               args:
-                displayName: Publish filtered Arcade asset manifest
+                displayName: Publish Arcade asset manifest
                 targetPath: $(Build.ArtifactStagingDirectory)\SignedPackagePublishing\AssetManifests
                 artifactName: AssetManifests
-                condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+                condition: succeeded()
                 isProduction: false
 
           - task: AzureCLI@2
-            displayName: Register filtered signed packages in BAR
-            condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+            displayName: Register signed packages in BAR
+            condition: succeeded()
             inputs:
               azureSubscription: "Darc: Maestro Production"
               scriptType: ps
@@ -206,7 +203,7 @@ stages:
           - ${{ if ne(parameters.runValidation, true) }}:
             - task: AzureCLI@2
               displayName: Publish BAR build through Darc default channels
-              condition: and(succeeded(), ne(variables['IncludedPackageCount'], '0'))
+              condition: succeeded()
               inputs:
                 azureSubscription: "Darc: Maestro Production"
                 scriptType: ps

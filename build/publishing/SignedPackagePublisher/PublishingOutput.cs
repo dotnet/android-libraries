@@ -18,7 +18,6 @@ public sealed record ManifestIdentity(
 
 public sealed record InventoryDocument(
 	int SchemaVersion,
-	string Feed,
 	IReadOnlyList<PackageInventoryEntry> Packages);
 
 [JsonSourceGenerationOptions(
@@ -32,12 +31,22 @@ public static class PublishingOutput
 {
 	public static async Task WriteInventoryAsync(
 		string path,
-		Uri feed,
-		PublishingPlan plan,
+		IReadOnlyList<SignedPackage> packages,
 		CancellationToken cancellationToken)
 	{
 		EnsureParentDirectory(path);
-		var document = new InventoryDocument(1, feed.AbsoluteUri, plan.Inventory);
+		PackageInventoryEntry[] inventory = packages
+			.OrderBy(package => package.Id, StringComparer.OrdinalIgnoreCase)
+			.ThenBy(package => package.Version)
+			.ThenBy(package => package.RelativePath, StringComparer.Ordinal)
+			.Select(package => new PackageInventoryEntry(
+				package.RelativePath,
+				package.FileName,
+				package.Sha256,
+				package.Id,
+				package.Version.ToNormalizedString()))
+			.ToArray();
+		var document = new InventoryDocument(2, inventory);
 		await using FileStream stream = File.Create(path);
 		await JsonSerializer.SerializeAsync(
 			stream,
@@ -47,7 +56,7 @@ public static class PublishingOutput
 		await stream.WriteAsync("\n"u8.ToArray(), cancellationToken);
 	}
 
-	public static void StageIncludedPackages(string outputDirectory, IReadOnlyList<SignedPackage> packages)
+	public static void StagePackages(string outputDirectory, IReadOnlyList<SignedPackage> packages)
 	{
 		Directory.CreateDirectory(outputDirectory);
 		foreach (SignedPackage package in packages)
@@ -70,7 +79,7 @@ public static class PublishingOutput
 			BuildId = identity.BuildNumber,
 			Branch = identity.Branch,
 			Commit = identity.Commit,
-			IsStable = false,
+			IsStable = true,
 			IsReleaseOnlyPackageVersion = false,
 			InitialAssetsLocation = $"{identity.AzureCollectionUri.TrimEnd('/')}/{identity.AzureProject}/_apis/build/builds/{identity.AzureBuildId}/artifacts",
 			AzureDevOpsAccount = GetAzureDevOpsAccount(identity.AzureCollectionUri),
