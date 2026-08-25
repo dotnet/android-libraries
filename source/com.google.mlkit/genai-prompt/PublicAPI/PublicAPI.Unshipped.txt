@@ -1,4 +1,6 @@
 ﻿#nullable enable
+Google.MLKit.GenAI.Prompt.CachedContext
+Google.MLKit.GenAI.Prompt.CachedContext.Name.get -> string!
 Google.MLKit.GenAI.Prompt.Candidate
 Google.MLKit.GenAI.Prompt.Candidate.FinishReason.get -> Google.MLKit.GenAI.Prompt.CandidateFinishReason
 Google.MLKit.GenAI.Prompt.Candidate.Text.get -> string!
@@ -6,36 +8,77 @@ Google.MLKit.GenAI.Prompt.CandidateFinishReason
 Google.MLKit.GenAI.Prompt.CandidateFinishReason.MaxTokens = 1 -> Google.MLKit.GenAI.Prompt.CandidateFinishReason
 Google.MLKit.GenAI.Prompt.CandidateFinishReason.Other = -100 -> Google.MLKit.GenAI.Prompt.CandidateFinishReason
 Google.MLKit.GenAI.Prompt.CandidateFinishReason.Stop = 0 -> Google.MLKit.GenAI.Prompt.CandidateFinishReason
+Google.MLKit.GenAI.Prompt.Content
+Google.MLKit.GenAI.Prompt.Content.Builder
+Google.MLKit.GenAI.Prompt.Content.Builder.AddPart(Google.MLKit.GenAI.Prompt.Part! part) -> Google.MLKit.GenAI.Prompt.Content.Builder!
+Google.MLKit.GenAI.Prompt.Content.Builder.Build() -> Google.MLKit.GenAI.Prompt.Content!
+Google.MLKit.GenAI.Prompt.Content.Builder.Builder() -> void
+Google.MLKit.GenAI.Prompt.Content.Builder.Image(Android.Graphics.Bitmap! bitmap) -> Google.MLKit.GenAI.Prompt.Content.Builder!
+Google.MLKit.GenAI.Prompt.Content.Builder.Parts(params Google.MLKit.GenAI.Prompt.Part![]! part) -> Google.MLKit.GenAI.Prompt.Content.Builder!
+Google.MLKit.GenAI.Prompt.Content.Builder.Text(string! text) -> Google.MLKit.GenAI.Prompt.Content.Builder!
+Google.MLKit.GenAI.Prompt.Content.Parts.get -> System.Collections.Generic.IList<Google.MLKit.GenAI.Prompt.Part!>!
 Google.MLKit.GenAI.Prompt.CountTokensResponse
 Google.MLKit.GenAI.Prompt.CountTokensResponse.CountTokensResponse(int totalTokens) -> void
 Google.MLKit.GenAI.Prompt.CountTokensResponse.TotalTokens.get -> int
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.Builder
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.Builder.Build() -> Google.MLKit.GenAI.Prompt.CreateCachedContextRequest!
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.Builder.Builder(string! name, Google.MLKit.GenAI.Prompt.PromptPrefix! promptPrefix) -> void
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.Name.get -> string!
+Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.PromptPrefix.get -> Google.MLKit.GenAI.Prompt.PromptPrefix!
 Google.MLKit.GenAI.Prompt.GenerateContentRequest
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Build() -> Google.MLKit.GenAI.Prompt.GenerateContentRequest!
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.Content! content) -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.ImagePart! image, Google.MLKit.GenAI.Prompt.TextPart! text) -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.SystemInstruction! systemInstruction, Google.MLKit.GenAI.Prompt.ImagePart! image, Google.MLKit.GenAI.Prompt.TextPart! text) -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.SystemInstruction! systemInstruction, Google.MLKit.GenAI.Prompt.TextPart! text) -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.TextPart! text) -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Builder(System.Collections.Generic.IList<Google.MLKit.GenAI.Prompt.Content!>! contents) -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.CachedContextName.get -> string?
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.CachedContextName.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.CandidateCount.get -> Java.Lang.Integer?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.CandidateCount.set -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.EnableThinking.get -> bool
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.EnableThinking.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.MaxOutputTokens.get -> Java.Lang.Integer?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.MaxOutputTokens.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.PromptPrefix.get -> Google.MLKit.GenAI.Prompt.PromptPrefix?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.PromptPrefix.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Seed.get -> Java.Lang.Integer?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Seed.set -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.SystemInstruction.get -> Google.MLKit.GenAI.Prompt.SystemInstruction?
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.SystemInstruction.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Temperature.get -> Java.Lang.Float?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.Temperature.set -> void
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.TopK.get -> Java.Lang.Integer?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.TopK.set -> void
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.CachedContextName.get -> string?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.CandidateCount.get -> int
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.Contents.get -> System.Collections.Generic.IList<Google.MLKit.GenAI.Prompt.Content!>!
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.EnableThinking.get -> bool
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Image.get -> Google.MLKit.GenAI.Prompt.ImagePart?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.MaxOutputTokens.get -> int
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.PromptPrefix.get -> Google.MLKit.GenAI.Prompt.PromptPrefix?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Seed.get -> int
+Google.MLKit.GenAI.Prompt.GenerateContentRequest.SystemInstruction.get -> Google.MLKit.GenAI.Prompt.SystemInstruction?
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Temperature.get -> float
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.Text.get -> Google.MLKit.GenAI.Prompt.TextPart!
 Google.MLKit.GenAI.Prompt.GenerateContentRequest.TopK.get -> int
 Google.MLKit.GenAI.Prompt.GenerateContentResponse
 Google.MLKit.GenAI.Prompt.GenerateContentResponse.Candidates.get -> System.Collections.Generic.IList<Google.MLKit.GenAI.Prompt.Candidate!>!
+Google.MLKit.GenAI.Prompt.GenerateContentResponse.ThoughtProcess.get -> System.Collections.Generic.IList<Google.MLKit.GenAI.Prompt.Candidate!>!
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder.Build() -> Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest!
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder.Builder(Google.MLKit.GenAI.Prompt.GenerateContentRequest! generateContentRequest, Kotlin.Reflect.IKClass! outputClass) -> void
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder.IncludeSchemaInPrompt.get -> bool
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder.IncludeSchemaInPrompt.set -> void
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.GenerateContentRequest.get -> Google.MLKit.GenAI.Prompt.GenerateContentRequest!
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.IncludeSchemaInPrompt.get -> bool
+Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.OutputClass.get -> Kotlin.Reflect.IKClass!
+Google.MLKit.GenAI.Prompt.GenerateTypedContentResponse
+Google.MLKit.GenAI.Prompt.GenerateTypedContentResponse.Candidates.get -> System.Collections.IList!
 Google.MLKit.GenAI.Prompt.Generation
 Google.MLKit.GenAI.Prompt.Generation.Client.get -> Google.MLKit.GenAI.Prompt.IGenerativeModel!
 Google.MLKit.GenAI.Prompt.Generation.GetClient(Google.MLKit.GenAI.Prompt.GenerationConfig! options) -> Google.MLKit.GenAI.Prompt.IGenerativeModel!
@@ -43,23 +86,38 @@ Google.MLKit.GenAI.Prompt.GenerationConfig
 Google.MLKit.GenAI.Prompt.GenerationConfig.Builder
 Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.Build() -> Google.MLKit.GenAI.Prompt.GenerationConfig!
 Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.Builder() -> void
+Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.ModelConfig.get -> Google.MLKit.GenAI.Prompt.ModelConfig!
+Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.ModelConfig.set -> void
 Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.WorkerExecutor.get -> Java.Util.Concurrent.IExecutorService?
 Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.WorkerExecutor.set -> void
+Google.MLKit.GenAI.Prompt.GenerationConfig.ModelConfig.get -> Google.MLKit.GenAI.Prompt.ModelConfig!
 Google.MLKit.GenAI.Prompt.GenerationConfig.WorkerExecutor.get -> Java.Util.Concurrent.IExecutorService?
+Google.MLKit.GenAI.Prompt.ICaches
+Google.MLKit.GenAI.Prompt.ICaches.Create(Google.MLKit.GenAI.Prompt.CreateCachedContextRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.ICaches.Delete(string! name, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.ICaches.Get(string! name, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.ICaches.List(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel
+Google.MLKit.GenAI.Prompt.IGenerativeModel.Caches.get -> Google.MLKit.GenAI.Prompt.ICaches!
 Google.MLKit.GenAI.Prompt.IGenerativeModel.CheckStatus(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
-Google.MLKit.GenAI.Prompt.IGenerativeModel.ClearCaches(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.ClearImplicitCaches(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.Close() -> void
 Google.MLKit.GenAI.Prompt.IGenerativeModel.CountTokens(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.CountTokens(Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.Download() -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request, Google.MLKit.GenAI.Common.IStreamingCallback! streamingCallback, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
-Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(string! prompt, Google.MLKit.GenAI.Common.IStreamingCallback! streamingCallback, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
-Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(string! prompt, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest! request, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(string! prompt, Google.MLKit.GenAI.Common.IStreamingCallback! streamingCallback, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContent(string! prompt, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContentStream(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GenerateContentStream(string! prompt) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GetBaseModelName(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.GetTokenLimit(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.IsCachingFeatureAvailable(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.IsStructuredOutputFeatureAvailable(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.IsSystemPromptAvailable(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.IGenerativeModel.IsThinkingModeAvailable(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.IGenerativeModel.Warmup(Kotlin.Coroutines.IContinuation! p0) -> Java.Lang.Object?
 Google.MLKit.GenAI.Prompt.ImagePart
 Google.MLKit.GenAI.Prompt.ImagePart.Bitmap.get -> Android.Graphics.Bitmap!
@@ -68,20 +126,53 @@ Google.MLKit.GenAI.Prompt.ImagePart.ImagePart(Android.Graphics.Bitmap! bitmap) -
 Google.MLKit.GenAI.Prompt.ImagePart.ImagePart(Android.Net.Uri! uri) -> void
 Google.MLKit.GenAI.Prompt.ImagePart.ImagePart(byte[]! blob) -> void
 Google.MLKit.GenAI.Prompt.ImagePart.Width.get -> int
+Google.MLKit.GenAI.Prompt.Java.CachesFutures
+Google.MLKit.GenAI.Prompt.Java.CachesFutures.CachesFutures() -> void
+Google.MLKit.GenAI.Prompt.Java.CachesFutures.CachesFutures(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures
 Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerativeModelFutures() -> void
 Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerativeModelFutures(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.MLKit.GenAI.Prompt.ModelConfig
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.Build() -> Google.MLKit.GenAI.Prompt.ModelConfig!
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.Builder() -> void
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.Preference.get -> Google.MLKit.GenAI.Prompt.ModelPreference
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.Preference.set -> void
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.ReleaseStage.get -> Google.MLKit.GenAI.Prompt.ModelReleaseStage
+Google.MLKit.GenAI.Prompt.ModelConfig.Builder.ReleaseStage.set -> void
+Google.MLKit.GenAI.Prompt.ModelConfig.Preference.get -> Google.MLKit.GenAI.Prompt.ModelPreference
+Google.MLKit.GenAI.Prompt.ModelConfig.ReleaseStage.get -> Google.MLKit.GenAI.Prompt.ModelReleaseStage
+Google.MLKit.GenAI.Prompt.ModelPreference
+Google.MLKit.GenAI.Prompt.ModelPreference.Fast = 1 -> Google.MLKit.GenAI.Prompt.ModelPreference
+Google.MLKit.GenAI.Prompt.ModelPreference.Full = 2 -> Google.MLKit.GenAI.Prompt.ModelPreference
+Google.MLKit.GenAI.Prompt.ModelReleaseStage
+Google.MLKit.GenAI.Prompt.ModelReleaseStage.Preview = 1 -> Google.MLKit.GenAI.Prompt.ModelReleaseStage
+Google.MLKit.GenAI.Prompt.ModelReleaseStage.Stable = 0 -> Google.MLKit.GenAI.Prompt.ModelReleaseStage
 Google.MLKit.GenAI.Prompt.Part
 Google.MLKit.GenAI.Prompt.Part.Part(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Google.MLKit.GenAI.Prompt.PromptPrefix
 Google.MLKit.GenAI.Prompt.PromptPrefix.PromptPrefix(string! textString) -> void
 Google.MLKit.GenAI.Prompt.PromptPrefix.TextString.get -> string!
+Google.MLKit.GenAI.Prompt.SystemInstruction
+Google.MLKit.GenAI.Prompt.SystemInstruction.SystemInstruction(string! textString) -> void
+Google.MLKit.GenAI.Prompt.SystemInstruction.TextString.get -> string!
 Google.MLKit.GenAI.Prompt.TextPart
 Google.MLKit.GenAI.Prompt.TextPart.TextPart(string! textString) -> void
 Google.MLKit.GenAI.Prompt.TextPart.TextString.get -> string!
+Google.MLKit.GenAI.Prompt.TypedCandidate
+Google.MLKit.GenAI.Prompt.TypedCandidate.FinishReason.get -> Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason
+Google.MLKit.GenAI.Prompt.TypedCandidate.Response.get -> Java.Lang.Object?
+Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason
+Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason.MaxTokens = 1 -> Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason
+Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason.Other = -100 -> Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason
+Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason.Stop = 0 -> Google.MLKit.GenAI.Prompt.TypedCandidateFinishReason
+abstract Google.MLKit.GenAI.Prompt.Java.CachesFutures.Create(Google.MLKit.GenAI.Prompt.CreateCachedContextRequest! request) -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.MLKit.GenAI.Prompt.Java.CachesFutures.Delete(string! name) -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.MLKit.GenAI.Prompt.Java.CachesFutures.Get(string! name) -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.MLKit.GenAI.Prompt.Java.CachesFutures.List() -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.BaseModelName.get -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.CheckStatus() -> Google.Common.Util.Concurrent.IListenableFuture!
-abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.ClearCaches() -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.ClearImplicitCaches() -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.CountTokens(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request) -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.Download(Google.MLKit.GenAI.Common.IDownloadCallback! callback) -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerateContent(Google.MLKit.GenAI.Prompt.GenerateContentRequest! request) -> Google.Common.Util.Concurrent.IListenableFuture!
@@ -89,24 +180,44 @@ abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerateContent(G
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerateContent(string! prompt) -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerateContent(string! prompt, Google.MLKit.GenAI.Common.IStreamingCallback! callback) -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.GenerativeModel.get -> Google.MLKit.GenAI.Prompt.IGenerativeModel!
+abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.IsSystemPromptAvailable() -> Google.Common.Util.Concurrent.IListenableFuture!
+abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.IsThinkingModeAvailable() -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.TokenLimit.get -> Google.Common.Util.Concurrent.IListenableFuture!
 abstract Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.Warmup() -> Google.Common.Util.Concurrent.IListenableFuture!
+override Google.MLKit.GenAI.Prompt.CachedContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.Candidate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.Content.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.Content.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.CountTokensResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.CreateCachedContextRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.GenerateContentRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.GenerateContentRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.GenerateContentResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.GenerateTypedContentRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.GenerateTypedContentResponse.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.Generation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.GenerationConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.GenerationConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.ImagePart.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.Java.CachesFutures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.Java.CachesFutures.ThresholdClass.get -> nint
+override Google.MLKit.GenAI.Prompt.Java.CachesFutures.ThresholdType.get -> System.Type!
 override Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.ThresholdClass.get -> nint
 override Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.ThresholdType.get -> System.Type!
+override Google.MLKit.GenAI.Prompt.ModelConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.ModelConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.Part.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.Part.ThresholdClass.get -> nint
 override Google.MLKit.GenAI.Prompt.Part.ThresholdType.get -> System.Type!
 override Google.MLKit.GenAI.Prompt.PromptPrefix.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.SystemInstruction.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.MLKit.GenAI.Prompt.TextPart.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.MLKit.GenAI.Prompt.TypedCandidate.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static Google.MLKit.GenAI.Prompt.Generation.Instance.get -> Google.MLKit.GenAI.Prompt.Generation!
+static Google.MLKit.GenAI.Prompt.Java.CachesFutures.From(Google.MLKit.GenAI.Prompt.IGenerativeModel! generativeModel) -> Google.MLKit.GenAI.Prompt.Java.CachesFutures!
 static Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures.From(Google.MLKit.GenAI.Prompt.IGenerativeModel! generativeModel) -> Google.MLKit.GenAI.Prompt.Java.GenerativeModelFutures!
+static Google.MLKit.GenAI.Prompt.ModelConfig.DEFAULT.get -> Google.MLKit.GenAI.Prompt.ModelConfig!
+static Google.MLKit.GenAI.Prompt.ModelConfig.InvokeBuilder() -> Google.MLKit.GenAI.Prompt.ModelConfig.Builder!
