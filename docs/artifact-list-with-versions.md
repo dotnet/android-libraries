@@ -533,7 +533,7 @@
 | 526|com.google.firebase:firebase-encoders                                 |17.0.0              |Xamarin.Firebase.Encoders                                             |117.0.0.26          |
 | 527|com.google.firebase:firebase-encoders-json                            |18.0.1              |Xamarin.Firebase.Encoders.JSON                                        |118.0.1.18          |
 | 528|com.google.firebase:firebase-encoders-proto                           |16.0.0              |Xamarin.Firebase.Encoders.Proto                                       |116.0.0.21          |
-| 529|com.google.firebase:firebase-firestore                                |26.0.2              |Xamarin.Firebase.Firestore                                            |126.0.2.3           |
+| 529|com.google.firebase:firebase-firestore                                |26.0.2              |Xamarin.Firebase.Firestore                                            |126.0.2.4           |
 | 530|com.google.firebase:firebase-functions                                |22.1.1              |Xamarin.Firebase.Functions                                            |122.1.1.1           |
 | 531|com.google.firebase:firebase-iid                                      |21.1.0              |Xamarin.Firebase.Iid                                                  |121.1.0.26          |
 | 532|com.google.firebase:firebase-iid-interop                              |17.1.0              |Xamarin.Firebase.Iid.Interop                                          |117.1.0.26          |
@@ -563,7 +563,7 @@
 | 556|com.google.firebase:firebase-sessions                                 |3.0.7               |Xamarin.Firebase.Sessions                                             |103.0.7             |
 | 557|com.google.firebase:firebase-storage                                  |22.0.1              |Xamarin.Firebase.Storage                                              |122.0.1.3           |
 | 558|com.google.firebase:firebase-storage-common                           |17.0.0              |Xamarin.Firebase.Storage.Common                                       |117.0.0.26          |
-| 559|com.google.firebase:protolite-well-known-types                        |18.0.1              |Xamarin.Firebase.ProtoliteWellKnownTypes                              |118.0.1.6           |
+| 559|com.google.firebase:protolite-well-known-types                        |18.0.1              |Xamarin.Firebase.ProtoliteWellKnownTypes                              |118.0.1.7           |
 | 560|com.google.flatbuffers:flatbuffers-java                               |25.2.10             |Xamarin.Google.FlatBuffers.Java                                       |25.2.10.6           |
 | 561|com.google.flogger:flogger                                            |0.9                 |Xamarin.Flogger                                                       |0.9.0.4             |
 | 562|com.google.flogger:flogger-system-backend                             |0.9                 |Xamarin.Flogger.SystemBackend                                         |0.9.0.4             |
@@ -609,7 +609,7 @@
 | 602|com.google.mlkit:vision-common                                        |17.3.0              |Xamarin.Google.MLKit.Vision.Common                                    |117.3.0.19          |
 | 603|com.google.mlkit:vision-interfaces                                    |16.3.0              |Xamarin.Google.MLKit.Vision.Interfaces                                |116.3.0.13          |
 | 604|com.google.mlkit:vision-internal-vkp                                  |18.2.3              |Xamarin.Google.MLKit.Vision.Internal.Vkp                              |118.2.3.8           |
-| 605|com.google.protobuf:protobuf-javalite                                 |4.35.1              |Xamarin.Protobuf.JavaLite                                             |4.35.1.1            |
+| 605|com.google.protobuf:protobuf-javalite                                 |3.25.8              |Xamarin.Protobuf.JavaLite                                             |3.25.8              |
 | 606|com.google.protobuf:protobuf-lite                                     |3.0.1               |Xamarin.Protobuf.Lite                                                 |3.0.1.24            |
 | 607|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4.3             |
 | 608|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.20           |
@@ -637,7 +637,7 @@
 | 630|io.grpc:grpc-context                                                  |1.82.0              |Xamarin.Grpc.Context                                                  |1.82.0.1            |
 | 631|io.grpc:grpc-core                                                     |1.82.0              |Xamarin.Grpc.Core                                                     |1.82.0.2            |
 | 632|io.grpc:grpc-okhttp                                                   |1.82.0              |Xamarin.Grpc.OkHttp                                                   |1.82.0.1            |
-| 633|io.grpc:grpc-protobuf-lite                                            |1.82.0              |Xamarin.Grpc.Protobuf.Lite                                            |1.82.0.1            |
+| 633|io.grpc:grpc-protobuf-lite                                            |1.82.0              |Xamarin.Grpc.Protobuf.Lite                                            |1.82.0.2            |
 | 634|io.grpc:grpc-stub                                                     |1.82.0              |Xamarin.Grpc.Stub                                                     |1.82.0.1            |
 | 635|io.grpc:grpc-util                                                     |1.82.0              |Xamarin.Grpc.Util                                                     |1.82.0.1            |
 | 636|io.opencensus:opencensus-api                                          |0.31.1              |Xamarin.Io.OpenCensus.OpenCensusApi                                   |0.31.1.17           |
