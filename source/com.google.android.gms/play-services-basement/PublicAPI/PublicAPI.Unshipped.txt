@@ -91,6 +91,7 @@ Android.Gms.Common.Apis.Internal.ILifecycleFragment.IsCreated.get -> bool
 Android.Gms.Common.Apis.Internal.ILifecycleFragment.IsStarted.get -> bool
 Android.Gms.Common.Apis.Internal.ILifecycleFragment.LifecycleActivity.get -> Android.App.Activity?
 Android.Gms.Common.Apis.Internal.ILifecycleFragment.StartActivityForResult(Android.Content.Intent! p0, int p1) -> void
+Android.Gms.Common.Apis.Internal.ILifecycleFragment.StartIntentSenderForResult(Android.Content.IntentSender! p0, int p1, Android.Content.Intent? p2, int p3, int p4, int p5, Android.OS.Bundle? p6) -> void
 Android.Gms.Common.Apis.Internal.IStatusExceptionMapper
 Android.Gms.Common.Apis.Internal.IStatusExceptionMapper.GetException(Android.Gms.Common.Apis.Statuses! p0) -> Java.Lang.Exception!
 Android.Gms.Common.Apis.Internal.LifecycleActivity
@@ -208,10 +209,20 @@ Android.Gms.Common.Internal.IAccountAccessor
 Android.Gms.Common.Internal.ICancelToken
 Android.Gms.Common.Internal.ICancelToken.Cancel() -> void
 Android.Gms.Common.Internal.IGmsCallbacks
-Android.Gms.Common.Internal.IGmsCallbacks.OnPostInitComplete(int p0, Android.OS.IBinder! p1, Android.OS.Bundle! p2) -> void
+Android.Gms.Common.Internal.IGmsCallbacks.OnPostInitComplete(int p0, Android.OS.IBinder! p1, Android.OS.Bundle? p2) -> void
 Android.Gms.Common.Internal.IHideFirstParty
+Android.Gms.Common.Internal.IInternalClientFlags
+Android.Gms.Common.Internal.IInternalClientFlags.CatchNetworkCallbackTooManyRequestsException() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.Default.get -> Android.Gms.Common.Internal.IInternalClientFlags!
+Android.Gms.Common.Internal.IInternalClientFlags.EnableGoogleSignatureVerifierUidShortCircuit() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.IsPhoneRefinedFoldableAndTabletLogic.get -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.ProviderinstallerDynamiteLoadingDisabled() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.SkipClientThrottlingDryrun() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.UseApiExceptionOnMissingFeature() -> bool
 Android.Gms.Common.Internal.IReflectedParcelable
 Android.Gms.Common.Internal.IShowFirstParty
+Android.Gms.Common.Internal.InternalClientFlags
+Android.Gms.Common.Internal.InternalClientFlagsConsts
 Android.Gms.Common.Internal.SafeParcel.AbstractSafeParcelable
 Android.Gms.Common.Internal.SafeParcel.AbstractSafeParcelable.AbstractSafeParcelable() -> void
 Android.Gms.Common.Internal.SafeParcel.AbstractSafeParcelable.AbstractSafeParcelable(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -456,6 +467,28 @@ Google.Android.Gms.Common.SignatureVerification.ISignatureVerificationConfigurat
 Google.Android.Gms.Common.SignatureVerification.ISignatureVerificationLogger
 Google.Android.Gms.Common.SignatureVerification.SignatureVerificationConfigurationProvider
 Google.Android.Gms.Common.SignatureVerification.SignatureVerificationConfigurationProvider.SignatureVerificationConfigurationProvider(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig
+Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.Builder
+Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.Builder.Builder() -> void
+Google.Android.Gms.Libs.Throttling.IGmsThrottler
+Google.Android.Gms.Libs.Throttling.IGmsThrottler.Release(long p0) -> void
+Google.Android.Gms.Libs.Throttling.IGmsThrottler.TryAcquire(long p0, Google.Android.Gms.Libs.Throttling.ThrottlingLimits! p1) -> bool
+Google.Android.Gms.Libs.Throttling.InFlightThrottler
+Google.Android.Gms.Libs.Throttling.InFlightThrottler.Release(long key) -> void
+Google.Android.Gms.Libs.Throttling.InFlightThrottler.TryAcquire(long key, Google.Android.Gms.Libs.Throttling.ThrottlingLimits! limits) -> bool
+Google.Android.Gms.Libs.Throttling.ThrottlingLimits
+Google.Android.Gms.Libs.Throttling.ThrottlingLimits.Builder
+Google.Android.Gms.Libs.Throttling.ThrottlingLimits.Builder.Builder() -> void
+Google.Android.Gms.Libs.Throttling.ThrottlingLimits.MaxInflight.get -> int
+Google.Android.Gms.Libs.Throttling.ThrottlingOverride
+Google.Android.Gms.Libs.Throttling.ThrottlingOverride.Builder
+Google.Android.Gms.Libs.Throttling.ThrottlingOverride.Builder.Builder() -> void
+Google.Android.Gms.Libs.Throttling.ThrottlingPolicy
+Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.Builder
+Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.Builder.Builder() -> void
+Google.Android.Gms.Libs.Throttling.ThrottlingSelector
+Google.Android.Gms.Libs.Throttling.ThrottlingSelector.Builder
+Google.Android.Gms.Libs.Throttling.ThrottlingSelector.Builder.Builder() -> void
 abstract Android.Gms.Common.Apis.ResolvingResultCallbacks.OnUnresolvableFailure(Android.Gms.Common.Apis.Statuses! p0) -> void
 abstract Android.Gms.Common.Apis.ResultCallbacks.OnFailure(Android.Gms.Common.Apis.Statuses! p0) -> void
 abstract Android.Gms.Common.Apis.ResultCallbacks.OnSuccess(Java.Lang.Object! p0) -> void
@@ -811,6 +844,17 @@ override Firebase.FirebaseExceptionMapper.ThresholdType.get -> System.Type!
 override Google.Android.Gms.Common.SignatureVerification.SignatureVerificationConfigurationProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Gms.Common.SignatureVerification.SignatureVerificationConfigurationProvider.ThresholdClass.get -> nint
 override Google.Android.Gms.Common.SignatureVerification.SignatureVerificationConfigurationProvider.ThresholdType.get -> System.Type!
+override Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.InFlightThrottler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingLimits.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingLimits.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingOverride.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingOverride.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingSelector.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Gms.Libs.Throttling.ThrottlingSelector.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override sealed Android.Gms.Common.Apis.ApiMetadata.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Common.Apis.ApiMetadata.GetHashCode() -> int
 override sealed Android.Gms.Common.Apis.ApiMetadata.ToString() -> string!
@@ -826,6 +870,21 @@ override sealed Android.Gms.Common.Feature.ToString() -> string!
 override sealed Android.Gms.Common.Feature.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Common.Stats.StatsEvent.ToString() -> string!
 override sealed Android.Gms.Common.Stats.WakeLockEvent.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.Equals(Java.Lang.Object? p0) -> bool
+override sealed Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.GetHashCode() -> int
+override sealed Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingLimits.Equals(Java.Lang.Object? p0) -> bool
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingLimits.GetHashCode() -> int
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingLimits.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingOverride.Equals(Java.Lang.Object? p0) -> bool
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingOverride.GetHashCode() -> int
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingOverride.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.Equals(Java.Lang.Object? p0) -> bool
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.GetHashCode() -> int
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingSelector.Equals(Java.Lang.Object? p0) -> bool
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingSelector.GetHashCode() -> int
+override sealed Google.Android.Gms.Libs.Throttling.ThrottlingSelector.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 static Android.Gms.Common.AccountPicker.NewChooseAccountIntent(Android.Accounts.Account? selectedAccount, System.Collections.Generic.IList<Android.Accounts.Account!>? allowableAccounts, string![]? allowableAccountTypes, bool alwaysPromptForAccount, string? descriptionOverrideText, string? addAccountAuthTokenType, string![]? addAccountRequiredFeatures, Android.OS.Bundle? addAccountOptions) -> Android.Content.Intent!
 static Android.Gms.Common.AccountPicker.NewChooseAccountIntent(Android.Gms.Common.AccountPicker.AccountChooserOptions! options) -> Android.Content.Intent!
 static Android.Gms.Common.Apis.ApiMetadata.Creator.get -> Android.OS.IParcelableCreator!
@@ -891,6 +950,7 @@ static Android.Gms.Common.GooglePlayServicesUtilLight.UidHasPackageName(Android.
 static Android.Gms.Common.GoogleSignatureVerifier.GetInstance(Android.Content.Context! context) -> Android.Gms.Common.GoogleSignatureVerifier!
 static Android.Gms.Common.Internal.DowngradeableSafeParcel.CanUnparcelSafely(string! p0) -> bool
 static Android.Gms.Common.Internal.DowngradeableSafeParcel.UnparcelClientVersion.get -> Java.Lang.Integer?
+static Android.Gms.Common.Internal.InternalClientFlags.Default.get -> Android.Gms.Common.Internal.IInternalClientFlags!
 static Android.Gms.Common.Internal.SafeParcel.SafeParcelReader.CreateBigDecimal(Android.OS.Parcel! p, int header) -> Java.Math.BigDecimal!
 static Android.Gms.Common.Internal.SafeParcel.SafeParcelReader.CreateBigDecimalArray(Android.OS.Parcel! p, int header) -> Java.Math.BigDecimal![]!
 static Android.Gms.Common.Internal.SafeParcel.SafeParcelReader.CreateBigInteger(Android.OS.Parcel! p, int header) -> Java.Math.BigInteger!
@@ -1158,6 +1218,11 @@ static Android.Gms.Dynamite.DynamiteModule.PreferRemote.get -> Android.Gms.Dynam
 static Android.Gms.Dynamite.DynamiteModule.PreferRemoteVersionNoForceStaging.get -> Android.Gms.Dynamite.DynamiteModule.IVersionPolicy!
 static Android.Gms.Security.ProviderInstaller.InstallIfNeeded(Android.Content.Context! context) -> void
 static Android.Gms.Security.ProviderInstaller.InstallIfNeededAsync(Android.Content.Context! context, Android.Gms.Security.ProviderInstaller.IProviderInstallListener! listener) -> void
+static Google.Android.Gms.Libs.Throttling.GmsThrottlingConfig.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Libs.Throttling.ThrottlingLimits.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Libs.Throttling.ThrottlingOverride.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Libs.Throttling.ThrottlingPolicy.Creator.get -> Android.OS.IParcelableCreator!
+static Google.Android.Gms.Libs.Throttling.ThrottlingSelector.Creator.get -> Android.OS.IParcelableCreator!
 virtual Android.Gms.Common.AccountPicker.AccountChooserOptions.Builder.Build() -> Android.Gms.Common.AccountPicker.AccountChooserOptions!
 virtual Android.Gms.Common.AccountPicker.AccountChooserOptions.Builder.SetAllowableAccounts(System.Collections.Generic.IList<Android.Accounts.Account!>? allowableAccounts) -> Android.Gms.Common.AccountPicker.AccountChooserOptions.Builder!
 virtual Android.Gms.Common.AccountPicker.AccountChooserOptions.Builder.SetAllowableAccountsTypes(System.Collections.Generic.IList<string!>? allowableAccountTypes) -> Android.Gms.Common.AccountPicker.AccountChooserOptions.Builder!
