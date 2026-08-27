@@ -24,6 +24,7 @@ Google.Common.Collect.ImmutableMap.Builder.Builder(nint javaReference, Android.R
 Google.Common.Collect.ImmutableMap.Clear() -> void
 Google.Common.Collect.ImmutableMap.GetOrDefault(Java.Lang.Object? key, Java.Lang.Object? defaultValue) -> Java.Lang.Object?
 Google.Common.Collect.ImmutableMap.ImmutableMap(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Google.Common.Collect.ImmutableMap.IsEmpty.get -> bool
 Google.Common.Collect.ImmutableMap.Put(Java.Lang.Object? k, Java.Lang.Object? v) -> Java.Lang.Object?
 Google.Common.Collect.ImmutableMap.PutAll(System.Collections.IDictionary? map) -> void
 Google.Common.Collect.ImmutableMap.Remove(Java.Lang.Object? o) -> Java.Lang.Object?
@@ -41,8 +42,11 @@ abstract Google.Common.Collect.ImmutableList.Get(int index) -> Java.Lang.Object?
 abstract Google.Common.Collect.ImmutableList.ListIterator() -> Java.Util.IListIterator!
 abstract Google.Common.Collect.ImmutableList.ListIterator(int index) -> Java.Util.IListIterator!
 abstract Google.Common.Collect.ImmutableList.Reversed() -> Java.Util.ISequencedCollection?
+abstract Google.Common.Collect.ImmutableMap.EntrySet() -> Google.Common.Collect.ImmutableSet?
 abstract Google.Common.Collect.ImmutableMap.Get(Java.Lang.Object? key) -> Java.Lang.Object?
+abstract Google.Common.Collect.ImmutableMap.KeySet() -> Google.Common.Collect.ImmutableSet?
 abstract Google.Common.Collect.ImmutableMap.Size() -> int
+abstract Google.Common.Collect.ImmutableMap.Values() -> Google.Common.Collect.ImmutableCollection?
 override Google.Common.Collect.ImmutableCollection.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Common.Collect.ImmutableCollection.Builder.ThresholdClass.get -> nint
 override Google.Common.Collect.ImmutableCollection.Builder.ThresholdType.get -> System.Type!
@@ -79,6 +83,8 @@ override sealed Google.Common.Collect.ImmutableCollection.RetainAll(System.Colle
 override sealed Google.Common.Collect.ImmutableCollection.ToArray() -> Java.Lang.Object![]?
 override sealed Google.Common.Collect.ImmutableCollection.ToArray(Java.Lang.Object![]? other) -> Java.Lang.Object![]?
 override sealed Google.Common.Collect.ImmutableList.AsList() -> Google.Common.Collect.ImmutableList?
+override sealed Google.Common.Collect.ImmutableList.Equals(Java.Lang.Object? obj) -> bool
+override sealed Google.Common.Collect.ImmutableList.GetHashCode() -> int
 static Google.Common.Collect.ImmutableList.BuilderWithExpectedSize(int expectedSize) -> Google.Common.Collect.ImmutableList.Builder?
 static Google.Common.Collect.ImmutableList.CopyOf(Java.Lang.IIterable? elements) -> Google.Common.Collect.ImmutableList?
 static Google.Common.Collect.ImmutableList.CopyOf(Java.Lang.Object![]? elements) -> Google.Common.Collect.ImmutableList?
@@ -152,9 +158,5 @@ virtual Google.Common.Collect.ImmutableMap.Builder.PutAll(Java.Lang.IIterable? e
 virtual Google.Common.Collect.ImmutableMap.Builder.PutAll(System.Collections.IDictionary? map) -> Google.Common.Collect.ImmutableMap.Builder?
 virtual Google.Common.Collect.ImmutableMap.ContainsKey(Java.Lang.Object? key) -> bool
 virtual Google.Common.Collect.ImmutableMap.ContainsValue(Java.Lang.Object? value) -> bool
-virtual Google.Common.Collect.ImmutableMap.EntrySet() -> Google.Common.Collect.ImmutableSet?
-virtual Google.Common.Collect.ImmutableMap.IsEmpty.get -> bool
-virtual Google.Common.Collect.ImmutableMap.KeySet() -> Google.Common.Collect.ImmutableSet?
-virtual Google.Common.Collect.ImmutableMap.Values() -> Google.Common.Collect.ImmutableCollection?
 virtual Google.Common.Collect.ImmutableSet.Builder.Add(params Java.Lang.Object![]? elements) -> Google.Common.Collect.ImmutableSet.Builder?
 virtual Google.Common.Collect.ImmutableSet.Builder.AddAll(Java.Lang.IIterable? elements) -> Google.Common.Collect.ImmutableSet.Builder?

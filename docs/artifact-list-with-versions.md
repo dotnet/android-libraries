@@ -123,10 +123,10 @@
 | 116|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.37            |
 | 117|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0.4             |
 | 118|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0.4             |
-| 119|androidx.databinding:databinding-adapters                             |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.3.1               |
-| 120|androidx.databinding:databinding-common                               |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.3.1               |
-| 121|androidx.databinding:databinding-runtime                              |9.3.1               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.3.1               |
-| 122|androidx.databinding:viewbinding                                      |9.3.1               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.3.1               |
+| 119|androidx.databinding:databinding-adapters                             |9.3.2               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.3.2               |
+| 120|androidx.databinding:databinding-common                               |9.3.2               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.3.2               |
+| 121|androidx.databinding:databinding-runtime                              |9.3.2               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.3.2               |
+| 122|androidx.databinding:viewbinding                                      |9.3.2               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.3.2               |
 | 123|androidx.datastore:datastore                                          |1.2.1               |Xamarin.AndroidX.DataStore                                            |1.2.1.1             |
 | 124|androidx.datastore:datastore-android                                  |1.2.1               |Xamarin.AndroidX.DataStore.Android                                    |1.2.1.1             |
 | 125|androidx.datastore:datastore-core                                     |1.2.1               |Xamarin.AndroidX.DataStore.Core                                       |1.2.1.1             |
@@ -366,7 +366,7 @@
 | 359|com.google.accompanist:accompanist-placeholder-material               |0.36.0              |Xamarin.Google.Accompanist.Placeholder.Material                       |0.36.0.9            |
 | 360|com.google.accompanist:accompanist-swiperefresh                       |0.36.0              |Xamarin.Google.Accompanist.SwipeRefresh                               |0.36.0.9            |
 | 361|com.google.accompanist:accompanist-systemuicontroller                 |0.36.0              |Xamarin.Google.Accompanist.SystemUIController                         |0.36.0.9            |
-| 362|com.google.ads.interactivemedia.v3:interactivemedia                   |3.39.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.39.0.2            |
+| 362|com.google.ads.interactivemedia.v3:interactivemedia                   |3.40.0              |Xamarin.Google.Ads.InteractiveMedia.V3.InteractiveMedia               |3.40.0              |
 | 363|com.google.ai.edge.aicore:aicore                                      |0.0.1-exp02         |Xamarin.Google.AI.Edge.AICore                                         |0.0.1.3-exp02       |
 | 364|com.google.ai.edge.litert:litert                                      |2.1.5               |Xamarin.Google.AI.Edge.LiteRT                                         |2.1.5.1             |
 | 365|com.google.ai.edge.litert:litert-api                                  |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.API                                     |1.4.2.1             |
@@ -393,13 +393,13 @@
 | 386|com.google.android.gms:play-services-appinvite                        |18.0.0              |Xamarin.GooglePlayServices.AppInvite                                  |118.0.0.26          |
 | 387|com.google.android.gms:play-services-appset                           |16.1.0              |Xamarin.GooglePlayServices.AppSet                                     |116.1.0.10          |
 | 388|com.google.android.gms:play-services-audience                         |17.0.0              |Xamarin.GooglePlayServices.Audience                                   |117.0.0.26          |
-| 389|com.google.android.gms:play-services-auth                             |21.6.0              |Xamarin.GooglePlayServices.Auth                                       |121.6.0.1           |
+| 389|com.google.android.gms:play-services-auth                             |22.0.0              |Xamarin.GooglePlayServices.Auth                                       |122.0.0             |
 | 390|com.google.android.gms:play-services-auth-api-phone                   |18.3.1              |Xamarin.GooglePlayServices.Auth.Api.Phone                             |118.3.1             |
-| 391|com.google.android.gms:play-services-auth-base                        |18.3.3              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.3.1           |
+| 391|com.google.android.gms:play-services-auth-base                        |18.3.4              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.4             |
 | 392|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.9           |
 | 393|com.google.android.gms:play-services-awareness                        |20.0.0              |Xamarin.GooglePlayServices.Awareness                                  |120.0.0.1           |
-| 394|com.google.android.gms:play-services-base                             |18.10.0             |Xamarin.GooglePlayServices.Base                                       |118.10.0.2          |
-| 395|com.google.android.gms:play-services-basement                         |18.10.0             |Xamarin.GooglePlayServices.Basement                                   |118.10.0.2          |
+| 394|com.google.android.gms:play-services-base                             |18.10.1             |Xamarin.GooglePlayServices.Base                                       |118.10.1            |
+| 395|com.google.android.gms:play-services-basement                         |18.11.0             |Xamarin.GooglePlayServices.Basement                                   |118.11.0            |
 | 396|com.google.android.gms:play-services-cast                             |22.3.1              |Xamarin.GooglePlayServices.Cast                                       |122.3.1.1           |
 | 397|com.google.android.gms:play-services-cast-framework                   |22.3.1              |Xamarin.GooglePlayServices.Cast.Framework                             |122.3.1.1           |
 | 398|com.google.android.gms:play-services-cast-tv                          |21.1.1              |Xamarin.GooglePlayServices.Cast.TV                                    |121.1.1.8           |
@@ -409,7 +409,7 @@
 | 402|com.google.android.gms:play-services-cronet                           |18.1.1              |Xamarin.GooglePlayServices.CroNet                                     |118.1.1.4           |
 | 403|com.google.android.gms:play-services-deviceperformance                |16.1.0              |Xamarin.GooglePlayServices.DevicePerformance                          |116.1.0.10          |
 | 404|com.google.android.gms:play-services-drive                            |17.0.0              |Xamarin.GooglePlayServices.Drive                                      |117.0.0.27          |
-| 405|com.google.android.gms:play-services-fido                             |21.3.0              |Xamarin.GooglePlayServices.Fido                                       |121.3.0.1           |
+| 405|com.google.android.gms:play-services-fido                             |21.3.1              |Xamarin.GooglePlayServices.Fido                                       |121.3.1             |
 | 406|com.google.android.gms:play-services-fitness                          |21.3.0              |Xamarin.GooglePlayServices.Fitness                                    |121.3.0.3           |
 | 407|com.google.android.gms:play-services-flags                            |18.1.0              |Xamarin.GooglePlayServices.Flags                                      |118.1.0.10          |
 | 408|com.google.android.gms:play-services-games                            |25.0.0              |Xamarin.GooglePlayServices.Games                                      |125.0.0.1           |
@@ -440,7 +440,7 @@
 | 433|com.google.android.gms:play-services-mlkit-text-recognition-devanagari|16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Devanagari          |116.0.1.8           |
 | 434|com.google.android.gms:play-services-mlkit-text-recognition-japanese  |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Japanese            |116.0.1.8           |
 | 435|com.google.android.gms:play-services-mlkit-text-recognition-korean    |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Korean              |116.0.1.8           |
-| 436|com.google.android.gms:play-services-nearby                           |19.4.0              |Xamarin.GooglePlayServices.Nearby                                     |119.4.0             |
+| 436|com.google.android.gms:play-services-nearby                           |19.5.0              |Xamarin.GooglePlayServices.Nearby                                     |119.5.0             |
 | 437|com.google.android.gms:play-services-oss-licenses                     |17.5.1              |Xamarin.GooglePlayServices.Oss.Licenses                               |117.5.1.1           |
 | 438|com.google.android.gms:play-services-pal                              |23.1.0              |Xamarin.GooglePlayServices.PAL                                        |123.1.0.2           |
 | 439|com.google.android.gms:play-services-panorama                         |17.1.0              |Xamarin.GooglePlayServices.Panorama                                   |117.1.0.16          |
@@ -471,7 +471,7 @@
 | 464|com.google.android.gms:play-services-vision-image-labeling-internal   |16.1.0              |Xamarin.GooglePlayServices.Vision.ImageLabelingInternal               |116.1.0.26          |
 | 465|com.google.android.gms:play-services-wallet                           |20.0.0              |Xamarin.GooglePlayServices.Wallet                                     |120.0.0.1           |
 | 466|com.google.android.gms:play-services-wearable                         |20.0.1              |Xamarin.GooglePlayServices.Wearable                                   |120.0.1.1           |
-| 467|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.3.1               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.3.1               |
+| 467|com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk            |1.4.0               |Xamarin.Google.Android.Libraries.Ads.Mobile.Sdk                       |1.4.0               |
 | 468|com.google.android.libraries.identity.googleid:googleid               |1.1.0               |Xamarin.Google.Android.Libraries.Identity.GoogleId                    |1.1.0.15            |
 | 469|com.google.android.libraries.places:places                            |5.3.0               |Xamarin.Google.Android.Libraries.Places                               |5.3.0               |
 | 470|com.google.android.libraries.places:places-compat                     |2.6.0               |Xamarin.Google.Android.Libraries.Places.Compat                        |2.6.0.19            |
@@ -510,9 +510,9 @@
 | 503|com.google.firebase:firebase-analytics                                |23.2.0              |Xamarin.Firebase.Analytics                                            |123.2.0.1           |
 | 504|com.google.firebase:firebase-analytics-impl                           |16.3.0              |Xamarin.Firebase.Analytics.Impl                                       |116.3.0.26          |
 | 505|com.google.firebase:firebase-annotations                              |17.0.0              |Xamarin.Firebase.Annotations                                          |117.0.0.4           |
-| 506|com.google.firebase:firebase-appcheck                                 |19.4.0              |Xamarin.Firebase.AppCheck                                             |119.4.0             |
+| 506|com.google.firebase:firebase-appcheck                                 |19.4.1              |Xamarin.Firebase.AppCheck                                             |119.4.1             |
 | 507|com.google.firebase:firebase-appcheck-interop                         |17.1.0              |Xamarin.Firebase.AppCheck.Interop                                     |117.1.0.14          |
-| 508|com.google.firebase:firebase-appcheck-playintegrity                   |19.4.0              |Xamarin.Firebase.AppCheck.PlayIntegrity                               |119.4.0             |
+| 508|com.google.firebase:firebase-appcheck-playintegrity                   |19.4.1              |Xamarin.Firebase.AppCheck.PlayIntegrity                               |119.4.1             |
 | 509|com.google.firebase:firebase-appindexing                              |20.0.0              |Xamarin.Firebase.AppIndexing                                          |120.0.0.29          |
 | 510|com.google.firebase:firebase-auth                                     |24.2.0              |Xamarin.Firebase.Auth                                                 |124.2.0.1           |
 | 511|com.google.firebase:firebase-auth-interop                             |20.0.0              |Xamarin.Firebase.Auth.Interop                                         |120.0.0.26          |
@@ -543,7 +543,7 @@
 | 536|com.google.firebase:firebase-installations-interop                    |17.3.0              |Xamarin.Firebase.Installations.InterOp                                |117.3.0.2           |
 | 537|com.google.firebase:firebase-invites                                  |17.0.0              |Xamarin.Firebase.Invites                                              |117.0.0.26          |
 | 538|com.google.firebase:firebase-measurement-connector                    |20.0.1              |Xamarin.Firebase.Measurement.Connector                                |120.0.1.14          |
-| 539|com.google.firebase:firebase-messaging                                |25.1.1              |Xamarin.Firebase.Messaging                                            |125.1.1             |
+| 539|com.google.firebase:firebase-messaging                                |25.1.2              |Xamarin.Firebase.Messaging                                            |125.1.2             |
 | 540|com.google.firebase:firebase-ml-common                                |22.1.2              |Xamarin.Firebase.ML.Common                                            |122.1.2.26          |
 | 541|com.google.firebase:firebase-ml-model-interpreter                     |22.0.4              |Xamarin.Firebase.ML.Model.Interpreter                                 |122.0.4.26          |
 | 542|com.google.firebase:firebase-ml-natural-language                      |22.0.1              |Xamarin.Firebase.ML.Natural.Language                                  |122.0.1.26          |
@@ -568,7 +568,7 @@
 | 561|com.google.flogger:flogger                                            |0.9                 |Xamarin.Flogger                                                       |0.9.0.4             |
 | 562|com.google.flogger:flogger-system-backend                             |0.9                 |Xamarin.Flogger.SystemBackend                                         |0.9.0.4             |
 | 563|com.google.guava:failureaccess                                        |1.0.3               |Xamarin.Google.Guava.FailureAccess                                    |1.0.3.6             |
-| 564|com.google.guava:guava                                                |33.6.0-android      |Xamarin.Google.Guava                                                  |33.6.0.1            |
+| 564|com.google.guava:guava                                                |33.7.1-android      |Xamarin.Google.Guava                                                  |33.7.1              |
 | 565|com.google.guava:listenablefuture                                     |1.0                 |Xamarin.Google.Guava.ListenableFuture                                 |1.0.0.32            |
 | 566|com.google.inject:guice                                               |7.0.0               |Xamarin.Google.Inject.Guice                                           |7.0.0.10            |
 | 567|com.google.j2objc:j2objc-annotations                                  |3.1                 |Xamarin.Google.J2Objc.Annotations                                     |3.1.0.3             |
@@ -613,7 +613,7 @@
 | 606|com.google.protobuf:protobuf-lite                                     |3.0.1               |Xamarin.Protobuf.Lite                                                 |3.0.1.24            |
 | 607|com.google.zxing:core                                                 |3.5.4               |Xamarin.Google.ZXing.Core                                             |3.5.4.3             |
 | 608|com.squareup:javapoet                                                 |1.13.0              |Square.JavaPoet                                                       |1.13.0.20           |
-| 609|com.squareup.okhttp3:logging-interceptor                              |5.4.0               |Square.OkHttp3.LoggingInterceptor                                     |5.4.0.2             |
+| 609|com.squareup.okhttp3:logging-interceptor                              |5.5.0               |Square.OkHttp3.LoggingInterceptor                                     |5.5.0               |
 | 610|com.squareup.okhttp3:okhttp                                           |5.5.0               |Square.OkHttp3                                                        |5.5.0               |
 | 611|com.squareup.okhttp3:okhttp-android                                   |5.5.0               |Square.OkHttp3.Android                                                |5.5.0               |
 | 612|com.squareup.okhttp3:okhttp-brotli                                    |5.5.0               |Square.OkHttp3.OkHttp.Brotli                                          |5.5.0               |
@@ -687,7 +687,7 @@
 | 680|org.jetbrains.kotlinx:kotlinx-serialization-json-jvm                  |1.11.0              |Xamarin.KotlinX.Serialization.Json.Jvm                                |1.11.0.1            |
 | 681|org.jetbrains.kotlinx:kotlinx-serialization-protobuf                  |1.11.0              |Xamarin.KotlinX.Serialization.Protobuf                                |1.11.0.1            |
 | 682|org.jetbrains.kotlinx:kotlinx-serialization-protobuf-jvm              |1.11.0              |Xamarin.KotlinX.Serialization.Protobuf.Jvm                            |1.11.0.1            |
-| 683|org.jspecify:jspecify                                                 |1.0.0               |Xamarin.JSpecify                                                      |1.0.0.7             |
+| 683|org.jspecify:jspecify                                                 |1.0.1               |Xamarin.JSpecify                                                      |1.0.1               |
 | 684|org.ow2.asm:asm                                                       |9.10.1              |Xamarin.OW2.ASM                                                       |9.10.1.1            |
 | 685|org.reactivestreams:reactive-streams                                  |1.0.4               |Xamarin.Android.ReactiveStreams                                       |1.0.4.24            |
 | 686|org.tensorflow:tensorflow-android                                     |1.13.1              |Xamarin.TensorFlow.Android                                            |1.13.1.18           |
