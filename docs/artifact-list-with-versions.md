@@ -654,7 +654,7 @@
 | 647|org.aomedia.avif.android:avif                                         |1.1.1.14d8e3c4      |Xamarin.AOMedia.AVIF.Android                                          |1.1.1.349758412     |
 | 648|org.brotli:dec                                                        |0.1.2               |Xamarin.Brotli.Dec                                                    |0.1.2.12            |
 | 649|org.checkerframework:checker-compat-qual                              |2.5.6               |Xamarin.CheckerFramework.CheckerCompatQual                            |2.5.6.16            |
-| 650|org.checkerframework:checker-qual                                     |4.2.2               |Xamarin.CheckerFramework.CheckerQual                                  |4.2.2               |
+| 650|org.checkerframework:checker-qual                                     |4.2.0               |Xamarin.CheckerFramework.CheckerQual                                  |4.2.0.1             |
 | 651|org.chromium.net:cronet-api                                           |143.7445.0          |Xamarin.Chromium.CroNet.Api                                           |143.7445.0.2        |
 | 652|org.chromium.net:cronet-common                                        |143.7445.0          |Xamarin.Chromium.CroNet.Common                                        |143.7445.0.2        |
 | 653|org.chromium.net:cronet-embedded                                      |143.7445.0          |Xamarin.Chromium.CroNet.Embedded                                      |143.7445.0.2        |
@@ -664,12 +664,12 @@
 | 657|org.codehaus.mojo:animal-sniffer-annotations                          |1.27                |Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations                        |1.27.0.2            |
 | 658|org.jetbrains:annotations                                             |26.1.0              |Xamarin.Jetbrains.Annotations                                         |26.1.0.2            |
 | 659|org.jetbrains.kotlin:kotlin-android-extensions-runtime                |2.2.10              |Xamarin.Kotlin.Android.Extensions.Runtime.Library                     |2.2.10.3            |
-| 660|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.4.10              |Xamarin.Kotlin.Parcelize.Runtime                                      |2.4.10              |
-| 661|org.jetbrains.kotlin:kotlin-reflect                                   |2.4.10              |Xamarin.Kotlin.Reflect                                                |2.4.10              |
-| 662|org.jetbrains.kotlin:kotlin-stdlib                                    |2.4.10              |Xamarin.Kotlin.StdLib                                                 |2.4.10              |
+| 660|org.jetbrains.kotlin:kotlin-parcelize-runtime                         |2.4.0               |Xamarin.Kotlin.Parcelize.Runtime                                      |2.4.0.1             |
+| 661|org.jetbrains.kotlin:kotlin-reflect                                   |2.4.0               |Xamarin.Kotlin.Reflect                                                |2.4.0.1             |
+| 662|org.jetbrains.kotlin:kotlin-stdlib                                    |2.4.0               |Xamarin.Kotlin.StdLib                                                 |2.4.0.1             |
 | 663|org.jetbrains.kotlin:kotlin-stdlib-common                             |2.0.21              |Xamarin.Kotlin.StdLib.Common                                          |2.0.21.8            |
-| 664|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.4.10              |Xamarin.Kotlin.StdLib.Jdk7                                            |2.4.10              |
-| 665|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.4.10              |Xamarin.Kotlin.StdLib.Jdk8                                            |2.4.10              |
+| 664|org.jetbrains.kotlin:kotlin-stdlib-jdk7                               |2.4.0               |Xamarin.Kotlin.StdLib.Jdk7                                            |2.4.0.1             |
+| 665|org.jetbrains.kotlin:kotlin-stdlib-jdk8                               |2.4.0               |Xamarin.Kotlin.StdLib.Jdk8                                            |2.4.0.1             |
 | 666|org.jetbrains.kotlinx:atomicfu                                        |0.33.0              |Xamarin.KotlinX.AtomicFU                                              |0.33.0.1            |
 | 667|org.jetbrains.kotlinx:atomicfu-jvm                                    |0.33.0              |Xamarin.KotlinX.AtomicFU.Jvm                                          |0.33.0.1            |
 | 668|org.jetbrains.kotlinx:kotlinx-coroutines-android                      |1.11.0              |Xamarin.KotlinX.Coroutines.Android                                    |1.11.0.1            |
