@@ -42,12 +42,6 @@ public class MavenArtifactConfig
 	[JsonProperty ("dependencyOnly")]
 	public bool DependencyOnly { get; set; } = false;
 
-	[JsonProperty ("generatePackage")]
-	public bool GeneratePackage { get; set; } = false;
-
-	[JsonProperty ("generatedArtifactId")]
-	public string? GeneratedArtifactId { get; set; }
-
 	[JsonProperty ("frozen")]
 	public bool Frozen { get; set; }
 
@@ -105,8 +99,6 @@ public class MavenArtifactConfig
 
 	[JsonIgnore]
 	public string GroupAndArtifactId => $"{GroupId}.{ArtifactId}";
-
-	public string GetGeneratedArtifactId () => GeneratedArtifactId ?? ArtifactId ?? string.Empty;
 
 	[JsonIgnore]
 	public bool NewVersionAvailable => LatestVersion != Version;

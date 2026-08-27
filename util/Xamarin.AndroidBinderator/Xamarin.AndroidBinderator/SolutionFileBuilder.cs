@@ -44,7 +44,7 @@ public static class SolutionFileBuilder
 		// Add all of the generated projects
 		foreach (var p in projects) {
 			var groupId = p.Value.MavenGroupId;
-			var prjName = groupId + "." + p.Value.GetGeneratedArtifactId ();
+			var prjName = groupId + "." + p.Value.Name;
 			var prjKey = GetRelativePath (slnFileInfo.FullName, p.Key).Replace ("/", "\\");
 			var prjGuid = "{" + p.Value.Id + "}";
 

@@ -48,8 +48,6 @@ public class BindingProjectModel
 
 	public string GetAssemblyName () => AssemblyName.HasValue () ? AssemblyName : NuGetPackageId ?? string.Empty;
 
-	public string GetGeneratedArtifactId () => MavenArtifacts.FirstOrDefault ()?.MavenArtifactConfig?.GetGeneratedArtifactId () ?? Name ?? string.Empty;
-
 	public string GetArtifactVersion () => MavenArtifacts.FirstOrDefault ()?.MavenArtifactVersion ?? string.Empty;
 
 	public string GetRootNamespace ()

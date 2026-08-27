@@ -82,24 +82,6 @@ For example if you have a Maven artifact you want _Binderate_, which depends on 
 
 Notice we specified that this is a `dependencyOnly`, which means it won't have a binding generated for it, and we specified a `nugetVersion` to use in the `PackageReference`, even though the `version` is different, since this is the version that the maven artifact depending on this package is looking for to satisfy the dependency.
 
-Historical dependency packages can opt back into project and package generation with
-`generatePackage: true`. When another configured version uses the same Maven coordinates,
-set `generatedArtifactId` to a unique value so generated projects and downloaded externals
-do not overwrite each other:
-
-```json
-{
-    "groupId": "com.example",
-    "artifactId": "example",
-    "version": "1.0.0",
-    "nugetId": "Example.Package",
-    "nugetVersion": "1.0.0.1",
-    "dependencyOnly": true,
-    "generatePackage": true,
-    "generatedArtifactId": "example-1.0.0"
-}
-```
-
 
 ### Creating Template Files
 
@@ -143,4 +125,5 @@ You can pull the binderator in as a nuget package.  Once this is done, it's triv
 var engine = new AndroidBinderator.Engine();
 await engine.BinderateAsync("/path/to/config.json", "/path/to/base/output/");
 ```
+
 

@@ -17,6 +17,4 @@ public class MavenArtifactModel
 	public DocumentationType DocumentationType { get; set; }
 
 	public Dictionary<string, string> Metadata { get; set; } = new Dictionary<string, string> ();
-
-	public string GetExternalArtifactId () => MavenArtifactConfig?.GetGeneratedArtifactId () ?? MavenArtifactId ?? string.Empty;
 }

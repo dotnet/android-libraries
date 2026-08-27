@@ -129,11 +129,11 @@
     {
       @if (art.DocumentationType == AndroidBinderator.DocumentationType.JavaDoc)
       {
-    <JavaDocJar Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId())-javadoc.jar" />
+    <JavaDocJar Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId)-javadoc.jar" />
       }
       @if (art.DocumentationType == AndroidBinderator.DocumentationType.JavaSource)
       {
-    <JavaSourceJar Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId())-sources.jar" />
+    <JavaSourceJar Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId)-sources.jar" />
       }
     }
 
@@ -156,7 +156,7 @@
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (dep.IsProjectReference) {
-    <ProjectReference Include="..\..\generated\@(dep.MavenArtifact.MavenGroupId).@(dep.MavenArtifactConfig.GetGeneratedArtifactId())\@(dep.MavenArtifact.MavenGroupId).@(dep.MavenArtifactConfig.GetGeneratedArtifactId()).csproj" PrivateAssets="none" PackageVersion="@dep.GetProjectVersionString()" />
+    <ProjectReference Include="..\..\generated\@(dep.MavenArtifact.MavenGroupId).@(dep.MavenArtifact.MavenArtifactId)\@(dep.MavenArtifact.MavenGroupId).@(dep.MavenArtifact.MavenArtifactId).csproj" PrivateAssets="none" PackageVersion="@dep.GetProjectVersionString()" />
       }
     }
   </ItemGroup>
@@ -170,7 +170,6 @@
     }
   </ItemGroup>
 
-@if (!Model.MavenArtifacts.First ().MavenArtifactConfig.DependencyOnly) {
   <!-- Public API files -->
   <PropertyGroup>
     <PublicAPIShippedFile>..\..\source\@(Model.MavenGroupId)\@(Model.Name)\PublicAPI\PublicAPI.Shipped.txt</PublicAPIShippedFile>
@@ -179,7 +178,6 @@
   <ItemGroup>
     <PublicAPIFiles Include="$(PublicAPIShippedFile);$(PublicAPIUnshippedFile)" />
   </ItemGroup>
-}
 
   @{ await IncludeAsync("source/_PackageLevelCustomizations.cshtml", Model); }
 

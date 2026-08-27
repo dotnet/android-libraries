@@ -15,7 +15,7 @@ static class BindingProjectConverter
 		var exceptions = new List<Exception> ();
 		var models = new List<BindingProjectModel> ();
 
-		foreach (var artifact in config.MavenArtifacts.Where (a => !a.DependencyOnly || a.GeneratePackage))
+		foreach (var artifact in config.MavenArtifacts.Where (a => !a.DependencyOnly))
 			models.Add (ConvertArtifact (config, artifact, exceptions));
 
 		if (exceptions.Count > 0)
@@ -125,13 +125,12 @@ static class BindingProjectConverter
 	static void ConvertPayload (BindingConfig config, BindingProjectModel projectModel, MavenArtifactConfig mavenArtifact, Project mavenProject)
 	{
 		var artifactDir = Path.Combine (config.BasePath!, config.ExternalsDir, mavenArtifact.GroupId!);
-		var generatedArtifactId = mavenArtifact.GetGeneratedArtifactId ();
-		var artifactFile = Path.Combine (artifactDir, $"{generatedArtifactId}.{mavenProject.Packaging}");
+		var artifactFile = Path.Combine (artifactDir, $"{mavenArtifact.ArtifactId}.{mavenProject.Packaging}");
 		var md5File = artifactFile + ".md5";
 		var sha256File = artifactFile + ".sha256";
 		var md5 = File.Exists (md5File) ? File.ReadAllText (md5File) : string.Empty;
 		var sha256 = File.Exists (sha256File) ? File.ReadAllText (sha256File) : string.Empty;
-		var artifactExtractDir = Path.Combine (artifactDir, generatedArtifactId);
+		var artifactExtractDir = Path.Combine (artifactDir, mavenArtifact.ArtifactId!);
 
 		var proguardFile = Path.Combine (artifactExtractDir, "proguard.txt");
 
