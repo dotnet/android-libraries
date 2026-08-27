@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using AndroidBinderator;
+using Java.Interop.Tools.Maven.Models;
 using Xunit;
 
 namespace Xamarin.AndroidBinderator.Tests
@@ -116,6 +117,91 @@ namespace Xamarin.AndroidBinderator.Tests
 
 			Assert.True(File.Exists(csproj));
 			Assert.Equal(expected, File.ReadAllText(csproj));
+		}
+
+		[Fact]
+		public async Task DependencyOnlyArtifactCanGeneratePackageInUniqueDirectory()
+		{
+			var generated = Path.Combine(RootDirectory, "generated");
+			var expected = Path.Combine(generated, "androidx.annotation.annotation-1.0.2", "androidx.annotation.annotation-1.0.2.csproj");
+
+			var config = new BindingConfig
+			{
+				DownloadExternals = false,
+				BasePath = RootDirectory,
+				Templates = { new TemplateConfig(CreateTemplate(), "generated/{groupid}.{artifactid}/{groupid}.{artifactid}.csproj") },
+				MavenArtifacts =
+				{
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.annotation",
+						ArtifactId = "annotation",
+						Version = "1.0.2",
+						NugetPackageId = "Xamarin.AndroidX.Annotation",
+						DependencyOnly = true,
+						GeneratePackage = true,
+						GeneratedArtifactId = "annotation-1.0.2",
+					},
+					new MavenArtifactConfig
+					{
+						GroupId = "androidx.arch.core",
+						ArtifactId = "core-common",
+						Version = "2.0.1",
+						NugetPackageId = "Xamarin.AndroidX.Arch.Core.Common",
+						DependencyOnly = true,
+					}
+				},
+				Licenses = { CreateLicense () }
+			};
+
+			await Engine.BinderateAsync(config);
+
+			Assert.True(File.Exists(expected));
+			Assert.False(File.Exists(Path.Combine(generated, "androidx.arch.core.core-common", "androidx.arch.core.core-common.csproj")));
+		}
+
+		[Fact]
+		public void GeneratedDependencyPackageIsProjectReference()
+		{
+			var dependency = new MavenArtifactConfig
+			{
+				GroupId = "androidx.annotation",
+				ArtifactId = "annotation",
+				Version = "1.0.0",
+				NugetPackageId = "Xamarin.AndroidX.Annotation",
+				NugetVersion = "1.0.0.1",
+				DependencyOnly = true,
+				GeneratePackage = true,
+			};
+			var config = new BindingConfig
+			{
+				MavenArtifacts = { dependency },
+			};
+			var project = new BindingProjectModel
+			{
+				MavenGroupId = "androidx.example",
+				MavenArtifacts =
+				{
+					new MavenArtifactModel
+					{
+						MavenArtifactId = "example",
+						MavenArtifactVersion = "1.0.0",
+					},
+				},
+				MavenDependencies =
+				{
+					new Dependency
+					{
+						GroupId = dependency.GroupId,
+						ArtifactId = dependency.ArtifactId,
+						Version = dependency.Version,
+					},
+				},
+			};
+
+			BindingProjectDependencyVerifier.Verify(config, [project]);
+
+			Assert.True(Assert.Single(project.NuGetDependencies).IsProjectReference);
 		}
 
 		[Fact]

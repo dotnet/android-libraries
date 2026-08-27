@@ -20,18 +20,18 @@
     @foreach (var art in @Model.MavenArtifacts) {
       if (art.MavenArtifactPackaging == "aar") {
         if ((System.Environment.GetEnvironmentVariable("LOCAL_TEST_PKG") ?? "") == "true") {
-    <AndroidLibrary Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId).aar" Pack="false" />
+    <AndroidLibrary Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId()).aar" Pack="false" />
 
         } else {
-    <InputJar Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId)\classes.jar" />
+    <InputJar Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId())\classes.jar" />
     <!-- For those artifacts with lib/ folder -->
     <InputJar
-      Condition="Exists('..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId)\libs\')"
-      Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId)\libs\*.jar"
+      Condition="Exists('..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId())\libs\')"
+      Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId())\libs\*.jar"
       />
         }
       } else {
-    <EmbeddedJar Include="..\..\externals\@(art.MavenGroupId)\@(art.MavenArtifactId).jar" />
+    <EmbeddedJar Include="..\..\externals\@(art.MavenGroupId)\@(art.GetExternalArtifactId()).jar" />
       }
     }
   </ItemGroup>

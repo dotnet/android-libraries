@@ -33,7 +33,7 @@ public class TemplateConfig
 		var p = OutputFileRule
 				 .Replace ("{generated}", config.GeneratedDir)
 				 .Replace ("{groupid}", model.MavenGroupId)
-				 .Replace ("{artifactid}", model.MavenArtifacts?.FirstOrDefault ()?.MavenArtifactId ?? "")
+				 .Replace ("{artifactid}", model.GetGeneratedArtifactId ())
 				 .Replace ("{name}", model.Name)
 				 .Replace ("{nugetid}", model.NuGetPackageId);
 

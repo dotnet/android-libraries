@@ -40,7 +40,7 @@ static class BindingProjectDependencyVerifier
 			}
 
 			projectModel.NuGetDependencies.Add (new NuGetDependencyModel {
-				IsProjectReference = !depMapping.DependencyOnly,
+				IsProjectReference = !depMapping.DependencyOnly || depMapping.GeneratePackage,
 				NuGetPackageId = depMapping.NugetPackageId,
 				NuGetVersionBase = depMapping.NugetVersion,
 				NuGetVersionSuffix = config.NugetVersionSuffix,

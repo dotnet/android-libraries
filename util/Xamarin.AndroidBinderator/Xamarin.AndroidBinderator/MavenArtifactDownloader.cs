@@ -23,7 +23,7 @@ static class MavenArtifactDownloader
 			if (config_artifact is null)
 				throw new InvalidOperationException ($"No MavenArtifactConfig found for {artifact}");
 
-			if (config_artifact.DependencyOnly)
+			if (config_artifact.DependencyOnly && !config_artifact.GeneratePackage)
 				continue;
 
 			// Find and download the artifact payload
@@ -44,12 +44,13 @@ static class MavenArtifactDownloader
 			var output_dir = Path.Combine (externals_dir, artifact.MavenGroupId!);
 			Directory.CreateDirectory (output_dir);
 
-			var output_file = Path.Combine (output_dir, $"{config_artifact.ArtifactId}{Path.GetExtension (artifact_file)}");
+			var external_artifact_id = config_artifact.GetGeneratedArtifactId ();
+			var output_file = Path.Combine (output_dir, $"{external_artifact_id}{Path.GetExtension (artifact_file)}");
 			File.Copy (artifact_file, output_file, overwrite: true);
 
 			// Extract .aar files
 			if (Path.GetExtension (artifact_file) == ".aar") {
-				var extract_dir = Path.Combine (output_dir, config_artifact.ArtifactId!);
+				var extract_dir = Path.Combine (output_dir, external_artifact_id);
 
 				if (Directory.Exists (extract_dir))
 					Directory.Delete (extract_dir, true);
@@ -99,7 +100,8 @@ static class MavenArtifactDownloader
 		var art = artifact.ToArtifact ();
 		var artifact_model = artifact.MavenArtifacts.First ();
 		var artifact_dir = Path.Combine (config.BasePath!, config.ExternalsDir, art.GroupId!);
-		var base_output_file_name = config.DownloadExternalsWithFullName ? $"{art.GroupId}.{art.Id}" : $"{art.Id}";
+		var external_artifact_id = artifact_model.MavenArtifactConfig!.GetGeneratedArtifactId ();
+		var base_output_file_name = config.DownloadExternalsWithFullName ? $"{art.GroupId}.{external_artifact_id}" : external_artifact_id;
 		var repository = MavenFactory2.GetMavenRepository (config, artifact_model.MavenArtifactConfig!);
 
 		if (config.DownloadJavaSourceJars) {
