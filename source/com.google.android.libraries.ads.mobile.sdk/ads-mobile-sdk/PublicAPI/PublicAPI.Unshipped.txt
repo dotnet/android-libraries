@@ -111,6 +111,7 @@ Google.Android.Gms.Ads.Mediation.ContextChangedEventArgs
 Google.Android.Gms.Ads.Mediation.ContextChangedEventArgs.ContextChangedEventArgs(Android.Content.Context! newContext) -> void
 Google.Android.Gms.Ads.Mediation.ContextChangedEventArgs.NewContext.get -> Android.Content.Context!
 Google.Android.Gms.Ads.Mediation.IInitializationCompleteCallback
+Google.Android.Gms.Ads.Mediation.IInitializationCompleteCallback.OnInitializationFailed(Google.Android.Gms.Ads.AdError! error) -> void
 Google.Android.Gms.Ads.Mediation.IInitializationCompleteCallback.OnInitializationFailed(string! error) -> void
 Google.Android.Gms.Ads.Mediation.IInitializationCompleteCallback.OnInitializationSucceeded() -> void
 Google.Android.Gms.Ads.Mediation.IMediationAdCallback
@@ -1363,6 +1364,39 @@ Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.MediaAspect
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.NativeAdTypes.get -> System.Collections.Generic.IList<Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdNativeAdType!>!
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.NativeSignalRequest(string? p0, string? p1, Java.Util.LinkedHashSet? p2, string? p3, Java.Util.LinkedHashMap? p4, Android.OS.Bundle? p5, Java.Util.HashSet? p6, Java.Util.HashSet? p7, Java.Util.LinkedHashMap? p8, string? p9, string? p10, System.Collections.IList? p11, System.Collections.IList? p12, bool p13, Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdNativeMediaAspectRatio? p14, Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdChoicesPlacement? p15, Google.Android.Libraries.Ads.Mobile.Sdk.Common.VideoOptions? p16, Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection? p17, bool p18, Google.Android.Libraries.Ads.Mobile.Sdk.Banner.AdSize? p19, System.Collections.IList? p20, bool p21, int p22) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.VideoOptions.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Common.VideoOptions?
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.AdEventCallback.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAdEventCallback?
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.AdEventCallback.set -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.Hide() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.Position.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.PresentationScope.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAd.Show(Android.App.Activity! activity, Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions! options) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAdEventCallback
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAdEventCallback.OnAdHidden() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.IPictureInPictureAdEventCallback.OnAdShown() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAd
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion.Load(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest! adRequest, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdConsts
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder.Builder() -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder.SetPosition(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition! position) -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder.SetPresentationScope(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope! presentationScope) -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.PictureInPictureAdOptions(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope? p0, Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition? p1, int p2) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Position.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.PresentationScope.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.Builder
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.Builder.Build() -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest!
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.Builder.Builder(string! adUnitId) -> void
+Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.PictureInPictureAdRequest(string? p0, Java.Util.LinkedHashSet? p1, string? p2, Java.Util.LinkedHashMap? p3, Android.OS.Bundle? p4, Java.Util.HashSet? p5, Java.Util.HashSet? p6, Java.Util.LinkedHashMap? p7, string? p8, string? p9, long p10, bool p11, int p12) -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.IOnAdMetadataChangedListener
 Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.IOnAdMetadataChangedListener.OnAdMetadataChanged() -> void
 Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.IOnUserEarnedRewardListener
@@ -1910,6 +1944,13 @@ override Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDi
 override Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdView.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeSignalRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAdCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAdPreloaderCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAdPreloaderCompanion.Start(string! preloadId, Google.Android.Libraries.Ads.Mobile.Sdk.Common.PreloadConfiguration! preloadConfiguration) -> bool
@@ -2174,6 +2215,17 @@ static Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDire
 static Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection.Right.get -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection?
 static Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection.Up.get -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection?
 static Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection.Values() -> Google.Android.Libraries.Ads.Mobile.Sdk.NativeAd.NativeAdSwipeGestureDirection![]?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAd.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdCompanion!
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.BottomLeft.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.BottomRight.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.Default.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.TopLeft.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.TopRight.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition.Values() -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPosition![]?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope.Application.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope.Screen.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope?
+static Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope.Values() -> Google.Android.Libraries.Ads.Mobile.Sdk.Pip.PictureInPictureAdPresentationScope![]?
 static Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAd.Companion.get -> Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAdCompanion!
 static Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAd.Load(Google.Android.Libraries.Ads.Mobile.Sdk.Common.AdRequest! adRequest, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
 static Google.Android.Libraries.Ads.Mobile.Sdk.Rewarded.RewardedAd.LoadFromAdResponse(string! adResponse, Google.Android.Libraries.Ads.Mobile.Sdk.Common.IAdLoadCallback! adLoadCallback) -> void
