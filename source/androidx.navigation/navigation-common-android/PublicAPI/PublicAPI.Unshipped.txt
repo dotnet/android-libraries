@@ -27,7 +27,8 @@ AndroidX.Navigation.INavDirections.ActionId.get -> int
 AndroidX.Navigation.INavDirections.Arguments.get -> Android.OS.Bundle!
 AndroidX.Navigation.INavOptionsDsl
 AndroidX.Navigation.INavViewModelStoreProvider
-AndroidX.Navigation.INavViewModelStoreProvider.GetViewModelStore(string! backStackEntryId) -> AndroidX.Lifecycle.ViewModelStore!
+AndroidX.Navigation.INavViewModelStoreProvider.Clear(string! key) -> void
+AndroidX.Navigation.INavViewModelStoreProvider.Get(string! key) -> AndroidX.Lifecycle.ViewModelStore!
 AndroidX.Navigation.ISupportingPane
 AndroidX.Navigation.Internal.NavContext
 AndroidX.Navigation.Internal.NavContext.Application.get -> Java.Lang.Object?
@@ -89,6 +90,7 @@ AndroidX.Navigation.NavBackStackEntry
 AndroidX.Navigation.NavBackStackEntry.Arguments.get -> Android.OS.Bundle?
 AndroidX.Navigation.NavBackStackEntry.Companion
 AndroidX.Navigation.NavBackStackEntry.Companion.Create(AndroidX.Navigation.Internal.NavContext? context, AndroidX.Navigation.NavDestination! destination, Android.OS.Bundle? arguments, AndroidX.Lifecycle.Lifecycle.State! hostLifecycleState, AndroidX.Navigation.INavViewModelStoreProvider? viewModelStoreProvider, string! id, Android.OS.Bundle? savedState) -> AndroidX.Navigation.NavBackStackEntry!
+AndroidX.Navigation.NavBackStackEntry.Companion.Create(AndroidX.Navigation.NavBackStackEntry! entry, Android.OS.Bundle? arguments) -> AndroidX.Navigation.NavBackStackEntry!
 AndroidX.Navigation.NavBackStackEntry.DefaultViewModelCreationExtras.get -> AndroidX.Lifecycle.ViewModels.CreationExtras!
 AndroidX.Navigation.NavBackStackEntry.DefaultViewModelProviderFactory.get -> AndroidX.Lifecycle.ViewModelProvider.IFactory!
 AndroidX.Navigation.NavBackStackEntry.Destination.get -> AndroidX.Navigation.NavDestination!
@@ -98,7 +100,6 @@ AndroidX.Navigation.NavBackStackEntry.Id.get -> string!
 AndroidX.Navigation.NavBackStackEntry.Lifecycle.get -> AndroidX.Lifecycle.Lifecycle!
 AndroidX.Navigation.NavBackStackEntry.MaxLifecycle.get -> AndroidX.Lifecycle.Lifecycle.State!
 AndroidX.Navigation.NavBackStackEntry.MaxLifecycle.set -> void
-AndroidX.Navigation.NavBackStackEntry.NavBackStackEntry(AndroidX.Navigation.NavBackStackEntry! entry, Android.OS.Bundle? arguments) -> void
 AndroidX.Navigation.NavBackStackEntry.SaveState(Android.OS.Bundle! outBundle) -> void
 AndroidX.Navigation.NavBackStackEntry.SavedStateHandle.get -> AndroidX.Lifecycle.SavedStateHandle!
 AndroidX.Navigation.NavBackStackEntry.SavedStateRegistry.get -> AndroidX.SavedState.SavedStateRegistry!
@@ -333,6 +334,7 @@ AndroidX.Navigation.NavType.SerializableType.SerializableType(nint javaReference
 AndroidX.Navigation.NavTypeKt
 AndroidX.Navigation.NavUriKt
 AndroidX.Navigation.NavUri_androidKt
+AndroidX.Navigation.NavViewModelStoreProviderKt
 AndroidX.Navigation.Navigator
 AndroidX.Navigation.Navigator.IExtras
 AndroidX.Navigation.Navigator.IName
@@ -458,6 +460,7 @@ override AndroidX.Navigation.NavType.ThresholdType.get -> System.Type!
 override AndroidX.Navigation.NavTypeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Navigation.NavUriKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Navigation.NavUri_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Navigation.NavViewModelStoreProviderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Navigation.Navigator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Navigation.Navigator.ThresholdClass.get -> nint
 override AndroidX.Navigation.Navigator.ThresholdType.get -> System.Type!
@@ -484,7 +487,9 @@ override AndroidX.Navigation.Serialization.RouteSerializerKt.JniPeerMembers.get 
 static AndroidX.Navigation.NamedNavArgumentKt.NavArgument(string! name, Kotlin.Jvm.Functions.IFunction1! builder) -> AndroidX.Navigation.NamedNavArgument!
 static AndroidX.Navigation.NavArgsLazy_androidKt.GetMethodSignature() -> Java.Lang.Class![]!
 static AndroidX.Navigation.NavArgsLazy_androidKt.MethodMap.get -> AndroidX.Collection.ArrayMap!
-static AndroidX.Navigation.NavBackStackEntryKt.ToRoute(AndroidX.Navigation.NavBackStackEntry! obj, Kotlin.Reflect.IKClass! route) -> Java.Lang.Object?
+static AndroidX.Navigation.NavBackStackEntryKt.RandomUuid() -> string!
+static AndroidX.Navigation.NavBackStackEntryKt.SetPlatformExtras(AndroidX.Lifecycle.ViewModels.MutableCreationExtras! _this_setPlatformExtras, AndroidX.Navigation.Internal.NavContext? context) -> void
+static AndroidX.Navigation.NavBackStackEntryKt.ToRoute(AndroidX.Navigation.NavBackStackEntry! _this_toRoute, Kotlin.Reflect.IKClass! route) -> Java.Lang.Object?
 static AndroidX.Navigation.NavDeepLink.Builder.FromAction(string! action) -> AndroidX.Navigation.NavDeepLink.Builder!
 static AndroidX.Navigation.NavDeepLink.Builder.FromMimeType(string! mimeType) -> AndroidX.Navigation.NavDeepLink.Builder!
 static AndroidX.Navigation.NavDeepLink.Builder.FromUriPattern(string! uriPattern) -> AndroidX.Navigation.NavDeepLink.Builder!
@@ -540,6 +545,7 @@ static AndroidX.Navigation.NavType.StringType.get -> AndroidX.Navigation.NavType
 static AndroidX.Navigation.NavTypeKt.ParseAndPutFromUri(AndroidX.Navigation.NavType! obj, Android.OS.Bundle! bundle, string! key, string! value) -> Java.Lang.Object?
 static AndroidX.Navigation.NavTypeKt.ParseAndPutFromUri(AndroidX.Navigation.NavType! obj, Android.OS.Bundle! bundle, string! key, string! value, Java.Lang.Object? previousValue) -> Java.Lang.Object?
 static AndroidX.Navigation.NavUriKt.NavUri(string! uriString) -> Android.Net.Uri!
+static AndroidX.Navigation.NavViewModelStoreProviderKt.NavViewModelStoreProvider(AndroidX.Lifecycle.ViewModelStore? viewModelStore) -> AndroidX.Navigation.INavViewModelStoreProvider!
 static AndroidX.Navigation.NavigatorProviderKt.Get(AndroidX.Navigation.NavigatorProvider! _this_get, Kotlin.Reflect.IKClass! clazz) -> Java.Lang.Object!
 static AndroidX.Navigation.NavigatorProviderKt.Get(AndroidX.Navigation.NavigatorProvider! _this_get, string! name) -> Java.Lang.Object!
 static AndroidX.Navigation.NavigatorProviderKt.PlusAssign(AndroidX.Navigation.NavigatorProvider! _this_plusAssign, AndroidX.Navigation.Navigator! navigator) -> void

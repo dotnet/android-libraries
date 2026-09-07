@@ -62,7 +62,13 @@ AndroidX.Wear.Compose.Foundation.CurvedSizeKt
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.Background.get -> long
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.Color.get -> long
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.Copy(long background, long color, long fontSize, AndroidX.Compose.UI.Text.Font.FontFamily? fontFamily, AndroidX.Compose.UI.Text.Font.FontWeight? fontWeight, AndroidX.Compose.UI.Text.Font.FontStyle? fontStyle, AndroidX.Compose.UI.Text.Font.FontSynthesis? fontSynthesis, long letterSpacing, long letterSpacingCounterClockwise, long lineHeight, sbyte warpOffset) -> AndroidX.Wear.Compose.Foundation.CurvedTextStyle!
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.CurvedTextStyle(AndroidX.Compose.UI.Text.TextStyle! style) -> void
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.FontFamily.get -> AndroidX.Compose.UI.Text.Font.FontFamily?
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.FontSize.get -> long
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.FontStyle.get -> AndroidX.Compose.UI.Text.Font.FontStyle?
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.FontSynthesis.get -> AndroidX.Compose.UI.Text.Font.FontSynthesis?
+AndroidX.Wear.Compose.Foundation.CurvedTextStyle.FontWeight.get -> AndroidX.Compose.UI.Text.Font.FontWeight?
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.GetWarpOffset() -> sbyte
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.LetterSpacing.get -> long
 AndroidX.Wear.Compose.Foundation.CurvedTextStyle.LetterSpacingCounterClockwise.get -> long
@@ -81,6 +87,8 @@ AndroidX.Wear.Compose.Foundation.CurvedTextStyle.WarpOffset.Companion.Unspecifie
 AndroidX.Wear.Compose.Foundation.CurvedTextStyleKt
 AndroidX.Wear.Compose.Foundation.CustomTouchSlopProviderKt
 AndroidX.Wear.Compose.Foundation.ExpandableItemsDefaults
+AndroidX.Wear.Compose.Foundation.ExpandableItemsDefaults.CollapseAnimationSpec.get -> AndroidX.Compose.Animation.Core.IAnimationSpec!
+AndroidX.Wear.Compose.Foundation.ExpandableItemsDefaults.ExpandAnimationSpec.get -> AndroidX.Compose.Animation.Core.IAnimationSpec!
 AndroidX.Wear.Compose.Foundation.ExpandableKt
 AndroidX.Wear.Compose.Foundation.ExpandableState
 AndroidX.Wear.Compose.Foundation.ExpandableState.Companion
@@ -97,6 +105,8 @@ AndroidX.Wear.Compose.Foundation.IAmbientModeManager
 AndroidX.Wear.Compose.Foundation.IAmbientModeManager.CurrentAmbientMode.get -> AndroidX.Wear.Compose.Foundation.AmbientMode!
 AndroidX.Wear.Compose.Foundation.IAmbientModeManager.WithAmbientTick(Kotlin.Jvm.Functions.IFunction0! block, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
 AndroidX.Wear.Compose.Foundation.IArcPaddingValues
+AndroidX.Wear.Compose.Foundation.IArcPaddingValues.CalculateAfterPadding(AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, int p1) -> float
+AndroidX.Wear.Compose.Foundation.IArcPaddingValues.CalculateBeforePadding(AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, int p1) -> float
 AndroidX.Wear.Compose.Foundation.IArcPaddingValues.CalculateInnerPadding(int p0) -> float
 AndroidX.Wear.Compose.Foundation.IArcPaddingValues.CalculateOuterPadding(int p0) -> float
 AndroidX.Wear.Compose.Foundation.ICurvedAlignment
@@ -106,6 +116,7 @@ AndroidX.Wear.Compose.Foundation.ICurvedModifier.Companion.get -> AndroidX.Wear.
 AndroidX.Wear.Compose.Foundation.ICurvedModifier.Then(AndroidX.Wear.Compose.Foundation.ICurvedModifier! other) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
 AndroidX.Wear.Compose.Foundation.IExperimentalWearFoundationApi
 AndroidX.Wear.Compose.Foundation.IGestureInclusion
+AndroidX.Wear.Compose.Foundation.IGestureInclusion.IgnoreGestureStart(long p0, AndroidX.Compose.UI.Layout.ILayoutCoordinates! layoutCoordinates) -> bool
 AndroidX.Wear.Compose.Foundation.IScrollInfoProvider
 AndroidX.Wear.Compose.Foundation.IScrollInfoProvider.AnchorItemOffset.get -> float
 AndroidX.Wear.Compose.Foundation.IScrollInfoProvider.IsScrollAwayValid.get -> bool
@@ -115,6 +126,13 @@ AndroidX.Wear.Compose.Foundation.IScrollInfoProvider.LastItemOffset.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.AutoCenteringParams
 AndroidX.Wear.Compose.Foundation.Lazy.AutoCenteringParams.AutoCenteringParams() -> void
 AndroidX.Wear.Compose.Foundation.Lazy.AutoCenteringParams.AutoCenteringParams(int itemIndex, int itemOffset) -> void
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.CalculateBottomPadding() -> float
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.CalculateLeftPadding(AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection) -> float
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.CalculateRightPadding(AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection) -> float
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.CalculateTopPadding() -> float
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.ContentPadding.get -> AndroidX.Compose.Foundation.Layout.IPaddingValues!
+AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.ExtraPadding.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo.Alpha.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo.Index.get -> int
@@ -125,12 +143,16 @@ AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo.Size.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo.UnadjustedOffset.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo.UnadjustedSize.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemScope
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemScope.FillParentMaxHeight(AndroidX.Compose.UI.IModifier! p0, float fraction) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemScope.FillParentMaxSize(AndroidX.Compose.UI.IModifier! p0, float fraction) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemScope.FillParentMaxWidth(AndroidX.Compose.UI.IModifier! p0, float fraction) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.AfterAutoCenteringPadding.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.AfterContentPadding.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.AnchorType.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.BeforeAutoCenteringPadding.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.BeforeContentPadding.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.Orientation.get -> AndroidX.Compose.Foundation.Gestures.Orientation!
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.ReverseLayout.get -> bool
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.TotalItemsCount.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.ViewportEndOffset.get -> int
@@ -138,6 +160,8 @@ AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.ViewportSize.ge
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.ViewportStartOffset.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo.VisibleItemsInfo.get -> System.Collections.Generic.IList<AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListItemInfo!>!
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope.Item(Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction3! p1) -> void
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope.Items(int count, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction4! p2) -> void
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyScopeMarker
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.EdgeAlpha.get -> float
@@ -147,7 +171,14 @@ AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.MaxTransitionArea.get -> fl
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.MinElementHeight.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.MinTransitionArea.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.ResolveViewportVerticalOffset(long p0) -> int
+AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams.ScaleInterpolator.get -> AndroidX.Compose.Animation.Core.IEasing!
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.AnimateItem(AndroidX.Compose.UI.IModifier! p0, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? fadeInSpec, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? placementSpec, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec? fadeOutSpec) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.GetScrollProgress(AndroidX.Compose.UI.Graphics.Drawscope.IDrawScope! p0) -> long
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.GetScrollProgress(AndroidX.Compose.UI.Graphics.IGraphicsLayerScope! p0) -> long
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.MinimumVerticalContentPadding(AndroidX.Compose.UI.IModifier! p0, float p1) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.MinimumVerticalContentPadding(AndroidX.Compose.UI.IModifier! p0, float p1, float p2) -> AndroidX.Compose.UI.IModifier!
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnItemScope.TransformedHeight(AndroidX.Compose.UI.IModifier! p0, Kotlin.Jvm.Functions.IFunction2! heightProvider) -> AndroidX.Compose.UI.IModifier!
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo.AfterContentPadding.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo.BeforeContentPadding.get -> int
@@ -156,6 +187,8 @@ AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo.TotalIte
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo.ViewportSize.get -> long
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo.VisibleItems.get -> System.Collections.Generic.IList<AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnVisibleItemInfo!>!
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScope
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScope.Item(Java.Lang.Object? key, Java.Lang.Object? contentType, Kotlin.Jvm.Functions.IFunction3! p2) -> void
+AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScope.Items(int count, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction1! contentType, Kotlin.Jvm.Functions.IFunction4! p3) -> void
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScopeMarker
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnVisibleItemInfo
 AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnVisibleItemInfo.ContentType.get -> Java.Lang.Object?
@@ -176,17 +209,36 @@ AndroidX.Wear.Compose.Foundation.Lazy.ScaleAndAlpha.Copy(float scale, float alph
 AndroidX.Wear.Compose.Foundation.Lazy.ScaleAndAlpha.Scale.get -> float
 AndroidX.Wear.Compose.Foundation.Lazy.ScaleAndAlpha.ScaleAndAlpha(float scale, float alpha) -> void
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnDefaults
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnDefaults.ScalingParams(float edgeScale, float edgeAlpha, float minElementHeight, float maxElementHeight, float minTransitionArea, float maxTransitionArea, AndroidX.Compose.Animation.Core.IEasing! scaleInterpolator, Kotlin.Jvm.Functions.IFunction1! viewportVerticalOffsetResolver) -> AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams!
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnDefaults.SnapFlingBehavior(AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState! state, float snapOffset, AndroidX.Compose.Animation.Core.IDecayAnimationSpec? decay, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Foundation.Gestures.IFlingBehavior!
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnMeasureKt
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType.Companion
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType.Companion.ItemCenter_ZuIr4RU.get -> int
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType.Companion.ItemStart_ZuIr4RU.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.AnimateScrollToItem(int index, int scrollOffset, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.CanScrollBackward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.CanScrollForward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.CenterItemIndex.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.CenterItemScrollOffset.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.Companion
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.DispatchRawDelta(float delta) -> float
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.IsScrollInProgress.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.LastScrolledBackward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.LastScrolledForward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.LayoutInfo.get -> AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListLayoutInfo!
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.ScalingLazyListState() -> void
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.ScalingLazyListState(int initialCenterItemIndex, int initialCenterItemScrollOffset) -> void
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.Scroll(AndroidX.Compose.Foundation.MutatePriority! scrollPriority, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.ScrollToItem(int index, int scrollOffset, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListStateKt
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyScopeMarkerAttribute
 AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyScopeMarkerAttribute.ScalingLazyScopeMarkerAttribute() -> void
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnContentPaddingMeasurementStrategyKt
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDefaults
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDefaults.SnapFlingBehavior(AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState! state, float snapOffset, AndroidX.Compose.Animation.Core.IDecayAnimationSpec? decay, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Foundation.Gestures.IFlingBehavior!
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDslKt
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnItemScrollProgress
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnItemScrollProgress.Companion
@@ -200,15 +252,50 @@ AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnScopeMarkerAttribute
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnScopeMarkerAttribute.TransformingLazyColumnScopeMarkerAttribute() -> void
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnScrollScopeKt
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnSemanticStateKt
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.AnchorItemIndex.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.AnchorItemScrollOffset.get -> int
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.AnimateScrollToItem(int index, int scrollOffset, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.CanScrollBackward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.CanScrollForward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.DispatchRawDelta(float delta) -> float
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.IsScrollInProgress.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.LastScrolledBackward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.LastScrolledForward.get -> bool
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.LayoutInfo.get -> AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnLayoutInfo!
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.RequestScrollToItem(int index, int scrollOffset) -> void
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.Scroll(AndroidX.Compose.Foundation.MutatePriority! scrollPriority, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.ScrollToItem(int index, int scrollOffset, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.TransformingLazyColumnState() -> void
+AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.TransformingLazyColumnState(int initialAnchorItemIndex, int initialAnchorItemScrollOffset) -> void
 AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnStateKt
 AndroidX.Wear.Compose.Foundation.LocalAmbientModeManagerKt
 AndroidX.Wear.Compose.Foundation.Pager.IPagerLayoutInfo
+AndroidX.Wear.Compose.Foundation.Pager.IPagerLayoutInfo.Orientation.get -> AndroidX.Compose.Foundation.Gestures.Orientation!
 AndroidX.Wear.Compose.Foundation.Pager.IPagerLayoutInfo.PageSize.get -> int
 AndroidX.Wear.Compose.Foundation.Pager.IPagerScope
 AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults
 AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.BeyondViewportPageCount.get -> int
+AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.GestureInclusion(AndroidX.Wear.Compose.Foundation.Pager.PagerState! state, float edgeZoneFraction, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Wear.Compose.Foundation.IGestureInclusion!
 AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.LeftEdgeZoneFraction.get -> float
+AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.SnapAnimationSpec.get -> AndroidX.Compose.Animation.Core.IAnimationSpec!
+AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.SnapFlingBehavior(AndroidX.Wear.Compose.Foundation.Pager.PagerState! state, int p1, AndroidX.Compose.Animation.Core.IDecayAnimationSpec? decayAnimationSpec, AndroidX.Compose.Animation.Core.IAnimationSpec? snapAnimationSpec, float snapPositionalThreshold, AndroidX.Compose.Runtime.IComposer? _composer, int maxFlingPages, int _changed) -> AndroidX.Compose.Foundation.Gestures.ITargetedFlingBehavior!
 AndroidX.Wear.Compose.Foundation.Pager.PagerKt
+AndroidX.Wear.Compose.Foundation.Pager.PagerState
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.AnimateScrollToPage(int page, float pageOffsetFraction, AndroidX.Compose.Animation.Core.IAnimationSpec! animationSpec, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.Companion
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.CurrentPage.get -> int
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.CurrentPageOffsetFraction.get -> float
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.DispatchRawDelta(float delta) -> float
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.InteractionSource.get -> AndroidX.Compose.Foundation.Interaction.IInteractionSource!
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.IsScrollInProgress.get -> bool
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.LayoutInfo.get -> AndroidX.Wear.Compose.Foundation.Pager.IPagerLayoutInfo!
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.PageCount.get -> int
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.PagerState(int currentPage, float currentPageOffsetFraction, Kotlin.Jvm.Functions.IFunction0! pageCount) -> void
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.Scroll(AndroidX.Compose.Foundation.MutatePriority! scrollPriority, Kotlin.Jvm.Functions.IFunction2! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.ScrollToPage(int page, float pageOffsetFraction, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.SettledPage.get -> int
+AndroidX.Wear.Compose.Foundation.Pager.PagerState.TargetPage.get -> int
 AndroidX.Wear.Compose.Foundation.Pager.PagerStateKt
 AndroidX.Wear.Compose.Foundation.ResourcesKt
 AndroidX.Wear.Compose.Foundation.RevealActionType
@@ -234,6 +321,7 @@ AndroidX.Wear.Compose.Foundation.RevealState.RevealThreshold.get -> float
 AndroidX.Wear.Compose.Foundation.RevealState.SnapTo(int p0, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Wear.Compose.Foundation.RevealState.SwipeAnchors.get -> System.Collections.Generic.IDictionary<AndroidX.Wear.Compose.Foundation.RevealValue!, Java.Lang.Float!>!
 AndroidX.Wear.Compose.Foundation.RevealState.TargetValue.get -> int
+AndroidX.Wear.Compose.Foundation.RevealState.Width.get -> AndroidX.Compose.Runtime.IMutableFloatState!
 AndroidX.Wear.Compose.Foundation.RevealValue
 AndroidX.Wear.Compose.Foundation.RevealValue.Companion
 AndroidX.Wear.Compose.Foundation.RevealValue.Companion.Covered_EhNvi2Q.get -> int
@@ -245,15 +333,22 @@ AndroidX.Wear.Compose.Foundation.RevealValue.Value.get -> int
 AndroidX.Wear.Compose.Foundation.Rotary.FocusTargetWithSemanticsKt
 AndroidX.Wear.Compose.Foundation.Rotary.HapticsKt
 AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior
+AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior.PerformScroll(Xamarin.KotlinX.Coroutines.ICoroutineScope! p0, long timestampMillis, float delta, int inputDeviceId, AndroidX.Compose.Foundation.Gestures.Orientation! orientation, Kotlin.Coroutines.IContinuation! p5) -> Java.Lang.Object?
 AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider
 AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider.AverageItemSize.get -> float
 AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider.CurrentItemIndex.get -> int
 AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider.CurrentItemOffset.get -> float
 AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider.TotalItemCount.get -> int
 AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults
+AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.Behavior(AndroidX.Compose.Foundation.Gestures.IScrollableState! scrollableState, AndroidX.Compose.Foundation.Gestures.IFlingBehavior? flingBehavior, bool hapticFeedbackEnabled, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior!
+AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.SnapBehavior(AndroidX.Compose.Foundation.Gestures.IScrollableState! scrollableState, AndroidX.Wear.Compose.Foundation.Rotary.IRotarySnapLayoutInfoProvider! layoutInfoProvider, float snapOffset, bool hapticFeedbackEnabled, float snapSensitivity, AndroidX.Compose.Runtime.IComposer? _composer, int p6, int _changed) -> AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior!
+AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.SnapBehavior(AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState! scrollableState, float snapOffset, bool hapticFeedbackEnabled, float snapSensitivity, AndroidX.Compose.Runtime.IComposer? _composer, int p5, int _changed) -> AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior!
+AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.SnapBehavior(AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState! scrollableState, float snapOffset, bool hapticFeedbackEnabled, float snapSensitivity, AndroidX.Compose.Runtime.IComposer? _composer, int p5, int _changed) -> AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior!
+AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.SnapBehavior(AndroidX.Wear.Compose.Foundation.Pager.PagerState! pagerState, float snapOffset, bool hapticFeedbackEnabled, float snapSensitivity, AndroidX.Compose.Runtime.IComposer? _composer, int p5, int _changed) -> AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior!
 AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableKt
 AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxDefaults
+AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxDefaults.AnimationSpec.get -> AndroidX.Compose.Animation.Core.SpringSpec!
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxDefaults.EdgeWidth.get -> float
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.CurrentValue.get -> AndroidX.Wear.Compose.Foundation.SwipeToDismissValue!
@@ -262,6 +357,7 @@ AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.Offset.get -> float
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.RequireOffset() -> float
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.SnapTo(AndroidX.Wear.Compose.Foundation.SwipeToDismissValue! targetValue, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.SwipeToDismissBoxState() -> void
+AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.SwipeToDismissBoxState(AndroidX.Compose.Animation.Core.IAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction1! confirmStateChange) -> void
 AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState.TargetValue.get -> AndroidX.Wear.Compose.Foundation.SwipeToDismissValue!
 AndroidX.Wear.Compose.Foundation.SwipeToDismissKeys
 AndroidX.Wear.Compose.Foundation.SwipeToDismissValue
@@ -277,6 +373,7 @@ AndroidX.Wear.Compose.Foundation.SwipeableV2Kt.WhenMappings
 AndroidX.Wear.Compose.Foundation.TouchExplorationStateProviderKt
 AndroidX.Wear.Compose.Foundation.WarpedCurvedTextRendererKt
 AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags
+const AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.OffsetToTriggerInitialPin = -1000000 -> int
 const AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.HighSnapSensitivity = 0.8 -> float
 const AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.LowSnapSensitivity = 0.4 -> float
 override AndroidX.Wear.Compose.Foundation.AmbientMode.Ambient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -325,6 +422,7 @@ override AndroidX.Wear.Compose.Foundation.ExpandableStateMapping.JniPeerMembers.
 override AndroidX.Wear.Compose.Foundation.HierarchicalFocusCoordinatorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.HierarchicalFocusKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.AutoCenteringParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Lazy.CombinedPaddingValues.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.Layout.LazyLayoutItemAnimationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.Layout.LazyLayoutMeasuredItemKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.ScaleAndAlpha.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -334,6 +432,8 @@ override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.JniPeerMember
 override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnMeasureKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListAnchorType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnContentPaddingMeasurementStrategyKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -347,10 +447,13 @@ override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnMeasurement
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnMeasurementStrategyKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnScrollScopeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnSemanticStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.LocalAmbientModeManagerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Pager.PagerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Pager.PagerState.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Wear.Compose.Foundation.Pager.PagerState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.Pager.PagerStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.ResourcesKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Wear.Compose.Foundation.RevealActionType.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -378,9 +481,24 @@ override AndroidX.Wear.Compose.Foundation.WarpedCurvedTextRendererKt.JniPeerMemb
 override AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Wear.Compose.Foundation.AmbientMode.Interactive.Instance.get -> AndroidX.Wear.Compose.Foundation.AmbientMode.Interactive!
 static AndroidX.Wear.Compose.Foundation.BasicCurvedTextKt.BasicCurvedText(AndroidX.Wear.Compose.Foundation.CurvedScope! obj, string! text, AndroidX.Wear.Compose.Foundation.CurvedTextStyle! style, AndroidX.Wear.Compose.Foundation.ICurvedModifier! modifier, AndroidX.Wear.Compose.Foundation.CurvedDirectionAngular? angularDirection, int overflow) -> void
+static AndroidX.Wear.Compose.Foundation.BasicCurvedTextKt.BasicCurvedText(AndroidX.Wear.Compose.Foundation.CurvedScope! obj, string! text, AndroidX.Wear.Compose.Foundation.ICurvedModifier! modifier, AndroidX.Wear.Compose.Foundation.CurvedDirectionAngular? angularDirection, int overflow, Kotlin.Jvm.Functions.IFunction2! style) -> void
+static AndroidX.Wear.Compose.Foundation.BasicSwipeToDismissBoxKt.BasicSwipeToDismissBox(AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState! state, AndroidX.Compose.UI.IModifier? modifier, Java.Lang.Object? backgroundKey, Java.Lang.Object? contentKey, bool userSwipeEnabled, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.BasicSwipeToDismissBoxKt.BasicSwipeToDismissBox(Kotlin.Jvm.Functions.IFunction0! onDismissed, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState? state, Java.Lang.Object? backgroundKey, Java.Lang.Object? contentKey, bool userSwipeEnabled, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.BasicSwipeToDismissBoxKt.EdgeSwipeToDismiss(AndroidX.Compose.UI.IModifier! obj, AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState! swipeToDismissBoxState, float edgeWidth) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Wear.Compose.Foundation.BasicSwipeToDismissBoxKt.RememberSwipeToDismissBoxState(AndroidX.Compose.Animation.Core.IAnimationSpec? animationSpec, Kotlin.Jvm.Functions.IFunction1? confirmStateChange, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxState!
+static AndroidX.Wear.Compose.Foundation.CompositionLocalsKt.LocalReduceMotion.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Wear.Compose.Foundation.CompositionLocalsKt.LocalScreenIsActive.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Wear.Compose.Foundation.CompositionLocalsKt.LocalSwipeToDismissBackgroundScrimColor.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Wear.Compose.Foundation.CompositionLocalsKt.LocalSwipeToDismissContentScrimColor.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Wear.Compose.Foundation.CurvedBoxKt.CurvedBox(AndroidX.Wear.Compose.Foundation.CurvedScope! obj, AndroidX.Wear.Compose.Foundation.ICurvedModifier! modifier, AndroidX.Wear.Compose.Foundation.CurvedAlignmentRadial? radialAlignment, AndroidX.Wear.Compose.Foundation.CurvedAlignmentAngular? angularAlignment, Kotlin.Jvm.Functions.IFunction1! contentBuilder) -> void
 static AndroidX.Wear.Compose.Foundation.CurvedColumnKt.CurvedColumn(AndroidX.Wear.Compose.Foundation.CurvedScope! obj, AndroidX.Wear.Compose.Foundation.ICurvedModifier! modifier, AndroidX.Wear.Compose.Foundation.CurvedDirectionRadial? radialDirection, AndroidX.Wear.Compose.Foundation.CurvedAlignmentAngular? angularAlignment, Kotlin.Jvm.Functions.IFunction1! contentBuilder) -> void
+static AndroidX.Wear.Compose.Foundation.CurvedComposableKt.CurvedComposable(AndroidX.Wear.Compose.Foundation.CurvedScope! obj, AndroidX.Wear.Compose.Foundation.ICurvedModifier! modifier, float radialAlignment, bool rotationLocked, Kotlin.Jvm.Functions.IFunction3! content) -> void
+static AndroidX.Wear.Compose.Foundation.CurvedDrawKt.AngularGradientBackground(AndroidX.Wear.Compose.Foundation.ICurvedModifier! obj, Kotlin.Pair![]! colorStops, int cap) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
+static AndroidX.Wear.Compose.Foundation.CurvedDrawKt.AngularGradientBackground(AndroidX.Wear.Compose.Foundation.ICurvedModifier! obj, System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, int cap) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
 static AndroidX.Wear.Compose.Foundation.CurvedDrawKt.Background(AndroidX.Wear.Compose.Foundation.ICurvedModifier! obj, long color, int cap) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
+static AndroidX.Wear.Compose.Foundation.CurvedDrawKt.RadialGradientBackground(AndroidX.Wear.Compose.Foundation.ICurvedModifier! obj, Kotlin.Pair![]! colorStops, int cap) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
+static AndroidX.Wear.Compose.Foundation.CurvedDrawKt.RadialGradientBackground(AndroidX.Wear.Compose.Foundation.ICurvedModifier! obj, System.Collections.Generic.IList<AndroidX.Compose.UI.Graphics.Color!>! colors, int cap) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
+static AndroidX.Wear.Compose.Foundation.CurvedLayoutKt.CurvedLayout(AndroidX.Compose.UI.IModifier? modifier, float anchor, float anchorType, AndroidX.Wear.Compose.Foundation.CurvedAlignmentRadial? radialAlignment, int p4, Kotlin.Jvm.Functions.IFunction1! contentBuilder, AndroidX.Compose.Runtime.IComposer? _composer, int angularDirection, int _changed) -> void
 static AndroidX.Wear.Compose.Foundation.CurvedModifier.Companion.get -> AndroidX.Wear.Compose.Foundation.CurvedModifierCompanion!
 static AndroidX.Wear.Compose.Foundation.CurvedModifierCompanion.InterfaceConsts.Companion.get -> AndroidX.Wear.Compose.Foundation.CurvedModifierCompanion!
 static AndroidX.Wear.Compose.Foundation.CurvedModifierDefaultImpls.Then(AndroidX.Wear.Compose.Foundation.ICurvedModifier! _this, AndroidX.Wear.Compose.Foundation.ICurvedModifier! other) -> AndroidX.Wear.Compose.Foundation.ICurvedModifier!
@@ -404,11 +522,45 @@ static AndroidX.Wear.Compose.Foundation.CurvedSizeKt.SizeIn(AndroidX.Wear.Compos
 static AndroidX.Wear.Compose.Foundation.CurvedTextStyle.WarpOffset.TakeOrElse_MRdpWGo(sbyte arg0, Kotlin.Jvm.Functions.IFunction0! block) -> sbyte
 static AndroidX.Wear.Compose.Foundation.CurvedTextStyleKt.DefaultCurvedTextStyles.get -> AndroidX.Wear.Compose.Foundation.CurvedTextStyle!
 static AndroidX.Wear.Compose.Foundation.ExpandableItemsDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.ExpandableItemsDefaults!
+static AndroidX.Wear.Compose.Foundation.ExpandableKt.ExpandableButton(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, AndroidX.Wear.Compose.Foundation.ExpandableState! state, Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction2! content) -> void
+static AndroidX.Wear.Compose.Foundation.ExpandableKt.ExpandableItem(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, AndroidX.Wear.Compose.Foundation.ExpandableState! state, Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction3! content) -> void
+static AndroidX.Wear.Compose.Foundation.ExpandableKt.ExpandableItems(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, AndroidX.Wear.Compose.Foundation.ExpandableState! state, int count, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction4! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.ExpandableKt.RememberExpandableState(bool initiallyExpanded, AndroidX.Compose.Animation.Core.IAnimationSpec? expandAnimationSpec, AndroidX.Compose.Animation.Core.IAnimationSpec? collapseAnimationSpec, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Wear.Compose.Foundation.ExpandableState!
+static AndroidX.Wear.Compose.Foundation.ExpandableKt.RememberExpandableStateMapping(Kotlin.Jvm.Functions.IFunction1? initiallyExpanded, AndroidX.Compose.Animation.Core.IAnimationSpec? expandAnimationSpec, AndroidX.Compose.Animation.Core.IAnimationSpec? collapseAnimationSpec, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Wear.Compose.Foundation.ExpandableStateMapping!
+static AndroidX.Wear.Compose.Foundation.HierarchicalFocusCoordinatorKt.ActiveFocusListener(Kotlin.Jvm.Functions.IFunction2! onFocusChanged, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.HierarchicalFocusCoordinatorKt.HierarchicalFocusCoordinator(Kotlin.Jvm.Functions.IFunction0! requiresFocus, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.HierarchicalFocusCoordinatorKt.RememberActiveFocusRequester(AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.UI.Focus.FocusRequester!
+static AndroidX.Wear.Compose.Foundation.HierarchicalFocusKt.HierarchicalFocusGroup(AndroidX.Compose.UI.IModifier! obj, bool active) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Wear.Compose.Foundation.HierarchicalFocusKt.RequestFocusOnHierarchyActive(AndroidX.Compose.UI.IModifier! obj) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnDefaults!
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.Items(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, Java.Lang.Object![]! items, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction4! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.Items(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, System.Collections.IList! items, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction4! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.ItemsIndexed(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, Java.Lang.Object![]! items, Kotlin.Jvm.Functions.IFunction2? key, Kotlin.Jvm.Functions.IFunction5! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.ItemsIndexed(AndroidX.Wear.Compose.Foundation.Lazy.IScalingLazyListScope! obj, System.Collections.IList! items, Kotlin.Jvm.Functions.IFunction2? key, Kotlin.Jvm.Functions.IFunction5! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.ScalingLazyColumn(AndroidX.Compose.UI.IModifier? modifier, AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState? state, AndroidX.Compose.Foundation.Layout.IPaddingValues? contentPadding, bool reverseLayout, AndroidX.Compose.Foundation.Layout.Arrangement.IVertical? verticalArrangement, AndroidX.Compose.UI.IAlignmentHorizontal? horizontalAlignment, AndroidX.Compose.Foundation.Gestures.IFlingBehavior? flingBehavior, bool userScrollEnabled, AndroidX.Wear.Compose.Foundation.Lazy.IScalingParams? scalingParams, int p9, AndroidX.Wear.Compose.Foundation.Lazy.AutoCenteringParams? autoCentering, AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior? rotaryScrollableBehavior, AndroidX.Compose.Foundation.IOverscrollEffect? overscrollEffect, Kotlin.Jvm.Functions.IFunction1! content, AndroidX.Compose.Runtime.IComposer? _composer, int anchorType, int _changed, int _changed1) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnKt.VerticalNegativePadding(AndroidX.Compose.UI.IModifier! obj, float extraPadding) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyColumnMeasureKt.InverseLerp(float start, float stop, float value) -> float
+static AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListStateKt.RememberScalingLazyListState(int p0, int initialCenterItemIndex, AndroidX.Compose.Runtime.IComposer? _composer, int initialCenterItemScrollOffset, int _changed) -> AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState!
 static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDefaults!
+static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDslKt.Items(AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScope! obj, System.Collections.IList! items, Kotlin.Jvm.Functions.IFunction1? key, Kotlin.Jvm.Functions.IFunction1! contentType, Kotlin.Jvm.Functions.IFunction4! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnDslKt.ItemsIndexed(AndroidX.Wear.Compose.Foundation.Lazy.ITransformingLazyColumnScope! obj, System.Collections.IList! items, Kotlin.Jvm.Functions.IFunction2? key, Kotlin.Jvm.Functions.IFunction2! contentType, Kotlin.Jvm.Functions.IFunction5! itemContent) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnKt.TransformingLazyColumn(AndroidX.Compose.UI.IModifier? modifier, AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState? state, AndroidX.Compose.Foundation.Layout.IPaddingValues? contentPadding, bool reverseLayout, AndroidX.Compose.Foundation.Layout.Arrangement.IVertical? verticalArrangement, AndroidX.Compose.UI.IAlignmentHorizontal? horizontalAlignment, AndroidX.Compose.Foundation.Gestures.IFlingBehavior? flingBehavior, bool userScrollEnabled, AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior? rotaryScrollableBehavior, AndroidX.Compose.Foundation.IOverscrollEffect? overscrollEffect, Kotlin.Jvm.Functions.IFunction1! content, AndroidX.Compose.Runtime.IComposer? _composer, int p12, int _changed, int _changed1) -> void
+static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnScrollScopeKt.GetVisibleItemsAverageHeight(Java.Lang.Object! obj) -> int
+static AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnStateKt.RememberTransformingLazyColumnState(int p0, int initialAnchorItemIndex, AndroidX.Compose.Runtime.IComposer? _composer, int initialAnchorItemScrollOffset, int _changed) -> AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState!
+static AndroidX.Wear.Compose.Foundation.LocalAmbientModeManagerKt.AmbientTickEffect(AndroidX.Wear.Compose.Foundation.IAmbientModeManager! obj, Kotlin.Jvm.Functions.IFunction0! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.LocalAmbientModeManagerKt.LocalAmbientModeManager.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Wear.Compose.Foundation.LocalAmbientModeManagerKt.RememberAmbientModeManager(AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Wear.Compose.Foundation.IAmbientModeManager!
 static AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.Pager.PagerDefaults!
+static AndroidX.Wear.Compose.Foundation.Pager.PagerKt.HorizontalPager(AndroidX.Wear.Compose.Foundation.Pager.PagerState! state, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Foundation.Layout.IPaddingValues? contentPadding, int p3, AndroidX.Compose.Foundation.Gestures.ITargetedFlingBehavior? flingBehavior, bool userScrollEnabled, AndroidX.Wear.Compose.Foundation.IGestureInclusion? gestureInclusion, bool reverseLayout, Kotlin.Jvm.Functions.IFunction1? key, AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior? rotaryScrollableBehavior, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int beyondViewportPageCount, int _changed, int _changed1) -> void
+static AndroidX.Wear.Compose.Foundation.Pager.PagerKt.VerticalPager(AndroidX.Wear.Compose.Foundation.Pager.PagerState! state, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Foundation.Layout.IPaddingValues? contentPadding, int p3, AndroidX.Compose.Foundation.Gestures.ITargetedFlingBehavior? flingBehavior, bool userScrollEnabled, bool reverseLayout, Kotlin.Jvm.Functions.IFunction1? key, AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior? rotaryScrollableBehavior, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int beyondViewportPageCount, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.Pager.PagerStateKt.RememberPagerState(int p0, float initialPageOffsetFraction, Kotlin.Jvm.Functions.IFunction0! pageCount, AndroidX.Compose.Runtime.IComposer? _composer, int initialPage, int _changed) -> AndroidX.Wear.Compose.Foundation.Pager.PagerState!
 static AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableDefaults!
+static AndroidX.Wear.Compose.Foundation.Rotary.RotaryScrollableKt.RotaryScrollable(AndroidX.Compose.UI.IModifier! obj, AndroidX.Wear.Compose.Foundation.Rotary.IRotaryScrollableBehavior! behavior, AndroidX.Compose.UI.Focus.FocusRequester! focusRequester, bool reverseDirection, AndroidX.Compose.Foundation.IOverscrollEffect? overscrollEffect) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt.ScrollInfoProvider(AndroidX.Compose.Foundation.Lazy.LazyListState! state) -> AndroidX.Wear.Compose.Foundation.IScrollInfoProvider!
+static AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt.ScrollInfoProvider(AndroidX.Compose.Foundation.ScrollState! state) -> AndroidX.Wear.Compose.Foundation.IScrollInfoProvider!
+static AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt.ScrollInfoProvider(AndroidX.Wear.Compose.Foundation.Lazy.ScalingLazyListState! state) -> AndroidX.Wear.Compose.Foundation.IScrollInfoProvider!
+static AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt.ScrollInfoProvider(AndroidX.Wear.Compose.Foundation.Lazy.TransformingLazyColumnState! state) -> AndroidX.Wear.Compose.Foundation.IScrollInfoProvider!
+static AndroidX.Wear.Compose.Foundation.ScrollInfoProviderKt.ScrollInfoProvider(AndroidX.Wear.Compose.Foundation.Pager.PagerState! state) -> AndroidX.Wear.Compose.Foundation.IScrollInfoProvider!
 static AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.SwipeToDismissBoxDefaults!
 static AndroidX.Wear.Compose.Foundation.SwipeToDismissKeys.Background.get -> AndroidX.Wear.Compose.Foundation.SwipeToDismissKeys?
 static AndroidX.Wear.Compose.Foundation.SwipeToDismissKeys.Content.get -> AndroidX.Wear.Compose.Foundation.SwipeToDismissKeys?
@@ -422,6 +574,9 @@ static AndroidX.Wear.Compose.Foundation.SwipeToDismissValue.ValueOf(string? valu
 static AndroidX.Wear.Compose.Foundation.SwipeToDismissValue.Values() -> AndroidX.Wear.Compose.Foundation.SwipeToDismissValue![]?
 static AndroidX.Wear.Compose.Foundation.SwipeToRevealDefaults.Instance.get -> AndroidX.Wear.Compose.Foundation.SwipeToRevealDefaults!
 static AndroidX.Wear.Compose.Foundation.SwipeToRevealKt.CreateRevealAnchors(float coveredAnchor, float revealingAnchor, float revealedAnchor, int revealDirection) -> System.Collections.Generic.IDictionary<AndroidX.Wear.Compose.Foundation.RevealValue!, Java.Lang.Float!>!
+static AndroidX.Wear.Compose.Foundation.SwipeToRevealKt.RememberRevealState(int p0, AndroidX.Compose.Animation.Core.IAnimationSpec? animationSpec, Kotlin.Jvm.Functions.IFunction1? confirmValueChange, Kotlin.Jvm.Functions.IFunction1? positionalThreshold, System.Collections.Generic.IDictionary<AndroidX.Wear.Compose.Foundation.RevealValue!, Java.Lang.Float!>? anchors, AndroidX.Compose.Runtime.IComposer? _composer, int initialValue, int _changed) -> AndroidX.Wear.Compose.Foundation.RevealState!
+static AndroidX.Wear.Compose.Foundation.SwipeToRevealKt.SwipeToReveal(Kotlin.Jvm.Functions.IFunction2! primaryAction, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction0? onFullSwipe, AndroidX.Wear.Compose.Foundation.RevealState? state, Kotlin.Jvm.Functions.IFunction2? secondaryAction, Kotlin.Jvm.Functions.IFunction2? undoAction, AndroidX.Wear.Compose.Foundation.IGestureInclusion? gestureInclusion, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int p9, int _changed) -> void
+static AndroidX.Wear.Compose.Foundation.TouchExplorationStateProviderKt.LocalTouchExplorationStateProvider.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags.Instance.get -> AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags!
 static AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags.IsTransformingLazyColumnClickableThresholdEnabled.get -> bool
 static AndroidX.Wear.Compose.Foundation.WearComposeFoundationFlags.IsTransformingLazyColumnClickableThresholdEnabled.set -> void
