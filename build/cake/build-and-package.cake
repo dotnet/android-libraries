@@ -31,10 +31,9 @@ Task ("libs")
         .EnableBinaryLogger ($"./output/libs.{CONFIGURATION}.binlog")
         .WithProperty("Verbosity", VERBOSITY.ToString ());
 
-    // Limit parallelism on Windows to reduce file locking issues during parallel builds
-    // This helps prevent race conditions when multiple projects access shared .aar files
+    // Serialize Windows project builds because dependent bindings access shared .aar files.
     if (IsRunningOnWindows ())
-        settings = settings.SetMaxCpuCount(2);
+        settings = settings.SetMaxCpuCount(1);
 
     settings.NodeReuse = false;
 
