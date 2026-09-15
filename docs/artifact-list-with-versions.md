@@ -621,8 +621,8 @@
 | 614|com.squareup.okhttp3:okhttp-jvm                                       |5.5.0               |Square.OkHttp3.JVM                                                    |5.5.0               |
 | 615|com.squareup.okhttp3:okhttp-tls                                       |5.5.0               |Square.OkHttp3.OkHttp.TLS                                             |5.5.0               |
 | 616|com.squareup.okhttp3:okhttp-urlconnection                             |5.5.0               |Square.OkHttp3.UrlConnection                                          |5.5.0               |
-| 617|com.squareup.okio:okio                                                |3.18.2              |Square.OkIO                                                           |3.18.2              |
-| 618|com.squareup.okio:okio-jvm                                            |3.18.2              |Square.OkIO.JVM                                                       |3.18.2              |
+| 617|com.squareup.okio:okio                                                |3.18.1              |Square.OkIO                                                           |3.18.1              |
+| 618|com.squareup.okio:okio-jvm                                            |3.18.1              |Square.OkIO.JVM                                                       |3.18.1              |
 | 619|com.squareup.picasso:picasso                                          |2.8                 |Square.Picasso                                                        |2.8.0.23            |
 | 620|com.squareup.retrofit:retrofit                                        |1.9.0               |Square.Retrofit                                                       |1.9.0.24            |
 | 621|com.squareup.retrofit2:adapter-rxjava2                                |3.0.0               |Square.Retrofit2.AdapterRxJava2                                       |3.0.0.4             |
