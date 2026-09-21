@@ -1073,6 +1073,7 @@ AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.Builder.SetMaxPlay
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.GetAudioOutput(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig? config) -> AndroidX.Media3.ExoPlayer.Audio.IAudioOutput?
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.GetFormatSupport(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? formatConfig) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatSupport?
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.GetOutputConfig(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? formatConfig) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig?
+AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.HasPendingReleases.get -> bool
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.InterfaceConsts
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.Release() -> void
 AndroidX.Media3.ExoPlayer.Audio.AudioTrackAudioOutputProvider.RemoveListener(AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProviderListener? listener) -> void
@@ -1250,6 +1251,7 @@ AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.AddListener(AndroidX.Media3
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.GetAudioOutput(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig? p0) -> AndroidX.Media3.ExoPlayer.Audio.IAudioOutput?
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.GetFormatSupport(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? p0) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatSupport?
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.GetOutputConfig(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? p0) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig?
+AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.HasPendingReleases.get -> bool
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.Release() -> void
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.RemoveListener(AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProviderListener? p0) -> void
 AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProvider.SetClock(AndroidX.Media3.Common.Util.IClock? clock) -> void
@@ -2274,7 +2276,7 @@ AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.SetParameters(Android.OS
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.SetVideoScalingMode(int p0) -> void
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.SubscribeToVendorParameters(System.Collections.Generic.IList<string!>? p0) -> void
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.UnsubscribeFromVendorParameters(System.Collections.Generic.IList<string!>? p0) -> void
-AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.UseInputBuffer(Java.Lang.IRunnable? runnable) -> void
+AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter.UseBuffer(AndroidX.Media3.Common.Util.IThrowingRunnable? runnable) -> void
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapterFactory
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapterFactory.CreateAdapter(AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecAdapterConfiguration? p0) -> AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapter?
 AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapterFactory.Default.get -> AndroidX.Media3.ExoPlayer.MediaCodec.IMediaCodecAdapterFactory?
@@ -3359,7 +3361,6 @@ AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetCmcdConfigurationF
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetDataSourceFactory(AndroidX.Media3.DataSource.IDataSourceFactory? dataSourceFactory) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetDrmSessionManagerProvider(AndroidX.Media3.ExoPlayer.Drm.IDrmSessionManagerProvider? drmSessionManagerProvider) -> AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory?
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetEnableClippingInMediaPeriod(bool enableClippingInMediaPeriod) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
-AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetExperimentalEnableHagcPlayback(bool enableHagcPlayback) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetExternalImageLoader(AndroidX.Media3.ExoPlayer.Source.IExternalLoader? externalImageLoader) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetLiveMaxOffsetMs(long liveMaxOffsetMs) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
 AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory.SetLiveMaxSpeed(float maxSpeed) -> AndroidX.Media3.ExoPlayer.Source.DefaultMediaSourceFactory?
@@ -3887,7 +3888,6 @@ AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.GetSupportedType
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.InterfaceConsts
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.SetContinueLoadingCheckIntervalBytes(int continueLoadingCheckIntervalBytes) -> AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory?
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.SetDrmSessionManagerProvider(AndroidX.Media3.ExoPlayer.Drm.IDrmSessionManagerProvider? drmSessionManagerProvider) -> AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory?
-AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.SetExperimentalEnableHagcPlayback(bool enableHagcPlayback) -> AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory?
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.SetLoadErrorHandlingPolicy(AndroidX.Media3.ExoPlayer.Upstream.ILoadErrorHandlingPolicy? loadErrorHandlingPolicy) -> AndroidX.Media3.ExoPlayer.Source.IMediaSourceMediaSourceIFactory?
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory.SetLoadOnlySelectedTracks(bool loadOnlySelectedTracks) -> AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.Factory?
 AndroidX.Media3.ExoPlayer.Source.ProgressiveMediaSource.IListener
@@ -6747,6 +6747,7 @@ virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.AddListene
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.GetAudioOutput(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig? config) -> AndroidX.Media3.ExoPlayer.Audio.IAudioOutput?
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.GetFormatSupport(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? formatConfig) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatSupport?
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.GetOutputConfig(AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderFormatConfig? formatConfig) -> AndroidX.Media3.ExoPlayer.Audio.AudioOutputProviderOutputConfig?
+virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.HasPendingReleases.get -> bool
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.Release() -> void
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.RemoveListener(AndroidX.Media3.ExoPlayer.Audio.IAudioOutputProviderListener? listener) -> void
 virtual AndroidX.Media3.ExoPlayer.Audio.ForwardingAudioOutputProvider.SetClock(AndroidX.Media3.Common.Util.IClock? clock) -> void
@@ -6914,7 +6915,7 @@ virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.SetPara
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.SetVideoScalingMode(int scalingMode) -> void
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.SubscribeToVendorParameters(System.Collections.Generic.IList<string!>? names) -> void
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.UnsubscribeFromVendorParameters(System.Collections.Generic.IList<string!>? names) -> void
-virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.UseInputBuffer(Java.Lang.IRunnable? runnable) -> void
+virtual AndroidX.Media3.ExoPlayer.MediaCodec.ForwardingMediaCodecAdapter.UseBuffer(AndroidX.Media3.Common.Util.IThrowingRunnable? runnable) -> void
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.LoudnessCodecController.LoudnessParameterUpdateHandler.Invoke(Android.OS.Bundle? p0) -> Android.OS.Bundle?
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CanReuseCodec(AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecInfo? codecInfo, AndroidX.Media3.Common.Format? oldFormat, AndroidX.Media3.Common.Format? newFormat, bool isAdaptiveFormatChange) -> AndroidX.Media3.ExoPlayer.DecoderReuseEvaluation?
 virtual AndroidX.Media3.ExoPlayer.MediaCodec.MediaCodecRenderer.CodecOperatingRate.get -> float

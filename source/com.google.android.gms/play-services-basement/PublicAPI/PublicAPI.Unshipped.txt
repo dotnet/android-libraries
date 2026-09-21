@@ -40,6 +40,8 @@ Android.Gms.Common.Apis.ApiMetadata.Builder.Build() -> Android.Gms.Common.Apis.A
 Android.Gms.Common.Apis.ApiMetadata.Builder.Builder() -> void
 Android.Gms.Common.Apis.ApiMetadata.Builder.SetCallbackSupportEnabled(bool callbackSupportEnabled) -> Android.Gms.Common.Apis.ApiMetadata.Builder!
 Android.Gms.Common.Apis.ApiMetadata.Builder.SetComplianceOptions(Android.Gms.Common.Apis.ComplianceOptions? complianceOptions) -> Android.Gms.Common.Apis.ApiMetadata.Builder!
+Android.Gms.Common.Apis.ApiMetadata.Builder.SetSourceUserContext(Android.Gms.Common.Apis.SourceUserContext? sourceUserContext) -> Android.Gms.Common.Apis.ApiMetadata.Builder!
+Android.Gms.Common.Apis.ApiMetadata.SourceUserContext.get -> Android.Gms.Common.Apis.SourceUserContext?
 Android.Gms.Common.Apis.ApiMetadata.ToBuilder() -> Android.Gms.Common.Apis.ApiMetadata.Builder!
 Android.Gms.Common.Apis.AwaitableResultCallback<TResult>
 Android.Gms.Common.Apis.AwaitableResultCallback<TResult>.AwaitAsync() -> System.Threading.Tasks.Task<TResult!>!
@@ -124,6 +126,9 @@ Android.Gms.Common.Apis.ResultCallbacks.ResultCallbacks(nint javaReference, Andr
 Android.Gms.Common.Apis.Scope
 Android.Gms.Common.Apis.Scope.Scope(string! scopeUri) -> void
 Android.Gms.Common.Apis.Scope.ScopeUri.get -> string!
+Android.Gms.Common.Apis.SourceUserContext
+Android.Gms.Common.Apis.SourceUserContext.SourceUserContext(long p0) -> void
+Android.Gms.Common.Apis.SourceUserContext.UserSerial.get -> long
 Android.Gms.Common.Apis.Statuses
 Android.Gms.Common.Apis.Statuses.ConnectionResult.get -> Android.Gms.Common.ConnectionResult?
 Android.Gms.Common.Apis.Statuses.HasResolution.get -> bool
@@ -159,9 +164,13 @@ Android.Gms.Common.ConnectionResult.ClientMethodKey.get -> Java.Lang.Integer?
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode) -> void
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent) -> void
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message) -> void
+Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message, Android.OS.Bundle? errorResolutionInfo) -> void
 Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message, Java.Lang.Integer? clientMethodKey) -> void
+Android.Gms.Common.ConnectionResult.ConnectionResult(int statusCode, Android.App.PendingIntent? pendingIntent, string? message, Java.Lang.Integer? clientMethodKey, Android.OS.Bundle? errorResolutionInfo) -> void
+Android.Gms.Common.ConnectionResult.DuplicateWithResolution(Android.App.PendingIntent? resolution) -> Android.Gms.Common.ConnectionResult!
 Android.Gms.Common.ConnectionResult.ErrorCode.get -> int
 Android.Gms.Common.ConnectionResult.ErrorMessage.get -> string?
+Android.Gms.Common.ConnectionResult.ErrorResolutionInfo.get -> Android.OS.Bundle?
 Android.Gms.Common.ConnectionResult.HasResolution.get -> bool
 Android.Gms.Common.ConnectionResult.IsSuccess.get -> bool
 Android.Gms.Common.ConnectionResult.Resolution.get -> Android.App.PendingIntent?
@@ -213,8 +222,10 @@ Android.Gms.Common.Internal.IGmsCallbacks.OnPostInitComplete(int p0, Android.OS.
 Android.Gms.Common.Internal.IHideFirstParty
 Android.Gms.Common.Internal.IInternalClientFlags
 Android.Gms.Common.Internal.IInternalClientFlags.CatchNetworkCallbackTooManyRequestsException() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.CheckComponentForMutableActivityPendingIntents() -> bool
 Android.Gms.Common.Internal.IInternalClientFlags.Default.get -> Android.Gms.Common.Internal.IInternalClientFlags!
 Android.Gms.Common.Internal.IInternalClientFlags.EnableGoogleSignatureVerifierUidShortCircuit() -> bool
+Android.Gms.Common.Internal.IInternalClientFlags.FillIntentPackageForMutableActivityPendingIntents() -> bool
 Android.Gms.Common.Internal.IInternalClientFlags.IsPhoneRefinedFoldableAndTabletLogic.get -> bool
 Android.Gms.Common.Internal.IInternalClientFlags.ProviderinstallerDynamiteLoadingDisabled() -> bool
 Android.Gms.Common.Internal.IInternalClientFlags.SkipClientThrottlingDryrun() -> bool
@@ -566,6 +577,7 @@ const Android.Gms.Common.GooglePlayServicesUtilLight.GooglePlayGamesPackage = "c
 const Android.Gms.Common.GooglePlayServicesUtilLight.GooglePlayServicesPackage = "com.google.android.gms" -> string!
 const Android.Gms.Common.GooglePlayServicesUtilLight.GooglePlayStorePackage = "com.android.vending" -> string!
 const Android.Gms.Common.GooglePlayServicesUtilLight.GoogleServicesFrameworkPackage = "com.google.android.gsf" -> string!
+const Android.Gms.Common.GooglePlayServicesUtilLight.GoogleSetupWizardPackage = "com.google.android.setupwizard" -> string!
 const Android.Gms.Common.Internal.SafeParcel.AbstractSafeParcelable.InterfaceConsts.Null = "SAFE_PARCELABLE_NULL_STRING" -> string!
 const Android.Gms.Common.Internal.SafeParcel.SafeParcelable.Null = "SAFE_PARCELABLE_NULL_STRING" -> string!
 const Android.Gms.Common.Scopes.AppState = "https://www.googleapis.com/auth/appstate" -> string!
@@ -655,6 +667,7 @@ override Android.Gms.Common.Apis.ResultCallbacks.ThresholdClass.get -> nint
 override Android.Gms.Common.Apis.ResultCallbacks.ThresholdType.get -> System.Type!
 override Android.Gms.Common.Apis.Scope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Common.Apis.Scope.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
+override Android.Gms.Common.Apis.SourceUserContext.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Common.Apis.Statuses.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Common.Apis.UnsupportedApiCallException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.Gms.Common.BlockingServiceConnection.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -864,6 +877,10 @@ override sealed Android.Gms.Common.Apis.ComplianceOptions.GetHashCode() -> int
 override sealed Android.Gms.Common.Apis.ComplianceOptions.ToString() -> string!
 override sealed Android.Gms.Common.Apis.ComplianceOptions.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Common.Apis.ResolvingResultCallbacks.OnFailure(Android.Gms.Common.Apis.Statuses! result) -> void
+override sealed Android.Gms.Common.Apis.SourceUserContext.Equals(Java.Lang.Object? p0) -> bool
+override sealed Android.Gms.Common.Apis.SourceUserContext.GetHashCode() -> int
+override sealed Android.Gms.Common.Apis.SourceUserContext.ToString() -> string!
+override sealed Android.Gms.Common.Apis.SourceUserContext.WriteToParcel(Android.OS.Parcel! dest, Android.OS.ParcelableWriteFlags flags) -> void
 override sealed Android.Gms.Common.Feature.Equals(Java.Lang.Object? p0) -> bool
 override sealed Android.Gms.Common.Feature.GetHashCode() -> int
 override sealed Android.Gms.Common.Feature.ToString() -> string!
@@ -906,6 +923,7 @@ static Android.Gms.Common.Apis.Internal.LifecycleCallback.GetFragment(Android.Ap
 static Android.Gms.Common.Apis.Internal.LifecycleCallback.GetFragment(Android.Content.ContextWrapper! p0) -> Android.Gms.Common.Apis.Internal.ILifecycleFragment!
 static Android.Gms.Common.Apis.Internal.LifecycleCallback.GetFragment(Android.Gms.Common.Apis.Internal.LifecycleActivity! activity) -> Android.Gms.Common.Apis.Internal.ILifecycleFragment!
 static Android.Gms.Common.Apis.Scope.Creator.get -> Android.OS.IParcelableCreator!
+static Android.Gms.Common.Apis.SourceUserContext.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Common.Apis.Statuses.Creator.get -> Android.OS.IParcelableCreator!
 static Android.Gms.Common.Apis.Statuses.ResultApiNotConnected.get -> Android.Gms.Common.Apis.Statuses!
 static Android.Gms.Common.Apis.Statuses.ResultCanceled.get -> Android.Gms.Common.Apis.Statuses!
@@ -1255,6 +1273,8 @@ virtual Android.Gms.Common.Feature.Matches(Android.Gms.Common.Feature? other) ->
 virtual Android.Gms.Common.Feature.Name.get -> string!
 virtual Android.Gms.Common.Feature.Version.get -> long
 virtual Android.Gms.Common.GoogleApiAvailabilityLight.CancelAvailabilityErrorNotifications(Android.Content.Context! context) -> void
+virtual Android.Gms.Common.GoogleApiAvailabilityLight.FetchClientErrorResolutionInfo(Android.Content.Context! context, int errorCode, string? targetPackage) -> Android.OS.Bundle?
+virtual Android.Gms.Common.GoogleApiAvailabilityLight.FetchClientErrorResolutionInfo(Android.Content.Context! context, int errorCode, string? targetPackage, string? trackingSource) -> Android.OS.Bundle?
 virtual Android.Gms.Common.GoogleApiAvailabilityLight.GetApkVersion(Android.Content.Context! context) -> int
 virtual Android.Gms.Common.GoogleApiAvailabilityLight.GetClientVersion(Android.Content.Context! context) -> int
 virtual Android.Gms.Common.GoogleApiAvailabilityLight.GetErrorResolutionIntent(Android.Content.Context? context, int errorCode, string? trackingSource) -> Android.Content.Intent?
