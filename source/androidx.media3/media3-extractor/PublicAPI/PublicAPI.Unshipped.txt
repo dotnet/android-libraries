@@ -201,7 +201,6 @@ AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetJpegExtractorFlags(int fla
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetMatroskaExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetMp3ExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetMp4ExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
-AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetParseHagcMetadata(bool parseHagcMetadata) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetSubtitleParserFactory(AndroidX.Media3.Extractor.Text.ISubtitleParserFactory? subtitleParserFactory) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetTextTrackTranscodingEnabled(bool textTrackTranscodingEnabled) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
 AndroidX.Media3.Extractor.DefaultExtractorsFactory.SetTsExtractorFlags(int flags) -> AndroidX.Media3.Extractor.DefaultExtractorsFactory?
@@ -420,7 +419,6 @@ AndroidX.Media3.Extractor.IExtractorsFactory.CreateExtractors(Android.Net.Uri? u
 AndroidX.Media3.Extractor.IExtractorsFactory.Empty.get -> AndroidX.Media3.Extractor.IExtractorsFactory?
 AndroidX.Media3.Extractor.IExtractorsFactory.ExperimentalSetCodecsToParseWithinGopSampleDependencies(int codecsToParseWithinGopSampleDependencies) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 AndroidX.Media3.Extractor.IExtractorsFactory.ExperimentalSetTextTrackTranscodingEnabled(bool textTrackTranscodingEnabled) -> AndroidX.Media3.Extractor.IExtractorsFactory?
-AndroidX.Media3.Extractor.IExtractorsFactory.SetParseHagcMetadata(bool parseHagcMetadata) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 AndroidX.Media3.Extractor.IExtractorsFactory.SetSubtitleParserFactory(AndroidX.Media3.Extractor.Text.ISubtitleParserFactory? subtitleParserFactory) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 AndroidX.Media3.Extractor.ISeekMap
 AndroidX.Media3.Extractor.ISeekMap.DurationUs.get -> long
@@ -1777,7 +1775,6 @@ const AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.Id3Tag = 4801587 -> int
 const AndroidX.Media3.Extractor.Metadata.Id3.InternalFrame.Id = "----" -> string!
 const AndroidX.Media3.Extractor.Metadata.Id3.MlltFrame.Id = "MLLT" -> string!
 const AndroidX.Media3.Extractor.Metadata.Id3.PrivFrame.Id = "PRIV" -> string!
-const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FlagDisableHagcMetadata = 4 -> int
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FlagDisableSeekForCues = 1 -> int
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.FlagEmitRawSubtitleData = 2 -> int
 const AndroidX.Media3.Extractor.Mkv.MatroskaExtractor.InterfaceConsts.ResultContinue = 0 -> int
@@ -1799,7 +1796,6 @@ const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorSimple
 const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorUnset = 0 -> int
 const AndroidX.Media3.Extractor.Mp3.Mp3InfoReplayGain.GainField.OriginatorUser = 2 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagDisableArtworkMetadata = 1024 -> int
-const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagDisableHagcMetadata = 2048 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEmitRawSubtitleData = 32 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagEnableEmsgTrack = 4 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.FlagMergeFragmentedSidx = 256 -> int
@@ -1813,7 +1809,6 @@ const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.Resul
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.ResultEndOfInput = -1 -> int
 const AndroidX.Media3.Extractor.Mp4.FragmentedMp4Extractor.InterfaceConsts.ResultSeek = 1 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagDisableArtworkMetadata = 512 -> int
-const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagDisableHagcMetadata = 1024 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagEmitRawSubtitleData = 16 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagMarkFirstVideoTrackWithMainRole = 8 -> int
 const AndroidX.Media3.Extractor.Mp4.Mp4Extractor.FlagOmitTrackSampleTable = 256 -> int
@@ -2238,7 +2233,6 @@ static AndroidX.Media3.Extractor.HevcConfig.Parse(AndroidX.Media3.Common.Util.Pa
 static AndroidX.Media3.Extractor.HevcConfig.ParseLayered(AndroidX.Media3.Common.Util.ParsableByteArray? data, AndroidX.Media3.Container.NalUnitUtil.H265VpsData? vpsData) -> AndroidX.Media3.Extractor.HevcConfig?
 static AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame.FromPictureBlock(AndroidX.Media3.Common.Util.ParsableByteArray? pictureBlock) -> AndroidX.Media3.Extractor.Metadata.Flac.PictureFrame?
 static AndroidX.Media3.Extractor.Metadata.Icy.IcyHeaders.Parse(System.Collections.Generic.IDictionary<string!, System.Collections.Generic.IList<string!>!>? responseHeaders) -> AndroidX.Media3.Extractor.Metadata.Icy.IcyHeaders?
-static AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.IsSupportedMajorVersion(int majorVersion) -> bool
 static AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.NoArtworkPredicate.get -> AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.IFramePredicate?
 static AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.NoFramesPredicate.get -> AndroidX.Media3.Extractor.Metadata.Id3.Id3Decoder.IFramePredicate?
 static AndroidX.Media3.Extractor.Metadata.Id3.Id3Util.ResolveV1Genre(int id3v1GenreCode) -> string?
@@ -2353,7 +2347,6 @@ virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.CreateExtractors()
 virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.CreateExtractors(Android.Net.Uri? uri, System.Collections.Generic.IDictionary<string!, System.Collections.Generic.IList<string!>!>? responseHeaders) -> AndroidX.Media3.Extractor.IExtractor![]?
 virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.ExperimentalSetCodecsToParseWithinGopSampleDependencies(int codecsToParseWithinGopSampleDependencies) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.ExperimentalSetTextTrackTranscodingEnabled(bool textTrackTranscodingEnabled) -> AndroidX.Media3.Extractor.IExtractorsFactory?
-virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.SetParseHagcMetadata(bool parseHagcMetadata) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 virtual AndroidX.Media3.Extractor.ForwardingExtractorsFactory.SetSubtitleParserFactory(AndroidX.Media3.Extractor.Text.ISubtitleParserFactory? subtitleParserFactory) -> AndroidX.Media3.Extractor.IExtractorsFactory?
 virtual AndroidX.Media3.Extractor.ForwardingSeekMap.DurationUs.get -> long
 virtual AndroidX.Media3.Extractor.ForwardingSeekMap.GetSeekPoints(long timeUs) -> AndroidX.Media3.Extractor.SeekMapSeekPoints?
