@@ -10,18 +10,31 @@ namespace Xamarin.AndroidBinderator.Tests
 	public class GenerationTests : BaseTest
 	{
 		[Theory]
+		[InlineData (MavenRepoType.Google)]
+		[InlineData (MavenRepoType.MavenCentral)]
+		public void VersionDiscoveryUsesUpstreamOnCI (MavenRepoType type)
+		{
+			var actual = MavenRepositoryResolver.Resolve (type, "", MavenRepositoryOperation.VersionDiscovery, runningOnCI: true);
+
+			Assert.Equal (type, actual.type);
+			Assert.Equal ("", actual.location);
+		}
+
+		[Theory]
+		[InlineData (false, MavenRepoType.Google, "", MavenRepoType.Google, "")]
+		[InlineData (true, MavenRepoType.Google, "", MavenRepoType.Url, MavenRepositoryResolver.DotNetPublicMaven)]
 		[InlineData (false, MavenRepoType.MavenCentral, "", MavenRepoType.MavenCentral, "")]
 		[InlineData (true, MavenRepoType.MavenCentral, "", MavenRepoType.Url, MavenRepositoryResolver.DotNetPublicMaven)]
-		[InlineData (true, MavenRepoType.Google, "", MavenRepoType.Google, "")]
 		[InlineData (true, MavenRepoType.Url, "https://example.com/maven", MavenRepoType.Url, "https://example.com/maven")]
-		public void MavenCentralUsesMirrorOnlyOnCI (
+		[InlineData (true, MavenRepoType.Directory, "C:\\maven", MavenRepoType.Directory, "C:\\maven")]
+		public void BinderationUsesMirrorOnlyOnCI (
 			bool runningOnCI,
 			MavenRepoType type,
 			string location,
 			MavenRepoType expectedType,
 			string expectedLocation)
 		{
-			var actual = MavenRepositoryResolver.Resolve (type, location, runningOnCI);
+			var actual = MavenRepositoryResolver.Resolve (type, location, MavenRepositoryOperation.Binderation, runningOnCI);
 
 			Assert.Equal (expectedType, actual.type);
 			Assert.Equal (expectedLocation, actual.location);

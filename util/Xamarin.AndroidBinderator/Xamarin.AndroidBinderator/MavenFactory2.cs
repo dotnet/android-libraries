@@ -49,14 +49,14 @@ public static class MavenFactory2
 	{
 		// Precendence: Artifact > TemplateSet > Config
 		if (artifact.MavenRepositoryType.HasValue)
-			return MavenRepositoryResolver.Resolve (artifact.MavenRepositoryType.Value, artifact.MavenRepositoryLocation!);
+			return MavenRepositoryResolver.Resolve (artifact.MavenRepositoryType.Value, artifact.MavenRepositoryLocation!, MavenRepositoryOperation.Binderation);
 
 		var template = config.GetTemplateSet (artifact.TemplateSet);
 
 		if (template.MavenRepositoryType.HasValue)
-			return MavenRepositoryResolver.Resolve (template.MavenRepositoryType.Value, template.MavenRepositoryLocation!);
+			return MavenRepositoryResolver.Resolve (template.MavenRepositoryType.Value, template.MavenRepositoryLocation!, MavenRepositoryOperation.Binderation);
 
-		return MavenRepositoryResolver.Resolve (config.MavenRepositoryType, config.MavenRepositoryLocation!);
+		return MavenRepositoryResolver.Resolve (config.MavenRepositoryType, config.MavenRepositoryLocation!, MavenRepositoryOperation.Binderation);
 	}
 
 	static CachedMavenRepository GetOrCreateRepository (MavenRepoType type, string location)
