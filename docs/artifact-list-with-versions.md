@@ -123,10 +123,10 @@
 | 116|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.37            |
 | 117|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0.4             |
 | 118|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0.4             |
-| 119|androidx.databinding:databinding-adapters                             |9.4.0               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.4.0               |
-| 120|androidx.databinding:databinding-common                               |9.4.0               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.4.0               |
-| 121|androidx.databinding:databinding-runtime                              |9.4.0               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.4.0               |
-| 122|androidx.databinding:viewbinding                                      |9.4.0               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.4.0               |
+| 119|androidx.databinding:databinding-adapters                             |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.4.1               |
+| 120|androidx.databinding:databinding-common                               |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.4.1               |
+| 121|androidx.databinding:databinding-runtime                              |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.4.1               |
+| 122|androidx.databinding:viewbinding                                      |9.4.1               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.4.1               |
 | 123|androidx.datastore:datastore                                          |1.2.1               |Xamarin.AndroidX.DataStore                                            |1.2.1.1             |
 | 124|androidx.datastore:datastore-android                                  |1.2.1               |Xamarin.AndroidX.DataStore.Android                                    |1.2.1.1             |
 | 125|androidx.datastore:datastore-core                                     |1.2.1               |Xamarin.AndroidX.DataStore.Core                                       |1.2.1.1             |
@@ -381,8 +381,8 @@
 | 374|com.google.android.datatransport:transport-api                        |4.1.1               |Xamarin.Google.Android.DataTransport.TransportApi                     |4.1.1.1             |
 | 375|com.google.android.datatransport:transport-backend-cct                |4.1.1               |Xamarin.Google.Android.DataTransport.TransportBackendCct              |4.1.1.2             |
 | 376|com.google.android.datatransport:transport-runtime                    |4.1.1               |Xamarin.Google.Android.DataTransport.TransportRuntime                 |4.1.1.1             |
-| 377|com.google.android.gms:play-services-ads                              |25.4.0              |Xamarin.GooglePlayServices.Ads                                        |125.4.0.3           |
-| 378|com.google.android.gms:play-services-ads-api                          |25.4.0              |Xamarin.GooglePlayServices.Ads.Api                                    |125.4.0.3           |
+| 377|com.google.android.gms:play-services-ads                              |25.5.0              |Xamarin.GooglePlayServices.Ads                                        |125.5.0             |
+| 378|com.google.android.gms:play-services-ads-api                          |25.5.0              |Xamarin.GooglePlayServices.Ads.Api                                    |125.5.0             |
 | 379|com.google.android.gms:play-services-ads-base                         |24.1.0              |Xamarin.GooglePlayServices.Ads.Base                                   |124.1.0.5           |
 | 380|com.google.android.gms:play-services-ads-identifier                   |18.3.0              |Xamarin.GooglePlayServices.Ads.Identifier                             |118.3.0.3           |
 | 381|com.google.android.gms:play-services-ads-lite                         |24.0.0              |Xamarin.GooglePlayServices.Ads.Lite                                   |124.0.0.9           |
@@ -398,8 +398,8 @@
 | 391|com.google.android.gms:play-services-auth-base                        |18.3.4              |Xamarin.GooglePlayServices.Auth.Base                                  |118.3.4             |
 | 392|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.10          |
 | 393|com.google.android.gms:play-services-awareness                        |20.0.0              |Xamarin.GooglePlayServices.Awareness                                  |120.0.0.2           |
-| 394|com.google.android.gms:play-services-base                             |18.10.1             |Xamarin.GooglePlayServices.Base                                       |118.10.1            |
-| 395|com.google.android.gms:play-services-basement                         |18.11.0             |Xamarin.GooglePlayServices.Basement                                   |118.11.0            |
+| 394|com.google.android.gms:play-services-base                             |18.11.0             |Xamarin.GooglePlayServices.Base                                       |118.11.0            |
+| 395|com.google.android.gms:play-services-basement                         |18.12.0             |Xamarin.GooglePlayServices.Basement                                   |118.12.0            |
 | 396|com.google.android.gms:play-services-cast                             |22.3.1              |Xamarin.GooglePlayServices.Cast                                       |122.3.1.2           |
 | 397|com.google.android.gms:play-services-cast-framework                   |22.3.1              |Xamarin.GooglePlayServices.Cast.Framework                             |122.3.1.2           |
 | 398|com.google.android.gms:play-services-cast-tv                          |21.1.1              |Xamarin.GooglePlayServices.Cast.TV                                    |121.1.1.9           |
@@ -413,7 +413,7 @@
 | 406|com.google.android.gms:play-services-fitness                          |21.3.0              |Xamarin.GooglePlayServices.Fitness                                    |121.3.0.4           |
 | 407|com.google.android.gms:play-services-flags                            |18.1.0              |Xamarin.GooglePlayServices.Flags                                      |118.1.0.11          |
 | 408|com.google.android.gms:play-services-games                            |25.0.0              |Xamarin.GooglePlayServices.Games                                      |125.0.0.2           |
-| 409|com.google.android.gms:play-services-games-v2                         |22.0.0              |Xamarin.GooglePlayServices.Games.V2                                   |122.0.0             |
+| 409|com.google.android.gms:play-services-games-v2                         |22.1.0              |Xamarin.GooglePlayServices.Games.V2                                   |122.1.0             |
 | 410|com.google.android.gms:play-services-gass                             |20.0.0              |Xamarin.GooglePlayServices.Gass                                       |120.0.0.27          |
 | 411|com.google.android.gms:play-services-gcm                              |17.0.0              |Xamarin.GooglePlayServices.Gcm                                        |117.0.0.27          |
 | 412|com.google.android.gms:play-services-home                             |16.0.0              |Xamarin.GooglePlayServices.Home                                       |116.0.0.20          |
