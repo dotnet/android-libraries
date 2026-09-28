@@ -10,15 +10,20 @@ AndroidX.Work.Configuration.Builder.Builder(AndroidX.Work.Configuration! configu
 AndroidX.Work.Configuration.Builder.SetClock(AndroidX.Work.IClock! clock) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetContentUriTriggerWorkersLimit(int contentUriTriggerWorkersLimit) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetDefaultProcessName(string! processName) -> AndroidX.Work.Configuration.Builder!
+AndroidX.Work.Configuration.Builder.SetExecutionEventListener(AndroidX.Work.IExecutionEventListener! listener) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetExecutor(Java.Util.Concurrent.IExecutor! executor) -> AndroidX.Work.Configuration.Builder!
+AndroidX.Work.Configuration.Builder.SetGreedySchedulerEnabled(bool enabled) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetInitializationExceptionHandler(AndroidX.Core.Util.IConsumer! exceptionHandler) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetInputMergerFactory(AndroidX.Work.InputMergerFactory! inputMergerFactory) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetJobSchedulerJobIdRange(int minJobSchedulerId, int maxJobSchedulerId) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetMarkingJobsAsImportantWhileForeground(bool markAsImportant) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetMaxSchedulerLimit(int maxSchedulerLimit) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetMinimumLoggingLevel(int loggingLevel) -> AndroidX.Work.Configuration.Builder!
+AndroidX.Work.Configuration.Builder.SetRemoteCancellationPropagationFixEnabled(bool enabled) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetRemoteSessionTimeoutMillis(long timeoutMillis) -> AndroidX.Work.Configuration.Builder!
+AndroidX.Work.Configuration.Builder.SetRepresentativeJobsEnabled(bool enabled) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetRunnableScheduler(AndroidX.Work.IRunnableScheduler! runnableScheduler) -> AndroidX.Work.Configuration.Builder!
+AndroidX.Work.Configuration.Builder.SetScheduleEventListener(AndroidX.Work.IScheduleEventListener! listener) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetSchedulingExceptionHandler(AndroidX.Core.Util.IConsumer! schedulingExceptionHandler) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetTaskExecutor(Java.Util.Concurrent.IExecutor! taskExecutor) -> AndroidX.Work.Configuration.Builder!
 AndroidX.Work.Configuration.Builder.SetTracer(AndroidX.Work.ITracer! tracer) -> AndroidX.Work.Configuration.Builder!
@@ -30,12 +35,16 @@ AndroidX.Work.Configuration.Clock.get -> AndroidX.Work.IClock!
 AndroidX.Work.Configuration.Companion
 AndroidX.Work.Configuration.ContentUriTriggerWorkersLimit.get -> int
 AndroidX.Work.Configuration.DefaultProcessName.get -> string?
+AndroidX.Work.Configuration.ExecutionEventListener.get -> AndroidX.Work.IExecutionEventListener?
 AndroidX.Work.Configuration.Executor.get -> Java.Util.Concurrent.IExecutor!
 AndroidX.Work.Configuration.IProvider
 AndroidX.Work.Configuration.IProvider.WorkManagerConfiguration.get -> AndroidX.Work.Configuration!
 AndroidX.Work.Configuration.InitializationExceptionHandler.get -> AndroidX.Core.Util.IConsumer?
 AndroidX.Work.Configuration.InputMergerFactory.get -> AndroidX.Work.InputMergerFactory!
+AndroidX.Work.Configuration.IsGreedySchedulerEnabled.get -> bool
 AndroidX.Work.Configuration.IsMarkingJobsAsImportantWhileForeground.get -> bool
+AndroidX.Work.Configuration.IsRemoteCancellationPropagationFixEnabled.get -> bool
+AndroidX.Work.Configuration.IsRepresentativeJobsEnabled.get -> bool
 AndroidX.Work.Configuration.IsUsingDefaultTaskExecutor.get -> bool
 AndroidX.Work.Configuration.MaxJobSchedulerId.get -> int
 AndroidX.Work.Configuration.MaxSchedulerLimit.get -> int
@@ -43,6 +52,7 @@ AndroidX.Work.Configuration.MinJobSchedulerId.get -> int
 AndroidX.Work.Configuration.MinimumLoggingLevel.get -> int
 AndroidX.Work.Configuration.RemoteSessionTimeoutMillis.get -> long
 AndroidX.Work.Configuration.RunnableScheduler.get -> AndroidX.Work.IRunnableScheduler!
+AndroidX.Work.Configuration.ScheduleEventListener.get -> AndroidX.Work.IScheduleEventListener?
 AndroidX.Work.Configuration.SchedulingExceptionHandler.get -> AndroidX.Core.Util.IConsumer?
 AndroidX.Work.Configuration.TaskExecutor.get -> Java.Util.Concurrent.IExecutor!
 AndroidX.Work.Configuration.Tracer.get -> AndroidX.Work.ITracer!
@@ -133,6 +143,7 @@ AndroidX.Work.Data.GetInt(string! key, int defaultValue) -> int
 AndroidX.Work.Data.GetIntArray(string! key) -> int[]?
 AndroidX.Work.Data.GetLong(string! key, long defaultValue) -> long
 AndroidX.Work.Data.GetLongArray(string! key) -> long[]?
+AndroidX.Work.Data.GetNullableStringArray(string! key) -> string![]?
 AndroidX.Work.Data.GetString(string! key) -> string?
 AndroidX.Work.Data.GetStringArray(string! key) -> string![]?
 AndroidX.Work.Data.HasKeyWithValueOfType(string! key, Java.Lang.Class! klass) -> bool
@@ -149,10 +160,16 @@ AndroidX.Work.DelegatingWorkerFactory.DelegatingWorkerFactory(nint javaReference
 AndroidX.Work.DelegatingWorkerFactoryKt
 AndroidX.Work.DirectExecutor
 AndroidX.Work.DirectExecutor.Execute(Java.Lang.IRunnable! command) -> void
+AndroidX.Work.ExecutionEventOnExceptionHandler
+AndroidX.Work.ExecutionEventOnFinishedHandler
+AndroidX.Work.ExecutionEventOnStartedHandler
+AndroidX.Work.ExecutionEventOnStoppedHandler
 AndroidX.Work.ExistingPeriodicWorkPolicy
 AndroidX.Work.ExistingWorkPolicy
 AndroidX.Work.ExperimentalConfigurationApiAttribute
 AndroidX.Work.ExperimentalConfigurationApiAttribute.ExperimentalConfigurationApiAttribute() -> void
+AndroidX.Work.ExperimentalEventsApiAttribute
+AndroidX.Work.ExperimentalEventsApiAttribute.ExperimentalEventsApiAttribute() -> void
 AndroidX.Work.ExperimentalWorkRequestBuilderApiAttribute
 AndroidX.Work.ExperimentalWorkRequestBuilderApiAttribute.ExperimentalWorkRequestBuilderApiAttribute() -> void
 AndroidX.Work.ForegroundInfo
@@ -163,7 +180,13 @@ AndroidX.Work.ForegroundInfo.Notification.get -> Android.App.Notification?
 AndroidX.Work.ForegroundInfo.NotificationId.get -> int
 AndroidX.Work.IClock
 AndroidX.Work.IClock.CurrentTimeMillis() -> long
+AndroidX.Work.IExecutionEventListener
+AndroidX.Work.IExecutionEventListener.OnException(Java.Lang.Throwable! throwable, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
+AndroidX.Work.IExecutionEventListener.OnFinished(AndroidX.Work.ListenableWorker.Result! result, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
+AndroidX.Work.IExecutionEventListener.OnStarted(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+AndroidX.Work.IExecutionEventListener.OnStopped(int stopReason, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
 AndroidX.Work.IExperimentalConfigurationApi
+AndroidX.Work.IExperimentalEventsApi
 AndroidX.Work.IExperimentalWorkRequestBuilderApi
 AndroidX.Work.IForegroundUpdater
 AndroidX.Work.IForegroundUpdater.SetForegroundAsync(Android.Content.Context? context, Java.Util.UUID? id, AndroidX.Work.ForegroundInfo? foregroundInfo) -> Google.Common.Util.Concurrent.IListenableFuture?
@@ -177,6 +200,12 @@ AndroidX.Work.IProgressUpdater.UpdateProgress(Android.Content.Context? context, 
 AndroidX.Work.IRunnableScheduler
 AndroidX.Work.IRunnableScheduler.Cancel(Java.Lang.IRunnable? runnable) -> void
 AndroidX.Work.IRunnableScheduler.ScheduleWithDelay(long delayInMillis, Java.Lang.IRunnable? runnable) -> void
+AndroidX.Work.IScheduleEventListener
+AndroidX.Work.IScheduleEventListener.OnCancelled(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Work.IScheduleEventListener.OnEnqueued(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Work.IScheduleEventListener.OnPrerequisiteFailed(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Work.IScheduleEventListener.OnUnblocked(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Work.IScheduleEventListener.OnUpdated(AndroidX.Work.WorkInfo! oldWorkInfo, AndroidX.Work.WorkInfo! updatedWorkInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Work.ITracer
 AndroidX.Work.ITracer.BeginAsyncSection(string! methodName, int cookie) -> void
 AndroidX.Work.ITracer.BeginSection(string! label) -> void
@@ -306,6 +335,7 @@ AndroidX.Work.Impl.Model.Dependency
 AndroidX.Work.Impl.Model.Dependency.Dependency(string! workSpecId, string! prerequisiteId) -> void
 AndroidX.Work.Impl.Model.Dependency.PrerequisiteId.get -> string!
 AndroidX.Work.Impl.Model.Dependency.WorkSpecId.get -> string!
+AndroidX.Work.Impl.Model.DependencyDaoKt
 AndroidX.Work.Impl.Model.DependencyDao_Impl
 AndroidX.Work.Impl.Model.DependencyDao_Impl.Companion
 AndroidX.Work.Impl.Model.DependencyDao_Impl.Companion.RequiredConverters.get -> System.Collections.Generic.IList<Kotlin.Reflect.IKClass!>!
@@ -347,6 +377,7 @@ AndroidX.Work.Impl.Model.IWorkProgressDao.DeleteAll() -> void
 AndroidX.Work.Impl.Model.IWorkProgressDao.GetProgressForWorkSpecId(string! workSpecId) -> AndroidX.Work.Data?
 AndroidX.Work.Impl.Model.IWorkProgressDao.Insert(AndroidX.Work.Impl.Model.WorkProgress! progress) -> void
 AndroidX.Work.Impl.Model.IWorkSpecDao
+AndroidX.Work.Impl.Model.IWorkSpecDao.AllUnblockedWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.IWorkSpecDao.AllUnfinishedWork.get -> System.Collections.Generic.IList<string!>!
 AndroidX.Work.Impl.Model.IWorkSpecDao.AllWorkSpecIds.get -> System.Collections.Generic.IList<string!>!
 AndroidX.Work.Impl.Model.IWorkSpecDao.AllWorkSpecIdsLiveData.get -> AndroidX.Lifecycle.LiveData!
@@ -378,6 +409,7 @@ AndroidX.Work.Impl.Model.IWorkSpecDao.IncrementGeneration(string! id) -> void
 AndroidX.Work.Impl.Model.IWorkSpecDao.IncrementPeriodCount(string! id) -> void
 AndroidX.Work.Impl.Model.IWorkSpecDao.IncrementWorkSpecRunAttemptCount(string! id) -> int
 AndroidX.Work.Impl.Model.IWorkSpecDao.InsertWorkSpec(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> void
+AndroidX.Work.Impl.Model.IWorkSpecDao.IsWorkSpecScheduled(string! id) -> bool
 AndroidX.Work.Impl.Model.IWorkSpecDao.MarkWorkSpecScheduled(string! id, long startTime) -> int
 AndroidX.Work.Impl.Model.IWorkSpecDao.PruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast() -> void
 AndroidX.Work.Impl.Model.IWorkSpecDao.ResetScheduledState() -> int
@@ -385,6 +417,7 @@ AndroidX.Work.Impl.Model.IWorkSpecDao.ResetWorkSpecNextScheduleTimeOverride(stri
 AndroidX.Work.Impl.Model.IWorkSpecDao.ResetWorkSpecRunAttemptCount(string! id) -> int
 AndroidX.Work.Impl.Model.IWorkSpecDao.RunningWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.IWorkSpecDao.ScheduledWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
+AndroidX.Work.Impl.Model.IWorkSpecDao.ScheduledWorkWithContentUris.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.IWorkSpecDao.SetCancelledState(string! id) -> int
 AndroidX.Work.Impl.Model.IWorkSpecDao.SetLastEnqueueTime(string! id, long enqueueTime) -> void
 AndroidX.Work.Impl.Model.IWorkSpecDao.SetNextScheduleTimeOverride(string! id, long nextScheduleTimeOverrideMillis) -> void
@@ -577,7 +610,8 @@ AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component13() -> int
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component14() -> long
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component15() -> int
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component16() -> System.Collections.Generic.IList<string!>!
-AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component17() -> System.Collections.Generic.IList<AndroidX.Work.Data!>!
+AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component17() -> string!
+AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component18() -> System.Collections.Generic.IList<AndroidX.Work.Data!>!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component2() -> AndroidX.Work.WorkInfo.State!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component3() -> AndroidX.Work.Data!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component4() -> long
@@ -587,7 +621,7 @@ AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component7() -> AndroidX.Work.Con
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component8() -> int
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Component9() -> AndroidX.Work.BackoffPolicy!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Constraints.get -> AndroidX.Work.Constraints!
-AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Copy(string! id, AndroidX.Work.WorkInfo.State! state, AndroidX.Work.Data! output, long initialDelay, long intervalDuration, long flexDuration, AndroidX.Work.Constraints! constraints, int runAttemptCount, AndroidX.Work.BackoffPolicy! backoffPolicy, long backoffDelayDuration, long lastEnqueueTime, int periodCount, int generation, long nextScheduleTimeOverride, int stopReason, System.Collections.Generic.IList<string!>! tags, System.Collections.Generic.IList<AndroidX.Work.Data!>! progress) -> AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo!
+AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Copy(string! id, AndroidX.Work.WorkInfo.State! state, AndroidX.Work.Data! output, long initialDelay, long intervalDuration, long flexDuration, AndroidX.Work.Constraints! constraints, int runAttemptCount, AndroidX.Work.BackoffPolicy! backoffPolicy, long backoffDelayDuration, long lastEnqueueTime, int periodCount, int generation, long nextScheduleTimeOverride, int stopReason, System.Collections.Generic.IList<string!>! tags, string! workerClassName, System.Collections.Generic.IList<AndroidX.Work.Data!>! progress) -> AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.FlexDuration.get -> long
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Generation.get -> int
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Id.get -> string!
@@ -607,7 +641,8 @@ AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.State.get -> AndroidX.Work.WorkIn
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.StopReason.get -> int
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.Tags.get -> System.Collections.Generic.IList<string!>!
 AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.ToWorkInfo() -> AndroidX.Work.WorkInfo!
-AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.WorkInfoPojo(string! id, AndroidX.Work.WorkInfo.State! state, AndroidX.Work.Data! output, long initialDelay, long intervalDuration, long flexDuration, AndroidX.Work.Constraints! constraints, int runAttemptCount, AndroidX.Work.BackoffPolicy! backoffPolicy, long backoffDelayDuration, long lastEnqueueTime, int periodCount, int generation, long nextScheduleTimeOverride, int stopReason, System.Collections.Generic.IList<string!>! tags, System.Collections.Generic.IList<AndroidX.Work.Data!>! progress) -> void
+AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.WorkInfoPojo(string! id, AndroidX.Work.WorkInfo.State! state, AndroidX.Work.Data! output, long initialDelay, long intervalDuration, long flexDuration, AndroidX.Work.Constraints! constraints, int runAttemptCount, AndroidX.Work.BackoffPolicy! backoffPolicy, long backoffDelayDuration, long lastEnqueueTime, int periodCount, int generation, long nextScheduleTimeOverride, int stopReason, System.Collections.Generic.IList<string!>! tags, string! workerClassName, System.Collections.Generic.IList<AndroidX.Work.Data!>! progress) -> void
+AndroidX.Work.Impl.Model.WorkSpec.WorkInfoPojo.WorkerClassName.get -> string!
 AndroidX.Work.Impl.Model.WorkSpec.WorkSpec(string! id, AndroidX.Work.WorkInfo.State! state, string! workerClassName, string! inputMergerClassName, AndroidX.Work.Data! input, AndroidX.Work.Data! output, long initialDelay, long intervalDuration, long flexDuration, AndroidX.Work.Constraints! constraints, int runAttemptCount, AndroidX.Work.BackoffPolicy! backoffPolicy, long backoffDelayDuration, long lastEnqueueTime, long minimumRetentionDuration, long scheduleRequestedAt, bool expedited, AndroidX.Work.OutOfQuotaPolicy! outOfQuotaPolicy, int periodCount, int generation, long nextScheduleTimeOverride, int nextScheduleTimeOverrideGeneration, int stopReason, string? traceTag, Java.Lang.Boolean? backOffOnSystemInterruptions) -> void
 AndroidX.Work.Impl.Model.WorkSpec.WorkSpec(string! id, string! workerClassName_) -> void
 AndroidX.Work.Impl.Model.WorkSpec.WorkSpec(string! newId, AndroidX.Work.Impl.Model.WorkSpec! other) -> void
@@ -615,6 +650,7 @@ AndroidX.Work.Impl.Model.WorkSpec.WorkerClassName.get -> string!
 AndroidX.Work.Impl.Model.WorkSpec.WorkerClassName.set -> void
 AndroidX.Work.Impl.Model.WorkSpecDaoKt
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl
+AndroidX.Work.Impl.Model.WorkSpecDao_Impl.AllUnblockedWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.AllUnfinishedWork.get -> System.Collections.Generic.IList<string!>!
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.AllWorkSpecIds.get -> System.Collections.Generic.IList<string!>!
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.AllWorkSpecIdsLiveData.get -> AndroidX.Lifecycle.LiveData!
@@ -648,6 +684,7 @@ AndroidX.Work.Impl.Model.WorkSpecDao_Impl.IncrementGeneration(string! id) -> voi
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.IncrementPeriodCount(string! id) -> void
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.IncrementWorkSpecRunAttemptCount(string! id) -> int
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.InsertWorkSpec(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> void
+AndroidX.Work.Impl.Model.WorkSpecDao_Impl.IsWorkSpecScheduled(string! id) -> bool
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.MarkWorkSpecScheduled(string! id, long startTime) -> int
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.PruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast() -> void
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.ResetScheduledState() -> int
@@ -655,6 +692,7 @@ AndroidX.Work.Impl.Model.WorkSpecDao_Impl.ResetWorkSpecNextScheduleTimeOverride(
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.ResetWorkSpecRunAttemptCount(string! id) -> int
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.RunningWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.ScheduledWork.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
+AndroidX.Work.Impl.Model.WorkSpecDao_Impl.ScheduledWorkWithContentUris.get -> System.Collections.Generic.IList<AndroidX.Work.Impl.Model.WorkSpec!>!
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.SetCancelledState(string! id) -> int
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.SetLastEnqueueTime(string! id, long enqueueTime) -> void
 AndroidX.Work.Impl.Model.WorkSpecDao_Impl.SetNextScheduleTimeOverride(string! id, long nextScheduleTimeOverrideMillis) -> void
@@ -682,7 +720,7 @@ AndroidX.Work.Impl.Model.WorkTypeConverters.StateIds
 AndroidX.Work.Impl.Model.WorkTypeConverters.WhenMappings
 AndroidX.Work.Impl.Utils.CancelWorkRunnable
 AndroidX.Work.Impl.Utils.EnqueueRunnable
-AndroidX.Work.Impl.Utils.EnqueueRunnable.EnqueueRunnable(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Work.Impl.Utils.EnqueueRunnable.WhenMappings
 AndroidX.Work.Impl.Utils.EnqueueUtilsKt
 AndroidX.Work.Impl.Utils.ForceStopRunnable
 AndroidX.Work.Impl.Utils.ForceStopRunnable.BroadcastReceiver
@@ -707,6 +745,7 @@ AndroidX.Work.Impl.Utils.IdGenerator
 AndroidX.Work.Impl.Utils.IdGenerator.NextAlarmManagerId() -> int
 AndroidX.Work.Impl.Utils.IdGenerator.NextJobSchedulerIdWithRange(int minInclusive, int maxInclusive) -> int
 AndroidX.Work.Impl.Utils.IdGeneratorKt
+AndroidX.Work.Impl.Utils.ListenerEventDispatchKt
 AndroidX.Work.Impl.Utils.LiveDataUtils
 AndroidX.Work.Impl.Utils.LiveDataUtils.LiveDataUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Work.Impl.Utils.NetworkRequest28
@@ -714,7 +753,6 @@ AndroidX.Work.Impl.Utils.NetworkRequestCompatKt
 AndroidX.Work.Impl.Utils.NetworkTypeCompatKt
 AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.WhenMappings
 AndroidX.Work.Impl.Utils.PackageManagerHelper
-AndroidX.Work.Impl.Utils.PackageManagerHelper.PackageManagerHelper(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Work.Impl.Utils.PreferenceUtils
 AndroidX.Work.Impl.Utils.PreferenceUtils.PreferenceUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Work.Impl.Utils.ProcessUtils
@@ -732,6 +770,8 @@ AndroidX.Work.Impl.Utils.SynchronousExecutor.SynchronousExecutor(nint javaRefere
 AndroidX.Work.Impl.Utils.TaskExecutor.ISerialExecutor
 AndroidX.Work.Impl.Utils.TaskExecutor.ISerialExecutor.HasPendingTasks.get -> bool
 AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor
+AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor.CoroutineScope.get -> Xamarin.KotlinX.Coroutines.ICoroutineScope?
+AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor.EventListenerDispatcher.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher?
 AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor.ExecuteOnTaskThread(Java.Lang.IRunnable? runnable) -> void
 AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor.MainThreadExecutor.get -> Java.Util.Concurrent.IExecutor?
 AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor.SerialTaskExecutor.get -> AndroidX.Work.Impl.Utils.TaskExecutor.ISerialExecutor?
@@ -806,6 +846,7 @@ AndroidX.Work.LoggerExtKt
 AndroidX.Work.MultiProcess.IListenableWorkerImpl
 AndroidX.Work.MultiProcess.IListenableWorkerImpl.Descriptor.get -> string?
 AndroidX.Work.MultiProcess.IListenableWorkerImpl.GetForegroundInfoAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+AndroidX.Work.MultiProcess.IListenableWorkerImpl.InterfaceVersion.get -> int
 AndroidX.Work.MultiProcess.IListenableWorkerImpl.Interrupt(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IListenableWorkerImpl.StartWork(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImpl
@@ -816,12 +857,14 @@ AndroidX.Work.MultiProcess.IWorkManagerImpl.CancelWorkById(string? id, AndroidX.
 AndroidX.Work.MultiProcess.IWorkManagerImpl.Descriptor.get -> string?
 AndroidX.Work.MultiProcess.IWorkManagerImpl.EnqueueContinuation(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImpl.EnqueueWorkRequests(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+AndroidX.Work.MultiProcess.IWorkManagerImpl.InterfaceVersion.get -> int
 AndroidX.Work.MultiProcess.IWorkManagerImpl.QueryWorkInfo(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImpl.SetForegroundAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImpl.SetProgress(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImpl.UpdateUniquePeriodicWorkRequest(string? name, byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImplCallback
 AndroidX.Work.MultiProcess.IWorkManagerImplCallback.Descriptor.get -> string?
+AndroidX.Work.MultiProcess.IWorkManagerImplCallback.InterfaceVersion.get -> int
 AndroidX.Work.MultiProcess.IWorkManagerImplCallback.OnFailure(string? error) -> void
 AndroidX.Work.MultiProcess.IWorkManagerImplCallback.OnSuccess(byte[]? response) -> void
 AndroidX.Work.MultiProcess.ListenableWorkerImpl
@@ -927,6 +970,11 @@ AndroidX.Work.PeriodicWorkRequest.Builder.SetInputData(AndroidX.Work.Data! data)
 AndroidX.Work.PeriodicWorkRequest.Builder.SetNextScheduleTimeOverride(long nextScheduleTimeOverrideMillis) -> AndroidX.Work.PeriodicWorkRequest.Builder!
 AndroidX.Work.PeriodicWorkRequest.Companion
 AndroidX.Work.PeriodicWorkRequestKt
+AndroidX.Work.ScheduleEventOnCancelledHandler
+AndroidX.Work.ScheduleEventOnEnqueuedHandler
+AndroidX.Work.ScheduleEventOnPrerequisiteFailedHandler
+AndroidX.Work.ScheduleEventOnUnblockedHandler
+AndroidX.Work.ScheduleEventOnUpdatedHandler
 AndroidX.Work.SystemClock
 AndroidX.Work.SystemClock.SystemClock() -> void
 AndroidX.Work.SystemClock.SystemClock(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
@@ -965,6 +1013,8 @@ AndroidX.Work.WorkInfo.WorkInfo(Java.Util.UUID! id, AndroidX.Work.WorkInfo.State
 AndroidX.Work.WorkInfo.WorkInfo(Java.Util.UUID! id, AndroidX.Work.WorkInfo.State! state, System.Collections.Generic.ICollection<string!>! tags, AndroidX.Work.Data! outputData, AndroidX.Work.Data! progress, int runAttemptCount, int generation, AndroidX.Work.Constraints! constraints, long initialDelayMillis, AndroidX.Work.WorkInfo.PeriodicityInfo? periodicityInfo) -> void
 AndroidX.Work.WorkInfo.WorkInfo(Java.Util.UUID! id, AndroidX.Work.WorkInfo.State! state, System.Collections.Generic.ICollection<string!>! tags, AndroidX.Work.Data! outputData, AndroidX.Work.Data! progress, int runAttemptCount, int generation, AndroidX.Work.Constraints! constraints, long initialDelayMillis, AndroidX.Work.WorkInfo.PeriodicityInfo? periodicityInfo, long nextScheduleTimeMillis) -> void
 AndroidX.Work.WorkInfo.WorkInfo(Java.Util.UUID! id, AndroidX.Work.WorkInfo.State! state, System.Collections.Generic.ICollection<string!>! tags, AndroidX.Work.Data! outputData, AndroidX.Work.Data! progress, int runAttemptCount, int generation, AndroidX.Work.Constraints! constraints, long initialDelayMillis, AndroidX.Work.WorkInfo.PeriodicityInfo? periodicityInfo, long nextScheduleTimeMillis, int stopReason) -> void
+AndroidX.Work.WorkInfo.WorkInfo(Java.Util.UUID! id, AndroidX.Work.WorkInfo.State! state, System.Collections.Generic.ICollection<string!>! tags, AndroidX.Work.Data! outputData, AndroidX.Work.Data! progress, int runAttemptCount, int generation, AndroidX.Work.Constraints! constraints, long initialDelayMillis, AndroidX.Work.WorkInfo.PeriodicityInfo? periodicityInfo, long nextScheduleTimeMillis, int stopReason, string? workerClassName) -> void
+AndroidX.Work.WorkInfo.WorkerClassName.get -> string?
 AndroidX.Work.WorkManager
 AndroidX.Work.WorkManager.BeginUniqueWork(string! uniqueWorkName, AndroidX.Work.ExistingWorkPolicy! existingWorkPolicy, AndroidX.Work.OneTimeWorkRequest! request) -> AndroidX.Work.WorkContinuation!
 AndroidX.Work.WorkManager.BeginWith(AndroidX.Work.OneTimeWorkRequest! request) -> AndroidX.Work.WorkContinuation!
@@ -1089,6 +1139,7 @@ abstract AndroidX.Work.Logger.Verbose(string? tag, string? message, Java.Lang.Th
 abstract AndroidX.Work.Logger.Warning(string? tag, string? message) -> void
 abstract AndroidX.Work.Logger.Warning(string? tag, string? message, Java.Lang.Throwable? throwable) -> void
 abstract AndroidX.Work.MultiProcess.ListenableWorkerImplStub.GetForegroundInfoAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+abstract AndroidX.Work.MultiProcess.ListenableWorkerImplStub.InterfaceVersion.get -> int
 abstract AndroidX.Work.MultiProcess.ListenableWorkerImplStub.Interrupt(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.ListenableWorkerImplStub.StartWork(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.RemoteWorkContinuation.CombineInternal(System.Collections.Generic.IList<AndroidX.Work.MultiProcess.RemoteWorkContinuation!>? continuations) -> AndroidX.Work.MultiProcess.RemoteWorkContinuation?
@@ -1108,6 +1159,7 @@ abstract AndroidX.Work.MultiProcess.RemoteWorkManager.EnqueueUniqueWork(string? 
 abstract AndroidX.Work.MultiProcess.RemoteWorkManager.GetWorkInfos(AndroidX.Work.WorkQuery? workQuery) -> Google.Common.Util.Concurrent.IListenableFuture?
 abstract AndroidX.Work.MultiProcess.RemoteWorkManager.SetForegroundAsync(string? id, AndroidX.Work.ForegroundInfo? foregroundInfo) -> Google.Common.Util.Concurrent.IListenableFuture?
 abstract AndroidX.Work.MultiProcess.RemoteWorkManager.SetProgress(Java.Util.UUID? id, AndroidX.Work.Data? data) -> Google.Common.Util.Concurrent.IListenableFuture?
+abstract AndroidX.Work.MultiProcess.WorkManagerImplCallbackStub.InterfaceVersion.get -> int
 abstract AndroidX.Work.MultiProcess.WorkManagerImplCallbackStub.OnFailure(string? error) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplCallbackStub.OnSuccess(byte[]? response) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.CancelAllWork(AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
@@ -1116,6 +1168,7 @@ abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.CancelUniqueWork(string?
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.CancelWorkById(string? id, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.EnqueueContinuation(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.EnqueueWorkRequests(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.InterfaceVersion.get -> int
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.QueryWorkInfo(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.SetForegroundAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 abstract AndroidX.Work.MultiProcess.WorkManagerImplStub.SetProgress(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
@@ -1173,8 +1226,17 @@ const AndroidX.Work.Impl.Utils.PreferenceUtils.InsertPreference = "INSERT OR REP
 const AndroidX.Work.Impl.Utils.PreferenceUtils.KeyLastCancelAllTimeMs = "last_cancel_all_time_ms" -> string!
 const AndroidX.Work.Impl.Utils.PreferenceUtils.KeyRescheduleNeeded = "reschedule_needed" -> string!
 const AndroidX.Work.Impl.Utils.PreferenceUtils.PreferencesFileName = "androidx.work.util.preferences" -> string!
+const AndroidX.Work.MultiProcess.ListenableWorkerImpl.Version = 1 -> int
+const AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.InterfaceConsts.Version = 1 -> int
+const AndroidX.Work.MultiProcess.ListenableWorkerImplStub.InterfaceConsts.Version = 1 -> int
 const AndroidX.Work.MultiProcess.RemoteWorkManager.DefaultSessionTimeoutMillis = 600000 -> long
 const AndroidX.Work.MultiProcess.RemoteWorkManager.MaxSessionTimeoutMillis = 1200000 -> long
+const AndroidX.Work.MultiProcess.WorkManagerImpl.Version = 1 -> int
+const AndroidX.Work.MultiProcess.WorkManagerImplCallback.Version = 1 -> int
+const AndroidX.Work.MultiProcess.WorkManagerImplCallbackDefault.InterfaceConsts.Version = 1 -> int
+const AndroidX.Work.MultiProcess.WorkManagerImplCallbackStub.InterfaceConsts.Version = 1 -> int
+const AndroidX.Work.MultiProcess.WorkManagerImplDefault.InterfaceConsts.Version = 1 -> int
+const AndroidX.Work.MultiProcess.WorkManagerImplStub.InterfaceConsts.Version = 1 -> int
 const AndroidX.Work.PeriodicWorkRequest.MinPeriodicFlexMillis = 300000 -> long
 const AndroidX.Work.PeriodicWorkRequest.MinPeriodicIntervalMillis = 900000 -> long
 const AndroidX.Work.WorkInfo.StopReasonAppStandby = 12 -> int
@@ -1309,6 +1371,7 @@ override AndroidX.Work.Impl.Foreground.SystemForegroundService.JniPeerMembers.ge
 override AndroidX.Work.Impl.Foreground.SystemForegroundService.ThresholdClass.get -> nint
 override AndroidX.Work.Impl.Foreground.SystemForegroundService.ThresholdType.get -> System.Type!
 override AndroidX.Work.Impl.Model.Dependency.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Model.DependencyDaoKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Model.DependencyDao_Impl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Model.DependencyDao_Impl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Model.Preference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1346,8 +1409,7 @@ override AndroidX.Work.Impl.Model.WorkTypeConverters.StateIds.JniPeerMembers.get
 override AndroidX.Work.Impl.Model.WorkTypeConverters.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.CancelWorkRunnable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.EnqueueRunnable.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Utils.EnqueueRunnable.ThresholdClass.get -> nint
-override AndroidX.Work.Impl.Utils.EnqueueRunnable.ThresholdType.get -> System.Type!
+override AndroidX.Work.Impl.Utils.EnqueueRunnable.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.EnqueueUtilsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.ForceStopRunnable.BroadcastReceiver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.ForceStopRunnable.BroadcastReceiver.OnReceive(Android.Content.Context? context, Android.Content.Intent? intent) -> void
@@ -1362,6 +1424,7 @@ override AndroidX.Work.Impl.Utils.Futures.AbstractFuture.ThresholdType.get -> Sy
 override AndroidX.Work.Impl.Utils.Futures.SettableFuture.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.IdGenerator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.IdGeneratorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Work.Impl.Utils.ListenerEventDispatchKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.LiveDataUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.LiveDataUtils.ThresholdClass.get -> nint
 override AndroidX.Work.Impl.Utils.LiveDataUtils.ThresholdType.get -> System.Type!
@@ -1370,8 +1433,6 @@ override AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.JniPeerMembers.get -> J
 override AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.PackageManagerHelper.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Work.Impl.Utils.PackageManagerHelper.ThresholdClass.get -> nint
-override AndroidX.Work.Impl.Utils.PackageManagerHelper.ThresholdType.get -> System.Type!
 override AndroidX.Work.Impl.Utils.PreferenceUtils.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Work.Impl.Utils.PreferenceUtils.ThresholdClass.get -> nint
 override AndroidX.Work.Impl.Utils.PreferenceUtils.ThresholdType.get -> System.Type!
@@ -1539,6 +1600,7 @@ static AndroidX.Work.BackoffPolicy.Exponential.get -> AndroidX.Work.BackoffPolic
 static AndroidX.Work.BackoffPolicy.Linear.get -> AndroidX.Work.BackoffPolicy?
 static AndroidX.Work.BackoffPolicy.ValueOf(string? value) -> AndroidX.Work.BackoffPolicy?
 static AndroidX.Work.BackoffPolicy.Values() -> AndroidX.Work.BackoffPolicy![]?
+static AndroidX.Work.Configuration.CalculateExecutorParallelismLimit() -> int
 static AndroidX.Work.Constraints.None.get -> AndroidX.Work.Constraints!
 static AndroidX.Work.Data.Empty.get -> AndroidX.Work.Data!
 static AndroidX.Work.Data.FromByteArray(byte[]! bytes) -> AndroidX.Work.Data!
@@ -1578,11 +1640,13 @@ static AndroidX.Work.Impl.Foreground.SystemForegroundDispatcher.CreateNotifyInte
 static AndroidX.Work.Impl.Foreground.SystemForegroundDispatcher.CreateStartForegroundIntent(Android.Content.Context? context, AndroidX.Work.Impl.Model.WorkGenerationalId? id, AndroidX.Work.ForegroundInfo? info) -> Android.Content.Intent?
 static AndroidX.Work.Impl.Foreground.SystemForegroundDispatcher.CreateStopForegroundIntent(Android.Content.Context? context) -> Android.Content.Intent?
 static AndroidX.Work.Impl.Foreground.SystemForegroundService.Instance.get -> AndroidX.Work.Impl.Foreground.SystemForegroundService?
+static AndroidX.Work.Impl.Model.DependencyDaoKt.GetAllDependentWork(AndroidX.Work.Impl.Model.IDependencyDao! obj, string! id) -> System.Collections.Generic.IList<string!>!
 static AndroidX.Work.Impl.Model.RawWorkInfoDaoKt.GetWorkInfoPojosFlow(AndroidX.Work.Impl.Model.IRawWorkInfoDao! obj, Xamarin.KotlinX.Coroutines.CoroutineDispatcher! dispatcher, AndroidX.Sqlite.Db.ISupportSQLiteQuery! query) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Work.Impl.Model.SystemIdInfoDaoDefaultImpls.GetSystemIdInfo(AndroidX.Work.Impl.Model.ISystemIdInfoDao! _this, AndroidX.Work.Impl.Model.WorkGenerationalId! id) -> AndroidX.Work.Impl.Model.SystemIdInfo?
 static AndroidX.Work.Impl.Model.SystemIdInfoDaoDefaultImpls.RemoveSystemIdInfo(AndroidX.Work.Impl.Model.ISystemIdInfoDao! _this, AndroidX.Work.Impl.Model.WorkGenerationalId! id) -> void
 static AndroidX.Work.Impl.Model.SystemIdInfoKt.SystemIdInfo(AndroidX.Work.Impl.Model.WorkGenerationalId! generationalId, int systemId) -> AndroidX.Work.Impl.Model.SystemIdInfo!
 static AndroidX.Work.Impl.Model.WorkSpec.WorkInfoMapper.get -> AndroidX.Arch.Core.Util.IFunction!
+static AndroidX.Work.Impl.Model.WorkSpecDaoKt.GetWorkInfo(AndroidX.Work.Impl.Model.IWorkSpecDao! obj, string! id) -> AndroidX.Work.WorkInfo?
 static AndroidX.Work.Impl.Model.WorkSpecDaoKt.GetWorkStatusPojoFlowDataForIds(AndroidX.Work.Impl.Model.IWorkSpecDao! obj, Java.Util.UUID! id) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Work.Impl.Model.WorkSpecDaoKt.GetWorkStatusPojoFlowForName(AndroidX.Work.Impl.Model.IWorkSpecDao! obj, Xamarin.KotlinX.Coroutines.CoroutineDispatcher! dispatcher, string! name) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
 static AndroidX.Work.Impl.Model.WorkSpecDaoKt.GetWorkStatusPojoFlowForTag(AndroidX.Work.Impl.Model.IWorkSpecDao! obj, Xamarin.KotlinX.Coroutines.CoroutineDispatcher! dispatcher, string! tag) -> Xamarin.KotlinX.Coroutines.Flow.IFlow!
@@ -1600,6 +1664,7 @@ static AndroidX.Work.Impl.Model.WorkTypeConverters.OutOfQuotaPolicyToInt(Android
 static AndroidX.Work.Impl.Model.WorkTypeConverters.SetOfTriggersToByteArray(System.Collections.Generic.ICollection<AndroidX.Work.Constraints.ContentUriTrigger!>! triggers) -> byte[]!
 static AndroidX.Work.Impl.Model.WorkTypeConverters.StateIds.Instance.get -> AndroidX.Work.Impl.Model.WorkTypeConverters.StateIds!
 static AndroidX.Work.Impl.Model.WorkTypeConverters.StateToInt(AndroidX.Work.WorkInfo.State! state) -> int
+static AndroidX.Work.Impl.Utils.EnqueueRunnable.Instance.get -> AndroidX.Work.Impl.Utils.EnqueueRunnable!
 static AndroidX.Work.Impl.Utils.EnqueueUtilsKt.TryDelegateRemoteListenableWorker(AndroidX.Work.Impl.Model.WorkSpec! workSpec) -> AndroidX.Work.Impl.Model.WorkSpec!
 static AndroidX.Work.Impl.Utils.Futures.SettableFuture.Create() -> AndroidX.Work.Impl.Utils.Futures.SettableFuture?
 static AndroidX.Work.Impl.Utils.LiveDataUtils.DedupedMappedLiveDataFor(AndroidX.Lifecycle.LiveData? inputLiveData, AndroidX.Arch.Core.Util.IFunction? mappingMethod, AndroidX.Work.Impl.Utils.TaskExecutor.ITaskExecutor? workTaskExecutor) -> AndroidX.Lifecycle.LiveData?
@@ -1608,9 +1673,8 @@ static AndroidX.Work.Impl.Utils.NetworkRequest28.Instance.get -> AndroidX.Work.I
 static AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.GetCapabilitiesCompat(Android.Net.NetworkRequest! obj) -> int[]!
 static AndroidX.Work.Impl.Utils.NetworkRequestCompatKt.GetTransportTypesCompat(Android.Net.NetworkRequest! obj) -> int[]!
 static AndroidX.Work.Impl.Utils.NetworkTypeCompatKt.ToNetworkRequest(AndroidX.Work.NetworkType! obj) -> Android.Net.NetworkRequest?
-static AndroidX.Work.Impl.Utils.PackageManagerHelper.IsComponentExplicitlyEnabled(Android.Content.Context? context, Java.Lang.Class? klazz) -> bool
-static AndroidX.Work.Impl.Utils.PackageManagerHelper.IsComponentExplicitlyEnabled(Android.Content.Context? context, string? className) -> bool
-static AndroidX.Work.Impl.Utils.PackageManagerHelper.SetComponentEnabled(Android.Content.Context? context, Java.Lang.Class? klazz, bool enabled) -> void
+static AndroidX.Work.Impl.Utils.PackageManagerHelper.SetReceiverEnabled(Android.Content.Context! context, Java.Lang.Class! klazz, bool enabled) -> void
+static AndroidX.Work.Impl.Utils.PackageManagerHelper.SetServiceEnabled(Android.Content.Context! context, Java.Lang.Class! klazz, bool enabled) -> void
 static AndroidX.Work.Impl.Utils.PreferenceUtils.MigrateLegacyPreferences(Android.Content.Context? context, AndroidX.Sqlite.Db.ISupportSQLiteDatabase? sqLiteDatabase) -> void
 static AndroidX.Work.Impl.Utils.ProcessUtils.IsDefaultProcess(Android.Content.Context! context, AndroidX.Work.Configuration! configuration) -> bool
 static AndroidX.Work.Impl.Utils.RawQueries.ToRawQuery(AndroidX.Work.WorkQuery! obj) -> AndroidX.Sqlite.Db.ISupportSQLiteQuery!
@@ -1704,6 +1768,10 @@ static AndroidX.Work.WorkerParametersExtensions.IsRemoteWorkRequest(AndroidX.Wor
 static AndroidX.Work.WorkerParametersExtensions.UsingRemoteService(AndroidX.Work.WorkerParameters! obj, string! workerClassName, Android.Content.ComponentName! componentName) -> AndroidX.Work.WorkerParameters!
 virtual AndroidX.Work.CoroutineWorker.CoroutineContext.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher!
 virtual AndroidX.Work.CoroutineWorker.GetForegroundInfo(Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Work.ExecutionEventOnExceptionHandler.Invoke(Java.Lang.Throwable! throwable, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
+virtual AndroidX.Work.ExecutionEventOnFinishedHandler.Invoke(AndroidX.Work.ListenableWorker.Result! result, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
+virtual AndroidX.Work.ExecutionEventOnStartedHandler.Invoke(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p1) -> Java.Lang.Object?
+virtual AndroidX.Work.ExecutionEventOnStoppedHandler.Invoke(int stopReason, AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! p2) -> Java.Lang.Object?
 virtual AndroidX.Work.Impl.Background.Greedy.DelayedWorkTracker.Schedule(AndroidX.Work.Impl.Model.WorkSpec? workSpec, long nextRunTime) -> void
 virtual AndroidX.Work.Impl.Background.Greedy.DelayedWorkTracker.Unschedule(string? workSpecId) -> void
 virtual AndroidX.Work.Impl.Background.Greedy.GreedyScheduler.Cancel(string? workSpecId) -> void
@@ -1750,6 +1818,8 @@ virtual AndroidX.Work.Impl.Utils.SerialExecutorImpl.DelegatedExecutor.get -> Jav
 virtual AndroidX.Work.Impl.Utils.SerialExecutorImpl.Execute(Java.Lang.IRunnable? command) -> void
 virtual AndroidX.Work.Impl.Utils.SerialExecutorImpl.HasPendingTasks.get -> bool
 virtual AndroidX.Work.Impl.Utils.SynchronousExecutor.Execute(Java.Lang.IRunnable? command) -> void
+virtual AndroidX.Work.Impl.Utils.TaskExecutor.WorkManagerTaskExecutor.CoroutineScope.get -> Xamarin.KotlinX.Coroutines.ICoroutineScope?
+virtual AndroidX.Work.Impl.Utils.TaskExecutor.WorkManagerTaskExecutor.EventListenerDispatcher.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher?
 virtual AndroidX.Work.Impl.Utils.TaskExecutor.WorkManagerTaskExecutor.MainThreadExecutor.get -> Java.Util.Concurrent.IExecutor?
 virtual AndroidX.Work.Impl.Utils.TaskExecutor.WorkManagerTaskExecutor.SerialTaskExecutor.get -> AndroidX.Work.Impl.Utils.TaskExecutor.ISerialExecutor?
 virtual AndroidX.Work.Impl.Utils.TaskExecutor.WorkManagerTaskExecutor.TaskCoroutineDispatcher.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher?
@@ -1768,11 +1838,13 @@ virtual AndroidX.Work.ListenableWorker.TaskExecutor.get -> AndroidX.Work.Impl.Ut
 virtual AndroidX.Work.ListenableWorker.WorkerFactory.get -> AndroidX.Work.WorkerFactory?
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.GetForegroundInfoAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+virtual AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.InterfaceVersion.get -> int
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.Interrupt(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplDefault.StartWork(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Work.MultiProcess.ListenableWorkerImplStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
 virtual AndroidX.Work.MultiProcess.WorkManagerImplCallbackDefault.AsBinder() -> Android.OS.IBinder?
+virtual AndroidX.Work.MultiProcess.WorkManagerImplCallbackDefault.InterfaceVersion.get -> int
 virtual AndroidX.Work.MultiProcess.WorkManagerImplCallbackDefault.OnFailure(string? error) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplCallbackDefault.OnSuccess(byte[]? response) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplCallbackStub.AsBinder() -> Android.OS.IBinder?
@@ -1784,12 +1856,18 @@ virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.CancelUniqueWork(strin
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.CancelWorkById(string? id, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.EnqueueContinuation(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.EnqueueWorkRequests(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
+virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.InterfaceVersion.get -> int
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.QueryWorkInfo(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.SetForegroundAsync(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.SetProgress(byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplDefault.UpdateUniquePeriodicWorkRequest(string? name, byte[]? request, AndroidX.Work.MultiProcess.IWorkManagerImplCallback? callback) -> void
 virtual AndroidX.Work.MultiProcess.WorkManagerImplStub.AsBinder() -> Android.OS.IBinder?
 virtual AndroidX.Work.MultiProcess.WorkManagerImplStub.OnTransact(int code, Android.OS.Parcel? data, Android.OS.Parcel? reply, int flags) -> bool
+virtual AndroidX.Work.ScheduleEventOnCancelledHandler.Invoke(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Work.ScheduleEventOnEnqueuedHandler.Invoke(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Work.ScheduleEventOnPrerequisiteFailedHandler.Invoke(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Work.ScheduleEventOnUnblockedHandler.Invoke(AndroidX.Work.WorkInfo! workInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+virtual AndroidX.Work.ScheduleEventOnUpdatedHandler.Invoke(AndroidX.Work.WorkInfo! oldWorkInfo, AndroidX.Work.WorkInfo! updatedWorkInfo, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 virtual AndroidX.Work.SystemClock.CurrentTimeMillis() -> long
 virtual AndroidX.Work.WorkManager.EnqueueUniqueWork(string! uniqueWorkName, AndroidX.Work.ExistingWorkPolicy! existingWorkPolicy, AndroidX.Work.OneTimeWorkRequest! request) -> AndroidX.Work.IOperation!
 virtual AndroidX.Work.WorkRequest.Builder.SetExpedited(AndroidX.Work.OutOfQuotaPolicy! policy) -> AndroidX.Work.WorkRequest.Builder!
