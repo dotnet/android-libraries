@@ -218,7 +218,12 @@ AndroidX.Emoji2.Text.FontRequestEmojiCompatConfig.RetryPolicy
 AndroidX.Emoji2.Text.FontRequestEmojiCompatConfig.RetryPolicy.RetryPolicy() -> void
 AndroidX.Emoji2.Text.FontRequestEmojiCompatConfig.RetryPolicy.RetryPolicy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Emoji2.Text.MetadataRepo
+AndroidX.Emoji2.Text.MetadataRepo.GetChildOffset(int nodeOffset, int codepoint) -> int
 AndroidX.Emoji2.Text.MetadataRepo.GetEmojiCharArray() -> char[]?
+AndroidX.Emoji2.Text.MetadataRepo.GetNodeData(int nodeOffset) -> AndroidX.Emoji2.Text.TypefaceEmojiRasterizer?
+AndroidX.Emoji2.Text.MetadataRepo.GetNodeDataIdx(int nodeOffset) -> int
+AndroidX.Emoji2.Text.MetadataRepo.GetRootChildOffset(int codepoint) -> int
+AndroidX.Emoji2.Text.MetadataRepo.GetTrieHeader(int nodeOffset) -> long
 AndroidX.Emoji2.Text.MetadataRepo.MetadataList.get -> AndroidX.Emoji2.Text.FlatBuffer.MetadataList?
 AndroidX.Emoji2.Text.SpannableBuilder
 AndroidX.Emoji2.Text.SpannableBuilder.BeginBatchEdit() -> void
@@ -472,6 +477,12 @@ static AndroidX.Emoji2.Text.MetadataRepo.Create(Android.Content.Res.AssetManager
 static AndroidX.Emoji2.Text.MetadataRepo.Create(Android.Graphics.Typeface? typeface) -> AndroidX.Emoji2.Text.MetadataRepo?
 static AndroidX.Emoji2.Text.MetadataRepo.Create(Android.Graphics.Typeface? typeface, Java.Nio.ByteBuffer? byteBuffer) -> AndroidX.Emoji2.Text.MetadataRepo?
 static AndroidX.Emoji2.Text.MetadataRepo.Create(Android.Graphics.Typeface? typeface, System.IO.Stream? inputStream) -> AndroidX.Emoji2.Text.MetadataRepo?
+static AndroidX.Emoji2.Text.MetadataRepo.Create(Android.Graphics.Typeface? typeface, int capacity) -> AndroidX.Emoji2.Text.MetadataRepo?
+static AndroidX.Emoji2.Text.MetadataRepo.GetCompatAdded(long header) -> int
+static AndroidX.Emoji2.Text.MetadataRepo.GetEmojiIndex(long header) -> int
+static AndroidX.Emoji2.Text.MetadataRepo.IsDefaultEmoji(long header) -> bool
+static AndroidX.Emoji2.Text.MetadataRepo.IsEmojiCandidate(int key) -> bool
+static AndroidX.Emoji2.Text.MetadataRepo.IsTerminal(long header) -> bool
 static AndroidX.Emoji2.Text.SpannableBuilder.Create(Java.Lang.Class? clazz, Java.Lang.ICharSequence? text) -> AndroidX.Emoji2.Text.SpannableBuilder?
 static AndroidX.Emoji2.Text.SpannableBuilder.Create(Java.Lang.Class? clazz, string? text) -> AndroidX.Emoji2.Text.SpannableBuilder?
 virtual AndroidX.Emoji2.Text.DefaultEmojiCompatConfig.DefaultEmojiCompatConfigFactory.Create(Android.Content.Context? context) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
@@ -487,6 +498,7 @@ virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetGlyphChecker(AndroidX.Emoji2.
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetMetadataLoadStrategy(int strategy) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetReplaceAll(bool replaceAll) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetSpanFactory(AndroidX.Emoji2.Text.EmojiCompat.ISpanFactory? factory) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
+virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetUseAfterUpdatableSystemFonts(bool useAfter) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetUseEmojiAsDefaultStyle(bool useEmojiAsDefaultStyle) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.SetUseEmojiAsDefaultStyle(bool useEmojiAsDefaultStyle, System.Collections.Generic.IList<Java.Lang.Integer!>? emojiAsDefaultStyleExceptions) -> AndroidX.Emoji2.Text.EmojiCompat.Config?
 virtual AndroidX.Emoji2.Text.EmojiCompat.Config.UnregisterInitCallback(AndroidX.Emoji2.Text.EmojiCompat.InitCallback? initCallback) -> AndroidX.Emoji2.Text.EmojiCompat.Config?

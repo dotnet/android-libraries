@@ -167,6 +167,12 @@
     <remove-node
         path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.banner']/interface[@name='BannerAd']/method[@name='a' and count(parameter)=1 and parameter[1][@type='com.google.android.libraries.ads.mobile.sdk.banner.AdSize']]"
         />
+    <!-- VideoLifecycleCallbacks implements an obfuscated internal interface that is intentionally
+         not bound. Remove that internal base so VideoController and the dependent banner/native
+         ad surfaces remain valid. -->
+    <remove-node
+        path="/api/package[@name='com.google.android.libraries.ads.mobile.sdk.common']/interface[@name='VideoController.VideoLifecycleCallbacks']/implements[@name='ads_mobile_sdk.mq0']"
+        />
     <!-- MediaContent exposes an obfuscated accessor 'a()' returning a type from the (removed)
          'com.google.android.libraries.ads.mobile.sdk.internal' package. Because it is an abstract
          interface method with an unresolvable return type, the whole MediaContent interface fails
