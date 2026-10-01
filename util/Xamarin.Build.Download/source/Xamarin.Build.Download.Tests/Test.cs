@@ -5,7 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using Microsoft.Build.Construction;
@@ -23,6 +28,90 @@ namespace NativeLibraryDownloaderTests
 		public static string Configuration = "Release";
 		public static readonly string[] DEFAULT_IGNORE_PATTERNS = { "*.overridetasks", "*.tasks" };
 		const string DotNetPublicMavenGson = "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public-maven/maven/v1/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar";
+
+		// Serves raw deflate entry ranges, matching the bytes selected from a ZIP archive.
+		sealed class PartialZipTestServer : IDisposable
+		{
+			readonly CancellationTokenSource cancellation = new ();
+			readonly TcpListener listener = new (IPAddress.Loopback, 0);
+			readonly byte [] payload;
+			readonly Task serverTask;
+
+			public PartialZipTestServer (params byte [][] entries)
+			{
+				var ranges = new List<(long Start, long End)> ();
+				using (var stream = new MemoryStream ()) {
+					foreach (var entry in entries) {
+						var start = stream.Position;
+						using (var deflate = new DeflateStream (stream, CompressionLevel.Optimal, leaveOpen: true))
+							deflate.Write (entry, 0, entry.Length);
+						ranges.Add ((start, stream.Position - 1));
+					}
+					payload = stream.ToArray ();
+				}
+				Ranges = ranges;
+
+				listener.Start ();
+				Url = $"http://127.0.0.1:{((IPEndPoint) listener.LocalEndpoint).Port}/fixture.zip";
+				serverTask = Task.Run (ServeAsync);
+			}
+
+			public IReadOnlyList<(long Start, long End)> Ranges { get; }
+			public string Url { get; }
+
+			async Task ServeAsync ()
+			{
+				while (!cancellation.IsCancellationRequested) {
+					TcpClient client;
+					try {
+						client = await listener.AcceptTcpClientAsync (cancellation.Token);
+					} catch (OperationCanceledException) when (cancellation.IsCancellationRequested) {
+						break;
+					} catch (SocketException) when (cancellation.IsCancellationRequested) {
+						break;
+					}
+
+					using (client)
+						await RespondAsync (client);
+				}
+			}
+
+			async Task RespondAsync (TcpClient client)
+			{
+				var stream = client.GetStream ();
+				using var reader = new StreamReader (stream, Encoding.ASCII, detectEncodingFromByteOrderMarks: false, leaveOpen: true);
+				string rangeHeader = null;
+				string line;
+				while (!string.IsNullOrEmpty (line = await reader.ReadLineAsync ())) {
+					if (line.StartsWith ("Range: bytes=", StringComparison.OrdinalIgnoreCase))
+						rangeHeader = line.Substring ("Range: bytes=".Length);
+				}
+
+				var range = rangeHeader?.Split ('-');
+				if (range?.Length != 2 ||
+					!long.TryParse (range [0], out var start) ||
+					!long.TryParse (range [1], out var end) ||
+					start < 0 ||
+					end < start ||
+					end >= payload.Length)
+					throw new InvalidOperationException ($"Invalid range header: {rangeHeader}");
+
+				var length = checked((int) (end - start + 1));
+				var headers = Encoding.ASCII.GetBytes (
+					$"HTTP/1.1 206 Partial Content\r\nContent-Length: {length}\r\nContent-Range: bytes {start}-{end}/{payload.Length}\r\nConnection: close\r\n\r\n");
+				await stream.WriteAsync (headers);
+				await stream.WriteAsync (payload.AsMemory (checked((int) start), length));
+				await stream.FlushAsync ();
+			}
+
+			public void Dispose ()
+			{
+				cancellation.Cancel ();
+				listener.Stop ();
+				serverTask.GetAwaiter ().GetResult ();
+				cancellation.Dispose ();
+			}
+		}
 
 		void AddCoreTargets (ProjectRootElement el)
 		{
@@ -721,20 +810,22 @@ namespace NativeLibraryDownloaderTests
 		}
 
 		[Fact]
-		public void TestAndroidSupportSinglePartialZipDownload ()
+		public void TestSinglePartialZipDownload ()
 		{
+			using var server = new PartialZipTestServer (Encoding.UTF8.GetBytes ("manifest"));
 			var engine = new ProjectCollection ();
 			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
 
 			var unpackDir = GetTempPath ("unpacked");
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
+			prel.SetProperty ("XamarinBuildDownloadAllowUnsecure", "true");
 
 			prel.AddItem (
-				"XamarinBuildDownloadPartialZip", "androidsupport-25.0.1/cardview.v7", new Dictionary<string, string> {
-					{ "Url", "https://dl-ssl.google.com/android/repository/android_m2repository_r40.zip" },
-					{ "ToFile", "cardview.v7.aar" },
-					{ "RangeStart", "196438127" },
-					{ "RangeEnd", "196460160" },
+				"XamarinBuildDownloadPartialZip", "fixture-1.0.0/manifest", new Dictionary<string, string> {
+					{ "Url", server.Url },
+					{ "ToFile", "manifest.mf" },
+					{ "RangeStart", server.Ranges [0].Start.ToString () },
+					{ "RangeEnd", server.Ranges [0].End.ToString () },
 				});
 
 			AddCoreTargets (prel);
@@ -747,33 +838,37 @@ namespace NativeLibraryDownloaderTests
 			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
 			Assert.True (success);
 
-			Assert.True (File.Exists (Path.Combine (unpackDir, "androidsupport-25.0.1", "cardview.v7", "cardview.v7.aar")));
+			Assert.Equal ("manifest", File.ReadAllText (Path.Combine (unpackDir, "fixture-1.0.0", "manifest", "manifest.mf")));
 		}
 
 
 		[Fact]
-		public void TestAndroidSupportMultiplePartialZipDownload ()
+		public void TestMultiplePartialZipDownload ()
 		{
+			using var server = new PartialZipTestServer (
+				Encoding.UTF8.GetBytes ("manifest"),
+				Encoding.UTF8.GetBytes ("proguard"));
 			var engine = new ProjectCollection ();
 			var prel = ProjectRootElement.Create (Path.Combine (TempDir, "project.csproj"), engine);
 
 			var unpackDir = GetTempPath ("unpacked");
 			prel.SetProperty ("XamarinBuildDownloadDir", unpackDir);
+			prel.SetProperty ("XamarinBuildDownloadAllowUnsecure", "true");
 
 			prel.AddItem (
-				"XamarinBuildDownloadPartialZip", "androidsupport-25.0.1/cardview.v7", new Dictionary<string, string> {
-					{ "Url", "https://dl-ssl.google.com/android/repository/android_m2repository_r40.zip" },
-					{ "ToFile", "cardview.v7.aar" },
-					{ "RangeStart", "196438127" },
-					{ "RangeEnd", "196460160" },
+				"XamarinBuildDownloadPartialZip", "fixture-1.0.0/manifest", new Dictionary<string, string> {
+					{ "Url", server.Url },
+					{ "ToFile", "manifest.mf" },
+					{ "RangeStart", server.Ranges [0].Start.ToString () },
+					{ "RangeEnd", server.Ranges [0].End.ToString () },
 				});
 
 			prel.AddItem (
-				"XamarinBuildDownloadPartialZip", "androidsupport-25.0.1/recyclerview.v7", new Dictionary<string, string> {
-					{ "Url", "https://dl-ssl.google.com/android/repository/android_m2repository_r40.zip" },
-					{ "ToFile", "recyclerview.v7.aar" },
-					{ "RangeStart", "199278205" },
-					{ "RangeEnd", "199589731" },
+				"XamarinBuildDownloadPartialZip", "fixture-1.0.0/proguard", new Dictionary<string, string> {
+					{ "Url", server.Url },
+					{ "ToFile", "gson.pro" },
+					{ "RangeStart", server.Ranges [1].Start.ToString () },
+					{ "RangeEnd", server.Ranges [1].End.ToString () },
 				});
 
 			AddCoreTargets (prel);
@@ -786,8 +881,8 @@ namespace NativeLibraryDownloaderTests
 			AssertNoMessagesOrWarnings (log, DEFAULT_IGNORE_PATTERNS);
 			Assert.True (success);
 
-			Assert.True (File.Exists (Path.Combine (unpackDir, "androidsupport-25.0.1", "cardview.v7", "cardview.v7.aar")));
-			Assert.True (File.Exists (Path.Combine (unpackDir, "androidsupport-25.0.1", "recyclerview.v7", "recyclerview.v7.aar")));
+			Assert.Equal ("manifest", File.ReadAllText (Path.Combine (unpackDir, "fixture-1.0.0", "manifest", "manifest.mf")));
+			Assert.Equal ("proguard", File.ReadAllText (Path.Combine (unpackDir, "fixture-1.0.0", "proguard", "gson.pro")));
 		}
 
 
