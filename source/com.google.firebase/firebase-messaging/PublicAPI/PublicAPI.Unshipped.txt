@@ -141,12 +141,16 @@ Firebase.Messaging.Threads.IExecutorFactory.SubmitOneOff(string? p0, string? p1,
 Firebase.Messaging.Threads.PoolableExecutors
 Firebase.Messaging.Threads.PoolableExecutors.PoolableExecutors(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Messaging.Threads.ThreadPriority
+Firebase.Messaging.TopicSubscriptionClient
+Firebase.Messaging.TopicSubscriptionClient.IHttpConnectionFactory
+Firebase.Messaging.TopicSubscriptionClient.IHttpConnectionFactory.CreateConnection(Java.Net.URL! p0) -> Java.Net.HttpURLConnection!
+Firebase.Messaging.TopicSubscriptionClient.TopicSubscriptionClient(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 abstract Firebase.Messaging.EnhancedIntentService.HandleIntent(Android.Content.Intent? p0) -> void
 abstract Firebase.Messaging.ProtoEncoderDoNotUse.MessagingClientEventExtension.get -> Firebase.Messaging.Reporting.MessagingClientEventExtension?
 const Firebase.Messaging.BuildConfig.BuildType = "release" -> string!
 const Firebase.Messaging.BuildConfig.Debug = false -> bool
 const Firebase.Messaging.BuildConfig.LibraryPackageName = "com.google.firebase.messaging" -> string!
-const Firebase.Messaging.BuildConfig.VersionName = "25.1.2" -> string!
+const Firebase.Messaging.BuildConfig.VersionName = "25.1.3" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.FcmFallbackNotificationChannel = "fcm_fallback_notification_channel" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.FcmFallbackNotificationChannelLabel = "fcm_fallback_notification_channel_label" -> string!
 const Firebase.Messaging.CommonNotificationBuilder.MetadataDefaultChannelId = "com.google.firebase.messaging.default_notification_channel_id" -> string!
@@ -321,6 +325,9 @@ override Firebase.Messaging.Threads.PoolableExecutors.JniPeerMembers.get -> Java
 override Firebase.Messaging.Threads.PoolableExecutors.ThresholdClass.get -> nint
 override Firebase.Messaging.Threads.PoolableExecutors.ThresholdType.get -> System.Type!
 override Firebase.Messaging.Threads.ThreadPriority.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Messaging.TopicSubscriptionClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Messaging.TopicSubscriptionClient.ThresholdClass.get -> nint
+override Firebase.Messaging.TopicSubscriptionClient.ThresholdType.get -> System.Type!
 override sealed Firebase.Messaging.EnhancedIntentService.OnBind(Android.Content.Intent? intent) -> Android.OS.IBinder?
 override sealed Firebase.Messaging.EnhancedIntentService.OnStartCommand(Android.Content.Intent? originalIntent, Android.App.StartCommandFlags flags, int startId) -> Android.App.StartCommandResult
 static Firebase.Messaging.CommonNotificationBuilder.CreateNotificationInfo(Android.Content.Context? callingContext, Android.Content.Context? appContext, Firebase.Messaging.NotificationParams? params, string? channelId, Android.OS.Bundle? manifestMetadata) -> Firebase.Messaging.CommonNotificationBuilder.DisplayNotificationInfo?
@@ -371,6 +378,7 @@ static Firebase.Messaging.Threads.ThreadPriority.HighSpeed.get -> Firebase.Messa
 static Firebase.Messaging.Threads.ThreadPriority.LowPower.get -> Firebase.Messaging.Threads.ThreadPriority?
 static Firebase.Messaging.Threads.ThreadPriority.ValueOf(string? name) -> Firebase.Messaging.Threads.ThreadPriority?
 static Firebase.Messaging.Threads.ThreadPriority.Values() -> Firebase.Messaging.Threads.ThreadPriority![]?
+static Firebase.Messaging.TopicSubscriptionClient.SetConnectionFactoryForTesting(Firebase.Messaging.TopicSubscriptionClient.IHttpConnectionFactory? factory) -> void
 virtual Firebase.Messaging.EnhancedIntentService.GetStartCommandIntent(Android.Content.Intent? originalIntent) -> Android.Content.Intent?
 virtual Firebase.Messaging.EnhancedIntentService.HandleIntentOnMainThread(Android.Content.Intent? intent) -> bool
 virtual Firebase.Messaging.FcmBroadcastProcessor.Process(Android.Content.Intent? intent) -> Android.Gms.Tasks.Task?
@@ -460,3 +468,4 @@ virtual Firebase.Messaging.RemoteMessage.Notification.Visibility.get -> Java.Lan
 virtual Firebase.Messaging.RemoteMessageCreator.CreateFromParcel(Android.OS.Parcel? parcel) -> Java.Lang.Object?
 virtual Firebase.Messaging.RemoteMessageCreator.NewArray(int size) -> Java.Lang.Object![]?
 virtual Firebase.Messaging.ServiceStarter.StartMessagingService(Android.Content.Context? context, Android.Content.Intent? intent) -> int
+virtual Firebase.Messaging.TopicSubscriptionClient.CreateConnection(Java.Net.URL! url) -> Java.Net.HttpURLConnection!

@@ -22,6 +22,13 @@ Android.BillingClient.Api.AlternativeBillingOnlyReportingDetailsEventArgs
 Android.BillingClient.Api.AlternativeBillingOnlyReportingDetailsEventArgs.AlternativeBillingOnlyReportingDetailsEventArgs(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.AlternativeBillingOnlyReportingDetails? p1) -> void
 Android.BillingClient.Api.AlternativeBillingOnlyReportingDetailsEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
 Android.BillingClient.Api.AlternativeBillingOnlyReportingDetailsEventArgs.P1.get -> Android.BillingClient.Api.AlternativeBillingOnlyReportingDetails?
+Android.BillingClient.Api.BillingChoiceInfo
+Android.BillingClient.Api.BillingChoiceInfo.PlayBillingChoiceImageUrl.get -> string!
+Android.BillingClient.Api.BillingChoiceInfo.PlayBillingLoyaltyInfo.get -> string?
+Android.BillingClient.Api.BillingChoiceInfoResponseEventArgs
+Android.BillingClient.Api.BillingChoiceInfoResponseEventArgs.BillingChoiceInfoResponseEventArgs(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingChoiceInfo? p1) -> void
+Android.BillingClient.Api.BillingChoiceInfoResponseEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
+Android.BillingClient.Api.BillingChoiceInfoResponseEventArgs.P1.get -> Android.BillingClient.Api.BillingChoiceInfo?
 Android.BillingClient.Api.BillingClient
 Android.BillingClient.Api.BillingClient.AcknowledgePurchaseAsync(Android.BillingClient.Api.AcknowledgePurchaseParams! acknowledgePurchaseParams) -> System.Threading.Tasks.Task<Android.BillingClient.Api.BillingResult!>!
 Android.BillingClient.Api.BillingClient.BillingClient() -> void
@@ -96,11 +103,28 @@ Android.BillingClient.Api.BillingFlowParams.Zzj() -> System.Collections.IList!
 Android.BillingClient.Api.BillingFlowParams.Zzk() -> System.Collections.IList!
 Android.BillingClient.Api.BillingFlowParams.Zzt() -> bool
 Android.BillingClient.Api.BillingProgramAvailabilityDetails
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenType
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenTypeConsts
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenTypeValue.get -> int
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.IChoiceScreenType
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.IsExternalLinkAvailable.get -> bool
 Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingProgram.get -> int
+Android.BillingClient.Api.BillingProgramAvailabilityDetails.GetBillingChoiceAvailabilityDetails() -> Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails?
 Android.BillingClient.Api.BillingProgramAvailabilityEventArgs
 Android.BillingClient.Api.BillingProgramAvailabilityEventArgs.BillingProgramAvailabilityEventArgs(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingProgramAvailabilityDetails! p1) -> void
 Android.BillingClient.Api.BillingProgramAvailabilityEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
 Android.BillingClient.Api.BillingProgramAvailabilityEventArgs.P1.get -> Android.BillingClient.Api.BillingProgramAvailabilityDetails!
+Android.BillingClient.Api.BillingProgramInformationDialogEventArgs
+Android.BillingClient.Api.BillingProgramInformationDialogEventArgs.BillingProgramInformationDialogEventArgs(Android.BillingClient.Api.BillingResult! p0) -> void
+Android.BillingClient.Api.BillingProgramInformationDialogEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
+Android.BillingClient.Api.BillingProgramInformationDialogParams
+Android.BillingClient.Api.BillingProgramInformationDialogParams.BillingProgram.get -> int
+Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder
+Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder.Build() -> Android.BillingClient.Api.BillingProgramInformationDialogParams!
+Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder.SetBillingProgram(int billingProgram) -> Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder!
+Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder.SetExternalTransactionToken(string! externalTransactionToken) -> Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder!
+Android.BillingClient.Api.BillingProgramInformationDialogParams.ExternalTransactionToken.get -> string!
 Android.BillingClient.Api.BillingProgramReportingDetails
 Android.BillingClient.Api.BillingProgramReportingDetails.BillingProgram.get -> int
 Android.BillingClient.Api.BillingProgramReportingDetails.ExternalTransactionToken.get -> string!
@@ -113,6 +137,11 @@ Android.BillingClient.Api.BillingProgramReportingDetailsParams.BillingProgram.ge
 Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder
 Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder.Build() -> Android.BillingClient.Api.BillingProgramReportingDetailsParams!
 Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder.SetBillingProgram(int billingProgram) -> Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder!
+Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder.SetDeveloperBillingType(int billingType) -> Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder!
+Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingType
+Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingTypeConsts
+Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingTypeValue.get -> int
+Android.BillingClient.Api.BillingProgramReportingDetailsParams.IDeveloperBillingType
 Android.BillingClient.Api.BillingResponseCode
 Android.BillingClient.Api.BillingResponseCode.BillingUnavailable = 3 -> Android.BillingClient.Api.BillingResponseCode
 Android.BillingClient.Api.BillingResponseCode.DeveloperError = 5 -> Android.BillingClient.Api.BillingResponseCode
@@ -162,14 +191,17 @@ Android.BillingClient.Api.DeveloperBillingOptionParams.BillingProgram.get -> int
 Android.BillingClient.Api.DeveloperBillingOptionParams.Builder
 Android.BillingClient.Api.DeveloperBillingOptionParams.Builder.Build() -> Android.BillingClient.Api.DeveloperBillingOptionParams!
 Android.BillingClient.Api.DeveloperBillingOptionParams.Builder.SetBillingProgram(int billingProgram) -> Android.BillingClient.Api.DeveloperBillingOptionParams.Builder!
+Android.BillingClient.Api.DeveloperBillingOptionParams.Builder.SetExternalTransactionToken(string? externalTransactionToken) -> Android.BillingClient.Api.DeveloperBillingOptionParams.Builder!
 Android.BillingClient.Api.DeveloperBillingOptionParams.Builder.SetLaunchMode(int launchMode) -> Android.BillingClient.Api.DeveloperBillingOptionParams.Builder!
 Android.BillingClient.Api.DeveloperBillingOptionParams.Builder.SetLinkUri(Android.Net.Uri! linkUri) -> Android.BillingClient.Api.DeveloperBillingOptionParams.Builder!
+Android.BillingClient.Api.DeveloperBillingOptionParams.ExternalTransactionToken.get -> string?
 Android.BillingClient.Api.DeveloperBillingOptionParams.GetLaunchMode() -> int
 Android.BillingClient.Api.DeveloperBillingOptionParams.ILaunchMode
 Android.BillingClient.Api.DeveloperBillingOptionParams.LaunchMode
 Android.BillingClient.Api.DeveloperBillingOptionParams.LaunchModeConsts
 Android.BillingClient.Api.DeveloperBillingOptionParams.LinkUri.get -> Android.Net.Uri?
 Android.BillingClient.Api.DeveloperProvidedBillingDetails
+Android.BillingClient.Api.DeveloperProvidedBillingDetails.ExternalTransactionToken.get -> string?
 Android.BillingClient.Api.DeveloperProvidedBillingDetails.LinkUri.get -> string?
 Android.BillingClient.Api.DeveloperProvidedBillingDetails.OriginalExternalTransactionId.get -> string?
 Android.BillingClient.Api.DeveloperProvidedBillingDetails.Product
@@ -198,6 +230,18 @@ Android.BillingClient.Api.ExternalOfferReportingDetailsEventArgs
 Android.BillingClient.Api.ExternalOfferReportingDetailsEventArgs.ExternalOfferReportingDetailsEventArgs(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.ExternalOfferReportingDetails? p1) -> void
 Android.BillingClient.Api.ExternalOfferReportingDetailsEventArgs.P0.get -> Android.BillingClient.Api.BillingResult!
 Android.BillingClient.Api.ExternalOfferReportingDetailsEventArgs.P1.get -> Android.BillingClient.Api.ExternalOfferReportingDetails?
+Android.BillingClient.Api.GetBillingChoiceInfoParams
+Android.BillingClient.Api.GetBillingChoiceInfoParams.BillingProgram.get -> int
+Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder
+Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder.Build() -> Android.BillingClient.Api.GetBillingChoiceInfoParams!
+Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder.SetBillingProgram(int billingProgram) -> Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder!
+Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder.SetPlayBillingChoiceImageLayout(string! layout) -> Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder!
+Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder.SetUserLocale(Java.Util.Locale? locale) -> Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder!
+Android.BillingClient.Api.GetBillingChoiceInfoParams.IImageLayout
+Android.BillingClient.Api.GetBillingChoiceInfoParams.ImageLayout
+Android.BillingClient.Api.GetBillingChoiceInfoParams.ImageLayoutConsts
+Android.BillingClient.Api.GetBillingChoiceInfoParams.PlayBillingChoiceImageLayout.get -> string!
+Android.BillingClient.Api.GetBillingChoiceInfoParams.UserLocale.get -> Java.Util.Locale?
 Android.BillingClient.Api.GetBillingConfigParams
 Android.BillingClient.Api.GetBillingConfigParams.Builder
 Android.BillingClient.Api.GetBillingConfigParams.Builder.Build() -> Android.BillingClient.Api.GetBillingConfigParams!
@@ -209,6 +253,8 @@ Android.BillingClient.Api.IAlternativeBillingOnlyInformationDialogListener
 Android.BillingClient.Api.IAlternativeBillingOnlyInformationDialogListener.OnAlternativeBillingOnlyInformationDialogResponse(Android.BillingClient.Api.BillingResult! p0) -> void
 Android.BillingClient.Api.IAlternativeBillingOnlyReportingDetailsListener
 Android.BillingClient.Api.IAlternativeBillingOnlyReportingDetailsListener.OnAlternativeBillingOnlyTokenResponse(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.AlternativeBillingOnlyReportingDetails? p1) -> void
+Android.BillingClient.Api.IBillingChoiceInfoResponseListener
+Android.BillingClient.Api.IBillingChoiceInfoResponseListener.OnBillingChoiceInfoResponse(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingChoiceInfo? p1) -> void
 Android.BillingClient.Api.IBillingClientStateListener
 Android.BillingClient.Api.IBillingClientStateListener.OnBillingServiceDisconnected() -> void
 Android.BillingClient.Api.IBillingClientStateListener.OnBillingSetupFinished(Android.BillingClient.Api.BillingResult! p0) -> void
@@ -216,6 +262,8 @@ Android.BillingClient.Api.IBillingConfigResponseListener
 Android.BillingClient.Api.IBillingConfigResponseListener.OnBillingConfigResponse(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingConfig? p1) -> void
 Android.BillingClient.Api.IBillingProgramAvailabilityListener
 Android.BillingClient.Api.IBillingProgramAvailabilityListener.OnBillingProgramAvailabilityResponse(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingProgramAvailabilityDetails! p1) -> void
+Android.BillingClient.Api.IBillingProgramInformationDialogListener
+Android.BillingClient.Api.IBillingProgramInformationDialogListener.OnBillingProgramInformationDialogResponse(Android.BillingClient.Api.BillingResult! p0) -> void
 Android.BillingClient.Api.IBillingProgramReportingDetailsListener
 Android.BillingClient.Api.IBillingProgramReportingDetailsListener.OnCreateBillingProgramReportingDetailsResponse(Android.BillingClient.Api.BillingResult! p0, Android.BillingClient.Api.BillingProgramReportingDetails? p1) -> void
 Android.BillingClient.Api.IConsumeResponseListener
@@ -266,9 +314,11 @@ Android.BillingClient.Api.LaunchExternalLinkParams.BillingProgram.get -> int
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder.Build() -> Android.BillingClient.Api.LaunchExternalLinkParams!
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder.SetBillingProgram(int billingProgram) -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
+Android.BillingClient.Api.LaunchExternalLinkParams.Builder.SetExternalTransactionToken(string! externalTransactionToken) -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder.SetLaunchMode(int launchMode) -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder.SetLinkType(int linkType) -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
 Android.BillingClient.Api.LaunchExternalLinkParams.Builder.SetLinkUri(Android.Net.Uri! linkUri) -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
+Android.BillingClient.Api.LaunchExternalLinkParams.ExternalTransactionToken.get -> string?
 Android.BillingClient.Api.LaunchExternalLinkParams.GetLaunchMode() -> int
 Android.BillingClient.Api.LaunchExternalLinkParams.GetLinkType() -> int
 Android.BillingClient.Api.LaunchExternalLinkParams.ILaunchMode
@@ -442,6 +492,7 @@ abstract Android.BillingClient.Api.BillingClient.CreateAlternativeBillingOnlyRep
 abstract Android.BillingClient.Api.BillingClient.CreateBillingProgramReportingDetailsAsync(Android.BillingClient.Api.BillingProgramReportingDetailsParams! p0, Android.BillingClient.Api.IBillingProgramReportingDetailsListener! p1) -> void
 abstract Android.BillingClient.Api.BillingClient.CreateExternalOfferReportingDetailsAsync(Android.BillingClient.Api.IExternalOfferReportingDetailsListener! p0) -> void
 abstract Android.BillingClient.Api.BillingClient.EndConnection() -> void
+abstract Android.BillingClient.Api.BillingClient.GetBillingChoiceInfoAsync(Android.BillingClient.Api.GetBillingChoiceInfoParams! p0, Android.BillingClient.Api.IBillingChoiceInfoResponseListener! p1) -> void
 abstract Android.BillingClient.Api.BillingClient.GetBillingConfigAsync(Android.BillingClient.Api.GetBillingConfigParams! p0, Android.BillingClient.Api.IBillingConfigResponseListener! p1) -> void
 abstract Android.BillingClient.Api.BillingClient.IsAlternativeBillingOnlyAvailableAsync(Android.BillingClient.Api.IAlternativeBillingOnlyAvailabilityListener! p0) -> void
 abstract Android.BillingClient.Api.BillingClient.IsBillingProgramAvailableAsync(int p0, Android.BillingClient.Api.IBillingProgramAvailabilityListener! p1) -> void
@@ -453,9 +504,11 @@ abstract Android.BillingClient.Api.BillingClient.LaunchExternalLink(Android.App.
 abstract Android.BillingClient.Api.BillingClient.QueryProductDetails(Android.BillingClient.Api.QueryProductDetailsParams! p0, Android.BillingClient.Api.IProductDetailsResponseListener! p1) -> void
 abstract Android.BillingClient.Api.BillingClient.QueryPurchases(Android.BillingClient.Api.QueryPurchasesParams! p0, Android.BillingClient.Api.IPurchasesResponseListener! p1) -> void
 abstract Android.BillingClient.Api.BillingClient.ShowAlternativeBillingOnlyInformationDialog(Android.App.Activity! p0, Android.BillingClient.Api.IAlternativeBillingOnlyInformationDialogListener! p1) -> Android.BillingClient.Api.BillingResult!
+abstract Android.BillingClient.Api.BillingClient.ShowBillingProgramInformationDialog(Android.App.Activity! p0, Android.BillingClient.Api.BillingProgramInformationDialogParams! p1, Android.BillingClient.Api.IBillingProgramInformationDialogListener! p2) -> void
 abstract Android.BillingClient.Api.BillingClient.ShowExternalOfferInformationDialog(Android.App.Activity! p0, Android.BillingClient.Api.IExternalOfferInformationDialogListener! p1) -> Android.BillingClient.Api.BillingResult!
 abstract Android.BillingClient.Api.BillingClient.ShowInAppMessages(Android.App.Activity! p0, Android.BillingClient.Api.InAppMessageParams! p1, Android.BillingClient.Api.IInAppMessageResponseListener! p2) -> Android.BillingClient.Api.BillingResult!
 abstract Android.BillingClient.Api.BillingClient.StartConnection(Android.BillingClient.Api.IBillingClientStateListener! p0) -> void
+const Android.BillingClient.Api.BillingClient.BillingProgram.BillingChoice = 5 -> int
 const Android.BillingClient.Api.BillingClient.BillingProgram.ExternalContentLink = 1 -> int
 const Android.BillingClient.Api.BillingClient.BillingProgram.ExternalOffer = 3 -> int
 const Android.BillingClient.Api.BillingClient.BillingProgram.ExternalPayments = 4 -> int
@@ -487,9 +540,18 @@ const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Repla
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.UnknownReplacementMode = 0 -> int
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.WithTimeProration = 1 -> int
 const Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.WithoutProration = 3 -> int
+const Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenType.DeveloperRendered = 1 -> int
+const Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenType.GoogleRendered = 2 -> int
+const Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.ChoiceScreenType.Unspecified = 0 -> int
+const Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingType.DeveloperBillingTypeUnspecified = 0 -> int
+const Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingType.ExternalLink = 2 -> int
+const Android.BillingClient.Api.BillingProgramReportingDetailsParams.DeveloperBillingType.InApp = 1 -> int
 const Android.BillingClient.Api.DeveloperBillingOptionParams.LaunchMode.CallerWillLaunchLink = 2 -> int
 const Android.BillingClient.Api.DeveloperBillingOptionParams.LaunchMode.LaunchInExternalBrowserOrApp = 1 -> int
 const Android.BillingClient.Api.DeveloperBillingOptionParams.LaunchMode.LaunchModeUnspecified = 0 -> int
+const Android.BillingClient.Api.GetBillingChoiceInfoParams.ImageLayout.RectangularFourByOne = "RECTANGULAR_FOUR_BY_ONE" -> string!
+const Android.BillingClient.Api.GetBillingChoiceInfoParams.ImageLayout.RectangularThreeByOne = "RECTANGULAR_THREE_BY_ONE" -> string!
+const Android.BillingClient.Api.GetBillingChoiceInfoParams.ImageLayout.RectangularTwoByTwo = "RECTANGULAR_TWO_BY_TWO" -> string!
 const Android.BillingClient.Api.InAppMessageParams.InAppMessageCategoryId.Transactional = 2 -> int
 const Android.BillingClient.Api.InAppMessageParams.InAppMessageCategoryId.UnknownInAppMessageCategoryId = 0 -> int
 const Android.BillingClient.Api.InAppMessageResult.InAppMessageResponseCode.NoActionNeeded = 0 -> int
@@ -508,11 +570,12 @@ const Android.BillingClient.Api.UnfetchedProduct.StatusCode.NoEligibleOffer = 4 
 const Android.BillingClient.Api.UnfetchedProduct.StatusCode.ProductNotFound = 3 -> int
 const Android.BillingClient.Api.UnfetchedProduct.StatusCode.Unknown = 0 -> int
 const Android.BillingClient.BuildConfig.ApplicationId = "com.android.billingclient" -> string!
-const Android.BillingClient.BuildConfig.VersionName = "9.0.0" -> string!
+const Android.BillingClient.BuildConfig.VersionName = "9.1.0" -> string!
 override Android.BillingClient.Api.AccountIdentifiers.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.AcknowledgePurchaseParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.AcknowledgePurchaseParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.AlternativeBillingOnlyReportingDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingChoiceInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingClient.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingClient.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingClient.ThresholdClass.get -> nint
@@ -540,7 +603,10 @@ override Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Th
 override Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.ThresholdType.get -> System.Type!
 override Android.BillingClient.Api.BillingFlowParams.ThresholdClass.get -> nint
 override Android.BillingClient.Api.BillingFlowParams.ThresholdType.get -> System.Type!
+override Android.BillingClient.Api.BillingProgramAvailabilityDetails.BillingChoiceAvailabilityDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingProgramAvailabilityDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.BillingProgramInformationDialogParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingProgramReportingDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.BillingProgramReportingDetailsParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -559,6 +625,8 @@ override Android.BillingClient.Api.DeveloperProvidedBillingDetails.Product.Thres
 override Android.BillingClient.Api.EnableBillingProgramParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.EnableBillingProgramParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.ExternalOfferReportingDetails.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Android.BillingClient.Api.GetBillingChoiceInfoParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.GetBillingConfigParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.GetBillingConfigParams.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Android.BillingClient.Api.InAppMessageParams.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -624,11 +692,13 @@ static Android.BillingClient.Api.BillingFlowParams.NewBuilder() -> Android.Billi
 static Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.Builder!
 static Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.ProductDetailsParams.SubscriptionProductReplacementParams.Builder!
 static Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.NewBuilder() -> Android.BillingClient.Api.BillingFlowParams.SubscriptionUpdateParams.Builder!
+static Android.BillingClient.Api.BillingProgramInformationDialogParams.NewBuilder() -> Android.BillingClient.Api.BillingProgramInformationDialogParams.Builder!
 static Android.BillingClient.Api.BillingProgramReportingDetailsParams.NewBuilder() -> Android.BillingClient.Api.BillingProgramReportingDetailsParams.Builder!
 static Android.BillingClient.Api.BillingResult.NewBuilder() -> Android.BillingClient.Api.BillingResult.Builder!
 static Android.BillingClient.Api.ConsumeParams.NewBuilder() -> Android.BillingClient.Api.ConsumeParams.Builder!
 static Android.BillingClient.Api.DeveloperBillingOptionParams.NewBuilder() -> Android.BillingClient.Api.DeveloperBillingOptionParams.Builder!
 static Android.BillingClient.Api.EnableBillingProgramParams.NewBuilder() -> Android.BillingClient.Api.EnableBillingProgramParams.Builder!
+static Android.BillingClient.Api.GetBillingChoiceInfoParams.NewBuilder() -> Android.BillingClient.Api.GetBillingChoiceInfoParams.Builder!
 static Android.BillingClient.Api.GetBillingConfigParams.NewBuilder() -> Android.BillingClient.Api.GetBillingConfigParams.Builder!
 static Android.BillingClient.Api.InAppMessageParams.NewBuilder() -> Android.BillingClient.Api.InAppMessageParams.Builder!
 static Android.BillingClient.Api.LaunchExternalLinkParams.NewBuilder() -> Android.BillingClient.Api.LaunchExternalLinkParams.Builder!
