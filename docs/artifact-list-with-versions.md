@@ -571,7 +571,7 @@
 | 564|com.google.flogger:flogger                                            |0.9                 |Xamarin.Flogger                                                       |0.9.0.4             |
 | 565|com.google.flogger:flogger-system-backend                             |0.9                 |Xamarin.Flogger.SystemBackend                                         |0.9.0.4             |
 | 566|com.google.guava:failureaccess                                        |1.0.3               |Xamarin.Google.Guava.FailureAccess                                    |1.0.3.6             |
-| 567|com.google.guava:guava                                                |33.7.2-android      |Xamarin.Google.Guava                                                  |33.7.2-android      |
+| 567|com.google.guava:guava                                                |33.7.2-android      |Xamarin.Google.Guava                                                  |33.7.2              |
 | 568|com.google.guava:listenablefuture                                     |1.0                 |Xamarin.Google.Guava.ListenableFuture                                 |1.0.0.32            |
 | 569|com.google.inject:guice                                               |7.0.0               |Xamarin.Google.Inject.Guice                                           |7.0.0.10            |
 | 570|com.google.j2objc:j2objc-annotations                                  |3.1                 |Xamarin.Google.J2Objc.Annotations                                     |3.1.0.3             |
