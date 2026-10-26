@@ -1130,10 +1130,10 @@ Task ("api-diff-markdown-info-pr")
                     idx_start = i;
                 }
 
-                if (line.StartsWith("-"))
+                if (line.StartsWith("-") && line.Contains("\"version\""))
                 {
                     string next_line = lines[i + 1];
-                    if (next_line.StartsWith("-"))
+                    if (next_line.StartsWith("-") && next_line.Contains("\"nugetVersion\""))
                     {
                         idx_stop = i;
                     }
