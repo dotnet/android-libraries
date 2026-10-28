@@ -416,7 +416,7 @@
 | 409|com.google.android.gms:play-services-fitness                          |21.3.0              |Xamarin.GooglePlayServices.Fitness                                    |121.3.0.4           |
 | 410|com.google.android.gms:play-services-flags                            |18.1.0              |Xamarin.GooglePlayServices.Flags                                      |118.1.0.11          |
 | 411|com.google.android.gms:play-services-games                            |25.0.0              |Xamarin.GooglePlayServices.Games                                      |125.0.0.2           |
-| 412|com.google.android.gms:play-services-games-v2                         |22.1.0              |Xamarin.GooglePlayServices.Games.V2                                   |122.1.0             |
+| 412|com.google.android.gms:play-services-games-v2                         |22.1.0              |Xamarin.GooglePlayServices.Games.V2                                   |122.1.0.1           |
 | 413|com.google.android.gms:play-services-gass                             |20.0.0              |Xamarin.GooglePlayServices.Gass                                       |120.0.0.27          |
 | 414|com.google.android.gms:play-services-gcm                              |17.0.0              |Xamarin.GooglePlayServices.Gcm                                        |117.0.0.27          |
 | 415|com.google.android.gms:play-services-home                             |16.0.0              |Xamarin.GooglePlayServices.Home                                       |116.0.0.20          |
