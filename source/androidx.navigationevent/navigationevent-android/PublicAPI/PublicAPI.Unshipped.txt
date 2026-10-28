@@ -9,6 +9,9 @@ AndroidX.NavigationEvent.DirectNavigationEventInput.ForwardCancelled() -> void
 AndroidX.NavigationEvent.DirectNavigationEventInput.ForwardCompleted() -> void
 AndroidX.NavigationEvent.DirectNavigationEventInput.ForwardProgressed(AndroidX.NavigationEvent.NavigationEvent! e) -> void
 AndroidX.NavigationEvent.DirectNavigationEventInput.ForwardStarted(AndroidX.NavigationEvent.NavigationEvent! e) -> void
+AndroidX.NavigationEvent.ExperimentalNavigationEventApiAttribute
+AndroidX.NavigationEvent.ExperimentalNavigationEventApiAttribute.ExperimentalNavigationEventApiAttribute() -> void
+AndroidX.NavigationEvent.IExperimentalNavigationEventApi
 AndroidX.NavigationEvent.INavigationEventDispatcherOwner
 AndroidX.NavigationEvent.INavigationEventDispatcherOwner.NavigationEventDispatcher.get -> AndroidX.NavigationEvent.NavigationEventDispatcher!
 AndroidX.NavigationEvent.IOnBackCompletedFallback
@@ -49,6 +52,7 @@ AndroidX.NavigationEvent.NavigationEventDispatcher.NavigationEventDispatcher(And
 AndroidX.NavigationEvent.NavigationEventDispatcher.RemoveInput(AndroidX.NavigationEvent.NavigationEventInput! input) -> void
 AndroidX.NavigationEvent.NavigationEventDispatcher.TransitionState.get -> Xamarin.KotlinX.Coroutines.Flow.IStateFlow!
 AndroidX.NavigationEvent.NavigationEventDispatcherKt
+AndroidX.NavigationEvent.NavigationEventDispatcherOwnerFactory
 AndroidX.NavigationEvent.NavigationEventHandler
 AndroidX.NavigationEvent.NavigationEventHandler.BackEnabled.get -> bool
 AndroidX.NavigationEvent.NavigationEventHandler.BackEnabled.set -> void
@@ -83,6 +87,9 @@ AndroidX.NavigationEvent.NavigationEventInput.DispatchOnForwardCancelled() -> vo
 AndroidX.NavigationEvent.NavigationEventInput.DispatchOnForwardCompleted() -> void
 AndroidX.NavigationEvent.NavigationEventInput.DispatchOnForwardProgressed(AndroidX.NavigationEvent.NavigationEvent! e) -> void
 AndroidX.NavigationEvent.NavigationEventInput.DispatchOnForwardStarted(AndroidX.NavigationEvent.NavigationEvent! e) -> void
+AndroidX.NavigationEvent.NavigationEventInput.HasEnabledBackHandlers.get -> bool
+AndroidX.NavigationEvent.NavigationEventInput.HasEnabledForwardHandlers.get -> bool
+AndroidX.NavigationEvent.NavigationEventInput.HasEnabledHandlers.get -> bool
 AndroidX.NavigationEvent.NavigationEventInput.NavigationEventInput() -> void
 AndroidX.NavigationEvent.NavigationEventInput.NavigationEventInput(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.NavigationEvent.NavigationEventKt
@@ -118,6 +125,7 @@ override AndroidX.NavigationEvent.NavigationEvent.JniPeerMembers.get -> Java.Int
 override AndroidX.NavigationEvent.NavigationEventDispatcher.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.NavigationEvent.NavigationEventDispatcher.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.NavigationEvent.NavigationEventDispatcherKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.NavigationEvent.NavigationEventDispatcherOwnerFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.NavigationEvent.NavigationEventHandler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.NavigationEvent.NavigationEventHandler.ThresholdClass.get -> nint
 override AndroidX.NavigationEvent.NavigationEventHandler.ThresholdType.get -> System.Type!
@@ -142,6 +150,7 @@ override AndroidX.NavigationEvent.OnBackInvokedInput.ThresholdClass.get -> nint
 override AndroidX.NavigationEvent.OnBackInvokedInput.ThresholdType.get -> System.Type!
 override AndroidX.NavigationEvent.OnBackInvokedOverlayInput.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.NavigationEvent.ViewTreeNavigationEventDispatcherOwner.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+static AndroidX.NavigationEvent.NavigationEventDispatcherOwnerFactory.Create(AndroidX.NavigationEvent.NavigationEventDispatcher! navigationEventDispatcher) -> AndroidX.NavigationEvent.INavigationEventDispatcherOwner!
 static AndroidX.NavigationEvent.NavigationEventInfo.None.Instance.get -> AndroidX.NavigationEvent.NavigationEventInfo.None!
 static AndroidX.NavigationEvent.NavigationEventKt.ToBackEvent(AndroidX.NavigationEvent.NavigationEvent! obj) -> Android.Window.BackEvent!
 static AndroidX.NavigationEvent.NavigationEventKt.ToNavigationEvent(Android.Window.BackEvent! obj) -> AndroidX.NavigationEvent.NavigationEvent!
@@ -156,7 +165,11 @@ virtual AndroidX.NavigationEvent.NavigationEventHandler.OnForwardCancelled() -> 
 virtual AndroidX.NavigationEvent.NavigationEventHandler.OnForwardCompleted() -> void
 virtual AndroidX.NavigationEvent.NavigationEventHandler.OnForwardProgressed(AndroidX.NavigationEvent.NavigationEvent! e) -> void
 virtual AndroidX.NavigationEvent.NavigationEventHandler.OnForwardStarted(AndroidX.NavigationEvent.NavigationEvent! e) -> void
+virtual AndroidX.NavigationEvent.NavigationEventInfo.Title.get -> string?
+virtual AndroidX.NavigationEvent.NavigationEventInfo.Url.get -> string?
 virtual AndroidX.NavigationEvent.NavigationEventInput.OnAdded(AndroidX.NavigationEvent.NavigationEventDispatcher! dispatcher) -> void
+virtual AndroidX.NavigationEvent.NavigationEventInput.OnHasEnabledBackHandlersChanged(bool hasEnabledBackHandlers) -> void
+virtual AndroidX.NavigationEvent.NavigationEventInput.OnHasEnabledForwardHandlersChanged(bool hasEnabledForwardHandlers) -> void
 virtual AndroidX.NavigationEvent.NavigationEventInput.OnHasEnabledHandlersChanged(bool hasEnabledHandlers) -> void
 virtual AndroidX.NavigationEvent.NavigationEventInput.OnHistoryChanged(AndroidX.NavigationEvent.NavigationEventHistory! history) -> void
 virtual AndroidX.NavigationEvent.NavigationEventInput.OnRemoved() -> void

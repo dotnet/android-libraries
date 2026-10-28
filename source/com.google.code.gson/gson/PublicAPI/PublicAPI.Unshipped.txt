@@ -50,7 +50,12 @@ GoogleGson.FieldAttributes.Name.get -> string?
 GoogleGson.FieldNamingPolicy
 GoogleGson.FieldNamingPolicy.FieldNamingPolicy(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 GoogleGson.FormattingStyle
-GoogleGson.FormattingStyle.FormattingStyle(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+GoogleGson.FormattingStyle.Indent.get -> string?
+GoogleGson.FormattingStyle.Newline.get -> string?
+GoogleGson.FormattingStyle.UsesSpaceAfterSeparators() -> bool
+GoogleGson.FormattingStyle.WithIndent(string? indent) -> GoogleGson.FormattingStyle?
+GoogleGson.FormattingStyle.WithNewline(string? newline) -> GoogleGson.FormattingStyle?
+GoogleGson.FormattingStyle.WithSpaceAfterSeparators(bool spaceAfterSeparators) -> GoogleGson.FormattingStyle?
 GoogleGson.Gson
 GoogleGson.Gson.FieldNamingStrategy() -> GoogleGson.IFieldNamingStrategy?
 GoogleGson.Gson.FromJson(GoogleGson.JsonElement? json, GoogleGson.Reflect.TypeToken? typeOfT) -> Java.Lang.Object?
@@ -269,8 +274,6 @@ override GoogleGson.FieldNamingPolicy.JniPeerMembers.get -> Java.Interop.JniPeer
 override GoogleGson.FieldNamingPolicy.ThresholdClass.get -> nint
 override GoogleGson.FieldNamingPolicy.ThresholdType.get -> System.Type!
 override GoogleGson.FormattingStyle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override GoogleGson.FormattingStyle.ThresholdClass.get -> nint
-override GoogleGson.FormattingStyle.ThresholdType.get -> System.Type!
 override GoogleGson.Gson.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override GoogleGson.GsonBuilder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override GoogleGson.JsonArray.DeepCopy() -> GoogleGson.JsonElement?
@@ -372,12 +375,6 @@ static GoogleGson.ToNumberPolicy.LazilyParsedNumber.get -> GoogleGson.ToNumberPo
 static GoogleGson.ToNumberPolicy.LongOrDouble.get -> GoogleGson.ToNumberPolicy?
 static GoogleGson.ToNumberPolicy.ValueOf(string? name) -> GoogleGson.ToNumberPolicy?
 static GoogleGson.ToNumberPolicy.Values() -> GoogleGson.ToNumberPolicy![]?
-virtual GoogleGson.FormattingStyle.Indent.get -> string?
-virtual GoogleGson.FormattingStyle.Newline.get -> string?
-virtual GoogleGson.FormattingStyle.UsesSpaceAfterSeparators() -> bool
-virtual GoogleGson.FormattingStyle.WithIndent(string? indent) -> GoogleGson.FormattingStyle?
-virtual GoogleGson.FormattingStyle.WithNewline(string? newline) -> GoogleGson.FormattingStyle?
-virtual GoogleGson.FormattingStyle.WithSpaceAfterSeparators(bool spaceAfterSeparators) -> GoogleGson.FormattingStyle?
 virtual GoogleGson.JsonElement.AsBigDecimal.get -> Java.Math.BigDecimal?
 virtual GoogleGson.JsonElement.AsBigInteger.get -> Java.Math.BigInteger?
 virtual GoogleGson.JsonElement.AsBoolean.get -> bool
@@ -399,6 +396,7 @@ virtual GoogleGson.JsonElement.IsJsonObject.get -> bool
 virtual GoogleGson.JsonElement.IsJsonPrimitive.get -> bool
 virtual GoogleGson.Stream.JsonReader.BeginArray() -> void
 virtual GoogleGson.Stream.JsonReader.BeginObject() -> void
+virtual GoogleGson.Stream.JsonReader.CharacterOffset.get -> long
 virtual GoogleGson.Stream.JsonReader.Close() -> void
 virtual GoogleGson.Stream.JsonReader.EndArray() -> void
 virtual GoogleGson.Stream.JsonReader.EndObject() -> void
