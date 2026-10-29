@@ -123,6 +123,42 @@ public class TestAllIndividualPackages
 		// Add the package
 		await RunAndAssertSuccess ($"add package {id} --version {version} --no-restore", case_dir);
 
+		if (id == "Xamarin.GooglePlayServices.Games.V2") {
+			File.WriteAllText (Path.Combine (case_dir, "SavedGamesApi.cs"), """
+				using Android.App;
+				using Android.Gms.Games;
+				using Android.Gms.Games.PlayerGameEvent;
+				using Android.Gms.Games.Snapshot;
+
+				static class SavedGamesApi
+				{
+					static void Check (Activity activity, ISnapshot snapshot)
+					{
+						ISnapshotsClient client = PlayGames.GetSnapshotsClient (activity);
+						IPlayersClient players = PlayGames.GetPlayersClient (activity);
+						_ = players.GetCurrentPlayer ();
+						IPlayer owner = snapshot.Metadata.Owner;
+						_ = owner.LevelInfo.CurrentLevel.LevelNumber;
+						_ = client.Open ("save", true);
+
+						PlayerGameEvent gameEvent = new PlayerGameEvent.Builder ("session")
+							.AddProperty ("duration", new PlayDuration (60, 0))
+							.Build ();
+						PlayGames.GetGameStatsClient (activity).RecordEvent (gameEvent);
+					}
+
+					static void CheckCompatibility (Android.OS.Parcel parcel, int flags,
+						Android.Gms.Games.Achievement.AchievementRef achievement,
+						Android.Gms.Games.Event.EventRef gameEvent, SnapshotMetadataRef metadata)
+					{
+						achievement.WriteToParcel (parcel, flags);
+						gameEvent.WriteToParcel (parcel, flags);
+						metadata.WriteToParcel (parcel, flags);
+					}
+				}
+				""");
+		}
+
 		// Build the project
 		await RunAndAssertSuccess ($"build -c {configuration} -bl", case_dir, true);
 
