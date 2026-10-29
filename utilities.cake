@@ -276,6 +276,22 @@ Manifest.Defaults.VersionBasedOnFullyQualifiedArtifactIdDelegate = delegate(stri
     }
 
 
+    if
+        (
+            fully_qualified_artifact_id.StartsWith("com.google.re2j:")
+        )
+    {
+        const string l = "Go License";
+        const string u = "https://opensource.org/licenses/BSD-3-Clause";
+
+        if (!Licenses.ContainsKey(l))
+        {
+            Licenses.Add(l, u);
+        }
+
+        return l;
+    }
+
     return null;
 };
 

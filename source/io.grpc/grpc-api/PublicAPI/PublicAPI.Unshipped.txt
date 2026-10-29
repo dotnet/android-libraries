@@ -243,6 +243,8 @@ Xamarin.Grpc.HttpConnectProxiedSocketAddress.Username.get -> string?
 Xamarin.Grpc.IBindableService
 Xamarin.Grpc.IBindableService.BindService() -> Xamarin.Grpc.ServerServiceDefinition?
 Xamarin.Grpc.ICallbackMetricInstrument
+Xamarin.Grpc.IChannelConfigurator
+Xamarin.Grpc.IChannelConfigurator.ConfigureChannelBuilder(Xamarin.Grpc.ManagedChannelBuilder? p0) -> void
 Xamarin.Grpc.IClientInterceptor
 Xamarin.Grpc.IClientInterceptor.InterceptCall(Xamarin.Grpc.MethodDescriptor? p0, Xamarin.Grpc.CallOptions? p1, Xamarin.Grpc.Channel? p2) -> Xamarin.Grpc.ClientCall?
 Xamarin.Grpc.ICodec
@@ -339,6 +341,8 @@ Xamarin.Grpc.LoadBalancer.PickResult
 Xamarin.Grpc.LoadBalancer.PickResult.AuthorityOverride.get -> string?
 Xamarin.Grpc.LoadBalancer.PickResult.CopyWithStreamTracerFactory(Xamarin.Grpc.ClientStreamTracer.Factory? streamTracerFactory) -> Xamarin.Grpc.LoadBalancer.PickResult?
 Xamarin.Grpc.LoadBalancer.PickResult.CopyWithSubchannel(Xamarin.Grpc.LoadBalancer.Subchannel? subchannel) -> Xamarin.Grpc.LoadBalancer.PickResult?
+Xamarin.Grpc.LoadBalancer.PickResult.DelayReason.get -> string?
+Xamarin.Grpc.LoadBalancer.PickResult.DelayType.get -> string?
 Xamarin.Grpc.LoadBalancer.PickResult.HasResult.get -> bool
 Xamarin.Grpc.LoadBalancer.PickResult.IsDrop.get -> bool
 Xamarin.Grpc.LoadBalancer.PickResult.Status.get -> Xamarin.Grpc.Status?
@@ -522,6 +526,7 @@ Xamarin.Grpc.NameResolver.Args.Builder
 Xamarin.Grpc.NameResolver.Args.Builder.Build() -> Xamarin.Grpc.NameResolver.Args?
 Xamarin.Grpc.NameResolver.Args.Builder.SetArg(Xamarin.Grpc.NameResolver.Args.Key? key, Java.Lang.Object? value) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.Builder.SetChannelLogger(Xamarin.Grpc.ChannelLogger? channelLogger) -> Xamarin.Grpc.NameResolver.Args.Builder?
+Xamarin.Grpc.NameResolver.Args.Builder.SetChildChannelConfigurator(Xamarin.Grpc.IChannelConfigurator? channelConfigurator) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.Builder.SetDefaultPort(int defaultPort) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.Builder.SetMetricRecorder(Xamarin.Grpc.IMetricRecorder? metricRecorder) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.Builder.SetNameResolverRegistry(Xamarin.Grpc.NameResolverRegistry? registry) -> Xamarin.Grpc.NameResolver.Args.Builder?
@@ -532,6 +537,7 @@ Xamarin.Grpc.NameResolver.Args.Builder.SetScheduledExecutorService(Java.Util.Con
 Xamarin.Grpc.NameResolver.Args.Builder.SetServiceConfigParser(Xamarin.Grpc.NameResolver.ServiceConfigParser? parser) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.Builder.SetSynchronizationContext(Xamarin.Grpc.SynchronizationContext? syncContext) -> Xamarin.Grpc.NameResolver.Args.Builder?
 Xamarin.Grpc.NameResolver.Args.ChannelLogger.get -> Xamarin.Grpc.ChannelLogger?
+Xamarin.Grpc.NameResolver.Args.ChildChannelConfigurator.get -> Xamarin.Grpc.IChannelConfigurator?
 Xamarin.Grpc.NameResolver.Args.DefaultPort.get -> int
 Xamarin.Grpc.NameResolver.Args.GetArg(Xamarin.Grpc.NameResolver.Args.Key? key) -> Java.Lang.Object?
 Xamarin.Grpc.NameResolver.Args.Key
@@ -769,7 +775,6 @@ Xamarin.Grpc.Uri.Builder.SetScheme(string? scheme) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Builder.SetUserInfo(string? userInfo) -> Xamarin.Grpc.Uri.Builder?
 Xamarin.Grpc.Uri.Fragment.get -> string?
 Xamarin.Grpc.Uri.Host.get -> string?
-Xamarin.Grpc.Uri.IsAbsolute.get -> bool
 Xamarin.Grpc.Uri.IsPathAbsolute.get -> bool
 Xamarin.Grpc.Uri.IsPathRootless.get -> bool
 Xamarin.Grpc.Uri.Path.get -> string?
@@ -1283,6 +1288,7 @@ static Xamarin.Grpc.ForwardingChannelBuilder2.ForTarget(string? target) -> Xamar
 static Xamarin.Grpc.ForwardingServerBuilder.ForPort(int port) -> Xamarin.Grpc.ServerBuilder?
 static Xamarin.Grpc.Grpc.CallOptionCustomLabel.get -> Xamarin.Grpc.CallOptions.Key?
 static Xamarin.Grpc.Grpc.NewChannelBuilder(string? target, Xamarin.Grpc.ChannelCredentials? creds) -> Xamarin.Grpc.ManagedChannelBuilder?
+static Xamarin.Grpc.Grpc.NewChannelBuilder(string? target, Xamarin.Grpc.ChannelCredentials? creds, Xamarin.Grpc.NameResolverRegistry? nameResolverRegistry) -> Xamarin.Grpc.ManagedChannelBuilder?
 static Xamarin.Grpc.Grpc.NewChannelBuilderForAddress(string? host, int port, Xamarin.Grpc.ChannelCredentials? creds) -> Xamarin.Grpc.ManagedChannelBuilder?
 static Xamarin.Grpc.Grpc.NewServerBuilderForPort(int port, Xamarin.Grpc.ServerCredentials? creds) -> Xamarin.Grpc.ServerBuilder?
 static Xamarin.Grpc.Grpc.TransportAttrLocalAddr.get -> Xamarin.Grpc.Attributes.Key?
@@ -1303,6 +1309,7 @@ static Xamarin.Grpc.LoadBalancer.IsPetiolePolicy.get -> Xamarin.Grpc.Attributes.
 static Xamarin.Grpc.LoadBalancer.PickResult.WithDrop(Xamarin.Grpc.Status? status) -> Xamarin.Grpc.LoadBalancer.PickResult?
 static Xamarin.Grpc.LoadBalancer.PickResult.WithError(Xamarin.Grpc.Status? error) -> Xamarin.Grpc.LoadBalancer.PickResult?
 static Xamarin.Grpc.LoadBalancer.PickResult.WithNoResult() -> Xamarin.Grpc.LoadBalancer.PickResult?
+static Xamarin.Grpc.LoadBalancer.PickResult.WithNoResult(string? delayType, string? delayReason) -> Xamarin.Grpc.LoadBalancer.PickResult?
 static Xamarin.Grpc.LoadBalancer.PickResult.WithSubchannel(Xamarin.Grpc.LoadBalancer.Subchannel? subchannel) -> Xamarin.Grpc.LoadBalancer.PickResult?
 static Xamarin.Grpc.LoadBalancer.PickResult.WithSubchannel(Xamarin.Grpc.LoadBalancer.Subchannel? subchannel, Xamarin.Grpc.ClientStreamTracer.Factory? streamTracerFactory) -> Xamarin.Grpc.LoadBalancer.PickResult?
 static Xamarin.Grpc.LoadBalancer.PickResult.WithSubchannel(Xamarin.Grpc.LoadBalancer.Subchannel? subchannel, Xamarin.Grpc.ClientStreamTracer.Factory? streamTracerFactory, string? authorityOverride) -> Xamarin.Grpc.LoadBalancer.PickResult?
@@ -1451,6 +1458,9 @@ virtual Xamarin.Grpc.ClientStreamTracer.InboundHeaders() -> void
 virtual Xamarin.Grpc.ClientStreamTracer.InboundHeaders(Xamarin.Grpc.Metadata? headers) -> void
 virtual Xamarin.Grpc.ClientStreamTracer.InboundTrailers(Xamarin.Grpc.Metadata? trailers) -> void
 virtual Xamarin.Grpc.ClientStreamTracer.OutboundHeaders() -> void
+virtual Xamarin.Grpc.ClientStreamTracer.RecordAttemptDelayEnd() -> void
+virtual Xamarin.Grpc.ClientStreamTracer.RecordAttemptDelayReasonChanged(string? delayReason) -> void
+virtual Xamarin.Grpc.ClientStreamTracer.RecordAttemptDelayStart(string? delayType, string? delayReason) -> void
 virtual Xamarin.Grpc.ClientStreamTracer.StreamCreated(Xamarin.Grpc.Attributes? transportAttrs, Xamarin.Grpc.Metadata? headers) -> void
 virtual Xamarin.Grpc.ClientTransportFilter.TransportReady(Xamarin.Grpc.Attributes? transportAttrs) -> Xamarin.Grpc.Attributes?
 virtual Xamarin.Grpc.ClientTransportFilter.TransportTerminated(Xamarin.Grpc.Attributes? transportAttrs) -> void
@@ -1465,6 +1475,7 @@ virtual Xamarin.Grpc.Context.Fork() -> Xamarin.Grpc.Context?
 virtual Xamarin.Grpc.Context.IsCancelled.get -> bool
 virtual Xamarin.Grpc.Context.RemoveListener(Xamarin.Grpc.Context.ICancellationListener? cancellationListener) -> void
 virtual Xamarin.Grpc.Context.Run(Java.Lang.IRunnable? r) -> void
+virtual Xamarin.Grpc.Context.Supply(Java.Util.Functions.ISupplier? supplier) -> Java.Lang.Object?
 virtual Xamarin.Grpc.Context.WithCancellation() -> Xamarin.Grpc.Context.CancellableContext?
 virtual Xamarin.Grpc.Context.WithDeadline(Xamarin.Grpc.Deadline? newDeadline, Java.Util.Concurrent.IScheduledExecutorService? scheduler) -> Xamarin.Grpc.Context.CancellableContext?
 virtual Xamarin.Grpc.Context.WithDeadlineAfter(long duration, Java.Util.Concurrent.TimeUnit? unit, Java.Util.Concurrent.IScheduledExecutorService? scheduler) -> Xamarin.Grpc.Context.CancellableContext?
@@ -1516,6 +1527,7 @@ virtual Xamarin.Grpc.ManagedChannel.NotifyWhenStateChanged(Xamarin.Grpc.Connecti
 virtual Xamarin.Grpc.ManagedChannel.ResetConnectBackoff() -> void
 virtual Xamarin.Grpc.ManagedChannelBuilder.AddMetricSink(Xamarin.Grpc.IMetricSink? metricSink) -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelBuilder.AddTransportFilter(Xamarin.Grpc.ClientTransportFilter? filter) -> Java.Lang.Object?
+virtual Xamarin.Grpc.ManagedChannelBuilder.ChildChannelConfigurator(Xamarin.Grpc.IChannelConfigurator? channelConfigurator) -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelBuilder.DefaultLoadBalancingPolicy(string? policy) -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelBuilder.DefaultServiceConfig(System.Collections.IDictionary? serviceConfig) -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelBuilder.DisableRetry() -> Java.Lang.Object?
@@ -1539,6 +1551,7 @@ virtual Xamarin.Grpc.ManagedChannelBuilder.SetNameResolverArg(Xamarin.Grpc.NameR
 virtual Xamarin.Grpc.ManagedChannelBuilder.UsePlaintext() -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelBuilder.UseTransportSecurity() -> Java.Lang.Object?
 virtual Xamarin.Grpc.ManagedChannelProvider.NewChannelBuilder(string? target, Xamarin.Grpc.ChannelCredentials? creds) -> Xamarin.Grpc.ManagedChannelProvider.NewChannelBuilderResult?
+virtual Xamarin.Grpc.ManagedChannelProvider.NewChannelBuilder(string? target, Xamarin.Grpc.ChannelCredentials? creds, Xamarin.Grpc.NameResolverRegistry? nameResolverRegistry, Xamarin.Grpc.NameResolverProvider? nameResolverProvider) -> Xamarin.Grpc.ManagedChannelProvider.NewChannelBuilderResult?
 virtual Xamarin.Grpc.NameResolver.Factory.NewNameResolver(Xamarin.Grpc.Uri? targetUri, Xamarin.Grpc.NameResolver.Args? args) -> Xamarin.Grpc.NameResolver?
 virtual Xamarin.Grpc.NameResolver.Listener2.OnResult2(Xamarin.Grpc.NameResolver.ResolutionResult? resolutionResult) -> Xamarin.Grpc.Status?
 virtual Xamarin.Grpc.NameResolver.Refresh() -> void

@@ -25,6 +25,9 @@
 	<!-- These methods were using the explicit types instead of the expected Java.Lang.Object types for the interface -->
 	<attr path="/api/package[@name='com.google.firebase.firestore']/class[@name='GeoPoint']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.google.firebase.firestore.GeoPoint']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
 	<attr path="/api/package[@name='com.google.firebase.firestore']/class[@name='Blob']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.google.firebase.firestore.Blob']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.google.firebase.firestore']/class[@name='Quadruple']/method[@name='compareTo' and count(parameter)=1]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.google.firestore.v1']/*[starts-with(@name, 'ExecutePipelineRequest')]/method[@name='getConsistencySelectorCase' and count(parameter)=0]" name="propertyName">ConsistencySelectorCaseData</attr>
+	<attr path="/api/package[@name='com.google.firestore.v1']/*/method[@name='getPipelineTypeCase' and count(parameter)=0]" name="propertyName">PipelineTypeCaseData</attr>
 	<attr path="/api/package[@name='com.google.firebase.firestore.core']/class[@name='MemoryComponentProvider']/method[@name='createConnectivityMonitor' and count(parameter)=1 and parameter[1][@type='com.google.firebase.firestore.core.ComponentProvider.Configuration']]" name="managedReturn">Firebase.Firestore.Remote.IConnectivityMonitor</attr>
 
 	<attr path="/api/package[@name='com.google.firebase.firestore']/interface[@name='EventListener']/method[@name='onEvent']/parameter[1]" name="managedName">obj</attr>
@@ -273,7 +276,7 @@
         Java.Lang.Object
     </attr>
     <attr
-        path="/api/package[@name='com.google.firestore.v1']/class[@name='FirestoreGrpc.FirestoreBlockingStub']/method[@name='build' and count(parameter)=2 and parameter[1][@type='io.grpc.Channel'] and parameter[2][@type='io.grpc.CallOptions']]"
+        path="/api/package[@name='com.google.firestore.v1']/class[@name='FirestoreGrpc.FirestoreBlockingStub' or @name='FirestoreGrpc.FirestoreBlockingV2Stub']/method[@name='build' and count(parameter)=2 and parameter[1][@type='io.grpc.Channel'] and parameter[2][@type='io.grpc.CallOptions']]"
         name="managedReturn"
         >
         Java.Lang.Object

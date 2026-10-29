@@ -99,6 +99,41 @@
   <remove-node path="/api/package[@name='com.google.rpc.context']/class[@name='AttributeContext']/implements[@name='com.google.rpc.context.AttributeContextOrBuilder']" />
   <remove-node path="/api/package[@name='com.google.type']/class[@name='DateTime']/implements[@name='com.google.type.DateTimeOrBuilder']" />
 
+  <!-- Avoid property names that conflict with nested types. -->
+  <attr path="/api/package[@name='com.google.api']/*[starts-with(@name, 'FieldInfo')]/method[@name='getFormat' and count(parameter)=0]" name="propertyName">FormatData</attr>
+  <attr path="/api/package[@name='com.google.api']/*[starts-with(@name, 'MethodSettings')]/method[@name='getLongRunning' and count(parameter)=0]" name="propertyName">LongRunningData</attr>
+  <attr path="/api/package[@name='com.google.api']/*[starts-with(@name, 'PythonSettings')]/method[@name='getExperimentalFeatures' and count(parameter)=0]" name="propertyName">ExperimentalFeaturesData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getInteraction' and count(parameter)=0]" name="propertyName">InteractionData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getLoadIndicator' and count(parameter)=0]" name="propertyName">LoadIndicatorData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getType' and count(parameter)=0]" name="propertyName">TypeData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getDisplayStyle' and count(parameter)=0]" name="propertyName">DisplayStyleData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getDataCase' and count(parameter)=0]" name="propertyName">DataCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getLayout' and count(parameter)=0]" name="propertyName">LayoutData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getHorizontalSizeStyle' and count(parameter)=0]" name="propertyName">HorizontalSizeStyleData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getVerticalAlignment' and count(parameter)=0]" name="propertyName">VerticalAlignmentData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getControlType' and count(parameter)=0]" name="propertyName">ControlTypeData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getControlCase' and count(parameter)=0]" name="propertyName">ControlCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getSwitchControl' and count(parameter)=0]" name="propertyName">SwitchControlData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getIconsCase' and count(parameter)=0]" name="propertyName">IconsCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getOnClose' and count(parameter)=0]" name="propertyName">OnCloseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getOpenAs' and count(parameter)=0]" name="propertyName">OpenAsData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getMultiSelectDataSourceCase' and count(parameter)=0]" name="propertyName">MultiSelectDataSourceCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getPlatformDataSource' and count(parameter)=0]" name="propertyName">PlatformDataSourceData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getStartIconCase' and count(parameter)=0]" name="propertyName">StartIconCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getCommonDataSource' and count(parameter)=0]" name="propertyName">CommonDataSourceData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getDataSourceCase' and count(parameter)=0]" name="propertyName">DataSourceCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getContentCase' and count(parameter)=0]" name="propertyName">ContentCaseData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getTextSyntax' and count(parameter)=0]" name="propertyName">TextSyntaxData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getInputType' and count(parameter)=0]" name="propertyName">InputTypeData</attr>
+  <attr path="/api/package[@name='com.google.apps.card.v1']/*/method[@name='getHorizontalAlignment' and count(parameter)=0]" name="propertyName">HorizontalAlignmentData</attr>
+  <attr path="/api/package[@name='com.google.cloud.audit']/*[starts-with(@name, 'AuthorizationInfo')]/method[@name='getPermissionType' and count(parameter)=0]" name="propertyName">PermissionTypeData</attr>
+  <attr path="/api/package[@name='com.google.cloud.audit']/*[starts-with(@name, 'ServiceAccountDelegationInfo')]/method[@name='getAuthorityCase' and count(parameter)=0]" name="propertyName">AuthorityCaseData</attr>
+  <attr path="/api/package[@name='com.google.cloud.audit']/*[starts-with(@name, 'ServiceAccountDelegationInfo')]/method[@name='getFirstPartyPrincipal' and count(parameter)=0]" name="propertyName">FirstPartyPrincipalData</attr>
+  <attr path="/api/package[@name='com.google.cloud.audit']/*[starts-with(@name, 'ServiceAccountDelegationInfo')]/method[@name='getThirdPartyPrincipal' and count(parameter)=0]" name="propertyName">ThirdPartyPrincipalData</attr>
+  <attr path="/api/package[@name='com.google.cloud.audit']/*[starts-with(@name, 'ViolationInfo')]/method[@name='getPolicyType' and count(parameter)=0]" name="propertyName">PolicyTypeData</attr>
+  <attr path="/api/package[@name='com.google.type']/*[starts-with(@name, 'PhoneNumber')]/method[@name='getKindCase' and count(parameter)=0]" name="propertyName">KindCaseData</attr>
+  <attr path="/api/package[@name='com.google.type']/*[starts-with(@name, 'PhoneNumber')]/method[@name='getShortCode' and count(parameter)=0]" name="propertyName">ShortCodeData</attr>
+
 
     <!-- 
     error XA4215: The Java type 

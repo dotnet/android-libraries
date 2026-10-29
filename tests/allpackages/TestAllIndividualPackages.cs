@@ -52,7 +52,6 @@ public class TestAllIndividualPackages
 		"Xamarin.Firebase.Analytics.Impl",
 		"Xamarin.Firebase.Analytics.Ktx",
 		"Xamarin.Firebase.AppIndexing",
-		"Xamarin.Firebase.Firestore",
 		"Xamarin.Firebase.Firestore.Ktx",
 		"Xamarin.Firebase.InAppMessaging",
 		"Xamarin.Firebase.InAppMessaging.Display",
@@ -65,7 +64,6 @@ public class TestAllIndividualPackages
 		"Xamarin.Firebase.ML.Vision.Image.Label.Model",
 		"Xamarin.Firebase.ML.Vision.Internal.Vkp",
 		"Xamarin.Firebase.ML.Vision.Object.Detection.Model",
-		"Xamarin.Firebase.ProtoliteWellKnownTypes",
 
 		// MLKit packages
 		// - Duplicate Java types

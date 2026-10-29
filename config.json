@@ -3845,7 +3845,7 @@
         "groupId": "com.google.firebase",
         "artifactId": "firebase-appcheck-interop",
         "version": "18.0.0",
-        "nugetVersion": "118.0.0",
+        "nugetVersion": "118.0.0.1",
         "nugetId": "Xamarin.Firebase.AppCheck.Interop",
         "type": "xbd"
       },
@@ -3966,7 +3966,7 @@
         "groupId": "com.google.firebase",
         "artifactId": "firebase-database-collection",
         "version": "19.0.0",
-        "nugetVersion": "119.0.0",
+        "nugetVersion": "119.0.0.1",
         "nugetId": "Xamarin.Firebase.Database.Collection",
         "type": "xbd"
       },
@@ -4021,14 +4021,12 @@
       {
         "groupId": "com.google.firebase",
         "artifactId": "firebase-firestore",
-        "version": "26.0.2",
-        "nugetVersion": "126.0.2.4",
+        "version": "27.0.0",
+        "nugetVersion": "127.0.0.1",
         "nugetId": "Xamarin.Firebase.Firestore",
-        "frozen": true,
         "extraDependencies": "com.google.guava.guava",
         "type": "xbd",
-        "skipExtendedTests": true,
-        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997 and regiuires `com.google.re2j:re2j`"
+        "excludedRuntimeDependencies": "com.google.truth.truth,junit.junit,org.mockito.mockito-core,com.fasterxml.jackson.core.jackson-databind"
       },
       {
         "groupId": "com.google.firebase",
@@ -4271,12 +4269,10 @@
       {
         "groupId": "com.google.firebase",
         "artifactId": "protolite-well-known-types",
-        "version": "18.0.1",
-        "nugetVersion": "118.0.1.7",
+        "version": "19.0.0",
+        "nugetVersion": "119.0.0.1",
         "nugetId": "Xamarin.Firebase.ProtoliteWellKnownTypes",
-        "type": "xbd",
-        "skipExtendedTests": true,
-        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997. Version 19.0.0 requires protobuf-javalite 4.36.1, which Azure Artifacts cannot restore (401 Unauthorized) and is outside the configured Protobuf mappings."
+        "type": "xbd"
       },
       {
         "groupId": "com.google.flatbuffers",
@@ -4655,10 +4651,9 @@
       {
         "groupId": "com.google.protobuf",
         "artifactId": "protobuf-javalite",
-        "version": "3.25.8",
-        "nugetVersion": "3.25.8",
+        "version": "4.36.2",
+        "nugetVersion": "4.36.2.1",
         "nugetId": "Xamarin.Protobuf.JavaLite",
-        "frozen": true,
         "excludedRuntimeDependencies": "junit.junit,org.easymock.easymock,org.easymock.easymockclassextension,com.google.truth.truth",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4670,6 +4665,15 @@
         "nugetVersion": "3.0.1.24",
         "nugetId": "Xamarin.Protobuf.Lite",
         "excludedRuntimeDependencies": "junit.junit,org.easymock.easymock,org.easymock.easymockclassextension,com.google.truth.truth",
+        "type": "androidlibrary",
+        "mavenRepositoryType": "MavenCentral"
+      },
+      {
+        "groupId": "com.google.re2j",
+        "artifactId": "re2j",
+        "version": "1.8",
+        "nugetVersion": "1.8.0.1",
+        "nugetId": "Xamarin.Google.Re2J",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
       },
@@ -4870,18 +4874,18 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-android",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Android",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
-        "comments": "The gRPC family is temporarily held at 1.82.0 because Azure Artifacts cannot restore version 1.85.0 from Maven Central (401 Unauthorized)."
+        "comments": "The gRPC family is temporarily held at 1.84.2 because Azure Artifacts cannot restore version 1.85.0 from Maven Central (401 Unauthorized)."
       },
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-api",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Api",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4889,8 +4893,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-context",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Context",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4898,8 +4902,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-core",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.2",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Core",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4907,8 +4911,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-okhttp",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.OkHttp",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4916,8 +4920,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-protobuf-lite",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.2",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Protobuf.Lite",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4925,8 +4929,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-stub",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Stub",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4934,8 +4938,8 @@
       {
         "groupId": "io.grpc",
         "artifactId": "grpc-util",
-        "version": "1.82.0",
-        "nugetVersion": "1.82.0.1",
+        "version": "1.84.2",
+        "nugetVersion": "1.84.2.1",
         "nugetId": "Xamarin.Grpc.Util",
         "excludedRuntimeDependencies": "io.grpc.grpc-core,junit.junit,io.grpc.grpc-testing,org.mockito.mockito-core",
         "type": "androidlibrary",
@@ -5693,16 +5697,6 @@
         "nugetId": "Xamarin.GooglePlayServices.Measurement.Base",
         "dependencyOnly": true,
         "comments": "Required by 'com.google.firebase.firebase-analytics-impl:16.3.0'"
-      },
-      {
-        "groupId": "com.google.protobuf",
-        "artifactId": "protobuf-javalite",
-        "version": "4.26.1",
-        "nugetVersion": "4.26.1",
-        "nugetId": "Xamarin.Protobuf.JavaLite",
-        "dependencyOnly": true,
-        "frozen": true,
-        "comments": "Required by 'com.google.mediapipe:tasks-genai:0.10.35'; later versions conflict with Firebase Protolite"
       }
     ],
     "licenses": [
@@ -5757,7 +5751,7 @@
       },
       {
         "name": "Go License",
-        "file": "templates/licenses/go.txt",
+        "file": "templates/licenses/bsd.txt",
         "spdx": "BSD-3-Clause"
       },
       {
