@@ -65,7 +65,6 @@ public class TestAllIndividualPackages
 	public Task TestMauiPackage (string id, string version)
 		=> TestPackage (id, version, "maui");
 
-	[TestCase ("net9.0")]
 	[TestCase ("net10.0")]
 	[Category ("Android")]
 	public async Task TestFirestoreWithProtobufJavaLite (string net_version)
