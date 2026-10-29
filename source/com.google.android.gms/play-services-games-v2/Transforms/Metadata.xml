@@ -1,4 +1,27 @@
 ﻿<metadata>
+    <!-- Preserve the public parent for documented classes, but not implementation-only entities. -->
+    <attr
+        path="/api/package/class[@extends='com.google.android.gms.games.internal.zzg' and (@name='PlayerLevel' or @name='PlayerLevelInfo' or @name='AchievementEntity' or @name='EventEntity' or @name='PlayDuration' or @name='PlayerGameEvent' or @name='SnapshotEntity' or @name='SnapshotMetadataEntity' or @name='VideoCapabilities')]"
+        name="extends-generic-aware"
+        >com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable</attr>
+    <attr
+        path="/api/package/class[@extends='com.google.android.gms.games.internal.zzg' and (@name='PlayerLevel' or @name='PlayerLevelInfo' or @name='AchievementEntity' or @name='EventEntity' or @name='PlayDuration' or @name='PlayerGameEvent' or @name='SnapshotEntity' or @name='SnapshotMetadataEntity' or @name='VideoCapabilities')]"
+        name="extends"
+        >com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable</attr>
+
+    <!-- Do not add obfuscated methods to newly bound types; keep existing public signatures. -->
+    <remove-node
+        path="/api/package/*[@name='Achievement' or @name='AchievementEntity' or @name='Player' or @name='SnapshotMetadata' or @name='SnapshotMetadataEntity']/method[starts-with(@name, 'zz')]"
+        />
+    <remove-node
+        path="/api/package[@name='com.google.android.gms.games.achievement']/class[@name='AchievementRef']/method[@name='zzb']"
+        />
+
+    <!-- An unbound internal return type invalidates Player and the snapshot API that uses it. -->
+    <remove-node
+        path="/api/package[@name='com.google.android.gms.games']/*/method[@return='com.google.android.gms.games.internal.player.zza']"
+        />
+
     <remove-node
         path="/api/package[@name='com.google.android.gms.games.leaderboard']/class[@name='LeaderboardVariantEntity']/implements"
         />
@@ -65,17 +88,14 @@
         </method>
     </add-node>
 
-    <add-node
-        path="/api/package[@name='com.google.android.gms.games']/class[@name='PlayerBuffer']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="java.lang.Object" name="get" 
-            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
-            >
-            <parameter type="int" name="position">
-            </parameter>
-        </method>
-    </add-node>
+    <attr
+        path="/api/package/class[@extends='com.google.android.gms.common.data.AbstractDataBuffer']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn"
+        >Java.Lang.Object</attr>
+    <attr
+        path="/api/package/class[@name='PlayerBuffer' or @name='AchievementBuffer' or @name='EventBuffer' or @name='LeaderboardScoreBuffer' or @name='SnapshotMetadataBuffer']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="return-not-null"
+        >false</attr>
     <add-node
         path="/api/package[@name='com.google.android.gms.games.stats']/class[@name='PlayerStatsBuffer']"
         >
@@ -110,56 +130,6 @@
             </parameter>
         </method>
     </add-node>
-    <add-node
-        path="/api/package[@name='com.google.android.gms.games.event']/class[@name='EventBuffer']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="java.lang.Object" name="get" 
-            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
-            >
-            <parameter type="int" name="position">
-            </parameter>
-        </method>
-    </add-node>
-    <add-node
-        path="/api/package[@name='com.google.android.gms.games.achievement']/class[@name='AchievementBuffer']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="java.lang.Object" name="get" 
-            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
-            >
-            <parameter type="int" name="position">
-            </parameter>
-        </method>
-    </add-node>
-    <add-node
-        path="/api/package[@name='com.google.android.gms.games.leaderboard']/class[@name='LeaderboardScoreBuffer']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="java.lang.Object" name="get" 
-            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
-            >
-            <parameter type="int" name="position">
-            </parameter>
-        </method>
-    </add-node>
-    <add-node
-        path="/api/package[@name='com.google.android.gms.games.snapshot']/class[@name='SnapshotMetadataBuffer']"
-        >
-        <method 
-            visibility="public" static="false" abstract="false" return="java.lang.Object" name="get" 
-            deprecated="not deprecated" final="false" bridge="false" native="false" synchronized="false" synthetic="false" 
-            >
-            <parameter type="int" name="position">
-            </parameter>
-        </method>
-    </add-node>
-    <attr
-        path="/api/package[@name='com.google.android.gms.games']/class[@name='GameBuffer']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
-        name="managedReturn"
-        >
-        Java.Lang.Object
-    </attr>
     <attr
         path="/api/package[@name='com.google.android.gms.games.multiplayer.realtime']/class[@name='RoomEntity']"
         name="managedReturn"
@@ -218,5 +188,20 @@
         >
         Java.Lang.Object
     </attr>
+
+    <!-- Match the erased Freezable return type used by the existing binding. -->
+    <attr
+        path="/api/package/class/method[@name='freeze' and count(parameter)=0]"
+        name="managedReturn"
+        >Java.Lang.Object</attr>
+    <add-node
+        path="/api/package/class[@name='AchievementRef' or @name='EventRef' or @name='LeaderboardScoreEntity' or @name='LeaderboardScoreRef' or @name='SnapshotMetadataRef']"
+        >
+        <method
+            visibility="public" static="false" abstract="false" return="java.lang.Object" name="freeze"
+            deprecated="not deprecated" final="true" bridge="false" native="false"
+            synchronized="false" synthetic="false"
+            />
+    </add-node>
 
 </metadata>

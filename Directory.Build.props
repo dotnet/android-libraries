@@ -6,18 +6,12 @@
     <RepositoryCommit>$(BUILD_SOURCEVERSION)</RepositoryCommit>
 
     <!-- Default TFM's we build for -->
-    <_DefaultNetTargetFramework>net9.0</_DefaultNetTargetFramework>
+    <_DefaultNetTargetFramework>net10.0</_DefaultNetTargetFramework>
     <!-- base -->
-    <_DefaultPlatformVersionBase>35</_DefaultPlatformVersionBase>
-    <_DefaultTargetFrameworkVersionBase>9.0</_DefaultTargetFrameworkVersionBase>
+    <_DefaultPlatformVersionBase>36</_DefaultPlatformVersionBase>
+    <_DefaultTargetFrameworkVersionBase>10.0</_DefaultTargetFrameworkVersionBase>
     <_DefaultTargetFrameworkBase>net$(_DefaultTargetFrameworkVersionBase)-android$(_DefaultPlatformVersionBase).0</_DefaultTargetFrameworkBase>
-    <!-- next -->
-    <_DefaultPlatformVersionNext>36</_DefaultPlatformVersionNext>
-    <_DefaultTargetFrameworkVersionNext>10.0</_DefaultTargetFrameworkVersionNext>
-    <_DefaultTargetFrameworkNext>net$(_DefaultTargetFrameworkVersionNext)-android$(_DefaultPlatformVersionNext).0</_DefaultTargetFrameworkNext>
-    <!-- combined -->
-    <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' != 'true' ">$(_DefaultTargetFrameworkBase);$(_DefaultTargetFrameworkNext)</_DefaultTargetFrameworks>
-    <_DefaultTargetFrameworks Condition=" '$(GITHUB_ACTIONS)' == 'true' ">$(_DefaultTargetFrameworkBase)</_DefaultTargetFrameworks>
+    <_DefaultTargetFrameworks>$(_DefaultTargetFrameworkBase)</_DefaultTargetFrameworks>
 
     <CheckEolWorkloads>false</CheckEolWorkloads>
 
@@ -97,14 +91,11 @@
   <ItemGroup>
     <AndroidXNuGetTargetFolders Include="build\$(_DefaultTargetFrameworkBase)" />
     <AndroidXNuGetTargetFolders Include="buildTransitive\$(_DefaultTargetFrameworkBase)" />
-    <AndroidXNuGetTargetFolders Include="build\$(_DefaultTargetFrameworkNext)" />
-    <AndroidXNuGetTargetFolders Include="buildTransitive\$(_DefaultTargetFrameworkNext)" />
   </ItemGroup>
 
   <!-- Folders that _._ files need to go into for packages without managed libraries -->
   <ItemGroup>
     <AndroidXNuGetLibFolders Include="lib\$(_DefaultTargetFrameworkBase)" />
-    <AndroidXNuGetLibFolders Include="lib\$(_DefaultTargetFrameworkNext)" />
   </ItemGroup>
 
   <ItemGroup>

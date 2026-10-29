@@ -13,7 +13,7 @@ public class TestAllIndividualPackages
 	static string test_dir = Path.Combine ("output", "tests" , "allpackages");
 	static string configuration = "Release";
 	static string platform_version = "29";
-	static string net_version = "net9.0";
+	static string net_version = "net10.0";
 
 	// These packages are ignored because they contain the same Java code as
 	// other packages, which causes a conflict when building the project.

@@ -4,7 +4,7 @@
 
 Before building the libraries and samples in this repository, you will need to install:
 
-  * [.NET 9.0](https://dotnet.microsoft.com/download) (.NET SDK 9.0 is currently required)
+  * [.NET 10.0](https://dotnet.microsoft.com/download) (.NET SDK 10.0 or newer with the .NET 10 Android workload is required)
 
   * [Cake .NET Tool](http://cakebuild.net):
 

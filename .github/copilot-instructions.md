@@ -14,7 +14,7 @@ Creates .NET for Android bindings for Google's Java/Kotlin libraries (AndroidX, 
 - **`source/AssemblyInfo.cs`**: **DO NOT EDIT** - contains placeholder tokens
 
 ## Target Frameworks
-- `net9.0-android` (API 35) and `net10.0-android` (API 36)
+- `net10.0-android` (API 36)
 - Legacy Xamarin.Android support ended May 1, 2024
 
 ## Common Build Commands

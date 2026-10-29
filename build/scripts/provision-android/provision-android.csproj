@@ -1,13 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!-- Build with the latest -->
-    <TargetFramework>$(_DefaultTargetFrameworkNext)</TargetFramework>
+    <TargetFramework>$(_DefaultTargetFrameworkBase)</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <!-- Used by gradle projects -->
     <AndroidDependency Include="build-tools/35.0.0" />
     <AndroidDependency Include="platforms/android-34" />
-    <!-- But also install the base -->
+    <!-- Install the target platform -->
     <AndroidDependency Include="platforms/android-$(_DefaultPlatformVersionBase)" />
   </ItemGroup>
 </Project>

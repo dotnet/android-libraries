@@ -38,7 +38,7 @@ This tool analyzes all NuGet packages defined in the `config.json` file and gene
 
 ### Prerequisites
 
-- .NET 9.0 SDK (or compatible)
+- .NET 10.0 SDK (or compatible)
 - Internet connection to fetch data from NuGet.org
 - PowerShell (for the convenience script)
 
@@ -134,7 +134,7 @@ The generated report includes:
 
 ### Common Issues
 
-- **Build errors**: Ensure .NET 9.0 SDK is installed
+- **Build errors**: Ensure .NET 10.0 SDK is installed
 - **Network errors**: Check internet connection and try again
 - **Missing data**: Some packages may not have complete statistics on NuGet.org
 - **Rate limiting**: The tool automatically handles this, but very slow responses may indicate temporary NuGet.org issues
@@ -168,7 +168,7 @@ util/package-info/
 
 - **HtmlAgilityPack**: For HTML parsing
 - **Newtonsoft.Json**: For JSON serialization (alternative to System.Text.Json)
-- **.NET 9.0**: Target framework
+- **.NET 10.0**: Target framework
 
 ### Extending the Tool
 
