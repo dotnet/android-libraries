@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Xml;
 using CliWrap;
@@ -130,6 +132,33 @@ public class TestAllIndividualPackages
 			var contents = File.ReadAllText (nuget_config_src);
 			contents = contents.Replace ("../output", "../..");
 			File.WriteAllText (nuget_config_dst, contents);
+		}
+	}
+
+	[Test]
+	public void PaletteKtxForwardsPaletteKt ()
+	{
+		var assembly_dir = Path.Combine (base_dir, "generated", "androidx.palette.palette-ktx", "bin", configuration);
+		var assemblies = Directory.GetFiles (assembly_dir, "Xamarin.AndroidX.Palette.Palette.Ktx.dll", SearchOption.AllDirectories);
+
+		Assert.That (assemblies, Is.Not.Empty, "Build the Palette Ktx binding before checking compatibility.");
+
+		foreach (var assembly in assemblies) {
+			using var stream = File.OpenRead (assembly);
+			using var reader = new PEReader (stream);
+			var metadata = reader.GetMetadataReader ();
+			var forwarders = metadata.ExportedTypes
+				.Select (metadata.GetExportedType)
+				.Where (type => metadata.GetString (type.Namespace) == "AndroidX.Palette.Graphics"
+					&& metadata.GetString (type.Name) == "PaletteKt")
+				.ToArray ();
+
+			Assert.That (forwarders, Has.Length.EqualTo (1), assembly);
+			Assert.That (forwarders [0].IsForwarder, Is.True, assembly);
+			Assert.That (forwarders [0].Implementation.Kind, Is.EqualTo (HandleKind.AssemblyReference), assembly);
+
+			var target = metadata.GetAssemblyReference ((AssemblyReferenceHandle) forwarders [0].Implementation);
+			Assert.That (metadata.GetString (target.Name), Is.EqualTo ("Xamarin.AndroidX.Palette"), assembly);
 		}
 	}
 
