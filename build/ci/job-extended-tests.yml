@@ -12,6 +12,8 @@ parameters:
 jobs:
 - job: ${{ parameters.jobName }}_package_tests
   displayName: ${{ parameters.jobName }} Package Tests
+  variables:
+    NUGET_CERT_REVOCATION_MODE: offline
   strategy:
     parallel: ${{ parameters.agentCount }}
   pool: ${{ parameters.buildPool }}
