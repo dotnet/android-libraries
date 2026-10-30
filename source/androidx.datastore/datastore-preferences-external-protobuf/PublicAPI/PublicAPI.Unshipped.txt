@@ -41,8 +41,16 @@ AndroidX.DataStore.Preferences.Protobuf.FieldType.IsPrimitiveScalar.get -> bool
 AndroidX.DataStore.Preferences.Protobuf.FieldType.IsScalar.get -> bool
 AndroidX.DataStore.Preferences.Protobuf.FieldType.IsValidForField(Java.Lang.Reflect.Field? field) -> bool
 AndroidX.DataStore.Preferences.Protobuf.FieldType.JavaType.get -> AndroidX.DataStore.Preferences.Protobuf.JavaType?
+AndroidX.DataStore.Preferences.Protobuf.GeneratedAttribute
+AndroidX.DataStore.Preferences.Protobuf.GeneratedAttribute.GeneratedAttribute() -> void
 AndroidX.DataStore.Preferences.Protobuf.IExperimentalApi
 AndroidX.DataStore.Preferences.Protobuf.IExperimentalApi.Value() -> string?
+AndroidX.DataStore.Preferences.Protobuf.IGenerated
+AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException
+AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.InvalidProtobufRuntimeException(Java.Lang.Exception? e) -> void
+AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.InvalidProtobufRuntimeException(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.InvalidProtobufRuntimeException(string? description) -> void
+AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.InvalidProtobufRuntimeException(string? description, Java.Lang.Exception? e) -> void
 AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException
 AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.InvalidProtocolBufferException(Java.IO.IOException? e) -> void
 AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.InvalidProtocolBufferException(Java.Lang.Exception? e) -> void
@@ -139,6 +147,7 @@ abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.ReadUInt64() -
 abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.ResetSizeCounter() -> void
 abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.SkipField(int tag) -> bool
 abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.SkipRawBytes(int size) -> void
+abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.StreamRawBytes(byte[]? bytes, int offset, int length) -> int
 abstract AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.TotalBytesRead.get -> int
 abstract AndroidX.DataStore.Preferences.Protobuf.ExtensionLite.IsRepeated.get -> bool
 abstract AndroidX.DataStore.Preferences.Protobuf.ExtensionLite.LiteType.get -> AndroidX.DataStore.Preferences.Protobuf.WireFormat.FieldType?
@@ -146,12 +155,12 @@ abstract AndroidX.DataStore.Preferences.Protobuf.ExtensionLite.Number.get -> int
 abstract AndroidX.DataStore.Preferences.Protobuf.ExtensionLite.RawDefaultValue.get -> Java.Lang.Object?
 const AndroidX.DataStore.Preferences.Protobuf.JavaFeaturesProto.JavaFieldNumber = 1001 -> int
 const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Major = 4 -> int
-const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Minor = 28 -> int
+const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Minor = 36 -> int
 const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssMajor = 4 -> int
-const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssMinor = 28 -> int
-const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssPatch = 2 -> int
+const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssMinor = 36 -> int
+const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssPatch = 1 -> int
 const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.OssSuffix = "" -> string!
-const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Patch = 2 -> int
+const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Patch = 1 -> int
 const AndroidX.DataStore.Preferences.Protobuf.RuntimeVersion.Suffix = "" -> string!
 const AndroidX.DataStore.Preferences.Protobuf.Syntax.SyntaxEditionsValue = 2 -> int
 const AndroidX.DataStore.Preferences.Protobuf.Syntax.SyntaxProto2Value = 0 -> int
@@ -187,6 +196,9 @@ override AndroidX.DataStore.Preferences.Protobuf.ExtensionRegistryLite.Threshold
 override AndroidX.DataStore.Preferences.Protobuf.ExtensionRegistryLite.ThresholdType.get -> System.Type!
 override AndroidX.DataStore.Preferences.Protobuf.FieldMaskProto.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Preferences.Protobuf.FieldType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.ThresholdClass.get -> nint
+override AndroidX.DataStore.Preferences.Protobuf.InvalidProtobufRuntimeException.ThresholdType.get -> System.Type!
 override AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.InvalidWireTypeException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.InvalidWireTypeException.ThresholdClass.get -> nint
 override AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.InvalidWireTypeException.ThresholdType.get -> System.Type!
@@ -389,10 +401,14 @@ virtual AndroidX.DataStore.Preferences.Protobuf.AbstractMessageLite.ToByteArray(
 virtual AndroidX.DataStore.Preferences.Protobuf.AbstractMessageLite.WriteDelimitedTo(System.IO.Stream? output) -> void
 virtual AndroidX.DataStore.Preferences.Protobuf.AbstractMessageLite.WriteTo(System.IO.Stream? output) -> void
 virtual AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.CheckRecursionLimit() -> void
+virtual AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.CheckValidEndTag() -> void
 virtual AndroidX.DataStore.Preferences.Protobuf.CodedInputStream.SkipMessage() -> void
 virtual AndroidX.DataStore.Preferences.Protobuf.ExtensionRegistryLite.Unmodifiable.get -> AndroidX.DataStore.Preferences.Protobuf.ExtensionRegistryLite?
 virtual AndroidX.DataStore.Preferences.Protobuf.InvalidProtocolBufferException.UnwrapIOException() -> Java.IO.IOException?
 virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.Clear() -> void
+virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.ComputeMessageSetExtensionSize(int fieldNumber) -> int
+virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.ComputeSize(int fieldNumber) -> int
+virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.ComputeSizeNoTag() -> int
 virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.ContainsDefaultInstance() -> bool
 virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.Merge(AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite? other) -> void
 virtual AndroidX.DataStore.Preferences.Protobuf.LazyFieldLite.MergeFrom(AndroidX.DataStore.Preferences.Protobuf.CodedInputStream? input, AndroidX.DataStore.Preferences.Protobuf.ExtensionRegistryLite? extensionRegistry) -> void

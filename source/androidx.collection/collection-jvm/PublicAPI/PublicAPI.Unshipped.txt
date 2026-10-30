@@ -66,9 +66,14 @@ AndroidX.Collection.CircularIntArray.Size() -> int
 AndroidX.Collection.DoubleList
 AndroidX.Collection.DoubleList.Any() -> bool
 AndroidX.Collection.DoubleList.Any(Kotlin.Jvm.Functions.IFunction1! predicate) -> bool
+AndroidX.Collection.DoubleList.BinarySearch(double element) -> int
+AndroidX.Collection.DoubleList.BinarySearch(double element, double tolerance) -> int
+AndroidX.Collection.DoubleList.BinarySearch(double element, double tolerance, int fromIndex) -> int
+AndroidX.Collection.DoubleList.BinarySearch(double element, double tolerance, int fromIndex, int toIndex) -> int
 AndroidX.Collection.DoubleList.BinarySearch(int element) -> int
 AndroidX.Collection.DoubleList.BinarySearch(int element, int fromIndex) -> int
 AndroidX.Collection.DoubleList.BinarySearch(int element, int fromIndex, int toIndex) -> int
+AndroidX.Collection.DoubleList.BinarySearch(int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! comparison) -> int
 AndroidX.Collection.DoubleList.Contains(double element) -> bool
 AndroidX.Collection.DoubleList.ContainsAll(AndroidX.Collection.DoubleList! elements) -> bool
 AndroidX.Collection.DoubleList.Count() -> int
@@ -218,9 +223,14 @@ AndroidX.Collection.FloatIntMapKt
 AndroidX.Collection.FloatList
 AndroidX.Collection.FloatList.Any() -> bool
 AndroidX.Collection.FloatList.Any(Kotlin.Jvm.Functions.IFunction1! predicate) -> bool
+AndroidX.Collection.FloatList.BinarySearch(float element) -> int
+AndroidX.Collection.FloatList.BinarySearch(float element, float tolerance) -> int
+AndroidX.Collection.FloatList.BinarySearch(float element, float tolerance, int fromIndex) -> int
+AndroidX.Collection.FloatList.BinarySearch(float element, float tolerance, int fromIndex, int toIndex) -> int
 AndroidX.Collection.FloatList.BinarySearch(int element) -> int
 AndroidX.Collection.FloatList.BinarySearch(int element, int fromIndex) -> int
 AndroidX.Collection.FloatList.BinarySearch(int element, int fromIndex, int toIndex) -> int
+AndroidX.Collection.FloatList.BinarySearch(int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! comparison) -> int
 AndroidX.Collection.FloatList.Contains(float element) -> bool
 AndroidX.Collection.FloatList.ContainsAll(AndroidX.Collection.FloatList! elements) -> bool
 AndroidX.Collection.FloatList.Count() -> int
@@ -499,6 +509,7 @@ AndroidX.Collection.IntList.Any(Kotlin.Jvm.Functions.IFunction1! predicate) -> b
 AndroidX.Collection.IntList.BinarySearch(int element) -> int
 AndroidX.Collection.IntList.BinarySearch(int element, int fromIndex) -> int
 AndroidX.Collection.IntList.BinarySearch(int element, int fromIndex, int toIndex) -> int
+AndroidX.Collection.IntList.BinarySearch(int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! comparison) -> int
 AndroidX.Collection.IntList.Contains(int element) -> bool
 AndroidX.Collection.IntList.ContainsAll(AndroidX.Collection.IntList! elements) -> bool
 AndroidX.Collection.IntList.Count() -> int
@@ -778,6 +789,10 @@ AndroidX.Collection.LongList.Any(Kotlin.Jvm.Functions.IFunction1! predicate) -> 
 AndroidX.Collection.LongList.BinarySearch(int element) -> int
 AndroidX.Collection.LongList.BinarySearch(int element, int fromIndex) -> int
 AndroidX.Collection.LongList.BinarySearch(int element, int fromIndex, int toIndex) -> int
+AndroidX.Collection.LongList.BinarySearch(int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! comparison) -> int
+AndroidX.Collection.LongList.BinarySearch(long element) -> int
+AndroidX.Collection.LongList.BinarySearch(long element, int fromIndex) -> int
+AndroidX.Collection.LongList.BinarySearch(long element, int fromIndex, int toIndex) -> int
 AndroidX.Collection.LongList.Contains(long element) -> bool
 AndroidX.Collection.LongList.ContainsAll(AndroidX.Collection.LongList! elements) -> bool
 AndroidX.Collection.LongList.Count() -> int
@@ -1014,6 +1029,7 @@ AndroidX.Collection.MutableDoubleList.RetainAll(double[]! elements) -> bool
 AndroidX.Collection.MutableDoubleList.Set(int index, double element) -> double
 AndroidX.Collection.MutableDoubleList.Sort() -> void
 AndroidX.Collection.MutableDoubleList.SortDescending() -> void
+AndroidX.Collection.MutableDoubleList.Trim() -> void
 AndroidX.Collection.MutableDoubleList.Trim(int minCapacity) -> void
 AndroidX.Collection.MutableFloatFloatMap
 AndroidX.Collection.MutableFloatFloatMap.Clear() -> void
@@ -1079,6 +1095,7 @@ AndroidX.Collection.MutableFloatList.RetainAll(float[]! elements) -> bool
 AndroidX.Collection.MutableFloatList.Set(int index, float element) -> float
 AndroidX.Collection.MutableFloatList.Sort() -> void
 AndroidX.Collection.MutableFloatList.SortDescending() -> void
+AndroidX.Collection.MutableFloatList.Trim() -> void
 AndroidX.Collection.MutableFloatList.Trim(int minCapacity) -> void
 AndroidX.Collection.MutableFloatLongMap
 AndroidX.Collection.MutableFloatLongMap.Clear() -> void
@@ -1196,6 +1213,7 @@ AndroidX.Collection.MutableIntList.RetainAll(int[]! elements) -> bool
 AndroidX.Collection.MutableIntList.Set(int index, int element) -> int
 AndroidX.Collection.MutableIntList.Sort() -> void
 AndroidX.Collection.MutableIntList.SortDescending() -> void
+AndroidX.Collection.MutableIntList.Trim() -> void
 AndroidX.Collection.MutableIntList.Trim(int minCapacity) -> void
 AndroidX.Collection.MutableIntLongMap
 AndroidX.Collection.MutableIntLongMap.Clear() -> void
@@ -1313,6 +1331,7 @@ AndroidX.Collection.MutableLongList.RetainAll(long[]! elements) -> bool
 AndroidX.Collection.MutableLongList.Set(int index, long element) -> long
 AndroidX.Collection.MutableLongList.Sort() -> void
 AndroidX.Collection.MutableLongList.SortDescending() -> void
+AndroidX.Collection.MutableLongList.Trim() -> void
 AndroidX.Collection.MutableLongList.Trim(int minCapacity) -> void
 AndroidX.Collection.MutableLongLongMap
 AndroidX.Collection.MutableLongLongMap.Clear() -> void
@@ -1452,6 +1471,11 @@ AndroidX.Collection.MutableObjectList.RetainAll(Java.Lang.Object![]! elements) -
 AndroidX.Collection.MutableObjectList.RetainAll(Kotlin.Sequences.ISequence! elements) -> bool
 AndroidX.Collection.MutableObjectList.RetainAll(System.Collections.ICollection! elements) -> bool
 AndroidX.Collection.MutableObjectList.Set(int index, Java.Lang.Object? element) -> Java.Lang.Object?
+AndroidX.Collection.MutableObjectList.SortBy(Kotlin.Jvm.Functions.IFunction1! selector) -> void
+AndroidX.Collection.MutableObjectList.SortByDescending(Kotlin.Jvm.Functions.IFunction1! selector) -> void
+AndroidX.Collection.MutableObjectList.SortWith(Java.Util.IComparator! comparator) -> void
+AndroidX.Collection.MutableObjectList.SortWith(Kotlin.Jvm.Functions.IFunction2! comparison) -> void
+AndroidX.Collection.MutableObjectList.Trim() -> void
 AndroidX.Collection.MutableObjectList.Trim(int minCapacity) -> void
 AndroidX.Collection.MutableObjectLongMap
 AndroidX.Collection.MutableObjectLongMap.Clear() -> void
@@ -1672,6 +1696,11 @@ AndroidX.Collection.ObjectIntMapKt
 AndroidX.Collection.ObjectList
 AndroidX.Collection.ObjectList.Any() -> bool
 AndroidX.Collection.ObjectList.Any(Kotlin.Jvm.Functions.IFunction1! predicate) -> bool
+AndroidX.Collection.ObjectList.BinarySearch(Java.Lang.Object? element, Java.Util.IComparator! comparator) -> int
+AndroidX.Collection.ObjectList.BinarySearch(Java.Lang.Object? element, Java.Util.IComparator! comparator, int fromIndex) -> int
+AndroidX.Collection.ObjectList.BinarySearch(Java.Lang.Object? element, Java.Util.IComparator! comparator, int fromIndex, int toIndex) -> int
+AndroidX.Collection.ObjectList.BinarySearch(int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! comparison) -> int
+AndroidX.Collection.ObjectList.BinarySearchBy(Java.Lang.Object? key, int fromIndex, int toIndex, Kotlin.Jvm.Functions.IFunction1! selector) -> int
 AndroidX.Collection.ObjectList.Contains(Java.Lang.Object? element) -> bool
 AndroidX.Collection.ObjectList.ContainsAll(AndroidX.Collection.ObjectList! elements) -> bool
 AndroidX.Collection.ObjectList.ContainsAll(Java.Lang.IIterable! elements) -> bool
@@ -2428,6 +2457,9 @@ static AndroidX.Collection.ObjectIntMapKt.ObjectIntMapOf(Java.Lang.Object? key1,
 static AndroidX.Collection.ObjectIntMapKt.ObjectIntMapOf(Java.Lang.Object? key1, int value1, Java.Lang.Object? key2, int value2, Java.Lang.Object? key3, int value3) -> AndroidX.Collection.ObjectIntMap!
 static AndroidX.Collection.ObjectIntMapKt.ObjectIntMapOf(Java.Lang.Object? key1, int value1, Java.Lang.Object? key2, int value2, Java.Lang.Object? key3, int value3, Java.Lang.Object? key4, int value4) -> AndroidX.Collection.ObjectIntMap!
 static AndroidX.Collection.ObjectIntMapKt.ObjectIntMapOf(Java.Lang.Object? key1, int value1, Java.Lang.Object? key2, int value2, Java.Lang.Object? key3, int value3, Java.Lang.Object? key4, int value4, Java.Lang.Object? key5, int value5) -> AndroidX.Collection.ObjectIntMap!
+static AndroidX.Collection.ObjectListKt.BinarySearch(AndroidX.Collection.ObjectList! obj, Java.Lang.Object! element) -> int
+static AndroidX.Collection.ObjectListKt.BinarySearch(AndroidX.Collection.ObjectList! obj, Java.Lang.Object! element, int fromIndex) -> int
+static AndroidX.Collection.ObjectListKt.BinarySearch(AndroidX.Collection.ObjectList! obj, Java.Lang.Object! element, int fromIndex, int toIndex) -> int
 static AndroidX.Collection.ObjectListKt.EmptyObjectList() -> AndroidX.Collection.ObjectList!
 static AndroidX.Collection.ObjectListKt.MutableObjectListOf() -> AndroidX.Collection.MutableObjectList!
 static AndroidX.Collection.ObjectListKt.MutableObjectListOf(Java.Lang.Object? element1) -> AndroidX.Collection.MutableObjectList!
@@ -2439,6 +2471,8 @@ static AndroidX.Collection.ObjectListKt.ObjectListOf(Java.Lang.Object? element1)
 static AndroidX.Collection.ObjectListKt.ObjectListOf(Java.Lang.Object? element1, Java.Lang.Object? element2) -> AndroidX.Collection.ObjectList!
 static AndroidX.Collection.ObjectListKt.ObjectListOf(Java.Lang.Object? element1, Java.Lang.Object? element2, Java.Lang.Object? element3) -> AndroidX.Collection.ObjectList!
 static AndroidX.Collection.ObjectListKt.ObjectListOf(params Java.Lang.Object![]! elements) -> AndroidX.Collection.ObjectList!
+static AndroidX.Collection.ObjectListKt.Sort(AndroidX.Collection.MutableObjectList! obj) -> void
+static AndroidX.Collection.ObjectListKt.SortDescending(AndroidX.Collection.MutableObjectList! obj) -> void
 static AndroidX.Collection.ObjectLongMapKt.BuildObjectLongMap(Kotlin.Jvm.Functions.IFunction1! builderAction) -> AndroidX.Collection.ObjectLongMap!
 static AndroidX.Collection.ObjectLongMapKt.BuildObjectLongMap(int initialCapacity, Kotlin.Jvm.Functions.IFunction1! builderAction) -> AndroidX.Collection.ObjectLongMap!
 static AndroidX.Collection.ObjectLongMapKt.EmptyObjectLongMap() -> AndroidX.Collection.ObjectLongMap!
@@ -2465,6 +2499,10 @@ static AndroidX.Collection.OrderedScatterSetKt.OrderedScatterSetOf(Java.Lang.Obj
 static AndroidX.Collection.OrderedScatterSetKt.OrderedScatterSetOf(Java.Lang.Object? element1, Java.Lang.Object? element2) -> AndroidX.Collection.OrderedScatterSet!
 static AndroidX.Collection.OrderedScatterSetKt.OrderedScatterSetOf(Java.Lang.Object? element1, Java.Lang.Object? element2, Java.Lang.Object? element3) -> AndroidX.Collection.OrderedScatterSet!
 static AndroidX.Collection.OrderedScatterSetKt.OrderedScatterSetOf(params Java.Lang.Object![]! elements) -> AndroidX.Collection.OrderedScatterSet!
+static AndroidX.Collection.OrderedScatterSetKt.ToMutableOrderedScatterSet(AndroidX.Collection.OrderedScatterSet! obj) -> AndroidX.Collection.MutableOrderedScatterSet!
+static AndroidX.Collection.OrderedScatterSetKt.ToMutableOrderedScatterSet(System.Collections.ICollection! obj) -> AndroidX.Collection.MutableOrderedScatterSet!
+static AndroidX.Collection.OrderedScatterSetKt.ToOrderedScatterSet(AndroidX.Collection.OrderedScatterSet! obj) -> AndroidX.Collection.OrderedScatterSet!
+static AndroidX.Collection.OrderedScatterSetKt.ToOrderedScatterSet(System.Collections.ICollection! obj) -> AndroidX.Collection.OrderedScatterSet!
 static AndroidX.Collection.ScatterMapKt.EmptyScatterMap() -> AndroidX.Collection.ScatterMap!
 static AndroidX.Collection.ScatterMapKt.MutableScatterMapOf() -> AndroidX.Collection.MutableScatterMap!
 static AndroidX.Collection.ScatterMapKt.MutableScatterMapOf(params Kotlin.Pair![]! pairs) -> AndroidX.Collection.MutableScatterMap!

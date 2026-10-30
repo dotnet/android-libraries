@@ -416,6 +416,11 @@ Firebase.Crashlytics.Internal.Settings.Settings.OnDemandBackoffStepDurationSecon
 Firebase.Crashlytics.Internal.Settings.Settings.OnDemandBackoffStepDurationSeconds.set -> void
 Firebase.Crashlytics.Internal.Settings.Settings.OnDemandUploadRatePerMinute.get -> double
 Firebase.Crashlytics.Internal.Settings.Settings.OnDemandUploadRatePerMinute.set -> void
+Firebase.Crashlytics.Internal.Settings.Settings.Profiling
+Firebase.Crashlytics.Internal.Settings.Settings.Profiling.HeapDumpCollectionEnabled.get -> bool
+Firebase.Crashlytics.Internal.Settings.Settings.Profiling.HeapDumpCollectionEnabled.set -> void
+Firebase.Crashlytics.Internal.Settings.Settings.Profiling.Profiling(bool heapDumpCollectionEnabled) -> void
+Firebase.Crashlytics.Internal.Settings.Settings.Profiling.Profiling(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Crashlytics.Internal.Settings.Settings.SessionData
 Firebase.Crashlytics.Internal.Settings.Settings.SessionData.MaxCompleteSessionsCount.get -> int
 Firebase.Crashlytics.Internal.Settings.Settings.SessionData.MaxCompleteSessionsCount.set -> void
@@ -424,6 +429,7 @@ Firebase.Crashlytics.Internal.Settings.Settings.SessionData.MaxCustomExceptionEv
 Firebase.Crashlytics.Internal.Settings.Settings.SessionData.SessionData(int maxCustomExceptionEvents, int maxCompleteSessionsCount) -> void
 Firebase.Crashlytics.Internal.Settings.Settings.SessionData.SessionData(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Crashlytics.Internal.Settings.Settings.Settings(long expiresAtMillis, Firebase.Crashlytics.Internal.Settings.Settings.SessionData? sessionData, Firebase.Crashlytics.Internal.Settings.Settings.FeatureFlagData? featureFlagData, int settingsVersion, int cacheDuration, double onDemandUploadRatePerMinute, double onDemandBackoffBase, int onDemandBackoffStepDurationSeconds) -> void
+Firebase.Crashlytics.Internal.Settings.Settings.Settings(long expiresAtMillis, Firebase.Crashlytics.Internal.Settings.Settings.SessionData? sessionData, Firebase.Crashlytics.Internal.Settings.Settings.FeatureFlagData? featureFlagData, int settingsVersion, int cacheDuration, double onDemandUploadRatePerMinute, double onDemandBackoffBase, int onDemandBackoffStepDurationSeconds, Firebase.Crashlytics.Internal.Settings.Settings.Profiling? profiling) -> void
 Firebase.Crashlytics.Internal.Settings.Settings.Settings(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 Firebase.Crashlytics.Internal.Settings.Settings.SettingsVersion.get -> int
 Firebase.Crashlytics.Internal.Settings.Settings.SettingsVersion.set -> void
@@ -540,9 +546,13 @@ abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Platform.get -> i
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder.SetProfilingTrigger(Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger! p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.Builder!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.GetProfilingTrigger() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger!
-abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger!
-abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.SetTrigger(int p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.Build() -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger?
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.SetIsHeapDumpCollectionEnabled(bool p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.SetTrigger(int p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder?
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder.SetWasHeapDumpGenerated(bool p0) -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Builder!
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.IsHeapDumpCollectionEnabled.get -> bool
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.Trigger.get -> int
+abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.ProfilingManagerInfo.ProfilingTrigger.WasHeapDumpGenerated.get -> bool
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.SdkVersion.get -> string!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.App.get -> Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.Application!
 abstract Firebase.Crashlytics.Internal.Model.CrashlyticsReport.Session.AppQualitySessionId.get -> string?
@@ -777,7 +787,7 @@ abstract Firebase.Crashlytics.Internal.Model.StaticSessionData.OsData.OsRelease(
 const Firebase.Crashlytics.BuildConfig.BuildType = "release" -> string!
 const Firebase.Crashlytics.BuildConfig.Debug = false -> bool
 const Firebase.Crashlytics.BuildConfig.LibraryPackageName = "com.google.firebase.crashlytics" -> string!
-const Firebase.Crashlytics.BuildConfig.VersionName = "20.1.1" -> string!
+const Firebase.Crashlytics.BuildConfig.VersionName = "21.0.1" -> string!
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateBetaos = 8 -> int
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateCompromisedlibraries = 32 -> int
 const Firebase.Crashlytics.Internal.Common.CommonUtils.DeviceStateDebuggerattached = 4 -> int
@@ -1121,6 +1131,9 @@ override Firebase.Crashlytics.Internal.Settings.Settings.FeatureFlagData.JniPeer
 override Firebase.Crashlytics.Internal.Settings.Settings.FeatureFlagData.ThresholdClass.get -> nint
 override Firebase.Crashlytics.Internal.Settings.Settings.FeatureFlagData.ThresholdType.get -> System.Type!
 override Firebase.Crashlytics.Internal.Settings.Settings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Settings.Settings.Profiling.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Firebase.Crashlytics.Internal.Settings.Settings.Profiling.ThresholdClass.get -> nint
+override Firebase.Crashlytics.Internal.Settings.Settings.Profiling.ThresholdType.get -> System.Type!
 override Firebase.Crashlytics.Internal.Settings.Settings.SessionData.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Firebase.Crashlytics.Internal.Settings.Settings.SessionData.ThresholdClass.get -> nint
 override Firebase.Crashlytics.Internal.Settings.Settings.SessionData.ThresholdType.get -> System.Type!
@@ -1329,7 +1342,7 @@ virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.ListSor
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.OnBeginSession(string! sessionId, long timestampSeconds) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistFatalEvent(Java.Lang.Throwable! e, Java.Lang.Thread! thread, string! sessionId, long timestamp) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistNonFatalEvent(Java.Lang.Throwable! e, Java.Lang.Thread! thread, Java.Lang.Object! eventMetadata) -> void
-virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistProfilingManagerInfo(string? sessionId, System.Collections.Generic.IList<Java.Lang.Integer!>? triggers, System.Collections.Generic.IList<Android.App.ApplicationExitInfo!>? applicationExitInfoList) -> void
+virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistProfilingManagerInfo(Java.IO.File? filesDir, string? sessionId, System.Collections.Generic.IList<Android.App.ApplicationExitInfo!>? applicationExitInfoList, bool isHeapDumpCollectionEnabled, bool wasHeapDumpGeneratedViaMarker) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.PersistRelevantAppExitInfoEvent(string? sessionId, System.Collections.Generic.IList<Android.App.ApplicationExitInfo!>? applicationExitInfoList, Firebase.Crashlytics.Internal.Metadata.LogFileManager? logFileManagerForSession, Firebase.Crashlytics.Internal.Metadata.UserMetadata? userMetadataForSession) -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.RemoveAllReports() -> void
 virtual Firebase.Crashlytics.Internal.Common.SessionReportingCoordinator.SendReports(Java.Util.Concurrent.IExecutor! reportSendCompleteExecutor) -> Android.Gms.Tasks.Task?
