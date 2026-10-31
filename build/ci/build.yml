@@ -18,6 +18,8 @@ jobs:
 - job: build_${{ parameters.name }}
   displayName: ${{ parameters.name }}
   timeoutInMinutes: ${{ parameters.timeoutInMinutes }}
+  variables:
+    NUGET_CERT_REVOCATION_MODE: offline
   pool: ${{ parameters.buildPool }}
   workspace:
     clean: all

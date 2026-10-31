@@ -19,6 +19,8 @@ stages:
   - job: publish_signed_packages
     displayName: Prepare, register, and promote signed packages
     timeoutInMinutes: 240
+    variables:
+      NUGET_CERT_REVOCATION_MODE: offline
     pool:
       name: AzurePipelines-EO
       image: 1ESPT-Windows2025
