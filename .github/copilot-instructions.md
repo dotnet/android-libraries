@@ -61,6 +61,22 @@ Reference: https://github.com/dotnet/java-interop/wiki/Troubleshooting-Android-B
 
 ## Common Issues and Fixes
 
+### Maven Feed Availability for Update PRs
+
+Use `pwsh build/gradle/mirror-dependencies.ps1 -PullRequest <number> -ReportPath <report.json>`
+for update PRs instead of auditing only changed/pinned versions. Include newer
+stable updater candidates, held/frozen packages, their parent POMs/BOMs and
+compile/runtime dependencies, including versions absent from config. Preserve
+upstream Maven version strings, not NuGet-normalized spellings. Do not change
+versions or frozen flags to discover candidates.
+
+Follow `docs/development-tips.md` for prerequisites and older CI logs. Require
+anonymous POM/payload verification after seeding; POM-only artifacts need no JAR.
+Incomplete discovery/resolution/verification must fail. **Feed availability does
+not mean CI is fixed**: `No matching artifact config found` is a binding/config
+mapping error, not a feed 401. Report it separately; do not hold back packages or
+add bindings as part of mirroring.
+
 ### CS0535: Interface Implementation Mismatch
 When Java method overloading doesn't map to C# interface requirements:
 ```csharp
