@@ -48,43 +48,10 @@ az login
 pwsh build/gradle/mirror-dependencies.ps1 -PullRequest 1572 -ReportPath /tmp/pr-1572-mirror.json
 ```
 
-Requires PowerShell 7, authenticated `gh`, Azure CLI with `azure-devops`, and the
-Binderator prerequisites in `BUILDING.md`, all on `PATH`. To restore a missing
-Maven assembly under `tools/` without updating config:
-
-```bash
-dotnet tool restore
-dotnet cake --target=update-config --dryrun
-```
-
-The script uses temporary head/merge-base configs without checking out the PR or
-modifying versions/frozen flags. It collects both sides of the version diff,
-newer stable Binderator candidates **including held/frozen packages**, and
-coordinates from GitHub Actions/Azure Pipelines failure diagnostics. Discovery
-runs the existing Binderator `update` command on a scratch copy and reads its
-latest-stable table, including frozen rows; mirror-specific logic stays in
-`build/gradle`. Missing rows or unmappable upstream versions fail discovery.
-Parent POMs, imported BOMs and compile/runtime dependencies are resolved upstream, including
-unconfigured versions. Maven spellings such as `2.71828` are preserved; POM-only
-artifacts need no JAR. Optional dependencies are included without exclusions or
-conflict mediation: this is a conservative availability audit, not a build graph.
-
-Use `-AzureBuildId 1661997` for an older `dnceng-public/public` failure,
-`-CiLogPath /path/to/ci.log` for downloaded logs, or `-Repository owner/repo`.
-The report defaults to the system temporary directory.
-
-The JSON report identifies the PR SHA, sources, coordinate reasons and file
-statuses: **newly mirrored**, **already accessible**, **unavailable upstream**,
-or **unresolved**. Seeded POMs/payloads must download anonymously; transient errors
-and cache propagation have bounded retries. Pending/unsupported checks, missing
-logs, unresolved versions/properties, unsupported profile-dependent dependencies
-or packaging, and failed downloads produce an incomplete report and nonzero exit.
-
-**Feed availability does not mean CI is fixed.** Missing binding/config mappings
-are reported separately and do not make an otherwise complete availability audit
-fail. Treat `No matching artifact config found` as a configuration issue, not a
-feed 401. Explicit `-MavenArtifact group:artifact:version[:filename]` and Gradle
-`-ProjectDir ... -Task ...` modes remain available.
+See the [Maven mirroring skill](../.github/skills/maven-mirroring/SKILL.md) for
+prerequisites, candidate scope, older CI logs, and report interpretation.
+**Feed availability does not mean CI is fixed.** Missing binding/configuration
+mappings must be addressed separately.
 
 ## Tagging and Releasing
 
