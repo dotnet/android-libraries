@@ -19,7 +19,6 @@ class Program
 		root_command.AddCommand (BumpCommand.Build ());
 		root_command.AddCommand (SortCommand.Build ());
 		root_command.AddCommand (PublishedCommand.Build ());
-		root_command.AddCommand (MirrorPlanCommand.Build ());
 
 		// If not using new command verbs, fallback to old legacy command line handling
 		if (args.Any () && !root_command.Subcommands.Select (c => c.Name).Any (c => c == args [0])) {

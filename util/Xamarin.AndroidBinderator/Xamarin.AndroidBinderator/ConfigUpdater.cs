@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -11,24 +10,6 @@ namespace AndroidBinderator;
 public class ConfigUpdater
 {
 	static HttpClient? client;
-
-	public static async Task<Dictionary<string, string>> DiscoverMirrorCandidates (BindingConfig config)
-	{
-		await Update (config, []);
-		var result = new Dictionary<string, string> ();
-		foreach (var art in config.MavenArtifacts.Where (a => !a.DependencyOnly)) {
-			var artifact = FindMavenArtifact (config, art)
-				?? throw new InvalidOperationException ($"No upstream metadata found for {art.GroupAndArtifactId}");
-			if (!artifact.Versions.Any ())
-				throw new InvalidOperationException ($"Upstream metadata has no versions for {art.GroupAndArtifactId}");
-			if (!HasUpdate (art, artifact))
-				continue;
-			// LatestVersion is NuGet-normalized. Maven paths must use the metadata's original spelling.
-			var latest = GetLatestVersion (artifact);
-			result.Add ($"{art.GroupId}:{art.ArtifactId}", artifact.Versions.First (v => GetVersion (v) == latest));
-		}
-		return result;
-	}
 
 	public static async Task Update (BindingConfig config, List<string> dependencyConfigs)
 	{

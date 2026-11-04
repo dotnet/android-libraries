@@ -208,17 +208,23 @@ function Invoke-PullRequestMirror {
         }
         $ciLog = Join-Path $directory 'ci.log'
         Set-Content -LiteralPath $ciLog -Value (($logs | ForEach-Object { Get-Content -LiteralPath $_ -Raw }) -join "`n")
-        $planPath = Join-Path $directory 'plan.json'
         Write-Host "Discovering PR diff, latest/held candidates and dependency closure for $($pr.head.sha)..."
+        $head = Get-Content -LiteralPath (Join-Path $directory 'head.json') -Raw | ConvertFrom-Json
+        $baseline = Get-Content -LiteralPath (Join-Path $directory 'base.json') -Raw | ConvertFrom-Json
+        $scratchConfig = Join-Path $directory 'update.json'
+        Copy-Item -LiteralPath (Join-Path $directory 'head.json') -Destination $scratchConfig
+        $updaterLog = Join-Path $directory 'update.log'
         & dotnet run --project (Join-Path $repoRoot 'util/Xamarin.AndroidBinderator/Xamarin.AndroidBinderator.Tool') -- `
-            mirror-plan --config-file (Join-Path $directory 'head.json') --base-config-file (Join-Path $directory 'base.json') `
-            --ci-log-file $ciLog --output $planPath
-        $discoveryExitCode = $LASTEXITCODE
-        if (!(Test-Path $planPath)) { throw "Binderator mirror discovery failed; see BUILDING.md for tool prerequisites." }
-        $plan = Get-Content -LiteralPath $planPath -Raw | ConvertFrom-Json
+            update --config-file $scratchConfig *> $updaterLog
+        if ($LASTEXITCODE -ne 0) {
+            Get-Content -LiteralPath $updaterLog -Tail 20 | Write-Host
+            $errors.Add('Binderator update discovery failed; see BUILDING.md for tool prerequisites.')
+        }
+        Add-Type -Path (Join-Path $repoRoot 'tools/Microsoft.Android.Sdk.Windows.35.0.61/tools/Java.Interop.Tools.Maven.dll')
+        . (Join-Path $PSScriptRoot 'maven-mirror-plan.ps1')
+        $plan = New-MavenMirrorPlan $head[0] $baseline[0] (Get-Content -LiteralPath $updaterLog -Raw) (Get-Content -LiteralPath $ciLog -Raw)
         Write-Host "Verifying $(@($plan.Artifacts).Count) artifact/parent/BOM versions anonymously..."
         foreach ($errorMessage in $plan.Errors) { $errors.Add($errorMessage) }
-        if ($discoveryExitCode -ne 0 -and @($plan.Errors).Count -eq 0) { $errors.Add("Binderator discovery exited with code $discoveryExitCode") }
         $headers = Get-MirrorHeaders
         $index = 0
         foreach ($artifact in $plan.Artifacts) {
@@ -250,8 +256,8 @@ function Invoke-PullRequestMirror {
                     $errors.Add($_.Exception.Message)
                 }
             }
-            Write-Progress -Activity 'Verifying Maven feed' -Completed
         }
+        Write-Progress -Activity 'Verifying Maven feed' -Completed
         $current = Invoke-Gh @('api', "repos/$Repository/pulls/$PullRequest", '--jq', '.head.sha')
         if ($current -ne $pr.head.sha) { $errors.Add('PR head changed during audit; rerun against the new head.') }
     }

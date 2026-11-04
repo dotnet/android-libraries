@@ -60,8 +60,11 @@ dotnet cake --target=update-config --dryrun
 The script uses temporary head/merge-base configs without checking out the PR or
 modifying versions/frozen flags. It collects both sides of the version diff,
 newer stable Binderator candidates **including held/frozen packages**, and
-coordinates from GitHub Actions/Azure Pipelines failure diagnostics. Parent POMs,
-imported BOMs and compile/runtime dependencies are resolved upstream, including
+coordinates from GitHub Actions/Azure Pipelines failure diagnostics. Discovery
+runs the existing Binderator `update` command on a scratch copy and reads its
+latest-stable table, including frozen rows; mirror-specific logic stays in
+`build/gradle`. Missing rows or unmappable upstream versions fail discovery.
+Parent POMs, imported BOMs and compile/runtime dependencies are resolved upstream, including
 unconfigured versions. Maven spellings such as `2.71828` are preserved; POM-only
 artifacts need no JAR. Optional dependencies are included without exclusions or
 conflict mediation: this is a conservative availability audit, not a build graph.
