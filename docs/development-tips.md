@@ -39,20 +39,6 @@ api-diff-markdown-info-pr
    4. `androidx.compose.animation:animation` - 1.7.8 -> 1.8.3
 ```
 
-## Mirroring Maven Dependencies for Update PRs
-
-For update PRs, audit the candidate scope rather than just the pinned versions:
-
-```bash
-az login
-pwsh build/gradle/mirror-dependencies.ps1 -PullRequest 1572 -ReportPath /tmp/pr-1572-mirror.json
-```
-
-See the [Maven mirroring skill](../.github/skills/maven-mirroring/SKILL.md) for
-prerequisites, candidate scope, older CI logs, and report interpretation.
-**Feed availability does not mean CI is fixed.** Missing binding/configuration
-mappings must be addressed separately.
-
 ## Tagging and Releasing
 
 When ready to release, tag a commit such as:
