@@ -211,23 +211,20 @@ function Invoke-PullRequestMirror {
             }
             catch { $errors.Add($_.Exception.Message) }
         }
-        $ciLog = Join-Path $directory 'ci.log'
-        Set-Content -LiteralPath $ciLog -Value (($logs | ForEach-Object { Get-Content -LiteralPath $_ -Raw }) -join "`n")
+        $ciLog = ($logs | ForEach-Object { Get-Content -LiteralPath $_ -Raw }) -join "`n"
         Write-Host "Discovering PR diff, latest/held candidates and dependency closure for $($pr.head.sha)..."
         $head = Get-Content -LiteralPath (Join-Path $directory 'head.json') -Raw | ConvertFrom-Json
         $baseline = Get-Content -LiteralPath (Join-Path $directory 'base.json') -Raw | ConvertFrom-Json
-        $scratchConfig = Join-Path $directory 'update.json'
-        Copy-Item -LiteralPath (Join-Path $directory 'head.json') -Destination $scratchConfig
         $updaterLog = Join-Path $directory 'update.log'
         & dotnet run --project (Join-Path $repoRoot 'util/Xamarin.AndroidBinderator/Xamarin.AndroidBinderator.Tool') -- `
-            update --config-file $scratchConfig *> $updaterLog
+            update --config-file (Join-Path $directory 'head.json') *> $updaterLog
         if ($LASTEXITCODE -ne 0) {
             Get-Content -LiteralPath $updaterLog -Tail 20 | Write-Host
             $errors.Add('Binderator update discovery failed; see BUILDING.md for tool prerequisites.')
         }
         Add-Type -Path (Join-Path $repoRoot 'tools/Microsoft.Android.Sdk.Windows.35.0.61/tools/Java.Interop.Tools.Maven.dll')
         . (Join-Path $PSScriptRoot 'maven-mirror-plan.ps1')
-        $plan = New-MavenMirrorPlan $head[0] $baseline[0] (Get-Content -LiteralPath $updaterLog -Raw) (Get-Content -LiteralPath $ciLog -Raw)
+        $plan = New-MavenMirrorPlan $head[0] $baseline[0] (Get-Content -LiteralPath $updaterLog -Raw) $ciLog
         Write-Host "Verifying $(@($plan.Artifacts).Count) artifact/parent/BOM versions anonymously..."
         foreach ($errorMessage in $plan.Errors) { $errors.Add($errorMessage) }
         $headers = Get-MirrorHeaders

@@ -5,18 +5,12 @@ description: Seed and audit dotnet-public-maven for Android library update PRs, 
 
 # Maven mirroring
 
-Run commands from the repository root. Use the existing scripts in `build/gradle`;
-do not replace them with ad hoc audit scripts or modify Binderator for mirroring.
+Run from the repository root using the scripts in `build/gradle`, not ad hoc
+audits or Binderator changes. Requires PowerShell 7, authenticated `gh` and Azure
+CLI (`azure-devops` extension), `dotnet`, and the `BUILDING.md` prerequisites on
+`PATH`. Use `az login` if needed; never print or save tokens.
 
-## Prerequisites
-
-Requires PowerShell 7, `gh`, Azure CLI with the `azure-devops` extension, `dotnet`,
-and the prerequisites in `BUILDING.md`. Executables must be on `PATH`.
-Authenticate GitHub CLI and Azure CLI with the user's accounts; keep tokens out
-of output and files. If Azure authentication is missing, use `az login`.
-
-If the Maven assembly under `tools/` is missing, restore the repository tools
-and Cake dependencies without updating config:
+If the Maven assembly under `tools/` is missing, restore without updating config:
 
 ```bash
 dotnet tool restore
@@ -29,62 +23,44 @@ dotnet cake --target=update-config --dryrun
 pwsh build/gradle/mirror-dependencies.ps1 -PullRequest 1572 -ReportPath /tmp/pr-1572-mirror.json
 ```
 
-Use the requested PR number and a report path outside the repository. Without
-`-ReportPath`, the report goes to the system temporary directory.
+Use the requested PR number. Reports default to the system temporary directory;
+keep explicit report paths outside the repository. No PR checkout is needed.
 
-The script reads temporary head/merge-base configs without checking out the PR.
-It runs the existing Binderator `update` command on a scratch copy and reads its
-latest-stable table, including frozen rows. The audit includes:
+The script audits pinned bindings, both sides of the version diff, latest stable
+updater candidates (including frozen rows), CI failures, and parent/BOM plus
+compile/runtime dependencies absent from config. Binderator runs against a
+temporary config; do not change real versions or frozen flags for discovery.
+Use upstream versions such as `2.71828`, not NuGet-normalized spellings.
 
-- Both sides of the PR's Maven version diff.
-- Newer stable updater candidates, including held/frozen packages.
-- All pinned binding versions, plus published sources/Javadoc JARs and optional
-  Gradle `.module` metadata for pinned/latest bindings.
-- Coordinates in GitHub Actions/Azure Pipelines failure diagnostics.
-- Parent POMs, imported BOMs, and compile/runtime dependency closure, including
-  versions absent from config.
+Sources/Javadoc honor `downloadExternals`, `downloadJavaSourceJars`, and
+`downloadJavaDocJars` (default true), including baseline settings. Optional
+`.module` files are included when external downloads are enabled; Binderator has
+no module-specific switch. Genuine POM-only requests need no payload; bindings
+with unrecognized packaging use Binderator's JAR/AAR fallback.
 
-Do not change package versions or frozen flags to discover candidates. Preserve
-upstream Maven version strings, such as `2.71828`, rather than NuGet-normalized
-spellings. Genuine POM-only requests do not require a payload; configured binding
-artifacts with POM or other unrecognized packaging use Binderator's JAR/AAR
-fallback. Optional dependencies are included without exclusions or conflict
-mediation: this is a conservative availability audit, not a build graph.
-
-Auxiliary downloads honor `downloadExternals`, `downloadJavaSourceJars`, and
-`downloadJavaDocJars` (all default to true), including baseline settings for
-removed/changed base versions. There is no Binderator `.module` download switch;
-module metadata is probed whenever auxiliary downloads are enabled.
-
-To include older failures, append `-AzureBuildId 1661997` for a build in
-`dnceng-public/public`, or `-CiLogPath /path/to/ci.log` for downloaded logs.
-`-Repository owner/repo` selects another repository.
-
-For targeted work, explicit `-MavenArtifact group:artifact:version[:filename]`
-and Gradle `-ProjectDir ... -Task ...` modes remain available. They do not replace
-PR-wide discovery for update PRs.
+Append `-AzureBuildId 1661997` for older failures in `dnceng-public/public`,
+`-CiLogPath /path/to/ci.log` for downloaded logs, or `-Repository owner/repo`.
+Explicit `-MavenArtifact group:artifact:version[:filename]` and Gradle
+`-ProjectDir ... -Task ...` modes remain available for targeted work, not as a
+substitute for PR-wide discovery.
 
 ## Interpret the report
 
-Read `Complete`, `Errors`, `Scope`, and `MissingMappings`, not just the download
-counts. The report identifies the PR SHA, CI sources, coordinate discovery
-reasons, and file statuses: **newly mirrored**, **already accessible**,
-**unavailable upstream**, or **unresolved**.
-Optional files returning 404 from the configured/Google/Central upstreams are
-**not published upstream** and do not fail the audit. Request/authentication
-failures and published files that cannot be mirrored or verified still fail.
-Azure credentials are restricted to the feed;
-authenticated redirects are not followed.
+Read `Complete`, `Errors`, `Scope`, and `MissingMappings`, not just file counts.
+Each file is **newly mirrored**, **already accessible**, **unavailable upstream**,
+**unresolved**, or (for optional files absent from configured/Google/Central
+upstreams) **not published upstream**. Only optional absence is nonfatal.
 
-Authenticated seeding must be followed by successful anonymous POM/payload GETs.
-Transient HTTP errors and cache propagation have bounded retries. Pending or
-unsupported checks, missing logs/updater rows, unmappable versions, unresolved
-properties, unsupported profile properties/dependencies or packaging, and failed
-downloads produce an incomplete report and nonzero exit. Profile activation is
-not evaluated. Report those limits; do not describe a partial audit as successful.
+Published files require anonymous GET verification after seeding. Retries are
+bounded; Azure credentials stay on the feed and authenticated redirects are
+blocked. Discovery, resolution, authentication, or download failures produce an
+incomplete report and nonzero exit.
+
+This is an availability audit, not a build graph: optional dependencies are
+included without exclusions/conflict mediation; profiles and Gradle variants are
+not evaluated. Profile-dependent properties/dependencies, unresolved versions,
+and unsupported packaging remain explicit limits, even if other files succeed.
 
 **Feed availability does not mean CI is fixed.** Missing binding/configuration
-mappings are reported separately and do not make an otherwise complete
-availability audit fail. `No matching artifact config found` is a configuration
-error, not a feed 401. Do not hold back packages or add bindings merely to make
-the mirror report green; address those changes only within the requested scope.
+mappings are separate, nonfatal findings. `No matching artifact config found` is
+not a feed 401. Do not change versions or bindings to make the report green.

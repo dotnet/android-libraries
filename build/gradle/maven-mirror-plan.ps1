@@ -221,7 +221,11 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                 $dep
             }
             $management = @($root.SelectNodes("*[local-name()='dependencyManagement']/*[local-name()='dependencies']/*[local-name()='dependency']") | ForEach-Object { Read-Dependency $_ })
-            $imports = @{}
+            foreach ($dep in $management) {
+                if ((Expand-Properties $dep.Scope $properties) -cne 'import') {
+                    $managed[$dep.Key] = Merge-Dependency $dep $managed[$dep.Key]
+                }
+            }
             foreach ($dep in $management) {
                 if ((Expand-Properties $dep.Scope $properties) -cne 'import') { continue }
                 if ($dep.type -cne 'pom') { throw "Unsupported BOM import type '$($dep.type)'" }
@@ -230,20 +234,12 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                 Add-Candidate $bom "BOM imported by $Coordinate" $false
                 $imported = Resolve-Pom $bom
                 foreach ($item in $imported.Managed.GetEnumerator()) {
-                    if ($imports.ContainsKey($item.Key)) { continue }
+                    if ($managed.ContainsKey($item.Key)) { continue }
                     $copy = $item.Value.Clone()
                     $copy.Version = Expand-Properties $copy.Version $imported.Properties
                     $copy.Scope = Expand-Properties $copy.Scope $imported.Properties
-                    $imports[$item.Key] = $copy
+                    $managed[$item.Key] = $copy
                 }
-            }
-            foreach ($dep in $management) {
-                if ((Expand-Properties $dep.Scope $properties) -cne 'import') {
-                    $managed[$dep.Key] = Merge-Dependency $dep $managed[$dep.Key]
-                }
-            }
-            foreach ($item in $imports.GetEnumerator()) {
-                if (!$managed.ContainsKey($item.Key)) { $managed[$item.Key] = $item.Value }
             }
             foreach ($element in $root.SelectNodes("*[local-name()='dependencies']/*[local-name()='dependency']")) {
                 $dep = Read-Dependency $element
@@ -267,8 +263,6 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
             $poms[$Coordinate] = @{
                 Properties = $properties; Managed = $managed; Dependencies = $dependencies
                 Packaging = Expand-Properties (Get-Value $root packaging 'jar') $properties
-                Repository = $raw.Repository
-                Relocated = $null -ne $relocation
             }
             $poms[$Coordinate]
         }
@@ -360,8 +354,9 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                 $relocated = $null -ne $raw.Root.SelectSingleNode("*[local-name()='distributionManagement']/*[local-name()='relocation']")
                 if (!$relocated -and !$packaging.Contains('${')) { Add-Payload $coordinate $packaging $next.Classifier $raw.Repository $next.Binding }
                 $pom = Resolve-Pom $coordinate
-                $packaging = if ($next.Type) { $next.Type } else { $pom.Packaging }
-                if (!$pom.Relocated) { Add-Payload $coordinate $packaging $next.Classifier $pom.Repository $next.Binding }
+                if (!$relocated -and $packaging.Contains('${')) {
+                    Add-Payload $coordinate $pom.Packaging $next.Classifier $raw.Repository $next.Binding
+                }
                 foreach ($dep in $pom.Dependencies.Values) {
                     try {
                         $defaults = $pom.Managed[$dep.Key]
