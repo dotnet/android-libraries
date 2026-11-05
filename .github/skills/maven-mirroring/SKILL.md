@@ -44,9 +44,10 @@ latest-stable table, including frozen rows. The audit includes:
 
 Do not change package versions or frozen flags to discover candidates. Preserve
 upstream Maven version strings, such as `2.71828`, rather than NuGet-normalized
-spellings. POM-only artifacts do not require a JAR. Optional dependencies are
-included without exclusions or conflict mediation: this is a conservative
-availability audit, not a build graph.
+spellings. Genuine POM-only requests do not require a payload; configured binding
+artifacts with POM or other unrecognized packaging use Binderator's JAR/AAR
+fallback. Optional dependencies are included without exclusions or conflict
+mediation: this is a conservative availability audit, not a build graph.
 
 To include older failures, append `-AzureBuildId 1661997` for a build in
 `dnceng-public/public`, or `-CiLogPath /path/to/ci.log` for downloaded logs.
@@ -66,9 +67,9 @@ reasons, and file statuses: **newly mirrored**, **already accessible**,
 Authenticated seeding must be followed by successful anonymous POM/payload GETs.
 Transient HTTP errors and cache propagation have bounded retries. Pending or
 unsupported checks, missing logs/updater rows, unmappable versions, unresolved
-properties, unsupported profile-dependent dependencies or packaging, and failed
-downloads produce an incomplete report and nonzero exit. Report those limits;
-do not describe a partial audit as successful.
+properties, unsupported profile properties/dependencies or packaging, and failed
+downloads produce an incomplete report and nonzero exit. Profile activation is
+not evaluated. Report those limits; do not describe a partial audit as successful.
 
 **Feed availability does not mean CI is fixed.** Missing binding/configuration
 mappings are reported separately and do not make an otherwise complete

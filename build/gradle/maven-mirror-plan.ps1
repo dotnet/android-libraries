@@ -18,12 +18,12 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
     $client = [Net.Http.HttpClient]::new()
     $client.Timeout = [TimeSpan]::FromSeconds(60)
 
-    function Get-UpstreamText([string] $Url) {
+    function Get-UpstreamText([string] $Url, [switch] $Probe) {
         if ($responses.ContainsKey($Url)) { return $responses[$Url] }
         for ($attempt = 0; $attempt -lt 4; $attempt++) {
             $response = $null
             try {
-                $response = $client.GetAsync($Url).GetAwaiter().GetResult()
+                $response = $client.GetAsync($Url, [Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
                 if ([int] $response.StatusCode -eq 404) {
                     $responses[$Url] = $null
                     return $null
@@ -33,7 +33,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                     continue
                 }
                 $response.EnsureSuccessStatusCode() | Out-Null
-                $responses[$Url] = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+                $responses[$Url] = if ($Probe) { 'available' } else { $response.Content.ReadAsStringAsync().GetAwaiter().GetResult() }
                 return $responses[$Url]
             }
             catch {
@@ -76,14 +76,15 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         $artifacts[$Coordinate]
     }
 
-    function Add-Candidate([string] $Coordinate, [string] $Reason, [bool] $Payload = $true, [string] $Type = '', [string] $Classifier = '') {
+    function Add-Candidate([string] $Coordinate, [string] $Reason, [bool] $Payload = $true, [string] $Type = '', [string] $Classifier = '', [bool] $Binding = $false) {
         $parts = $Coordinate.Split(':')
         if ($parts.Count -ne 3 -or ($parts | Where-Object { $_ -cnotmatch '^[\w.+-]+$' -or $_.Contains('..') })) {
             throw "Invalid or unresolved Maven coordinate '$Coordinate'"
         }
         if ($Classifier -cnotmatch '^[\w.-]*$' -or $Classifier.Contains('..')) { throw "Unsupported classifier '$Classifier'" }
         (Get-Entry $Coordinate).Reasons.Add($Reason) | Out-Null
-        if ($Payload) { $pending.Enqueue(@{ Coordinate = $Coordinate; Type = $Type; Classifier = $Classifier }) }
+        $Binding = $Binding -or [bool] ($Config.artifacts | Where-Object { !$_.dependencyOnly -and $_.groupId -ceq $parts[0] -and $_.artifactId -ceq $parts[1] })
+        if ($Payload) { $pending.Enqueue(@{ Coordinate = $Coordinate; Type = $Type; Classifier = $Classifier; Binding = $Binding -and !$Type }) }
     }
 
     function Add-File([string] $Coordinate, [string] $Filename, [string] $Repository) {
@@ -95,13 +96,32 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         }
     }
 
-    function Add-Payload([string] $Coordinate, [string] $Type, [string] $Classifier, [string] $Repository) {
-        if ($Type -ceq 'pom') { return }
+    function Add-Payload([string] $Coordinate, [string] $Type, [string] $Classifier, [string] $Repository, [bool] $Binding) {
+        if ($Type -ceq 'pom' -and !$Binding) { return }
+        $group, $id, $version = $Coordinate.Split(':')
+        # Match Binderator's JAR/AAR fallback for binding packaging such as pom or bundle.
+        if ($Binding -and $Type -cnotin 'jar', 'aar') {
+            foreach ($extension in 'jar', 'aar') {
+                $filename = "$id-$version.$extension"
+                if ($null -ne (Get-UpstreamText "$Repository/$($group.Replace('.', '/'))/$id/$version/$filename" -Probe)) {
+                    Add-File $Coordinate $filename $Repository
+                    return
+                }
+            }
+            throw "Could not find binding payload for $Coordinate (packaging '$Type')"
+        }
         $extension = if ($Type -cin 'bundle', 'test-jar') { 'jar' } else { $Type }
         if ($extension -cnotin 'jar', 'aar') { throw "Unsupported payload packaging '$Type'" }
         $suffix = if ($Classifier) { "-$Classifier" } elseif ($Type -ceq 'test-jar') { '-tests' } else { '' }
-        $group, $id, $version = $Coordinate.Split(':')
         Add-File $Coordinate "$id-$version$suffix.$extension" $Repository
+    }
+
+    function Merge-Dependency([hashtable] $Child, [hashtable] $Inherited) {
+        $merged = $Child.Clone()
+        foreach ($field in 'Version', 'Scope') {
+            if (!$merged[$field] -and $Inherited) { $merged[$field] = $Inherited[$field] }
+        }
+        $merged
     }
 
     function Read-Pom([string] $Coordinate) {
@@ -208,13 +228,20 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                     $imports[$item.Key] = $copy
                 }
             }
-            foreach ($item in $imports.GetEnumerator()) { $managed[$item.Key] = $item.Value }
             foreach ($dep in $management) {
-                if ((Expand-Properties $dep.Scope $properties) -cne 'import') { $managed[$dep.Key] = $dep }
+                if ((Expand-Properties $dep.Scope $properties) -cne 'import') {
+                    $managed[$dep.Key] = Merge-Dependency $dep $managed[$dep.Key]
+                }
+            }
+            foreach ($item in $imports.GetEnumerator()) {
+                if (!$managed.ContainsKey($item.Key)) { $managed[$item.Key] = $item.Value }
             }
             foreach ($element in $root.SelectNodes("*[local-name()='dependencies']/*[local-name()='dependency']")) {
                 $dep = Read-Dependency $element
-                $dependencies[$dep.Key] = $dep
+                $dependencies[$dep.Key] = Merge-Dependency $dep $dependencies[$dep.Key]
+            }
+            if ($root.SelectNodes("*[local-name()='profiles']/*[local-name()='profile']/*[local-name()='properties']/*").Count) {
+                throw 'POM contains profile-dependent properties; profile evaluation is not supported'
             }
             foreach ($dep in $root.SelectNodes("*[local-name()='profiles']/*[local-name()='profile']//*[local-name()='dependencies']/*[local-name()='dependency']")) {
                 if ((Get-Value $dep scope) -cnotin 'test', 'provided', 'system') { throw 'POM contains profile-dependent dependencies; profile evaluation is not supported' }
@@ -232,6 +259,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                 Properties = $properties; Managed = $managed; Dependencies = $dependencies
                 Packaging = Expand-Properties (Get-Value $root packaging 'jar') $properties
                 Repository = $raw.Repository
+                Relocated = $null -ne $relocation
             }
             $poms[$Coordinate]
         }
@@ -281,13 +309,20 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         }
         foreach ($artifact in $Baseline.artifacts) {
             if (!($Config.artifacts | Where-Object { $_.groupId -ceq $artifact.groupId -and $_.artifactId -ceq $artifact.artifactId -and $_.version -ceq $artifact.version })) {
-                Add-Candidate "$($artifact.groupId):$($artifact.artifactId):$($artifact.version)" 'PR diff base version'
+                Add-Candidate "$($artifact.groupId):$($artifact.artifactId):$($artifact.version)" 'PR diff base version' $true '' '' (!$artifact.dependencyOnly)
             }
         }
         $diagnostics = [regex]::Matches($CiLog, '(?im)^.*(?:No matching artifact config found|to satisfy dependency of|No POM found|Could not|Unable to|\berror\b|\bfailed\b|\b40[134]\b|\b50[0234]\b).*(?:\r?\n[^\r\n]*){0,2}')
         foreach ($diagnostic in $diagnostics) {
-            $coordinates = [regex]::Matches($diagnostic.Value, '(?<![\w:/])([A-Za-z_][\w.-]*):([\w.-]+):([0-9][\w.+-]*)')
-            foreach ($match in $coordinates) { Add-Candidate $match.Value 'CI failure' }
+            $coordinates = [regex]::Matches($diagnostic.Value, '(?<![\w:/])([A-Za-z_][\w.-]*):([\w.-]+):([\[(][0-9A-Za-z.+,\[\]()_-]*[\])]|[0-9](?:[\w.+-]*[\w+-])?)')
+            foreach ($match in $coordinates) {
+                $group, $id, $requirement = $match.Groups[1..3].Value
+                try {
+                    $version = Resolve-Version $group $id $requirement
+                    Add-Candidate "${group}:${id}:$version" 'CI failure'
+                }
+                catch { $plan.Errors.Add("CI dependency resolution incomplete: $($_.Exception.Message)") | Out-Null }
+            }
             foreach ($match in [regex]::Matches($diagnostic.Value, 'https://[^\s''"<>]+/(?:maven/v1|maven2)/([^\s''"<>?]+)')) {
                 $parts = $match.Groups[1].Value.TrimEnd(')', '.', ',').Split('/')
                 if ($parts.Count -ge 4) {
@@ -301,7 +336,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         while ($pending.Count) {
             $next = $pending.Dequeue()
             $coordinate = $next.Coordinate
-            if (!$visited.Add("${coordinate}:$($next.Type):$($next.Classifier)")) { continue }
+            if (!$visited.Add("${coordinate}:$($next.Type):$($next.Classifier):$($next.Binding)")) { continue }
             $entry = Get-Entry $coordinate
             $group, $id, $version = $coordinate.Split(':')
             if ($entry.Reasons.Contains('CI failure') -and !($Config.artifacts | Where-Object { $_.groupId -ceq $group -and $_.artifactId -ceq $id -and $_.version -ceq $version })) {
@@ -310,10 +345,11 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
             try {
                 $raw = Read-Pom $coordinate
                 $packaging = if ($next.Type) { $next.Type } else { Get-Value $raw.Root packaging 'jar' }
-                if (!$packaging.Contains('${')) { Add-Payload $coordinate $packaging $next.Classifier $raw.Repository }
+                $relocated = $null -ne $raw.Root.SelectSingleNode("*[local-name()='distributionManagement']/*[local-name()='relocation']")
+                if (!$relocated -and !$packaging.Contains('${')) { Add-Payload $coordinate $packaging $next.Classifier $raw.Repository $next.Binding }
                 $pom = Resolve-Pom $coordinate
                 $packaging = if ($next.Type) { $next.Type } else { $pom.Packaging }
-                Add-Payload $coordinate $packaging $next.Classifier $pom.Repository
+                if (!$pom.Relocated) { Add-Payload $coordinate $packaging $next.Classifier $pom.Repository $next.Binding }
                 foreach ($dep in $pom.Dependencies.Values) {
                     try {
                         $defaults = $pom.Managed[$dep.Key]
