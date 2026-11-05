@@ -125,10 +125,10 @@
 | 118|androidx.cursoradapter:cursoradapter                                  |1.0.0               |Xamarin.AndroidX.CursorAdapter                                        |1.0.0.37            |
 | 119|androidx.customview:customview                                        |1.2.0               |Xamarin.AndroidX.CustomView                                           |1.2.0.4             |
 | 120|androidx.customview:customview-poolingcontainer                       |1.1.0               |Xamarin.AndroidX.CustomView.PoolingContainer                          |1.1.0.4             |
-| 121|androidx.databinding:databinding-adapters                             |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.4.1               |
-| 122|androidx.databinding:databinding-common                               |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.4.1               |
-| 123|androidx.databinding:databinding-runtime                              |9.4.1               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.4.1               |
-| 124|androidx.databinding:viewbinding                                      |9.4.1               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.4.1               |
+| 121|androidx.databinding:databinding-adapters                             |9.5.0               |Xamarin.AndroidX.DataBinding.DataBindingAdapters                      |9.5.0               |
+| 122|androidx.databinding:databinding-common                               |9.5.0               |Xamarin.AndroidX.DataBinding.DataBindingCommon                        |9.5.0               |
+| 123|androidx.databinding:databinding-runtime                              |9.5.0               |Xamarin.AndroidX.DataBinding.DataBindingRuntime                       |9.5.0               |
+| 124|androidx.databinding:viewbinding                                      |9.5.0               |Xamarin.AndroidX.DataBinding.ViewBinding                              |9.5.0               |
 | 125|androidx.datastore:datastore                                          |1.3.0               |Xamarin.AndroidX.DataStore                                            |1.3.0               |
 | 126|androidx.datastore:datastore-android                                  |1.3.0               |Xamarin.AndroidX.DataStore.Android                                    |1.3.0               |
 | 127|androidx.datastore:datastore-core                                     |1.3.0               |Xamarin.AndroidX.DataStore.Core                                       |1.3.0               |
@@ -375,7 +375,7 @@
 | 368|com.google.ai.edge.litert:litert-api                                  |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.API                                     |1.4.2.1             |
 | 369|com.google.ai.edge.litert:litert-gpu                                  |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.GPU                                     |1.4.2.1             |
 | 370|com.google.ai.edge.litert:litert-gpu-api                              |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.GPU.API                                 |1.4.2.1             |
-| 371|com.google.ai.edge.litert:litert-metadata                             |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.Metadata                                |1.4.2.1             |
+| 371|com.google.ai.edge.litert:litert-metadata                             |2.3.2               |Xamarin.Google.AI.Edge.LiteRT.Metadata                                |2.3.2               |
 | 372|com.google.ai.edge.litert:litert-support                              |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.Support                                 |1.4.2.2             |
 | 373|com.google.ai.edge.litert:litert-support-api                          |1.4.2               |Xamarin.Google.AI.Edge.LiteRT.Support.API                             |1.4.2.2             |
 | 374|com.google.ai.edge.localagents:localagents-fc                         |0.1.0               |Xamarin.Google.AI.Edge.LocalAgents.FunctionCalling                    |0.1.0.4             |
@@ -437,12 +437,12 @@
 | 430|com.google.android.gms:play-services-mlkit-face-detection             |17.1.0              |Xamarin.GooglePlayServices.MLKit.FaceDetection                        |117.1.0.20          |
 | 431|com.google.android.gms:play-services-mlkit-image-labeling             |16.0.8              |Xamarin.GooglePlayServices.MLKit.ImageLabeling                        |116.0.8.20          |
 | 432|com.google.android.gms:play-services-mlkit-language-id                |17.0.0              |Xamarin.GooglePlayServices.MLKit.LanguageId                           |117.0.0.22          |
-| 433|com.google.android.gms:play-services-mlkit-text-recognition           |19.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition                     |119.0.1.9           |
-| 434|com.google.android.gms:play-services-mlkit-text-recognition-chinese   |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Chinese             |116.0.1.9           |
-| 435|com.google.android.gms:play-services-mlkit-text-recognition-common    |19.1.0              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Common              |119.1.0.9           |
-| 436|com.google.android.gms:play-services-mlkit-text-recognition-devanagari|16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Devanagari          |116.0.1.9           |
-| 437|com.google.android.gms:play-services-mlkit-text-recognition-japanese  |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Japanese            |116.0.1.9           |
-| 438|com.google.android.gms:play-services-mlkit-text-recognition-korean    |16.0.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Korean              |116.0.1.9           |
+| 433|com.google.android.gms:play-services-mlkit-text-recognition           |19.0.2              |Xamarin.GooglePlayServices.MLKit.Text.Recognition                     |119.0.2             |
+| 434|com.google.android.gms:play-services-mlkit-text-recognition-chinese   |16.0.2              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Chinese             |116.0.2             |
+| 435|com.google.android.gms:play-services-mlkit-text-recognition-common    |19.1.1              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Common              |119.1.1             |
+| 436|com.google.android.gms:play-services-mlkit-text-recognition-devanagari|16.0.2              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Devanagari          |116.0.2             |
+| 437|com.google.android.gms:play-services-mlkit-text-recognition-japanese  |16.0.2              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Japanese            |116.0.2             |
+| 438|com.google.android.gms:play-services-mlkit-text-recognition-korean    |16.0.2              |Xamarin.GooglePlayServices.MLKit.Text.Recognition.Korean              |116.0.2             |
 | 439|com.google.android.gms:play-services-nearby                           |19.5.0              |Xamarin.GooglePlayServices.Nearby                                     |119.5.0             |
 | 440|com.google.android.gms:play-services-oss-licenses                     |17.5.2              |Xamarin.GooglePlayServices.Oss.Licenses                               |117.5.2             |
 | 441|com.google.android.gms:play-services-pal                              |23.1.0              |Xamarin.GooglePlayServices.PAL                                        |123.1.0.3           |
@@ -463,7 +463,7 @@
 | 456|com.google.android.gms:play-services-tagmanager-v4-impl               |18.1.1              |Xamarin.GooglePlayServices.TagManager.V4.Impl                         |118.1.1.9           |
 | 457|com.google.android.gms:play-services-tasks                            |18.4.1              |Xamarin.GooglePlayServices.Tasks                                      |118.4.1.3           |
 | 458|com.google.android.gms:play-services-tflite-gpu                       |16.5.0              |Xamarin.GooglePlayServices.TfLite.Gpu                                 |116.5.0.2           |
-| 459|com.google.android.gms:play-services-tflite-impl                      |16.5.0              |Xamarin.GooglePlayServices.TfLite.Impl                                |116.5.0.2           |
+| 459|com.google.android.gms:play-services-tflite-impl                      |16.6.0              |Xamarin.GooglePlayServices.TfLite.Impl                                |116.6.0             |
 | 460|com.google.android.gms:play-services-tflite-java                      |16.5.0              |Xamarin.GooglePlayServices.TfLite.Java                                |116.5.0.2           |
 | 461|com.google.android.gms:play-services-tflite-support                   |16.5.0              |Xamarin.GooglePlayServices.TfLite.Support                             |116.5.0.2           |
 | 462|com.google.android.gms:play-services-threadnetwork                    |16.3.0              |Xamarin.GooglePlayServices.ThreadNetwork                              |116.3.0.5           |
