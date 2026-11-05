@@ -4,7 +4,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
     $google = 'https://dl.google.com/dl/android/maven2'
     $central = 'https://repo.maven.apache.org/maven2'
     $plan = @{
-        Scope = 'PR version diff, newer stable candidates (including frozen), CI failures, and parent/BOM + compile/runtime closure; includes optional dependencies without exclusions or conflict mediation.'
+        Scope = 'Pinned bindings, PR version diff, newer stable candidates (including frozen), CI failures, and parent/BOM + compile/runtime closure; includes configured sources/Javadoc and optional Gradle module metadata for bindings, and optional dependencies without exclusions or conflict mediation.'
         Artifacts = [Collections.Generic.List[object]]::new()
         Errors = [Collections.Generic.HashSet[string]]::new()
         MissingMappings = [Collections.Generic.HashSet[string]]::new()
@@ -76,7 +76,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         $artifacts[$Coordinate]
     }
 
-    function Add-Candidate([string] $Coordinate, [string] $Reason, [bool] $Payload = $true, [string] $Type = '', [string] $Classifier = '', [bool] $Binding = $false) {
+    function Add-Candidate([string] $Coordinate, [string] $Reason, [bool] $Payload = $true, [string] $Type = '', [string] $Classifier = '', [bool] $Binding = $false, [object] $DownloadConfig = $Config) {
         $parts = $Coordinate.Split(':')
         if ($parts.Count -ne 3 -or ($parts | Where-Object { $_ -cnotmatch '^[\w.+-]+$' -or $_.Contains('..') })) {
             throw "Invalid or unresolved Maven coordinate '$Coordinate'"
@@ -84,16 +84,25 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         if ($Classifier -cnotmatch '^[\w.-]*$' -or $Classifier.Contains('..')) { throw "Unsupported classifier '$Classifier'" }
         (Get-Entry $Coordinate).Reasons.Add($Reason) | Out-Null
         $Binding = $Binding -or [bool] ($Config.artifacts | Where-Object { !$_.dependencyOnly -and $_.groupId -ceq $parts[0] -and $_.artifactId -ceq $parts[1] })
-        if ($Payload) { $pending.Enqueue(@{ Coordinate = $Coordinate; Type = $Type; Classifier = $Classifier; Binding = $Binding -and !$Type }) }
+        if ($Payload) { $pending.Enqueue(@{ Coordinate = $Coordinate; Type = $Type; Classifier = $Classifier; Binding = $Binding -and !$Type; DownloadConfig = $DownloadConfig }) }
     }
 
-    function Add-File([string] $Coordinate, [string] $Filename, [string] $Repository) {
+    function Add-File([string] $Coordinate, [string] $Filename, [string] $Repository, [bool] $Optional = $false) {
         $group, $id, $version = $Coordinate.Split(':')
         $path = "$($group.Replace('.', '/'))/$id/$version/$Filename"
         $entry = Get-Entry $Coordinate
         if (!($entry.Files | Where-Object Path -CEQ $path)) {
-            $entry.Files.Add([pscustomobject]@{ Path = $path; Upstream = "$Repository/$path"; Status = 'pending' })
+            $upstreams = if ($Optional) { @($Repository; Get-Repositories $group $id) | Select-Object -Unique | ForEach-Object { "$_/$path" } } else { @("$Repository/$path") }
+            $entry.Files.Add([pscustomobject]@{ Path = $path; Upstream = "$Repository/$path"; Upstreams = @($upstreams); Optional = $Optional; Status = 'pending' })
         }
+    }
+
+    function Add-AuxiliaryFiles([string] $Coordinate, [string] $Repository, [object] $Settings) {
+        if ($Settings.downloadExternals -eq $false) { return }
+        $group, $id, $version = $Coordinate.Split(':')
+        if ($Settings.downloadJavaSourceJars -ne $false) { Add-File $Coordinate "$id-$version-sources.jar" $Repository $true }
+        if ($Settings.downloadJavaDocJars -ne $false) { Add-File $Coordinate "$id-$version-javadoc.jar" $Repository $true }
+        Add-File $Coordinate "$id-$version.module" $Repository $true
     }
 
     function Add-Payload([string] $Coordinate, [string] $Type, [string] $Classifier, [string] $Repository, [bool] $Binding) {
@@ -287,6 +296,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
                 Add-Candidate $coordinate 'PR diff head version'
             }
             if ($artifact.dependencyOnly) { continue }
+            Add-Candidate $coordinate 'configured binding'
             try {
                 $key = "$($artifact.groupId).$($artifact.artifactId)"
                 if (!$updaterRows.ContainsKey($key)) { throw "Missing updater row for $key" }
@@ -309,7 +319,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         }
         foreach ($artifact in $Baseline.artifacts) {
             if (!($Config.artifacts | Where-Object { $_.groupId -ceq $artifact.groupId -and $_.artifactId -ceq $artifact.artifactId -and $_.version -ceq $artifact.version })) {
-                Add-Candidate "$($artifact.groupId):$($artifact.artifactId):$($artifact.version)" 'PR diff base version' $true '' '' (!$artifact.dependencyOnly)
+                Add-Candidate "$($artifact.groupId):$($artifact.artifactId):$($artifact.version)" 'PR diff base version' $true '' '' (!$artifact.dependencyOnly) $Baseline
             }
         }
         $diagnostics = [regex]::Matches($CiLog, '(?im)^.*(?:No matching artifact config found|to satisfy dependency of|No POM found|Could not|Unable to|\berror\b|\bfailed\b|\b40[134]\b|\b50[0234]\b).*(?:\r?\n[^\r\n]*){0,2}')
@@ -336,7 +346,8 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
         while ($pending.Count) {
             $next = $pending.Dequeue()
             $coordinate = $next.Coordinate
-            if (!$visited.Add("${coordinate}:$($next.Type):$($next.Classifier):$($next.Binding)")) { continue }
+            $settings = $next.DownloadConfig
+            if (!$visited.Add("${coordinate}:$($next.Type):$($next.Classifier):$($next.Binding):$($settings.downloadExternals):$($settings.downloadJavaSourceJars):$($settings.downloadJavaDocJars)")) { continue }
             $entry = Get-Entry $coordinate
             $group, $id, $version = $coordinate.Split(':')
             if ($entry.Reasons.Contains('CI failure') -and !($Config.artifacts | Where-Object { $_.groupId -ceq $group -and $_.artifactId -ceq $id -and $_.version -ceq $version })) {
@@ -344,6 +355,7 @@ function New-MavenMirrorPlan([object] $Config, [object] $Baseline, [string] $Upd
             }
             try {
                 $raw = Read-Pom $coordinate
+                if ($next.Binding) { Add-AuxiliaryFiles $coordinate $raw.Repository $settings }
                 $packaging = if ($next.Type) { $next.Type } else { Get-Value $raw.Root packaging 'jar' }
                 $relocated = $null -ne $raw.Root.SelectSingleNode("*[local-name()='distributionManagement']/*[local-name()='relocation']")
                 if (!$relocated -and !$packaging.Contains('${')) { Add-Payload $coordinate $packaging $next.Classifier $raw.Repository $next.Binding }

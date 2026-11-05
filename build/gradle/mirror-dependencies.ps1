@@ -79,11 +79,16 @@ function Get-MirrorHeaders {
 function Invoke-MirrorRequest([string] $Url, [hashtable] $Headers = @{}, [switch] $WaitForAnonymous) {
     # Reuse connections without allowing authenticated session state into anonymous checks.
     $session = if ($Headers.ContainsKey('Authorization')) { $authenticatedSession } else { $anonymousSession }
+    $redirects = 50
+    if ($Headers.ContainsKey('Authorization')) {
+        if (!$Url.StartsWith("$feedBaseUrl/", [StringComparison]::Ordinal)) { throw "Refusing to send Azure credentials outside the Maven feed: $Url" }
+        $redirects = 0
+    }
     $refreshedToken = $false
     for ($attempt = 0; $attempt -lt 4; $attempt++) {
         try {
             # Use GET, not HEAD: verify that the payload can actually be downloaded.
-            $response = Invoke-WebRequest -Uri $Url -Headers $Headers -WebSession $session -SkipHttpErrorCheck -TimeoutSec 120
+            $response = Invoke-WebRequest -Uri $Url -Headers $Headers -WebSession $session -MaximumRedirection $redirects -SkipHttpErrorCheck -TimeoutSec 120
             $status = [int] $response.StatusCode
         }
         catch [System.Net.Http.HttpRequestException], [System.Threading.Tasks.TaskCanceledException] {
@@ -238,13 +243,22 @@ function Invoke-PullRequestMirror {
                         continue
                     }
                     if ([int] $anonymous.StatusCode -notin 401, 403, 404) { throw "Anonymous HTTP $($anonymous.StatusCode): $url" }
-                    $upstream = Invoke-MirrorRequest $file.Upstream
+                    foreach ($source in $file.Upstreams) {
+                        $upstream = Invoke-MirrorRequest $source
+                        if ([int] $upstream.StatusCode -eq 404) { continue }
+                        if ([int] $upstream.StatusCode -ne 200) { throw "Upstream HTTP $($upstream.StatusCode): $source" }
+                        $file.Upstream = $source
+                        break
+                    }
                     if ([int] $upstream.StatusCode -eq 404) {
+                        if ($file.Optional) {
+                            $file.Status = 'not published upstream'
+                            continue
+                        }
                         $file.Status = 'unavailable upstream'
                         $errors.Add("Unavailable upstream: $($file.Upstream)")
                         continue
                     }
-                    if ([int] $upstream.StatusCode -ne 200) { throw "Upstream HTTP $($upstream.StatusCode): $($file.Upstream)" }
                     $response = Invoke-MirrorRequest $url $headers
                     if ([int] $response.StatusCode -ne 200) { throw "Authenticated HTTP $($response.StatusCode): $url" }
                     $verified = Invoke-MirrorRequest $url -WaitForAnonymous

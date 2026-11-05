@@ -38,6 +38,8 @@ latest-stable table, including frozen rows. The audit includes:
 
 - Both sides of the PR's Maven version diff.
 - Newer stable updater candidates, including held/frozen packages.
+- All pinned binding versions, plus published sources/Javadoc JARs and optional
+  Gradle `.module` metadata for pinned/latest bindings.
 - Coordinates in GitHub Actions/Azure Pipelines failure diagnostics.
 - Parent POMs, imported BOMs, and compile/runtime dependency closure, including
   versions absent from config.
@@ -48,6 +50,11 @@ spellings. Genuine POM-only requests do not require a payload; configured bindin
 artifacts with POM or other unrecognized packaging use Binderator's JAR/AAR
 fallback. Optional dependencies are included without exclusions or conflict
 mediation: this is a conservative availability audit, not a build graph.
+
+Auxiliary downloads honor `downloadExternals`, `downloadJavaSourceJars`, and
+`downloadJavaDocJars` (all default to true), including baseline settings for
+removed/changed base versions. There is no Binderator `.module` download switch;
+module metadata is probed whenever auxiliary downloads are enabled.
 
 To include older failures, append `-AzureBuildId 1661997` for a build in
 `dnceng-public/public`, or `-CiLogPath /path/to/ci.log` for downloaded logs.
@@ -63,6 +70,11 @@ Read `Complete`, `Errors`, `Scope`, and `MissingMappings`, not just the download
 counts. The report identifies the PR SHA, CI sources, coordinate discovery
 reasons, and file statuses: **newly mirrored**, **already accessible**,
 **unavailable upstream**, or **unresolved**.
+Optional files returning 404 from the configured/Google/Central upstreams are
+**not published upstream** and do not fail the audit. Request/authentication
+failures and published files that cannot be mirrored or verified still fail.
+Azure credentials are restricted to the feed;
+authenticated redirects are not followed.
 
 Authenticated seeding must be followed by successful anonymous POM/payload GETs.
 Transient HTTP errors and cache propagation have bounded retries. Pending or
