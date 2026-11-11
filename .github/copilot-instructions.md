@@ -61,6 +61,13 @@ Reference: https://github.com/dotnet/java-interop/wiki/Troubleshooting-Android-B
 
 ## Common Issues and Fixes
 
+### Maven Feed Availability for Update PRs
+
+Use PR-wide mirroring for update PRs, not just pinned/changed versions; follow the
+[maven-mirroring skill](skills/maven-mirroring/SKILL.md).
+Feed availability does not mean CI is fixed: report missing binding/configuration
+mappings separately from feed authentication or download failures.
+
 ### CS0535: Interface Implementation Mismatch
 When Java method overloading doesn't map to C# interface requirements:
 ```csharp
