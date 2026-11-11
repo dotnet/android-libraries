@@ -80,6 +80,8 @@ Xamarin.ObjectWeb.Asm.Label.Info.get -> Java.Lang.Object?
 Xamarin.ObjectWeb.Asm.Label.Info.set -> void
 Xamarin.ObjectWeb.Asm.Label.Label() -> void
 Xamarin.ObjectWeb.Asm.Label.Label(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+Xamarin.ObjectWeb.Asm.LimitExceededException
+Xamarin.ObjectWeb.Asm.LimitExceededException.LimitExceededException(string? message) -> void
 Xamarin.ObjectWeb.Asm.MethodTooLargeException
 Xamarin.ObjectWeb.Asm.MethodTooLargeException.ClassName.get -> string?
 Xamarin.ObjectWeb.Asm.MethodTooLargeException.CodeSize.get -> int
@@ -379,6 +381,7 @@ const Xamarin.ObjectWeb.Asm.Opcodes.V24 = 68 -> int
 const Xamarin.ObjectWeb.Asm.Opcodes.V25 = 69 -> int
 const Xamarin.ObjectWeb.Asm.Opcodes.V26 = 70 -> int
 const Xamarin.ObjectWeb.Asm.Opcodes.V27 = 71 -> int
+const Xamarin.ObjectWeb.Asm.Opcodes.V28 = 72 -> int
 const Xamarin.ObjectWeb.Asm.Opcodes.V9 = 53 -> int
 const Xamarin.ObjectWeb.Asm.Opcodes.VPreview = -65536 -> int
 const Xamarin.ObjectWeb.Asm.Signature.SignatureVisitor.Extends = '+' -> char
@@ -449,6 +452,7 @@ override Xamarin.ObjectWeb.Asm.Handle.JniPeerMembers.get -> Java.Interop.JniPeer
 override Xamarin.ObjectWeb.Asm.Label.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.ObjectWeb.Asm.Label.ThresholdClass.get -> nint
 override Xamarin.ObjectWeb.Asm.Label.ThresholdType.get -> System.Type!
+override Xamarin.ObjectWeb.Asm.LimitExceededException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.ObjectWeb.Asm.MethodTooLargeException.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.ObjectWeb.Asm.MethodVisitor.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Xamarin.ObjectWeb.Asm.MethodVisitor.ThresholdClass.get -> nint
@@ -606,6 +610,7 @@ virtual Xamarin.ObjectWeb.Asm.ClassWriter.NewModule(string? moduleName) -> int
 virtual Xamarin.ObjectWeb.Asm.ClassWriter.NewNameType(string? name, string? descriptor) -> int
 virtual Xamarin.ObjectWeb.Asm.ClassWriter.NewPackage(string? packageName) -> int
 virtual Xamarin.ObjectWeb.Asm.ClassWriter.NewUTF8(string? value) -> int
+virtual Xamarin.ObjectWeb.Asm.ClassWriter.SetComputeLimits(int maxBytes, long maxOperations) -> void
 virtual Xamarin.ObjectWeb.Asm.ClassWriter.ToByteArray() -> byte[]?
 virtual Xamarin.ObjectWeb.Asm.FieldVisitor.Delegate.get -> Xamarin.ObjectWeb.Asm.FieldVisitor?
 virtual Xamarin.ObjectWeb.Asm.FieldVisitor.VisitAnnotation(string? descriptor, bool visible) -> Xamarin.ObjectWeb.Asm.AnnotationVisitor?
