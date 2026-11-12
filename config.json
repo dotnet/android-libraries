@@ -865,13 +865,14 @@
         "artifactId": "databinding-adapters",
         "version": "9.5.0",
         "nugetVersion": "9.5.0",
-        "nugetId": "Xamarin.AndroidX.DataBinding.DataBindingAdapters"
+        "nugetId": "Xamarin.AndroidX.DataBinding.DataBindingAdapters",
+        "comments": "Temporarily held at 9.5.0. Version 9.5.1 is available upstream but returns 401 from the CI Maven feed. Retry when the feed has cached it."
       },
       {
         "groupId": "androidx.databinding",
         "artifactId": "databinding-common",
-        "version": "9.5.0",
-        "nugetVersion": "9.5.0",
+        "version": "9.5.1",
+        "nugetVersion": "9.5.1",
         "nugetId": "Xamarin.AndroidX.DataBinding.DataBindingCommon"
       },
       {
@@ -879,14 +880,16 @@
         "artifactId": "databinding-runtime",
         "version": "9.5.0",
         "nugetVersion": "9.5.0",
-        "nugetId": "Xamarin.AndroidX.DataBinding.DataBindingRuntime"
+        "nugetId": "Xamarin.AndroidX.DataBinding.DataBindingRuntime",
+        "comments": "Temporarily held at 9.5.0. Version 9.5.1 is available upstream but returns 401 from the CI Maven feed. Retry when the feed has cached it."
       },
       {
         "groupId": "androidx.databinding",
         "artifactId": "viewbinding",
         "version": "9.5.0",
         "nugetVersion": "9.5.0",
-        "nugetId": "Xamarin.AndroidX.DataBinding.ViewBinding"
+        "nugetId": "Xamarin.AndroidX.DataBinding.ViewBinding",
+        "comments": "Temporarily held at 9.5.0. Version 9.5.1 is available upstream but returns 401 from the CI Maven feed. Retry when the feed has cached it."
       },
       {
         "groupId": "androidx.datastore",
@@ -3677,7 +3680,8 @@
         "nugetVersion": "18.9.3",
         "nugetId": "Xamarin.Google.Android.Recaptcha",
         "allowPrereleaseDependencies": true,
-        "type": "xbd"
+        "type": "xbd",
+        "comments": "Temporarily held at 18.9.3. Version 18.9.4 requires migration of the existing Cronet bindings to org.chromium.net:cronet:500.1.0."
       },
       {
         "groupId": "com.google.android.tv",
@@ -3770,8 +3774,8 @@
       {
         "groupId": "com.google.errorprone",
         "artifactId": "error_prone_annotations",
-        "version": "2.51.0",
-        "nugetVersion": "2.51.0",
+        "version": "2.52.0",
+        "nugetVersion": "2.52.0",
         "nugetId": "Xamarin.Google.ErrorProne.Annotations",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -3779,8 +3783,8 @@
       {
         "groupId": "com.google.errorprone",
         "artifactId": "error_prone_type_annotations",
-        "version": "2.51.0",
-        "nugetVersion": "2.51.0",
+        "version": "2.52.0",
+        "nugetVersion": "2.52.0",
         "nugetId": "Xamarin.Google.ErrorProne.TypeAnnotations",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -4055,7 +4059,7 @@
         "nugetId": "Xamarin.Firebase.InAppMessaging",
         "type": "xbd",
         "skipExtendedTests": true,
-        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997. Temporarily held at 22.0.3. Version 23.0.0 requires gRPC 1.84.0 and Protolite 19.0.0, outside the configured dependency mappings."
+        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997. Temporarily held at 22.0.3. Version 23.0.0 requires Protolite 19.0.0, whose protobuf-javalite:4.36.1 dependency is outside the configured Protobuf mappings."
       },
       {
         "groupId": "com.google.firebase",
@@ -4065,7 +4069,7 @@
         "nugetId": "Xamarin.Firebase.InAppMessaging.Display",
         "type": "xbd",
         "skipExtendedTests": true,
-        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997. Temporarily held at 22.0.3. Kept aligned with firebase-inappmessaging 22.0.3; version 23.0.0 requires gRPC 1.84.0 and Protolite 19.0.0, outside the configured dependency mappings."
+        "comments": "Skip tests due to https://github.com/firebase/firebase-android-sdk/issues/5997. Temporarily held at 22.0.3. Kept aligned with firebase-inappmessaging 22.0.3 pending compatible Protolite and Protobuf bindings."
       },
       {
         "groupId": "com.google.firebase",
@@ -4310,8 +4314,8 @@
       {
         "groupId": "com.google.guava",
         "artifactId": "guava",
-        "version": "33.7.2-android",
-        "nugetVersion": "33.7.2",
+        "version": "33.8.0-android",
+        "nugetVersion": "33.8.0",
         "nugetId": "Xamarin.Google.Guava",
         "excludedRuntimeDependencies": "com.google.guava.listenablefuture",
         "type": "androidlibrary",
@@ -4866,7 +4870,7 @@
         "nugetId": "Xamarin.Grpc.Android",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
-        "comments": "The gRPC family is temporarily held at 1.82.0 because Azure Artifacts cannot restore version 1.85.1 from Maven Central (401 Unauthorized)."
+        "comments": "The gRPC family is temporarily held at 1.82.0. Version 1.85.1 requires protobuf-javalite 3.25.9; the local binding is frozen at 3.25.8, so dependency resolution selects the external 4.26.1 package with incompatible managed namespaces and breaks Firebase bindings."
       },
       {
         "groupId": "io.grpc",
@@ -5063,12 +5067,11 @@
       {
         "groupId": "org.checkerframework",
         "artifactId": "checker-qual",
-        "version": "4.2.0",
-        "nugetVersion": "4.2.0.1",
+        "version": "4.4.0",
+        "nugetVersion": "4.4.0",
         "nugetId": "Xamarin.CheckerFramework.CheckerQual",
         "type": "no-bindings",
-        "mavenRepositoryType": "MavenCentral",
-        "comments": "Temporarily held at 4.2.0 because Azure Artifacts cannot restore version 4.3.1 from Maven Central (401 Unauthorized)."
+        "mavenRepositoryType": "MavenCentral"
       },
       {
         "groupId": "org.chromium.net",
@@ -5138,7 +5141,7 @@
         "nugetId": "Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
-        "comments": "Temporarily held at 1.27 because Azure Artifacts cannot restore version 1.28.0 from Maven Central (401 Unauthorized)."
+        "comments": "Temporarily held at 1.27. Version 1.29.1 is available upstream but returns 401 from the CI Maven feed. Retry when the feed has cached it."
       },
       {
         "groupId": "org.jetbrains",
@@ -5161,18 +5164,17 @@
       {
         "groupId": "org.jetbrains.kotlin",
         "artifactId": "kotlin-parcelize-runtime",
-        "version": "2.4.0",
-        "nugetVersion": "2.4.0.1",
+        "version": "2.4.21",
+        "nugetVersion": "2.4.21",
         "nugetId": "Xamarin.Kotlin.Parcelize.Runtime",
         "type": "androidlibrary",
-        "mavenRepositoryType": "MavenCentral",
-        "comments": "The Kotlin 2.4 family is temporarily held at 2.4.0 because Azure Artifacts cannot restore Parcelize Runtime, Reflect, StdLib Jdk7, or StdLib Jdk8 at 2.4.21 from Maven Central (401 Unauthorized). StdLib 2.4.21 is available, but the family is kept aligned."
+        "mavenRepositoryType": "MavenCentral"
       },
       {
         "groupId": "org.jetbrains.kotlin",
         "artifactId": "kotlin-reflect",
-        "version": "2.4.0",
-        "nugetVersion": "2.4.0.1",
+        "version": "2.4.21",
+        "nugetVersion": "2.4.21",
         "nugetId": "Xamarin.Kotlin.Reflect",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
@@ -5183,8 +5185,8 @@
       {
         "groupId": "org.jetbrains.kotlin",
         "artifactId": "kotlin-stdlib",
-        "version": "2.4.0",
-        "nugetVersion": "2.4.0.1",
+        "version": "2.4.21",
+        "nugetVersion": "2.4.21",
         "nugetId": "Xamarin.Kotlin.StdLib",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5205,8 +5207,8 @@
       {
         "groupId": "org.jetbrains.kotlin",
         "artifactId": "kotlin-stdlib-jdk7",
-        "version": "2.4.0",
-        "nugetVersion": "2.4.0.1",
+        "version": "2.4.21",
+        "nugetVersion": "2.4.21",
         "nugetId": "Xamarin.Kotlin.StdLib.Jdk7",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
@@ -5217,8 +5219,8 @@
       {
         "groupId": "org.jetbrains.kotlin",
         "artifactId": "kotlin-stdlib-jdk8",
-        "version": "2.4.0",
-        "nugetVersion": "2.4.0.1",
+        "version": "2.4.21",
+        "nugetVersion": "2.4.21",
         "nugetId": "Xamarin.Kotlin.StdLib.Jdk8",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral",
@@ -5328,8 +5330,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-core",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Core",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5337,8 +5339,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-core-jvm",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Core.Jvm",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5346,8 +5348,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-json",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Json",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5355,8 +5357,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-json-jvm",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Json.Jvm",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5364,8 +5366,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-protobuf",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Protobuf",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5373,8 +5375,8 @@
       {
         "groupId": "org.jetbrains.kotlinx",
         "artifactId": "kotlinx-serialization-protobuf-jvm",
-        "version": "1.11.0",
-        "nugetVersion": "1.11.0.1",
+        "version": "1.12.0",
+        "nugetVersion": "1.12.0",
         "nugetId": "Xamarin.KotlinX.Serialization.Protobuf.Jvm",
         "type": "androidlibrary",
         "mavenRepositoryType": "MavenCentral"
@@ -5391,12 +5393,11 @@
       {
         "groupId": "org.ow2.asm",
         "artifactId": "asm",
-        "version": "9.10.1",
-        "nugetVersion": "9.10.1.1",
+        "version": "9.11.1",
+        "nugetVersion": "9.11.1",
         "nugetId": "Xamarin.OW2.ASM",
         "type": "androidlibrary",
-        "mavenRepositoryType": "MavenCentral",
-        "comments": "Temporarily held at 9.10.1 because Azure Artifacts cannot restore version 9.11.1 from Maven Central (401 Unauthorized)."
+        "mavenRepositoryType": "MavenCentral"
       },
       {
         "groupId": "org.reactivestreams",
