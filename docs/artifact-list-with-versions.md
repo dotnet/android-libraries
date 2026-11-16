@@ -402,7 +402,7 @@
 | 395|com.google.android.gms:play-services-auth-blockstore                  |16.4.0              |Xamarin.GooglePlayServices.Auth.Blockstore                            |116.4.0.10          |
 | 396|com.google.android.gms:play-services-awareness                        |20.0.0              |Xamarin.GooglePlayServices.Awareness                                  |120.0.0.2           |
 | 397|com.google.android.gms:play-services-base                             |18.11.1             |Xamarin.GooglePlayServices.Base                                       |118.11.1            |
-| 398|com.google.android.gms:play-services-basement                         |18.12.0             |Xamarin.GooglePlayServices.Basement                                   |118.12.0            |
+| 398|com.google.android.gms:play-services-basement                         |18.12.0             |Xamarin.GooglePlayServices.Basement                                   |118.12.0.1          |
 | 399|com.google.android.gms:play-services-cast                             |22.3.1              |Xamarin.GooglePlayServices.Cast                                       |122.3.1.2           |
 | 400|com.google.android.gms:play-services-cast-framework                   |22.3.1              |Xamarin.GooglePlayServices.Cast.Framework                             |122.3.1.2           |
 | 401|com.google.android.gms:play-services-cast-tv                          |21.1.1              |Xamarin.GooglePlayServices.Cast.TV                                    |121.1.1.9           |
@@ -425,7 +425,7 @@
 | 418|com.google.android.gms:play-services-iid                              |17.0.0              |Xamarin.GooglePlayServices.Iid                                        |117.0.0.27          |
 | 419|com.google.android.gms:play-services-instantapps                      |18.2.0              |Xamarin.GooglePlayServices.InstantApps                                |118.2.0.5           |
 | 420|com.google.android.gms:play-services-location                         |21.4.0              |Xamarin.GooglePlayServices.Location                                   |121.4.0.1           |
-| 421|com.google.android.gms:play-services-maps                             |20.1.0              |Xamarin.GooglePlayServices.Maps                                       |120.1.0             |
+| 421|com.google.android.gms:play-services-maps                             |20.1.0              |Xamarin.GooglePlayServices.Maps                                       |120.1.0.1           |
 | 422|com.google.android.gms:play-services-measurement                      |24.0.0              |Xamarin.GooglePlayServices.Measurement                                |124.0.0             |
 | 423|com.google.android.gms:play-services-measurement-api                  |24.0.0              |Xamarin.GooglePlayServices.Measurement.Api                            |124.0.0             |
 | 424|com.google.android.gms:play-services-measurement-base                 |24.0.0              |Xamarin.GooglePlayServices.Measurement.Base                           |124.0.0             |
