@@ -1,9 +1,14 @@
 ---
 name: maven-mirroring
-description: Seed and audit dotnet-public-maven for Android library update PRs, held or frozen Maven candidates, and CI feed failures. Use when mirroring dependencies or distinguishing feed availability from missing binding/configuration mappings.
+description: Seed and audit the dotnet-public-maven feed with Azure credentials. Use ONLY when a maintainer explicitly asks to mirror or seed Maven dependencies. DO NOT USE for routine Android library update PRs or the Copilot cloud agent; those builds use public Google/Maven Central repositories.
 ---
 
 # Maven mirroring
+
+> **Maintainers only.** This skill needs `az login` with access to the dnceng
+> feed. The Copilot cloud agent does not have Azure credentials. Do not use this
+> skill during update PRs unless a maintainer asks. Never hold, freeze, or revert
+> versions because the feed returns 401; report the missing artifacts instead.
 
 Run from the repository root using the scripts in `build/gradle`, not ad hoc
 audits or Binderator changes. Requires PowerShell 7, authenticated `gh` and Azure

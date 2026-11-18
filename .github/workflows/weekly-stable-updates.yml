@@ -50,7 +50,12 @@ jobs:
           dotnet cake utilities.cake -t=api-diff-markdown-info-pr
           \`\`\`
 
-          And put the contents from this command in the PR description and commit messages.`;
+          And put the contents from this command in the PR description and commit messages.
+
+          Notes:
+          - Local builds download Maven artifacts from the public Google and Maven Central repositories. Do not run \`build/gradle/mirror-dependencies.ps1\`, use the \`maven-mirroring\` skill, set \`RUNNINGONCI=true\`, or request \`dotnet-public-maven\` URLs directly.
+          - If an existing Azure DevOps CI build fails with \`401 (Unauthorized)\` from \`dotnet-public-maven\`, do not hold, freeze, or revert versions. List the missing artifacts in the PR description; a maintainer will seed the feed.
+          - If \`update-config\` updates a package whose \`comments\` say it is held because of a 401 from the CI Maven feed, remove that comment.`;
 
           // Check for existing issues with the same title
           const existingIssues = await github.rest.issues.listForRepo({
