@@ -1,6 +1,12 @@
 ﻿using System;
 using Android.Runtime;
 
+// Devices that use the legacy map renderer with Google Play services older than 25.50.34
+// need this library, otherwise maps crash with NoClassDefFoundError: org/apache/http/ProtocolVersion.
+// See: https://developers.google.com/maps/documentation/android-sdk/config
+// and: https://github.com/flutter/packages/pull/11185
+[assembly: Android.App.UsesLibrary("org.apache.http.legacy", Required=false)]
+
 namespace Android.Gms.Maps.Model
 {
 
