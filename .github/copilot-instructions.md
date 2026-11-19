@@ -63,10 +63,20 @@ Reference: https://github.com/dotnet/java-interop/wiki/Troubleshooting-Android-B
 
 ### Maven Feed Availability for Update PRs
 
-Use PR-wide mirroring for update PRs, not just pinned/changed versions; follow the
-[maven-mirroring skill](skills/maven-mirroring/SKILL.md).
-Feed availability does not mean CI is fixed: report missing binding/configuration
-mappings separately from feed authentication or download failures.
+Local and Copilot agent builds download Maven artifacts from the public Google and
+Maven Central repositories. Only Azure DevOps CI (`RUNNINGONCI=true`) uses the
+`dotnet-public-maven` mirror feed.
+
+Do **not** run `build/gradle/mirror-dependencies.ps1` or use the `maven-mirroring`
+skill unless a maintainer asks for it. They need Azure credentials, which the
+Copilot agent does not have. Do not set `RUNNINGONCI=true` locally, and do not
+request `dotnet-public-maven` URLs directly.
+
+If an existing Azure DevOps CI build fails with
+`401 (Unauthorized - No local versions of package ...)` from
+`dotnet-public-maven`, do **not** hold, freeze, or revert the version. Report the
+missing artifacts in the PR description; a maintainer will seed the feed.
+Hold a version only for real binding or dependency problems.
 
 ### CS0535: Interface Implementation Mismatch
 When Java method overloading doesn't map to C# interface requirements:
