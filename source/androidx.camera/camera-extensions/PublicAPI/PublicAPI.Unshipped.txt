@@ -7,14 +7,26 @@ AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.AddEffect(AndroidX.Cam
 AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.AddUseCase(AndroidX.Camera.Core.UseCase! useCase) -> AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder!
 AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.Build() -> AndroidX.Camera.Extensions.ExtensionSessionConfig!
 AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.Builder(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager) -> void
+AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.SetAutoRotationEnabled(bool autoRotationEnabled) -> AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder!
 AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.SetViewPort(AndroidX.Camera.Core.ViewPort! viewPort) -> AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder!
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager) -> void
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>! useCases) -> void
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>! useCases, AndroidX.Camera.Core.ViewPort? viewPort) -> void
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>! useCases, AndroidX.Camera.Core.ViewPort? viewPort, System.Collections.Generic.IList<AndroidX.Camera.Core.CameraEffect!>! effects) -> void
+AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>! useCases, AndroidX.Camera.Core.ViewPort? viewPort, System.Collections.Generic.IList<AndroidX.Camera.Core.CameraEffect!>! effects, bool isAutoRotationEnabled) -> void
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, params AndroidX.Camera.Core.UseCase![]! useCases) -> void
 AndroidX.Camera.Extensions.ExtensionSessionConfig.ExtensionsManager.get -> AndroidX.Camera.Extensions.ExtensionsManager!
 AndroidX.Camera.Extensions.ExtensionSessionConfig.Mode.get -> int
+AndroidX.Camera.Extensions.ExtensionSessionConfigKt
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.AutoRotationEnabled.get -> bool
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.AutoRotationEnabled.set -> void
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.Effects.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.CameraEffect!>!
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.Effects.set -> void
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.UseCases.get -> System.Collections.Generic.IList<AndroidX.Camera.Core.UseCase!>!
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.UseCases.set -> void
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.ViewPort.get -> AndroidX.Camera.Core.ViewPort?
+AndroidX.Camera.Extensions.ExtensionSessionConfigScope.ViewPort.set -> void
 AndroidX.Camera.Extensions.ExtensionsManager
 AndroidX.Camera.Extensions.ExtensionsManager.Companion
 AndroidX.Camera.Extensions.ExtensionsManager.Companion.GetInstance(Android.Content.Context! context, AndroidX.Camera.Core.ICameraProvider! cameraProvider, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
@@ -33,27 +45,20 @@ AndroidX.Camera.Extensions.ICameraExtensionsInfo.CurrentExtensionMode.get -> And
 AndroidX.Camera.Extensions.ICameraExtensionsInfo.ExtensionStrength.get -> AndroidX.Lifecycle.LiveData?
 AndroidX.Camera.Extensions.ICameraExtensionsInfo.IsCurrentExtensionModeAvailable.get -> bool
 AndroidX.Camera.Extensions.ICameraExtensionsInfo.IsExtensionStrengthAvailable.get -> bool
-AndroidX.Camera.Extensions.IVendorExtenderFactory
-AndroidX.Camera.Extensions.IVendorExtenderFactory.CreateVendorExtender(int p0) -> AndroidX.Camera.Extensions.Internal.IVendorExtender?
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo.Camera2ExtensionsInfo(Android.Hardware.Camera2.CameraManager! cameraManager) -> void
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo.GetExtensionCharacteristics(string! cameraId) -> Android.Hardware.Camera2.CameraExtensionCharacteristics!
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo.GetSupportedOutputSizes(string! cameraId, int mode, int format) -> System.Collections.Generic.IList<Android.Util.Size!>!
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo.IsExtensionAvailable(string! cameraId, int mode) -> bool
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsUtil
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsUtil.ConvertCamera2ModeToCameraXMode(int camera2Mode) -> Java.Lang.Integer?
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsUtil.ConvertCameraXModeToCamera2Mode(int cameraXMode) -> int
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.AvailableCharacteristicsKeyValues.get -> System.Collections.Generic.IList<Android.Util.Pair!>!
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.Camera2ExtensionsVendorExtender(int mode, AndroidX.Camera.Extensions.Internal.ICamera2ExtensionsInfoProvider! camera2ExtensionsInfo) -> void
+AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.Camera2ExtensionsVendorExtender(int mode) -> void
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.CreateSessionProcessor(Android.Content.Context! context) -> AndroidX.Camera.Core.Impl.ISessionProcessor?
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.GetEstimatedCaptureLatencyRange(Android.Util.Size? size) -> Android.Util.Range?
+AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.GetEstimatedCaptureLatencyRangeMillis(Android.Util.Size? size) -> Android.Util.Range?
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.GetSupportedPostviewResolutions(Android.Util.Size! captureSize) -> System.Collections.Generic.IDictionary<Java.Lang.Integer!, System.Collections.Generic.IList<Android.Util.Size!>!>!
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.GetSupportedYuvAnalysisResolutions() -> Android.Util.Size![]!
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.Init(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> void
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsCaptureProcessProgressAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsCurrentExtensionModeAvailable.get -> bool
-AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsExtensionAvailable(string! cameraId, System.Collections.Generic.IDictionary<string!, Android.Hardware.Camera2.CameraCharacteristics!>! characteristicsMap) -> bool
+AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsExtensionAvailable(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> bool
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsExtensionStrengthAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.IsPostviewAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.SupportedCaptureOutputResolutions.get -> System.Collections.Generic.IList<Android.Util.Pair!>!
@@ -76,6 +81,11 @@ AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalence
 AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.Companion
 AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.Companion.Load() -> bool
 AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.EnsurePostviewFormatEquivalenceQuirk() -> void
+AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk
+AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.Companion
+AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.Companion.Load() -> bool
+AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.ExtensionDisabledQuirk() -> void
+AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.ShouldDisableExtension(string! cameraId, int extensionMode) -> bool
 AndroidX.Camera.Extensions.Internal.Compat.Workaround.ExtensionCharacteristicsAccessGuard
 AndroidX.Camera.Extensions.Internal.Compat.Workaround.ExtensionCharacteristicsAccessGuard.AllowCaptureProcessProgressAvailabilityCheck() -> bool
 AndroidX.Camera.Extensions.Internal.Compat.Workaround.ExtensionCharacteristicsAccessGuard.AllowPostviewAvailabilityCheck() -> bool
@@ -88,20 +98,16 @@ AndroidX.Camera.Extensions.Internal.ExtensionsUseCaseConfigFactory.ExtensionsUse
 AndroidX.Camera.Extensions.Internal.ExtensionsUseCaseConfigFactory.GetConfig(AndroidX.Camera.Core.Impl.UseCaseConfigFactoryCaptureType? captureType, int captureMode) -> AndroidX.Camera.Core.Impl.IConfig?
 AndroidX.Camera.Extensions.Internal.ExtensionsUtils
 AndroidX.Camera.Extensions.Internal.ExtensionsUtils.ExtensionsUtils(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Extensions.Internal.ICamera2ExtensionsInfoProvider
-AndroidX.Camera.Extensions.Internal.ICamera2ExtensionsInfoProvider.GetExtensionCharacteristics(string! cameraId) -> Android.Hardware.Camera2.CameraExtensionCharacteristics!
-AndroidX.Camera.Extensions.Internal.ICamera2ExtensionsInfoProvider.GetSupportedOutputSizes(string! cameraId, int mode, int format) -> System.Collections.Generic.IList<Android.Util.Size!>!
-AndroidX.Camera.Extensions.Internal.ICamera2ExtensionsInfoProvider.IsExtensionAvailable(string! cameraId, int mode) -> bool
 AndroidX.Camera.Extensions.Internal.IVendorExtender
 AndroidX.Camera.Extensions.Internal.IVendorExtender.AvailableCharacteristicsKeyValues.get -> System.Collections.Generic.IList<Android.Util.Pair!>?
 AndroidX.Camera.Extensions.Internal.IVendorExtender.CreateSessionProcessor(Android.Content.Context? context) -> AndroidX.Camera.Core.Impl.ISessionProcessor?
-AndroidX.Camera.Extensions.Internal.IVendorExtender.GetEstimatedCaptureLatencyRange(Android.Util.Size? size) -> Android.Util.Range?
+AndroidX.Camera.Extensions.Internal.IVendorExtender.GetEstimatedCaptureLatencyRangeMillis(Android.Util.Size? size) -> Android.Util.Range?
 AndroidX.Camera.Extensions.Internal.IVendorExtender.GetSupportedPostviewResolutions(Android.Util.Size? captureSize) -> System.Collections.Generic.IDictionary<Java.Lang.Integer!, System.Collections.Generic.IList<Android.Util.Size!>!>?
 AndroidX.Camera.Extensions.Internal.IVendorExtender.GetSupportedYuvAnalysisResolutions() -> Android.Util.Size![]?
 AndroidX.Camera.Extensions.Internal.IVendorExtender.Init(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> void
 AndroidX.Camera.Extensions.Internal.IVendorExtender.IsCaptureProcessProgressAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.IVendorExtender.IsCurrentExtensionModeAvailable.get -> bool
-AndroidX.Camera.Extensions.Internal.IVendorExtender.IsExtensionAvailable(string? cameraId, System.Collections.Generic.IDictionary<string!, Android.Hardware.Camera2.CameraCharacteristics!>? characteristicsMap) -> bool
+AndroidX.Camera.Extensions.Internal.IVendorExtender.IsExtensionAvailable(AndroidX.Camera.Core.ICameraInfo? cameraInfo) -> bool
 AndroidX.Camera.Extensions.Internal.IVendorExtender.IsExtensionStrengthAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.IVendorExtender.IsPostviewAvailable.get -> bool
 AndroidX.Camera.Extensions.Internal.IVendorExtender.SupportedCaptureOutputResolutions.get -> System.Collections.Generic.IList<Android.Util.Pair!>?
@@ -125,9 +131,10 @@ const AndroidX.Camera.Extensions.ExtensionMode.None = 0 -> int
 override AndroidX.Camera.Extensions.ExtensionMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.ExtensionSessionConfig.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.ExtensionSessionConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Extensions.ExtensionSessionConfigKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Extensions.ExtensionSessionConfigScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.ExtensionsManager.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.ExtensionsManager.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Extensions.Internal.Camera2ExtensionsInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Camera2ExtensionsUtil.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtender.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Camera2ExtensionsVendorExtenderKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -143,6 +150,8 @@ override AndroidX.Camera.Extensions.Internal.Compat.Quirk.DeviceQuirksLoader.Thr
 override AndroidX.Camera.Extensions.Internal.Compat.Quirk.DeviceQuirksLoader.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Compat.Workaround.ExtensionCharacteristicsAccessGuard.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.Compat.Workaround.PostviewFormatValidator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.ExtensionsUseCaseConfigFactory.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -158,6 +167,7 @@ override AndroidX.Camera.Extensions.Internal.ImageCaptureConfigProvider.Threshol
 override AndroidX.Camera.Extensions.Internal.PreviewConfigProvider.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Extensions.Internal.PreviewConfigProvider.ThresholdClass.get -> nint
 override AndroidX.Camera.Extensions.Internal.PreviewConfigProvider.ThresholdType.get -> System.Type!
+static AndroidX.Camera.Extensions.ExtensionSessionConfigKt.ExtensionSessionConfig(int mode, AndroidX.Camera.Extensions.ExtensionsManager! extensionsManager, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Camera.Extensions.ExtensionSessionConfig!
 static AndroidX.Camera.Extensions.ExtensionsManager.GetInstance(Android.Content.Context! context, AndroidX.Camera.Core.ICameraProvider! cameraProvider, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Camera.Extensions.ExtensionsManager.GetInstanceAsync(Android.Content.Context! context, AndroidX.Camera.Core.ICameraProvider! cameraProvider) -> Google.Common.Util.Concurrent.IListenableFuture!
 static AndroidX.Camera.Extensions.Internal.Camera2ExtensionsUtil.CreateCameraId2CameraExtensionCharacteristicsMap(Android.Content.Context! applicationContext) -> System.Collections.Generic.IDictionary<string!, Android.Hardware.Camera2.CameraExtensionCharacteristics!>!
@@ -167,7 +177,7 @@ static AndroidX.Camera.Extensions.Internal.Compat.Quirk.AvoidPostviewAvailabilit
 static AndroidX.Camera.Extensions.Internal.Compat.Quirk.DeviceQuirks.All.get -> AndroidX.Camera.Core.Impl.Quirks?
 static AndroidX.Camera.Extensions.Internal.Compat.Quirk.DeviceQuirks.Get(Java.Lang.Class? quirkClass) -> Java.Lang.Object?
 static AndroidX.Camera.Extensions.Internal.Compat.Quirk.EnsurePostviewFormatEquivalenceQuirk.Load() -> bool
-static AndroidX.Camera.Extensions.Internal.ExtensionsUtils.GetCameraCharacteristicsMap(AndroidX.Camera.Core.Impl.ICameraInfoInternal? cameraInfoInternal) -> System.Collections.Generic.IDictionary<string!, Android.Hardware.Camera2.CameraCharacteristics!>?
+static AndroidX.Camera.Extensions.Internal.Compat.Quirk.ExtensionDisabledQuirk.Load() -> bool
 static AndroidX.Camera.Extensions.Internal.ExtensionsUtils.GetSupportedCameraOperations(System.Collections.Generic.IList<Android.Hardware.Camera2.CaptureRequest.Key!>? supportedParameterKeys) -> System.Collections.Generic.ICollection<Java.Lang.Integer!>?
 virtual AndroidX.Camera.Extensions.Internal.ImageAnalysisConfigProvider.Config.get -> Java.Lang.Object?
 virtual AndroidX.Camera.Extensions.Internal.ImageCaptureConfigProvider.Config.get -> Java.Lang.Object?

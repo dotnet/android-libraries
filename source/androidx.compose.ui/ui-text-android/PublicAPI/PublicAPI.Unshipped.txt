@@ -29,6 +29,9 @@ AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt
 AndroidX.Compose.UI.Text.AnnotatedString
 AndroidX.Compose.UI.Text.AnnotatedString.AnnotatedString(string! text, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations) -> void
 AndroidX.Compose.UI.Text.AnnotatedString.AnnotatedString(string! text, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! paragraphStyles) -> void
+AndroidX.Compose.UI.Text.AnnotatedString.Annotation
+AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion
+AndroidX.Compose.UI.Text.AnnotatedString.AnnotationConsts
 AndroidX.Compose.UI.Text.AnnotatedString.Builder
 AndroidX.Compose.UI.Text.AnnotatedString.Builder.AddBullet(AndroidX.Compose.UI.Text.Bullet! bullet, int start, int end) -> void
 AndroidX.Compose.UI.Text.AnnotatedString.Builder.AddBullet_r9BaKPg(AndroidX.Compose.UI.Text.Bullet! bullet, long indentation, int start, int end) -> void
@@ -78,6 +81,7 @@ AndroidX.Compose.UI.Text.AnnotatedString.HasEqualAnnotations(AndroidX.Compose.UI
 AndroidX.Compose.UI.Text.AnnotatedString.HasLinkAnnotations(int start, int end) -> bool
 AndroidX.Compose.UI.Text.AnnotatedString.HasStringAnnotations(string! tag, int start, int end) -> bool
 AndroidX.Compose.UI.Text.AnnotatedString.IAnnotation
+AndroidX.Compose.UI.Text.AnnotatedString.IAnnotation.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 AndroidX.Compose.UI.Text.AnnotatedString.InvokeLength() -> int
 AndroidX.Compose.UI.Text.AnnotatedString.Length.get -> int
 AndroidX.Compose.UI.Text.AnnotatedString.MapAnnotations(Kotlin.Jvm.Functions.IFunction1! transform) -> AndroidX.Compose.UI.Text.AnnotatedString!
@@ -111,6 +115,7 @@ AndroidX.Compose.UI.Text.Bullet.Companion.DefaultSize_XSAIIZE.get -> long
 AndroidX.Compose.UI.Text.Bullet.Copy(AndroidX.Compose.UI.Graphics.IShape! shape, long width, long height, long padding, AndroidX.Compose.UI.Graphics.Brush? brush, float alpha, AndroidX.Compose.UI.Graphics.Drawscope.DrawStyle! drawStyle) -> AndroidX.Compose.UI.Text.Bullet!
 AndroidX.Compose.UI.Text.Bullet.DrawStyle.get -> AndroidX.Compose.UI.Graphics.Drawscope.DrawStyle!
 AndroidX.Compose.UI.Text.Bullet.Height.get -> long
+AndroidX.Compose.UI.Text.Bullet.InterfaceConsts
 AndroidX.Compose.UI.Text.Bullet.Padding.get -> long
 AndroidX.Compose.UI.Text.Bullet.Shape.get -> AndroidX.Compose.UI.Graphics.IShape!
 AndroidX.Compose.UI.Text.Bullet.Width.get -> long
@@ -220,6 +225,7 @@ AndroidX.Compose.UI.Text.Font.FontSynthesis.Value.get -> int
 AndroidX.Compose.UI.Text.Font.FontSynthesisKt
 AndroidX.Compose.UI.Text.Font.FontSynthesis_androidKt
 AndroidX.Compose.UI.Text.Font.FontVariation
+AndroidX.Compose.UI.Text.Font.FontVariation.Empty.get -> AndroidX.Compose.UI.Text.Font.FontVariation.Settings!
 AndroidX.Compose.UI.Text.Font.FontVariation.Grade(int value) -> AndroidX.Compose.UI.Text.Font.FontVariation.ISetting!
 AndroidX.Compose.UI.Text.Font.FontVariation.ISetting
 AndroidX.Compose.UI.Text.Font.FontVariation.ISetting.AxisName.get -> string!
@@ -231,6 +237,8 @@ AndroidX.Compose.UI.Text.Font.FontVariation.OpticalSizing(long textSize) -> Andr
 AndroidX.Compose.UI.Text.Font.FontVariation.Setting(string! name, float value) -> AndroidX.Compose.UI.Text.Font.FontVariation.ISetting!
 AndroidX.Compose.UI.Text.Font.FontVariation.Settings
 AndroidX.Compose.UI.Text.Font.FontVariation.Settings.GetSettings() -> System.Collections.Generic.IList<AndroidX.Compose.UI.Text.Font.FontVariation.ISetting!>!
+AndroidX.Compose.UI.Text.Font.FontVariation.Settings.Merge(AndroidX.Compose.UI.Text.Font.FontVariation.Settings? other) -> AndroidX.Compose.UI.Text.Font.FontVariation.Settings!
+AndroidX.Compose.UI.Text.Font.FontVariation.Settings.Merge(params AndroidX.Compose.UI.Text.Font.FontVariation.ISetting![]! overrides) -> AndroidX.Compose.UI.Text.Font.FontVariation.Settings!
 AndroidX.Compose.UI.Text.Font.FontVariation.Settings.Settings(params AndroidX.Compose.UI.Text.Font.FontVariation.ISetting![]! settings) -> void
 AndroidX.Compose.UI.Text.Font.FontVariation.Slant(float value) -> AndroidX.Compose.UI.Text.Font.FontVariation.ISetting!
 AndroidX.Compose.UI.Text.Font.FontVariation.Weight(int value) -> AndroidX.Compose.UI.Text.Font.FontVariation.ISetting!
@@ -265,6 +273,7 @@ AndroidX.Compose.UI.Text.Font.IFont
 AndroidX.Compose.UI.Text.Font.IFont.Companion.get -> AndroidX.Compose.UI.Text.Font.FontCompanion!
 AndroidX.Compose.UI.Text.Font.IFont.LoadingStrategy.get -> int
 AndroidX.Compose.UI.Text.Font.IFont.Style.get -> int
+AndroidX.Compose.UI.Text.Font.IFont.VariationSettings.get -> AndroidX.Compose.UI.Text.Font.FontVariation.Settings!
 AndroidX.Compose.UI.Text.Font.IFont.Weight.get -> AndroidX.Compose.UI.Text.Font.FontWeight!
 AndroidX.Compose.UI.Text.Font.IFontResourceLoader
 AndroidX.Compose.UI.Text.Font.IFontResourceLoader.Load(AndroidX.Compose.UI.Text.Font.IFont! font) -> Java.Lang.Object!
@@ -402,6 +411,7 @@ AndroidX.Compose.UI.Text.Input.ImeOptions.Companion.Default.get -> AndroidX.Comp
 AndroidX.Compose.UI.Text.Input.ImeOptions.Copy(bool singleLine, int capitalization, bool autoCorrect, int keyboardType, int imeAction, AndroidX.Compose.UI.Text.Input.PlatformImeOptions? platformImeOptions, AndroidX.Compose.UI.Text.Intl.LocaleList! hintLocales) -> AndroidX.Compose.UI.Text.Input.ImeOptions!
 AndroidX.Compose.UI.Text.Input.ImeOptions.HintLocales.get -> AndroidX.Compose.UI.Text.Intl.LocaleList!
 AndroidX.Compose.UI.Text.Input.ImeOptions.ImeAction.get -> int
+AndroidX.Compose.UI.Text.Input.ImeOptions.ImeOptions() -> void
 AndroidX.Compose.UI.Text.Input.ImeOptions.KeyboardType.get -> int
 AndroidX.Compose.UI.Text.Input.ImeOptions.PlatformImeOptions.get -> AndroidX.Compose.UI.Text.Input.PlatformImeOptions?
 AndroidX.Compose.UI.Text.Input.ImeOptions.SingleLine.get -> bool
@@ -562,6 +572,7 @@ AndroidX.Compose.UI.Text.LinkAnnotation.Clickable
 AndroidX.Compose.UI.Text.LinkAnnotation.Clickable.Clickable(string! tag, AndroidX.Compose.UI.Text.TextLinkStyles? styles, AndroidX.Compose.UI.Text.ILinkInteractionListener? linkInteractionListener) -> void
 AndroidX.Compose.UI.Text.LinkAnnotation.Clickable.Copy(string! tag, AndroidX.Compose.UI.Text.TextLinkStyles? styles, AndroidX.Compose.UI.Text.ILinkInteractionListener? linkInteractionListener) -> AndroidX.Compose.UI.Text.LinkAnnotation.Clickable!
 AndroidX.Compose.UI.Text.LinkAnnotation.Clickable.Tag.get -> string!
+AndroidX.Compose.UI.Text.LinkAnnotation.InterfaceConsts
 AndroidX.Compose.UI.Text.LinkAnnotation.LinkAnnotation(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Compose.UI.Text.LinkAnnotation.Url
 AndroidX.Compose.UI.Text.LinkAnnotation.Url.Copy(string! url, AndroidX.Compose.UI.Text.TextLinkStyles? styles, AndroidX.Compose.UI.Text.ILinkInteractionListener? linkInteractionListener) -> AndroidX.Compose.UI.Text.LinkAnnotation.Url!
@@ -612,6 +623,7 @@ AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MaxIntrinsicWidth.get -> float
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MinIntrinsicWidth.get -> float
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver) -> void
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool softWrap) -> void
+AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool softWrap, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList) -> void
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.MultiParagraphIntrinsics(AndroidX.Compose.UI.Text.AnnotatedString! annotatedString, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader) -> void
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsics.Placeholders.get -> System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>!
 AndroidX.Compose.UI.Text.MultiParagraphIntrinsicsKt
@@ -626,10 +638,12 @@ AndroidX.Compose.UI.Text.ParagraphStyle.GetLineBreak() -> int
 AndroidX.Compose.UI.Text.ParagraphStyle.GetTextAlign() -> int
 AndroidX.Compose.UI.Text.ParagraphStyle.GetTextDirection() -> int
 AndroidX.Compose.UI.Text.ParagraphStyle.Hyphens.get -> AndroidX.Compose.UI.Text.Style.Hyphens?
+AndroidX.Compose.UI.Text.ParagraphStyle.InterfaceConsts
 AndroidX.Compose.UI.Text.ParagraphStyle.LineBreak.get -> AndroidX.Compose.UI.Text.Style.LineBreak?
 AndroidX.Compose.UI.Text.ParagraphStyle.LineHeight.get -> long
 AndroidX.Compose.UI.Text.ParagraphStyle.LineHeightStyle.get -> AndroidX.Compose.UI.Text.Style.LineHeightStyle?
 AndroidX.Compose.UI.Text.ParagraphStyle.Merge(AndroidX.Compose.UI.Text.ParagraphStyle? other) -> AndroidX.Compose.UI.Text.ParagraphStyle!
+AndroidX.Compose.UI.Text.ParagraphStyle.ParagraphStyle() -> void
 AndroidX.Compose.UI.Text.ParagraphStyle.PlatformStyle.get -> AndroidX.Compose.UI.Text.PlatformParagraphStyle?
 AndroidX.Compose.UI.Text.ParagraphStyle.Plus(AndroidX.Compose.UI.Text.ParagraphStyle! other) -> AndroidX.Compose.UI.Text.ParagraphStyle!
 AndroidX.Compose.UI.Text.ParagraphStyle.TextAlign.get -> AndroidX.Compose.UI.Text.Style.TextAlign?
@@ -706,6 +720,7 @@ AndroidX.Compose.UI.Text.SpanStyle.FontSize.get -> long
 AndroidX.Compose.UI.Text.SpanStyle.FontStyle.get -> AndroidX.Compose.UI.Text.Font.FontStyle?
 AndroidX.Compose.UI.Text.SpanStyle.FontSynthesis.get -> AndroidX.Compose.UI.Text.Font.FontSynthesis?
 AndroidX.Compose.UI.Text.SpanStyle.FontWeight.get -> AndroidX.Compose.UI.Text.Font.FontWeight?
+AndroidX.Compose.UI.Text.SpanStyle.InterfaceConsts
 AndroidX.Compose.UI.Text.SpanStyle.LetterSpacing.get -> long
 AndroidX.Compose.UI.Text.SpanStyle.LocaleList.get -> AndroidX.Compose.UI.Text.Intl.LocaleList?
 AndroidX.Compose.UI.Text.SpanStyle.Merge(AndroidX.Compose.UI.Text.SpanStyle? other) -> AndroidX.Compose.UI.Text.SpanStyle!
@@ -716,6 +731,7 @@ AndroidX.Compose.UI.Text.SpanStyle.TextDecoration.get -> AndroidX.Compose.UI.Tex
 AndroidX.Compose.UI.Text.SpanStyle.TextGeometricTransform.get -> AndroidX.Compose.UI.Text.Style.TextGeometricTransform?
 AndroidX.Compose.UI.Text.SpanStyleKt
 AndroidX.Compose.UI.Text.StringAnnotation
+AndroidX.Compose.UI.Text.StringAnnotation.InterfaceConsts
 AndroidX.Compose.UI.Text.StringAnnotation.Value.get -> string!
 AndroidX.Compose.UI.Text.StringAnnotationKt
 AndroidX.Compose.UI.Text.StringKt
@@ -768,6 +784,7 @@ AndroidX.Compose.UI.Text.Style.LineHeightStyle.Alignment.Companion.Bottom_PIaL0Z
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Alignment.Companion.Center_PIaL0Z0.get -> float
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Alignment.Companion.Proportional_PIaL0Z0.get -> float
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Alignment.Companion.Top_PIaL0Z0.get -> float
+AndroidX.Compose.UI.Text.Style.LineHeightStyle.Alignment.TopRatio.get -> float
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Companion
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Companion.Default.get -> AndroidX.Compose.UI.Text.Style.LineHeightStyle!
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Copy(float alignment, int trim, int mode) -> AndroidX.Compose.UI.Text.Style.LineHeightStyle!
@@ -778,6 +795,7 @@ AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode.Companion
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode.Companion.Fixed_lzQqcRY.get -> int
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode.Companion.Minimum_lzQqcRY.get -> int
+AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode.Companion.PerLine_lzQqcRY.get -> int
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Mode.Companion.Tight_lzQqcRY.get -> int
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Trim
 AndroidX.Compose.UI.Text.Style.LineHeightStyle.Trim.Companion
@@ -835,6 +853,7 @@ AndroidX.Compose.UI.Text.Style.TextIndent.Companion.None.get -> AndroidX.Compose
 AndroidX.Compose.UI.Text.Style.TextIndent.Copy(long firstLine, long restLine) -> AndroidX.Compose.UI.Text.Style.TextIndent!
 AndroidX.Compose.UI.Text.Style.TextIndent.FirstLine.get -> long
 AndroidX.Compose.UI.Text.Style.TextIndent.RestLine.get -> long
+AndroidX.Compose.UI.Text.Style.TextIndent.TextIndent() -> void
 AndroidX.Compose.UI.Text.Style.TextIndentKt
 AndroidX.Compose.UI.Text.Style.TextMotion
 AndroidX.Compose.UI.Text.Style.TextMotion.Companion
@@ -860,6 +879,7 @@ AndroidX.Compose.UI.Text.TextInclusionStrategyConsts
 AndroidX.Compose.UI.Text.TextLayoutInput
 AndroidX.Compose.UI.Text.TextLayoutInput.Constraints.get -> long
 AndroidX.Compose.UI.Text.TextLayoutInput.Copy(AndroidX.Compose.UI.Text.AnnotatedString! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, int maxLines, bool softWrap, int overflow, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader, long constraints) -> AndroidX.Compose.UI.Text.TextLayoutInput!
+AndroidX.Compose.UI.Text.TextLayoutInput.DefaultLocaleList.get -> AndroidX.Compose.UI.Text.Intl.LocaleList!
 AndroidX.Compose.UI.Text.TextLayoutInput.Density.get -> AndroidX.Compose.UI.Unit.IDensity!
 AndroidX.Compose.UI.Text.TextLayoutInput.FontFamilyResolver.get -> AndroidX.Compose.UI.Text.Font.FontFamily.IResolver!
 AndroidX.Compose.UI.Text.TextLayoutInput.LayoutDirection.get -> AndroidX.Compose.UI.Unit.LayoutDirection!
@@ -905,8 +925,9 @@ AndroidX.Compose.UI.Text.TextLinkStyles.Style.get -> AndroidX.Compose.UI.Text.Sp
 AndroidX.Compose.UI.Text.TextLinkStyles.TextLinkStyles() -> void
 AndroidX.Compose.UI.Text.TextLinkStyles.TextLinkStyles(AndroidX.Compose.UI.Text.SpanStyle? style, AndroidX.Compose.UI.Text.SpanStyle? focusedStyle, AndroidX.Compose.UI.Text.SpanStyle? hoveredStyle, AndroidX.Compose.UI.Text.SpanStyle? pressedStyle) -> void
 AndroidX.Compose.UI.Text.TextMeasurer
-AndroidX.Compose.UI.Text.TextMeasurer.Measure(AndroidX.Compose.UI.Text.AnnotatedString! text, AndroidX.Compose.UI.Text.TextStyle! style, int overflow, bool softWrap, int maxLines, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, long constraints, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool skipCache) -> AndroidX.Compose.UI.Text.TextLayoutResult!
-AndroidX.Compose.UI.Text.TextMeasurer.Measure(string! text, AndroidX.Compose.UI.Text.TextStyle! style, int overflow, bool softWrap, int maxLines, long constraints, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool skipCache) -> AndroidX.Compose.UI.Text.TextLayoutResult!
+AndroidX.Compose.UI.Text.TextMeasurer.Measure(AndroidX.Compose.UI.Text.AnnotatedString! text, AndroidX.Compose.UI.Text.TextStyle! style, int overflow, bool softWrap, int maxLines, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, long constraints, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool skipCache, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList) -> AndroidX.Compose.UI.Text.TextLayoutResult!
+AndroidX.Compose.UI.Text.TextMeasurer.Measure(string! text, AndroidX.Compose.UI.Text.TextStyle! style, int overflow, bool softWrap, int maxLines, long constraints, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, bool skipCache, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList) -> AndroidX.Compose.UI.Text.TextLayoutResult!
+AndroidX.Compose.UI.Text.TextMeasurer.TextMeasurer(AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! defaultFontFamilyResolver, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList, AndroidX.Compose.UI.Unit.IDensity! defaultDensity, AndroidX.Compose.UI.Unit.LayoutDirection! defaultLayoutDirection, int cacheSize) -> void
 AndroidX.Compose.UI.Text.TextMeasurer.TextMeasurer(AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! defaultFontFamilyResolver, AndroidX.Compose.UI.Unit.IDensity! defaultDensity, AndroidX.Compose.UI.Unit.LayoutDirection! defaultLayoutDirection, int cacheSize) -> void
 AndroidX.Compose.UI.Text.TextMeasurerKt
 AndroidX.Compose.UI.Text.TextPainter
@@ -965,8 +986,10 @@ AndroidX.Compose.UI.Text.TextStyle.ToSpanStyle() -> AndroidX.Compose.UI.Text.Spa
 AndroidX.Compose.UI.Text.TextStyleKt
 AndroidX.Compose.UI.Text.TextStyleKt.WhenMappings
 AndroidX.Compose.UI.Text.TtsAnnotation
+AndroidX.Compose.UI.Text.TtsAnnotation.InterfaceConsts
 AndroidX.Compose.UI.Text.TtsAnnotation.TtsAnnotation(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Compose.UI.Text.UrlAnnotation
+AndroidX.Compose.UI.Text.UrlAnnotation.InterfaceConsts
 AndroidX.Compose.UI.Text.UrlAnnotation.Url.get -> string!
 AndroidX.Compose.UI.Text.UrlAnnotation.UrlAnnotation(string! url) -> void
 AndroidX.Compose.UI.Text.VerbatimTtsAnnotation
@@ -1006,6 +1029,7 @@ override AndroidX.Compose.UI.Text.Android.TextLayout_androidKt.JniPeerMembers.ge
 override AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AndroidParagraph_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AnnotatedString.Builder.BulletScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AnnotatedString.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.AnnotatedString.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1235,12 +1259,17 @@ static AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.IsSingleLineLineHeight
 static AndroidX.Compose.UI.Text.AndroidComposeUiTextFlags.IsSingleLineLineHeightOptimizationEnabled.set -> void
 static AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.Lerp(AndroidX.Compose.UI.Text.PlatformParagraphStyle! start, AndroidX.Compose.UI.Text.PlatformParagraphStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.PlatformParagraphStyle!
 static AndroidX.Compose.UI.Text.AndroidTextStyle_androidKt.Lerp(AndroidX.Compose.UI.Text.PlatformSpanStyle! start, AndroidX.Compose.UI.Text.PlatformSpanStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.PlatformSpanStyle!
+static AndroidX.Compose.UI.Text.AnnotatedString.Annotation.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.AnnotatedString(string! text, AndroidX.Compose.UI.Text.ParagraphStyle! paragraphStyle) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.AnnotatedString(string! text, AndroidX.Compose.UI.Text.SpanStyle! spanStyle, AndroidX.Compose.UI.Text.ParagraphStyle? paragraphStyle) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.BuildAnnotatedString(Kotlin.Jvm.Functions.IFunction1! builder) -> AndroidX.Compose.UI.Text.AnnotatedString!
+static AndroidX.Compose.UI.Text.AnnotatedStringKt.Capitalize(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.Capitalize(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> AndroidX.Compose.UI.Text.AnnotatedString!
+static AndroidX.Compose.UI.Text.AnnotatedStringKt.Decapitalize(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.Decapitalize(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> AndroidX.Compose.UI.Text.AnnotatedString!
+static AndroidX.Compose.UI.Text.AnnotatedStringKt.ToLowerCase(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.ToLowerCase(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> AndroidX.Compose.UI.Text.AnnotatedString!
+static AndroidX.Compose.UI.Text.AnnotatedStringKt.ToUpperCase(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.ToUpperCase(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithAnnotation(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.TtsAnnotation! ttsAnnotation, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithAnnotation(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.UrlAnnotation! urlAnnotation, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
@@ -1248,6 +1277,7 @@ static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithAnnotation(AndroidX.Compos
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithLink(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.LinkAnnotation! link, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithStyle(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.ParagraphStyle! style, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
 static AndroidX.Compose.UI.Text.AnnotatedStringKt.WithStyle(AndroidX.Compose.UI.Text.AnnotatedString.Builder! obj, AndroidX.Compose.UI.Text.SpanStyle! style, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
+static AndroidX.Compose.UI.Text.Bullet.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.Font.AndroidFont.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.Font.FontCompanion!
 static AndroidX.Compose.UI.Text.Font.AndroidFontKt.Font(Android.OS.ParcelFileDescriptor! fileDescriptor, AndroidX.Compose.UI.Text.Font.FontWeight! weight, int style, AndroidX.Compose.UI.Text.Font.FontVariation.Settings! variationSettings) -> AndroidX.Compose.UI.Text.Font.IFont!
 static AndroidX.Compose.UI.Text.Font.AndroidFontKt.Font(Java.IO.File! file, AndroidX.Compose.UI.Text.Font.FontWeight! weight, int style, AndroidX.Compose.UI.Text.Font.FontVariation.Settings! variationSettings) -> AndroidX.Compose.UI.Text.Font.IFont!
@@ -1281,20 +1311,26 @@ static AndroidX.Compose.UI.Text.Input.TextFieldValueKt.GetSelectedText(AndroidX.
 static AndroidX.Compose.UI.Text.Input.TextFieldValueKt.GetTextAfterSelection(AndroidX.Compose.UI.Text.Input.TextFieldValue! obj, int maxChars) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.Input.TextFieldValueKt.GetTextBeforeSelection(AndroidX.Compose.UI.Text.Input.TextFieldValue! obj, int maxChars) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Text.Input.VisualTransformation.Companion.get -> AndroidX.Compose.UI.Text.Input.VisualTransformationCompanion!
+static AndroidX.Compose.UI.Text.LinkAnnotation.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, bool softWrap) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
+static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! annotations, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, bool softWrap, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphIntrinsicsKt.ParagraphIntrinsics(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader) -> AndroidX.Compose.UI.Text.IParagraphIntrinsics!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(AndroidX.Compose.UI.Text.IParagraphIntrinsics! paragraphIntrinsics, int maxLines, bool ellipsis, float width) -> AndroidX.Compose.UI.Text.IParagraph!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(AndroidX.Compose.UI.Text.IParagraphIntrinsics! paragraphIntrinsics, long constraints, int maxLines, int overflow) -> AndroidX.Compose.UI.Text.IParagraph!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(string! text, AndroidX.Compose.UI.Text.TextStyle! style, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, int maxLines, bool ellipsis, float width, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.IFontResourceLoader! resourceLoader) -> AndroidX.Compose.UI.Text.IParagraph!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(string! text, AndroidX.Compose.UI.Text.TextStyle! style, float width, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, int maxLines, bool ellipsis) -> AndroidX.Compose.UI.Text.IParagraph!
+static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(string! text, AndroidX.Compose.UI.Text.TextStyle! style, long constraints, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, AndroidX.Compose.UI.Text.Intl.LocaleList! defaultLocaleList, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, int maxLines, int overflow) -> AndroidX.Compose.UI.Text.IParagraph!
 static AndroidX.Compose.UI.Text.ParagraphKt.Paragraph(string! text, AndroidX.Compose.UI.Text.TextStyle! style, long constraints, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! spanStyles, System.Collections.Generic.IList<AndroidX.Compose.UI.Text.AnnotatedString.Range!>! placeholders, int maxLines, int overflow) -> AndroidX.Compose.UI.Text.IParagraph!
+static AndroidX.Compose.UI.Text.ParagraphStyle.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.ParagraphStyleKt.Lerp(AndroidX.Compose.UI.Text.ParagraphStyle! start, AndroidX.Compose.UI.Text.ParagraphStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.ParagraphStyle!
 static AndroidX.Compose.UI.Text.Platform.AndroidAccessibilitySpannableString_androidKt.ToAccessibilitySpannableString(AndroidX.Compose.UI.Text.AnnotatedString! obj, AndroidX.Compose.UI.Unit.IDensity! density, AndroidX.Compose.UI.Text.Font.FontFamily.IResolver! fontFamilyResolver, AndroidX.Compose.UI.Text.Platform.URLSpanCache! urlSpanCache) -> Android.Text.SpannableString!
 static AndroidX.Compose.UI.Text.Platform.Extensions.TtsAnnotationExtensions_androidKt.ToSpan(AndroidX.Compose.UI.Text.TtsAnnotation! obj) -> Android.Text.Style.TtsSpan!
 static AndroidX.Compose.UI.Text.Platform.Extensions.TtsAnnotationExtensions_androidKt.ToSpan(AndroidX.Compose.UI.Text.VerbatimTtsAnnotation! obj) -> Android.Text.Style.TtsSpan!
+static AndroidX.Compose.UI.Text.SpanStyle.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.SpanStyleKt.Lerp(AndroidX.Compose.UI.Text.SpanStyle! start, AndroidX.Compose.UI.Text.SpanStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.SpanStyle!
+static AndroidX.Compose.UI.Text.StringAnnotation.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 static AndroidX.Compose.UI.Text.StringKt.Capitalize(string! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> string!
 static AndroidX.Compose.UI.Text.StringKt.Capitalize(string! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> string!
 static AndroidX.Compose.UI.Text.StringKt.Decapitalize(string! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> string!
@@ -1303,6 +1339,7 @@ static AndroidX.Compose.UI.Text.StringKt.ToLowerCase(string! obj, AndroidX.Compo
 static AndroidX.Compose.UI.Text.StringKt.ToLowerCase(string! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> string!
 static AndroidX.Compose.UI.Text.StringKt.ToUpperCase(string! obj, AndroidX.Compose.UI.Text.Intl.Locale! locale) -> string!
 static AndroidX.Compose.UI.Text.StringKt.ToUpperCase(string! obj, AndroidX.Compose.UI.Text.Intl.LocaleList! localeList) -> string!
+static AndroidX.Compose.UI.Text.Style.BaselineShiftKt.IsApplicable(float obj) -> bool
 static AndroidX.Compose.UI.Text.Style.BaselineShiftKt.IsSpecified(float obj) -> bool
 static AndroidX.Compose.UI.Text.Style.BaselineShiftKt.Lerp(float start, float stop, float fraction) -> float
 static AndroidX.Compose.UI.Text.Style.BaselineShiftKt.TakeOrElse(float obj, Kotlin.Jvm.Functions.IFunction0! block) -> float
@@ -1339,5 +1376,7 @@ static AndroidX.Compose.UI.Text.TextRangeKt.TextRange(int index) -> long
 static AndroidX.Compose.UI.Text.TextRangeKt.TextRange(int start, int end) -> long
 static AndroidX.Compose.UI.Text.TextStyleKt.Lerp(AndroidX.Compose.UI.Text.TextStyle! start, AndroidX.Compose.UI.Text.TextStyle! stop, float fraction) -> AndroidX.Compose.UI.Text.TextStyle!
 static AndroidX.Compose.UI.Text.TextStyleKt.ResolveDefaults(AndroidX.Compose.UI.Text.TextStyle! style, AndroidX.Compose.UI.Unit.LayoutDirection! direction) -> AndroidX.Compose.UI.Text.TextStyle!
+static AndroidX.Compose.UI.Text.TtsAnnotation.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
+static AndroidX.Compose.UI.Text.UrlAnnotation.InterfaceConsts.Companion.get -> AndroidX.Compose.UI.Text.AnnotatedString.AnnotationCompanion!
 virtual AndroidX.Compose.UI.Text.Input.TextInputService.StartInput(AndroidX.Compose.UI.Text.Input.TextFieldValue! value, AndroidX.Compose.UI.Text.Input.ImeOptions! imeOptions, Kotlin.Jvm.Functions.IFunction1! onEditCommand, Kotlin.Jvm.Functions.IFunction1! onImeActionPerformed) -> AndroidX.Compose.UI.Text.Input.TextInputSession!
 virtual AndroidX.Compose.UI.Text.Input.TextInputService.StopInput(AndroidX.Compose.UI.Text.Input.TextInputSession! session) -> void

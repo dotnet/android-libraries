@@ -1,4 +1,9 @@
 <metadata>
+    <!-- Redeclare the typed getter to avoid untyped marshaling of the inherited ImageWrapper method. -->
+    <attr
+        path="/api/package[@name='androidx.camera.core']/interface[@name='ImageProxy']/method[@name='getImagePlanes' and count(parameter)=0]"
+        name="abstract">true</attr>
+
     <!-- Preserve non-standard namespace remapping -->
     <attr 
         path="/api/package[@name='androidx.camera.core.internal.compat']" 

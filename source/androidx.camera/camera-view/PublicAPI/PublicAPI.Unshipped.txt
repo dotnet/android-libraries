@@ -175,6 +175,8 @@ static AndroidX.Camera.View.PreviewView.StreamState.ValueOf(string? name) -> And
 static AndroidX.Camera.View.PreviewView.StreamState.Values() -> AndroidX.Camera.View.PreviewView.StreamState![]?
 static AndroidX.Camera.View.Video.AudioConfig.AudioDisabled.get -> AndroidX.Camera.View.Video.AudioConfig?
 static AndroidX.Camera.View.Video.AudioConfig.Create(bool enableAudio) -> AndroidX.Camera.View.Video.AudioConfig?
+virtual AndroidX.Camera.View.CameraController.AutoRotationEnabled.get -> bool
+virtual AndroidX.Camera.View.CameraController.AutoRotationEnabled.set -> void
 virtual AndroidX.Camera.View.CameraController.BoundSessionConfig.get -> AndroidX.Camera.Core.SessionConfig?
 virtual AndroidX.Camera.View.CameraController.CameraControl.get -> AndroidX.Camera.Core.ICameraControl?
 virtual AndroidX.Camera.View.CameraController.CameraInfo.get -> AndroidX.Camera.Core.ICameraInfo?
@@ -182,7 +184,6 @@ virtual AndroidX.Camera.View.CameraController.CameraSelector.get -> AndroidX.Cam
 virtual AndroidX.Camera.View.CameraController.CameraSelector.set -> void
 virtual AndroidX.Camera.View.CameraController.ClearEffects() -> void
 virtual AndroidX.Camera.View.CameraController.ClearImageAnalysisAnalyzer() -> void
-virtual AndroidX.Camera.View.CameraController.CreateUseCaseGroup(bool checkPreviewViewAttached) -> AndroidX.Camera.Core.UseCaseGroup?
 virtual AndroidX.Camera.View.CameraController.EnableTorch(bool torchEnabled) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.View.CameraController.HasCamera(AndroidX.Camera.Core.CameraSelector? cameraSelector) -> bool
 virtual AndroidX.Camera.View.CameraController.ImageAnalysisBackgroundExecutor.get -> Java.Util.Concurrent.IExecutor?
@@ -228,6 +229,7 @@ virtual AndroidX.Camera.View.CameraController.SetLinearZoom(float linearZoom) ->
 virtual AndroidX.Camera.View.CameraController.SetScreenFlashUiInfo(AndroidX.Camera.View.Internal.ScreenFlashUiInfo? screenFlashUiInfo) -> void
 virtual AndroidX.Camera.View.CameraController.SetSessionConfig(AndroidX.Camera.Core.SessionConfig? sessionConfig, AndroidX.Camera.Core.CameraSelector? cameraSelector) -> void
 virtual AndroidX.Camera.View.CameraController.SetTapToFocusAutoCancelDuration(long duration, Java.Util.Concurrent.TimeUnit? timeUnit) -> void
+virtual AndroidX.Camera.View.CameraController.SetVideoCaptureMuxerFactory(AndroidX.Camera.Video.Internal.Muxer.IMuxerFactory? muxerFactory) -> void
 virtual AndroidX.Camera.View.CameraController.SetZoomRatio(float zoomRatio) -> Google.Common.Util.Concurrent.IListenableFuture?
 virtual AndroidX.Camera.View.CameraController.StartRecording(AndroidX.Camera.Video.FileDescriptorOutputOptions? outputOptions, AndroidX.Camera.View.Video.AudioConfig? audioConfig, Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? listener) -> AndroidX.Camera.Video.Recording?
 virtual AndroidX.Camera.View.CameraController.StartRecording(AndroidX.Camera.Video.FileOutputOptions? outputOptions, AndroidX.Camera.View.Video.AudioConfig? audioConfig, Java.Util.Concurrent.IExecutor? executor, AndroidX.Core.Util.IConsumer? listener) -> AndroidX.Camera.Video.Recording?

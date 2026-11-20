@@ -14,4 +14,9 @@
         name="propertyName"
         ></attr>
         
+    <!-- Bundled shaded Guava is an uploader implementation detail, not a Crashlytics API. -->
+    <remove-node path="/api/package[starts-with(@name,'com.google.uploader.shaded.guava.')]" />
+    <attr
+        path="/api/package[@name='com.google.uploader.client']/class[@name='HttpUrlConnectionHttpClient.SSLConnectionFactoryImpl']/method[@name='createConnection' and count(parameter)=1]"
+        name="return">java.net.HttpURLConnection</attr>
 </metadata>
