@@ -2,10 +2,22 @@
 AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo
 AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.IOutputConfigurationMirrorMode
 AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfoKt
+AndroidX.Camera.Viewfinder.Core.FocusState
+AndroidX.Camera.Viewfinder.Core.FocusStateValueAttribute
+AndroidX.Camera.Viewfinder.Core.FocusStateValueAttribute.FocusStateValueAttribute() -> void
+AndroidX.Camera.Viewfinder.Core.FrameRenderedEventArgs
+AndroidX.Camera.Viewfinder.Core.FrameRenderedEventArgs.FrameRenderedEventArgs(long timestampNanos) -> void
+AndroidX.Camera.Viewfinder.Core.FrameRenderedEventArgs.TimestampNanos.get -> long
+AndroidX.Camera.Viewfinder.Core.IFocusStateValue
+AndroidX.Camera.Viewfinder.Core.IFrameRenderedListener
+AndroidX.Camera.Viewfinder.Core.IFrameRenderedListener.OnFrameRendered(long timestampNanos) -> void
+AndroidX.Camera.Viewfinder.Core.ITransformationModeValue
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSession
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSession.Request.get -> AndroidX.Camera.Viewfinder.Core.ViewfinderSurfaceRequest!
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSession.Surface.get -> Android.Views.Surface!
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSessionScope
+AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSessionScope.AddFrameRenderedListener(Java.Util.Concurrent.IExecutor! executor, AndroidX.Camera.Viewfinder.Core.IFrameRenderedListener! listener) -> void
+AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSessionScope.RemoveFrameRenderedListener(AndroidX.Camera.Viewfinder.Core.IFrameRenderedListener! listener) -> void
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSessionScope.Request.get -> AndroidX.Camera.Viewfinder.Core.ViewfinderSurfaceRequest!
 AndroidX.Camera.Viewfinder.Core.IViewfinderSurfaceSessionScope.Surface.get -> Android.Views.Surface!
 AndroidX.Camera.Viewfinder.Core.Impl.IAlignment
@@ -92,6 +104,11 @@ AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationInfo(int source
 AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationInfo(int sourceRotation, bool isSourceMirroredHorizontally, bool isSourceMirroredVertically, float cropRectLeft, float cropRectTop) -> void
 AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationInfo(int sourceRotation, bool isSourceMirroredHorizontally, bool isSourceMirroredVertically, float cropRectLeft, float cropRectTop, float cropRectRight) -> void
 AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationInfo(int sourceRotation, bool isSourceMirroredHorizontally, bool isSourceMirroredVertically, float cropRectLeft, float cropRectTop, float cropRectRight, float cropRectBottom) -> void
+AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationInfo(int sourceRotation, bool isSourceMirroredHorizontally, bool isSourceMirroredVertically, float cropRectLeft, float cropRectTop, float cropRectRight, float cropRectBottom, int transformationMode) -> void
+AndroidX.Camera.Viewfinder.Core.TransformationInfo.TransformationMode.get -> int
+AndroidX.Camera.Viewfinder.Core.TransformationMode
+AndroidX.Camera.Viewfinder.Core.TransformationModeValueAttribute
+AndroidX.Camera.Viewfinder.Core.TransformationModeValueAttribute.TransformationModeValueAttribute() -> void
 AndroidX.Camera.Viewfinder.Core.ViewfinderDefaults
 AndroidX.Camera.Viewfinder.Core.ViewfinderSurfaceRequest
 AndroidX.Camera.Viewfinder.Core.ViewfinderSurfaceRequest.Height.get -> int
@@ -132,9 +149,17 @@ AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomGestureEventArgs.Handled
 AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomGestureEventArgs.Handled.set -> void
 AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomGestureEventArgs.ZoomEvent.get -> AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomEvent!
 AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomGestureEventArgs.ZoomGestureEventArgs(bool handled, AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.ZoomEvent! zoomEvent) -> void
+const AndroidX.Camera.Viewfinder.Core.FocusState.Failed = 4 -> int
+const AndroidX.Camera.Viewfinder.Core.FocusState.Focused = 2 -> int
+const AndroidX.Camera.Viewfinder.Core.FocusState.Inactive = 0 -> int
+const AndroidX.Camera.Viewfinder.Core.FocusState.NotFocused = 3 -> int
+const AndroidX.Camera.Viewfinder.Core.FocusState.Started = 1 -> int
 const AndroidX.Camera.Viewfinder.Core.TransformationInfo.CropNone = NaN -> float
+const AndroidX.Camera.Viewfinder.Core.TransformationMode.Deferred = 0 -> int
+const AndroidX.Camera.Viewfinder.Core.TransformationMode.PreApplied = 1 -> int
 override AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfoKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Viewfinder.Core.FocusState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.Impl.ImplementationModeCompat.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.Impl.ImplementationModeCompat.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.Impl.OffsetF.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -153,6 +178,7 @@ override AndroidX.Camera.Viewfinder.Core.ScaleType.JniPeerMembers.get -> Java.In
 override AndroidX.Camera.Viewfinder.Core.ScaleTypeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.TransformationInfo.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.TransformationInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Viewfinder.Core.TransformationMode.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.ViewfinderDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.ViewfinderSurfaceRequest.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Viewfinder.Core.ZoomGestureDetector.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -174,6 +200,7 @@ static AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.CreateF
 static AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.CreateFromCharacteristics(Android.Hardware.Camera2.CameraCharacteristics! cameraCharacteristics, int mirrorMode, float cropRectLeft, float cropRectTop, float cropRectRight) -> AndroidX.Camera.Viewfinder.Core.TransformationInfo!
 static AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.CreateFromCharacteristics(Android.Hardware.Camera2.CameraCharacteristics! cameraCharacteristics, int mirrorMode, float cropRectLeft, float cropRectTop, float cropRectRight, float cropRectBottom) -> AndroidX.Camera.Viewfinder.Core.TransformationInfo!
 static AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo.Instance.get -> AndroidX.Camera.Viewfinder.Core.Camera2.Camera2TransformationInfo!
+static AndroidX.Camera.Viewfinder.Core.FocusState.Instance.get -> AndroidX.Camera.Viewfinder.Core.FocusState!
 static AndroidX.Camera.Viewfinder.Core.Impl.ImplementationModeCompat.ChooseCompatibleMode() -> AndroidX.Camera.Viewfinder.Core.ImplementationMode!
 static AndroidX.Camera.Viewfinder.Core.Impl.PixelCopyCompat.Companion.get -> AndroidX.Camera.Viewfinder.Core.Impl.PixelCopyCompatCompanion!
 static AndroidX.Camera.Viewfinder.Core.Impl.PixelCopyCompat.Request(Android.Views.Surface! source, Android.Graphics.Bitmap! dest, Java.Util.Concurrent.IExecutor! executor, AndroidX.Core.Util.IConsumer! listener) -> void
@@ -207,5 +234,6 @@ static AndroidX.Camera.Viewfinder.Core.ScaleType.FromId(int id) -> AndroidX.Came
 static AndroidX.Camera.Viewfinder.Core.ScaleType.ValueOf(string? value) -> AndroidX.Camera.Viewfinder.Core.ScaleType?
 static AndroidX.Camera.Viewfinder.Core.ScaleType.Values() -> AndroidX.Camera.Viewfinder.Core.ScaleType![]?
 static AndroidX.Camera.Viewfinder.Core.TransformationInfo.Default.get -> AndroidX.Camera.Viewfinder.Core.TransformationInfo!
+static AndroidX.Camera.Viewfinder.Core.TransformationMode.Instance.get -> AndroidX.Camera.Viewfinder.Core.TransformationMode!
 static AndroidX.Camera.Viewfinder.Core.ViewfinderDefaults.ImplementationMode.get -> AndroidX.Camera.Viewfinder.Core.ImplementationMode!
 static AndroidX.Camera.Viewfinder.Core.ViewfinderDefaults.Instance.get -> AndroidX.Camera.Viewfinder.Core.ViewfinderDefaults!

@@ -1,6 +1,6 @@
 ﻿#nullable enable
 AndroidX.Heifwriter.AvifEncoder
-AndroidX.Heifwriter.AvifEncoder.AvifEncoder(int width, int height, bool useGrid, int quality, int inputMode, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
+AndroidX.Heifwriter.AvifEncoder.AvifEncoder(int width, int height, bool useGrid, int quality, int inputMode, AndroidX.Heifwriter.EncoderPreference? preference, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
 AndroidX.Heifwriter.AvifWriter
 AndroidX.Heifwriter.AvifWriter.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
 AndroidX.Heifwriter.AvifWriter.AddExifData(int imageIndex, byte[]? exifData, int offset, int length) -> void
@@ -9,6 +9,7 @@ AndroidX.Heifwriter.AvifWriter.Builder
 AndroidX.Heifwriter.AvifWriter.Builder.Build() -> AndroidX.Heifwriter.AvifWriter?
 AndroidX.Heifwriter.AvifWriter.Builder.Builder(Java.IO.FileDescriptor? fd, int width, int height, int inputMode) -> void
 AndroidX.Heifwriter.AvifWriter.Builder.Builder(string? path, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.AvifWriter.Builder.SetEncoderPreference(AndroidX.Heifwriter.EncoderPreference? preference) -> AndroidX.Heifwriter.AvifWriter.Builder?
 AndroidX.Heifwriter.AvifWriter.Builder.SetGridEnabled(bool gridEnabled) -> AndroidX.Heifwriter.AvifWriter.Builder?
 AndroidX.Heifwriter.AvifWriter.Builder.SetHandler(Android.OS.Handler? handler) -> AndroidX.Heifwriter.AvifWriter.Builder?
 AndroidX.Heifwriter.AvifWriter.Builder.SetHighBitDepthEnabled(bool highBitDepthEnabled) -> AndroidX.Heifwriter.AvifWriter.Builder?
@@ -26,7 +27,7 @@ AndroidX.Heifwriter.EncoderBase.Callback
 AndroidX.Heifwriter.EncoderBase.Callback.Callback() -> void
 AndroidX.Heifwriter.EncoderBase.Callback.Callback(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Heifwriter.EncoderBase.EncoderBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Heifwriter.EncoderBase.EncoderBase(string? mimeType, int width, int height, bool useGrid, int quality, int inputMode, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
+AndroidX.Heifwriter.EncoderBase.EncoderBase(string? mimeType, int width, int height, bool useGrid, int quality, int inputMode, AndroidX.Heifwriter.EncoderPreference? preference, Android.OS.Handler? handler, AndroidX.Heifwriter.EncoderBase.Callback? cb, bool useBitDepth10) -> void
 AndroidX.Heifwriter.EncoderBase.IInputMode
 AndroidX.Heifwriter.EncoderBase.MCallback.get -> AndroidX.Heifwriter.EncoderBase.Callback?
 AndroidX.Heifwriter.EncoderBase.MCallback.set -> void
@@ -40,6 +41,15 @@ AndroidX.Heifwriter.EncoderBase.MGridWidth.get -> int
 AndroidX.Heifwriter.EncoderBase.MGridWidth.set -> void
 AndroidX.Heifwriter.EncoderBase.MHeight.get -> int
 AndroidX.Heifwriter.EncoderBase.MHeight.set -> void
+AndroidX.Heifwriter.EncoderPreference
+AndroidX.Heifwriter.EncoderPreference.Builder
+AndroidX.Heifwriter.EncoderPreference.Builder.Build() -> AndroidX.Heifwriter.EncoderPreference?
+AndroidX.Heifwriter.EncoderPreference.Builder.Builder() -> void
+AndroidX.Heifwriter.EncoderPreference.Builder.SetBitrateMode(int bitrateMode) -> AndroidX.Heifwriter.EncoderPreference.Builder?
+AndroidX.Heifwriter.EncoderPreference.Builder.SetEncoderType(int encoderType) -> AndroidX.Heifwriter.EncoderPreference.Builder?
+AndroidX.Heifwriter.EncoderPreference.EncoderPreference(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Heifwriter.EncoderPreference.IBitrateMode
+AndroidX.Heifwriter.EncoderPreference.IEncoderType
 AndroidX.Heifwriter.HeifWriter
 AndroidX.Heifwriter.HeifWriter.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
 AndroidX.Heifwriter.HeifWriter.AddExifData(int imageIndex, byte[]? exifData, int offset, int length) -> void
@@ -48,6 +58,7 @@ AndroidX.Heifwriter.HeifWriter.Builder
 AndroidX.Heifwriter.HeifWriter.Builder.Build() -> AndroidX.Heifwriter.HeifWriter?
 AndroidX.Heifwriter.HeifWriter.Builder.Builder(Java.IO.FileDescriptor? fd, int width, int height, int inputMode) -> void
 AndroidX.Heifwriter.HeifWriter.Builder.Builder(string? path, int width, int height, int inputMode) -> void
+AndroidX.Heifwriter.HeifWriter.Builder.SetEncoderPreference(AndroidX.Heifwriter.EncoderPreference? preference) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetGridEnabled(bool gridEnabled) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetHandler(Android.OS.Handler? handler) -> AndroidX.Heifwriter.HeifWriter.Builder?
 AndroidX.Heifwriter.HeifWriter.Builder.SetMaxImages(int maxImages) -> AndroidX.Heifwriter.HeifWriter.Builder?
@@ -81,7 +92,7 @@ AndroidX.Heifwriter.WriterBase.MPrimaryIndex.get -> int
 AndroidX.Heifwriter.WriterBase.MPrimaryIndex.set -> void
 AndroidX.Heifwriter.WriterBase.MRotation.get -> int
 AndroidX.Heifwriter.WriterBase.MRotation.set -> void
-AndroidX.Heifwriter.WriterBase.WriterBase(int rotation, int inputMode, int maxImages, int primaryIndex, bool gridEnabled, int quality, Android.OS.Handler? handler, bool highBitDepthEnabled) -> void
+AndroidX.Heifwriter.WriterBase.WriterBase(int rotation, int inputMode, int maxImages, int primaryIndex, bool gridEnabled, int quality, AndroidX.Heifwriter.EncoderPreference? preference, Android.OS.Handler? handler, bool highBitDepthEnabled) -> void
 AndroidX.Heifwriter.WriterBase.WriterBase(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Heifwriter.WriterBase.WriterCallback
 AndroidX.Heifwriter.WriterBase.WriterCallback.WriterCallback(AndroidX.Heifwriter.WriterBase? __self) -> void
@@ -96,6 +107,13 @@ const AndroidX.Heifwriter.AvifWriter.InputModeSurface = 1 -> int
 const AndroidX.Heifwriter.EncoderBase.InputModeBitmap = 2 -> int
 const AndroidX.Heifwriter.EncoderBase.InputModeBuffer = 0 -> int
 const AndroidX.Heifwriter.EncoderBase.InputModeSurface = 1 -> int
+const AndroidX.Heifwriter.EncoderPreference.ConstantQualityModeOnly = 1 -> int
+const AndroidX.Heifwriter.EncoderPreference.ConstantQualityModePreferred = 0 -> int
+const AndroidX.Heifwriter.EncoderPreference.HardwareEncoderOnly = 1 -> int
+const AndroidX.Heifwriter.EncoderPreference.HardwareEncoderPreferred = 2 -> int
+const AndroidX.Heifwriter.EncoderPreference.NoEncoderPreference = 0 -> int
+const AndroidX.Heifwriter.EncoderPreference.SoftwareEncoderOnly = 3 -> int
+const AndroidX.Heifwriter.EncoderPreference.SoftwareEncoderPreferred = 4 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeBitmap = 2 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeBuffer = 0 -> int
 const AndroidX.Heifwriter.HeifWriter.InputModeSurface = 1 -> int
@@ -111,6 +129,10 @@ override AndroidX.Heifwriter.EncoderBase.Callback.ThresholdType.get -> System.Ty
 override AndroidX.Heifwriter.EncoderBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Heifwriter.EncoderBase.ThresholdClass.get -> nint
 override AndroidX.Heifwriter.EncoderBase.ThresholdType.get -> System.Type!
+override AndroidX.Heifwriter.EncoderPreference.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.EncoderPreference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Heifwriter.EncoderPreference.ThresholdClass.get -> nint
+override AndroidX.Heifwriter.EncoderPreference.ThresholdType.get -> System.Type!
 override AndroidX.Heifwriter.HeifWriter.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Heifwriter.HeifWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Heifwriter.WriterBase.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -123,6 +145,7 @@ override AndroidX.Heifwriter.WriterBase.WriterCallback.OnError(AndroidX.Heifwrit
 override AndroidX.Heifwriter.WriterBase.WriterCallback.OnOutputFormatChanged(AndroidX.Heifwriter.EncoderBase? encoder, Android.Media.MediaFormat? format) -> void
 override AndroidX.Heifwriter.WriterBase.WriterCallback.ThresholdClass.get -> nint
 override AndroidX.Heifwriter.WriterBase.WriterCallback.ThresholdType.get -> System.Type!
+static AndroidX.Heifwriter.EncoderPreference.DefaultEncoderPreference.get -> AndroidX.Heifwriter.EncoderPreference?
 virtual AndroidX.Heifwriter.EncoderBase.AddBitmap(Android.Graphics.Bitmap? bitmap) -> void
 virtual AndroidX.Heifwriter.EncoderBase.AddYuvBuffer(int format, byte[]? data) -> void
 virtual AndroidX.Heifwriter.EncoderBase.Close() -> void
@@ -132,7 +155,10 @@ virtual AndroidX.Heifwriter.EncoderBase.OnFrameAvailable(Android.Graphics.Surfac
 virtual AndroidX.Heifwriter.EncoderBase.SetEndOfInputStreamTimestamp(long timestampNs) -> void
 virtual AndroidX.Heifwriter.EncoderBase.Start() -> void
 virtual AndroidX.Heifwriter.EncoderBase.StopAsync() -> void
+virtual AndroidX.Heifwriter.EncoderPreference.BitrateMode.get -> int
+virtual AndroidX.Heifwriter.EncoderPreference.EncoderType.get -> int
 virtual AndroidX.Heifwriter.WriterBase.Close() -> void
+virtual AndroidX.Heifwriter.WriterBase.EncoderPreference.get -> AndroidX.Heifwriter.EncoderPreference?
 virtual AndroidX.Heifwriter.WriterBase.Handler.get -> Android.OS.Handler?
 virtual AndroidX.Heifwriter.WriterBase.IsGridEnabled.get -> bool
 virtual AndroidX.Heifwriter.WriterBase.IsHighBitDepthEnabled.get -> bool

@@ -116,4 +116,23 @@
         path="/api/package[@name='androidx.camera.camera2.impl']/class[@name='RejectOperationCameraCaptureSession']"
         />
 
+    <!-- Redeclare erased generic interface methods skipped on abstract implementers. -->
+    <add-node path="/api/package[@name='androidx.camera.camera2.interop']/class[implements[@name='androidx.camera.camera2.interop.CameraCaptureSessionInterop'] and not(method[@name='setCaptureRequestOption'])]">
+        <method name="setCaptureRequestOption" return="void" visibility="public" abstract="true" static="false" final="false">
+            <parameter name="key" type="android.hardware.camera2.CaptureRequest.Key" />
+            <parameter name="value" type="java.lang.Object" />
+        </method>
+    </add-node>
+    <add-node path="/api/package[@name='androidx.camera.camera2.interop']/class[implements[@name='androidx.camera.camera2.interop.SessionConfigurationInterop'] and not(method[@name='setSessionParameter'])]">
+        <method name="setSessionParameter" return="void" visibility="public" abstract="true" static="false" final="false">
+            <parameter name="key" type="android.hardware.camera2.CaptureRequest.Key" />
+            <parameter name="value" type="java.lang.Object" />
+        </method>
+    </add-node>
+    <add-node path="/api/package[@name='androidx.camera.camera2.interop']/class[implements[@name='androidx.camera.camera2.interop.StillCaptureInterop'] and not(method[@name='setStillCaptureRequestOption'])]">
+        <method name="setStillCaptureRequestOption" return="void" visibility="public" abstract="true" static="false" final="false">
+            <parameter name="key" type="android.hardware.camera2.CaptureRequest.Key" />
+            <parameter name="value" type="java.lang.Object" />
+        </method>
+    </add-node>
 </metadata>

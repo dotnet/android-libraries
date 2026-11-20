@@ -439,6 +439,26 @@ Google.Android.Libraries.Places.Compose.Action.MainActionStyle
 Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent
 Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Companion
 Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactKt
+Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent
+Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Companion
+Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsKt
+Google.Android.Libraries.Places.Compose.AnalyticsEvent
+Google.Android.Libraries.Places.Compose.AnalyticsEventCompanion
+Google.Android.Libraries.Places.Compose.AnalyticsEventCompanion.Create(string! componentType, System.Collections.Generic.ICollection<string!>! tags, System.Collections.Generic.IList<Google.Android.Libraries.Places.Api.Model.Place!>! places, string? contentType) -> Google.Android.Libraries.Places.Compose.IAnalyticsEvent!
+Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType
+Google.Android.Libraries.Places.Compose.AnalyticsEventConsts
+Google.Android.Libraries.Places.Compose.AnalyticsEventContentType
+Google.Android.Libraries.Places.Compose.AnalyticsEventKt
+Google.Android.Libraries.Places.Compose.AnalyticsEventTags
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.Companion.get -> Google.Android.Libraries.Places.Compose.AnalyticsEventCompanion!
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.ComponentType.get -> string!
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.ContentType.get -> string?
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.Create(string! componentType, System.Collections.Generic.ICollection<string!>! tags, System.Collections.Generic.IList<Google.Android.Libraries.Places.Api.Model.Place!>! places, string? contentType) -> Google.Android.Libraries.Places.Compose.IAnalyticsEvent!
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.Places.get -> System.Collections.Generic.IList<Google.Android.Libraries.Places.Api.Model.Place!>!
+Google.Android.Libraries.Places.Compose.IAnalyticsEvent.Tags.get -> System.Collections.Generic.ICollection<string!>!
+Google.Android.Libraries.Places.Compose.IAnalyticsHandler
+Google.Android.Libraries.Places.Compose.IAnalyticsHandler.OnEvent(Google.Android.Libraries.Places.Compose.IAnalyticsEvent! e) -> void
 Google.Android.Libraries.Places.Compose.IPlaceDetailsCompactContentSlots
 Google.Android.Libraries.Places.Compose.IPlaceDetailsCompactContentSlots.BasicSectionBottom(Kotlin.Jvm.Functions.IFunction3! p0) -> void
 Google.Android.Libraries.Places.Compose.IPlaceDetailsCompactContentSlots.BasicSectionTop(Kotlin.Jvm.Functions.IFunction3! p0) -> void
@@ -472,22 +492,37 @@ Google.Android.Libraries.Places.Compose.PlaceReferenceCoordinates.Latitude.get -
 Google.Android.Libraries.Places.Compose.PlaceReferenceCoordinates.Longitude.get -> double
 Google.Android.Libraries.Places.Compose.PlaceReferenceCoordinates.PlaceReferenceCoordinates(double latitude, double longitude) -> void
 Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId
+Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId.ContentTokens.get -> System.Collections.Generic.ICollection<string!>!
 Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId.PlaceId.get -> string!
 Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId.PlaceReferencePlaceId(string! placeId) -> void
+Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId.PlaceReferencePlaceId(string! placeId, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName
+Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName.ContentTokens.get -> System.Collections.Generic.ICollection<string!>!
 Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName.PlaceReferenceResourceName(string! resourceName) -> void
+Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName.PlaceReferenceResourceName(string! resourceName, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName.ResourceName.get -> string!
 Google.Android.Libraries.Places.Compose.Search.MediaSearchResult
 Google.Android.Libraries.Places.Compose.Search.MediaSearchResult.Count.get -> int
 Google.Android.Libraries.Places.Compose.Search.MediaSearchResult.Exception.get -> Android.Gms.Common.Apis.ApiException?
 Google.Android.Libraries.Places.Compose.Search.MediaSearchResult.MediaSearchResult(string! placeId, int count, Android.Gms.Common.Apis.ApiException? exception) -> void
 Google.Android.Libraries.Places.Compose.Search.MediaSearchResult.PlaceId.get -> string!
+Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult
+Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult.Count.get -> int
+Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult.Exception.get -> Android.Gms.Common.Apis.ApiException?
+Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult.PlaceId.get -> string!
+Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult.ReviewSearchResult(string! placeId, int count, Android.Gms.Common.Apis.ApiException? exception) -> void
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.GetRankPreference() -> Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference!
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.Query.get -> string?
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.SearchMediaOptions() -> void
 Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.SearchMediaOptions(string? query, Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference! rankPreference) -> void
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.GetRankPreference() -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.Query.get -> string?
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.SearchReviewsOptions() -> void
+Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.SearchReviewsOptions(string? query, Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference! rankPreference) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.AdvancedPlaceDetailsCompactFragment() -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.ApplySearchMediaOptions(Google.Android.Libraries.Places.Widget.Model.SearchMediaOptions? options) -> void
@@ -501,7 +536,9 @@ Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Enabl
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Failure -> System.EventHandler<Google.Android.Libraries.Places.Widget.FailureEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.LoadWithCoordinates(Android.Gms.Maps.Model.LatLng! coordinates) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.LoadWithPlaceId(string! placeId) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.LoadWithPlaceId(string! placeId, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.LoadWithResourceName(string! resourceName) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.LoadWithResourceName(string! resourceName, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.MediaResult -> System.EventHandler<Google.Android.Libraries.Places.Widget.MediaResultEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.PreferTruncation.get -> bool
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.PreferTruncation.set -> void
@@ -521,7 +558,9 @@ Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.Content
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.Failure -> System.EventHandler<Google.Android.Libraries.Places.Widget.FailureEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.LoadWithCoordinates(Android.Gms.Maps.Model.LatLng! coordinates) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.LoadWithPlaceId(string! placeId) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.LoadWithPlaceId(string! placeId, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.LoadWithResourceName(string! resourceName) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.LoadWithResourceName(string! resourceName, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.MediaResult -> System.EventHandler<Google.Android.Libraries.Places.Widget.MediaResultEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.ReviewResult -> System.EventHandler<Google.Android.Libraries.Places.Widget.ReviewResultEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsFragment.SetMediaResultListener(Google.Android.Libraries.Places.Widget.IMediaResultListener! listener) -> void
@@ -540,7 +579,9 @@ Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.Companion.NewIn
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.Companion.NewInstance(System.Collections.Generic.IList<Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.Content!>! content, Google.Android.Libraries.Places.Widget.Model.Orientation! orientation, int theme) -> Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.ConfigureFromCoordinates(System.Collections.Generic.IList<Android.Gms.Maps.Model.LatLng!>! coordinates) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.ConfigureFromPlaceIds(System.Collections.Generic.IList<string!>! placeIds) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.ConfigureFromPlaceIds(System.Collections.Generic.IList<string!>! placeIds, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.ConfigureFromResourceNames(System.Collections.Generic.IList<string!>! resourceNames) -> void
+Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.ConfigureFromResourceNames(System.Collections.Generic.IList<string!>! resourceNames, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.Content
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.MediaResult -> System.EventHandler<Google.Android.Libraries.Places.Widget.MediaResultEventArgs!>!
 Google.Android.Libraries.Places.Widget.AdvancedPlaceListFragment.MediaSize.get -> Google.Android.Libraries.Places.Widget.Model.MediaSize!
@@ -750,7 +791,9 @@ Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.EnableLightbo
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.Failure -> System.EventHandler<Google.Android.Libraries.Places.Widget.FailureEventArgs!>!
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.LoadWithCoordinates(Android.Gms.Maps.Model.LatLng! coordinates) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.LoadWithPlaceId(string! placeId) -> void
+Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.LoadWithPlaceId(string! placeId, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.LoadWithResourceName(string! resourceName) -> void
+Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.LoadWithResourceName(string! resourceName, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.PlaceDetailsCompactFragment() -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.PreferTruncation.get -> bool
 Google.Android.Libraries.Places.Widget.PlaceDetailsCompactFragment.PreferTruncation.set -> void
@@ -765,7 +808,9 @@ Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.Content
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.Failure -> System.EventHandler<Google.Android.Libraries.Places.Widget.FailureEventArgs!>!
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.LoadWithCoordinates(Android.Gms.Maps.Model.LatLng! coordinates) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.LoadWithPlaceId(string! placeId) -> void
+Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.LoadWithPlaceId(string! placeId, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.LoadWithResourceName(string! resourceName) -> void
+Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.LoadWithResourceName(string! resourceName, System.Collections.Generic.ICollection<string!>! contentTokens) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.PlaceDetailsFragment() -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.SetPlaceLoadListener(Google.Android.Libraries.Places.Widget.IPlaceLoadListener! listener) -> void
 Google.Android.Libraries.Places.Widget.PlaceDetailsFragment.Success -> System.EventHandler<Google.Android.Libraries.Places.Widget.SuccessEventArgs!>!
@@ -1873,6 +1918,42 @@ const Google.Android.Libraries.Places.Api.Net.PlacesStatusCodes.InvalidRequest =
 const Google.Android.Libraries.Places.Api.Net.PlacesStatusCodes.NotFound = 9013 -> int
 const Google.Android.Libraries.Places.Api.Net.PlacesStatusCodes.OverQueryLimit = 9010 -> int
 const Google.Android.Libraries.Places.Api.Net.PlacesStatusCodes.RequestDenied = 9011 -> int
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.AdvancedPlaceDetails = "advanced_place_details" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.AdvancedPlaceDetailsCompact = "advanced_place_details_compact" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.AdvancedPlaceList = "advanced_place_list" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.AdvancedPlaceSearch = "advanced_place_search" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.BasicPlaceAutocomplete = "basic_place_autocomplete" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.PlaceDetails = "place_details" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.PlaceDetailsCompact = "place_details_compact" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.PlaceSearch = "place_search" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.CornerActionButton = "corner_action_button" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Features = "features" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.GenerativeSummary = "generative_summary" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.MainActionButton = "main_action_button" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Media = "media" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.PhoneNumber = "phone_number" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Rating = "rating" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Review = "review" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.ReviewSummaries = "review_summaries" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Website = "website" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.AboutTab = "about_tab" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Attribution = "attribution" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.CallPlace = "call_place" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Click = "click" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Directions = "directions" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Disclosure = "disclosure" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.GenerativeSummaryMenu = "generative_summary_menu" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.LightboxMenu = "lightbox_menu" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Maps = "maps" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Media = "media" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Outbound = "outbound" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.OverviewTab = "overview_tab" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.PlaceWebsite = "place_website" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Report = "report" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Review = "review" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Reviews = "reviews" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.ReviewsMenu = "reviews_menu" -> string!
+const Google.Android.Libraries.Places.Compose.AnalyticsEventTags.ReviewsTab = "reviews_tab" -> string!
 override Google.Android.Libraries.Places.Api.Internal.Inject.Hilt.Root._PlacesSdkRoot_Info.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Api.Model.AccessibilityOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Api.Model.AccessibilityOptions.Builder.ThresholdClass.get -> nint
@@ -2240,6 +2321,14 @@ override Google.Android.Libraries.Places.Compose.Action.MainActionStyle.JniPeerM
 override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AnalyticsEventCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AnalyticsEventKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.AnalyticsEventTags.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Marker.MarkerIconNone.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Marker.MarkerIconType.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Marker.MarkerTextCustom.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2252,8 +2341,11 @@ override Google.Android.Libraries.Places.Compose.PlaceReferenceCoordinates.JniPe
 override Google.Android.Libraries.Places.Compose.PlaceReferencePlaceId.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.PlaceReferenceResourceName.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Search.MediaSearchResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.Search.ReviewSearchResult.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Content.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2697,6 +2789,7 @@ static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactConten
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.AllContent.get -> System.Collections.ICollection!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Entries.get -> Kotlin.Enums.IEnumEntries!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Media.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Name.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.OpenNowStatus.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Price.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Rating.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
@@ -2704,7 +2797,38 @@ static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactConten
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Type.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.ValueOf(string! value) -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent.Values() -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent![]!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactKt.AdvancedPlaceDetailsCompact(Google.Android.Libraries.Places.Compose.IPlaceReference! reference, AndroidX.Compose.UI.IModifier? modifier, Google.Android.Libraries.Places.Compose.Orientation? orientation, System.Collections.Generic.ICollection<Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!>? content, bool preferTruncation, bool enableLightbox, Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions? searchMediaOptions, Kotlin.Jvm.Functions.IFunction1? onMediaSearchResult, Kotlin.Jvm.Functions.IFunction1? mainActions, Kotlin.Jvm.Functions.IFunction1? cornerActions, Kotlin.Jvm.Functions.IFunction1? onPlaceLoaded, Kotlin.Jvm.Functions.IFunction1? onPlaceLoadFailed, Kotlin.Jvm.Functions.IFunction1? onClick, Kotlin.Jvm.Functions.IFunction1? slots, AndroidX.Compose.Runtime.IComposer? _composer, int p15, int _changed, int _changed1) -> void
 static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactKt.AdvancedPlaceDetailsCompact(Google.Android.Libraries.Places.Compose.IPlaceReference! reference, AndroidX.Compose.UI.IModifier? modifier, Google.Android.Libraries.Places.Compose.Orientation? orientation, System.Collections.Generic.ICollection<Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsCompactContent!>? content, bool preferTruncation, bool enableLightbox, Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions? searchMediaOptions, Kotlin.Jvm.Functions.IFunction1? onMediaSearchResult, Kotlin.Jvm.Functions.IFunction1? mainActions, Kotlin.Jvm.Functions.IFunction1? cornerActions, Kotlin.Jvm.Functions.IFunction1? onPlaceLoaded, Kotlin.Jvm.Functions.IFunction1? onPlaceLoadFailed, Kotlin.Jvm.Functions.IFunction1? slots, AndroidX.Compose.Runtime.IComposer? _composer, int p14, int _changed, int _changed1) -> void
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.AccessibleEntranceIcon.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Address.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.AllContent.get -> System.Collections.ICollection!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Features.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.GenerativeSummary.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Media.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Name.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.OpenNowStatus.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.OpeningHours.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.PhoneNumber.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.PlusCode.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Price.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Rating.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Reviews.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.StandardContent.get -> System.Collections.ICollection!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Summary.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Type.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.TypeSpecificHighlights.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.ValueOf(string! value) -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Values() -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent![]!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent.Website.get -> Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!
+static Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsKt.AdvancedPlaceDetails(Google.Android.Libraries.Places.Compose.IPlaceReference! reference, AndroidX.Compose.UI.IModifier? modifier, Google.Android.Libraries.Places.Compose.Orientation? orientation, System.Collections.Generic.ICollection<Google.Android.Libraries.Places.Compose.AdvancedPlaceDetailsContent!>? content, Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions? searchReviewsOptions, Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions? searchMediaOptions, Kotlin.Jvm.Functions.IFunction1? onReviewSearchResult, Kotlin.Jvm.Functions.IFunction1? onMediaSearchResult, Kotlin.Jvm.Functions.IFunction1? mainActions, Kotlin.Jvm.Functions.IFunction1? cornerActions, Kotlin.Jvm.Functions.IFunction1? onClick, Kotlin.Jvm.Functions.IFunction1? onPlaceLoaded, Kotlin.Jvm.Functions.IFunction1? onPlaceLoadFailed, AndroidX.Compose.Runtime.IComposer? _composer, int p14, int _changed, int _changed1) -> void
+static Google.Android.Libraries.Places.Compose.AnalyticsEvent.Companion.get -> Google.Android.Libraries.Places.Compose.AnalyticsEventCompanion!
+static Google.Android.Libraries.Places.Compose.AnalyticsEvent.Create(string! componentType, System.Collections.Generic.ICollection<string!>! tags, System.Collections.Generic.IList<Google.Android.Libraries.Places.Api.Model.Place!>! places, string? contentType) -> Google.Android.Libraries.Places.Compose.IAnalyticsEvent!
+static Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType.Instance.get -> Google.Android.Libraries.Places.Compose.AnalyticsEventComponentType!
+static Google.Android.Libraries.Places.Compose.AnalyticsEventContentType.Instance.get -> Google.Android.Libraries.Places.Compose.AnalyticsEventContentType!
+static Google.Android.Libraries.Places.Compose.AnalyticsEventKt.ProvidePlacesAnalyticsHandler(Google.Android.Libraries.Places.Compose.IAnalyticsHandler! handler, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static Google.Android.Libraries.Places.Compose.AnalyticsEventKt.Zza() -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static Google.Android.Libraries.Places.Compose.AnalyticsEventTags.Instance.get -> Google.Android.Libraries.Places.Compose.AnalyticsEventTags!
 static Google.Android.Libraries.Places.Compose.Marker.MarkerIconNone.Instance.get -> Google.Android.Libraries.Places.Compose.Marker.MarkerIconNone!
 static Google.Android.Libraries.Places.Compose.Marker.MarkerIconType.Instance.get -> Google.Android.Libraries.Places.Compose.Marker.MarkerIconType!
 static Google.Android.Libraries.Places.Compose.Marker.MarkerTextOpenStatus.Instance.get -> Google.Android.Libraries.Places.Compose.Marker.MarkerTextOpenStatus!
@@ -2724,6 +2848,14 @@ static Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPre
 static Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference.Unspecified.get -> Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference!
 static Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference.ValueOf(string! value) -> Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference!
 static Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference.Values() -> Google.Android.Libraries.Places.Compose.Search.SearchMediaOptions.RankPreference![]!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.Entries.get -> Kotlin.Enums.IEnumEntries!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.HighestRating.get -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.LowestRating.get -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.MostRelevant.get -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.Newest.get -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.Unspecified.get -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.ValueOf(string! value) -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference!
+static Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference.Values() -> Google.Android.Libraries.Places.Compose.Search.SearchReviewsOptions.RankPreference![]!
 static Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.AllContent.get -> System.Collections.IList!
 static Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Content.AccessibleEntranceIcon.get -> Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Content!
 static Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Content.Address.get -> Google.Android.Libraries.Places.Widget.AdvancedPlaceDetailsCompactFragment.Content!
