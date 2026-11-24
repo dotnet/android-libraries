@@ -137,20 +137,19 @@ public class TestAllIndividualPackages
 	}
 
 	[Test]
-	public void ListenableFuture9999HasNoJar ()
+	public void ListenableFuture9999 ()
 	{
 		var package = Directory.GetFiles (Path.Combine (base_dir, "output"), "Xamarin.Google.Guava.ListenableFuture.9999.*.nupkg").Single ();
 		using var archive = ZipFile.OpenRead (package);
 
+		// guava.jar already contains ListenableFuture
 		Assert.That (archive.Entries.Select (e => e.Name), Has.None.EndsWith (".jar").And.None.EndsWith (".aar"));
-	}
 
-	[Test]
-	public void ListenableFuture9999UsesJavaInteropInvokers ()
-	{
-		var assembly = Directory.GetFiles (Path.Combine (base_dir, "source", "com.google.guava", "listenablefuture-empty", "bin", configuration),
-			"Xamarin.Google.Guava.ListenableFuture.dll", SearchOption.AllDirectories).Single ();
-		using var reader = new PEReader (File.OpenRead (assembly));
+		using var dll = new MemoryStream ();
+		using (var entry = archive.Entries.Single (e => e.Name == "Xamarin.Google.Guava.ListenableFuture.dll").Open ())
+			entry.CopyTo (dll);
+		dll.Position = 0;
+		using var reader = new PEReader (dll);
 		var metadata = reader.GetMetadataReader ();
 		var methods = metadata.MemberReferences.Select (h => metadata.GetString (metadata.GetMemberReference (h).Name)).ToArray ();
 

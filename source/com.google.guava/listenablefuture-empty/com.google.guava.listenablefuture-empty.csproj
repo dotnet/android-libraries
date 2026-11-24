@@ -20,4 +20,9 @@
     <Compile Include="..\..\AssemblyInfo.cs" />
     <None Include="..\..\..\build\icon.png" Pack="true" PackagePath="icon.png" />
   </ItemGroup>
+
+  <!-- nuget-diff.cake: compare with 9999.0.0, not the 1.0.0.x package with the same ID -->
+  <Target Name="_WriteBaseVersion" AfterTargets="Pack">
+    <WriteLinesToFile File="$([MSBuild]::EnsureTrailingSlash('$(PackageOutputPath)'))$(PackageId).$(PackageVersion).nupkg.baseversion" Lines="9999.0.0" Overwrite="true" />
+  </Target>
 </Project>
