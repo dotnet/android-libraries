@@ -73,6 +73,7 @@ AndroidX.Compose.Animation.Core.AnimationVector4D.V3.get -> float
 AndroidX.Compose.Animation.Core.AnimationVector4D.V4.get -> float
 AndroidX.Compose.Animation.Core.AnimationVectorsKt
 AndroidX.Compose.Animation.Core.ArcAnimationSpec
+AndroidX.Compose.Animation.Core.ArcAnimationSpec.ArcAnimationSpec() -> void
 AndroidX.Compose.Animation.Core.ArcAnimationSpec.DelayMillis.get -> int
 AndroidX.Compose.Animation.Core.ArcAnimationSpec.DurationMillis.get -> int
 AndroidX.Compose.Animation.Core.ArcAnimationSpec.Easing.get -> AndroidX.Compose.Animation.Core.IEasing!
@@ -104,6 +105,7 @@ AndroidX.Compose.Animation.Core.DeferredTargetAnimation.DeferredTargetAnimation(
 AndroidX.Compose.Animation.Core.DeferredTargetAnimation.IsIdle.get -> bool
 AndroidX.Compose.Animation.Core.DeferredTargetAnimation.PendingTarget.get -> Java.Lang.Object?
 AndroidX.Compose.Animation.Core.DeferredTargetAnimation.UpdateTarget(Java.Lang.Object? target, Xamarin.KotlinX.Coroutines.ICoroutineScope! coroutineScope, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec) -> Java.Lang.Object?
+AndroidX.Compose.Animation.Core.DeferredTargetAnimation.Value.get -> Java.Lang.Object?
 AndroidX.Compose.Animation.Core.DeferredTransition
 AndroidX.Compose.Animation.Core.DeferredTransitionState
 AndroidX.Compose.Animation.Core.DeferredTransitionState.AnimateTo(Java.Lang.Object? targetState) -> void
@@ -116,8 +118,6 @@ AndroidX.Compose.Animation.Core.EasingFunctionsKt
 AndroidX.Compose.Animation.Core.EasingKt
 AndroidX.Compose.Animation.Core.ExperimentalAnimationSpecApiAttribute
 AndroidX.Compose.Animation.Core.ExperimentalAnimationSpecApiAttribute.ExperimentalAnimationSpecApiAttribute() -> void
-AndroidX.Compose.Animation.Core.ExperimentalDeferredTransitionApiAttribute
-AndroidX.Compose.Animation.Core.ExperimentalDeferredTransitionApiAttribute.ExperimentalDeferredTransitionApiAttribute() -> void
 AndroidX.Compose.Animation.Core.ExperimentalTransitionApiAttribute
 AndroidX.Compose.Animation.Core.ExperimentalTransitionApiAttribute.ExperimentalTransitionApiAttribute() -> void
 AndroidX.Compose.Animation.Core.FloatAnimationSpecDefaultImpls
@@ -161,7 +161,6 @@ AndroidX.Compose.Animation.Core.IDurationBasedAnimationSpec
 AndroidX.Compose.Animation.Core.IEasing
 AndroidX.Compose.Animation.Core.IEasing.Transform(float fraction) -> float
 AndroidX.Compose.Animation.Core.IExperimentalAnimationSpecApi
-AndroidX.Compose.Animation.Core.IExperimentalDeferredTransitionApi
 AndroidX.Compose.Animation.Core.IExperimentalTransitionApi
 AndroidX.Compose.Animation.Core.IFiniteAnimationSpec
 AndroidX.Compose.Animation.Core.IFloatAnimationSpec
@@ -290,6 +289,10 @@ AndroidX.Compose.Animation.Core.TargetBasedAnimation.IsInfinite.get -> bool
 AndroidX.Compose.Animation.Core.TargetBasedAnimation.TargetBasedAnimation(AndroidX.Compose.Animation.Core.IAnimationSpec! animationSpec, AndroidX.Compose.Animation.Core.ITwoWayConverter! typeConverter, Java.Lang.Object? initialValue, Java.Lang.Object? targetValue, Java.Lang.Object? initialVelocityVector) -> void
 AndroidX.Compose.Animation.Core.TargetBasedAnimation.TargetValue.get -> Java.Lang.Object?
 AndroidX.Compose.Animation.Core.TargetBasedAnimation.TypeConverter.get -> AndroidX.Compose.Animation.Core.ITwoWayConverter!
+AndroidX.Compose.Animation.Core.Tooling.IAnimateValueAsStateToolingHandle
+AndroidX.Compose.Animation.Core.Tooling.IAnimateValueAsStateToolingHandle.Animatable.get -> AndroidX.Compose.Animation.Core.Animatable!
+AndroidX.Compose.Animation.Core.Tooling.IAnimateValueAsStateToolingHandle.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IAnimationSpec!
+AndroidX.Compose.Animation.Core.Tooling.IAnimateValueAsStateToolingHandle.SetToolingOverrideState(AndroidX.Compose.Runtime.IState? toolingOverrideState) -> void
 AndroidX.Compose.Animation.Core.Transition
 AndroidX.Compose.Animation.Core.Transition.CurrentState.get -> Java.Lang.Object?
 AndroidX.Compose.Animation.Core.Transition.DeferredAnimation
@@ -602,7 +605,7 @@ static AndroidX.Compose.Animation.Core.TransitionKt.AnimateIntSize(AndroidX.Comp
 static AndroidX.Compose.Animation.Core.TransitionKt.AnimateValue(AndroidX.Compose.Animation.Core.Transition! obj, AndroidX.Compose.Animation.Core.ITwoWayConverter! typeConverter, Kotlin.Jvm.Functions.IFunction3? transitionSpec, string? label, Kotlin.Jvm.Functions.IFunction3! targetValueByState, AndroidX.Compose.Runtime.IComposer? _composer, int p6, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Animation.Core.TransitionKt.CreateChildTransition(AndroidX.Compose.Animation.Core.Transition! obj, string? label, Kotlin.Jvm.Functions.IFunction3! transformToChildState, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Animation.Core.Transition!
 static AndroidX.Compose.Animation.Core.TransitionKt.CreateDeferredAnimation(AndroidX.Compose.Animation.Core.Transition! obj, AndroidX.Compose.Animation.Core.ITwoWayConverter! typeConverter, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Animation.Core.Transition.DeferredAnimation!
-static AndroidX.Compose.Animation.Core.TransitionKt.RememberTransition(AndroidX.Compose.Animation.Core.DeferredTransitionState! transitionState, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Animation.Core.DeferredTransition!
+static AndroidX.Compose.Animation.Core.TransitionKt.RememberDeferredTransition(AndroidX.Compose.Animation.Core.DeferredTransitionState! transitionState, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Animation.Core.DeferredTransition!
 static AndroidX.Compose.Animation.Core.TransitionKt.RememberTransition(AndroidX.Compose.Animation.Core.TransitionState! transitionState, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Animation.Core.Transition!
 static AndroidX.Compose.Animation.Core.TransitionKt.UpdateTransition(AndroidX.Compose.Animation.Core.MutableTransitionState! transitionState, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Animation.Core.Transition!
 static AndroidX.Compose.Animation.Core.TransitionKt.UpdateTransition(Java.Lang.Object? targetState, string? label, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Animation.Core.Transition!
@@ -621,6 +624,5 @@ static AndroidX.Compose.Animation.Core.VisibilityThresholdsKt.GetVisibilityThres
 static AndroidX.Compose.Animation.Core.VisibilityThresholdsKt.GetVisibilityThreshold(AndroidX.Compose.UI.Unit.DpOffset.Companion! obj) -> long
 static AndroidX.Compose.Animation.Core.VisibilityThresholdsKt.GetVisibilityThreshold(AndroidX.Compose.UI.Unit.IntOffset.Companion! obj) -> long
 static AndroidX.Compose.Animation.Core.VisibilityThresholdsKt.GetVisibilityThreshold(AndroidX.Compose.UI.Unit.IntSize.Companion! obj) -> long
-static AndroidX.Compose.Animation.Core.VisibilityThresholdsKt.VisibilityThresholdMap.get -> System.Collections.Generic.IDictionary<AndroidX.Compose.Animation.Core.ITwoWayConverter!, Java.Lang.Float!>!
 virtual AndroidX.Compose.Animation.Core.KeyframesSpecBaseConfig.At(Java.Lang.Object? _this_at, int timeStamp) -> Java.Lang.Object!
 virtual AndroidX.Compose.Animation.Core.KeyframesSpecBaseConfig.AtFraction(Java.Lang.Object? _this_atFraction, float fraction) -> Java.Lang.Object!

@@ -76,6 +76,12 @@ AndroidX.Compose.Runtime.ComposableInferredTargetAttribute
 AndroidX.Compose.Runtime.ComposableInferredTargetAttribute.ComposableInferredTargetAttribute() -> void
 AndroidX.Compose.Runtime.ComposableInferredTargetAttribute.Scheme.get -> string?
 AndroidX.Compose.Runtime.ComposableInferredTargetAttribute.Scheme.set -> void
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute.ComposableInferredTargetConstraintsAttribute() -> void
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute.Indexed.get -> string?
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute.Indexed.set -> void
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute.Positional.get -> string?
+AndroidX.Compose.Runtime.ComposableInferredTargetConstraintsAttribute.Positional.set -> void
 AndroidX.Compose.Runtime.ComposableOpenTargetAttribute
 AndroidX.Compose.Runtime.ComposableOpenTargetAttribute.ComposableOpenTargetAttribute() -> void
 AndroidX.Compose.Runtime.ComposableOpenTargetAttribute.Index.get -> int
@@ -115,6 +121,7 @@ AndroidX.Compose.Runtime.CompositionLocalMapCompanion
 AndroidX.Compose.Runtime.CompositionLocalMapCompanion.Empty.get -> AndroidX.Compose.Runtime.ICompositionLocalMap!
 AndroidX.Compose.Runtime.CompositionLocalMapConsts
 AndroidX.Compose.Runtime.CompositionLocalMapKt
+AndroidX.Compose.Runtime.ComputedStateKt
 AndroidX.Compose.Runtime.DisallowComposableCallsAttribute
 AndroidX.Compose.Runtime.DisallowComposableCallsAttribute.DisallowComposableCallsAttribute() -> void
 AndroidX.Compose.Runtime.DisposableEffectScope
@@ -159,10 +166,15 @@ AndroidX.Compose.Runtime.ICancellationHandle.Companion.get -> AndroidX.Compose.R
 AndroidX.Compose.Runtime.IComposable
 AndroidX.Compose.Runtime.IComposableInferredTarget
 AndroidX.Compose.Runtime.IComposableInferredTarget.Scheme() -> string?
+AndroidX.Compose.Runtime.IComposableInferredTargetConstraints
+AndroidX.Compose.Runtime.IComposableInferredTargetConstraints.Indexed() -> string?
+AndroidX.Compose.Runtime.IComposableInferredTargetConstraints.Positional() -> string?
 AndroidX.Compose.Runtime.IComposableOpenTarget
 AndroidX.Compose.Runtime.IComposableOpenTarget.Index() -> int
 AndroidX.Compose.Runtime.IComposableTarget
 AndroidX.Compose.Runtime.IComposableTarget.Applier() -> string?
+AndroidX.Compose.Runtime.IComposableTargetContainer
+AndroidX.Compose.Runtime.IComposableTargetContainer.Value() -> AndroidX.Compose.Runtime.IComposableTarget![]?
 AndroidX.Compose.Runtime.IComposableTargetMarker
 AndroidX.Compose.Runtime.IComposableTargetMarker.Description() -> string?
 AndroidX.Compose.Runtime.IComposeCompilerApi
@@ -526,6 +538,7 @@ AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyAttribute
 AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyAttribute.AutoboxingStateValuePropertyAttribute() -> void
 AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyAttribute.PreferredPropertyName.get -> string?
 AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyAttribute.PreferredPropertyName.set -> void
+AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyDefaultImpls
 AndroidX.Compose.Runtime.Snapshots.IAutoboxingStateValueProperty
 AndroidX.Compose.Runtime.Snapshots.IAutoboxingStateValueProperty.PreferredPropertyName() -> string?
 AndroidX.Compose.Runtime.Snapshots.IObserverHandle
@@ -538,6 +551,7 @@ AndroidX.Compose.Runtime.Snapshots.IStateObject
 AndroidX.Compose.Runtime.Snapshots.IStateObject.FirstStateRecord.get -> AndroidX.Compose.Runtime.Snapshots.StateRecord!
 AndroidX.Compose.Runtime.Snapshots.IStateObject.MergeRecords(AndroidX.Compose.Runtime.Snapshots.StateRecord! previous, AndroidX.Compose.Runtime.Snapshots.StateRecord! current, AndroidX.Compose.Runtime.Snapshots.StateRecord! applied) -> AndroidX.Compose.Runtime.Snapshots.StateRecord?
 AndroidX.Compose.Runtime.Snapshots.IStateObject.PrependStateRecord(AndroidX.Compose.Runtime.Snapshots.StateRecord! value) -> void
+AndroidX.Compose.Runtime.Snapshots.IndirectStateKt
 AndroidX.Compose.Runtime.Snapshots.ListUtilsKt
 AndroidX.Compose.Runtime.Snapshots.Snapshot
 AndroidX.Compose.Runtime.Snapshots.Snapshot.Companion
@@ -668,6 +682,15 @@ AndroidX.Compose.Runtime.Tooling.ParameterSourceInformation.InlineClass.get -> s
 AndroidX.Compose.Runtime.Tooling.ParameterSourceInformation.Name.get -> string?
 AndroidX.Compose.Runtime.Tooling.ParameterSourceInformation.ParameterSourceInformation(int sortedIndex, string? name, string? inlineClass) -> void
 AndroidX.Compose.Runtime.Tooling.ParameterSourceInformation.SortedIndex.get -> int
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector.BeginSection(string! sectionName, System.Collections.Generic.IList<Java.Lang.Long!>! flowIds) -> void
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector.EndSection() -> void
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector.InstantEvent(string! sectionName, System.Collections.Generic.IList<Java.Lang.StackTraceElement!>! stackTrace, int id, System.Collections.Generic.IList<Java.Lang.Long!>! flowIds) -> void
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector.IsEnabled.get -> bool
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.InstallTracing(Kotlin.Coroutines.ICoroutineContext! coroutineContext) -> AndroidX.Compose.Runtime.ICancellationHandle!
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer.RecompositionTracer(AndroidX.Compose.Runtime.Tooling.RecompositionTracer.ITraceCollector! traceCollector) -> void
+AndroidX.Compose.Runtime.Tooling.RecompositionTracer_jvmAndAndroidKt
 AndroidX.Compose.Runtime.Tooling.SourceInformation
 AndroidX.Compose.Runtime.Tooling.SourceInformation.FunctionName.get -> string?
 AndroidX.Compose.Runtime.Tooling.SourceInformation.IsCall.get -> bool
@@ -720,6 +743,7 @@ override AndroidX.Compose.Runtime.CompositionLocalContext.JniPeerMembers.get -> 
 override AndroidX.Compose.Runtime.CompositionLocalKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.CompositionLocalMapCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.CompositionLocalMapKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.ComputedStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.DisposableEffectScope.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.EffectsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.External.KotlinX.Collections.Immutable.ExtensionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -791,6 +815,8 @@ override AndroidX.Compose.Runtime.SnapshotMutationPolicyDefaultImpls.JniPeerMemb
 override AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.SnapshotStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.SnapshotState_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.Snapshots.AutoboxingStateValuePropertyDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.Snapshots.IndirectStateKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Snapshots.ListUtilsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Snapshots.Snapshot.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Snapshots.Snapshot.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -833,6 +859,8 @@ override AndroidX.Compose.Runtime.Tooling.CompositionObserverKt.JniPeerMembers.g
 override AndroidX.Compose.Runtime.Tooling.InspectionTablesKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Tooling.LocationSourceInformation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Tooling.ParameterSourceInformation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.Tooling.RecompositionTracer.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Runtime.Tooling.RecompositionTracer_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Tooling.SourceInformation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Tooling.SourceInformationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Runtime.Updater.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -858,8 +886,8 @@ static AndroidX.Compose.Runtime.ComposablesKt.RememberCompositionContext(Android
 static AndroidX.Compose.Runtime.ComposablesKt.ReusableContent(Java.Lang.Object? key, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.ComposablesKt.ReusableContentHost(bool active, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.ComposeRuntimeFlags.Instance.get -> AndroidX.Compose.Runtime.ComposeRuntimeFlags!
-static AndroidX.Compose.Runtime.ComposeRuntimeFlags.IsLinkBufferComposerEnabled.get -> bool
-static AndroidX.Compose.Runtime.ComposeRuntimeFlags.IsLinkBufferComposerEnabled.set -> void
+static AndroidX.Compose.Runtime.ComposeRuntimeFlags.LinkBufferComposerEnabled.get -> bool
+static AndroidX.Compose.Runtime.ComposeRuntimeFlags.LinkBufferComposerEnabled.set -> void
 static AndroidX.Compose.Runtime.Composer.Companion.get -> AndroidX.Compose.Runtime.ComposerCompanion!
 static AndroidX.Compose.Runtime.ComposerKt.Cache(AndroidX.Compose.Runtime.IComposer! obj, bool invalid, Kotlin.Jvm.Functions.IFunction0! block) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.ComposerKt.ComposeStackTraceMode.get -> int
@@ -889,21 +917,26 @@ static AndroidX.Compose.Runtime.CompositionLocalKt.CompositionLocalProvider(Andr
 static AndroidX.Compose.Runtime.CompositionLocalKt.CompositionLocalWithComputedDefaultOf(Kotlin.Jvm.Functions.IFunction1! defaultComputation) -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Runtime.CompositionLocalKt.CompositionLocalWithHostDefaultOf(AndroidX.Compose.Runtime.IHostDefaultKey! key) -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Runtime.CompositionLocalKt.StaticCompositionLocalOf(Kotlin.Jvm.Functions.IFunction0! defaultFactory) -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.Runtime.CompositionLocalKt.StaticCompositionLocalWithComputedDefaultOf(Kotlin.Jvm.Functions.IFunction1! defaultComputation) -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Runtime.CompositionLocalKt.WithCompositionLocal(AndroidX.Compose.Runtime.ProvidedValue! value, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.CompositionLocalKt.WithCompositionLocals(AndroidX.Compose.Runtime.ProvidedValue![]! values, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.CompositionLocalMap.Companion.get -> AndroidX.Compose.Runtime.CompositionLocalMapCompanion!
+static AndroidX.Compose.Runtime.ComputedStateKt.ComputedStateOf(AndroidX.Compose.Runtime.ISnapshotMutationPolicy! policy, Kotlin.Jvm.Functions.IFunction0! calculation) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Java.Lang.Object![]! keys, Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Java.Lang.Object? key4, Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Java.Lang.Object? key1, Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.DisposableEffect(Kotlin.Jvm.Functions.IFunction1! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object![]! keys, Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Java.Lang.Object? key4, Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Java.Lang.Object? key1, Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.LaunchedEffect(Kotlin.Jvm.Functions.IFunction2! block, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.RememberCoroutineScope(Kotlin.Jvm.Functions.IFunction0? getContext, AndroidX.Compose.Runtime.IComposer? _composer, int p2, int _changed) -> Xamarin.KotlinX.Coroutines.ICoroutineScope!
 static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Java.Lang.Object![]! keys, Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
+static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Java.Lang.Object? key4, Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Java.Lang.Object? key1, Java.Lang.Object? key2, Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
 static AndroidX.Compose.Runtime.EffectsKt.SideEffect(Java.Lang.Object? key1, Kotlin.Jvm.Functions.IFunction0! effect, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> void
@@ -981,15 +1014,21 @@ static AndroidX.Compose.Runtime.SnapshotMutationPolicyDefaultImpls.Merge(Android
 static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsFloatState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.IFloatState!
 static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsIntState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.IIntState!
 static AndroidX.Compose.Runtime.SnapshotStateExtensionsKt.AsLongState(AndroidX.Compose.Runtime.IState! obj) -> AndroidX.Compose.Runtime.ILongState!
-static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectAsState, Java.Lang.Object? initial, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Runtime.IState!
-static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IStateFlow! _this_collectAsState, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.IComposer? _composer, int p3, int _changed) -> AndroidX.Compose.Runtime.IState!
-static AndroidX.Compose.Runtime.SnapshotStateKt.DerivedStateObservers() -> AndroidX.Compose.Runtime.Collection.MutableVector!
+static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IFlow! _this_collectAsState, Java.Lang.Object? initial, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.ISnapshotMutationPolicy? mutationPolicy, AndroidX.Compose.Runtime.IComposer? _composer, int p5, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.CollectAsState(Xamarin.KotlinX.Coroutines.Flow.IStateFlow! _this_collectAsState, Kotlin.Coroutines.ICoroutineContext? context, AndroidX.Compose.Runtime.ISnapshotMutationPolicy? mutationPolicy, AndroidX.Compose.Runtime.IComposer? _composer, int p4, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.DerivedStateOf(AndroidX.Compose.Runtime.ISnapshotMutationPolicy! policy, Kotlin.Jvm.Functions.IFunction0! calculation) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.DerivedStateOf(Kotlin.Jvm.Functions.IFunction0! calculation) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.GetValue(AndroidX.Compose.Runtime.IState! _this_getValue, Java.Lang.Object? thisObj, Kotlin.Reflect.IKProperty! property) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.SnapshotStateKt.MutableStateOf(Java.Lang.Object? value, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! policy) -> AndroidX.Compose.Runtime.IMutableState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.NeverEqualPolicy() -> AndroidX.Compose.Runtime.ISnapshotMutationPolicy!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object![]! keys, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object![]! keys, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Java.Lang.Object? key4, AndroidX.Compose.Runtime.ISnapshotMutationPolicy! mutationPolicy, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
+static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Java.Lang.Object? key4, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, Java.Lang.Object? key3, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Java.Lang.Object? key2, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
 static AndroidX.Compose.Runtime.SnapshotStateKt.ProduceState(Java.Lang.Object? initialValue, Java.Lang.Object? key1, Kotlin.Jvm.Functions.IFunction2! producer, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
@@ -1013,6 +1052,7 @@ static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.Lock.get -> Java.Lang.Objec
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.Readable(Java.Lang.Object! obj, AndroidX.Compose.Runtime.Snapshots.IStateObject! state) -> Java.Lang.Object!
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.Readable(Java.Lang.Object! obj, AndroidX.Compose.Runtime.Snapshots.IStateObject! state, AndroidX.Compose.Runtime.Snapshots.Snapshot! snapshot) -> Java.Lang.Object!
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.SnapshotInitializer.get -> AndroidX.Compose.Runtime.Snapshots.Snapshot!
+static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.WithCurrent(Java.Lang.Object! obj, AndroidX.Compose.Runtime.Snapshots.IStateObject! state, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.WithCurrent(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.Writable(Java.Lang.Object! obj, AndroidX.Compose.Runtime.Snapshots.IStateObject! state, AndroidX.Compose.Runtime.Snapshots.Snapshot! snapshot, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?
 static AndroidX.Compose.Runtime.Snapshots.SnapshotKt.Writable(Java.Lang.Object! obj, AndroidX.Compose.Runtime.Snapshots.IStateObject! state, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object?

@@ -14,6 +14,12 @@ AndroidX.Compose.Animation.AnimatedVisibilityKt
 AndroidX.Compose.Animation.AnimatedVisibilityScopeDefaultImpls
 AndroidX.Compose.Animation.AnimationModifierKt
 AndroidX.Compose.Animation.BoundsAnimationKt
+AndroidX.Compose.Animation.CapturedAnimatedVisibilityKt
+AndroidX.Compose.Animation.ChangeSizeConfig
+AndroidX.Compose.Animation.ChangeSizeConfig.Alignment.get -> AndroidX.Compose.UI.IAlignment!
+AndroidX.Compose.Animation.ChangeSizeConfig.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
+AndroidX.Compose.Animation.ChangeSizeConfig.Clip.get -> bool
+AndroidX.Compose.Animation.ChangeSizeConfig.Size.get -> Kotlin.Jvm.Functions.IFunction1!
 AndroidX.Compose.Animation.ColorVectorConverterKt
 AndroidX.Compose.Animation.CompositionLocalsKt
 AndroidX.Compose.Animation.ContentTransform
@@ -26,7 +32,15 @@ AndroidX.Compose.Animation.ContentTransform.TargetContentZIndex.set -> void
 AndroidX.Compose.Animation.CrossfadeKt
 AndroidX.Compose.Animation.DeferredEnterExitTransitionKt
 AndroidX.Compose.Animation.EnterExitState
+AndroidX.Compose.Animation.EnterExitTransitionConfig
+AndroidX.Compose.Animation.EnterExitTransitionConfig.ChangeSize.get -> AndroidX.Compose.Animation.ChangeSizeConfig?
+AndroidX.Compose.Animation.EnterExitTransitionConfig.EnterExitTransitionConfig() -> void
+AndroidX.Compose.Animation.EnterExitTransitionConfig.Fade.get -> AndroidX.Compose.Animation.FadeConfig?
+AndroidX.Compose.Animation.EnterExitTransitionConfig.Scale.get -> AndroidX.Compose.Animation.ScaleConfig?
+AndroidX.Compose.Animation.EnterExitTransitionConfig.Slide.get -> AndroidX.Compose.Animation.SlideConfig?
+AndroidX.Compose.Animation.EnterExitTransitionConfig.Veil.get -> AndroidX.Compose.Animation.VeilConfig?
 AndroidX.Compose.Animation.EnterExitTransitionKt
+AndroidX.Compose.Animation.EnterExitTransitionKt.WhenMappings
 AndroidX.Compose.Animation.EnterTransition
 AndroidX.Compose.Animation.EnterTransition.Companion
 AndroidX.Compose.Animation.EnterTransition.Companion.None.get -> AndroidX.Compose.Animation.EnterTransition!
@@ -43,6 +57,9 @@ AndroidX.Compose.Animation.ExperimentalLookaheadAnimationVisualDebugApiAttribute
 AndroidX.Compose.Animation.ExperimentalLookaheadAnimationVisualDebugApiAttribute.ExperimentalLookaheadAnimationVisualDebugApiAttribute() -> void
 AndroidX.Compose.Animation.ExperimentalSharedTransitionApiAttribute
 AndroidX.Compose.Animation.ExperimentalSharedTransitionApiAttribute.ExperimentalSharedTransitionApiAttribute() -> void
+AndroidX.Compose.Animation.FadeConfig
+AndroidX.Compose.Animation.FadeConfig.Alpha.get -> float
+AndroidX.Compose.Animation.FadeConfig.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
 AndroidX.Compose.Animation.FlingCalculatorKt
 AndroidX.Compose.Animation.IAnimatedContentScope
 AndroidX.Compose.Animation.IAnimatedContentTransitionScope
@@ -103,6 +120,10 @@ AndroidX.Compose.Animation.MutableContentTransform.TargetContentTransform(Kotlin
 AndroidX.Compose.Animation.MutableTransform
 AndroidX.Compose.Animation.MutableTransform.MutableTransform() -> void
 AndroidX.Compose.Animation.MutableTransform.Update(Kotlin.Jvm.Functions.IFunction2! block) -> void
+AndroidX.Compose.Animation.ScaleConfig
+AndroidX.Compose.Animation.ScaleConfig.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
+AndroidX.Compose.Animation.ScaleConfig.Scale.get -> float
+AndroidX.Compose.Animation.ScaleConfig.TransformOrigin.get -> long
 AndroidX.Compose.Animation.SharedContentNodeKt
 AndroidX.Compose.Animation.SharedElementKt
 AndroidX.Compose.Animation.SharedTransitionDefaults
@@ -128,6 +149,9 @@ AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState.PrepareTransi
 AndroidX.Compose.Animation.SharedTransitionStateMachineKt
 AndroidX.Compose.Animation.SingleValueAnimationKt
 AndroidX.Compose.Animation.SkipToLookaheadSizeNodeKt
+AndroidX.Compose.Animation.SlideConfig
+AndroidX.Compose.Animation.SlideConfig.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
+AndroidX.Compose.Animation.SlideConfig.SlideOffset.get -> Kotlin.Jvm.Functions.IFunction1!
 AndroidX.Compose.Animation.SplineBasedDecayKt
 AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec
 AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec.AbsVelocityThreshold.get -> float
@@ -138,6 +162,13 @@ AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec.GetVelocityFromNan
 AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec.SplineBasedFloatDecayAnimationSpec(AndroidX.Compose.UI.Unit.IDensity! density) -> void
 AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec_androidKt
 AndroidX.Compose.Animation.TransitionKt
+AndroidX.Compose.Animation.VeilConfig
+AndroidX.Compose.Animation.VeilConfig.AnimationSpec.get -> AndroidX.Compose.Animation.Core.IFiniteAnimationSpec!
+AndroidX.Compose.Animation.VeilConfig.InitialColor.get -> long
+AndroidX.Compose.Animation.VeilConfig.MatchParentSize.get -> bool
+AndroidX.Compose.Animation.VeilConfig.TargetColor.get -> long
+abstract AndroidX.Compose.Animation.EnterTransition.Config.get -> AndroidX.Compose.Animation.EnterExitTransitionConfig!
+abstract AndroidX.Compose.Animation.ExitTransition.Config.get -> AndroidX.Compose.Animation.EnterExitTransitionConfig!
 override AndroidX.Compose.Animation.AndroidActualDefaultDecayAnimationSpec_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.AnimateBoundsModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.AnimatedContentKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -147,13 +178,17 @@ override AndroidX.Compose.Animation.AnimatedVisibilityKt.JniPeerMembers.get -> J
 override AndroidX.Compose.Animation.AnimatedVisibilityScopeDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.AnimationModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.BoundsAnimationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.CapturedAnimatedVisibilityKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.ChangeSizeConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.ColorVectorConverterKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.CompositionLocalsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.ContentTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.CrossfadeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.DeferredEnterExitTransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterExitState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.EnterExitTransitionConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterExitTransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.EnterExitTransitionKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterTransition.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterTransition.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.EnterTransition.ThresholdClass.get -> nint
@@ -162,11 +197,13 @@ override AndroidX.Compose.Animation.ExitTransition.Companion.JniPeerMembers.get 
 override AndroidX.Compose.Animation.ExitTransition.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.ExitTransition.ThresholdClass.get -> nint
 override AndroidX.Compose.Animation.ExitTransition.ThresholdType.get -> System.Type!
+override AndroidX.Compose.Animation.FadeConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.FlingCalculatorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.LookaheadAnimationVisualDebugHelperKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.MutableContentTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.MutableTransform.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.ScaleConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedContentNodeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedElementKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SharedTransitionDefaults.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -178,10 +215,12 @@ override AndroidX.Compose.Animation.SharedTransitionScopeSharedContentState.JniP
 override AndroidX.Compose.Animation.SharedTransitionStateMachineKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SingleValueAnimationKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SkipToLookaheadSizeNodeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.SlideConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SplineBasedDecayKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.SplineBasedFloatDecayAnimationSpec_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.Animation.TransitionKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.Animation.VeilConfig.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 static AndroidX.Compose.Animation.AndroidActualDefaultDecayAnimationSpec_androidKt.DefaultDecayAnimationSpec(AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Animation.Core.IDecayAnimationSpec!
 static AndroidX.Compose.Animation.AnimateBoundsModifierKt.AnimateBounds(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.UI.Layout.ILookaheadScope! lookaheadScope, AndroidX.Compose.UI.IModifier! modifier, AndroidX.Compose.Animation.IBoundsTransform! boundsTransform, bool animateMotionFrameOfReference) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.Animation.AnimatedContentKt.AnimatedContent(AndroidX.Compose.Animation.Core.Transition! obj, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction1? transitionSpec, AndroidX.Compose.UI.IAlignment? contentAlignment, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
@@ -189,7 +228,6 @@ static AndroidX.Compose.Animation.AnimatedContentKt.AnimatedContent(Java.Lang.Ob
 static AndroidX.Compose.Animation.AnimatedContentKt.DeferredAnimatedContent(AndroidX.Compose.Animation.Core.DeferredTransition! obj, AndroidX.Compose.UI.IModifier? modifier, Kotlin.Jvm.Functions.IFunction1? transitionSpec, AndroidX.Compose.UI.IAlignment? contentAlignment, Kotlin.Jvm.Functions.IFunction1? contentKey, Kotlin.Jvm.Functions.IFunction1? mutableTransformSpec, Kotlin.Jvm.Functions.IFunction4! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedContentKt.SizeTransform(bool clip, Kotlin.Jvm.Functions.IFunction2! sizeAnimationSpec) -> AndroidX.Compose.Animation.ISizeTransform!
 static AndroidX.Compose.Animation.AnimatedContentKt.TogetherWith(AndroidX.Compose.Animation.EnterTransition! obj, AndroidX.Compose.Animation.ExitTransition! exit) -> AndroidX.Compose.Animation.ContentTransform!
-static AndroidX.Compose.Animation.AnimatedContentKt.With(AndroidX.Compose.Animation.EnterTransition! obj, AndroidX.Compose.Animation.ExitTransition! exit) -> AndroidX.Compose.Animation.ContentTransform!
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(AndroidX.Compose.Animation.Core.MutableTransitionState! visibleState, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(AndroidX.Compose.Animation.Core.Transition! obj, Kotlin.Jvm.Functions.IFunction1! visible, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
 static AndroidX.Compose.Animation.AnimatedVisibilityKt.AnimatedVisibility(AndroidX.Compose.Foundation.Layout.IColumnScope! obj, AndroidX.Compose.Animation.Core.MutableTransitionState! visibleState, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction3! content, AndroidX.Compose.Runtime.IComposer? _composer, int p8, int _changed) -> void
@@ -203,6 +241,8 @@ static AndroidX.Compose.Animation.AnimationModifierKt.AnimateContentSize(Android
 static AndroidX.Compose.Animation.AnimationModifierKt.AnimateContentSize(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction2? finishedListener) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.Animation.AnimationModifierKt.InvalidSize.get -> long
 static AndroidX.Compose.Animation.AnimationModifierKt.IsValid(long obj) -> bool
+static AndroidX.Compose.Animation.CapturedAnimatedVisibilityKt.CapturedAnimatedVisibility(AndroidX.Compose.Animation.Core.MutableTransitionState! visibleState, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
+static AndroidX.Compose.Animation.CapturedAnimatedVisibilityKt.CapturedAnimatedVisibility(bool visible, AndroidX.Compose.UI.IModifier? modifier, AndroidX.Compose.Animation.EnterTransition? enter, AndroidX.Compose.Animation.ExitTransition? exit, string? label, Kotlin.Jvm.Functions.IFunction2! content, AndroidX.Compose.Runtime.IComposer? _composer, int p7, int _changed) -> void
 static AndroidX.Compose.Animation.ColorVectorConverterKt.GetVectorConverter(AndroidX.Compose.UI.Graphics.Color.Companion! obj) -> Kotlin.Jvm.Functions.IFunction1!
 static AndroidX.Compose.Animation.CompositionLocalsKt.LocalLookaheadAnimationVisualDebugColor.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.Animation.CompositionLocalsKt.LocalLookaheadAnimationVisualDebugConfig.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
@@ -233,6 +273,7 @@ static AndroidX.Compose.Animation.EnterExitTransitionKt.SlideInVertically(Androi
 static AndroidX.Compose.Animation.EnterExitTransitionKt.SlideOut(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction1! targetOffset) -> AndroidX.Compose.Animation.ExitTransition!
 static AndroidX.Compose.Animation.EnterExitTransitionKt.SlideOutHorizontally(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction1! targetOffsetX) -> AndroidX.Compose.Animation.ExitTransition!
 static AndroidX.Compose.Animation.EnterExitTransitionKt.SlideOutVertically(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, Kotlin.Jvm.Functions.IFunction1! targetOffsetY) -> AndroidX.Compose.Animation.ExitTransition!
+static AndroidX.Compose.Animation.EnterExitTransitionKt.TransformOriginVectorConverter.get -> AndroidX.Compose.Animation.Core.ITwoWayConverter!
 static AndroidX.Compose.Animation.EnterExitTransitionKt.UnveilIn(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, long initialColor, bool matchParentSize) -> AndroidX.Compose.Animation.EnterTransition!
 static AndroidX.Compose.Animation.EnterExitTransitionKt.VeilOut(AndroidX.Compose.Animation.Core.IFiniteAnimationSpec! animationSpec, long targetColor, bool matchParentSize) -> AndroidX.Compose.Animation.ExitTransition!
 static AndroidX.Compose.Animation.IsLookaheadAnimationVisualDebuggingEnabledKt.IsLookaheadAnimationVisualDebuggingEnabled.get -> bool

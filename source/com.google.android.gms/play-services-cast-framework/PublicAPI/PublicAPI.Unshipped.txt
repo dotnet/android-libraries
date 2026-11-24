@@ -28,7 +28,9 @@ Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.Build() -> Android.Gms.C
 Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.Builder() -> void
 Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetReceiverApplicationId(string! receiverApplicationId) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
 Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetRemoteToLocalEnabled(Java.Lang.Boolean! remoteToLocalEnabled) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
+Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetSessionTransferEnabled(Java.Lang.Boolean! sessionTransferEnabled) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
 Android.Gms.Cast.Framework.CastOptions.Modifier.Builder.SetShowSystemOutputSwitcherOnCastIconClick(Java.Lang.Boolean! showSystemOutputSwitcherOnCastIconClick) -> Android.Gms.Cast.Framework.CastOptions.Modifier.Builder!
+Android.Gms.Cast.Framework.CastOptions.Modifier.ConfiguredSessionTransferEnabled.get -> Java.Lang.Boolean?
 Android.Gms.Cast.Framework.CastOptions.Modifier.ReceiverApplicationId.get -> string?
 Android.Gms.Cast.Framework.CastOptions.Modifier.RemoteToLocalEnabled.get -> Java.Lang.Boolean?
 Android.Gms.Cast.Framework.CastOptions.Modifier.ShowSystemOutputSwitcherOnCastIconClick.get -> Java.Lang.Boolean?
@@ -609,6 +611,7 @@ virtual Android.Gms.Cast.Framework.Media.MediaQueue.Callback.ItemsReorderedAtInd
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.Callback.ItemsUpdatedAtIndexes(int[]! p0) -> void
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.Callback.MediaQueueChanged() -> void
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.Callback.MediaQueueWillChange() -> void
+virtual Android.Gms.Cast.Framework.Media.MediaQueue.FetchItemsForIds(int[]! itemIds) -> void
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.FetchMoreItemsRelativeToIndex(int index, int nextCount, int prevCount) -> Android.Gms.Common.Apis.PendingResult!
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.GetItemAtIndex(int index) -> Android.Gms.Cast.MediaQueueItem?
 virtual Android.Gms.Cast.Framework.Media.MediaQueue.GetItemAtIndex(int index, bool fetchIfNeeded) -> Android.Gms.Cast.MediaQueueItem?
@@ -814,6 +817,7 @@ virtual Android.Gms.Cast.Framework.Session.IsSuspended.get -> bool
 virtual Android.Gms.Cast.Framework.Session.OnResuming(Android.OS.Bundle? p0) -> void
 virtual Android.Gms.Cast.Framework.Session.OnStarting(Android.OS.Bundle? p0) -> void
 virtual Android.Gms.Cast.Framework.Session.SessionRemainingTimeMs.get -> long
+virtual Android.Gms.Cast.Framework.Session.StartedByIntentToJoin() -> bool
 virtual Android.Gms.Cast.Framework.SessionManager.AddSessionManagerListener(Android.Gms.Cast.Framework.ISessionManagerListener! listener) -> void
 virtual Android.Gms.Cast.Framework.SessionManager.AddSessionManagerListener(Android.Gms.Cast.Framework.ISessionManagerListener! listener, Java.Lang.Class! sessionClass) -> void
 virtual Android.Gms.Cast.Framework.SessionManager.CurrentCastSession.get -> Android.Gms.Cast.Framework.CastSession?

@@ -39,6 +39,7 @@ KotlinX.Serialization.Json.Internal.AbstractJsonLexer.Path.get -> KotlinX.Serial
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.Path.set -> void
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.PeekString(bool isLenient) -> string?
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.SkipElement(bool allowLenientStrings) -> void
+KotlinX.Serialization.Json.Internal.AbstractJsonLexer.Source.get -> string?
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.TryConsumeComma() -> bool
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.TryConsumeNull(bool doConsume) -> bool
 KotlinX.Serialization.Json.Internal.AbstractJsonLexer.UnexpectedToken(char expected) -> void
@@ -154,8 +155,6 @@ KotlinX.Serialization.Json.Internal.JsonPath.PushDescriptor(KotlinX.Serializatio
 KotlinX.Serialization.Json.Internal.JsonPath.ResetCurrentMapKey() -> void
 KotlinX.Serialization.Json.Internal.JsonPath.UpdateCurrentMapKey(Java.Lang.Object? key) -> void
 KotlinX.Serialization.Json.Internal.JsonPath.UpdateDescriptorIndex(int index) -> void
-KotlinX.Serialization.Json.Internal.JsonPolymorphicHelpersKt
-KotlinX.Serialization.Json.Internal.JsonPolymorphicHelpersKt.WhenMappings
 KotlinX.Serialization.Json.Internal.JsonSerializersModuleValidator
 KotlinX.Serialization.Json.Internal.JsonSerializersModuleValidator.Contextual(Kotlin.Reflect.IKClass! kClass, Kotlin.Jvm.Functions.IFunction1! provider) -> void
 KotlinX.Serialization.Json.Internal.JsonSerializersModuleValidator.Contextual(Kotlin.Reflect.IKClass! kClass, KotlinX.Serialization.IKSerializer! serializer) -> void
@@ -184,6 +183,8 @@ KotlinX.Serialization.Json.Internal.OutputStreamJsonWriter.WriteChar(char char) 
 KotlinX.Serialization.Json.Internal.OutputStreamJsonWriter.WriteLong(long value) -> void
 KotlinX.Serialization.Json.Internal.OutputStreamJsonWriter.WriteQuoted(string! text) -> void
 KotlinX.Serialization.Json.Internal.PolymorphicJsonDecoderDefaultImpls
+KotlinX.Serialization.Json.Internal.PolymorphicKt
+KotlinX.Serialization.Json.Internal.PolymorphicKt.WhenMappings
 KotlinX.Serialization.Json.Internal.SchemaCacheKt
 KotlinX.Serialization.Json.Internal.StreamingJsonDecoder
 KotlinX.Serialization.Json.Internal.StreamingJsonDecoder.DiscriminatorHolder
@@ -412,6 +413,7 @@ abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.ConsumeNextToken(
 abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.PeekLeadingMatchingValue(string! p0, bool p1) -> string?
 abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.PrefetchOrEof(int p0) -> int
 abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.SkipWhitespaces() -> int
+abstract KotlinX.Serialization.Json.Internal.AbstractJsonLexer.SourceFormatted.get -> Java.Lang.ICharSequence!
 abstract KotlinX.Serialization.Json.JsonContentPolymorphicSerializer.SelectDeserializer(KotlinX.Serialization.Json.JsonElement! element) -> KotlinX.Serialization.IDeserializationStrategy!
 abstract KotlinX.Serialization.Json.JsonException.Hint.get -> string?
 abstract KotlinX.Serialization.Json.JsonException.ShortMessage.get -> string!
@@ -432,6 +434,7 @@ override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.JniPeerMembers.ge
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.PeekLeadingMatchingValue(string! keyToMatch, bool isLenient) -> string?
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.PrefetchOrEof(int position) -> int
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.SkipWhitespaces() -> int
+override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.SourceFormatted.get -> Java.Lang.ICharSequence!
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.ThresholdClass.get -> nint
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexer.ThresholdType.get -> System.Type!
 override KotlinX.Serialization.Json.Internal.BufferedJsonLexerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -469,8 +472,6 @@ override KotlinX.Serialization.Json.Internal.JsonIteratorKt.WhenMappings.JniPeer
 override KotlinX.Serialization.Json.Internal.JsonLexerBufferPool.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonNamesMapKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonPath.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonPolymorphicHelpersKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override KotlinX.Serialization.Json.Internal.JsonPolymorphicHelpersKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonSerializersModuleValidator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonStreamsKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.JsonTreeReader.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -479,6 +480,8 @@ override KotlinX.Serialization.Json.Internal.LexerMode.JniPeerMembers.get -> Jav
 override KotlinX.Serialization.Json.Internal.LexerModeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.OutputStreamJsonWriter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.PolymorphicJsonDecoderDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.Internal.PolymorphicKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override KotlinX.Serialization.Json.Internal.PolymorphicKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.SchemaCacheKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override KotlinX.Serialization.Json.Internal.StreamingJsonDecoder.DecodeElementIndex(KotlinX.Serialization.Descriptors.ISerialDescriptor! descriptor) -> int
 override KotlinX.Serialization.Json.Internal.StreamingJsonDecoder.DecodeSerializableElement(KotlinX.Serialization.Descriptors.ISerialDescriptor! descriptor, int index, KotlinX.Serialization.IDeserializationStrategy! deserializer, Java.Lang.Object? previousValue) -> Java.Lang.Object?
@@ -497,6 +500,7 @@ override KotlinX.Serialization.Json.Internal.StringJsonLexer.JniPeerMembers.get 
 override KotlinX.Serialization.Json.Internal.StringJsonLexer.PeekLeadingMatchingValue(string! keyToMatch, bool isLenient) -> string?
 override KotlinX.Serialization.Json.Internal.StringJsonLexer.PrefetchOrEof(int position) -> int
 override KotlinX.Serialization.Json.Internal.StringJsonLexer.SkipWhitespaces() -> int
+override KotlinX.Serialization.Json.Internal.StringJsonLexer.SourceFormatted.get -> Java.Lang.ICharSequence!
 override KotlinX.Serialization.Json.Internal.StringJsonLexer.ThresholdClass.get -> nint
 override KotlinX.Serialization.Json.Internal.StringJsonLexer.ThresholdType.get -> System.Type!
 override KotlinX.Serialization.Json.Internal.StringJsonLexerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!

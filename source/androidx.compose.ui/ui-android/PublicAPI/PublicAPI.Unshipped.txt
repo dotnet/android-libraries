@@ -224,6 +224,14 @@ AndroidX.Compose.UI.Draw.DrawModifierDefaultImpls
 AndroidX.Compose.UI.Draw.DrawModifierKt
 AndroidX.Compose.UI.Draw.DrawResult
 AndroidX.Compose.UI.Draw.DropShadowScopeDefaultImpls
+AndroidX.Compose.UI.Draw.IBlurScope
+AndroidX.Compose.UI.Draw.IBlurScope.Alpha.get -> float
+AndroidX.Compose.UI.Draw.IBlurScope.Alpha.set -> void
+AndroidX.Compose.UI.Draw.IBlurScope.BlurRadiusSpec.get -> AndroidX.Compose.UI.Graphics.Blur.IBlurRadiusSpec!
+AndroidX.Compose.UI.Draw.IBlurScope.BlurRadiusSpec.set -> void
+AndroidX.Compose.UI.Draw.IBlurScope.EdgeTreatment.get -> AndroidX.Compose.UI.Graphics.IShape!
+AndroidX.Compose.UI.Draw.IBlurScope.EdgeTreatment.set -> void
+AndroidX.Compose.UI.Draw.IBlurScope.Size.get -> long
 AndroidX.Compose.UI.Draw.IBuildDrawCacheParams
 AndroidX.Compose.UI.Draw.IBuildDrawCacheParams.Density.get -> AndroidX.Compose.UI.Unit.IDensity!
 AndroidX.Compose.UI.Draw.IBuildDrawCacheParams.LayoutDirection.get -> AndroidX.Compose.UI.Unit.LayoutDirection!
@@ -451,14 +459,6 @@ AndroidX.Compose.UI.Graphics.IGraphicsLayerScope.TranslationX.get -> float
 AndroidX.Compose.UI.Graphics.IGraphicsLayerScope.TranslationX.set -> void
 AndroidX.Compose.UI.Graphics.IGraphicsLayerScope.TranslationY.get -> float
 AndroidX.Compose.UI.Graphics.IGraphicsLayerScope.TranslationY.set -> void
-AndroidX.Compose.UI.Graphics.IMeshGradientScope
-AndroidX.Compose.UI.Graphics.IMeshGradientScope.Columns.get -> int
-AndroidX.Compose.UI.Graphics.IMeshGradientScope.Rows.get -> int
-AndroidX.Compose.UI.Graphics.IMeshGradientScope.SetVertex(int row, int column, long p2, long p3, long p4, long p5, long p6, long p7) -> void
-AndroidX.Compose.UI.Graphics.MeshGradientConfigKt
-AndroidX.Compose.UI.Graphics.MeshGradientPainter
-AndroidX.Compose.UI.Graphics.MeshGradientPainter.MeshGradientPainter(int rows, int columns, bool hasBicubicColor, Kotlin.Jvm.Functions.IFunction1! block) -> void
-AndroidX.Compose.UI.Graphics.MeshGradientRenderer_androidKt
 AndroidX.Compose.UI.Graphics.TransformOrigin
 AndroidX.Compose.UI.Graphics.TransformOrigin.Companion
 AndroidX.Compose.UI.Graphics.TransformOrigin.Companion.Center_SzJe1aQ.get -> long
@@ -585,11 +585,11 @@ AndroidX.Compose.UI.IUiComposable
 AndroidX.Compose.UI.IUiMediaScope
 AndroidX.Compose.UI.IUiMediaScope.HasCamera.get -> bool
 AndroidX.Compose.UI.IUiMediaScope.HasMicrophone.get -> bool
-AndroidX.Compose.UI.IUiMediaScope.KeyboardKind.get -> string!
-AndroidX.Compose.UI.IUiMediaScope.PointerPrecision.get -> string!
-AndroidX.Compose.UI.IUiMediaScope.ViewingDistance.get -> string!
+AndroidX.Compose.UI.IUiMediaScope.KeyboardKind.get -> int
+AndroidX.Compose.UI.IUiMediaScope.PointerPrecision.get -> int
+AndroidX.Compose.UI.IUiMediaScope.ViewingDistance.get -> int
 AndroidX.Compose.UI.IUiMediaScope.WindowHeight.get -> float
-AndroidX.Compose.UI.IUiMediaScope.WindowPosture.get -> string!
+AndroidX.Compose.UI.IUiMediaScope.WindowPosture.get -> AndroidX.Compose.UI.UiMediaScopeWindowPosture!
 AndroidX.Compose.UI.IUiMediaScope.WindowWidth.get -> float
 AndroidX.Compose.UI.Input.IInputModeManager
 AndroidX.Compose.UI.Input.IInputModeManager.InputMode.get -> int
@@ -612,6 +612,8 @@ AndroidX.Compose.UI.Input.Indirect.IndirectPointerEventType.Companion.Release_4Z
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerEventType.Companion.Unknown_4ZHQPSE.get -> int
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.Consume() -> void
+AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.Copy(long id, long uptimeMillis, long position, bool pressed, float pressure, long previousUptimeMillis, long previousPosition, bool previousPressed, System.Collections.Generic.IList<AndroidX.Compose.UI.Input.Pointer.HistoricalChange!>! historical) -> AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange!
+AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.Historical.get -> System.Collections.Generic.IList<AndroidX.Compose.UI.Input.Pointer.HistoricalChange!>!
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.Id.get -> long
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.IsConsumed.get -> bool
 AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange.Position.get -> long
@@ -945,9 +947,9 @@ AndroidX.Compose.UI.Input.NestedScroll.INestedScrollConnection.OnPreScroll(long 
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollConnectionDefaultImpls
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.CoroutineScope.get -> Xamarin.KotlinX.Coroutines.ICoroutineScope!
-AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPostFling(long p0, long p1, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPostFling(long consumed, long available, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPostScroll(long consumed, long available, int source) -> long
-AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPreFling(long p0, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPreFling(long available, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.DispatchPreScroll(long available, int source) -> long
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher.NestedScrollDispatcher() -> void
 AndroidX.Compose.UI.Input.NestedScroll.NestedScrollModifierKt
@@ -1079,9 +1081,6 @@ AndroidX.Compose.UI.Input.Pointer.PointerType.Companion.Touch_T8wyACA.get -> int
 AndroidX.Compose.UI.Input.Pointer.PointerType.Companion.Unknown_T8wyACA.get -> int
 AndroidX.Compose.UI.Input.Pointer.SuspendingPointerInputFilterKt
 AndroidX.Compose.UI.Input.Pointer.SuspendingPointerInputFilter_jvmAndAndroidKt
-AndroidX.Compose.UI.Input.Pointer.Util.ExperimentalVelocityTrackerApiAttribute
-AndroidX.Compose.UI.Input.Pointer.Util.ExperimentalVelocityTrackerApiAttribute.ExperimentalVelocityTrackerApiAttribute() -> void
-AndroidX.Compose.UI.Input.Pointer.Util.IExperimentalVelocityTrackerApi
 AndroidX.Compose.UI.Input.Pointer.Util.PlatformVelocityTracker_androidKt
 AndroidX.Compose.UI.Input.Pointer.Util.VelocityTracker
 AndroidX.Compose.UI.Input.Pointer.Util.VelocityTracker.AddPosition(long timeMillis, long position) -> void
@@ -1105,6 +1104,7 @@ AndroidX.Compose.UI.Input.Rotary.RotaryScrollEvent.HorizontalScrollPixels.get ->
 AndroidX.Compose.UI.Input.Rotary.RotaryScrollEvent.InputDeviceId.get -> int
 AndroidX.Compose.UI.Input.Rotary.RotaryScrollEvent.UptimeMillis.get -> long
 AndroidX.Compose.UI.Input.Rotary.RotaryScrollEvent.VerticalScrollPixels.get -> float
+AndroidX.Compose.UI.InteractionBarrierKt
 AndroidX.Compose.UI.Internal.InlineClassHelperKt
 AndroidX.Compose.UI.Internal.JvmDefaultWithCompatibility_jvmAndAndroidKt
 AndroidX.Compose.UI.Internal.PlatformOptimizedCancellationException_jvmAndAndroidKt
@@ -1220,7 +1220,7 @@ AndroidX.Compose.UI.Layout.IMeasurable.Measure(long p0) -> AndroidX.Compose.UI.L
 AndroidX.Compose.UI.Layout.IMeasurePolicy
 AndroidX.Compose.UI.Layout.IMeasurePolicy.MaxIntrinsicHeight(AndroidX.Compose.UI.Layout.IIntrinsicMeasureScope! _this_maxIntrinsicHeight, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IIntrinsicMeasurable!>! measurables, int width) -> int
 AndroidX.Compose.UI.Layout.IMeasurePolicy.MaxIntrinsicWidth(AndroidX.Compose.UI.Layout.IIntrinsicMeasureScope! _this_maxIntrinsicWidth, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IIntrinsicMeasurable!>! measurables, int height) -> int
-AndroidX.Compose.UI.Layout.IMeasurePolicy.Measure(AndroidX.Compose.UI.Layout.IMeasureScope! p0, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IMeasurable!>! p1, long p2) -> AndroidX.Compose.UI.Layout.IMeasureResult!
+AndroidX.Compose.UI.Layout.IMeasurePolicy.Measure(AndroidX.Compose.UI.Layout.IMeasureScope! p0, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IMeasurable!>! measurables, long p2) -> AndroidX.Compose.UI.Layout.IMeasureResult!
 AndroidX.Compose.UI.Layout.IMeasurePolicy.MinIntrinsicHeight(AndroidX.Compose.UI.Layout.IIntrinsicMeasureScope! _this_minIntrinsicHeight, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IIntrinsicMeasurable!>! measurables, int width) -> int
 AndroidX.Compose.UI.Layout.IMeasurePolicy.MinIntrinsicWidth(AndroidX.Compose.UI.Layout.IIntrinsicMeasureScope! _this_minIntrinsicWidth, System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IIntrinsicMeasurable!>! measurables, int height) -> int
 AndroidX.Compose.UI.Layout.IMeasureResult
@@ -1414,7 +1414,8 @@ AndroidX.Compose.UI.Layout.WindowInsetsRulersCompanion.TappableElement.get -> An
 AndroidX.Compose.UI.Layout.WindowInsetsRulersCompanion.Waterfall.get -> AndroidX.Compose.UI.Layout.IWindowInsetsRulers!
 AndroidX.Compose.UI.Layout.WindowInsetsRulersConsts
 AndroidX.Compose.UI.Layout.WindowInsetsRulersKt
-AndroidX.Compose.UI.Layout.WindowInsetsRulers_androidKt
+AndroidX.Compose.UI.Layout.WindowInsetsRulersOld_androidKt
+AndroidX.Compose.UI.Layout.WindowInsetsRulersProvider_androidKt
 AndroidX.Compose.UI.MediaQueryKt
 AndroidX.Compose.UI.Modifier.IModifierLocalProvider
 AndroidX.Compose.UI.Modifier.IModifierLocalProvider.Key.get -> AndroidX.Compose.UI.Modifier.ProvidableModifierLocal!
@@ -1462,12 +1463,14 @@ AndroidX.Compose.UI.Node.IRootForTest
 AndroidX.Compose.UI.Node.IRootForTest.Density.get -> AndroidX.Compose.UI.Unit.IDensity!
 AndroidX.Compose.UI.Node.IRootForTest.ForceAccessibilityForTesting(bool enable) -> void
 AndroidX.Compose.UI.Node.IRootForTest.MeasureAndLayoutForTest() -> void
+AndroidX.Compose.UI.Node.IRootForTest.RunAndClearPendingCallbacks() -> void
 AndroidX.Compose.UI.Node.IRootForTest.SemanticsOwner.get -> AndroidX.Compose.UI.Semantics.SemanticsOwner!
 AndroidX.Compose.UI.Node.IRootForTest.SendIndirectPointerEvent(AndroidX.Compose.UI.Input.Indirect.IIndirectPointerEvent! indirectPointerEvent) -> bool
 AndroidX.Compose.UI.Node.IRootForTest.SendKeyEvent(Android.Views.KeyEvent! p0) -> bool
 AndroidX.Compose.UI.Node.IRootForTest.SetAccessibilityEventBatchIntervalMillis(long intervalMillis) -> void
 AndroidX.Compose.UI.Node.IRootForTest.SetUncaughtExceptionHandler(AndroidX.Compose.UI.Node.IRootForTestUncaughtExceptionHandler? handler) -> void
 AndroidX.Compose.UI.Node.IRootForTest.TextInputService.get -> AndroidX.Compose.UI.Text.Input.TextInputService!
+AndroidX.Compose.UI.Node.IRootForTest.UpdateSemanticsForTest() -> void
 AndroidX.Compose.UI.Node.IRootForTestUncaughtExceptionHandler
 AndroidX.Compose.UI.Node.IRootForTestUncaughtExceptionHandler.OnUncaughtException(Java.Lang.Throwable! t) -> void
 AndroidX.Compose.UI.Node.IViewAdapter
@@ -1622,6 +1625,9 @@ AndroidX.Compose.UI.Platform.ISoftwareKeyboardController.Hide() -> void
 AndroidX.Compose.UI.Platform.ISoftwareKeyboardController.Show() -> void
 AndroidX.Compose.UI.Platform.ISoundEffect
 AndroidX.Compose.UI.Platform.ISoundEffect.PlayClickSound() -> void
+AndroidX.Compose.UI.Platform.ITaskDispatchers
+AndroidX.Compose.UI.Platform.ITaskDispatchers.Default.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher!
+AndroidX.Compose.UI.Platform.ITaskDispatchers.IO.get -> Xamarin.KotlinX.Coroutines.CoroutineDispatcher!
 AndroidX.Compose.UI.Platform.ITextToolbar
 AndroidX.Compose.UI.Platform.ITextToolbar.Hide() -> void
 AndroidX.Compose.UI.Platform.ITextToolbar.Status.get -> AndroidX.Compose.UI.Platform.TextToolbarStatus!
@@ -1856,6 +1862,7 @@ AndroidX.Compose.UI.Semantics.SemanticsModifierDefaultImpls
 AndroidX.Compose.UI.Semantics.SemanticsModifierKt
 AndroidX.Compose.UI.Semantics.SemanticsNode
 AndroidX.Compose.UI.Semantics.SemanticsNode.Children.get -> System.Collections.Generic.IList<AndroidX.Compose.UI.Semantics.SemanticsNode!>!
+AndroidX.Compose.UI.Semantics.SemanticsNode.ComputeEffectiveAlpha() -> float
 AndroidX.Compose.UI.Semantics.SemanticsNode.Config.get -> AndroidX.Compose.UI.Semantics.SemanticsConfiguration!
 AndroidX.Compose.UI.Semantics.SemanticsNode.GetAlignmentLinePosition(AndroidX.Compose.UI.Layout.AlignmentLine! alignmentLine) -> int
 AndroidX.Compose.UI.Semantics.SemanticsNode.Id.get -> int
@@ -1875,6 +1882,7 @@ AndroidX.Compose.UI.Semantics.SemanticsOwner.RootSemanticsNode.get -> AndroidX.C
 AndroidX.Compose.UI.Semantics.SemanticsOwner.UnmergedRootSemanticsNode.get -> AndroidX.Compose.UI.Semantics.SemanticsNode!
 AndroidX.Compose.UI.Semantics.SemanticsOwnerKt
 AndroidX.Compose.UI.Semantics.SemanticsProperties
+AndroidX.Compose.UI.Semantics.SemanticsProperties.BackgroundColor.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.CollectionInfo.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.CollectionItemInfo.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.ContentDataType.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
@@ -1887,6 +1895,7 @@ AndroidX.Compose.UI.Semantics.SemanticsProperties.FillableData.get -> AndroidX.C
 AndroidX.Compose.UI.Semantics.SemanticsProperties.Focused.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.Heading.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.HideFromAccessibility.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
+AndroidX.Compose.UI.Semantics.SemanticsProperties.HintText.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.HorizontalScrollAxisRange.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.ImeAction.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IndexForKey.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
@@ -1896,6 +1905,7 @@ AndroidX.Compose.UI.Semantics.SemanticsProperties.InvisibleToUser.get -> Android
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsContainer.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsDialog.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsEditable.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
+AndroidX.Compose.UI.Semantics.SemanticsProperties.IsPasswordObfuscated.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsPopup.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsSensitiveData.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
 AndroidX.Compose.UI.Semantics.SemanticsProperties.IsShowingTextSubstitution.get -> AndroidX.Compose.UI.Semantics.SemanticsPropertyKey!
@@ -1964,27 +1974,38 @@ AndroidX.Compose.UI.Text.Input.TextInputServiceAndroid_androidKt
 AndroidX.Compose.UI.Text.TextMeasurerHelperKt
 AndroidX.Compose.UI.UiComposableAttribute
 AndroidX.Compose.UI.UiComposableAttribute.UiComposableAttribute() -> void
+AndroidX.Compose.UI.UiMediaScopeFoldOrientation
+AndroidX.Compose.UI.UiMediaScopeFoldOrientation.Companion
+AndroidX.Compose.UI.UiMediaScopeFoldOrientation.Companion.Horizontal_hIhEK1o.get -> int
+AndroidX.Compose.UI.UiMediaScopeFoldOrientation.Companion.Vertical_hIhEK1o.get -> int
+AndroidX.Compose.UI.UiMediaScopeFoldState
+AndroidX.Compose.UI.UiMediaScopeFoldState.Companion
+AndroidX.Compose.UI.UiMediaScopeFoldState.Companion.Flat_O5fZRa0.get -> int
+AndroidX.Compose.UI.UiMediaScopeFoldState.Companion.HalfOpened_O5fZRa0.get -> int
 AndroidX.Compose.UI.UiMediaScopeKeyboardKind
 AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion
-AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.None_J9_QTjY.get -> string!
-AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.Physical_J9_QTjY.get -> string!
-AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.Virtual_J9_QTjY.get -> string!
+AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.None_J9_QTjY.get -> int
+AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.Physical_J9_QTjY.get -> int
+AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.Virtual_J9_QTjY.get -> int
 AndroidX.Compose.UI.UiMediaScopePointerPrecision
 AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion
-AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Blunt_fpxItnM.get -> string!
-AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Coarse_fpxItnM.get -> string!
-AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Fine_fpxItnM.get -> string!
-AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.None_fpxItnM.get -> string!
-AndroidX.Compose.UI.UiMediaScopePosture
-AndroidX.Compose.UI.UiMediaScopePosture.Companion
-AndroidX.Compose.UI.UiMediaScopePosture.Companion.Book_m18o9QQ.get -> string!
-AndroidX.Compose.UI.UiMediaScopePosture.Companion.Flat_m18o9QQ.get -> string!
-AndroidX.Compose.UI.UiMediaScopePosture.Companion.Tabletop_m18o9QQ.get -> string!
+AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Blunt_fpxItnM.get -> int
+AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Coarse_fpxItnM.get -> int
+AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.Fine_fpxItnM.get -> int
+AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.None_fpxItnM.get -> int
 AndroidX.Compose.UI.UiMediaScopeViewingDistance
 AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion
-AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Far_tKro_MQ.get -> string!
-AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Medium_tKro_MQ.get -> string!
-AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Near_tKro_MQ.get -> string!
+AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Far_tKro_MQ.get -> int
+AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Medium_tKro_MQ.get -> int
+AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.Near_tKro_MQ.get -> int
+AndroidX.Compose.UI.UiMediaScopeWindowFold
+AndroidX.Compose.UI.UiMediaScopeWindowFold.Orientation_hIhEK1o.get -> int
+AndroidX.Compose.UI.UiMediaScopeWindowFold.State_O5fZRa0.get -> int
+AndroidX.Compose.UI.UiMediaScopeWindowPosture
+AndroidX.Compose.UI.UiMediaScopeWindowPosture.Folds.get -> System.Collections.Generic.IList<AndroidX.Compose.UI.UiMediaScopeWindowFold!>!
+AndroidX.Compose.UI.UiMediaScopeWindowPosture.IsFlat.get -> bool
+AndroidX.Compose.UI.UiMediaScopeWindowPosture.IsTabletop.get -> bool
+AndroidX.Compose.UI.UiMediaScopeWindowPosture.UiMediaScopeWindowPosture(System.Collections.Generic.IList<AndroidX.Compose.UI.UiMediaScopeWindowFold!>! folds) -> void
 AndroidX.Compose.UI.ViewInterop.AndroidViewHolder_androidKt
 AndroidX.Compose.UI.ViewInterop.AndroidView_androidKt
 AndroidX.Compose.UI.ViewInterop.AndroidView_androidKt.WhenMappings
@@ -1994,17 +2015,21 @@ AndroidX.Compose.UI.ViewInterop.InteropView_androidKt
 AndroidX.Compose.UI.Window.AndroidDialog_androidKt
 AndroidX.Compose.UI.Window.AndroidPopup_androidKt
 AndroidX.Compose.UI.Window.DialogProperties
+AndroidX.Compose.UI.Window.DialogProperties.BackgroundBlurRadius.get -> float
+AndroidX.Compose.UI.Window.DialogProperties.BlurBehindRadius.get -> float
 AndroidX.Compose.UI.Window.DialogProperties.DecorFitsSystemWindows.get -> bool
 AndroidX.Compose.UI.Window.DialogProperties.DialogProperties() -> void
-AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy! securePolicy, bool usePlatformDefaultWidth, bool decorFitsSystemWindows, string! windowTitle, int windowType, Android.OS.IBinder? windowToken) -> void
 AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy) -> void
 AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy, bool usePlatformDefaultWidth, bool decorFitsSystemWindows) -> void
 AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy, bool usePlatformDefaultWidth, bool decorFitsSystemWindows, string? windowTitle) -> void
+AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy, bool usePlatformDefaultWidth, bool decorFitsSystemWindows, string? windowTitle, int windowType, Android.OS.IBinder? windowToken) -> void
 AndroidX.Compose.UI.Window.DialogProperties.DialogProperties(bool dismissOnBackPress, bool dismissOnClickOutside, bool usePlatformDefaultWidth) -> void
 AndroidX.Compose.UI.Window.DialogProperties.DismissOnBackPress.get -> bool
 AndroidX.Compose.UI.Window.DialogProperties.DismissOnClickOutside.get -> bool
+AndroidX.Compose.UI.Window.DialogProperties.ScrimAlpha.get -> float
 AndroidX.Compose.UI.Window.DialogProperties.SecurePolicy.get -> AndroidX.Compose.UI.Window.SecureFlagPolicy!
 AndroidX.Compose.UI.Window.DialogProperties.UsePlatformDefaultWidth.get -> bool
+AndroidX.Compose.UI.Window.DialogProperties.WindowShape.get -> AndroidX.Compose.UI.Graphics.IShape?
 AndroidX.Compose.UI.Window.DialogProperties.WindowTitle.get -> string!
 AndroidX.Compose.UI.Window.DialogProperties.WindowToken.get -> Android.OS.IBinder?
 AndroidX.Compose.UI.Window.DialogProperties.WindowType.get -> int
@@ -2013,18 +2038,20 @@ AndroidX.Compose.UI.Window.IDialogWindowProvider.Window.get -> Android.Views.Win
 AndroidX.Compose.UI.Window.IPopupPositionProvider
 AndroidX.Compose.UI.Window.IPopupPositionProvider.CalculatePosition(AndroidX.Compose.UI.Unit.IntRect! anchorBounds, long p1, AndroidX.Compose.UI.Unit.LayoutDirection! layoutDirection, long p3) -> long
 AndroidX.Compose.UI.Window.PopupProperties
+AndroidX.Compose.UI.Window.PopupProperties.BlurBehindRadius.get -> float
 AndroidX.Compose.UI.Window.PopupProperties.ClippingEnabled.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.DismissOnBackPress.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.DismissOnClickOutside.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.ExcludeFromSystemGesture.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.Focusable.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy! securePolicy, bool excludeFromSystemGesture, bool clippingEnabled) -> void
-AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy! securePolicy, bool excludeFromSystemGesture, bool clippingEnabled, bool usePlatformDefaultWidth, int windowType, Android.OS.IBinder? windowToken) -> void
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy, bool excludeFromSystemGesture, bool clippingEnabled, bool usePlatformDefaultWidth) -> void
+AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, AndroidX.Compose.UI.Window.SecureFlagPolicy? securePolicy, bool excludeFromSystemGesture, bool clippingEnabled, bool usePlatformDefaultWidth, int windowType, Android.OS.IBinder? windowToken) -> void
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, bool clippingEnabled) -> void
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(bool focusable, bool dismissOnBackPress, bool dismissOnClickOutside, bool clippingEnabled, bool usePlatformDefaultWidth) -> void
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(int flags, bool inheritSecurePolicy, bool dismissOnBackPress, bool dismissOnClickOutside, bool excludeFromSystemGesture, bool usePlatformDefaultWidth) -> void
 AndroidX.Compose.UI.Window.PopupProperties.PopupProperties(int flags, bool inheritSecurePolicy, bool dismissOnBackPress, bool dismissOnClickOutside, bool excludeFromSystemGesture, bool usePlatformDefaultWidth, int windowType, Android.OS.IBinder? windowToken) -> void
+AndroidX.Compose.UI.Window.PopupProperties.ScrimAlpha.get -> float
 AndroidX.Compose.UI.Window.PopupProperties.SecurePolicy.get -> AndroidX.Compose.UI.Window.SecureFlagPolicy!
 AndroidX.Compose.UI.Window.PopupProperties.UsePlatformDefaultWidth.get -> bool
 AndroidX.Compose.UI.Window.PopupProperties.WindowToken.get -> Android.OS.IBinder?
@@ -2169,10 +2196,6 @@ override AndroidX.Compose.UI.Graphics.CompositingStrategy.JniPeerMembers.get -> 
 override AndroidX.Compose.UI.Graphics.GraphicsLayerModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Graphics.GraphicsLayerScopeDefaultImpls.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Graphics.GraphicsLayerScopeKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Graphics.MeshGradientConfigKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Graphics.MeshGradientPainter.IntrinsicSize.get -> long
-override AndroidX.Compose.UI.Graphics.MeshGradientPainter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Graphics.MeshGradientRenderer_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Graphics.TransformOrigin.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Graphics.TransformOrigin.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Graphics.TransformOriginKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2276,6 +2299,7 @@ override AndroidX.Compose.UI.Input.Pointer.Util.VelocityTracker1D.WhenMappings.J
 override AndroidX.Compose.UI.Input.Pointer.Util.VelocityTrackerKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Input.Rotary.RotaryInputModifierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Input.Rotary.RotaryScrollEvent.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.InteractionBarrierKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Internal.InlineClassHelperKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Internal.JvmDefaultWithCompatibility_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Internal.PlatformOptimizedCancellationException_jvmAndAndroidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2349,7 +2373,8 @@ override AndroidX.Compose.UI.Layout.VerticalRuler.Companion.JniPeerMembers.get -
 override AndroidX.Compose.UI.Layout.VerticalRuler.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Layout.WindowInsetsRulersCompanion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.Layout.WindowInsetsRulers_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.Layout.WindowInsetsRulersOld_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.Layout.WindowInsetsRulersProvider_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.MediaQueryKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Modifier.ModifierLocal.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Modifier.ModifierLocal.ThresholdClass.get -> nint
@@ -2536,14 +2561,18 @@ override AndroidX.Compose.UI.Text.Input.NullableInputConnectionWrapper_androidKt
 override AndroidX.Compose.UI.Text.Input.RecordingInputConnection_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.Input.TextInputServiceAndroid_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.Text.TextMeasurerHelperKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeFoldOrientation.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeFoldOrientation.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeFoldState.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeFoldState.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopeKeyboardKind.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopeKeyboardKind.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopePointerPrecision.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopePointerPrecision.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.UiMediaScopePosture.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Compose.UI.UiMediaScopePosture.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopeViewingDistance.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.UiMediaScopeViewingDistance.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeWindowFold.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Compose.UI.UiMediaScopeWindowPosture.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.ViewInterop.AndroidViewHolder_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.ViewInterop.AndroidView_androidKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Compose.UI.ViewInterop.AndroidView_androidKt.WhenMappings.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -2561,18 +2590,27 @@ override AndroidX.Compose.UI.ZIndexModifierKt.JniPeerMembers.get -> Java.Interop
 override sealed AndroidX.Compose.UI.Platform.AbstractComposeView.OnLayout(bool changed, int left, int top, int right, int bottom) -> void
 override sealed AndroidX.Compose.UI.Platform.AbstractComposeView.OnMeasure(int widthMeasureSpec, int heightMeasureSpec) -> void
 static AndroidX.Compose.UI.AbsoluteAlignment.Instance.get -> AndroidX.Compose.UI.AbsoluteAlignment!
+static AndroidX.Compose.UI.Adaptive.MediaQuery_androidKt.IsImeVisible(AndroidX.Core.View.WindowInsetsCompat? obj) -> bool
 static AndroidX.Compose.UI.Alignment.Companion.get -> AndroidX.Compose.UI.AlignmentCompanion!
 static AndroidX.Compose.UI.AndroidComposeUiFlags.Instance.get -> AndroidX.Compose.UI.AndroidComposeUiFlags!
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsAccessibilityPerformanceEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsAccessibilityPerformanceEnabled.set -> void
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsAlwaysScrollDuringScrollCaptureEnabled.get -> bool
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsAlwaysScrollDuringScrollCaptureEnabled.set -> void
-static AndroidX.Compose.UI.AndroidComposeUiFlags.IsExploreByTouchHoverHandled.get -> bool
-static AndroidX.Compose.UI.AndroidComposeUiFlags.IsExploreByTouchHoverHandled.set -> void
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsDelayAndroidViewsHandlerCreationEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsDelayAndroidViewsHandlerCreationEnabled.set -> void
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsDelayedWindowInsetsRulersEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsDelayedWindowInsetsRulersEnabled.set -> void
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsFrameworkVelocityTrackerEnabled.get -> bool
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsFrameworkVelocityTrackerEnabled.set -> void
-static AndroidX.Compose.UI.AndroidComposeUiFlags.IsInteractionSoundEffectsEnabled.get -> bool
-static AndroidX.Compose.UI.AndroidComposeUiFlags.IsInteractionSoundEffectsEnabled.set -> void
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsOutOfFrameSchedulerForTextInputEventsEnabled.get -> bool
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsOutOfFrameSchedulerForTextInputEventsEnabled.set -> void
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsPropagateHideFromAccessibilityToMergingChildrenEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsPropagateHideFromAccessibilityToMergingChildrenEnabled.set -> void
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsScrollAccessibilityFocusEventEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsScrollAccessibilityFocusEventEnabled.set -> void
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsTraversalGroupSortingEnabled.get -> bool
+static AndroidX.Compose.UI.AndroidComposeUiFlags.IsTraversalGroupSortingEnabled.set -> void
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsViewBasedSemanticsHandlerEnabled.get -> bool
 static AndroidX.Compose.UI.AndroidComposeUiFlags.IsViewBasedSemanticsHandlerEnabled.set -> void
 static AndroidX.Compose.UI.Autofill.AndroidAutofillType_androidKt.GetAndroidType(AndroidX.Compose.UI.Autofill.AutofillType! obj) -> string!
@@ -2637,20 +2675,28 @@ static AndroidX.Compose.UI.ComposeUiFlags.IsAccessibilityShouldIncludeOffscreenC
 static AndroidX.Compose.UI.ComposeUiFlags.IsAccessibilityShouldIncludeOffscreenChildrenEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsBypassUnfocusableComposeViewEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsBypassUnfocusableComposeViewEnabled.set -> void
-static AndroidX.Compose.UI.ComposeUiFlags.IsClearNestedScrollCoroutineScopeFixEnabled.get -> bool
-static AndroidX.Compose.UI.ComposeUiFlags.IsClearNestedScrollCoroutineScopeFixEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsFocusRestorationEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsFocusRestorationEnabled.set -> void
+static AndroidX.Compose.UI.ComposeUiFlags.IsHardwareNavigationHandlingEnabled.get -> bool
+static AndroidX.Compose.UI.ComposeUiFlags.IsHardwareNavigationHandlingEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsInitialFocusOnFocusableAvailable.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsInitialFocusOnFocusableAvailable.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsMediaQueryIntegrationEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsMediaQueryIntegrationEnabled.set -> void
+static AndroidX.Compose.UI.ComposeUiFlags.IsMinimalistLocalsEnabled.get -> bool
+static AndroidX.Compose.UI.ComposeUiFlags.IsMinimalistLocalsEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsSkipNonImportantSemanticsNodesHitTestEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsSkipNonImportantSemanticsNodesHitTestEnabled.set -> void
+static AndroidX.Compose.UI.ComposeUiFlags.IsTrackpadPanHoverFixEnabled.get -> bool
+static AndroidX.Compose.UI.ComposeUiFlags.IsTrackpadPanHoverFixEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsTrackpadPinchReinterpretationEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsTrackpadPinchReinterpretationEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsTriggerMoveEventsWhenLocationHasNotChangedEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsTriggerMoveEventsWhenLocationHasNotChangedEnabled.set -> void
+static AndroidX.Compose.UI.ComposeUiFlags.IsVectorDrawCacheSharingEnabled.get -> bool
+static AndroidX.Compose.UI.ComposeUiFlags.IsVectorDrawCacheSharingEnabled.set -> void
+static AndroidX.Compose.UI.ComposeUiFlags.IsVelocityTrackerMinSampleSizeFixEnabled.get -> bool
+static AndroidX.Compose.UI.ComposeUiFlags.IsVelocityTrackerMinSampleSizeFixEnabled.set -> void
 static AndroidX.Compose.UI.ComposeUiFlags.IsViewFocusFixEnabled.get -> bool
 static AndroidX.Compose.UI.ComposeUiFlags.IsViewFocusFixEnabled.set -> void
 static AndroidX.Compose.UI.ComposedModifierKt.Composed(AndroidX.Compose.UI.IModifier! obj, Kotlin.Jvm.Functions.IFunction1! inspectorInfo, Kotlin.Jvm.Functions.IFunction3! factory) -> AndroidX.Compose.UI.IModifier!
@@ -2665,6 +2711,8 @@ static AndroidX.Compose.UI.Draganddrop.DragAndDrop_androidKt.GetPositionInRoot(A
 static AndroidX.Compose.UI.Draganddrop.DragAndDrop_androidKt.MimeTypes(AndroidX.Compose.UI.Draganddrop.DragAndDropEvent! obj) -> System.Collections.Generic.ICollection<string!>!
 static AndroidX.Compose.UI.Draganddrop.DragAndDrop_androidKt.ToAndroidDragEvent(AndroidX.Compose.UI.Draganddrop.DragAndDropEvent! obj) -> Android.Views.DragEvent!
 static AndroidX.Compose.UI.Draw.AlphaKt.Alpha(AndroidX.Compose.UI.IModifier! obj, float alpha) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Compose.UI.Draw.BlurKt.Blur(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.UI.Graphics.Blur.IBlurRadiusSpec! blurRadiusSpec, AndroidX.Compose.UI.Graphics.IShape! edgeTreatment, float alpha) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Compose.UI.Draw.BlurKt.Blur(AndroidX.Compose.UI.IModifier! obj, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.UI.Draw.BlurKt.Blur(AndroidX.Compose.UI.IModifier! obj, float radius, AndroidX.Compose.UI.Graphics.IShape! edgeTreatment) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.UI.Draw.BlurKt.Blur(AndroidX.Compose.UI.IModifier! obj, float radiusX, float radiusY, AndroidX.Compose.UI.Graphics.IShape! edgeTreatment) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.UI.Draw.ClipKt.Clip(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.UI.Graphics.IShape! shape) -> AndroidX.Compose.UI.IModifier!
@@ -2823,7 +2871,6 @@ static AndroidX.Compose.UI.Graphics.Vector.VectorProperty.TrimPathEnd.Instance.g
 static AndroidX.Compose.UI.Graphics.Vector.VectorProperty.TrimPathOffset.Instance.get -> AndroidX.Compose.UI.Graphics.Vector.VectorProperty.TrimPathOffset!
 static AndroidX.Compose.UI.Graphics.Vector.VectorProperty.TrimPathStart.Instance.get -> AndroidX.Compose.UI.Graphics.Vector.VectorProperty.TrimPathStart!
 static AndroidX.Compose.UI.Input.Indirect.AndroidIndirectPointerEvent_androidKt.GetNativeEvent(AndroidX.Compose.UI.Input.Indirect.IIndirectPointerEvent! obj) -> Android.Views.MotionEvent!
-static AndroidX.Compose.UI.Input.Indirect.AndroidIndirectPointerEvent_androidKt.IndirectPointerEvent(Android.Views.MotionEvent! motionEvent, int primaryDirectionalMotionAxis, Android.Views.MotionEvent? previousMotionEvent) -> AndroidX.Compose.UI.Input.Indirect.IIndirectPointerEvent!
 static AndroidX.Compose.UI.Input.Indirect.AndroidIndirectPointerEvent_androidKt.IndirectPointerEvent(System.Collections.Generic.IList<AndroidX.Compose.UI.Input.Indirect.IndirectPointerInputChange!>! changes, int type, int primaryDirectionalMotionAxis, Android.Views.MotionEvent! motionEvent) -> AndroidX.Compose.UI.Input.Indirect.IIndirectPointerEvent!
 static AndroidX.Compose.UI.Input.Key.KeyEvent_androidKt.GetKey(Android.Views.KeyEvent! obj) -> long
 static AndroidX.Compose.UI.Input.Key.KeyEvent_androidKt.GetType(Android.Views.KeyEvent! obj) -> int
@@ -2843,6 +2890,8 @@ static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollConnectionDefaultImpls
 static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollConnectionDefaultImpls.OnPreFling_QWom1Mo(AndroidX.Compose.UI.Input.NestedScroll.INestedScrollConnection! _this, long available, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
 static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollConnectionDefaultImpls.OnPreScroll_OzD1aCk(AndroidX.Compose.UI.Input.NestedScroll.INestedScrollConnection! _this, long available, int source) -> long
 static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollModifierKt.NestedScroll(AndroidX.Compose.UI.IModifier! obj, AndroidX.Compose.UI.Input.NestedScroll.INestedScrollConnection! connection, AndroidX.Compose.UI.Input.NestedScroll.NestedScrollDispatcher? dispatcher) -> AndroidX.Compose.UI.IModifier!
+static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollNodeKt.CancelledNestedScope.get -> Kotlin.Jvm.Functions.IFunction0!
+static AndroidX.Compose.UI.Input.NestedScroll.NestedScrollNodeKt.CancelledScope.get -> Xamarin.KotlinX.Coroutines.ICoroutineScope!
 static AndroidX.Compose.UI.Input.Pointer.AwaitPointerEventScopeDefaultImpls.GetExtendedTouchPadding_NH_jbRc(AndroidX.Compose.UI.Input.Pointer.IAwaitPointerEventScope! _this) -> long
 static AndroidX.Compose.UI.Input.Pointer.AwaitPointerEventScopeDefaultImpls.RoundToPx_0680j_4(AndroidX.Compose.UI.Input.Pointer.IAwaitPointerEventScope! _this, float _receiver) -> int
 static AndroidX.Compose.UI.Input.Pointer.AwaitPointerEventScopeDefaultImpls.RoundToPx__R2X_6o(AndroidX.Compose.UI.Input.Pointer.IAwaitPointerEventScope! _this, long _receiver) -> int
@@ -3047,6 +3096,9 @@ static AndroidX.Compose.UI.Layout.TestModifierUpdaterKt.TestModifierUpdaterLayou
 static AndroidX.Compose.UI.Layout.ValueInsets_androidKt.UnsetValueInsets.get -> long
 static AndroidX.Compose.UI.Layout.ValueInsets_androidKt.ZeroValueInsets.get -> long
 static AndroidX.Compose.UI.Layout.WindowInsetsRulers.Companion.get -> AndroidX.Compose.UI.Layout.WindowInsetsRulersCompanion!
+static AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.AreWindowInsetsRulersEnabled.get -> bool
+static AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.AreWindowInsetsRulersEnabled.set -> void
+static AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.Disable(AndroidX.Compose.UI.Layout.WindowInsetsRulersCompanion! obj) -> void
 static AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.GetDisplayCutoutBounds(AndroidX.Compose.UI.Layout.Placeable.PlacementScope! obj) -> System.Collections.Generic.IList<AndroidX.Compose.UI.Layout.IRectRulers!>!
 static AndroidX.Compose.UI.Layout.WindowInsetsRulersKt.NeverProvidedRectRulers.get -> AndroidX.Compose.UI.Layout.IRectRulers!
 static AndroidX.Compose.UI.MediaQueryKt.DerivedMediaQuery(Kotlin.Jvm.Functions.IFunction1! query, AndroidX.Compose.Runtime.IComposer? _composer, int _changed) -> AndroidX.Compose.Runtime.IState!
@@ -3094,6 +3146,7 @@ static AndroidX.Compose.UI.Platform.AndroidComposeViewAccessibilityDelegateCompa
 static AndroidX.Compose.UI.Platform.AndroidComposeViewAccessibilityDelegateCompat_androidKt.DisableContentCapture.set -> void
 static AndroidX.Compose.UI.Platform.AndroidComposeView_androidKt.PlatformTextInputServiceInterceptor.get -> Kotlin.Jvm.Functions.IFunction1!
 static AndroidX.Compose.UI.Platform.AndroidComposeView_androidKt.PlatformTextInputServiceInterceptor.set -> void
+static AndroidX.Compose.UI.Platform.AndroidComposeView_androidKt.SetNavigationSoundEffectEnabled(AndroidX.Compose.UI.Platform.IViewRootForTest! obj, bool enabled) -> void
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalConfiguration.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalContext.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalImageVectorCache.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
@@ -3102,9 +3155,10 @@ static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalReso
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalResources.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalSavedStateRegistryOwner.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalView.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.UI.Platform.AndroidCompositionLocals_androidKt.LocalWindow.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.UI.Platform.AndroidWindowInfo_androidKt.IsCrossWindowBlurEnabled(AndroidX.Compose.UI.Platform.IWindowInfo! obj) -> bool
 static AndroidX.Compose.UI.Platform.ClipboardExtensions_androidKt.FirstUriOrNull(AndroidX.Compose.UI.Platform.ClipEntry! obj) -> Android.Net.Uri?
-static AndroidX.Compose.UI.Platform.ComposeView_androidKt.AreWindowInsetsRulersEnabled.get -> bool
-static AndroidX.Compose.UI.Platform.ComposeView_androidKt.AreWindowInsetsRulersEnabled.set -> void
+static AndroidX.Compose.UI.Platform.ComposeViewContext_androidKt.LocalAndroidComposeView.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.ComposeView_androidKt.DisableWindowInsetsRulers(AndroidX.Compose.UI.Platform.ComposeView.Companion! obj) -> void
 static AndroidX.Compose.UI.Platform.ComposeView_androidKt.FindViewTreeComposeViewContext(Android.Views.View! obj) -> AndroidX.Compose.UI.Platform.ComposeViewContext?
 static AndroidX.Compose.UI.Platform.ComposeView_androidKt.GetComposeViewContext(Android.Views.View! obj) -> AndroidX.Compose.UI.Platform.ComposeViewContext?
@@ -3121,17 +3175,20 @@ static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalFocusManager.get ->
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalFontFamilyResolver.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalFontLoader.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalGraphicsContext.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalGraphicsResourceCache.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalHapticFeedback.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalInputModeManager.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalLayoutDirection.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalLocale.get -> AndroidX.Compose.Runtime.CompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalLocaleList.get -> AndroidX.Compose.Runtime.CompositionLocal!
+static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalOwner.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalPointerIconService.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalProvidableLocaleList.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalProvidableScrollCaptureInProgress.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalScrollCaptureInProgress.get -> AndroidX.Compose.Runtime.CompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalSoftwareKeyboardController.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalSoundEffect.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
+static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalTaskDispatchers.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalTextInputService.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalTextToolbar.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
 static AndroidX.Compose.UI.Platform.CompositionLocalsKt.LocalUriHandler.get -> AndroidX.Compose.Runtime.ProvidableCompositionLocal!
@@ -3230,6 +3287,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Disabled(AndroidX.Com
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Dismiss(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Error(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string! description) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Expand(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
+static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetBackgroundColor(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Graphics.IColorProducer!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetCollectionInfo(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Semantics.CollectionInfo!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetCollectionItemInfo(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Semantics.CollectionItemInfo!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetContentDataType(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Autofill.IContentDataType!
@@ -3239,6 +3297,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetCustomActions(Andr
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetEditableText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Text.AnnotatedString!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetFillableData(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Autofill.IFillableData!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetFocused(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> bool
+static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetHintText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> string!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetHorizontalScrollAxisRange(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Semantics.ScrollAxisRange!
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetImeAction(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> int
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.GetInputText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> AndroidX.Compose.UI.Text.AnnotatedString!
@@ -3280,7 +3339,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PageDown(AndroidX.Com
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PageLeft(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PageRight(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PageUp(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
-static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Password(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> void
+static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Password(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, bool isPasswordObfuscated) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PasteText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.PerformImeAction(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction0? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.Popup(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> void
@@ -3288,6 +3347,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.RequestFocus(AndroidX
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.ScrollBy(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction2? action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.ScrollToIndex(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string? label, Kotlin.Jvm.Functions.IFunction1! action) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SelectableGroup(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj) -> void
+static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetBackgroundColor(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Graphics.IColorProducer! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetCollectionInfo(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Semantics.CollectionInfo! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetCollectionItemInfo(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Semantics.CollectionItemInfo! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetContainer(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, bool _set___) -> void
@@ -3299,6 +3359,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetEditable(AndroidX.
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetEditableText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Text.AnnotatedString! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetFillableData(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Autofill.IFillableData! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetFocused(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, bool _set___) -> void
+static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetHintText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetHorizontalScrollAxisRange(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Semantics.ScrollAxisRange! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetImeAction(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, int _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsPropertiesKt.SetInputText(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Text.AnnotatedString! _set___) -> void
@@ -3335,6 +3396,7 @@ static AndroidX.Compose.UI.Semantics.SemanticsProperties_androidKt.SemanticsProp
 static AndroidX.Compose.UI.Semantics.SemanticsProperties_androidKt.SetAccessibilityClassName(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, string! _set___) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsProperties_androidKt.SetCredentialRequest(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, AndroidX.Compose.UI.Semantics.CredentialRequestData! value) -> void
 static AndroidX.Compose.UI.Semantics.SemanticsProperties_androidKt.SetTestTagsAsResourceId(AndroidX.Compose.UI.Semantics.ISemanticsPropertyReceiver! obj, bool _set___) -> void
+static AndroidX.Compose.UI.Semantics.SemanticsSortKt.UnmergedConfigComparator.get -> Kotlin.Jvm.Functions.IFunction2!
 static AndroidX.Compose.UI.SensitiveContentKt.SensitiveContent(AndroidX.Compose.UI.IModifier! obj, bool isContentSensitive) -> AndroidX.Compose.UI.IModifier!
 static AndroidX.Compose.UI.Spatial.RectListKt.EverythingButLastChildOffset.get -> long
 static AndroidX.Compose.UI.Spatial.RectListKt.EverythingButParentId.get -> long
