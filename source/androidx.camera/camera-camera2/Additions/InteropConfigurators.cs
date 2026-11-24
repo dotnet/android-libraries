@@ -1,6 +1,6 @@
 using AndroidX.Camera.Core;
 
-namespace AndroidX.Camera.Camera2.InterOp
+namespace AndroidX.Camera.Camera2.Interop
 {
 	public partial class CameraControlCamera2Configurator
 	{

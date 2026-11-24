@@ -3,8 +3,8 @@ AndroidX.Camera.Camera2.Adapter.CameraControlAdapter
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.AddInteropConfig(AndroidX.Camera.Core.Impl.IConfig! config) -> void
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.AddZslConfig(AndroidX.Camera.Core.Impl.SessionConfig.Builder! sessionConfigBuilder) -> void
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.ApplyInteropAsync(AndroidX.Camera.Core.IInteropConfigurator! configurator) -> Google.Common.Util.Concurrent.IListenableFuture!
-AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.Camera2cameraControl.get -> AndroidX.Camera.Camera2.InterOp.Camera2CameraControl!
-AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.CameraControlAdapter(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties, AndroidX.Camera.Camera2.EvCompControl! evCompControl, AndroidX.Camera.Camera2.FlashControl! flashControl, AndroidX.Camera.Camera2.FocusMeteringControl! focusMeteringControl, AndroidX.Camera.Camera2.StillCaptureRequestControl! stillCaptureRequestControl, AndroidX.Camera.Camera2.TorchControl! torchControl, AndroidX.Camera.Camera2.LowLightBoostControl! lowLightBoostControl, AndroidX.Camera.Camera2.ZoomControl! zoomControl, AndroidX.Camera.Camera2.Adapter.IZslControl! zslControl, AndroidX.Camera.Camera2.InterOp.Camera2CameraControl! camera2cameraControl, AndroidX.Camera.Camera2.UseCaseManager! useCaseManager, AndroidX.Camera.Camera2.UseCaseThreads! threads, AndroidX.Camera.Camera2.VideoUsageControl! videoUsageControl) -> void
+AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.Camera2cameraControl.get -> AndroidX.Camera.Camera2.Interop.Camera2CameraControl!
+AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.CameraControlAdapter(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties, AndroidX.Camera.Camera2.EvCompControl! evCompControl, AndroidX.Camera.Camera2.FlashControl! flashControl, AndroidX.Camera.Camera2.FocusMeteringControl! focusMeteringControl, AndroidX.Camera.Camera2.StillCaptureRequestControl! stillCaptureRequestControl, AndroidX.Camera.Camera2.TorchControl! torchControl, AndroidX.Camera.Camera2.LowLightBoostControl! lowLightBoostControl, AndroidX.Camera.Camera2.ZoomControl! zoomControl, AndroidX.Camera.Camera2.Adapter.IZslControl! zslControl, AndroidX.Camera.Camera2.Interop.Camera2CameraControl! camera2cameraControl, AndroidX.Camera.Camera2.UseCaseManager! useCaseManager, AndroidX.Camera.Camera2.UseCaseThreads! threads, AndroidX.Camera.Camera2.VideoUsageControl! videoUsageControl) -> void
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.CancelFocusAndMetering() -> Google.Common.Util.Concurrent.IListenableFuture!
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.ClearInteropConfig() -> void
 AndroidX.Camera.Camera2.Adapter.CameraControlAdapter.ClearZslConfig() -> void
@@ -388,7 +388,7 @@ AndroidX.Camera.Camera2.Camera2ImplConfig.Builder.RemoveCaptureRequestOptions(Sy
 AndroidX.Camera.Camera2.Camera2ImplConfig.Builder.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> AndroidX.Camera.Camera2.Camera2ImplConfig.Builder!
 AndroidX.Camera.Camera2.Camera2ImplConfig.Builder.SetCaptureRequestOptionWithPriority(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value, AndroidX.Camera.Core.Impl.ConfigOptionPriority! priority) -> AndroidX.Camera.Camera2.Camera2ImplConfig.Builder!
 AndroidX.Camera.Camera2.Camera2ImplConfig.Camera2ImplConfig(AndroidX.Camera.Core.Impl.IConfig! config) -> void
-AndroidX.Camera.Camera2.Camera2ImplConfig.CaptureRequestOptions.get -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions!
+AndroidX.Camera.Camera2.Camera2ImplConfig.CaptureRequestOptions.get -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions!
 AndroidX.Camera.Camera2.Camera2ImplConfig.Companion
 AndroidX.Camera.Camera2.Camera2ImplConfig.GetCaptureRequestTag(Java.Lang.Object? valueIfMissing) -> Java.Lang.Object?
 AndroidX.Camera.Camera2.Camera2ImplConfig.GetCaptureRequestTemplate(int valueIfMissing) -> int
@@ -1021,128 +1021,128 @@ AndroidX.Camera.Camera2.IUseCaseCameraRequestControl.SetParametersAsync(System.C
 AndroidX.Camera.Camera2.IUseCaseCameraRequestControl.SubmitParameters(System.Collections.Generic.IDictionary<Android.Hardware.Camera2.CaptureRequest.Key!, Java.Lang.Object!>! values, AndroidX.Camera.Camera2.UseCaseCameraRequestControlType! type, AndroidX.Camera.Core.Impl.ConfigOptionPriority! optionPriority) -> Xamarin.KotlinX.Coroutines.IDeferred!
 AndroidX.Camera.Camera2.IUseCaseCameraRequestControl.UpdateCamera2ConfigAsync(AndroidX.Camera.Core.Impl.IConfig! config, System.Collections.Generic.IDictionary<string!, Java.Lang.Object!>! tags) -> Xamarin.KotlinX.Coroutines.IDeferred!
 AndroidX.Camera.Camera2.IUseCaseCameraRequestControl.UpdateRepeatingRequestAsync(bool isPrimary, System.Collections.Generic.ICollection<AndroidX.Camera.Core.UseCase!>! runningUseCases) -> Xamarin.KotlinX.Coroutines.IDeferred!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.AddCaptureRequestOptions(AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions! bundle) -> Google.Common.Util.Concurrent.IListenableFuture!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.CaptureRequestOptions.get -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.ClearCaptureRequestOptions() -> Google.Common.Util.Concurrent.IListenableFuture!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.Companion
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.Companion.From(AndroidX.Camera.Core.ICameraControl! cameraControl) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraControl!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.RequestControl.get -> AndroidX.Camera.Camera2.IUseCaseCameraRequestControl?
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.RequestControl.set -> void
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.Reset() -> void
-AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.SetCaptureRequestOptions(AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions! bundle) -> Google.Common.Util.Concurrent.IListenableFuture!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.CameraId.get -> string!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.Companion
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.Companion.Create(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.Companion.From(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo!
-AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.GetCameraCharacteristic(Android.Hardware.Camera2.CameraCharacteristics.Key! key) -> Java.Lang.Object?
-AndroidX.Camera.Camera2.InterOp.Camera2CaptureRequestConfiguratorKt
-AndroidX.Camera.Camera2.InterOp.Camera2Interop
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.ForCameraControl(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Configurator!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.ForImageCapture(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Configurator!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.ForSessionConfig(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Configurator!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.ForUseCase(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Configurator!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> Android.Hardware.Camera2.CameraCharacteristics!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.GetCameraFilterFromCameraId(string! cameraId) -> AndroidX.Camera.Core.ICameraFilter!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.GetCameraId(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> string!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.GetCameraSelectorFromCameraId(string! cameraId) -> AndroidX.Camera.Core.CameraSelector!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.Extender(AndroidX.Camera.Core.IExtendableBuilder! baseBuilder) -> void
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetCaptureRequestTemplate(int templateType) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetDeviceStateCallback(Android.Hardware.Camera2.CameraDevice.StateCallback! stateCallback) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetPhysicalCameraId(string! cameraId) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetSessionCaptureCallback(Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! captureCallback) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetSessionStateCallback(Android.Hardware.Camera2.CameraCaptureSession.StateCallback! stateCallback) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.SetStreamUseCase(long streamUseCase) -> AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender!
-AndroidX.Camera.Camera2.InterOp.Camera2InteropEx
-AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Configurator
-AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Configurator.Configure(AndroidX.Camera.Core.ICameraControl! cameraControl) -> void
-AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop
-AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.CameraControlCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptionTarget
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptionTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.Build() -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions!
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.Builder() -> void
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder!
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.Companion
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.Companion.From(AndroidX.Camera.Core.Impl.IConfig! config) -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder!
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.MutableConfig.get -> AndroidX.Camera.Core.Impl.IMutableConfig!
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder!
-AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.CaptureRequestOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Camera2.InterOp.ExperimentalCamera2InteropAttribute
-AndroidX.Camera.Camera2.InterOp.ExperimentalCamera2InteropAttribute.ExperimentalCamera2InteropAttribute() -> void
-AndroidX.Camera.Camera2.InterOp.ICamera2CaptureRequestConfigurator
-AndroidX.Camera.Camera2.InterOp.ICamera2CaptureRequestConfigurator.ConfigureWith(System.Collections.Generic.IDictionary<Android.Hardware.Camera2.CaptureRequest.Key!, Java.Lang.Object!>! parameters) -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.CaptureRequest.get -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptionTarget!
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.ClearAllCaptureRequestOptions() -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.RepeatingCaptureCallback.set -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.RepeatingCaptureRequestTemplate.get -> int
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.RepeatingCaptureRequestTemplate.set -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.ICameraCaptureSessionInterop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
-AndroidX.Camera.Camera2.InterOp.ICameraDeviceInterop
-AndroidX.Camera.Camera2.InterOp.ICameraDeviceInterop.DeviceStateCallback.get -> Android.Hardware.Camera2.CameraDevice.StateCallback?
-AndroidX.Camera.Camera2.InterOp.ICameraDeviceInterop.DeviceStateCallback.set -> void
-AndroidX.Camera.Camera2.InterOp.ICameraDeviceInterop.SetDeviceStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraDevice.StateCallback! callback) -> void
-AndroidX.Camera.Camera2.InterOp.IExperimentalCamera2Interop
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.DynamicRangeProfile.get -> long
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.DynamicRangeProfile.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.MirrorMode.get -> int
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.MirrorMode.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.PhysicalCameraId.get -> string?
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.PhysicalCameraId.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.SensorPixelModesUsed.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.StreamUseCase.get -> long
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.StreamUseCase.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.SurfaceGroupId.get -> int
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.SurfaceGroupId.set -> void
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.TimestampBase.get -> int
-AndroidX.Camera.Camera2.InterOp.IOutputConfigurationInterop.TimestampBase.set -> void
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.ColorSpace.get -> Android.Graphics.ColorSpace.Named?
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.ColorSpace.set -> void
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SessionParameter.get -> AndroidX.Camera.Camera2.InterOp.SessionParameterTarget!
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SessionStateCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.StateCallback?
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SessionStateCallback.set -> void
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SessionType.get -> int
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SessionType.set -> void
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SetSessionParameter(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.ISessionConfigurationInterop.SetSessionStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.StateCallback! callback) -> void
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.SetStillCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.SetStillCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.StillCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.StillCaptureCallback.set -> void
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.StillCaptureRequest.get -> AndroidX.Camera.Camera2.InterOp.StillCaptureRequestOptionTarget!
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.StillCaptureRequestTemplateType.get -> int
-AndroidX.Camera.Camera2.InterOp.IStillCaptureInterop.StillCaptureRequestTemplateType.set -> void
-AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Configurator
-AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Configurator.Configure(AndroidX.Camera.Core.ImageCapture.Builder! imageCaptureBuilder) -> void
-AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop
-AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.ImageCaptureCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Configurator
-AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Configurator.Configure(AndroidX.Camera.Core.SessionConfig.Builder! sessionConfigBuilder) -> void
-AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop
-AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SessionConfigCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
-AndroidX.Camera.Camera2.InterOp.SessionParameterTarget
-AndroidX.Camera.Camera2.InterOp.SessionParameterTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.StillCaptureRequestOptionTarget
-AndroidX.Camera.Camera2.InterOp.StillCaptureRequestOptionTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
-AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Configurator
-AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Configurator.Configure(AndroidX.Camera.Core.UseCase.IInteropConfigurable! useCaseConfigurable) -> void
-AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop
-AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.UseCaseCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.AddCaptureRequestOptions(AndroidX.Camera.Camera2.Interop.CaptureRequestOptions! bundle) -> Google.Common.Util.Concurrent.IListenableFuture!
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.CaptureRequestOptions.get -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions!
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.ClearCaptureRequestOptions() -> Google.Common.Util.Concurrent.IListenableFuture!
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.Companion
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.Companion.From(AndroidX.Camera.Core.ICameraControl! cameraControl) -> AndroidX.Camera.Camera2.Interop.Camera2CameraControl!
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.RequestControl.get -> AndroidX.Camera.Camera2.IUseCaseCameraRequestControl?
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.RequestControl.set -> void
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.Reset() -> void
+AndroidX.Camera.Camera2.Interop.Camera2CameraControl.SetCaptureRequestOptions(AndroidX.Camera.Camera2.Interop.CaptureRequestOptions! bundle) -> Google.Common.Util.Concurrent.IListenableFuture!
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.CameraId.get -> string!
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.Companion
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.Companion.Create(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties) -> AndroidX.Camera.Camera2.Interop.Camera2CameraInfo!
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.Companion.From(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> AndroidX.Camera.Camera2.Interop.Camera2CameraInfo!
+AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.GetCameraCharacteristic(Android.Hardware.Camera2.CameraCharacteristics.Key! key) -> Java.Lang.Object?
+AndroidX.Camera.Camera2.Interop.Camera2CaptureRequestConfiguratorKt
+AndroidX.Camera.Camera2.Interop.Camera2Interop
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.ForCameraControl(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.CameraControlCamera2Configurator!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.ForImageCapture(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Configurator!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.ForSessionConfig(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Configurator!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.ForUseCase(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.UseCaseCamera2Configurator!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> Android.Hardware.Camera2.CameraCharacteristics!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.GetCameraFilterFromCameraId(string! cameraId) -> AndroidX.Camera.Core.ICameraFilter!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.GetCameraId(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> string!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.GetCameraSelectorFromCameraId(string! cameraId) -> AndroidX.Camera.Core.CameraSelector!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.Extender(AndroidX.Camera.Core.IExtendableBuilder! baseBuilder) -> void
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetCaptureRequestTemplate(int templateType) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetDeviceStateCallback(Android.Hardware.Camera2.CameraDevice.StateCallback! stateCallback) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetPhysicalCameraId(string! cameraId) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetSessionCaptureCallback(Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! captureCallback) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetSessionStateCallback(Android.Hardware.Camera2.CameraCaptureSession.StateCallback! stateCallback) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.SetStreamUseCase(long streamUseCase) -> AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender!
+AndroidX.Camera.Camera2.Interop.Camera2InteropEx
+AndroidX.Camera.Camera2.Interop.CameraControlCamera2Configurator
+AndroidX.Camera.Camera2.Interop.CameraControlCamera2Configurator.Configure(AndroidX.Camera.Core.ICameraControl! cameraControl) -> void
+AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop
+AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.CameraControlCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptionTarget
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptionTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.Build() -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions!
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.Builder() -> void
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder!
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.Companion
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.Companion.From(AndroidX.Camera.Core.Impl.IConfig! config) -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder!
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.MutableConfig.get -> AndroidX.Camera.Core.Impl.IMutableConfig!
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder!
+AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.CaptureRequestOptions(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Camera2.Interop.ExperimentalCamera2InteropAttribute
+AndroidX.Camera.Camera2.Interop.ExperimentalCamera2InteropAttribute.ExperimentalCamera2InteropAttribute() -> void
+AndroidX.Camera.Camera2.Interop.ICamera2CaptureRequestConfigurator
+AndroidX.Camera.Camera2.Interop.ICamera2CaptureRequestConfigurator.ConfigureWith(System.Collections.Generic.IDictionary<Android.Hardware.Camera2.CaptureRequest.Key!, Java.Lang.Object!>! parameters) -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.CaptureRequest.get -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptionTarget!
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.ClearAllCaptureRequestOptions() -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.RepeatingCaptureCallback.set -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.RepeatingCaptureRequestTemplate.get -> int
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.RepeatingCaptureRequestTemplate.set -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.ICameraCaptureSessionInterop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
+AndroidX.Camera.Camera2.Interop.ICameraDeviceInterop
+AndroidX.Camera.Camera2.Interop.ICameraDeviceInterop.DeviceStateCallback.get -> Android.Hardware.Camera2.CameraDevice.StateCallback?
+AndroidX.Camera.Camera2.Interop.ICameraDeviceInterop.DeviceStateCallback.set -> void
+AndroidX.Camera.Camera2.Interop.ICameraDeviceInterop.SetDeviceStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraDevice.StateCallback! callback) -> void
+AndroidX.Camera.Camera2.Interop.IExperimentalCamera2Interop
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.DynamicRangeProfile.get -> long
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.DynamicRangeProfile.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.MirrorMode.get -> int
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.MirrorMode.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.PhysicalCameraId.get -> string?
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.PhysicalCameraId.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.SensorPixelModesUsed.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.StreamUseCase.get -> long
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.StreamUseCase.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.SurfaceGroupId.get -> int
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.SurfaceGroupId.set -> void
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.TimestampBase.get -> int
+AndroidX.Camera.Camera2.Interop.IOutputConfigurationInterop.TimestampBase.set -> void
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.ColorSpace.get -> Android.Graphics.ColorSpace.Named?
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.ColorSpace.set -> void
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SessionParameter.get -> AndroidX.Camera.Camera2.Interop.SessionParameterTarget!
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SessionStateCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.StateCallback?
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SessionStateCallback.set -> void
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SessionType.get -> int
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SessionType.set -> void
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SetSessionParameter(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.ISessionConfigurationInterop.SetSessionStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.StateCallback! callback) -> void
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.SetStillCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.SetStillCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.StillCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.StillCaptureCallback.set -> void
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.StillCaptureRequest.get -> AndroidX.Camera.Camera2.Interop.StillCaptureRequestOptionTarget!
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.StillCaptureRequestTemplateType.get -> int
+AndroidX.Camera.Camera2.Interop.IStillCaptureInterop.StillCaptureRequestTemplateType.set -> void
+AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Configurator
+AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Configurator.Configure(AndroidX.Camera.Core.ImageCapture.Builder! imageCaptureBuilder) -> void
+AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop
+AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.ImageCaptureCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Configurator
+AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Configurator.Configure(AndroidX.Camera.Core.SessionConfig.Builder! sessionConfigBuilder) -> void
+AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop
+AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SessionConfigCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
+AndroidX.Camera.Camera2.Interop.SessionParameterTarget
+AndroidX.Camera.Camera2.Interop.SessionParameterTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.StillCaptureRequestOptionTarget
+AndroidX.Camera.Camera2.Interop.StillCaptureRequestOptionTarget.Set(Android.Hardware.Camera2.CaptureRequest.Key! key, Java.Lang.Object? value) -> void
+AndroidX.Camera.Camera2.Interop.UseCaseCamera2Configurator
+AndroidX.Camera.Camera2.Interop.UseCaseCamera2Configurator.Configure(AndroidX.Camera.Core.UseCase.IInteropConfigurable! useCaseConfigurable) -> void
+AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop
+AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.UseCaseCamera2Interop(nint javaReference, Android.Runtime.JniHandleOwnership transfer) -> void
 AndroidX.Camera.Camera2.Internal.CameraCompatibilityFilter
 AndroidX.Camera.Camera2.Internal.DynamicRangeResolver
 AndroidX.Camera.Camera2.Internal.DynamicRangeResolver.Is10BitDynamicRangeSupported() -> bool
@@ -1361,69 +1361,69 @@ abstract AndroidX.Camera.Camera2.Configs.CameraModule.BindCameraProperties(Andro
 abstract AndroidX.Camera.Camera2.EvCompControl.Bindings.ProvideControls(AndroidX.Camera.Camera2.EvCompControl! evCompControl) -> AndroidX.Camera.Camera2.IUseCaseCameraControl!
 abstract AndroidX.Camera.Camera2.FlashControl.Bindings.ProvideControls(AndroidX.Camera.Camera2.FlashControl! flashControl) -> AndroidX.Camera.Camera2.IUseCaseCameraControl!
 abstract AndroidX.Camera.Camera2.FocusMeteringControl.Bindings.ProvideControls(AndroidX.Camera.Camera2.FocusMeteringControl! focusMeteringControl) -> AndroidX.Camera.Camera2.IUseCaseCameraControl!
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.ClearAllCaptureRequestOptions() -> void
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.RepeatingCaptureCallback.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.RepeatingCaptureRequestTemplate.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.RepeatingCaptureRequestTemplate.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
-abstract AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.DynamicRangeProfile.get -> long
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.DynamicRangeProfile.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.MirrorMode.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.MirrorMode.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.PhysicalCameraId.get -> string?
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.PhysicalCameraId.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SensorPixelModesUsed.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SetStillCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SetStillCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StillCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StillCaptureCallback.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StillCaptureRequestTemplateType.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StillCaptureRequestTemplateType.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StreamUseCase.get -> long
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.StreamUseCase.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SurfaceGroupId.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.SurfaceGroupId.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.TimestampBase.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.TimestampBase.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ClearAllCaptureRequestOptions() -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ColorSpace.get -> Android.Graphics.ColorSpace.Named?
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ColorSpace.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.DeviceStateCallback.get -> Android.Hardware.Camera2.CameraDevice.StateCallback?
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.DeviceStateCallback.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.RepeatingCaptureCallback.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.RepeatingCaptureRequestTemplate.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.RepeatingCaptureRequestTemplate.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SessionStateCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.StateCallback?
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SessionStateCallback.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SessionType.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SessionType.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SetDeviceStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraDevice.StateCallback! callback) -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SetSessionParameter(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
-abstract AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.SetSessionStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.StateCallback! callback) -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.DynamicRangeProfile.get -> long
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.DynamicRangeProfile.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.MirrorMode.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.MirrorMode.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.PhysicalCameraId.get -> string?
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.PhysicalCameraId.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.SensorPixelModesUsed.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.StreamUseCase.get -> long
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.StreamUseCase.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.SurfaceGroupId.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.SurfaceGroupId.set -> void
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.TimestampBase.get -> int
-abstract AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.TimestampBase.set -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.ClearAllCaptureRequestOptions() -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.RepeatingCaptureCallback.set -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.RepeatingCaptureRequestTemplate.get -> int
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.RepeatingCaptureRequestTemplate.set -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
+abstract AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.DynamicRangeProfile.get -> long
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.DynamicRangeProfile.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.MirrorMode.get -> int
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.MirrorMode.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.PhysicalCameraId.get -> string?
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.PhysicalCameraId.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SensorPixelModesUsed.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SetStillCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SetStillCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StillCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StillCaptureCallback.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StillCaptureRequestTemplateType.get -> int
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StillCaptureRequestTemplateType.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StreamUseCase.get -> long
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.StreamUseCase.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SurfaceGroupId.get -> int
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.SurfaceGroupId.set -> void
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.TimestampBase.get -> int
+abstract AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.TimestampBase.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ClearAllCaptureRequestOptions() -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ClearCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ColorSpace.get -> Android.Graphics.ColorSpace.Named?
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ColorSpace.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.DeviceStateCallback.get -> Android.Hardware.Camera2.CameraDevice.StateCallback?
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.DeviceStateCallback.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.RepeatingCaptureCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback?
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.RepeatingCaptureCallback.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.RepeatingCaptureRequestTemplate.get -> int
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.RepeatingCaptureRequestTemplate.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SessionStateCallback.get -> Android.Hardware.Camera2.CameraCaptureSession.StateCallback?
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SessionStateCallback.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SessionType.get -> int
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SessionType.set -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SetDeviceStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraDevice.StateCallback! callback) -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SetRepeatingCaptureCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.CaptureCallback! callback) -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SetSessionParameter(Android.Hardware.Camera2.CaptureRequest.Key? key, Java.Lang.Object? value) -> void
+abstract AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.SetSessionStateCallback(Java.Util.Concurrent.IExecutor! executor, Android.Hardware.Camera2.CameraCaptureSession.StateCallback! callback) -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.AddSensorPixelModeUsed(int sensorPixelMode) -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.DynamicRangeProfile.get -> long
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.DynamicRangeProfile.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.MirrorMode.get -> int
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.MirrorMode.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.PhysicalCameraId.get -> string?
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.PhysicalCameraId.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.SensorPixelModesUsed.get -> System.Collections.Generic.ICollection<Java.Lang.Integer!>!
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.SensorPixelModesUsed.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.StreamUseCase.get -> long
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.StreamUseCase.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.SurfaceGroupId.get -> int
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.SurfaceGroupId.set -> void
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.TimestampBase.get -> int
+abstract AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.TimestampBase.set -> void
 abstract AndroidX.Camera.Camera2.Internal.IntrinsicZoomCalculatorBindings.BindIntrinsicZoomCalculatorImpl(AndroidX.Camera.Camera2.Internal.IntrinsicZoomCalculatorImpl! impl) -> AndroidX.Camera.Camera2.Internal.IIntrinsicZoomCalculator!
 abstract AndroidX.Camera.Camera2.LowLightBoostControl.Bindings.ProvideControls(AndroidX.Camera.Camera2.LowLightBoostControl! lowLightBoostControl) -> AndroidX.Camera.Camera2.IUseCaseCameraControl!
 abstract AndroidX.Camera.Camera2.State3AControl.Bindings.ProvideControls(AndroidX.Camera.Camera2.State3AControl! state3AControl) -> AndroidX.Camera.Camera2.IUseCaseCameraControl!
@@ -1745,39 +1745,39 @@ override AndroidX.Camera.Camera2.FocusMeteringControl.Bindings.ThresholdType.get
 override AndroidX.Camera.Camera2.FocusMeteringControl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Camera2.FocusMeteringControl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Camera2.GraphConfigBundle.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2CaptureRequestConfiguratorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2Interop.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2Interop.Extender.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.ThresholdClass.get -> nint
-override AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Interop.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptionTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.ThresholdClass.get -> nint
-override AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.ThresholdClass.get -> nint
-override AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Interop.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ThresholdClass.get -> nint
-override AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Interop.ThresholdType.get -> System.Type!
-override AndroidX.Camera.Camera2.InterOp.SessionParameterTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.StillCaptureRequestOptionTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
-override AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.ThresholdClass.get -> nint
-override AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Interop.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Camera2.Interop.Camera2CameraControl.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2CameraControl.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2CaptureRequestConfiguratorKt.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2Interop.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2Interop.Extender.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.Camera2InteropEx.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CameraControlCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.ThresholdClass.get -> nint
+override AndroidX.Camera.Camera2.Interop.CameraControlCamera2Interop.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptionTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.ThresholdClass.get -> nint
+override AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.ThresholdClass.get -> nint
+override AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Interop.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ThresholdClass.get -> nint
+override AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Interop.ThresholdType.get -> System.Type!
+override AndroidX.Camera.Camera2.Interop.SessionParameterTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.StillCaptureRequestOptionTarget.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.UseCaseCamera2Configurator.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
+override AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.ThresholdClass.get -> nint
+override AndroidX.Camera.Camera2.Interop.UseCaseCamera2Interop.ThresholdType.get -> System.Type!
 override AndroidX.Camera.Camera2.Internal.CameraCompatibilityFilter.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Camera2.Internal.DynamicRangeResolver.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
 override AndroidX.Camera.Camera2.Internal.HighSpeedResolver.Companion.JniPeerMembers.get -> Java.Interop.JniPeerMembers!
@@ -1923,32 +1923,32 @@ static AndroidX.Camera.Camera2.Compat.Workaround.SupportedRepeatingSurfaceSizeKt
 static AndroidX.Camera.Camera2.Compat.Workaround.UseFlashModeTorchFor3aUpdateImpl.Instance.get -> AndroidX.Camera.Camera2.Compat.Workaround.UseFlashModeTorchFor3aUpdateImpl!
 static AndroidX.Camera.Camera2.Configs.DaggerCameraAppComponent.Builder() -> AndroidX.Camera.Camera2.Configs.ICameraAppComponentBuilder?
 static AndroidX.Camera.Camera2.DeviceInfoLogger.Instance.get -> AndroidX.Camera.Camera2.DeviceInfoLogger!
-static AndroidX.Camera.Camera2.InterOp.Camera2CameraControl.From(AndroidX.Camera.Core.ICameraControl! cameraControl) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraControl!
-static AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.Create(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo!
-static AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo.From(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> AndroidX.Camera.Camera2.InterOp.Camera2CameraInfo!
-static AndroidX.Camera.Camera2.InterOp.Camera2CaptureRequestConfiguratorKt.GetCamera2CaptureRequestConfigurator(AndroidX.Camera.Core.CameraXConfig! obj) -> AndroidX.Camera.Camera2.InterOp.ICamera2CaptureRequestConfigurator?
-static AndroidX.Camera.Camera2.InterOp.Camera2CaptureRequestConfiguratorKt.OPTION_CAPTURE_REQUEST_CONFIGURATOR.get -> AndroidX.Camera.Core.Impl.ConfigOption!
-static AndroidX.Camera.Camera2.InterOp.Camera2CaptureRequestConfiguratorKt.SetCamera2CaptureRequestConfigurator(AndroidX.Camera.Core.CameraXConfig.Builder! obj, AndroidX.Camera.Camera2.InterOp.ICamera2CaptureRequestConfigurator! captureRequestConfigurator) -> AndroidX.Camera.Core.CameraXConfig.Builder!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.ForCameraControl(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.CameraControlCamera2Configurator!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.ForImageCapture(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.ImageCaptureCamera2Configurator!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.ForSessionConfig(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.SessionConfigCamera2Configurator!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.ForUseCase(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.InterOp.UseCaseCamera2Configurator!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> Android.Hardware.Camera2.CameraCharacteristics!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.GetCameraFilterFromCameraId(string! cameraId) -> AndroidX.Camera.Core.ICameraFilter!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.GetCameraId(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> string!
-static AndroidX.Camera.Camera2.InterOp.Camera2Interop.GetCameraSelectorFromCameraId(string! cameraId) -> AndroidX.Camera.Core.CameraSelector!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.ApplyCamera2Interop(AndroidX.Camera.Core.ICameraControl! obj, Kotlin.Jvm.Functions.IFunction1! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.ApplyCamera2InteropAsync(AndroidX.Camera.Core.ICameraControl! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Google.Common.Util.Concurrent.IListenableFuture!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.IInteropConfigurableScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.ImageCapture.Builder! obj, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Camera.Core.ImageCapture.Builder!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.ImageCaptureScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.SessionConfig.Builder! obj, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Camera.Core.SessionConfig.Builder!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.SessionConfigScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.Camera2Interop(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! obj) -> Android.Hardware.Camera2.CameraCharacteristics!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.GetCameraId(AndroidX.Camera.Core.ICameraInfo! obj) -> string!
-static AndroidX.Camera.Camera2.InterOp.Camera2InteropEx.ToCameraSelector(string! obj) -> AndroidX.Camera.Core.CameraSelector!
-static AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder.From(AndroidX.Camera.Core.Impl.IConfig! config) -> AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Builder!
+static AndroidX.Camera.Camera2.Interop.Camera2CameraControl.From(AndroidX.Camera.Core.ICameraControl! cameraControl) -> AndroidX.Camera.Camera2.Interop.Camera2CameraControl!
+static AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.Create(AndroidX.Camera.Camera2.ICameraProperties! cameraProperties) -> AndroidX.Camera.Camera2.Interop.Camera2CameraInfo!
+static AndroidX.Camera.Camera2.Interop.Camera2CameraInfo.From(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> AndroidX.Camera.Camera2.Interop.Camera2CameraInfo!
+static AndroidX.Camera.Camera2.Interop.Camera2CaptureRequestConfiguratorKt.GetCamera2CaptureRequestConfigurator(AndroidX.Camera.Core.CameraXConfig! obj) -> AndroidX.Camera.Camera2.Interop.ICamera2CaptureRequestConfigurator?
+static AndroidX.Camera.Camera2.Interop.Camera2CaptureRequestConfiguratorKt.OPTION_CAPTURE_REQUEST_CONFIGURATOR.get -> AndroidX.Camera.Core.Impl.ConfigOption!
+static AndroidX.Camera.Camera2.Interop.Camera2CaptureRequestConfiguratorKt.SetCamera2CaptureRequestConfigurator(AndroidX.Camera.Core.CameraXConfig.Builder! obj, AndroidX.Camera.Camera2.Interop.ICamera2CaptureRequestConfigurator! captureRequestConfigurator) -> AndroidX.Camera.Core.CameraXConfig.Builder!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.ForCameraControl(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.CameraControlCamera2Configurator!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.ForImageCapture(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.ImageCaptureCamera2Configurator!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.ForSessionConfig(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.SessionConfigCamera2Configurator!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.ForUseCase(AndroidX.Core.Util.IConsumer! configurator) -> AndroidX.Camera.Camera2.Interop.UseCaseCamera2Configurator!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> Android.Hardware.Camera2.CameraCharacteristics!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.GetCameraFilterFromCameraId(string! cameraId) -> AndroidX.Camera.Core.ICameraFilter!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.GetCameraId(AndroidX.Camera.Core.ICameraInfo! cameraInfo) -> string!
+static AndroidX.Camera.Camera2.Interop.Camera2Interop.GetCameraSelectorFromCameraId(string! cameraId) -> AndroidX.Camera.Core.CameraSelector!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.ApplyCamera2Interop(AndroidX.Camera.Core.ICameraControl! obj, Kotlin.Jvm.Functions.IFunction1! block, Kotlin.Coroutines.IContinuation! _completion) -> Java.Lang.Object?
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.ApplyCamera2InteropAsync(AndroidX.Camera.Core.ICameraControl! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Google.Common.Util.Concurrent.IListenableFuture!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.IInteropConfigurableScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.ImageCapture.Builder! obj, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Camera.Core.ImageCapture.Builder!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.ImageCaptureScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.SessionConfig.Builder! obj, Kotlin.Jvm.Functions.IFunction1! block) -> AndroidX.Camera.Core.SessionConfig.Builder!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(AndroidX.Camera.Core.SessionConfigScope! obj, Kotlin.Jvm.Functions.IFunction1! block) -> void
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.Camera2Interop(Java.Lang.Object! obj, Kotlin.Jvm.Functions.IFunction1! block) -> Java.Lang.Object!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.GetCameraCharacteristics(AndroidX.Camera.Core.ICameraInfo! obj) -> Android.Hardware.Camera2.CameraCharacteristics!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.GetCameraId(AndroidX.Camera.Core.ICameraInfo! obj) -> string!
+static AndroidX.Camera.Camera2.Interop.Camera2InteropEx.ToCameraSelector(string! obj) -> AndroidX.Camera.Core.CameraSelector!
+static AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder.From(AndroidX.Camera.Core.Impl.IConfig! config) -> AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Builder!
 static AndroidX.Camera.Camera2.Internal.CameraCompatibilityFilter.Instance.get -> AndroidX.Camera.Camera2.Internal.CameraCompatibilityFilter!
 static AndroidX.Camera.Camera2.Internal.HighSpeedResolver.IsHighSpeedOn(System.Collections.Generic.ICollection<AndroidX.Camera.Core.Impl.AttachedSurfaceInfo!>! attachedSurfaces, System.Collections.Generic.ICollection<AndroidX.Camera.Core.Impl.IUseCaseConfig!>! newUseCaseConfigs) -> bool
 static AndroidX.Camera.Camera2.Internal.IntrinsicZoomCalculator.Companion.get -> AndroidX.Camera.Camera2.Internal.IntrinsicZoomCalculatorCompanion!
@@ -1975,5 +1975,5 @@ static AndroidX.Camera.Camera2.UseCaseCameraRequestControlType.SessionConfig.get
 static AndroidX.Camera.Camera2.UseCaseCameraRequestControlType.ValueOf(string? value) -> AndroidX.Camera.Camera2.UseCaseCameraRequestControlType?
 static AndroidX.Camera.Camera2.UseCaseCameraRequestControlType.Values() -> AndroidX.Camera.Camera2.UseCaseCameraRequestControlType![]?
 virtual AndroidX.Camera.Camera2.Adapter.CameraUseCaseAdapter.DefaultCaptureOptionsUnpacker.Unpack(AndroidX.Camera.Core.Impl.IUseCaseConfig! config, AndroidX.Camera.Core.Impl.CaptureConfig.Builder! builder) -> void
-virtual AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.Config.get -> AndroidX.Camera.Core.Impl.IConfig!
-virtual AndroidX.Camera.Camera2.InterOp.CaptureRequestOptions.GetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> Java.Lang.Object?
+virtual AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.Config.get -> AndroidX.Camera.Core.Impl.IConfig!
+virtual AndroidX.Camera.Camera2.Interop.CaptureRequestOptions.GetCaptureRequestOption(Android.Hardware.Camera2.CaptureRequest.Key! key) -> Java.Lang.Object?
