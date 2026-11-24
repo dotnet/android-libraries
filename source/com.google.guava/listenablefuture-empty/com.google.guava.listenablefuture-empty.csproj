@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(_DefaultTargetFrameworks)</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+    <AssemblyName>Xamarin.Google.Guava.ListenableFuture</AssemblyName>
+    <RootNamespace>Google.Guava.ListenableFuture</RootNamespace>
+    <PackageId>Xamarin.Google.Guava.ListenableFuture</PackageId>
+    <PackageVersion>9999.0.0.1$(PackageVersionSuffix)</PackageVersion>
+    <Description>.NET for Android bindings for com.google.guava:listenablefuture, without listenablefuture.jar. Xamarin.Google.Guava provides the Java types.</Description>
+    <PackageLicenseExpression>MIT AND Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Bind, but do not ship: guava.jar contains these types -->
+    <InputJar Include="..\..\..\externals\com.google.guava\listenablefuture.jar" />
+    <TransformFile Include="..\..\Metadata.common.xml" />
+    <TransformFile Include="..\listenablefuture\Transforms\*.xml" Exclude="$(DefaultTransformExcludes)" />
+    <Compile Include="..\..\AssemblyInfo.cs" />
+    <None Include="..\..\..\build\icon.png" Pack="true" PackagePath="icon.png" />
+  </ItemGroup>
+
+  <!-- nuget-diff.cake: compare with 9999.0.0, not the 1.0.0.x package with the same ID -->
+  <Target Name="_WriteBaseVersion" AfterTargets="Pack">
+    <WriteLinesToFile File="$([MSBuild]::EnsureTrailingSlash('$(PackageOutputPath)'))$(PackageId).$(PackageVersion).nupkg.baseversion" Lines="9999.0.0" Overwrite="true" />
+  </Target>
+</Project>

@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
 using System.Text;
@@ -133,6 +134,28 @@ public class TestAllIndividualPackages
 			contents = contents.Replace ("../output", "../..");
 			File.WriteAllText (nuget_config_dst, contents);
 		}
+	}
+
+	[Test]
+	public void ListenableFuture9999 ()
+	{
+		var package = Directory.GetFiles (Path.Combine (base_dir, "output"), "Xamarin.Google.Guava.ListenableFuture.9999.*.nupkg").Single ();
+		using var archive = ZipFile.OpenRead (package);
+
+		// guava.jar already contains ListenableFuture
+		Assert.That (archive.Entries.Select (e => e.Name), Has.None.EndsWith (".jar").And.None.EndsWith (".aar"));
+
+		using var dll = new MemoryStream ();
+		using (var entry = archive.Entries.Single (e => e.Name == "Xamarin.Google.Guava.ListenableFuture.dll").Open ())
+			entry.CopyTo (dll);
+		dll.Position = 0;
+		using var reader = new PEReader (dll);
+		var metadata = reader.GetMetadataReader ();
+		var methods = metadata.MemberReferences.Select (h => metadata.GetString (metadata.GetMemberReference (h).Name)).ToArray ();
+
+		// Old 9999.0.0 called JNIEnv.Call*Method directly, with no GC.KeepAlive(this)
+		Assert.That (methods, Does.Contain ("InvokeAbstractVoidMethod"));
+		Assert.That (methods, Has.None.StartsWith ("CallVoidMethod"));
 	}
 
 	[Test]

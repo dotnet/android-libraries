@@ -73,6 +73,15 @@ dotnet cake --target=bump-config
 You should see the changes to `config.json`, noticing that none of the
 `dependencyOnly=true` entries have been changed.
 
+## ListenableFuture Package Variants
+
+`Xamarin.Google.Guava.ListenableFuture` has two builds:
+
+* `1.0.0.x`, from `config.json`, ships `listenablefuture.jar`.
+* `9999.0.0.x`, from `source/com.google.guava/listenablefuture-empty`, does
+  not ship the jar. `Xamarin.Google.Guava` depends on it, because `guava.jar`
+  already contains `ListenableFuture`.
+
 ## Releasing Preview Packages
 
 .NET MAUI was using version `1.1.0.3-alpha07` of
